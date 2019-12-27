@@ -1,0 +1,11 @@
+{
+  "extends": "./node_modules/@xapp/config/tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "lib",
+    "noImplicitAny": true,
+    "strictNullChecks": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "src/**/__test__/*"]
+}

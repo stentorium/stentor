@@ -1,0 +1,30 @@
+{
+  "name": "stentor-models",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "2.0.0",
+  "description": "Models for stentor",
+  "types": "lib/index",
+  "main": "lib/index",
+  "files": [
+    "lib"
+  ],
+  "engines": {
+    "node": "10.x"
+  },
+  "devDependencies": {
+    "@xapp/config": "0.2.3",
+    "typescript": "3.7.3"
+  },
+  "scripts": {
+    "build": "tsc -d true -p .",
+    "clean": "rm -rf ./lib/*"
+  },
+  "dependencies": {
+    "@xapp/patterns": "1.7.6",
+    "actions-on-google": "2.12.0",
+    "ask-sdk-model": "1.22.0"
+  }
+}

@@ -1,0 +1,23 @@
+/*! Copyright (c) 2019, XAPPmedia */
+export declare type LangCodeEnUs = "en-US";
+export declare type LangCode = LangCodeEnUs;
+export declare type CancelIntent = "CancelIntent";
+export declare type FirstIntent = "FirstIntent";
+export declare type HelpIntent = "HelpIntent";
+export declare type LatestIntent = "LatestIntent";
+export declare type LoopOffIntent = "LoopOffIntent";
+export declare type LoopOnIntent = "LoopOnIntent";
+export declare type NextIntent = "NextIntent";
+export declare type NoIntent = "NoIntent";
+export declare type PauseIntent = "PauseIntent";
+export declare type PlayIntent = "PlayIntent";
+export declare type PreviousIntent = "PreviousIntent";
+export declare type RepeatIntent = "RepeatIntent";
+export declare type ResumeIntent = "ResumeIntent";
+export declare type ShuffleOffIntent = "ShuffleOffIntent";
+export declare type ShuffleOnIntent = "ShuffleOnIntent";
+export declare type StartOverIntent = "StartOverIntent";
+export declare type StopIntent = "StopIntent";
+export declare type YesIntent = "YesIntent";
+export declare type InputUnknown = "InputUnknown";
+export declare type BuiltInIntents = CancelIntent | FirstIntent | HelpIntent | LatestIntent | InputUnknown | LoopOffIntent | LoopOnIntent | NextIntent | NoIntent | PauseIntent | PlayIntent | PreviousIntent | RepeatIntent | ResumeIntent | ShuffleOffIntent | ShuffleOnIntent | StartOverIntent | StopIntent | YesIntent;

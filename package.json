@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "engines": {
+    "node": "10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xappmedia/stentor-core"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "3.19.0"
+  },
+  "scripts": {
+    "lerna": "lerna",
+    "postinstall": "lerna bootstrap",
+    "clean": "lerna run clean",
+    "clean:modules": "lerna clean",
+    "build": "lerna run build"
+  }
+}

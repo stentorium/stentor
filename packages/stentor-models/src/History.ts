@@ -62,5 +62,11 @@ export type HistoryData = PlayableHistoryData | {}; // The {} is required for le
 export interface History {
     lastTrimmed?: number;
     handler?: HandlerHistoryData[];
-    [token: string]: HistoryData;
+    /**
+     * Remaining keys will typically be HistoryData or undefined.
+     * 
+     * lastTrimmed and handler are reserved keys.
+     * @memberOf History
+     */
+    [token: string]: HistoryData | number | HandlerHistoryData[] | undefined;
 }

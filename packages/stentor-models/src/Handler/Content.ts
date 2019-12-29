@@ -28,5 +28,5 @@ export interface Content {
     /**
      * All remaining content must be an array of string keys corresponding to an array of responses.
      */
-    [key: string]: Response[];
+    [key: string]: Response[] | undefined;
 }

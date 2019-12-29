@@ -29,8 +29,4 @@ export interface Data {
      * @memberof Data
      */
     accessibleThroughDiscovery?: boolean;
-    /**
-     * Data is extensible and can have any number of keys and values associated with it.
-     */
-    [key: string]: object | number | boolean | string;
 }

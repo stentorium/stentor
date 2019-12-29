@@ -63,7 +63,7 @@ export abstract class AbstractResponseBuilder<R = any> {
      * @type {Readonly<Response>}
      * @memberof ResponseBuilder
      */
-    get response(): Readonly<Response<ResponseOutput>> {
+    get response(): Readonly<Response<ResponseOutput>> | undefined {
         return this._response;
     }
     protected _response: Response<ResponseOutput>;
@@ -71,10 +71,10 @@ export abstract class AbstractResponseBuilder<R = any> {
     /**
      * Tag used by supported 3rd party analytics to track the response.
      */
-    tag: string;
+    public tag: string | undefined;
 
     constructor(props: ResponseBuilderProps) {
-        // super();
+        this.tag = undefined;
         this.device = props.device;
         this._response = {};
     }

@@ -83,16 +83,16 @@ export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Act
      * @memberof SimpleResponse
      */
     system?:
-        | "ACCOUNT_LINK"
-        | "MEDIA_ENQUEUE"
-        | "MEDIA_STOP"
-        | "SURFACE_CHANGE"
-        | "PERMISSION_LIST"
-        | "PERMISSION_EMAIL"
-        | "PERMISSION_PHONE_NUMBER"
-        | "PERMISSION_LOCATION_PRECISE"
-        | "PERMISSION_LOCATION_COARSE"
-        | "PERMISSION_NOTIFICATION";
+    | "ACCOUNT_LINK"
+    | "MEDIA_ENQUEUE"
+    | "MEDIA_STOP"
+    | "SURFACE_CHANGE"
+    | "PERMISSION_LIST"
+    | "PERMISSION_EMAIL"
+    | "PERMISSION_PHONE_NUMBER"
+    | "PERMISSION_LOCATION_PRECISE"
+    | "PERMISSION_LOCATION_COARSE"
+    | "PERMISSION_NOTIFICATION";
 
     /**
      * Supplemental data to augment the response.
@@ -108,7 +108,6 @@ export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Act
     data?: {
         context?: string;
         title?: string;
-        [key: string]: boolean | number | string;
     };
 }
 /**

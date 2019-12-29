@@ -23,5 +23,5 @@ export interface KeyValue {
 
 export interface KeyValueStore {
     // Extensible, anything can be added to it.
-    [keys: string]: boolean | number | string | object;
+    [keys: string]: boolean | number | string | object | any;
 }

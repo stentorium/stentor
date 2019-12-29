@@ -15,8 +15,7 @@
     "node": "10.x"
   },
   "devDependencies": {
-    "@xapp/config": "0.2.3",
-    "typescript": "3.7.3"
+    "typescript": "3.7.4"
   },
   "scripts": {
     "build": "tsc -d true -p .",

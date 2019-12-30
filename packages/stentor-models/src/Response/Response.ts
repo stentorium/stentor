@@ -10,6 +10,46 @@ import { StorageDependable } from "../Storage";
 import { ResponseOutput } from "./ResponseOutput";
 import { ResponseSegmentsMap } from "./ResponseSegment";
 
+
+/**
+ * Additional response metadata.
+ *
+ * @export
+ * @interface ResponseData
+ */
+export interface ResponseData {
+    /**
+     * Certain system responses require context that is used.
+     *
+     * @type {string}
+     * @memberof ResponseData
+     */
+    context?: string;
+    /**
+     * Certain system responses, such as notifications, require titles
+     *
+     * @type {string}
+     * @memberof ResponseData
+     */
+    title?: string;
+    accountLinkRequestTTSContext?: string;
+    /**
+     * During media playback, expected previous token is used
+     * as a reference point.  It is used by certain channels
+     * to prevent race condition requests that can occur
+     * when navigating content quickly.
+     *
+     * @type {string}
+     * @memberof ResponseData
+     */
+    expectedPreviousToken?: string;
+    permissionNotificationIntent?: string;
+    permissionRequestTTSContext?: string;
+    surfaceChangeRequestNotificationTitle?: string;
+    surfaceChangeRequestTTSContext?: string;
+}
+
+
 /**
  * A response that expects a user's input.
  *
@@ -102,13 +142,10 @@ export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Act
      * context: string for SURFACE_CHANGE, ACCOUNT_LINK,
      * title: string for SURFACE_CHANGE
      *
-     * @type {({ [key: string]: boolean | number | string })}
+     * @type ResponseData
      * @memberof SimpleResponse
      */
-    data?: {
-        context?: string;
-        title?: string;
-    };
+    data?: ResponseData;
 }
 /**
  * A response that can be scheduled.

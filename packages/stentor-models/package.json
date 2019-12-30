@@ -7,6 +7,7 @@
   "version": "2.0.0",
   "description": "Models for stentor",
   "types": "lib/index",
+  "typings": "lib/index",
   "main": "lib/index",
   "files": [
     "lib"

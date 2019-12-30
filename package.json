@@ -7,14 +7,9 @@
     "type": "git",
     "url": "https://github.com/xappmedia/stentor-core"
   },
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ],
-    "nohoist": [
-      "**/@xapp/config/**"
-    ]
-  },
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
     "@xapp/config": "0.2.3",
     "lerna": "3.19.0"

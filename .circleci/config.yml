@@ -72,3 +72,16 @@ workflows:
       - build:
           requires:
             - checkout
+
+  lint_build_test_release:
+    jobs:
+      - checkout:
+          filters:
+            branches:
+              only: master
+      - build:
+          requires:
+            - checkout
+      - lint:
+          requires:
+            - checkout

@@ -60,7 +60,7 @@ jobs:
 
 workflows:
   version: 2
-  lint_build_test:
+  build:
     jobs:
       - checkout:
           filters:

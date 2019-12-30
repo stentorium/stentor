@@ -1,0 +1,74 @@
+version: 2
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+    # node 10.16.0 is our lambda node version
+    - image: circleci/node:10.16.0
+
+jobs:
+  checkout:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: yarn install
+      - save_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - .git/*
+            - .npmrc
+            - .nycrc
+            - .nyc_output/*
+            - test/mocha.opts
+            - scripts/*
+            - node_modules/*
+            - packages/*
+            - package.json
+            - README.md
+            - tsconfig.json
+            - lerna.json
+            - .eslintignore
+            - .eslintrc.js
+
+  build:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Build
+          command: yarn build --concurrency 4
+      # Need to persist the generated .js and d.ts files
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - packages/*/lib/*
+
+  lint:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Lint
+          command: yarn lint
+
+workflows:
+  version: 2
+  lint_build_test:
+    jobs:
+      - checkout:
+          filters:
+            branches:
+              ignore: master
+      - lint:
+          requires:
+            - checkout
+      - build:
+          requires:
+            - checkout

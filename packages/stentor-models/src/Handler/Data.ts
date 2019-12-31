@@ -29,6 +29,4 @@ export interface Data {
      * @memberof Data
      */
     accessibleThroughDiscovery?: boolean;
-    // Additional Keys
-    [key: string]: string | number | boolean | string[] | number[] | undefined;
 }

@@ -16,16 +16,12 @@ export interface ResponseBuilderProps {
      * Sets the background image for some channels with display surfaces.
      *
      * @deprecated In favor of setting the background image on the channel.
-     * @type {ImageSpecification[]}
-     * @memberof ResponseBuilderProps
      */
     backgroundImage?: ImageSpecification[];
     /**
      * Sets the title for some channels with display surfaces.
      *
      * @deprecated In favor of setting the title directly on the channel.
-     * @type {string}
-     * @memberof ResponseBuilderProps
      */
     assistantTitle?: string;
 }
@@ -34,36 +30,25 @@ export abstract class AbstractResponseBuilder<R = any> {
     /**
      * Information about the device capabilities.  Use to determine
      * if you can present display information or play media.
-     *
-     * @protected
-     * @type {Readonly<Device>}
-     * @memberof AbstractResponseBuilder
      */
     protected readonly device: Readonly<Device>;
     /**
      * Do not use.
      * @deprecated
-     * @protected
-     * @type {ImageSpecification[]}
-     * @memberof AbstractResponseBuilder
      */
     protected readonly backgroundImage?: ImageSpecification[];
     /**
      * Do not use.
      *
      * @protected
-     * @type {string}
-     * @memberof AbstractResponseBuilder
      */
     protected readonly assistantTitle?: string;
     /**
      * The response that will be communicated to the user
      *
      * @readonly
-     * @type {Readonly<Response>}
-     * @memberof ResponseBuilder
      */
-    get response(): Readonly<Response<ResponseOutput>> | undefined {
+    protected get response(): Readonly<Response<ResponseOutput>> | undefined {
         return this._response;
     }
     protected _response: Response<ResponseOutput>;
@@ -73,7 +58,7 @@ export abstract class AbstractResponseBuilder<R = any> {
      */
     public tag: string | undefined;
 
-    constructor(props: ResponseBuilderProps) {
+    public constructor(props: ResponseBuilderProps) {
         this.tag = undefined;
         this.device = props.device;
         this._response = {};
@@ -188,17 +173,12 @@ export abstract class AbstractResponseBuilder<R = any> {
     /**
      * Enqueue the next audio
      *
-     * @abstract
      * @param {PlayableMedia} next
      * @param {PlayableMedia} current
-     * @returns {AbstractResponseBuilder<R>}
-     * @memberof ResponseBuilder
      */
     abstract enqueue(next: PlayableMedia, current: PlayableMedia): AbstractResponseBuilder<R>;
     /**
      * The number of playables that can be sent at once. Override it if the platform handles more.
-     *
-     * @returns {number}
      */
     public mediaQueueSize(): number {
         return 1;
@@ -210,10 +190,6 @@ export abstract class AbstractResponseBuilder<R = any> {
 
     /**
      * Request acct linking
-     *
-     * @param {string} ttsQuestion
-     * @returns {AbstractResponseBuilder<R>}
-     * @memberof ResponseBuilder
      */
     abstract askForAccountLinking(response?: string | SimpleResponse): AbstractResponseBuilder<R>;
     /**
@@ -221,15 +197,12 @@ export abstract class AbstractResponseBuilder<R = any> {
      *
      * @beta This is a beta feature.
      * @param {string} intentId
-     * @returns {AbstractResponseBuilder<R>}
-     * @memberof ResponseBuilder
      */
     abstract askForNotification(intentId?: string): AbstractResponseBuilder<R>;
     /**
      *
      * @param {string} tts
      * @param {string} notificationLabel
-     * @returns {AbstractResponseBuilder<R>}
      */
     abstract askForSurfaceChange(
         response?: string | SimpleResponse,
@@ -237,22 +210,14 @@ export abstract class AbstractResponseBuilder<R = any> {
     ): AbstractResponseBuilder<R>;
     /**
      * Request access to shopping lists
-     * @param tts
-     * @returns {AbstractResponseBuilder<R>}
      */
     abstract askForListAccess(response?: string | SimpleResponse): AbstractResponseBuilder<R>;
     /**
      * Chase down the user profile data
-     * @param userDataType
-     * @returns {Promise<UserDataValue>}
      */
     abstract askForUserData(userDataType: UserDataType, accessData?: ApiAccessData): Promise<UserDataValue>;
     /**
      * Build the response
-     *
-     * @abstract
-     * @returns {T}
-     * @memberof ResponseBuilder
      */
     abstract build(): R;
 }

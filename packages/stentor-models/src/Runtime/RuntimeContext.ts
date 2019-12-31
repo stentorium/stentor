@@ -24,9 +24,6 @@ export interface RuntimeContext {
     getRemainingTimeInMillis?(): number;
     /**
      * Current environment
-     *
-     * @type {("dev" | "stage" | "prod" | "production")}
-     * @memberof RuntimeContext
      */
     environment?: "dev" | "stage" | "prod" | "production";
     /**
@@ -35,18 +32,13 @@ export interface RuntimeContext {
      * This is extremely important when verifying the payload comes from Alexa.  It must
      * be exactly how it comes in.  It cannot be JSON.parsed then JSON.stringified as
      * the order is important for certification.
-     *
-     * @type {string}
-     * @memberof RuntimeContext
      */
     rawBody?: string;
     /**
      * Builds the response for the specific platform
      *
-     * @param {number} code
-     * @param {object} result
-     * @returns {object}
-     * @memberof RuntimeEvent
+     * @param code
+     * @param result
      */
     buildResponse?(code: number, result: object): object;
 }

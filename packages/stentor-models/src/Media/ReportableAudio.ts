@@ -5,19 +5,9 @@ import { Song } from "./Song";
 
 /**
  * Song that is reportable
- *
- * @export
- * @interface ReportableSong
- * @extends {Song}
- * @extends {Reportable}
  */
-export interface ReportableSong extends Song, Reportable {}
+export interface ReportableSong extends Song, Reportable { }
 /**
  * Audio that is reportable
- *
- * @export
- * @interface ReportableAudio
- * @extends {Audio}
- * @extends {Reportable}
  */
-export interface ReportableAudio extends Audio, Reportable {}
+export interface ReportableAudio extends Audio, Reportable { }

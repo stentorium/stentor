@@ -4,10 +4,6 @@ import { ImageType } from "./Types";
 
 /**
  * Image media
- *
- * @export
- * @interface Image
- * @extends {Media}
  */
 export interface Image extends Media {
     type: ImageType;

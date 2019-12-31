@@ -7,18 +7,11 @@ import { LaunchRequestID, LaunchRequestType } from "./Types";
  * "talk to {invocation name}"
  *
  * @see https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/handling-requests-sent-by-alexa#launchrequest
- *
- * @export
- * @interface LaunchRequest
- * @extends {BaseRequest}
  */
 export interface LaunchRequest extends BaseRequest {
     type: LaunchRequestType;
     /**
      * LaunchRequest has a constant intentId
-     *
-     * @type {LaunchRequestID}
-     * @memberof LaunchRequest
      */
     intentId: LaunchRequestID;
     /**

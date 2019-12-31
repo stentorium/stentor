@@ -7,9 +7,6 @@ import { ResponseOutput } from "./ResponseOutput";
 
 /**
  * Simple segment, just the segment that will replace the template.
- *
- * @export
- * @interface SimpleSegment
  */
 export interface SimpleSegment {
     /**
@@ -17,9 +14,6 @@ export interface SimpleSegment {
      *
      * In the string "${GREETING}, how are you?", the segment will
      * replace ${GREETING}.
-     *
-     * @type {string | ResponseOutput}
-     * @memberof SimpleSegment
      */
     segment: string | ResponseOutput;
 }
@@ -65,9 +59,6 @@ export type ResponseSegment =
  *
  * For example a string with ${ GREETING }, GREETING is the key for the
  * array of segments.
- *
- * @export
- * @interface ResponseSegmentsMap
  */
 export interface ResponseSegmentsMap {
     [key: string]: ResponseSegment[];

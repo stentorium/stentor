@@ -22,9 +22,6 @@ export interface Entity {
     displayName?: string;
     /**
      * Optional ID if the slot type has a representation in Dialogflow.
-     *
-     * @type {string}
-     * @memberof SlotType
      */
     dialogflowId?: string;
     /**
@@ -40,9 +37,7 @@ export interface Entity {
      * REGEX is when the values are expecting to be a regular expression.  This is not
      * supported by all NLU.
      *
-     * @expirimental Still under development. It may change.
-     * @type {("REGEX" | "VALUE_SYNONYMS")}
-     * @memberof Entity
+     * @alpha Still under development. It may change.
      */
     type?: "REGEX" | "VALUE_SYNONYMS";
 }

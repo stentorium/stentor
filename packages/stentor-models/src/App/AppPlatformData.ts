@@ -7,23 +7,14 @@ export interface AppPlatformDataMap {
 
 /**
  * Platform specific information by platform type.
- *
- * @export
- * @interface BaseData
  */
 export interface BaseData {
     /**
      * The platform
-     *
-     * @type {string}
-     * @memberof BaseData
      */
     platform: string;
     /**
      * URL for the directory listing
-     *
-     * @type {string}
-     * @memberof BaseData
      */
     directoryListing?: string;
 }
@@ -56,10 +47,6 @@ export interface RequiredAlexaPrivacyAndCompliance {
 
 /**
  * Alexa specific data required for publication
- *
- * @export
- * @interface AlexaPlatformData
- * @extends {AppPlatformData}
  */
 export interface AlexaPlatformData extends BaseData {
     platform: "alexa";
@@ -113,9 +100,6 @@ export interface GoogleAdditionalInformationQuestions {
      * If yes, you must join the Actions for Families program. The Actions for Families program allows
      * developers to designate that their Actions are family-friendly, so parents and kids can find trusted,
      * high-quality content more easily on the Google Assistant.
-     *
-     * @type {boolean}
-     * @memberof GoogleSubmissionQuestions
      */
     intendedForUnderThirteen?: boolean;
     /**
@@ -125,19 +109,12 @@ export interface GoogleAdditionalInformationQuestions {
      * If yes, you must include age verification at the beginning of the conversation.
      * If your Actions mainly sell alcohol or tobacco, you must implement account
      * linking and verify that the user meets legal age requirements.
-     *
-     * @type {boolean}
-     * @memberof GoogleAdditionalInformationQuestions
      */
     alcoholAndTobaccoRelatedContent?: boolean;
 }
 
 /**
  * Google specific information required for publication
- *
- * @export
- * @interface GooglePlatformData
- * @extends {AppPlatformData}
  */
 export interface GooglePlatformData extends BaseData {
     platform: "google";

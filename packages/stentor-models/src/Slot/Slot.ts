@@ -1,9 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 /**
  * Slots available to the intent.
- *
- * @export
- * @interface Slot
  */
 export interface Slot {
     /**
@@ -11,9 +8,6 @@ export interface Slot {
      * sample utterance.
      *
      * For example: "Play {Podcast}" where Podcast is the name.
-     *
-     * @type {string}
-     * @memberOf Slot
      */
     name: string;
     /**
@@ -22,9 +16,6 @@ export interface Slot {
      * This corresponds to an Entity, specifically the entityId key.
      *
      * For legacy applications, SlotType is used.
-     *
-     * @type {string}
-     * @memberOf Slot
      */
     type: string;
     /**
@@ -35,9 +26,6 @@ export interface Slot {
      * items in the list.  Minimum value is 2.  Value defaults to 6 when set to true.
      *
      * NOTE: Only one isList slot is supported per utterance pattern.
-     *
-     * @type {boolean}
-     * @memberof Slot
      */
     isList?: boolean | number;
 }

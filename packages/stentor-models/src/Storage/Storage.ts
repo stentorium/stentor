@@ -12,9 +12,6 @@ export interface Storage extends KeyValueStore {
      * met the user.
      *
      * Time is stored as number of milliseconds elapsed since the UNIX epoch.
-     *
-     * @type {number}
-     * @memberof Storage
      */
     createdTimestamp: number;
     /**
@@ -22,9 +19,6 @@ export interface Storage extends KeyValueStore {
      * saw the user.
      *
      * Time is stored as number of milliseconds elapsed since the UNIX epoch.
-     *
-     * @type {number}
-     * @memberof Storage
      */
     lastActiveTimestamp?: number;
     /**
@@ -33,51 +27,30 @@ export interface Storage extends KeyValueStore {
      * Can be used to store other historical data in the future, such as previous responses they have heard.
      *
      * NOTE: We might want to make history required on storage.
-     *
-     * @type {History}
-     * @memberof Storage
      */
     history?: History;
     /**
      * The current handler of intents & events.
-     *
-     * @type {Handler}
-     * @memberof Storage
      */
     currentHandler?: Handler;
     /**
      * The previous handler before the current
-     *
-     * @type {Handler}
-     * @memberof Storage
      */
     previousHandler?: Handler;
     /**
      * The previous intent before the current
-     *
-     * @type {IntentProps}
-     * @memberof Storage
      */
     previousIntent?: Intent;
     /**
      * The previous response given to the user.
-     *
-     * @type {Response}
-     * @memberof Storage
      */
     previousResponse?: Response;
     /**
      * Number of consecutive InputUnknown requests received from the user
-     *
-     * @type {number}
-     * @memberof Storage
      */
     unknownInputs?: number;
     /**
      * The current handler that is playing audio.
-     *
-     * @type {Handler}
-     * @memberof Storage
      */
     currentAudioHandler?: Handler;
     /**

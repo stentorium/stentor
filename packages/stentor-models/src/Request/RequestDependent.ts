@@ -6,9 +6,6 @@ export interface RequestDependent {
      * The match will be compared to keys on the request.
      *
      * If evaluated true, the object is valid.
-     *
-     * @type {Match}
-     * @memberof RequestDependent
      */
     requestMatch: Match;
 }

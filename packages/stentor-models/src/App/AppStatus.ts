@@ -56,37 +56,22 @@ export type AppStatusType =
     | AppStatusLiveAndRequiresAttention;
 /**
  * The status of the App
- *
- * @export
- * @interface AppStatus
  */
 export interface AppStatus {
     /**
      * Status type
-     *
-     * @type {AppStatusType}
-     * @memberof AppStatus
      */
     type: AppStatusType;
     /**
      * The time when the status was set
-     *
-     * @type {number}
-     * @memberof AppStatus
      */
     timestamp: number;
     /**
      * The email of the user/admin who set the status
-     *
-     * @type {string}
-     * @memberof AppStatus
      */
     email: string;
     /**
      * Any notes set by the admin when the status was set.
-     *
-     * @type {string}
-     * @memberof AppStatus
      */
     notes: string;
 }

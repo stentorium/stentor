@@ -3,9 +3,6 @@ import { Duration } from "./Duration";
 
 /**
  * A date to expire by.
- *
- * @export
- * @interface ExpirationDate
  */
 export interface ExpirationDate {
     date?: number;
@@ -13,9 +10,6 @@ export interface ExpirationDate {
 
 /**
  * A duration to expire in.
- *
- * @export
- * @interface ExpirationDuration
  */
 export interface ExpirationDuration {
     duration?: Duration;

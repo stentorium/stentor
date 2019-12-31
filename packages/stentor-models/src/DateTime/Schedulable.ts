@@ -6,9 +6,6 @@ import { Schedule } from "./Schedule";
  * schedulable.
  *
  * TODO: Switch the names of these, Schedulable should be Scheduled.
- *
- * @export
- * @interface Schedulable
  */
 export interface Schedulable {
     readonly schedule: Schedule;

@@ -5,10 +5,6 @@ import { PodcastEpisodeType } from "./Types";
 
 /**
  * An episode for a podcast.
- *
- * @export
- * @interface PodcastEpisode
- * @extends {Audio}
  */
 export interface PodcastEpisode extends RSSFeedItem, Audio {
     type: PodcastEpisodeType;

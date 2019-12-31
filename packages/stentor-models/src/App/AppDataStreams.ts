@@ -45,9 +45,6 @@ export type AppDataStream =
 
 /**
  * Base data stream all data streams extend.
- *
- * @export
- * @interface BaseDataStream
  */
 export interface BaseDataStream {
     type: AppDataStreamTypes;
@@ -57,10 +54,6 @@ export interface BaseDataStream {
  * Data for Bespoken Tools.
  *
  * @see https://bespoken.io
- *
- * @export
- * @interface BespokenDataStream
- * @extends {AppDataStream}
  */
 export interface BespokenDataStream extends BaseDataStream {
     type: BespokenDataStreamType;
@@ -71,10 +64,6 @@ export interface BespokenDataStream extends BaseDataStream {
  * Data for Dashbot integration
  *
  * @see https://www.dashbot.io/voicelabs
- *
- * @export
- * @interface DashbotDataStream
- * @extends {AppDataStream}
  */
 export interface DashbotDataStream extends BaseDataStream {
     type: DashbotDataStreamType;
@@ -86,10 +75,6 @@ export interface DashbotDataStream extends BaseDataStream {
  * Data for VoiceLabs
  *
  * @see http://voicelabs.co/
- *
- * @export
- * @interface VoiceLabsDataStream
- * @extends {AppDataStream}
  */
 export interface VoiceLabsDataStream extends BaseDataStream {
     type: VoiceLabsDataStreamType;
@@ -101,10 +86,6 @@ export interface VoiceLabsDataStream extends BaseDataStream {
  * Data for Chatbase
  *
  * @see https://www.chatbase.com/
- *
- * @export
- * @interface ChatbaseDataStream
- * @extends {AppDataStream}
  */
 export interface ChatbaseDataStream extends BaseDataStream {
     type: ChatbaseDataStreamType;
@@ -117,10 +98,6 @@ export interface ChatbaseDataStream extends BaseDataStream {
  * Token will be of format "UA-XXXXXXX"
  *
  * @see https://developer.amazon.com/blogs/alexa/post/TxPQVHWYRKJGXE/how-this-alexa-developer-easily-implemented-google-analytics-to-monitor-skill-performance
- *
- * @export
- * @interface GoogleAnalyticsStream
- * @extends {AppDataStream}
  */
 export interface GoogleAnalyticsStream extends BaseDataStream {
     type: GoogleAnalyticsDataStreamType;
@@ -129,10 +106,7 @@ export interface GoogleAnalyticsStream extends BaseDataStream {
 
 /**
  * Data for Luis NLU
- *
- * @export
- * @interface LuisDataStream
- * @extends {AppDataStream}
+ * @alpha
  */
 export interface LuisDataStream extends BaseDataStream {
     type: LuisType;
@@ -142,10 +116,7 @@ export interface LuisDataStream extends BaseDataStream {
 
 /**
  * Data for Dialogflow NLU
- *
- * @export
- * @interface DialogflowDataStream
- * @extends {AppDataStream}
+ * @deprecated
  */
 export interface DialogflowDataStream extends BaseDataStream {
     type: DialogflowType;

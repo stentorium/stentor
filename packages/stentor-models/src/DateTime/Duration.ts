@@ -31,9 +31,6 @@ export type DurationFormat =
 
 /**
  * Duration, amount and format.
- *
- * @export
- * @interface Duration
  */
 export interface Duration {
     readonly amount: number;

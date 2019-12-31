@@ -21,12 +21,7 @@ export type AudioPlayerEvent =
  * AudioPlayer requests handle audio life-cycle events such as playback started, playback stopped,
  * playback failed, etc.
  *
- *
  * @see https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/custom-audioplayer-interface-reference#requests
- *
- * @export
- * @interface AudioPlayerRequest
- * @extends {BaseRequest}
  */
 export interface AudioPlayerRequest extends BaseRequest {
     type: AudioPlayerRequestType;

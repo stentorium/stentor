@@ -12,27 +12,18 @@ import { ResponseSegmentsMap } from "./ResponseSegment";
 
 /**
  * Additional response metadata.
- * 
- * @export
- * @interface ResponseData
  */
 export interface ResponseData {
     /**
      * Provides context to the user for select system responses.
      * 
      * Used for SURFACE_CHANGE, ACCOUNT_LINK,
-     *
-     * @type {string}
-     * @memberof ResponseData
      */
     content?: string;
     /**
      * Provides a title for select system responses.
      * 
      * Used for SURFACE_CHANGE
-     *
-     * @type {string}
-     * @memberof ResponseData
      */
     title?: string;
     /**
@@ -40,9 +31,6 @@ export interface ResponseData {
      * as a reference point.  It is used by certain channels
      * to prevent race condition requests that can occur
      * when navigating content quickly.
-     *
-     * @type {string}
-     * @memberof ResponseData
      */
     expectedPreviousToken?: string;
     // Additional Keys
@@ -52,75 +40,45 @@ export interface ResponseData {
 
 /**
  * A response that expects a user's input.
- *
- * @export
- * @interface SimpleResponse
  */
 export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Actionable> {
     /**
      * Name of the response.
      *
      * Used to help differentiate multiple responses.
-     *
-     * @type {string}
-     * @memberof SimpleResponse
      */
     name?: string;
     /**
      * Used for tracking the response in third party analytics.
-     *
-     * @type {string}
-     * @memberof SimpleResponse
      */
     tag?: string;
     /**
      * What the assistant will say first as part of the response.
-     *
-     * @type {(string | ResponseOutput)}
-     * @memberof SimpleResponse
      */
     outputSpeech?: T;
     /**
      * If provided, the output speech was most likely a question and requires a response from the user.
      * The reprompt is given if the user doesn't say anything or the assistant can't recognize the response.
-     *
-     * @type {(string | ResponseOutput)}
-     * @memberof SimpleResponse
      */
     reprompt?: T;
     /**
      * @deprecated This is not in use.
-     *
-     * @type {(string | ResponseOutput)}
-     * @memberof SimpleResponse
      */
     silencePrompt?: T;
     /**
      * Segments used for the outputSpeech and reprompt.
-     *
-     * @type {ResponseSegmentsMap}
-     * @memberof SimpleResponse
      */
     segments?: ResponseSegmentsMap;
     /**
      * Display elements for surfaces/devices with screens.
-     *
-     * @type {[]}
-     * @memberof SimpleResponse
      */
     displays?: Display[];
     /**
      * Media for playback
-     *
-     * @type {Media[]}
-     * @memberof SimpleResponse
      */
     media?: Media[];
     /**
      * System responses to perform account links, control media, surface changes, and permission requests.
-     *
-     * @type {string}
-     * @memberof SimpleResponse
      */
     system?:
     | "ACCOUNT_LINK"
@@ -136,9 +94,6 @@ export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Act
 
     /**
      * Supplemental data to augment the response.
-     * 
-     * @type ResponseData
-     * @memberof SimpleResponse
      */
     data?: ResponseData;
 }

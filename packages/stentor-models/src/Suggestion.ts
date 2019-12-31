@@ -10,9 +10,6 @@ export type SimpleSuggestion = string;
  * The title has a limit of 25 characters.
  *
  * Only Google Assistant at the moment.
- *
- * @export
- * @interface Suggestion
  */
 export interface Suggestion {
     // MAX 25 characters
@@ -28,10 +25,6 @@ export interface Suggestion {
  * it is a normal suggestion
  *
  * Only Google Assistant at the moment.
- *
- * @export
- * @interface LinkOutSuggestion
- * @extends {Suggestion}
  */
 export interface LinkOutSuggestion extends Suggestion {
     url: string;

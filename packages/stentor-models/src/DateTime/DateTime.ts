@@ -10,9 +10,6 @@ export interface DateTime {
     date?: string;
     /**
      * ISO-8601 timezone offset string in the format -05:00 or Z
-     *
-     * @type {string}
-     * @memberof DateTime
      */
     tz?: string;
 }

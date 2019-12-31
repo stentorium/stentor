@@ -5,9 +5,6 @@
 
 /**
  * description of a single component of an address (City, County, State/Province, Country, etc.)
- *
- * @export
- * @interface GoogleMapsAddressComponent
  */
 export interface GoogleMapsAddressComponent {
     long_name: string;
@@ -17,9 +14,6 @@ export interface GoogleMapsAddressComponent {
 
 /**
  * A single point on a Google Map
- *
- * @export
- * @interface GoogleMapsLocation
  */
 export interface GoogleMapsLocation {
     lat: number;
@@ -27,10 +21,7 @@ export interface GoogleMapsLocation {
 }
 
 /**
- * represents the bounding area around a given location
- *
- * @export
- * @interface GoogleMapsLocationBox
+ * Represents the bounding area around a given location
  */
 export interface GoogleMapsLocationBox {
     northeast: GoogleMapsLocation;
@@ -39,9 +30,6 @@ export interface GoogleMapsLocationBox {
 
 /**
  * Single entry of the results array
- *
- * @export
- * @interface GoogleMapsResult
  */
 export interface GoogleMapsResult {
     address_components: GoogleMapsAddressComponent[];
@@ -59,9 +47,6 @@ export interface GoogleMapsResult {
 /**
  * Represents a single response from the geocode api in JSON format
  * e.g. https://maps.googleapis.com/maps/api/geocode/json?&address=Portland
- *
- * @export
- * @interface GoogleMapsGeocodeResponse
  */
 export interface GoogleMapsGeocodeResponse {
     results: GoogleMapsResult[];

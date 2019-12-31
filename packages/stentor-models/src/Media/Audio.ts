@@ -10,10 +10,6 @@ import { AudioType, GenericAudioType } from "./Types";
  * @see https://developers.google.com/actions/assistant/responses#media_responses
  * @see https://developers.google.com/actions/reference/rest/Shared.Types/AppResponse#mediaresponse
  * @see https://developer.amazon.com/docs/custom-skills/audioplayer-interface-reference.html#play-params
- * @export
- * @interface Audio
- * @extends {Media}
- * @extends {Playable}
  */
 export interface Audio extends PlayableMedia {
     type: AudioType;
@@ -22,9 +18,6 @@ export interface Audio extends PlayableMedia {
      *
      * This is typically the track title
      * or podcast episode name.
-     *
-     * @type {string}
-     * @memberof Audio
      */
     title?: string;
     /**
@@ -32,9 +25,6 @@ export interface Audio extends PlayableMedia {
      *
      * This is typically the category or
      * artist name.
-     *
-     * @type {string}
-     * @memberof Audio
      */
     subtitle?: string;
     /**
@@ -42,36 +32,24 @@ export interface Audio extends PlayableMedia {
      *
      * Max length is 160 characters, limited by
      * Google.
-     *
-     * @type {string}
-     * @memberof Audio
      */
     description?: string;
     /**
      * Image for the audio, typically the album art.
      *
      * Dimensions must be square, minimum 480 by 480 pixels
-     *
-     * @type {string}
-     * @memberof Audio
      */
     image?: string;
     /**
      * When applicable (Alexa), the background image for display surfaces.
      *
      * Minimum dimensions are 1024 by 640 pixels
-     * @type {string}
-     * @memberof Audio
      */
     backgroundImage?: string;
 }
 
 /**
  * Simple implementation of Audio.
- *
- * @export
- * @interface GenericAudio
- * @extends {Audio}
  */
 export interface GenericAudio extends Audio {
     type: GenericAudioType;

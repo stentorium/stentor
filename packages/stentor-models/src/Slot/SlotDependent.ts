@@ -6,9 +6,6 @@ export interface SlotDependent {
      * The match that will be compared to the slots
      *
      * If evaluated true, the object is valid.
-     *
-     * @type {Match}
-     * @memberof SlotDependentPath
      */
     slotMatch: Match;
 }

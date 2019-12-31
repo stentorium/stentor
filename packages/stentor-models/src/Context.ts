@@ -30,48 +30,28 @@ export interface AudioPlayer {
  * Context object that is passed around while formulating the response
  *
  * NOTE: This is really HandlerContext
- *
- * @export
- * @interface Context
- * @template S
- * @template Storage
  */
 export interface Context<S extends Storage = Storage> {
     /**
      * Device Capabilities
-     *
-     * @type {Device}
-     * @memberof Context
      */
     device: Device;
     /**
      * Long term storage for the user.
-     *
-     * @type {S}
-     * @memberof Context
      */
     storage: S;
     /**
      * The PII record
-     *
-     * @type {Pii}
-     * @memberof Context
      */
     pii?: Pii;
     /**
      * The response builder.
-     *
-     * @type {ResponseBuilder}
-     * @memberof Context
      */
     response: AbstractResponseBuilder;
     /**
      * Status of the Audio Player
      *
      * Only exists if the app is playing audio
-     *
-     * @type {AudioPlayer}
-     * @memberof Context
      */
     audioPlayer?: AudioPlayer;
     /**

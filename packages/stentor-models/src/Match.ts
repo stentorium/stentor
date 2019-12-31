@@ -12,9 +12,6 @@ export type MatchOperation = "==" | "===" | ">" | ">=" | "<" | "=<" | "!=" | "!=
  * value 4
  *
  * 1 >= 4 is false
- *
- * @export
- * @interface Match
  */
 export interface Match {
     /**
@@ -22,25 +19,16 @@ export interface Match {
      * be compared against.
      *
      * TODO: Could we call this key instead?
-     *
-     * @type {string}
-     * @memberof Match
      */
     name: string;
     /**
      * The test value that is compared.
-     *
-     * @type {(string | number)}
-     * @memberof Match
      */
     value: boolean | string | number | (boolean | string | number)[];
     /**
      * The comparison operator.
      *
      * If not provided, it defaults to "==="
-     *
-     * @type {MatchOperation}
-     * @memberof Match
      */
     operation?: MatchOperation;
 }

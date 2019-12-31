@@ -51,24 +51,14 @@ export interface Channel {
     builder?: new (props: object) => AbstractResponseBuilder;
     /**
      * Determine the device capabilities for the channel.
-     *
-     * @param {object} body The raw request body
-     * @returns {Device}
-     * @memberof Channel
      */
     capabilities(body: object): Device;
     /**
-     * The NLU for the channel.
-     *
-     * @type {NLUService}
-     * @memberof Channel
+     * The NLU for the channel
      */
     nlu?: NLUService;
     /**
-     * Runtime hooks used by the channel to make any necessary checks or modifications.
-     *
-     * @type {ChannelHooks}
-     * @memberof Channel
+     * Runtime hooks used by the channel to make any necessary checks or modifications
      */
     hooks?: ChannelHooks;
 }

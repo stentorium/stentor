@@ -4,11 +4,6 @@ import { VideoType } from "./Types";
 
 /**
  * Video media
- *
- * @export
- * @interface Video
- * @extends {Media}
- * @extends {Playable}
  */
 export interface Video extends PlayableMedia {
     type: VideoType;

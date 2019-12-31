@@ -4,10 +4,6 @@ import { SongType } from "./Types";
 
 /**
  * An individual song.
- *
- * @export
- * @interface Song
- * @extends {Audio}
  */
 export interface Song extends Audio {
     type: SongType;

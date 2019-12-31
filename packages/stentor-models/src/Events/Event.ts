@@ -16,30 +16,18 @@ export interface Event<P extends string | boolean | object | number | undefined 
     type: EventType;
     /**
      * The current handler the user was in at the time of the request.
-     *
-     * @type {string}
-     * @memberof Event
      */
     currentHandler?: string;
     /**
      * The handler that was selected based on the request and the current handler.
-     *
-     * @type {string}
-     * @memberof Event
      */
     selectedHandler?: string;
     /**
      * Is the event from a health check
-     *
-     * @type {boolean}
-     * @memberof Event
      */
     isHealthCheck?: boolean;
     /**
      * Is the event the start of a session.
-     *
-     * @type {boolean}
-     * @memberof Event
      */
     isNewSession?: boolean;
     /**

@@ -1,9 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 /**
  * The exact coordinates
- *
- * @export
- * @interface LocationGeocode
  */
 export interface LocationGeocode {
     latitude: number;
@@ -12,9 +9,6 @@ export interface LocationGeocode {
 
 /**
  * Description of a physical location
- *
- * @export
- * @interface Location
  */
 export interface Location {
     /**
@@ -23,16 +17,10 @@ export interface Location {
      * the Google Maps Geocoding API, to determine latitude and longitude.
      *
      * For example: Washington, DC or 123 Main St, City, State
-     *
-     * @type {string}
-     * @memberof Location
      */
     streetAddress?: string;
     /**
      * Geocoded form of the location
-     *
-     * @type {LocationGeocode}
-     * @memberof Location
      */
     geocode?: LocationGeocode;
 }

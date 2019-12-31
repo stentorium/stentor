@@ -3,10 +3,6 @@ import { BaseRequest } from "./Request";
 import { InputUnknownID, InputUnknownRequestType } from "./Types";
 /**
  * Request when a user requests something not in the interaction model.
- *
- * @export
- * @interface InputUnknownRequest
- * @extends {BaseRequest}
  */
 export interface InputUnknownRequest extends BaseRequest {
     type: InputUnknownRequestType;

@@ -9,9 +9,6 @@ export interface NLUQueryResponse {
 
 /**
  * Service which can turn raw text into an intent and slots (optional).
- *
- * @export
- * @interface NLUService
  */
 export interface NLUService {
     query(q: string): Promise<NLUQueryResponse>;

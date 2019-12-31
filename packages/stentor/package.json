@@ -10,12 +10,14 @@
   "typings": "lib/index",
   "main": "lib/index",
   "files": [
+    "dist",
     "lib"
   ],
   "engines": {
     "node": "10.x"
   },
   "devDependencies": {
+    "@xapp/config": "0.2.3",
     "typescript": "3.7.4"
   },
   "scripts": {

@@ -16,10 +16,11 @@
     "node": "10.x"
   },
   "devDependencies": {
+    "@xapp/config": "0.2.3",
     "typescript": "3.7.4"
   },
   "dependencies": {
-    "stentor-models": "^1.14.1-alpha.4"
+    "stentor-models": "1.14.1-alpha.4"
   },
   "scripts": {
     "build": "tsc -d true -p .",

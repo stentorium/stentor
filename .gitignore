@@ -63,3 +63,4 @@ typings/
 # TypeScript
 ## Generated
 **/lib/**
+**/dist/**

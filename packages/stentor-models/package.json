@@ -10,17 +10,24 @@
   "typings": "lib/index",
   "main": "lib/index",
   "files": [
-    "lib"
+    "lib",
+    "dist"
   ],
   "engines": {
     "node": "10.x"
   },
   "devDependencies": {
+    "@microsoft/api-extractor": "7.7.0",
+    "@xapp/config": "0.2.3",
+    "rollup": "1.27.14",
+    "@rollup/plugin-typescript": "2.0.1",
     "typescript": "3.7.4"
   },
   "scripts": {
+    "api": "api-extractor run --local",
     "build": "tsc -d true -p .",
-    "clean": "rm -rf ./lib/*"
+    "dist": "rollup -c",
+    "clean": "rm -rf ./lib/* && rm -rf ./dist/*"
   },
   "dependencies": {
     "@xapp/patterns": "1.7.6",

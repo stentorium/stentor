@@ -30,5 +30,5 @@ export interface Data {
      */
     accessibleThroughDiscovery?: boolean;
     // Additional Keys
-    [key: string]: string | number | boolean | undefined;
+    [key: string]: string | number | boolean | string[] | number[] | undefined;
 }

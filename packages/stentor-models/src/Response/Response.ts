@@ -10,29 +10,31 @@ import { StorageDependable } from "../Storage";
 import { ResponseOutput } from "./ResponseOutput";
 import { ResponseSegmentsMap } from "./ResponseSegment";
 
-
 /**
  * Additional response metadata.
- *
+ * 
  * @export
  * @interface ResponseData
  */
 export interface ResponseData {
     /**
-     * Certain system responses require context that is used.
+     * Provides context to the user for select system responses.
+     * 
+     * Used for SURFACE_CHANGE, ACCOUNT_LINK,
      *
      * @type {string}
      * @memberof ResponseData
      */
-    context?: string;
+    content?: string;
     /**
-     * Certain system responses, such as notifications, require titles
+     * Provides a title for select system responses.
+     * 
+     * Used for SURFACE_CHANGE
      *
      * @type {string}
      * @memberof ResponseData
      */
     title?: string;
-    accountLinkRequestTTSContext?: string;
     /**
      * During media playback, expected previous token is used
      * as a reference point.  It is used by certain channels
@@ -43,10 +45,8 @@ export interface ResponseData {
      * @memberof ResponseData
      */
     expectedPreviousToken?: string;
-    permissionNotificationIntent?: string;
-    permissionRequestTTSContext?: string;
-    surfaceChangeRequestNotificationTitle?: string;
-    surfaceChangeRequestTTSContext?: string;
+
+    [key: string]: string | number | boolean | undefined;
 }
 
 
@@ -136,12 +136,7 @@ export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Act
 
     /**
      * Supplemental data to augment the response.
-     *
-     * For some of the system responses, there are some predefined keys.
-     *
-     * context: string for SURFACE_CHANGE, ACCOUNT_LINK,
-     * title: string for SURFACE_CHANGE
-     *
+     * 
      * @type ResponseData
      * @memberof SimpleResponse
      */

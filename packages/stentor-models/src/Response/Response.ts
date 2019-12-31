@@ -45,7 +45,7 @@ export interface ResponseData {
      * @memberof ResponseData
      */
     expectedPreviousToken?: string;
-
+    // Additional Keys
     [key: string]: string | number | boolean | undefined;
 }
 

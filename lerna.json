@@ -8,7 +8,8 @@
       "exact": true
     },
     "version": {
-      "message": "chore(release): 📣⚡ publish %v [skip ci]"
+      "conventionalCommits": true,
+      "message": "chore(release): 📣⚡ publish release [skip ci]"
     },
     "publish": {
       "conventionalCommits": true

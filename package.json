@@ -24,6 +24,7 @@
     "clean": "lerna run clean",
     "clean:modules": "lerna clean",
     "lint": "eslint 'packages/**/src/**/*.{ts,tsx}'",
-    "build": "lerna run build"
+    "build": "lerna run build",
+    "release": "lerna version --yes && git push origin --tags && lerna publish from-package --yes"
   }
 }

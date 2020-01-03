@@ -58,6 +58,37 @@ jobs:
           name: Lint
           command: yarn lint
 
+  release:
+    working_directory: ~/repo
+    docker:
+      # semantic-release requires node 8.3
+      - image: circleci/node:8.3
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/repo
+      - add_ssh_keys:
+          fingerprints:
+            - "e1:fd:2f:8a:09:90:77:61:e3:7a:e7:36:be:c4:61:68"
+      - run:
+          name: Setting Up Git Email
+          command: git config user.email "robot@xappmedia.com"
+      - run:
+          name: Setting Up Git Username
+          command: git config user.name "xappbot"
+      - run:
+          name: NPM Token Setup
+          command: 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc'
+      - run:
+          name: Clean git
+          command: git add . && git diff --quiet && git diff --staged --quiet || git commit -am 'cleaning status [skip ci]'
+      - run:
+          name: Release
+          command: yarn run release
+      - run:
+          name: Push
+          command: git push
+
 workflows:
   version: 2
   lint_build_test:
@@ -85,3 +116,8 @@ workflows:
       - lint:
           requires:
             - checkout
+      - release:
+          requires:
+            - build
+            - lint
+          context: publish-packages

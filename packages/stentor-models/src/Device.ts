@@ -56,6 +56,12 @@ export interface Device {
      * Used to tell a little bit more about the display type if data is available
      */
     displayData?: DisplayData;
+    /**
+   * If the device is capable to transfer calls (usually to an live agent).
+   *
+   * Telephony channels typically can perform this.
+   */
+    canTransferCall: boolean;
 }
 
 export interface DisplayData {

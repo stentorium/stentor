@@ -6,6 +6,25 @@ import { IntentRequestType } from "./Types";
 
 export type RequestSlotValues = string | number | DateTimeRange | DateTime | (string)[];
 
+export interface KnowledgeAnswer {
+    /**
+     * Which knowledge base (optional)
+     */
+    source?: string;
+    /**
+     * Raw question
+     */
+    faqQuestion: string;
+    /**
+     * Raw answer
+     */
+    answer: string;
+    /**
+     * Confidence 0-1
+     */
+    matchConfidence: number;
+}
+
 /**
  * Information for a slot coming in on the request.
  */
@@ -66,4 +85,5 @@ export interface IntentRequest extends BaseRequest {
     isBargeIn?: boolean;
     canFulfill?: boolean;
     data?: Data;
+    knowledgeAnswer?: KnowledgeAnswer;
 }

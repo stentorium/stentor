@@ -90,7 +90,8 @@ export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Act
     | "PERMISSION_PHONE_NUMBER"
     | "PERMISSION_LOCATION_PRECISE"
     | "PERMISSION_LOCATION_COARSE"
-    | "PERMISSION_NOTIFICATION";
+    | "PERMISSION_NOTIFICATION"
+    | "TRANSFER_CALL";
 
     /**
      * Supplemental data to augment the response.

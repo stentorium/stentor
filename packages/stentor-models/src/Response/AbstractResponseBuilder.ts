@@ -11,6 +11,9 @@ import { Response, SimpleResponse } from "./Response";
 import { ResponseOutput } from "./ResponseOutput";
 
 export interface ResponseBuilderProps {
+    /**
+     * Capabilities of the current device.
+     */
     device: Readonly<Device>;
     /**
      * Sets the background image for some channels with display surfaces.
@@ -30,6 +33,8 @@ export abstract class AbstractResponseBuilder<R = any> {
     /**
      * Information about the device capabilities.  Use to determine
      * if you can present display information or play media.
+     * 
+     * @readonly
      */
     protected readonly device: Readonly<Device>;
     /**
@@ -39,8 +44,7 @@ export abstract class AbstractResponseBuilder<R = any> {
     protected readonly backgroundImage?: ImageSpecification[];
     /**
      * Do not use.
-     *
-     * @protected
+     * @deprecated
      */
     protected readonly assistantTitle?: string;
     /**
@@ -51,6 +55,9 @@ export abstract class AbstractResponseBuilder<R = any> {
     protected get response(): Readonly<Response<ResponseOutput>> | undefined {
         return this._response;
     }
+    /**
+     * @internal
+     */
     protected _response: Response<ResponseOutput>;
 
     /**
@@ -67,54 +74,48 @@ export abstract class AbstractResponseBuilder<R = any> {
      * Respond to the user.
      *
      * Can contain just an output speech but can also contain an reprompt.
-     *
-     * @abstract
-     * @param {Response} response
-     * @returns {AbstractResponseBuilder<R>}
-     * @memberof ResponseBuilder
+     * 
+     * @param response - The entire response
+     * @returns The builder instance
      */
     abstract respond(response: Response): AbstractResponseBuilder<R>;
     /**
      * Say something to the user.
-     *
-     * @abstract
-     * @param {(string | ResponseOutput)} ssml
-     * @param {boolean} [append]
-     * @returns {AbstractResponseBuilder<R>}
-     * @memberof ResponseBuilder
+     * 
+     * @param ssml - The response, either as a string or a response output object which contains SSML and display text.
+     * @param append - Append the response to the existing, if available
+     * @returns The builder instance
      */
     abstract say(ssml: string | ResponseOutput, append?: boolean): AbstractResponseBuilder<R>;
     /**
      * Provide a reprompt, necessary if you want to "ask" something
      *
-     * @abstract
-     * @param {(string | ResponseOutput)} ssml
-     * @param {boolean} [append]
-     * @returns {AbstractResponseBuilder<R>}
-     * @memberof ResponseBuilder
+     * @param ssml - The reprompt, either as a string or a response output object which contains SSML and display text.
+     * @param append - Append the response to the existing, if available
+     * @returns The builder instance
      */
     abstract reprompt(ssml: string | ResponseOutput, append?: boolean): AbstractResponseBuilder<R>;
     /**
      * Provide a card
      *
-     * @abstract
-     * @param {Card} card
-     * @returns {AbstractResponseBuilder<R>}
+     * @param card - Card to be displayed to the user
+     * @returns The builder instance
      * @memberof ResponseBuilder
      */
     abstract withCard(card: Card): AbstractResponseBuilder<R>;
     /**
      * Provide a list (vertical selection)
      *
-     * @param {ListItem[]} items
-     * @param {string} title
-     * @returns {AbstractResponseBuilder<R>}
+     * @param items - List items to display
+     * @param title - The title for the list
+     * @returns The builder instance
      */
     abstract withList(items: ListItem[], title?: string): AbstractResponseBuilder<R>;
     /**
      * Provide a carousel (horizontal selection)
-     * @param {ListItem[]} items
-     * @returns {AbstractResponseBuilder<R>}
+     * 
+     * @param items - List items to display in the carousel
+     * @returns The builder instance
      */
     abstract withCarousel(items: ListItem[]): AbstractResponseBuilder<R>;
     /**
@@ -122,10 +123,8 @@ export abstract class AbstractResponseBuilder<R = any> {
      *
      * Limited support across platforms for this at the moment, only Google Assistant.
      *
-     * @abstract
-     * @param {(SuggestionTypes | SuggestionTypes[])} suggestion
-     * @returns {AbstractResponseBuilder<R>}
-     * @memberof ResponseBuilder
+     * @param suggestion - Either a single suggestion chip or an array
+     * @returns The builder instance
      */
     abstract withSuggestions(
         suggestion: SuggestionTypes | SuggestionTypes[],
@@ -133,7 +132,9 @@ export abstract class AbstractResponseBuilder<R = any> {
     ): AbstractResponseBuilder<R>;
     /**
      * Build intent pre-fetch results aka "CanFulfillRequest"
-     * @param options
+     * 
+     * @param results
+     * @returns The builder instance
      */
     abstract withCanFulfill(results: CanFulfillIntentResult): AbstractResponseBuilder<R>;
 
@@ -144,10 +145,8 @@ export abstract class AbstractResponseBuilder<R = any> {
     /**
      * Play the provided audio
      *
-     * @param {Playable} playable
-     * @returns
-     *
-     * @memberOf AlexaResponseBuilder
+     * @param playable - Media to play
+     * @returns The builder instance
      */
     abstract play(playable: PlayableMedia, offset?: number): AbstractResponseBuilder<R>;
     /**
@@ -156,25 +155,22 @@ export abstract class AbstractResponseBuilder<R = any> {
      * Note: Only supported by Actions on Google at the moment.  If attempting to use this function on
      * Alexa, only the first item in the playlist will be played.
      *
-     * @abstract
-     * @param {(Playlist<PlayableMedia> | PlayableMedia[])} playlist
-     * @returns {AbstractResponseBuilder<R>}
-     * @memberof ResponseBuilder
+     * @param playlist - The playlist to be played
+     * @returns The builder instance
      */
     abstract playPlaylist(playlist: Array<PlayableMedia> | PlayableMedia[]): AbstractResponseBuilder<R>;
     /**
      * Stop the current audio
-     *
-     * @abstract
-     * @returns {AbstractResponseBuilder<R>}
-     * @memberof ResponseBuilder
+     * 
+     * @returns The builder instance
      */
     abstract stop(): AbstractResponseBuilder<R>;
     /**
      * Enqueue the next audio
      *
-     * @param {PlayableMedia} next
-     * @param {PlayableMedia} current
+     * @param next - Track to be queued
+     * @param current - The current track playing
+     * @returns The builder instance
      */
     abstract enqueue(next: PlayableMedia, current: PlayableMedia): AbstractResponseBuilder<R>;
     /**
@@ -189,20 +185,25 @@ export abstract class AbstractResponseBuilder<R = any> {
      ********************************************/
 
     /**
-     * Request acct linking
+     * Request account linking
+     * 
+     * @returns The builder instance
      */
     abstract askForAccountLinking(response?: string | SimpleResponse): AbstractResponseBuilder<R>;
     /**
      * Request notification to intent
      *
      * @beta This is a beta feature.
-     * @param {string} intentId
+     * @param intentId - 
+     * @returns The builder instance
      */
     abstract askForNotification(intentId?: string): AbstractResponseBuilder<R>;
     /**
-     *
-     * @param {string} tts
-     * @param {string} notificationLabel
+     * Ask the user to change surfaces, for example from a smart speaker to a mobile phone.
+     * 
+     * @param response - Response to give as context to the user for the surface change
+     * @param notificationLabel - The label for the notification on the new surface
+     * @returns The builder instance
      */
     abstract askForSurfaceChange(
         response?: string | SimpleResponse,
@@ -210,14 +211,27 @@ export abstract class AbstractResponseBuilder<R = any> {
     ): AbstractResponseBuilder<R>;
     /**
      * Request access to shopping lists
+     * 
+     * @returns The builder instance
      */
     abstract askForListAccess(response?: string | SimpleResponse): AbstractResponseBuilder<R>;
     /**
      * Chase down the user profile data
+     *
+     * @returns The builder instance
      */
     abstract askForUserData(userDataType: UserDataType, accessData?: ApiAccessData): Promise<UserDataValue>;
     /**
+     * Ask for call transfer (on telephony capable channels)
+     * 
+     * @param phoneNumber - The phone number to transfer the call to
+     * @returns The builder instance
+     */
+    abstract askForCallTransfer(phoneNumber: string): AbstractResponseBuilder<R>;
+    /**
      * Build the response
+     * 
+     * @returns The built response
      */
     abstract build(): R;
 }

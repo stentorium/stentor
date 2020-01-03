@@ -29,3 +29,4 @@ export type PermissionGrantID = "PermissionGrant";
 export type InputUnknownID = "InputUnknown";
 export type OptionSelectID = "OptionSelect";
 export type SignInID = "SignIn";
+export type KnowledgeAnswerID = "KnowledgeAnswer";

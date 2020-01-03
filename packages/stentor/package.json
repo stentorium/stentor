@@ -1,0 +1,34 @@
+{
+  "name": "stentor",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.14.1-alpha.7",
+  "description": ":mega: stentor",
+  "types": "lib/index",
+  "typings": "lib/index",
+  "main": "lib/index",
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "engines": {
+    "node": "10.x"
+  },
+  "devDependencies": {
+    "@xapp/config": "0.2.3",
+    "typescript": "3.7.4"
+  },
+  "scripts": {
+    "build": "tsc -d true -p .",
+    "clean": "rm -rf ./lib/*"
+  },
+  "dependencies": {
+    "@xapp/patterns": "1.7.6",
+    "actions-on-google": "2.12.0",
+    "ask-sdk-model": "1.22.0",
+    "stentor-constants": "^1.14.1-alpha.6",
+    "stentor-models": "^1.14.1-alpha.6"
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "extends": ["@xapp/config/tslint"],
+  "rules": {}
+}

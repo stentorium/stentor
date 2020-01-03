@@ -1,0 +1,29 @@
+{
+  "name": "stentor-constants",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.14.1-alpha.6",
+  "description": "Constants for :mega: stentor",
+  "types": "lib/index",
+  "typings": "lib/index",
+  "main": "lib/index",
+  "files": [
+    "lib"
+  ],
+  "engines": {
+    "node": "10.x"
+  },
+  "devDependencies": {
+    "@xapp/config": "0.2.3",
+    "typescript": "3.7.4"
+  },
+  "dependencies": {
+    "stentor-models": "^1.14.1-alpha.6"
+  },
+  "scripts": {
+    "build": "tsc -d true -p .",
+    "clean": "rm -rf ./lib/*"
+  }
+}

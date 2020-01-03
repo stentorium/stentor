@@ -53,7 +53,7 @@ export interface BaseDataStream {
 /**
  * Data for Bespoken Tools.
  *
- * @see https://bespoken.io
+ * See {@link https://bespoken.io}
  */
 export interface BespokenDataStream extends BaseDataStream {
     type: BespokenDataStreamType;

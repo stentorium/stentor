@@ -5,6 +5,9 @@ import { Storage } from "../Storage";
 import { RuntimeCallback } from "./RuntimeCallback";
 import { RuntimeContext } from "./RuntimeContext";
 
+/**
+ * Hooks are used to provide the opportunity to modify or log runtime data at different points in the lifecycle.
+ */
 export interface Hooks {
     /**
      * Once the channel is selected and before the request is translated, the preExecution hook is called.

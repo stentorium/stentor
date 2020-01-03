@@ -6,8 +6,8 @@
  *
  * This translates to a List/Carousel on the Google Assistant and ListTemplate1/ListTemplate2 on Amazon Alexa
  *
- * @see https://developers.google.com/actions/assistant/responses#list
- * @see https://developer.amazon.com/docs/custom-skills/display-template-reference.html#listtemplate1
+ * See {@link https://developers.google.com/actions/assistant/responses#list} and
+ * {@link https://developer.amazon.com/docs/custom-skills/display-template-reference.html#listtemplate1}
  *
  */
 export interface List {

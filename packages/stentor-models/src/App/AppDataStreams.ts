@@ -63,7 +63,7 @@ export interface BespokenDataStream extends BaseDataStream {
 /**
  * Data for Dashbot integration
  *
- * @see https://www.dashbot.io/voicelabs
+ * See {@link https://www.dashbot.io/voicelabs}
  */
 export interface DashbotDataStream extends BaseDataStream {
     type: DashbotDataStreamType;
@@ -74,7 +74,7 @@ export interface DashbotDataStream extends BaseDataStream {
 /**
  * Data for VoiceLabs
  *
- * @see http://voicelabs.co/
+ * See {@link http://voicelabs.co/}
  */
 export interface VoiceLabsDataStream extends BaseDataStream {
     type: VoiceLabsDataStreamType;
@@ -85,7 +85,7 @@ export interface VoiceLabsDataStream extends BaseDataStream {
 /**
  * Data for Chatbase
  *
- * @see https://www.chatbase.com/
+ * See {@link https://www.chatbase.com/}
  */
 export interface ChatbaseDataStream extends BaseDataStream {
     type: ChatbaseDataStreamType;
@@ -97,7 +97,7 @@ export interface ChatbaseDataStream extends BaseDataStream {
  *
  * Token will be of format "UA-XXXXXXX"
  *
- * @see https://developer.amazon.com/blogs/alexa/post/TxPQVHWYRKJGXE/how-this-alexa-developer-easily-implemented-google-analytics-to-monitor-skill-performance
+ * See {@link https://developer.amazon.com/blogs/alexa/post/TxPQVHWYRKJGXE/how-this-alexa-developer-easily-implemented-google-analytics-to-monitor-skill-performance}
  */
 export interface GoogleAnalyticsStream extends BaseDataStream {
     type: GoogleAnalyticsDataStreamType;

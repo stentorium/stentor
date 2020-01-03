@@ -1275,7 +1275,7 @@ export type HistoryData = PlayableHistoryData | {};
 
 // Warning: (ae-missing-release-tag) "Hooks" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
-// @public (undocumented)
+// @public
 export interface Hooks {
     postRequestTranslation?(request: Request): Promise<Request>;
     preExecution?(event: object, context: RuntimeContext, callback: RuntimeCallback): Promise<{
@@ -1357,8 +1357,6 @@ export type InputUnknownStrategyGoogle = "GOOGLE";
 // @public (undocumented)
 export type InputUnknownStrategyReprompt = "REPROMPT";
 
-// Warning: (ae-missing-release-tag) "Intent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
 export interface Intent extends Localizable<LocaleSpecificIntent> {
     appId: string;
@@ -1547,13 +1545,10 @@ export type LastActiveSegment = LastActive<SimpleSegment>;
 // @public (undocumented)
 export type LatestIntent = "LatestIntent";
 
-// Warning: (ae-missing-release-tag) "LaunchRequest" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
 export interface LaunchRequest extends BaseRequest {
     intentId: LaunchRequestID;
     sessionId: string;
-    // (undocumented)
     type: LaunchRequestType;
 }
 

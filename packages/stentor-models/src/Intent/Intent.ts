@@ -17,7 +17,7 @@ export interface GraphCoords {
 /**
  * Intents represent the request of a user.
  *
- * @export
+ * @public
  */
 export interface Intent extends Localizable<LocaleSpecificIntent> {
     /**
@@ -61,18 +61,18 @@ export interface Intent extends Localizable<LocaleSpecificIntent> {
      *
      * For example, you may often have a lot of slots at the beginning of every pattern:
      *
-     * `{${acknowledge}|${yes_no}|}${prefix} the rest of the utterance`
+     * `\{$\{acknowledge\}|$\{yes_no\}|\}$\{prefix\} the rest of the utterance`
      *
      * This then moves the actual meat of the pattern to the right when really you don't care about the
      * above except that it is there.
      *
      * Substitutions will allow you to replace these, just at the local intent level, to make it easier to read.
      *
-     * { ["_PREFIX_"]}: "{${acknowledge}|${yes_no}|}${prefix}" }
+     * \{ ["_PREFIX_"]\}: "\{$\{acknowledge\}|$\{yes_no\}|\}$\{prefix\}" \}
      *
      * So it then becomes:
      *
-     * `${_PREFIX_} the rest of the utterance`
+     * `$\{_PREFIX_\} the rest of the utterance`
      *
      * It also allows you to change the substitution value and have it updated across all
      * the utterance patterns where the substitution exists.
@@ -83,15 +83,14 @@ export interface Intent extends Localizable<LocaleSpecificIntent> {
     /**
      * An array of utterance patterns.
      *
-     * For more information on syntax see https://github.com/alexa-js/alexa-utterances
-     *
-     * @see https://github.com/alexa-js/alexa-utterances
+     * For more information on syntax see {@link https://github.com/alexa-js/alexa-utterances}
      */
     utterancePatterns?: string[];
     /**
      * The language code.  Defaults to "en-US".
      *
-     * @deprecated This is no longer in use (it was in fact, never used).  Favor @defaultLocale and @locales instead.
+     * @defaultValue "en-US"
+     * @deprecated This is no longer in use (it was in fact, never used).  Favor {@link Intent.defaultLocale} and {@link Intent.locales} instead.
      */
     langCode?: LangCode;
     /**

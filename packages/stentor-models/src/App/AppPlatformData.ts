@@ -54,26 +54,26 @@ export interface AlexaPlatformData extends BaseData {
      * Part of the Alexa Skill Manifest, th category communicates
      * what type of functionality the skill performs.
      *
-     * @see https://developer.amazon.com/docs/smapi/skill-manifest.html#publishinginformation
+     * See {@link https://developer.amazon.com/docs/smapi/skill-manifest.html#publishinginformation}
      */
     category?: string;
     /**
      * Part of the Alexa Skill Manifest.
      *
-     * @see https://developer.amazon.com/docs/smapi/skill-manifest.html#publishinginformation
+     * See {@link https://developer.amazon.com/docs/smapi/skill-manifest.html#publishinginformation}
      */
     privacyAndCompliance?: Pick<PrivacyAndCompliance, keyof RequiredAlexaPrivacyAndCompliance>;
     /**
      * Part of the Alexa Skill Manifest publishing information, either "PUBLIC" or "PRIVATE".
      *
-     * @see https://developer.amazon.com/docs/smapi/skill-manifest.html
+     * See {@link https://developer.amazon.com/docs/smapi/skill-manifest.html}
      */
     distributionMode?: "PUBLIC" | "PRIVATE";
     /**
      * Part of the Alexa Skill Manifest publishing information, if true
      * the skill will be distributed in all countries covered by the specified locales.
      *
-     * @see https://developer.amazon.com/docs/smapi/skill-manifest.html#publishinginformation
+     * See {@link https://developer.amazon.com/docs/smapi/skill-manifest.html#publishinginformation}
      */
     isAvailableWorldwide?: boolean;
     /**
@@ -81,13 +81,13 @@ export interface AlexaPlatformData extends BaseData {
      * false this must be specified.  It is an array of ISO 3166-1 alpha-2 format country strings
      * where the skill can be distributed.
      *
-     * @see https://developer.amazon.com/docs/smapi/skill-manifest.html#publishinginformation
+     * See {@link https://developer.amazon.com/docs/smapi/skill-manifest.html#publishinginformation}
      */
     distributionCountries?: string[];
     /**
      * Part of the Alexa Skill Manifest, an array of named permissions that the skill can use.
      *
-     * @see https://developer.amazon.com/docs/smapi/skill-manifest.html#permissions
+     * See {@link https://developer.amazon.com/docs/smapi/skill-manifest.html#permissions}
      */
     permissions?: { name: string }[];
 }

@@ -16,8 +16,8 @@ export interface Data {
     /**
      * Is the handler available externally through discovery.
      *
-     * On Google it means this accessible through Discovery (@see https://developers.google.com/actions/sdk/invocation-and-discovery#discovery)
-     * and on Alexa CanfulfillIntentRequest (@see https://developer.amazon.com/docs/custom-skills/understand-name-free-interaction-for-custom-skills.html)
+     * On Google it means this accessible through Discovery (see {@link https://developers.google.com/actions/sdk/invocation-and-discovery#discovery})
+     * and on Alexa CanfulfillIntentRequest (see {@link https://developer.amazon.com/docs/custom-skills/understand-name-free-interaction-for-custom-skills.html})
      */
     accessibleThroughDiscovery?: boolean;
 }

@@ -15,9 +15,9 @@ export interface Hooks {
      * This can be used for pre-execution modifications or checks.  If an error is thrown, it will be caught and
      * returned.  If you return undefined, all execution will halt without throwing an error (feel free to call the callback yourself).
      *
-     * @param event
-     * @param context
-     * @param callback
+     * @param event -
+     * @param context - 
+     * @param callback -
      * @returns Promise that either returns undefined to halt execution or the parameters back.
      */
     preExecution?(
@@ -41,8 +41,8 @@ export interface Hooks {
      *
      * Last chance to tweak the platform independent response or collect some data from the request/response (transcript).
      *
-     * @param request
-     * @param response
+     * @param request - 
+     * @param response - 
      * @returns 
      */
     preResponseTranslation?(request: Request, response: AbstractResponseBuilder, storage: Storage):

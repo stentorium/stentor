@@ -52,8 +52,8 @@ export type RelativeDateRangeType =
  */
 export interface RelativeDateTime {
     /**
-     * The relative date.  It can be just "LAST_WEEKEND" but can also be "${LAST_WEEKEND}", "${LAST_SUNDAY}T12:00:00",
-     * "${LAST_FRIDAY}T12:00:00 --> ${LAST_SATURDAY}T12:00:00" or "${LAST_FRIDAY}T12:00:00/${LAST_SATURDAY}T12:00:00"
+     * The relative date.  It can be just "LAST_WEEKEND" but can also be "$\{LAST_WEEKEND\}", "$\{LAST_SUNDAY\}T12:00:00",
+     * "$\{LAST_FRIDAY\}T12:00:00 --\> $\{LAST_SATURDAY\}T12:00:00" or "$\{LAST_FRIDAY\}T12:00:00/$\{LAST_SATURDAY\}T12:00:00"
      */
     relativity: RelativeDateType | RelativeDateRangeType | string;
     amount?: number;

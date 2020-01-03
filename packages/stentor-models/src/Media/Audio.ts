@@ -7,9 +7,10 @@ import { AudioType, GenericAudioType } from "./Types";
  *
  * This interface cannot be implemented directly.
  *
- * @see https://developers.google.com/actions/assistant/responses#media_responses
- * @see https://developers.google.com/actions/reference/rest/Shared.Types/AppResponse#mediaresponse
- * @see https://developer.amazon.com/docs/custom-skills/audioplayer-interface-reference.html#play-params
+ * See the following:
+ * * {@link https://developers.google.com/actions/assistant/responses#media_responses}
+ * * {@link https://developers.google.com/actions/reference/rest/Shared.Types/AppResponse#mediaresponse}
+ * * {@link https://developer.amazon.com/docs/custom-skills/audioplayer-interface-reference.html#play-params}
  */
 export interface Audio extends PlayableMedia {
     type: AudioType;

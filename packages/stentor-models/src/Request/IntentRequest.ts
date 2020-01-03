@@ -63,7 +63,7 @@ export interface RequestSlot<T = RequestSlotValues> {
     /**
      * If the entity resolution was successful or not.
      *
-     * @see https://developer.amazon.com/docs/custom-skills/define-synonyms-and-ids-for-slot-type-values-entity-resolution.html#er-built-in-types
+     * See {@link https://developer.amazon.com/docs/custom-skills/define-synonyms-and-ids-for-slot-type-values-entity-resolution.html#er-built-in-types}
      */
     successfulMatch?: boolean;
 }
@@ -75,7 +75,7 @@ export interface RequestSlotMap {
 /**
  * Request for a particular intent.
  *
- * For Alexa @see https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/handling-requests-sent-by-alexa#intentrequest
+ * For Alexa see {@link https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/handling-requests-sent-by-alexa#intentrequest}
  */
 export interface IntentRequest extends BaseRequest {
     type: IntentRequestType;

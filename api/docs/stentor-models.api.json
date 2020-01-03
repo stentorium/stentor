@@ -1679,7 +1679,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!AlexaPlatformData#category:member",
-              "docComment": "/**\n * Part of the Alexa Skill Manifest, th category communicates what type of functionality the skill performs.\n *\n * @see https://developer.amazon.com/docs/smapi/skill-manifest.html#publishinginformation\n */\n",
+              "docComment": "/**\n * Part of the Alexa Skill Manifest, th category communicates what type of functionality the skill performs.\n *\n * See {@link https://developer.amazon.com/docs/smapi/skill-manifest.html#publishinginformation}\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1704,7 +1704,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!AlexaPlatformData#distributionCountries:member",
-              "docComment": "/**\n * Part of the Alexa Skill Manifest publishing information, when isAvailableWorldwide is false this must be specified. It is an array of ISO 3166-1 alpha-2 format country strings where the skill can be distributed.\n *\n * @see https://developer.amazon.com/docs/smapi/skill-manifest.html#publishinginformation\n */\n",
+              "docComment": "/**\n * Part of the Alexa Skill Manifest publishing information, when isAvailableWorldwide is false this must be specified. It is an array of ISO 3166-1 alpha-2 format country strings where the skill can be distributed.\n *\n * See {@link https://developer.amazon.com/docs/smapi/skill-manifest.html#publishinginformation}\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1729,7 +1729,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!AlexaPlatformData#distributionMode:member",
-              "docComment": "/**\n * Part of the Alexa Skill Manifest publishing information, either \"PUBLIC\" or \"PRIVATE\".\n *\n * @see https://developer.amazon.com/docs/smapi/skill-manifest.html\n */\n",
+              "docComment": "/**\n * Part of the Alexa Skill Manifest publishing information, either \"PUBLIC\" or \"PRIVATE\".\n *\n * See {@link https://developer.amazon.com/docs/smapi/skill-manifest.html}\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1754,7 +1754,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!AlexaPlatformData#isAvailableWorldwide:member",
-              "docComment": "/**\n * Part of the Alexa Skill Manifest publishing information, if true the skill will be distributed in all countries covered by the specified locales.\n *\n * @see https://developer.amazon.com/docs/smapi/skill-manifest.html#publishinginformation\n */\n",
+              "docComment": "/**\n * Part of the Alexa Skill Manifest publishing information, if true the skill will be distributed in all countries covered by the specified locales.\n *\n * See {@link https://developer.amazon.com/docs/smapi/skill-manifest.html#publishinginformation}\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1779,7 +1779,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!AlexaPlatformData#permissions:member",
-              "docComment": "/**\n * Part of the Alexa Skill Manifest, an array of named permissions that the skill can use.\n *\n * @see https://developer.amazon.com/docs/smapi/skill-manifest.html#permissions\n */\n",
+              "docComment": "/**\n * Part of the Alexa Skill Manifest, an array of named permissions that the skill can use.\n *\n * See {@link https://developer.amazon.com/docs/smapi/skill-manifest.html#permissions}\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1829,7 +1829,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!AlexaPlatformData#privacyAndCompliance:member",
-              "docComment": "/**\n * Part of the Alexa Skill Manifest.\n *\n * @see https://developer.amazon.com/docs/smapi/skill-manifest.html#publishinginformation\n */\n",
+              "docComment": "/**\n * Part of the Alexa Skill Manifest.\n *\n * See {@link https://developer.amazon.com/docs/smapi/skill-manifest.html#publishinginformation}\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -4406,7 +4406,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "stentor-models!Audio:interface",
-          "docComment": "/**\n * Playable media designed for hands-free & eyes-free consumption.\n *\n * This interface cannot be implemented directly.\n *\n * @see https://developers.google.com/actions/assistant/responses#media_responses  @see https://developers.google.com/actions/reference/rest/Shared.Types/AppResponse#mediaresponse  @see https://developer.amazon.com/docs/custom-skills/audioplayer-interface-reference.html#play-params\n */\n",
+          "docComment": "/**\n * Playable media designed for hands-free & eyes-free consumption.\n *\n * This interface cannot be implemented directly.\n *\n * See the following: * {@link https://developers.google.com/actions/assistant/responses#media_responses} * {@link https://developers.google.com/actions/reference/rest/Shared.Types/AppResponse#mediaresponse} * {@link https://developer.amazon.com/docs/custom-skills/audioplayer-interface-reference.html#play-params}\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -5005,7 +5005,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "stentor-models!AudioPlayerRequest:interface",
-          "docComment": "/**\n * AudioPlayer requests handle audio life-cycle events such as playback started, playback stopped, playback failed, etc.\n *\n * @see https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/custom-audioplayer-interface-reference#requests\n */\n",
+          "docComment": "/**\n * AudioPlayer requests handle audio life-cycle events such as playback started, playback stopped, playback failed, etc.\n *\n * See {@link https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/custom-audioplayer-interface-reference#requests}\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -5887,7 +5887,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "stentor-models!BespokenDataStream:interface",
-          "docComment": "/**\n * Data for Bespoken Tools.\n *\n * @see https://bespoken.io\n */\n",
+          "docComment": "/**\n * Data for Bespoken Tools.\n *\n * See {@link https://bespoken.io}\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -7164,7 +7164,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "stentor-models!ChatbaseDataStream:interface",
-          "docComment": "/**\n * Data for Chatbase\n *\n * @see https://www.chatbase.com/\n */\n",
+          "docComment": "/**\n * Data for Chatbase\n *\n * See {@link https://www.chatbase.com/}\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -7867,7 +7867,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "stentor-models!DashbotDataStream:interface",
-          "docComment": "/**\n * Data for Dashbot integration\n *\n * @see https://www.dashbot.io/voicelabs\n */\n",
+          "docComment": "/**\n * Data for Dashbot integration\n *\n * See {@link https://www.dashbot.io/voicelabs}\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -8011,7 +8011,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!Data#accessibleThroughDiscovery:member",
-              "docComment": "/**\n * Is the handler available externally through discovery.\n *\n * On Google it means this accessible through Discovery (@see https://developers.google.com/actions/sdk/invocation-and-discovery#discovery) and on Alexa CanfulfillIntentRequest (@see https://developer.amazon.com/docs/custom-skills/understand-name-free-interaction-for-custom-skills.html)\n */\n",
+              "docComment": "/**\n * Is the handler available externally through discovery.\n *\n * On Google it means this accessible through Discovery (see {@link https://developers.google.com/actions/sdk/invocation-and-discovery#discovery}) and on Alexa CanfulfillIntentRequest (see {@link https://developer.amazon.com/docs/custom-skills/understand-name-free-interaction-for-custom-skills.html})\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -11133,7 +11133,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "stentor-models!GoogleAnalyticsStream:interface",
-          "docComment": "/**\n * Data for Google Analytics\n *\n * Token will be of format \"UA-XXXXXXX\"\n *\n * @see https://developer.amazon.com/blogs/alexa/post/TxPQVHWYRKJGXE/how-this-alexa-developer-easily-implemented-google-analytics-to-monitor-skill-performance\n */\n",
+          "docComment": "/**\n * Data for Google Analytics\n *\n * Token will be of format \"UA-XXXXXXX\"\n *\n * See {@link https://developer.amazon.com/blogs/alexa/post/TxPQVHWYRKJGXE/how-this-alexa-developer-easily-implemented-google-analytics-to-monitor-skill-performance}\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -12729,7 +12729,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "stentor-models!Hooks:interface",
-          "docComment": "",
+          "docComment": "/**\n * Hooks are used to provide the opportunity to modify or log runtime data at different points in the lifecycle.\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -12800,7 +12800,7 @@
             {
               "kind": "MethodSignature",
               "canonicalReference": "stentor-models!Hooks#preExecution:member(1)",
-              "docComment": "/**\n * Once the channel is selected and before the request is translated, the preExecution hook is called.\n *\n * This can be used for pre-execution modifications or checks. If an error is thrown, it will be caught and returned. If you return undefined, all execution will halt without throwing an error (feel free to call the callback yourself).\n *\n * @param  - event\n *\n * @param  - context\n *\n * @param  - callback\n *\n * @returns Promise that either returns undefined to halt execution or the parameters back.\n */\n",
+              "docComment": "/**\n * Once the channel is selected and before the request is translated, the preExecution hook is called.\n *\n * This can be used for pre-execution modifications or checks. If an error is thrown, it will be caught and returned. If you return undefined, all execution will halt without throwing an error (feel free to call the callback yourself).\n *\n * @param event - \n *\n * @param context - \n *\n * @param callback - \n *\n * @returns Promise that either returns undefined to halt execution or the parameters back.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -12898,7 +12898,7 @@
             {
               "kind": "MethodSignature",
               "canonicalReference": "stentor-models!Hooks#preResponseTranslation:member(1)",
-              "docComment": "/**\n * This hook is called before the response is translated for the channel.\n *\n * Last chance to tweak the platform independent response or collect some data from the request/response (transcript).\n *\n * @param  - request\n *\n * @param  - response\n *\n * @returns \n */\n",
+              "docComment": "/**\n * This hook is called before the response is translated for the channel.\n *\n * Last chance to tweak the platform independent response or collect some data from the request/response (transcript).\n *\n * @param request - \n *\n * @param response - \n *\n * @returns \n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -13453,7 +13453,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "stentor-models!Intent:interface",
-          "docComment": "/**\n * Intents represent the request of a user.\n *\n * @export\n */\n",
+          "docComment": "/**\n * Intents represent the request of a user.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -13636,7 +13636,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!Intent#langCode:member",
-              "docComment": "/**\n * The language code. Defaults to \"en-US\".\n *\n * @deprecated\n *\n * This is no longer in use (it was in fact, never used). Favor  @defaultLocale and  @locales instead.\n */\n",
+              "docComment": "/**\n * The language code. Defaults to \"en-US\".\n *\n * @deprecated\n *\n * This is no longer in use (it was in fact, never used). Favor {@link Intent.defaultLocale} and {@link Intent.locales} instead.\n *\n * @defaultValue\n *\n * \"en-US\"\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -13825,7 +13825,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!Intent#substitutions:member",
-              "docComment": "/**\n * Substitutions can be used to clean up your utterance pattern to make it more readable.\n *\n * For example, you may often have a lot of slots at the beginning of every pattern:\n *\n * `{${acknowledge}|${yes_no}|}${prefix} the rest of the utterance`\n *\n * This then moves the actual meat of the pattern to the right when really you don't care about the above except that it is there.\n *\n * Substitutions will allow you to replace these, just at the local intent level, to make it easier to read.\n *\n * { [\"_PREFIX_\"]}: \"{${acknowledge}|${yes_no}|}${prefix}\" }\n *\n * So it then becomes:\n *\n * `${_PREFIX_} the rest of the utterance`\n *\n * It also allows you to change the substitution value and have it updated across all the utterance patterns where the substitution exists.\n *\n * When compiling the patterns, the substitution is applied first before expanding.\n */\n",
+              "docComment": "/**\n * Substitutions can be used to clean up your utterance pattern to make it more readable.\n *\n * For example, you may often have a lot of slots at the beginning of every pattern:\n *\n * `\\{$\\{acknowledge\\}|$\\{yes_no\\}|\\}$\\{prefix\\} the rest of the utterance`\n *\n * This then moves the actual meat of the pattern to the right when really you don't care about the above except that it is there.\n *\n * Substitutions will allow you to replace these, just at the local intent level, to make it easier to read.\n *\n * \\{ [\"_PREFIX_\"]\\}: \"\\{$\\{acknowledge\\}|$\\{yes_no\\}|\\}$\\{prefix\\}\" \\}\n *\n * So it then becomes:\n *\n * `$\\{_PREFIX_\\} the rest of the utterance`\n *\n * It also allows you to change the substitution value and have it updated across all the utterance patterns where the substitution exists.\n *\n * When compiling the patterns, the substitution is applied first before expanding.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -13850,7 +13850,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!Intent#utterancePatterns:member",
-              "docComment": "/**\n * An array of utterance patterns.\n *\n * For more information on syntax see https://github.com/alexa-js/alexa-utterances\n *\n * @see https://github.com/alexa-js/alexa-utterances\n */\n",
+              "docComment": "/**\n * An array of utterance patterns.\n *\n * For more information on syntax see {@link https://github.com/alexa-js/alexa-utterances}\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -13883,7 +13883,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "stentor-models!IntentRequest:interface",
-          "docComment": "/**\n * Request for a particular intent.\n *\n * For Alexa  @see https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/handling-requests-sent-by-alexa#intentrequest\n */\n",
+          "docComment": "/**\n * Request for a particular intent.\n *\n * For Alexa see {@link https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/handling-requests-sent-by-alexa#intentrequest}\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -15210,7 +15210,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "stentor-models!LaunchRequest:interface",
-          "docComment": "/**\n * The Launch Request, when the user says \"open {invocation name}\" or \"talk to {invocation name}\"\n *\n * @see https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/handling-requests-sent-by-alexa#launchrequest\n */\n",
+          "docComment": "/**\n * The Launch Request, when the user says \"open \\{invocation name\\}\" or \"talk to \\{invocation name\\}\"\n *\n * See {@link https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/handling-requests-sent-by-alexa#launchrequest}\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -15283,7 +15283,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!LaunchRequest#type:member",
-              "docComment": "",
+              "docComment": "/**\n * LaunchRequest has a constant type of \"LAUNCH_REQUEST\"\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -15422,7 +15422,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "stentor-models!List:interface",
-          "docComment": "/**\n * List style display items.\n *\n * Can either be vertical style list or a carousel.\n *\n * This translates to a List/Carousel on the Google Assistant and ListTemplate1/ListTemplate2 on Amazon Alexa\n *\n * @see https://developers.google.com/actions/assistant/responses#list  @see https://developer.amazon.com/docs/custom-skills/display-template-reference.html#listtemplate1\n */\n",
+          "docComment": "/**\n * List style display items.\n *\n * Can either be vertical style list or a carousel.\n *\n * This translates to a List/Carousel on the Google Assistant and ListTemplate1/ListTemplate2 on Amazon Alexa\n *\n * See {@link https://developers.google.com/actions/assistant/responses#list} and {@link https://developer.amazon.com/docs/custom-skills/display-template-reference.html#listtemplate1}\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -19998,7 +19998,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "stentor-models!PlaybackControlRequest:interface",
-          "docComment": "/**\n * Playback control requests come from either remote control buttons or on screen buttons. These are events like next, previous, resume & pause.\n *\n * @see https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/custom-playbackcontroller-interface-reference#requests\n */\n",
+          "docComment": "/**\n * Playback control requests come from either remote control buttons or on screen buttons. These are events like next, previous, resume & pause.\n *\n * See {@link https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/custom-playbackcontroller-interface-reference#requests}\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -20862,7 +20862,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!RelativeDateTime#relativity:member",
-              "docComment": "/**\n * The relative date. It can be just \"LAST_WEEKEND\" but can also be \"${LAST_WEEKEND}\", \"${LAST_SUNDAY}T12:00:00\", \"${LAST_FRIDAY}T12:00:00 --> ${LAST_SATURDAY}T12:00:00\" or \"${LAST_FRIDAY}T12:00:00/${LAST_SATURDAY}T12:00:00\"\n */\n",
+              "docComment": "/**\n * The relative date. It can be just \"LAST_WEEKEND\" but can also be \"$\\{LAST_WEEKEND\\}\", \"$\\{LAST_SUNDAY\\}T12:00:00\", \"$\\{LAST_FRIDAY\\}T12:00:00 --\\> $\\{LAST_SATURDAY\\}T12:00:00\" or \"$\\{LAST_FRIDAY\\}T12:00:00/$\\{LAST_SATURDAY\\}T12:00:00\"\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -21985,7 +21985,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!RequestSlot#successfulMatch:member",
-              "docComment": "/**\n * If the entity resolution was successful or not.\n *\n * @see https://developer.amazon.com/docs/custom-skills/define-synonyms-and-ids-for-slot-type-values-entity-resolution.html#er-built-in-types\n */\n",
+              "docComment": "/**\n * If the entity resolution was successful or not.\n *\n * See {@link https://developer.amazon.com/docs/custom-skills/define-synonyms-and-ids-for-slot-type-values-entity-resolution.html#er-built-in-types}\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -24396,7 +24396,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "stentor-models!SessionEndedRequest:interface",
-          "docComment": "/**\n * Session Ended Request, used by Alexa to signal the session has ended.\n *\n * @see https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/handling-requests-sent-by-alexa#sessionendedrequest\n */\n",
+          "docComment": "/**\n * Session Ended Request, used by Alexa to signal the session has ended.\n *\n * See {@link https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/handling-requests-sent-by-alexa#sessionendedrequest}\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -29838,7 +29838,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "stentor-models!VoiceLabsDataStream:interface",
-          "docComment": "/**\n * Data for VoiceLabs\n *\n * @see http://voicelabs.co/\n */\n",
+          "docComment": "/**\n * Data for VoiceLabs\n *\n * See {@link http://voicelabs.co/}\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",

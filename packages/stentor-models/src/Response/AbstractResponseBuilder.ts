@@ -52,7 +52,7 @@ export abstract class AbstractResponseBuilder<R = any> {
      *
      * @readonly
      */
-    protected get response(): Readonly<Response<ResponseOutput>> | undefined {
+    public get response(): Readonly<Response<ResponseOutput>> | undefined {
         return this._response;
     }
     /**

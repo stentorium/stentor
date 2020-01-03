@@ -34,6 +34,7 @@ jobs:
             - lerna.json
             - .eslintignore
             - .eslintrc.js
+            - .yarnrc
 
   build:
     <<: *defaults

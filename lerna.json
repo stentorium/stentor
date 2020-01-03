@@ -8,6 +8,8 @@
       "exact": true
     },
     "version": {
+      "allowBranch": "master",
+      "exact": true,
       "conventionalCommits": true,
       "message": "chore(release): 📣⚡ publish release [skip ci]"
     },

@@ -12,11 +12,10 @@ export interface Hooks {
      * This can be used for pre-execution modifications or checks.  If an error is thrown, it will be caught and
      * returned.  If you return undefined, all execution will halt without throwing an error (feel free to call the callback yourself).
      *
-     * @param {object} event
-     * @param {RuntimeContext} context
-     * @param {RuntimeCallback} callback
-     * @returns {Promise<{ event: object; context: RuntimeContext; callback: RuntimeCallback }| undefined>}
-     * @memberof Hooks
+     * @param event
+     * @param context
+     * @param callback
+     * @returns Promise that either returns undefined to halt execution or the parameters back.
      */
     preExecution?(
         event: object,
@@ -29,9 +28,8 @@ export interface Hooks {
      * This can be an opportunity to modify the request but the request must be returned to
      * continue operation.
      *
-     * @param {Request} request
-     * @returns {Promise<Request>}
-     * @memberof Hooks
+     * @param request - The request after it has been translated
+     * @returns Promise that passes back the request
      */
     postRequestTranslation?(request: Request): Promise<Request>;
 
@@ -40,12 +38,10 @@ export interface Hooks {
      *
      * Last chance to tweak the platform independent response or collect some data from the request/response (transcript).
      *
-     * @param {Request} request
-     * @param {AbstractResponseBuilder} response
-     * @returns {Promise<{ request: Request; response: AbstractResponseBuilder }}
-     * @memberof Hooks
+     * @param request
+     * @param response
+     * @returns 
      */
-
     preResponseTranslation?(request: Request, response: AbstractResponseBuilder, storage: Storage):
         Promise<{ request: Request; response: AbstractResponseBuilder; storage: Storage }>;
 }

@@ -103,7 +103,7 @@ export interface Intent extends Localizable<LocaleSpecificIntent> {
      * This is the locale in which the app is primarily focused on. The intent will publish to this locale with the
      * data provided. Items which can be overwritten can be placed in the "locale" section with the locale necessary.
      *
-     * @default "en"
+     * @defaultValue "en"
      */
     defaultLocale?: Locale;
     /**

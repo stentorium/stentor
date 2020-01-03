@@ -17,7 +17,7 @@ export interface AudioLiveStream extends Audio {
      *
      * Use title instead.
      *
-     * @deprecated in favor of title
+     * @deprecated Use title instead
      */
     name?: string;
 }

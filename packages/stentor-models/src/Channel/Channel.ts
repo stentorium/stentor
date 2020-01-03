@@ -32,7 +32,7 @@ export interface Channel {
      *
      * If one isn't provided, it will rely on the name to determine the channel.
      *
-     * @param body
+     * @param body - 
      */
     test?(body: object): boolean;
     /**
@@ -46,7 +46,7 @@ export interface Channel {
     /**
      * Response builder, this is now deprecated in favor of providing a response translator.
      *
-     * @deprecated
+     * @deprecated Provide a response translator instead of a customer builder.
      */
     builder?: new (props: object) => AbstractResponseBuilder;
     /**

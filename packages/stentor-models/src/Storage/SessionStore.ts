@@ -11,20 +11,21 @@ export interface SessionStore {
     /**
      * Get a session value
      *
-     * @param {string} key
-     * @returns {any}
+     * @param key - Key for value to be retrieved
+     * @returns Value for the supplied key
      */
     get(key: string): any;
     /**
      * Set a value with a key
-     * @param {string} key
-     * @param value
+     * 
+     * @param key - Key for value to be set
+     * @param value - Value to be set on the store
      */
     set(key: string, value: any): void;
     /**
      * This will return the whole store
      *
-     * @returns {any}
+     * @returns The session storage 
      */
     getStore(): any;
 }

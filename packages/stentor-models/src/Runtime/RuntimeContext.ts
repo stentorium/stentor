@@ -18,8 +18,7 @@ export interface RuntimeContext {
     /**
      * Optional, for functions as a service, it gets the remaining execution time.
      *
-     * @returns {number}
-     * @memberof RuntimeContext
+     * @returns The remaining execution time of the function
      */
     getRemainingTimeInMillis?(): number;
     /**

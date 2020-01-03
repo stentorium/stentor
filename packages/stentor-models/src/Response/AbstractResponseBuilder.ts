@@ -39,12 +39,14 @@ export abstract class AbstractResponseBuilder<R = any> {
     protected readonly device: Readonly<Device>;
     /**
      * Do not use.
-     * @deprecated
+     * 
+     * @deprecated Use metadata from the App model
      */
     protected readonly backgroundImage?: ImageSpecification[];
     /**
      * Do not use.
-     * @deprecated
+     * 
+     * @deprecated Use metadata from the App model
      */
     protected readonly assistantTitle?: string;
     /**
@@ -100,7 +102,6 @@ export abstract class AbstractResponseBuilder<R = any> {
      *
      * @param card - Card to be displayed to the user
      * @returns The builder instance
-     * @memberof ResponseBuilder
      */
     abstract withCard(card: Card): AbstractResponseBuilder<R>;
     /**

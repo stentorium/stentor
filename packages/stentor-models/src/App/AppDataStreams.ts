@@ -106,7 +106,8 @@ export interface GoogleAnalyticsStream extends BaseDataStream {
 
 /**
  * Data for Luis NLU
- * @alpha
+ * 
+ * @deprecated Use NLU on the App model
  */
 export interface LuisDataStream extends BaseDataStream {
     type: LuisType;
@@ -116,7 +117,8 @@ export interface LuisDataStream extends BaseDataStream {
 
 /**
  * Data for Dialogflow NLU
- * @deprecated
+ * 
+ * @deprecated Use NLU on the App model
  */
 export interface DialogflowDataStream extends BaseDataStream {
     type: DialogflowType;

@@ -5,27 +5,24 @@ export interface UserStorageService {
     /**
      * Get the storage for the provided ID
      *
-     * @param {string} id
-     * @returns {(Promise<Storage | undefined>)}
-     * @memberof UserStorageService
+     * @param id
+     * @returns
      */
     get(id: string): Promise<Storage | undefined>;
     /**
      * Creates the storage for the provided ID
      *
-     * @param {string} id
-     * @param {Storage} storage
-     * @returns {Promise<Storage>}
-     * @memberof UserStorageService
+     * @param id
+     * @param storage
+     * @returns
      */
     create(id: string, storage: Storage): Promise<Storage>;
     /**
      * Update the storage for the provided ID with provided storage.
      *
-     * @param {string} id
-     * @param {Storage} storage
-     * @returns {Promise<Storage>}
-     * @memberof UserStorageService
+     * @param id
+     * @param storage
+     * @returns
      */
     update(id: string, storage: Storage): Promise<Storage>;
 }

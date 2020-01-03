@@ -433,7 +433,7 @@
             {
               "kind": "Property",
               "canonicalReference": "stentor-models!AbstractResponseBuilder#assistantTitle:member",
-              "docComment": "/**\n * Do not use.\n *\n * @deprecated\n */\n",
+              "docComment": "/**\n * Do not use.\n *\n * @deprecated\n *\n * Use metadata from the App model\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -459,7 +459,7 @@
             {
               "kind": "Property",
               "canonicalReference": "stentor-models!AbstractResponseBuilder#backgroundImage:member",
-              "docComment": "/**\n * Do not use.\n *\n * @deprecated\n */\n",
+              "docComment": "/**\n * Do not use.\n *\n * @deprecated\n *\n * Use metadata from the App model\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1135,7 +1135,7 @@
             {
               "kind": "Method",
               "canonicalReference": "stentor-models!AbstractResponseBuilder#withCard:member(1)",
-              "docComment": "/**\n * Provide a card\n *\n * @param card - Card to be displayed to the user\n *\n * @returns The builder instance  @memberof ResponseBuilder\n */\n",
+              "docComment": "/**\n * Provide a card\n *\n * @param card - Card to be displayed to the user\n *\n * @returns The builder instance\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -2499,7 +2499,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!App#defaultLocale:member",
-              "docComment": "/**\n * This is the locale in which the app is primarily focused on. The app will publish to this locale with the data provided. Items which can be overwritten can be placed in the \"locale\" section with the local necessary.\n *\n * @default \"en\"\n */\n",
+              "docComment": "/**\n * This is the locale in which the app is primarily focused on. The app will publish to this locale with the data provided. Items which can be overwritten can be placed in the \"locale\" section with the local necessary.\n *\n * @defaultValue\n *\n * \"en\"\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -4634,7 +4634,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!AudioLiveStream#name:member",
-              "docComment": "/**\n * Name of the stream.\n *\n * Use title instead.\n *\n * @deprecated\n *\n * in favor of title\n */\n",
+              "docComment": "/**\n * Name of the stream.\n *\n * Use title instead.\n *\n * @deprecated\n *\n * Use title instead\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -6683,7 +6683,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!Channel#builder:member",
-              "docComment": "/**\n * Response builder, this is now deprecated in favor of providing a response translator.\n *\n * @deprecated\n */\n",
+              "docComment": "/**\n * Response builder, this is now deprecated in favor of providing a response translator.\n *\n * @deprecated\n *\n * Provide a response translator instead of a customer builder.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -6912,7 +6912,7 @@
             {
               "kind": "MethodSignature",
               "canonicalReference": "stentor-models!Channel#test:member(1)",
-              "docComment": "/**\n * Optional function that tests the incoming request to see if it is a request for the channel.\n *\n * It returns true if the request is for the channel.\n *\n * If one isn't provided, it will rely on the name to determine the channel.\n *\n * @param  - body\n */\n",
+              "docComment": "/**\n * Optional function that tests the incoming request to see if it is a request for the channel.\n *\n * It returns true if the request is for the channel.\n *\n * If one isn't provided, it will rely on the name to determine the channel.\n *\n * @param body - \n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -8613,7 +8613,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "stentor-models!DialogflowDataStream:interface",
-          "docComment": "/**\n * Data for Dialogflow NLU\n *\n * @deprecated\n */\n",
+          "docComment": "/**\n * Data for Dialogflow NLU\n *\n * @deprecated\n *\n * Use NLU on the App model\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -12742,7 +12742,7 @@
             {
               "kind": "MethodSignature",
               "canonicalReference": "stentor-models!Hooks#postRequestTranslation:member(1)",
-              "docComment": "/**\n * This hook is called directly after the request is translated for the channel.\n *\n * This can be an opportunity to modify the request but the request must be returned to continue operation.\n *\n * @param  - {Request} request\n *\n * @returns {Promise<Request>}  @memberof Hooks\n */\n",
+              "docComment": "/**\n * This hook is called directly after the request is translated for the channel.\n *\n * This can be an opportunity to modify the request but the request must be returned to continue operation.\n *\n * @param request - The request after it has been translated\n *\n * @returns Promise that passes back the request\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -12800,7 +12800,7 @@
             {
               "kind": "MethodSignature",
               "canonicalReference": "stentor-models!Hooks#preExecution:member(1)",
-              "docComment": "/**\n * Once the channel is selected and before the request is translated, the preExecution hook is called.\n *\n * This can be used for pre-execution modifications or checks. If an error is thrown, it will be caught and returned. If you return undefined, all execution will halt without throwing an error (feel free to call the callback yourself).\n *\n * @param  - {object} event\n *\n * @param  - {RuntimeContext} context\n *\n * @param  - {RuntimeCallback} callback\n *\n * @returns {Promise<{ event: object; context: RuntimeContext; callback: RuntimeCallback }| undefined>}  @memberof Hooks\n */\n",
+              "docComment": "/**\n * Once the channel is selected and before the request is translated, the preExecution hook is called.\n *\n * This can be used for pre-execution modifications or checks. If an error is thrown, it will be caught and returned. If you return undefined, all execution will halt without throwing an error (feel free to call the callback yourself).\n *\n * @param  - event\n *\n * @param  - context\n *\n * @param  - callback\n *\n * @returns Promise that either returns undefined to halt execution or the parameters back.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -12898,7 +12898,7 @@
             {
               "kind": "MethodSignature",
               "canonicalReference": "stentor-models!Hooks#preResponseTranslation:member(1)",
-              "docComment": "/**\n * This hook is called before the response is translated for the channel.\n *\n * Last chance to tweak the platform independent response or collect some data from the request/response (transcript).\n *\n * @param  - {Request} request\n *\n * @param  - {AbstractResponseBuilder} response\n *\n * @returns {Promise<{ request: Request; response: AbstractResponseBuilder }}  @memberof Hooks\n */\n",
+              "docComment": "/**\n * This hook is called before the response is translated for the channel.\n *\n * Last chance to tweak the platform independent response or collect some data from the request/response (transcript).\n *\n * @param  - request\n *\n * @param  - response\n *\n * @returns \n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -13534,7 +13534,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!Intent#defaultLocale:member",
-              "docComment": "/**\n * This is the locale in which the app is primarily focused on. The intent will publish to this locale with the data provided. Items which can be overwritten can be placed in the \"locale\" section with the locale necessary.\n *\n * @default \"en\"\n */\n",
+              "docComment": "/**\n * This is the locale in which the app is primarily focused on. The intent will publish to this locale with the data provided. Items which can be overwritten can be placed in the \"locale\" section with the locale necessary.\n *\n * @defaultValue\n *\n * \"en\"\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -16498,6 +16498,112 @@
             "startIndex": 1,
             "endIndex": 2
           }
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "stentor-models!LuisDataStream:interface",
+          "docComment": "/**\n * Data for Luis NLU\n *\n * @deprecated\n *\n * Use NLU on the App model\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface LuisDataStream extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "BaseDataStream",
+              "canonicalReference": "stentor-models!BaseDataStream:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "LuisDataStream",
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!LuisDataStream#minimumScore:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "minimumScore?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "minimumScore",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!LuisDataStream#type:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "type: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "LuisType",
+                  "canonicalReference": "stentor-models!LuisType:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "type",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!LuisDataStream#url:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "url: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "url",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 3
+            }
+          ]
         },
         {
           "kind": "TypeAlias",
@@ -21548,7 +21654,7 @@
             {
               "kind": "MethodSignature",
               "canonicalReference": "stentor-models!RequestHandler#canHandleRequest:member(1)",
-              "docComment": "/**\n * If it can handle the request.\n *\n * @param  - {Request} request\n *\n * @returns {boolean}  @memberof RequestHandler\n */\n",
+              "docComment": "/**\n * If it can handle the request.\n *\n * @param request - Potential request for the handler\n *\n * @param context - Context for the request\n *\n * @returns If the handler can handle the provided request with given context\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -21608,7 +21714,7 @@
             {
               "kind": "MethodSignature",
               "canonicalReference": "stentor-models!RequestHandler#handleRequest:member(1)",
-              "docComment": "/**\n * Handle the give request with provided context.\n *\n * @param  - {Request} request\n *\n * @param  - {Context} context\n *\n * @returns {(Promise<void>)}  @memberof RequestHandler\n */\n",
+              "docComment": "/**\n * Handle the give request with provided context.\n *\n * @param request - Request to be handled\n *\n * @param context - Context the request is handled within\n *\n * @returns Promise that returns void when the execution is complete\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -23628,7 +23734,7 @@
             {
               "kind": "MethodSignature",
               "canonicalReference": "stentor-models!RuntimeContext#getRemainingTimeInMillis:member(1)",
-              "docComment": "/**\n * Optional, for functions as a service, it gets the remaining execution time.\n *\n * @returns {number}  @memberof RuntimeContext\n */\n",
+              "docComment": "/**\n * Optional, for functions as a service, it gets the remaining execution time.\n *\n * @returns The remaining execution time of the function\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -24484,7 +24590,7 @@
             {
               "kind": "MethodSignature",
               "canonicalReference": "stentor-models!SessionStore#get:member(1)",
-              "docComment": "/**\n * Get a session value\n *\n * @param  - {string} key\n *\n * @returns {any}\n */\n",
+              "docComment": "/**\n * Get a session value\n *\n * @param key - Key for value to be retrieved\n *\n * @returns Value for the supplied key\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -24527,7 +24633,7 @@
             {
               "kind": "MethodSignature",
               "canonicalReference": "stentor-models!SessionStore#getStore:member(1)",
-              "docComment": "/**\n * This will return the whole store\n *\n * @returns {any}\n */\n",
+              "docComment": "/**\n * This will return the whole store\n *\n * @returns The session storage\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -24554,7 +24660,7 @@
             {
               "kind": "MethodSignature",
               "canonicalReference": "stentor-models!SessionStore#set:member(1)",
-              "docComment": "/**\n * Set a value with a key\n *\n * @param  - {string} key\n *\n * @param  - value\n */\n",
+              "docComment": "/**\n * Set a value with a key\n *\n * @param key - Key for value to be set\n *\n * @param value - Value to be set on the store\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -29238,7 +29344,7 @@
             {
               "kind": "MethodSignature",
               "canonicalReference": "stentor-models!UserStorageService#create:member(1)",
-              "docComment": "/**\n * Creates the storage for the provided ID\n *\n * @param  - {string} id\n *\n * @param  - {Storage} storage\n *\n * @returns {Promise<Storage>}  @memberof UserStorageService\n */\n",
+              "docComment": "/**\n * Creates the storage for the provided ID\n *\n * @param  - id\n *\n * @param  - storage\n *\n * @returns \n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -29311,7 +29417,7 @@
             {
               "kind": "MethodSignature",
               "canonicalReference": "stentor-models!UserStorageService#get:member(1)",
-              "docComment": "/**\n * Get the storage for the provided ID\n *\n * @param  - {string} id\n *\n * @returns {(Promise<Storage | undefined>)}  @memberof UserStorageService\n */\n",
+              "docComment": "/**\n * Get the storage for the provided ID\n *\n * @param  - id\n *\n * @returns \n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -29368,7 +29474,7 @@
             {
               "kind": "MethodSignature",
               "canonicalReference": "stentor-models!UserStorageService#update:member(1)",
-              "docComment": "/**\n * Update the storage for the provided ID with provided storage.\n *\n * @param  - {string} id\n *\n * @param  - {Storage} storage\n *\n * @returns {Promise<Storage>}  @memberof UserStorageService\n */\n",
+              "docComment": "/**\n * Update the storage for the provided ID with provided storage.\n *\n * @param  - id\n *\n * @param  - storage\n *\n * @returns \n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",

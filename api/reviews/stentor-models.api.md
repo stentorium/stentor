@@ -233,7 +233,6 @@ export const APP_STATUS_UNDER_REVIEW: AppStatusUnderReview;
 // @public (undocumented)
 export const APP_STATUS_UNKNOWN: AppStatusUnknown;
 
-// Warning: (ae-incompatible-release-tags) The symbol "AppDataStream" is marked as @public, but its signature references "LuisDataStream" which is marked as @alpha
 // Warning: (ae-missing-release-tag) "AppDataStream" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
@@ -1696,7 +1695,9 @@ export type LoopOffIntent = "LoopOffIntent";
 // @public (undocumented)
 export type LoopOnIntent = "LoopOnIntent";
 
-// @alpha
+// Warning: (ae-missing-release-tag) "LuisDataStream" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public @deprecated
 export interface LuisDataStream extends BaseDataStream {
     // (undocumented)
     minimumScore?: number;

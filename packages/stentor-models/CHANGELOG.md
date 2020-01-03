@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0](https://github.com/stentorium/stentor/compare/stentor-models@1.15.0-alpha.2...stentor-models@1.15.0) (2020-01-03)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
 # [1.15.0-alpha.2](https://github.com/stentorium/stentor/compare/stentor-models@1.15.0-alpha.1...stentor-models@1.15.0-alpha.2) (2020-01-03)
 
 **Note:** Version bump only for package stentor-models

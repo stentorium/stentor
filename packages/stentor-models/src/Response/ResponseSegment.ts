@@ -12,8 +12,8 @@ export interface SimpleSegment {
     /**
      * The segment replaces the template in the templated string.
      *
-     * In the string "${GREETING}, how are you?", the segment will
-     * replace ${GREETING}.
+     * In the string "$\{GREETING\}, how are you?", the segment will
+     * replace $\{GREETING\}.
      */
     segment: string | ResponseOutput;
 }
@@ -57,7 +57,7 @@ export type ResponseSegment =
 /**
  * Map of response segments where the key is name within the template.
  *
- * For example a string with ${ GREETING }, GREETING is the key for the
+ * For example a string with $\{ GREETING \}, GREETING is the key for the
  * array of segments.
  */
 export interface ResponseSegmentsMap {

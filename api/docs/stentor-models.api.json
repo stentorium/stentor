@@ -23057,7 +23057,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "stentor-models!ResponseSegmentsMap:interface",
-          "docComment": "/**\n * Map of response segments where the key is name within the template.\n *\n * For example a string with ${ GREETING }, GREETING is the key for the array of segments.\n */\n",
+          "docComment": "/**\n * Map of response segments where the key is name within the template.\n *\n * For example a string with $\\{ GREETING \\}, GREETING is the key for the array of segments.\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -25672,7 +25672,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!SimpleSegment#segment:member",
-              "docComment": "/**\n * The segment replaces the template in the templated string.\n *\n * In the string \"${GREETING}, how are you?\", the segment will replace ${GREETING}.\n */\n",
+              "docComment": "/**\n * The segment replaces the template in the templated string.\n *\n * In the string \"$\\{GREETING\\}, how are you?\", the segment will replace $\\{GREETING\\}.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -25730,7 +25730,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "stentor-models!Slot:interface",
-          "docComment": "/**\n * Slots available to the intent.\n */\n",
+          "docComment": "/**\n * Slots available to the intent.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -25743,7 +25743,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!Slot#isList:member",
-              "docComment": "/**\n * Is the slot a list of values. Supported natively by Dialogflow and shims for Alexa.\n *\n * Can be a boolean or number. When a number is used, it provides guidance to the Alexa shim on the max amount of expected items in the list. Minimum value is 2. Value defaults to 6 when set to true.\n *\n * NOTE: Only one isList slot is supported per utterance pattern.\n */\n",
+              "docComment": "/**\n * Is the slot a list of values.\n *\n * @remarks\n *\n * Supported natively by Dialogflow and shims for Alexa.\n *\n * Can be a boolean or number. When a number is used, it provides guidance to the Alexa shim on the max amount of expected items in the list. Minimum value is 2. Value defaults to 6 when set to true.\n *\n * Only one isList slot is supported per utterance pattern.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -25768,7 +25768,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!Slot#name:member",
-              "docComment": "/**\n * The name of the slot, corresponds to how it is displayed in the sample utterance.\n *\n * For example: \"Play {Podcast}\" where Podcast is the name.\n */\n",
+              "docComment": "/**\n * The name of the slot, corresponds to how it is displayed in the sample utterance.\n *\n * For example: \"Play \\{Podcast\\}\" where Podcast is the name.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",

@@ -2656,8 +2656,6 @@ export interface SimpleSegment {
 // @public (undocumented)
 export type SimpleSuggestion = string;
 
-// Warning: (ae-missing-release-tag) "Slot" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
 export interface Slot {
     isList?: boolean | number;

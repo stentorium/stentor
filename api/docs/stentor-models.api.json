@@ -50,46 +50,6 @@
           "name": "AbstractResponseBuilder",
           "members": [
             {
-              "kind": "Property",
-              "canonicalReference": "stentor-models!AbstractResponseBuilder#_response:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "protected _response: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "Response",
-                  "canonicalReference": "stentor-models!Response:type"
-                },
-                {
-                  "kind": "Content",
-                  "text": "<"
-                },
-                {
-                  "kind": "Reference",
-                  "text": "ResponseOutput",
-                  "canonicalReference": "stentor-models!ResponseOutput:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": ">"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "_response",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 5
-              },
-              "isStatic": false
-            },
-            {
               "kind": "Constructor",
               "canonicalReference": "stentor-models!AbstractResponseBuilder:constructor(1)",
               "docComment": "/**\n * Constructs a new instance of the `AbstractResponseBuilder` class\n */\n",
@@ -123,7 +83,7 @@
             {
               "kind": "Method",
               "canonicalReference": "stentor-models!AbstractResponseBuilder#askForAccountLinking:member(1)",
-              "docComment": "/**\n * Request acct linking\n */\n",
+              "docComment": "/**\n * Request account linking\n *\n * @returns The builder instance\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -176,8 +136,57 @@
             },
             {
               "kind": "Method",
+              "canonicalReference": "stentor-models!AbstractResponseBuilder#askForCallTransfer:member(1)",
+              "docComment": "/**\n * Ask for call transfer (on telephony capable channels)\n *\n * @param phoneNumber - The phone number to transfer the call to\n *\n * @returns The builder instance\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "abstract askForCallTransfer(phoneNumber: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "AbstractResponseBuilder",
+                  "canonicalReference": "stentor-models!AbstractResponseBuilder:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<R>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 5
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "phoneNumber",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  }
+                }
+              ],
+              "name": "askForCallTransfer"
+            },
+            {
+              "kind": "Method",
               "canonicalReference": "stentor-models!AbstractResponseBuilder#askForListAccess:member(1)",
-              "docComment": "/**\n * Request access to shopping lists\n */\n",
+              "docComment": "/**\n * Request access to shopping lists\n *\n * @returns The builder instance\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -231,7 +240,7 @@
             {
               "kind": "Method",
               "canonicalReference": "stentor-models!AbstractResponseBuilder#askForNotification:member(1)",
-              "docComment": "/**\n * Request notification to intent\n *\n * This is a beta feature.\n *\n * @param  - {string} intentId\n *\n * @beta\n */\n",
+              "docComment": "/**\n * Request notification to intent\n *\n * This is a beta feature.\n *\n * @param intentId - \n *\n * @returns The builder instance\n *\n * @beta\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -280,7 +289,7 @@
             {
               "kind": "Method",
               "canonicalReference": "stentor-models!AbstractResponseBuilder#askForSurfaceChange:member(1)",
-              "docComment": "/**\n * @param  - {string} tts\n *\n * @param  - {string} notificationLabel\n */\n",
+              "docComment": "/**\n * Ask the user to change surfaces, for example from a smart speaker to a mobile phone.\n *\n * @param response - Response to give as context to the user for the surface change\n *\n * @param notificationLabel - The label for the notification on the new surface\n *\n * @returns The builder instance\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -349,7 +358,7 @@
             {
               "kind": "Method",
               "canonicalReference": "stentor-models!AbstractResponseBuilder#askForUserData:member(1)",
-              "docComment": "/**\n * Chase down the user profile data\n */\n",
+              "docComment": "/**\n * Chase down the user profile data\n *\n * @returns The builder instance\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -424,7 +433,7 @@
             {
               "kind": "Property",
               "canonicalReference": "stentor-models!AbstractResponseBuilder#assistantTitle:member",
-              "docComment": "/**\n * Do not use.\n *\n * @protected\n */\n",
+              "docComment": "/**\n * Do not use.\n *\n * @deprecated\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -481,7 +490,7 @@
             {
               "kind": "Method",
               "canonicalReference": "stentor-models!AbstractResponseBuilder#build:member(1)",
-              "docComment": "/**\n * Build the response\n */\n",
+              "docComment": "/**\n * Build the response\n *\n * @returns The built response\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -509,7 +518,7 @@
             {
               "kind": "Property",
               "canonicalReference": "stentor-models!AbstractResponseBuilder#device:member",
-              "docComment": "/**\n * Information about the device capabilities. Use to determine if you can present display information or play media.\n */\n",
+              "docComment": "/**\n * Information about the device capabilities. Use to determine if you can present display information or play media.\n *\n * @readonly\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -549,7 +558,7 @@
             {
               "kind": "Method",
               "canonicalReference": "stentor-models!AbstractResponseBuilder#enqueue:member(1)",
-              "docComment": "/**\n * Enqueue the next audio\n *\n * @param  - {PlayableMedia} next\n *\n * @param  - {PlayableMedia} current\n */\n",
+              "docComment": "/**\n * Enqueue the next audio\n *\n * @param next - Track to be queued\n *\n * @param current - The current track playing\n *\n * @returns The builder instance\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -643,7 +652,7 @@
             {
               "kind": "Method",
               "canonicalReference": "stentor-models!AbstractResponseBuilder#play:member(1)",
-              "docComment": "/**\n * Play the provided audio\n *\n * @param  - {Playable} playable\n *\n * @returns  @memberOf AlexaResponseBuilder\n */\n",
+              "docComment": "/**\n * Play the provided audio\n *\n * @param playable - Media to play\n *\n * @returns The builder instance\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -708,11 +717,20 @@
             {
               "kind": "Method",
               "canonicalReference": "stentor-models!AbstractResponseBuilder#playPlaylist:member(1)",
-              "docComment": "/**\n * Play a playlist\n *\n * Note: Only supported by Actions on Google at the moment. If attempting to use this function on Alexa, only the first item in the playlist will be played.\n *\n * @abstract\n *\n * @param  - {(Playlist<PlayableMedia> | PlayableMedia[])} playlist\n *\n * @returns {AbstractResponseBuilder<R>}  @memberof ResponseBuilder\n */\n",
+              "docComment": "/**\n * Play a playlist\n *\n * Note: Only supported by Actions on Google at the moment. If attempting to use this function on Alexa, only the first item in the playlist will be played.\n *\n * @param playlist - The playlist to be played\n *\n * @returns The builder instance\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
                   "text": "abstract playPlaylist(playlist: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Array",
+                  "canonicalReference": "!Array:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
                 },
                 {
                   "kind": "Reference",
@@ -721,7 +739,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "[] | "
+                  "text": "> | "
                 },
                 {
                   "kind": "Reference",
@@ -752,8 +770,8 @@
               ],
               "isStatic": false,
               "returnTypeTokenRange": {
-                "startIndex": 6,
-                "endIndex": 8
+                "startIndex": 8,
+                "endIndex": 10
               },
               "releaseTag": "Public",
               "overloadIndex": 1,
@@ -762,7 +780,7 @@
                   "parameterName": "playlist",
                   "parameterTypeTokenRange": {
                     "startIndex": 1,
-                    "endIndex": 5
+                    "endIndex": 7
                   }
                 }
               ],
@@ -771,7 +789,7 @@
             {
               "kind": "Method",
               "canonicalReference": "stentor-models!AbstractResponseBuilder#reprompt:member(1)",
-              "docComment": "/**\n * Provide a reprompt, necessary if you want to \"ask\" something\n *\n * @abstract\n *\n * @param  - {(string | ResponseOutput)} ssml\n *\n * @param  - {boolean} [append]\n *\n * @returns {AbstractResponseBuilder<R>}  @memberof ResponseBuilder\n */\n",
+              "docComment": "/**\n * Provide a reprompt, necessary if you want to \"ask\" something\n *\n * @param ssml - The reprompt, either as a string or a response output object which contains SSML and display text.\n *\n * @param append - Append the response to the existing, if available\n *\n * @returns The builder instance\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -840,7 +858,7 @@
             {
               "kind": "Method",
               "canonicalReference": "stentor-models!AbstractResponseBuilder#respond:member(1)",
-              "docComment": "/**\n * Respond to the user.\n *\n * Can contain just an output speech but can also contain an reprompt.\n *\n * @abstract\n *\n * @param  - {Response} response\n *\n * @returns {AbstractResponseBuilder<R>}  @memberof ResponseBuilder\n */\n",
+              "docComment": "/**\n * Respond to the user.\n *\n * Can contain just an output speech but can also contain an reprompt.\n *\n * @param response - The entire response\n *\n * @returns The builder instance\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -894,7 +912,7 @@
               "excerptTokens": [
                 {
                   "kind": "Content",
-                  "text": "protected get response(): "
+                  "text": "get response(): "
                 },
                 {
                   "kind": "Reference",
@@ -939,7 +957,7 @@
             {
               "kind": "Method",
               "canonicalReference": "stentor-models!AbstractResponseBuilder#say:member(1)",
-              "docComment": "/**\n * Say something to the user.\n *\n * @abstract\n *\n * @param  - {(string | ResponseOutput)} ssml\n *\n * @param  - {boolean} [append]\n *\n * @returns {AbstractResponseBuilder<R>}  @memberof ResponseBuilder\n */\n",
+              "docComment": "/**\n * Say something to the user.\n *\n * @param ssml - The response, either as a string or a response output object which contains SSML and display text.\n *\n * @param append - Append the response to the existing, if available\n *\n * @returns The builder instance\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1008,7 +1026,7 @@
             {
               "kind": "Method",
               "canonicalReference": "stentor-models!AbstractResponseBuilder#stop:member(1)",
-              "docComment": "/**\n * Stop the current audio\n *\n * @abstract\n *\n * @returns {AbstractResponseBuilder<R>}  @memberof ResponseBuilder\n */\n",
+              "docComment": "/**\n * Stop the current audio\n *\n * @returns The builder instance\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1067,7 +1085,7 @@
             {
               "kind": "Method",
               "canonicalReference": "stentor-models!AbstractResponseBuilder#withCanFulfill:member(1)",
-              "docComment": "/**\n * Build intent pre-fetch results aka \"CanFulfillRequest\"\n *\n * @param  - options\n */\n",
+              "docComment": "/**\n * Build intent pre-fetch results aka \"CanFulfillRequest\"\n *\n * @param  - results\n *\n * @returns The builder instance\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1117,7 +1135,7 @@
             {
               "kind": "Method",
               "canonicalReference": "stentor-models!AbstractResponseBuilder#withCard:member(1)",
-              "docComment": "/**\n * Provide a card\n *\n * @abstract\n *\n * @param  - {Card} card\n *\n * @returns {AbstractResponseBuilder<R>}  @memberof ResponseBuilder\n */\n",
+              "docComment": "/**\n * Provide a card\n *\n * @param card - Card to be displayed to the user\n *\n * @returns The builder instance  @memberof ResponseBuilder\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1167,7 +1185,7 @@
             {
               "kind": "Method",
               "canonicalReference": "stentor-models!AbstractResponseBuilder#withCarousel:member(1)",
-              "docComment": "/**\n * Provide a carousel (horizontal selection)\n *\n * @param  - {ListItem[]} items\n *\n * @returns {AbstractResponseBuilder<R>}\n */\n",
+              "docComment": "/**\n * Provide a carousel (horizontal selection)\n *\n * @param items - List items to display in the carousel\n *\n * @returns The builder instance\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1221,7 +1239,7 @@
             {
               "kind": "Method",
               "canonicalReference": "stentor-models!AbstractResponseBuilder#withList:member(1)",
-              "docComment": "/**\n * Provide a list (vertical selection)\n *\n * @param  - {ListItem[]} items\n *\n * @param  - {string} title\n *\n * @returns {AbstractResponseBuilder<R>}\n */\n",
+              "docComment": "/**\n * Provide a list (vertical selection)\n *\n * @param items - List items to display\n *\n * @param title - The title for the list\n *\n * @returns The builder instance\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1290,7 +1308,7 @@
             {
               "kind": "Method",
               "canonicalReference": "stentor-models!AbstractResponseBuilder#withSuggestions:member(1)",
-              "docComment": "/**\n * Provide suggestions for the user.\n *\n * Limited support across platforms for this at the moment, only Google Assistant.\n *\n * @abstract\n *\n * @param  - {(SuggestionTypes | SuggestionTypes[])} suggestion\n *\n * @returns {AbstractResponseBuilder<R>}  @memberof ResponseBuilder\n */\n",
+              "docComment": "/**\n * Provide suggestions for the user.\n *\n * Limited support across platforms for this at the moment, only Google Assistant.\n *\n * @param suggestion - Either a single suggestion chip or an array\n *\n * @returns The builder instance\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -8465,6 +8483,31 @@
             },
             {
               "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!Device#canTransferCall:member",
+              "docComment": "/**\n * If the device is capable to transfer calls (usually to an live agent).\n *\n * Telephony channels typically can perform this.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "canTransferCall: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "canTransferCall",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
               "canonicalReference": "stentor-models!Device#channel:member",
               "docComment": "/**\n * The channel the user is on.\n */\n",
               "excerptTokens": [
@@ -13962,6 +14005,32 @@
             },
             {
               "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!IntentRequest#knowledgeAnswer:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "knowledgeAnswer?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "KnowledgeAnswer",
+                  "canonicalReference": "stentor-models!KnowledgeAnswer:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "knowledgeAnswer",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
               "canonicalReference": "stentor-models!IntentRequest#sessionId:member",
               "docComment": "",
               "excerptTokens": [
@@ -14590,6 +14659,147 @@
             }
           ],
           "extendsTokenRanges": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "stentor-models!KnowledgeAnswer:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface KnowledgeAnswer "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "KnowledgeAnswer",
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!KnowledgeAnswer#answer:member",
+              "docComment": "/**\n * Raw answer\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "answer: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "answer",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!KnowledgeAnswer#faqQuestion:member",
+              "docComment": "/**\n * Raw question\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "faqQuestion: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "faqQuestion",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!KnowledgeAnswer#matchConfidence:member",
+              "docComment": "/**\n * Confidence 0-1\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "matchConfidence: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "matchConfidence",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!KnowledgeAnswer#source:member",
+              "docComment": "/**\n * Which knowledge base (optional)\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "source?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "source",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "stentor-models!KnowledgeAnswerID:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare type KnowledgeAnswerID = "
+            },
+            {
+              "kind": "Content",
+              "text": "\"KnowledgeAnswer\""
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "KnowledgeAnswerID",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
         },
         {
           "kind": "TypeAlias",
@@ -22268,7 +22478,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!ResponseBuilderProps#device:member",
-              "docComment": "",
+              "docComment": "/**\n * Capabilities of the current device.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -25293,7 +25503,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "\"ACCOUNT_LINK\" | \"MEDIA_ENQUEUE\" | \"MEDIA_STOP\" | \"SURFACE_CHANGE\" | \"PERMISSION_LIST\" | \"PERMISSION_EMAIL\" | \"PERMISSION_PHONE_NUMBER\" | \"PERMISSION_LOCATION_PRECISE\" | \"PERMISSION_LOCATION_COARSE\" | \"PERMISSION_NOTIFICATION\""
+                  "text": "\"ACCOUNT_LINK\" | \"MEDIA_ENQUEUE\" | \"MEDIA_STOP\" | \"SURFACE_CHANGE\" | \"PERMISSION_LIST\" | \"PERMISSION_EMAIL\" | \"PERMISSION_PHONE_NUMBER\" | \"PERMISSION_LOCATION_PRECISE\" | \"PERMISSION_LOCATION_COARSE\" | \"PERMISSION_NOTIFICATION\" | \"TRANSFER_CALL\""
                 },
                 {
                   "kind": "Content",

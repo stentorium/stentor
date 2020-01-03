@@ -15,12 +15,13 @@ import { Translator } from '@xapp/patterns';
 export abstract class AbstractResponseBuilder<R = any> {
     constructor(props: ResponseBuilderProps);
     abstract askForAccountLinking(response?: string | SimpleResponse): AbstractResponseBuilder<R>;
+    abstract askForCallTransfer(phoneNumber: string): AbstractResponseBuilder<R>;
     abstract askForListAccess(response?: string | SimpleResponse): AbstractResponseBuilder<R>;
     // @beta
     abstract askForNotification(intentId?: string): AbstractResponseBuilder<R>;
-    // (undocumented)
     abstract askForSurfaceChange(response?: string | SimpleResponse, notificationLabel?: string): AbstractResponseBuilder<R>;
     abstract askForUserData(userDataType: UserDataType, accessData?: ApiAccessData): Promise<UserDataValue>;
+    // @deprecated
     protected readonly assistantTitle?: string;
     // @deprecated
     protected readonly backgroundImage?: ImageSpecification[];
@@ -29,11 +30,11 @@ export abstract class AbstractResponseBuilder<R = any> {
     abstract enqueue(next: PlayableMedia, current: PlayableMedia): AbstractResponseBuilder<R>;
     mediaQueueSize(): number;
     abstract play(playable: PlayableMedia, offset?: number): AbstractResponseBuilder<R>;
-    abstract playPlaylist(playlist: PlayableMedia[] | PlayableMedia[]): AbstractResponseBuilder<R>;
+    abstract playPlaylist(playlist: Array<PlayableMedia> | PlayableMedia[]): AbstractResponseBuilder<R>;
     abstract reprompt(ssml: string | ResponseOutput, append?: boolean): AbstractResponseBuilder<R>;
     abstract respond(response: Response): AbstractResponseBuilder<R>;
-    protected get response(): Readonly<Response<ResponseOutput>> | undefined;
-    // (undocumented)
+    get response(): Readonly<Response<ResponseOutput>> | undefined;
+    // @internal (undocumented)
     protected _response: Response<ResponseOutput>;
     abstract say(ssml: string | ResponseOutput, append?: boolean): AbstractResponseBuilder<R>;
     abstract stop(): AbstractResponseBuilder<R>;
@@ -786,6 +787,7 @@ export interface Device {
     canPlayVideo: boolean;
     canSpeak: boolean;
     canThrowCard: boolean;
+    canTransferCall: boolean;
     channel: string;
     displayData?: DisplayData;
     hasScreen: boolean;
@@ -1393,6 +1395,8 @@ export interface IntentRequest extends BaseRequest {
     // (undocumented)
     isBargeIn?: boolean;
     // (undocumented)
+    knowledgeAnswer?: KnowledgeAnswer;
+    // (undocumented)
     sessionId: string;
     // (undocumented)
     slots?: RequestSlotMap;
@@ -1470,6 +1474,21 @@ export interface KeyValueStore {
     // (undocumented)
     [keys: string]: boolean | number | string | object | any;
 }
+
+// Warning: (ae-missing-release-tag) "KnowledgeAnswer" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface KnowledgeAnswer {
+    answer: string;
+    faqQuestion: string;
+    matchConfidence: number;
+    source?: string;
+}
+
+// Warning: (ae-missing-release-tag) "KnowledgeAnswerID" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type KnowledgeAnswerID = "KnowledgeAnswer";
 
 // Warning: (ae-missing-release-tag) "LambdaFailureEventType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -2350,7 +2369,6 @@ export interface ResponseBuilderProps {
     assistantTitle?: string;
     // @deprecated
     backgroundImage?: ImageSpecification[];
-    // (undocumented)
     device: Readonly<Device>;
 }
 
@@ -2626,7 +2644,7 @@ export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Act
     segments?: ResponseSegmentsMap;
     // @deprecated (undocumented)
     silencePrompt?: T;
-    system?: "ACCOUNT_LINK" | "MEDIA_ENQUEUE" | "MEDIA_STOP" | "SURFACE_CHANGE" | "PERMISSION_LIST" | "PERMISSION_EMAIL" | "PERMISSION_PHONE_NUMBER" | "PERMISSION_LOCATION_PRECISE" | "PERMISSION_LOCATION_COARSE" | "PERMISSION_NOTIFICATION";
+    system?: "ACCOUNT_LINK" | "MEDIA_ENQUEUE" | "MEDIA_STOP" | "SURFACE_CHANGE" | "PERMISSION_LIST" | "PERMISSION_EMAIL" | "PERMISSION_PHONE_NUMBER" | "PERMISSION_LOCATION_PRECISE" | "PERMISSION_LOCATION_COARSE" | "PERMISSION_NOTIFICATION" | "TRANSFER_CALL";
     tag?: string;
 }
 

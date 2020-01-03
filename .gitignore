@@ -64,3 +64,5 @@ typings/
 ## Generated
 **/lib/**
 **/dist/**
+
+**/temp/**

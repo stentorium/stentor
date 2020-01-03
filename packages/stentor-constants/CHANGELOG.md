@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.15.0-alpha.0 (2020-01-03)
+
+
+### Features
+
+* Models & Constants ([#1](https://github.com/stentorium/stentor/issues/1)) ([9723857](https://github.com/stentorium/stentor/commit/97238573662b27131d5a7e27def1fc92a28c6909))
+
+
+
+
+
 ## [1.14.1-alpha.6](https://github.com/stentorium/stentor/compare/stentor-constants@1.14.1-alpha.5...stentor-constants@1.14.1-alpha.6) (2020-01-03)
 
 **Note:** Version bump only for package stentor-constants

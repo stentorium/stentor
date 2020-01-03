@@ -261,7 +261,7 @@ export interface App extends Localizable<LocaleSpecificApp> {
      * This is the locale in which the app is primarily focused on. The app will publish to this locale with the
      * data provided. Items which can be overwritten can be placed in the "locale" section with the local necessary.
      *
-     * @default "en"
+     * @defaultValue "en"
      */
     defaultLocale?: Locale;
     /**

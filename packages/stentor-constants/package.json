@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.15.2",
+  "version": "1.15.3",
   "description": "Constants for :mega: stentor",
   "types": "lib/index",
   "typings": "lib/index",
@@ -20,7 +20,7 @@
     "typescript": "3.7.4"
   },
   "dependencies": {
-    "stentor-models": "1.15.2"
+    "stentor-models": "1.15.3"
   },
   "scripts": {
     "build": "tsc -d true -p .",

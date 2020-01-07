@@ -63,7 +63,7 @@ jobs:
     working_directory: ~/repo
     docker:
       # semantic-release requires node 8.3
-      - image: circleci/node:8.3
+      - image: circleci/node:8.17
     steps:
       - checkout
       - attach_workspace:

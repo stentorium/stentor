@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.2](https://github.com/stentorium/stentor/compare/stentor@1.15.1...stentor@1.15.2) (2020-01-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency ask-sdk-model to v1.25.1 ([#11](https://github.com/stentorium/stentor/issues/11)) ([36c572a](https://github.com/stentorium/stentor/commit/36c572a84fa866c56c313c9874a3a7616aaa577a))
+
+
+
+
+
 ## [1.15.1](https://github.com/stentorium/stentor/compare/stentor@1.15.0...stentor@1.15.1) (2020-01-03)
 
 **Note:** Version bump only for package stentor

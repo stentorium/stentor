@@ -68,7 +68,13 @@ export interface RequestSlot<T = RequestSlotValues> {
     successfulMatch?: boolean;
 }
 
+/**
+ * Map of slots where the key is the name of the slot.
+ */
 export interface RequestSlotMap {
+    /**
+     * Each key is the slot name and the corresponding value is the slot.
+     */
     [slotName: string]: RequestSlot;
 }
 
@@ -78,12 +84,40 @@ export interface RequestSlotMap {
  * For Alexa see {@link https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/handling-requests-sent-by-alexa#intentrequest}
  */
 export interface IntentRequest extends BaseRequest {
+    /**
+     * The type of an intent request is always "INTENT_REQUEST"
+     */
     type: IntentRequestType;
+    /**
+     * The ID of the matched intent.
+     */
     intentId: string;
+    /**
+     * The ID of the user's current session.
+     * 
+     * A session is typically defined by the channel is on but it is typically a set
+     * of requests and responses that are linked together. 
+     */
     sessionId: string;
+    /**
+     * Slots for the intent.
+     */
     slots?: RequestSlotMap;
+    /**
+     * Confidence level of the intent match.  On a scale from 0-1 where 1 is the highest confidence of a match.
+     */
+    matchConfidence?: number;
     isBargeIn?: boolean;
+    /**
+     * A meta, preliminary request that is more for understanding if the assistant can provide an answer or not.
+     */
     canFulfill?: boolean;
+    /**
+     * Optional data that can be added to the request
+     */
     data?: Data;
+    /**
+     * A unique request provided by a question answering system.  
+     */
     knowledgeAnswer?: KnowledgeAnswer;
 }

@@ -16,7 +16,7 @@
     "@xapp/config": "0.2.3",
     "eslint": "6.7.2",
     "eslint-plugin-notice": "0.8.9",
-    "lerna": "3.19.0"
+    "lerna": "3.20.2"
   },
   "scripts": {
     "lerna": "lerna",

@@ -30,7 +30,7 @@
     "clean": "rm -rf ./lib/* && rm -rf ./dist/*"
   },
   "dependencies": {
-    "@xapp/patterns": "1.7.6",
+    "@xapp/patterns": "1.14.0",
     "actions-on-google": "2.12.0",
     "ask-sdk-model": "1.25.1"
   }

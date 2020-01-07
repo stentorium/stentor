@@ -27,7 +27,7 @@
   "dependencies": {
     "@xapp/patterns": "1.7.6",
     "actions-on-google": "2.12.0",
-    "ask-sdk-model": "1.22.0",
+    "ask-sdk-model": "1.25.1",
     "stentor-constants": "1.15.1",
     "stentor-models": "1.15.1"
   }

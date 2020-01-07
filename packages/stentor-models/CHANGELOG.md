@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.16.0](https://github.com/stentorium/stentor/compare/stentor-models@1.15.5...stentor-models@1.16.0) (2020-01-07)
+
+
+### Features
+
+* Adding deviceId, matchConfidence to Request ([#16](https://github.com/stentorium/stentor/issues/16)) ([525cc22](https://github.com/stentorium/stentor/commit/525cc22f9904a64a59b93adfcfb5cbacec1594f6))
+
+
+
+
+
 ## [1.15.5](https://github.com/stentorium/stentor/compare/stentor-models@1.15.4...stentor-models@1.15.5) (2020-01-07)
 
 **Note:** Version bump only for package stentor-models

@@ -3,7 +3,7 @@ defaults: &defaults
   working_directory: ~/repo
   docker:
     # node 10.16.0 is our lambda node version
-    - image: circleci/node:10.16.0
+    - image: circleci/node:10.18.0
 
 jobs:
   checkout:

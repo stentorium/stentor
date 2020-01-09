@@ -30,7 +30,7 @@ import {
     AnalyticsServiceEvent
 } from "@xapp/stentor-service-analytics";
 import { EventPrefix, EventService } from "@xapp/stentor-service-event";
-import { OVAIEventStream, OVAIService } from "@xapp/stentor-service-ovai";
+import { OVAIEventStream, OVAIService } from "stentor-service-ovai";
 import { isLambdaError } from "@xapp/stentor-utils";
 import * as AWSLambda from "aws-lambda";
 

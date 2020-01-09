@@ -11,19 +11,19 @@ chai.use(sinonChai);
 const expect = chai.expect;
 
 class MockHandlerService implements HandlerService {
-    get() {
+    public get() {
         return {} as any;
     }
 }
 
 class MockUserStorageService implements UserStorageService {
-    get() {
+    public get() {
         return {} as any;
     }
-    create() {
+    public create() {
         return {} as any;
     }
-    update() {
+    public update() {
         return {} as any;
     }
 }
@@ -72,8 +72,8 @@ describe("Assistant", () => {
         describe("when runtime crashes", () => {
             let callback: sinon.SinonStub;
 
-            let ciPrevious: string;
-            let ovaiPrevious: string;
+            let ciPrevious: string | undefined;
+            let ovaiPrevious: string | undefined;
 
             beforeEach(() => {
                 assistant = new Assistant()
@@ -109,13 +109,11 @@ describe("Assistant", () => {
                 );
 
                 expect(callback).to.have.been.calledOnce;
-                // tslint:disable:no-null-keyword
                 expect(callback).to.have.been.calledWith(null, {
                     statusCode: 400,
                     body:
                         "Error: Could not verify the payload was from Alexa: missing certificate url.  If this is on a development environment, set environment variable OVAI_ALEXA_NO_VERIFY to true to disable verification."
                 });
-                // tslint:enable:no-null-keyword
             });
         });
     });

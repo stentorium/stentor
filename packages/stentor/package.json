@@ -47,7 +47,7 @@
     "@xapp/stentor-runtime": "1.15.0",
     "@xapp/stentor-service-analytics": "1.15.0",
     "@xapp/stentor-service-event": "1.14.4",
-    "@xapp/stentor-service-ovai": "1.14.4",
+    "stentor-service-ovai": "1.14.4",
     "@xapp/stentor-utils": "1.14.4",
     "stentor-constants": "1.15.8",
     "stentor-models": "1.16.2"

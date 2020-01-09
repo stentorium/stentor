@@ -2,10 +2,11 @@
 import { log } from "@xapp/logger";
 import AWS = require("aws-sdk");
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const dotenv = require("dotenv");
 const secretClient = new AWS.SecretsManager({});
 
-let secretsLoaded: boolean = false;
+let secretsLoaded = false;
 
 export function setEnv(secretName: string): Promise<void> {
     if (secretsLoaded) {
@@ -13,7 +14,7 @@ export function setEnv(secretName: string): Promise<void> {
         return Promise.resolve();
     }
 
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         secretClient.getSecretValue({ SecretId: secretName }, (err, data) => {
             if (err) {
                 log().debug(`Failed to get secrets from  ${secretName}: ${err.message}`);

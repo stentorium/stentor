@@ -16,7 +16,8 @@
     "@xapp/config": "0.2.3",
     "eslint": "6.8.0",
     "eslint-plugin-notice": "0.8.9",
-    "lerna": "3.20.2"
+    "lerna": "3.20.2",
+    "license-checker": "25.0.1"
   },
   "scripts": {
     "lerna": "lerna",
@@ -26,6 +27,7 @@
     "lint": "eslint 'packages/**/src/**/*.{ts,tsx}'",
     "build": "lerna run build",
     "test": "lerna run test",
-    "release": "lerna version --yes && git push origin --tags && lerna publish from-git --yes"
+    "release": "lerna version --yes && git push origin --tags && lerna publish from-git --yes",
+    "license-check": "license-checker --production --start './packages/stentor/' --exclude ISC,MIT,Apache-2.0,BSD-3-Clause,BSD-2-Clause --failOn GPL-3.0"
   }
 }

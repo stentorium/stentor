@@ -1,0 +1,39 @@
+{
+  "name": "stentor-service-ovai",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.14.4",
+  "description": "OV·AI service for stentor",
+  "types": "lib/index",
+  "main": "lib/index",
+  "files": [
+    "lib"
+  ],
+  "engines": {
+    "node": "10.x"
+  },
+  "devDependencies": {
+    "@types/chai": "4.2.1",
+    "@types/fetch-mock": "7.3.2",
+    "@xapp/config": "0.2.3",
+    "chai": "4.2.0",
+    "fetch-mock": "8.0.3",
+    "mocha": "6.2.2",
+    "ts-node": "8.1.0",
+    "typescript": "3.7.4"
+  },
+  "dependencies": {
+    "@xapp/stentor-service-event": "^1.14.4",
+    "@xapp/stentor-utils": "^1.14.4",
+    "isomorphic-fetch": "2.2.1",
+    "stentor-constants": "1.15.9",
+    "stentor-models": "1.16.3"
+  },
+  "scripts": {
+    "build": "tsc -d true -p .",
+    "clean": "rm -rf ./lib/*",
+    "test": "mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
+  }
+}

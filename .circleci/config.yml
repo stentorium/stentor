@@ -59,6 +59,39 @@ jobs:
           name: Lint
           command: yarn lint
 
+  test:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Unit Tests
+          command: yarn test
+          no_output_timeout: 15m
+          environment:
+            MOCHA_FILE: ./junit/test-results.xml
+      - store_test_results:
+          path: ./junit
+      - store_artifacts:
+          path: ./junit
+      - store_artifacts:
+          path: ./coverage
+      # persist the coverage output
+      # - persist_to_workspace:
+      #    root: ~/repo
+      #    paths:
+      #      - coverage/
+      #      - .nyc_output/*
+
+  license_check:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: License Check
+          command: yarn license-check
+
   release:
     working_directory: ~/repo
     docker:
@@ -104,6 +137,13 @@ workflows:
       - build:
           requires:
             - checkout
+      - test:
+          requires:
+            - checkout
+            - build
+      - license_check:
+          requires:
+            - checkout
 
   lint_build_test_release:
     jobs:
@@ -117,6 +157,10 @@ workflows:
       - lint:
           requires:
             - checkout
+      - test:
+          requires:
+            - checkout
+            - build
       - release:
           requires:
             - build

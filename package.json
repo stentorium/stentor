@@ -17,7 +17,10 @@
     "eslint": "6.8.0",
     "eslint-plugin-notice": "0.8.9",
     "lerna": "3.20.2",
-    "license-checker": "25.0.1"
+    "license-checker": "25.0.1",
+    "mocha": "6.2.2",
+    "mocha-junit-reporter": "1.23.1",
+    "nyc": "15.0.0"
   },
   "scripts": {
     "lerna": "lerna",
@@ -26,7 +29,7 @@
     "clean:modules": "lerna clean",
     "lint": "eslint 'packages/**/src/**/*.{ts,tsx}'",
     "build": "lerna run build",
-    "test": "lerna run test",
+    "test": "TZ=UTC lerna run test",
     "release": "lerna version --yes && git push origin --tags && lerna publish from-git --yes",
     "license-check": "license-checker --production --start './packages/stentor/' --exclude ISC,MIT,Apache-2.0,BSD-3-Clause,BSD-2-Clause --failOn GPL-3.0"
   }

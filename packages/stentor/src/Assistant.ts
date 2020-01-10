@@ -238,6 +238,8 @@ export class Assistant {
                 runtimeEvent,
                 runtimeContext,
                 myCallback,
+                // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+                // @ts-ignore Need to migrate more packages
                 this.channels,
                 {
                     userStorageService: this.userStorageService,

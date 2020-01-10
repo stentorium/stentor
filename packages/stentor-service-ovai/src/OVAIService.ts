@@ -7,12 +7,16 @@ import { OVAIHandlerResponse, OVAIHandlersResponse } from "./Response";
 
 const BASE_URL = "https://api.xapp.media";
 
+function getIntentId(id: string | { intentId: string }): string {
+    return typeof id === "string" ? id : id.intentId;
+}
+
 export class OVAIService implements HandlerService {
     private readonly baseURL: string = BASE_URL;
     private readonly token: string;
     private readonly appId: string;
 
-    constructor(props?: { baseURL?: string; token?: string; appId?: string }) {
+    public constructor(props?: { baseURL?: string; token?: string; appId?: string }) {
         // First look for the token & appId on the environment variables
         if (process.env.OVAI_TOKEN) {
             this.token = process.env.OVAI_TOKEN;
@@ -41,7 +45,7 @@ export class OVAIService implements HandlerService {
         }
     }
 
-    getAll(): Promise<Handler[]> {
+    public getAll(): Promise<Handler[]> {
         const url = `${this.baseURL}/cms/handler`;
 
         return fetch(url, {
@@ -60,7 +64,7 @@ export class OVAIService implements HandlerService {
             });
     }
 
-    get(id: string | { intentId: string }): Promise<Handler> | Promise<undefined> {
+    public get(id: string | { intentId: string }): Promise<Handler> | Promise<undefined> {
         const intentId = getIntentId(id);
 
         const url = `${this.baseURL}/cms/handler/${intentId}`;
@@ -85,7 +89,7 @@ export class OVAIService implements HandlerService {
             });
     }
 
-    putEvents(events: Event<any>[]): Promise<void> {
+    public putEvents(events: Event<any>[]): Promise<void> {
         if (!existsAndNotEmpty(events)) {
             return;
         }
@@ -125,6 +129,3 @@ export class OVAIService implements HandlerService {
     }
 }
 
-function getIntentId(id: string | { intentId: string }): string {
-    return typeof id === "string" ? id : id.intentId;
-}

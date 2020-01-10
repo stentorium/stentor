@@ -1,0 +1,8 @@
+{
+  "bail": true,
+  "fullTrace": true,
+  "recursive": true,
+  "require": ["ts-node/register", "source-map-support/register"],
+  "spec": "packages/**/src/**/*.test.ts",
+  "ignore": "packages/**/src/node_modules/*.test.ts"
+}

@@ -40,17 +40,18 @@
     "@xapp/logger": "1.14.4",
     "@xapp/patterns": "1.14.0",
     "@xapp/stentor-context": "1.15.0",
-    "@xapp/stentor-handler": "1.15.0",
     "@xapp/stentor-handler-factory": "1.15.0",
+    "@xapp/stentor-handler": "1.15.0",
     "@xapp/stentor-request": "1.14.4",
     "@xapp/stentor-response": "1.14.4",
     "@xapp/stentor-runtime": "1.15.0",
     "@xapp/stentor-service-analytics": "1.15.0",
     "@xapp/stentor-service-event": "1.14.4",
-    "stentor-service-ovai": "1.14.4",
     "@xapp/stentor-utils": "1.14.4",
+    "dotenv":"8.2.0",
     "stentor-constants": "1.15.8",
-    "stentor-models": "1.16.2"
+    "stentor-models": "1.16.2",
+    "stentor-service-ovai": "1.14.4"
   },
   "peerDependencies": {
     "aws-sdk": "2.X"

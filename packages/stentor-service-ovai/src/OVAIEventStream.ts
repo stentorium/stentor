@@ -5,7 +5,7 @@ import { OVAIService } from "./OVAIService";
 
 export class OVAIEventStream extends AbstractEventStream {
     private service: OVAIService;
-    constructor(props: { service: OVAIService }) {
+    public constructor(props: { service: OVAIService }) {
         super();
 
         if (!props) {
@@ -19,7 +19,7 @@ export class OVAIEventStream extends AbstractEventStream {
         }
     }
 
-    flushEvents(events: Event<any>[]): Promise<void> {
+    public flushEvents(events: Event<any>[]): Promise<void> {
         return this.service.putEvents(events);
     }
 }

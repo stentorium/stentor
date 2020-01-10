@@ -3,9 +3,10 @@ import * as chai from "chai";
 import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
 
-import { Alexa, AlexaRequestBuilder } from "@xapp/stentor-alexa";
 import { HandlerService, UserStorageService } from "stentor-models";
 import { Assistant } from "../Assistant";
+
+import { Test } from "./TestChannel";
 
 chai.use(sinonChai);
 const expect = chai.expect;
@@ -73,7 +74,6 @@ describe("Assistant", () => {
             let callback: sinon.SinonStub;
 
             let ciPrevious: string | undefined;
-            let ovaiPrevious: string | undefined;
 
             beforeEach(() => {
                 assistant = new Assistant()
@@ -82,21 +82,15 @@ describe("Assistant", () => {
                 callback = sinon.stub();
 
                 ciPrevious = process.env.CI;
-                ovaiPrevious = process.env.OVAI_ALEXA_NO_VERIFY;
 
                 delete process.env.CI;
-                delete process.env.OVAI_ALEXA_NO_VERIFY;
             });
             afterEach(() => {
                 process.env.CI = ciPrevious;
-                process.env.OVAI_ALEXA_NO_VERIFY = ovaiPrevious;
             });
             it("returns to proper payload", async () => {
-                const request = new AlexaRequestBuilder()
-                    .withSkillId("appId")
-                    .isALaunchRequest()
-                    .build();
-                const handler = assistant.withChannels([Alexa("appId")]).lambda();
+                const request = {};
+                const handler = assistant.withChannels([Test({ crash: true })]).lambda();
                 await handler(
                     {
                         path: "/",
@@ -110,9 +104,9 @@ describe("Assistant", () => {
 
                 expect(callback).to.have.been.calledOnce;
                 expect(callback).to.have.been.calledWith(null, {
-                    statusCode: 400,
+                    statusCode: 500,
                     body:
-                        "Error: Could not verify the payload was from Alexa: missing certificate url.  If this is on a development environment, set environment variable OVAI_ALEXA_NO_VERIFY to true to disable verification."
+                        "Error: Runtime Error"
                 });
             });
         });

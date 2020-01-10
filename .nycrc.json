@@ -1,0 +1,15 @@
+{
+  "report-dir": "./coverage",
+  "reporter": ["lcov", "text-summary", "json-summary"],
+  "extension": [".ts", ".tsx"],
+  "include": ["packages/*/src/**/*.ts", "packages/*/src/**/*.tsx"],
+  "exclude": [
+    "**/*.d.ts",
+    "src/**/__test__/*",
+    "coverage/*",
+    "test/*",
+    "prettier.config.js"
+  ],
+  "instrument": true,
+  "all": true
+}

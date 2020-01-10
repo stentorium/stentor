@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.15.8",
+  "version": "1.15.9",
   "description": ":mega: stentor",
   "types": "lib/index",
   "typings": "lib/index",
@@ -28,7 +28,7 @@
     "@xapp/patterns": "1.14.0",
     "actions-on-google": "2.12.0",
     "ask-sdk-model": "1.25.1",
-    "stentor-constants": "1.15.8",
-    "stentor-models": "1.16.2"
+    "stentor-constants": "1.15.9",
+    "stentor-models": "1.16.3"
   }
 }

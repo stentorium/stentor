@@ -77,11 +77,11 @@ jobs:
       - store_artifacts:
           path: ./coverage
       # persist the coverage output
-      - persist_to_workspace:
-          root: ~/repo
-          paths:
-            - coverage/
-            - .nyc_output/*
+      # - persist_to_workspace:
+      #    root: ~/repo
+      #    paths:
+      #      - coverage/
+      #      - .nyc_output/*
 
   license_check:
     <<: *defaults

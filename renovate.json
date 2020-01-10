@@ -11,6 +11,11 @@
       "groupName": "stentor",
       "schedule": null,
       "automerge": true
+    },
+    {
+      "packagePatterns": ["@xapp"],
+      "schedule": null,
+      "automerge": true
     }
   ]
 }

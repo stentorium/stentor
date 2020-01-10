@@ -5,6 +5,12 @@
       "depTypeList": ["devDependencies"],
       "updateTypes": ["minor"],
       "automerge": true
+    },
+    {
+      "packagePatterns": ["stentor"],
+      "groupName": "stentor",
+      "schedule": null,
+      "automerge": true
     }
   ]
 }

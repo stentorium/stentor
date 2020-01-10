@@ -50,7 +50,7 @@
     "@xapp/stentor-utils": "1.14.4",
     "dotenv":"8.2.0",
     "stentor-constants": "1.15.9",
-    "stentor-models": "1.16.3"
+    "stentor-models": "1.16.3",
     "stentor-service-ovai": "1.14.4"
   },
   "peerDependencies": {

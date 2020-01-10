@@ -28,8 +28,8 @@
     "@xapp/stentor-service-event": "^1.14.4",
     "@xapp/stentor-utils": "^1.14.4",
     "isomorphic-fetch": "2.2.1",
-    "stentor-constants": "1.15.8",
-    "stentor-models": "1.16.2"
+    "stentor-constants": "1.15.9",
+    "stentor-models": "1.16.3"
   },
   "scripts": {
     "build": "tsc -d true -p .",

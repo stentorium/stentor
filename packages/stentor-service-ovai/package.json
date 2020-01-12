@@ -19,7 +19,7 @@
     "@types/fetch-mock": "7.3.2",
     "@xapp/config": "0.2.3",
     "chai": "4.2.0",
-    "fetch-mock": "8.0.3",
+    "fetch-mock": "8.3.1",
     "mocha": "6.2.2",
     "ts-node": "8.1.0",
     "typescript": "3.7.4"

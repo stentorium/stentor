@@ -3589,10 +3589,10 @@ fecha@^2.3.3:
   resolved "https://registry.yarnpkg.com/fecha/-/fecha-2.3.3.tgz#948e74157df1a32fd1b12c3a3c3cdcb6ec9d96cd"
   integrity sha512-lUGBnIamTAwk4znq5BcqsDaxSmZ9nDVJaij6NvRt/Tg4R69gERA+otPKbS86ROw9nxVMw2/mp1fnaiWqbs6Sdg==
 
-fetch-mock@8.0.3:
-  version "8.0.3"
-  resolved "https://registry.yarnpkg.com/fetch-mock/-/fetch-mock-8.0.3.tgz#2c2f7be38e9c88150851319ce2d7f478e4adb7b5"
-  integrity sha512-u9x/mWtiKyRlz9B0bYwIqYuFkBsXCBK5InFelSAFQr7uNsjp7Xx5BTC8V4HVgm5JD8j84Wopgk/b9V4mSN4vkA==
+fetch-mock@8.3.1:
+  version "8.3.1"
+  resolved "https://registry.yarnpkg.com/fetch-mock/-/fetch-mock-8.3.1.tgz#9c79aab22fa1752fe00b487e2b271ecfc1138461"
+  integrity sha512-7IEIUvkHO6zOHbDSzkMAvkb2mx3N5xy9BS4RjFnIe8kCUDOomoNKBDKGwhTj5E0uuieo8rg55c6cUKorJuk4rg==
   dependencies:
     babel-runtime "^6.26.0"
     core-js "^3.0.0"

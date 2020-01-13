@@ -40,7 +40,7 @@
     "@xapp/logger": "1.16.5",
     "@xapp/patterns": "1.14.0",
     "@xapp/stentor-context": "1.15.0",
-    "@xapp/stentor-handler": "1.15.0",
+    "@xapp/stentor-handler": "1.16.6",
     "@xapp/stentor-handler-factory": "1.15.0",
     "@xapp/stentor-request": "1.14.4",
     "@xapp/stentor-response": "1.14.4",

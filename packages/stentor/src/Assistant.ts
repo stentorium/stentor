@@ -41,13 +41,13 @@ import * as AWSLambda from "aws-lambda";
  */
 export class Assistant {
     private channels: Channel[] = [];
+    private eventService: EventService = new EventService();
     private factoryProps: HandlerFactoryProps = {};
     private handlerService: HandlerService | undefined = undefined;
-    private piiService: PIIService | undefined = undefined;
-    private userStorageService: UserStorageService | undefined = undefined;
-    private eventService: EventService = new EventService();
-    private runtimeData: AppRuntimeData = {};
     private hooks: Hooks = {};
+    private piiService: PIIService | undefined = undefined;
+    private runtimeData: AppRuntimeData = {};
+    private userStorageService: UserStorageService | undefined = undefined;
 
     /**
      * Data that can be leveraged at runtime for certain responses. 
@@ -170,6 +170,7 @@ export class Assistant {
      */
     public lambda(): AWSLambda.Handler {
         // Setup the handler service if we don't have one and have the token
+        let handlerService: HandlerService;
         if (!this.handlerService) {
             if (process.env.OVAI_TOKEN) {
                 // Create the API based handler service
@@ -177,11 +178,21 @@ export class Assistant {
                     token: process.env.OVAI_TOKEN,
                     appId: process.env.OVAI_APP_ID
                 });
-                this.handlerService = service;
+                handlerService = service;
                 this.eventService.addStream(new OVAIEventStream({ service }));
             } else {
                 throw new Error("HandlerService or OVAI_TOKEN was not provided.");
             }
+        } else {
+            handlerService = this.handlerService;
+        }
+
+        // User Storage Service is required
+        let userStorageService: UserStorageService;
+        if (this.userStorageService) {
+            userStorageService = this.userStorageService;
+        } else {
+            throw new TypeError('A user storage service is required.');
         }
 
         if (process.env.OVAI_APP_ID) {
@@ -242,9 +253,9 @@ export class Assistant {
                 // @ts-ignore Need to migrate more packages
                 this.channels,
                 {
-                    userStorageService: this.userStorageService,
+                    userStorageService,
                     handlerFactory: factory,
-                    handlerService: this.handlerService,
+                    handlerService,
                     eventService: this.eventService,
                     piiService: this.piiService
                 },

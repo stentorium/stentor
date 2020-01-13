@@ -35,13 +35,25 @@ describe("Assistant", () => {
         describe("without environment variables", () => {
             describe("with handler service", () => {
                 beforeEach(() => {
-                    assistant = new Assistant().withHandlerService(new MockHandlerService());
+                    assistant = new Assistant().withUserStorage(new MockUserStorageService()).withHandlerService(new MockHandlerService());
                 });
                 it("doesn't throw an error", () => {
-                    expect(assistant.lambda.bind(assistant)).to.not.throw();
+                    expect(() => {
+                        assistant.lambda();
+                    }).to.not.throw();
                 });
                 it("returns a function", () => {
                     expect(assistant.lambda()).to.be.a("function");
+                });
+                describe("without user storage service", () => {
+                    beforeEach(() => {
+                        assistant = new Assistant().withHandlerService(new MockHandlerService());
+                    });
+                    it("throws an error", () => {
+                        expect(() => {
+                            assistant.lambda();
+                        }).to.throw('A user storage service is required.');
+                    });
                 });
             });
             describe("without handler service", () => {
@@ -52,12 +64,13 @@ describe("Assistant", () => {
                     expect(assistant.lambda.bind(assistant)).to.throw("HandlerService or OVAI_TOKEN was not provided.");
                 });
             });
+
         });
         describe("with environment variables", () => {
             beforeEach(() => {
                 process.env.OVAI_TOKEN = "token";
                 process.env.OVAI_APP_ID = "appId";
-                assistant = new Assistant();
+                assistant = new Assistant().withUserStorage(new MockUserStorageService());
             });
             afterEach(() => {
                 delete process.env.OVAI_TOKEN;

@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@xapp/logger": "1.16.5",
-    "@xapp/patterns": "1.14.0",
+    "@xapp/patterns": "1.16.5",
     "@xapp/stentor-context": "1.16.8",
     "@xapp/stentor-handler": "1.16.8",
     "@xapp/stentor-handler-factory": "1.16.8",

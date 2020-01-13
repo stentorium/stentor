@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.16.8](https://github.com/stentorium/stentor/compare/stentor@1.16.7...stentor@1.16.8) (2020-01-13)
+
+
+### Bug Fixes
+
+* **deps:** update stentor ([#35](https://github.com/stentorium/stentor/issues/35)) ([30f85b0](https://github.com/stentorium/stentor/commit/30f85b06ddfb1a61fbd00949590207cabc691ab9))
+
+
+
+
+
 ## [1.16.7](https://github.com/stentorium/stentor/compare/stentor@1.16.6...stentor@1.16.7) (2020-01-12)
 
 **Note:** Version bump only for package stentor

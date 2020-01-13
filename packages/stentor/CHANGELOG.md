@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.16.7](https://github.com/stentorium/stentor/compare/stentor@1.16.6...stentor@1.16.7) (2020-01-12)
+
+**Note:** Version bump only for package stentor
+
+
+
+
+
+## [1.16.6](https://github.com/stentorium/stentor/compare/stentor@1.16.5...stentor@1.16.6) (2020-01-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/logger to v1.16.5 ([#30](https://github.com/stentorium/stentor/issues/30)) ([23c22f1](https://github.com/stentorium/stentor/commit/23c22f102756a0be658b25c0ae797ae8b2f65c93))
+
+
+
+
+
+## [1.16.5](https://github.com/stentorium/stentor/compare/stentor@1.16.4...stentor@1.16.5) (2020-01-12)
+
+**Note:** Version bump only for package stentor
+
+
+
+
+
+## [1.16.4](https://github.com/stentorium/stentor/compare/stentor@1.16.3...stentor@1.16.4) (2020-01-12)
+
+**Note:** Version bump only for package stentor
+
+
+
+
+
+## [1.16.3](https://github.com/stentorium/stentor/compare/stentor@1.16.2...stentor@1.16.3) (2020-01-12)
+
+**Note:** Version bump only for package stentor
+
+
+
+
+
+## [1.16.2](https://github.com/stentorium/stentor/compare/stentor@1.16.1...stentor@1.16.2) (2020-01-11)
+
+**Note:** Version bump only for package stentor
+
+
+
+
+
+## [1.16.1](https://github.com/stentorium/stentor/compare/stentor@1.16.0...stentor@1.16.1) (2020-01-11)
+
+**Note:** Version bump only for package stentor
+
+
+
+
+
 # [1.16.0](https://github.com/stentorium/stentor/compare/stentor@1.15.9...stentor@1.16.0) (2020-01-10)
 
 

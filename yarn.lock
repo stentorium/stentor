@@ -1170,6 +1170,13 @@
     "@types/connect" "*"
     "@types/node" "*"
 
+"@types/chai-as-promised@7.1.1":
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/@types/chai-as-promised/-/chai-as-promised-7.1.1.tgz#004c27a4ac640e9590e25d8b0980cb0a6609bfd8"
+  integrity sha512-dberBxQW/XWv6BMj0su1lV9/C9AUx5Hqu2pisuS6S4YK/Qt6vurcj/BmcbEsobIWWCQzhesNY8k73kIxx4X7Mg==
+  dependencies:
+    "@types/chai" "*"
+
 "@types/chai@*", "@types/chai@4.2.7":
   version "4.2.7"
   resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.2.7.tgz#1c8c25cbf6e59ffa7d6b9652c78e547d9a41692d"
@@ -1461,30 +1468,7 @@
     stentor-constants "1.15.11"
     stentor-models "1.17.1"
 
-"@xapp/stentor-alexa@^1.16.11":
-  version "1.16.11"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-alexa/-/stentor-alexa-1.16.11.tgz#d44ff5f6aec75fd285d7a90ba020e2af00ee00b5"
-  integrity sha512-xa1s1twD9BdXMemva0RzyWD84BlK3anuxX+fFVwCUtbje3vjtQkaTd0ybjaRLDg7c1MLBfIbgTCa0bqBbd+f3Q==
-  dependencies:
-    "@xapp/patterns" "^1.16.5"
-    "@xapp/stentor-interaction-model" "^1.16.11"
-    "@xapp/stentor-locales" "^1.16.11"
-    "@xapp/stentor-media" "^1.16.11"
-    "@xapp/stentor-request" "^1.16.11"
-    "@xapp/stentor-response" "^1.16.11"
-    "@xapp/stentor-utils" "^1.16.11"
-    alexa-verifier "2.0.1"
-    amazon-date-parser "0.3.0"
-    ask-sdk-model "1.25.0"
-    isomorphic-fetch "2.2.1"
-    jsonpath "1.0.2"
-    lodash.intersection "4.4.0"
-    lodash.invert "4.3.0"
-    moment "2.24.0"
-    stentor-constants "1.15.11"
-    stentor-models "1.17.1"
-
-"@xapp/stentor-alexa@^1.16.14":
+"@xapp/stentor-alexa@^1.16.11", "@xapp/stentor-alexa@^1.16.14":
   version "1.16.14"
   resolved "https://registry.yarnpkg.com/@xapp/stentor-alexa/-/stentor-alexa-1.16.14.tgz#53321fd2187f477264e56fcf59761b7057b59b41"
   integrity sha512-7Gdz3Dvt9llGnPYrkAQUQ1shBuEpJFcivh1cdxvQ4yOgOtRnGAxWBMrNzRf88IYRra87kt649bygpd1oCSGBig==
@@ -1515,19 +1499,7 @@
     "@xapp/stentor-utils" "^1.16.11"
     stentor-models "1.17.1"
 
-"@xapp/stentor-context@^1.16.11":
-  version "1.16.11"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-context/-/stentor-context-1.16.11.tgz#d85e873a511ee32eed0b899c0b93421e2d3c26af"
-  integrity sha512-VD+KryRlnynDiwcr34Pad1l1HEym7iZIqeHA0ccUWwb1EK5Cqq0uZWzld9MpPcA+NEgiCxR3o4JkTZhqitHCgw==
-  dependencies:
-    "@xapp/patterns" "^1.16.5"
-    "@xapp/stentor-alexa" "^1.16.11"
-    "@xapp/stentor-request" "^1.16.11"
-    "@xapp/stentor-response" "^1.16.11"
-    "@xapp/stentor-storage" "^1.16.11"
-    stentor-models "1.17.1"
-
-"@xapp/stentor-context@^1.16.14":
+"@xapp/stentor-context@^1.16.11", "@xapp/stentor-context@^1.16.14":
   version "1.16.14"
   resolved "https://registry.yarnpkg.com/@xapp/stentor-context/-/stentor-context-1.16.14.tgz#6adb18e88e31a397ad2d2fb667c4427c570d9b23"
   integrity sha512-PZVK0weURRy9w+Xl4fQ6BffsvoaIud6R1QaoFW7vDIjonp2cigrGXm0Mw3FsajDQZYcMmGI/cLZ5Z17yFnoOqQ==
@@ -1568,21 +1540,6 @@
     "@xapp/stentor-request" "^1.16.11"
     stentor-models "1.17.1"
 
-"@xapp/stentor-handler-factory@^1.16.14":
-  version "1.16.14"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-handler-factory/-/stentor-handler-factory-1.16.14.tgz#d1690a1445354e2770387a7821a07b0e6b306bde"
-  integrity sha512-VdctEg67yZE5ZBXPn+/du2qTXxfrAVMBrS0SDc64GWORIcQfKzPZKYAAPgyttkLcSYkwllW+MpAU/ZC7NNpojw==
-  dependencies:
-    "@xapp/logger" "^1.16.13"
-    "@xapp/stentor-context" "^1.16.14"
-    "@xapp/stentor-handler" "^1.16.14"
-    "@xapp/stentor-handler-delegating" "^1.16.14"
-    "@xapp/stentor-interaction-model" "^1.16.11"
-    "@xapp/stentor-request" "^1.16.11"
-    "@xapp/stentor-response" "^1.16.11"
-    "@xapp/stentor-utils" "^1.16.11"
-    stentor-models "1.17.1"
-
 "@xapp/stentor-handler-legacy@^1.16.14":
   version "1.16.14"
   resolved "https://registry.yarnpkg.com/@xapp/stentor-handler-legacy/-/stentor-handler-legacy-1.16.14.tgz#eaa50e4e559020b7324d9481dcde33a03469faae"
@@ -1590,19 +1547,6 @@
   dependencies:
     "@xapp/stentor-handler" "^1.16.14"
     "@xapp/stentor-utils" "^1.16.11"
-    stentor-models "1.17.1"
-
-"@xapp/stentor-handler-manager@^1.16.14":
-  version "1.16.14"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-handler-manager/-/stentor-handler-manager-1.16.14.tgz#b5c276ce3b7ad6fb96c5f8e2ad960a6158833c56"
-  integrity sha512-LExLE1bh0s/JsP+gLoonj9SSe00P51+BgIvWpMmSC0uxkqINq19k3sEN3x382sCwJJtPDHYyfh0RC9x5LH/Lrg==
-  dependencies:
-    "@xapp/logger" "^1.16.13"
-    "@xapp/stentor-handler" "^1.16.14"
-    "@xapp/stentor-handler-factory" "^1.16.14"
-    "@xapp/stentor-request" "^1.16.11"
-    "@xapp/stentor-response" "^1.16.11"
-    "@xapp/stentor-storage" "^1.16.11"
     stentor-models "1.17.1"
 
 "@xapp/stentor-handler-media@^1.16.14":
@@ -2598,6 +2542,13 @@ caseless@~0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
+
+chai-as-promised@7.1.1:
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/chai-as-promised/-/chai-as-promised-7.1.1.tgz#08645d825deb8696ee61725dbf590c012eb00ca0"
+  integrity sha512-azL6xMoi+uxu6z4rhWQ1jbdUhOMhis2PvscD/xjLqNMkv3BPPp2JyyuTHOrf9BOosGpNQ11v6BKv/g57RXbiaA==
+  dependencies:
+    check-error "^1.0.2"
 
 chai@4.2.0:
   version "4.2.0"

@@ -5,7 +5,7 @@ import { GOODBYE, TROUBLE_WITH_REQUEST } from "stentor-constants";
 import { ContextFactory } from "@xapp/stentor-context";
 import { AbstractHandler, getResponse } from "@xapp/stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
-import { HandlerManager } from "@xapp/stentor-handler-manager";
+import { HandlerManager } from "stentor-handler-manager";
 import { trimHistory } from "@xapp/stentor-history";
 import { CANCEL_INTENT, STOP_INTENT } from "@xapp/stentor-interaction-model";
 import {

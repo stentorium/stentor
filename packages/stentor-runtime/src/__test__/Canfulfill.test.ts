@@ -4,13 +4,15 @@ import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
 
 import { CONVERSATION_HANDLER_TYPE, ConversationHandler } from "@xapp/stentor-handler";
-import { HandlerFactory } from "@xapp/stentor-handler-factory";
+import { HandlerFactory } from "stentor-handler-factory";
 import { Handler, HandlerService, RuntimeContext, Storage, UserStorageService } from "stentor-models";
 import { main } from "../index";
 import { DEFAULT_CHANNELS } from "./assets/Constants";
 import { MockUserStorageService } from "./Mocks";
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const requestBody = require("./assets/ExamplePayloads/can-fulfill-intent-request.json");
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const bogusIntentRequest = require("./assets/ExamplePayloads/can-fulfill-bogus-intent-request.json");
 
 chai.use(sinonChai);

@@ -8,19 +8,22 @@ const expect = chai.expect;
 
 import { ActionsOnGoogle } from "@xapp/stentor-actions-on-google";
 import { ConversationHandler } from "@xapp/stentor-handler";
-import { HandlerFactory } from "@xapp/stentor-handler-factory";
+import { HandlerFactory } from "stentor-handler-factory";
 import { HandlerService, NLUService, RuntimeContext, Storage } from "stentor-models";
 import { EventService } from "@xapp/stentor-service-event";
 import { DynamoHandlerService } from "@xapp/stentor-service-handler";
 import { DynamoUserStorageService } from "@xapp/stentor-service-user-storage";
 import { main } from "../main";
 
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const aogLaunchPayload = require("./assets/ExamplePayloads/aog-actions-intent-main-request.json");
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const aogIntentPayload = require("./assets/ExamplePayloads/aog-intent-request.json");
 
-const appId: string = "appId";
-const organizationId: string = "organizationId";
-const intentId: string = "intentId";
+const appId = "appId";
+const organizationId = "organizationId";
+const intentId = "intentId";
 
 const createdDate = new Date();
 createdDate.setDate(createdDate.getDate() - 1);

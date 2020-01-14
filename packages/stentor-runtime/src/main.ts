@@ -4,7 +4,7 @@ import { log } from "@xapp/logger";
 import { GOODBYE, TROUBLE_WITH_REQUEST } from "stentor-constants";
 import { ContextFactory } from "@xapp/stentor-context";
 import { AbstractHandler, getResponse } from "@xapp/stentor-handler";
-import { HandlerFactory } from "@xapp/stentor-handler-factory";
+import { HandlerFactory } from "stentor-handler-factory";
 import { HandlerManager } from "@xapp/stentor-handler-manager";
 import { trimHistory } from "@xapp/stentor-history";
 import { CANCEL_INTENT, STOP_INTENT } from "@xapp/stentor-interaction-model";
@@ -165,7 +165,7 @@ export const main = async (
     // Do some logging for debugging if needed
     log().info(
         `platform:${request.platform}|request-type:${request.type}|request-key:${keyFromRequest(request)}|userId:${
-            request.userId
+        request.userId
         }${request.isHealthCheck ? "|HEALTH_CHECK" : ""}`
     );
 
@@ -186,6 +186,7 @@ export const main = async (
         // We don't call if it is a LaunchRequest
         if (!isLaunchRequest(request)) {
             const nluResponse = await channel.nlu.query(request.rawQuery);
+            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
             // @ts-ignore TypeScript be cool
             request = {
                 ...request,
@@ -215,7 +216,7 @@ export const main = async (
             // TODO: This will never happen, we then need to require it on the mainContext.
             // When we revisit this, we might want to update the ContextFactory to also take
             // in the mainContext and then context can be readonly.
-            context.timeLeftInMillis = () => {
+            context.timeLeftInMillis = (): number => {
                 const SIX_SECONDS = 6000;
                 return SIX_SECONDS;
             };

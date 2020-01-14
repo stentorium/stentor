@@ -5,7 +5,7 @@ import * as sinonChai from "sinon-chai";
 
 import { DialogflowRequestBuilder, Request as DialogflowRequest } from "@xapp/stentor-dialogflow/lib/v1";
 import { CONVERSATION_HANDLER_TYPE, ConversationHandler } from "@xapp/stentor-handler";
-import { HandlerFactory } from "@xapp/stentor-handler-factory";
+import { HandlerFactory } from "stentor-handler-factory";
 import { Context, Handler, HandlerService, Pii, Request, RuntimeContext, Storage, UserDataRequestStatus } from "stentor-models";
 import { isIntentRequest, isPermissionRequest } from "@xapp/stentor-request";
 import { DynamoHandlerService } from "@xapp/stentor-service-handler";
@@ -18,7 +18,7 @@ chai.use(sinonChai);
 const expect = chai.expect;
 
 class PermissionTestHandler extends ConversationHandler {
-    canHandleRequest(request: Request, context: Context): boolean {
+    public canHandleRequest(request: Request, context: Context): boolean {
         if (isPermissionRequest(request)) {
             return true;
         }
@@ -26,7 +26,7 @@ class PermissionTestHandler extends ConversationHandler {
         return super.canHandleRequest(request, context);
     }
 
-    async handleRequest(request: Request, context: Context): Promise<void> {
+    public async handleRequest(request: Request, context: Context): Promise<void> {
         if (isPermissionRequest(request)) {
             context.response.say("Hey " + context.pii.name + "!");
         } else if (isIntentRequest(request)) {
@@ -113,13 +113,13 @@ describe("PermissionRequest", () => {
             tableName: "stentor-pii-dev",
             appId: "testAppId"
         });
-        sinon.stub(piiService, "loadPii").callsFake((token: string) => {
+        sinon.stub(piiService, "loadPii").callsFake(() => {
             return Promise.resolve({
                 token: "test-token",
                 appId: "testAppId"
             });
         });
-        piiUpdateStub = sinon.stub(piiService, "updatePii").callsFake((pii: Pii) => {
+        piiUpdateStub = sinon.stub(piiService, "updatePii").callsFake(() => {
             return Promise.resolve();
         });
 

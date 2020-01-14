@@ -3,7 +3,7 @@ import * as chai from "chai";
 import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
 
-import { HandlerFactory } from "@xapp/stentor-handler-factory";
+import { HandlerFactory } from "stentor-handler-factory";
 import { PlayLivestreamHandler } from "@xapp/stentor-handler-media";
 import { HandlerService, RuntimeContext, Storage, UserStorageService } from "stentor-models";
 import { convertToStorage, LegacyStorage } from "@xapp/stentor-service-user-storage/lib/LegacyStorage";

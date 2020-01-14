@@ -4,13 +4,14 @@ import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
 
 import { Alexa } from "@xapp/stentor-alexa";
-import { HandlerFactory } from "@xapp/stentor-handler-factory";
+import { HandlerFactory } from "stentor-handler-factory";
 import { HandlerService, RuntimeContext, Storage } from "stentor-models";
 import { DynamoHandlerService } from "@xapp/stentor-service-handler";
 import { DynamoUserStorageService } from "@xapp/stentor-service-user-storage";
 import { main } from "../index";
 
 const APP_ID_FROM_PAYLOAD = "appId";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const payload = require("./assets/ExamplePayloads/sessionendedrequest.json");
 
 chai.use(sinonChai);

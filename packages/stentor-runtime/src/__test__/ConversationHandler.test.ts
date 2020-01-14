@@ -5,7 +5,7 @@ import * as sinonChai from "sinon-chai";
 
 import { AlexaRequestBuilder, RequestBody } from "@xapp/stentor-alexa";
 import { CONVERSATION_HANDLER_TYPE, ConversationHandler } from "@xapp/stentor-handler";
-import { HandlerFactory } from "@xapp/stentor-handler-factory";
+import { HandlerFactory } from "stentor-handler-factory";
 import { HandlerService, RuntimeContext, Storage, UserStorageService } from "stentor-models";
 import { main } from "../index";
 import { ALEXA_APP_ID, DEFAULT_CHANNELS } from "./assets/Constants";

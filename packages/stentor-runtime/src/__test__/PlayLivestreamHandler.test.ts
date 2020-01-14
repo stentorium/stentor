@@ -5,7 +5,7 @@ import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
 
 import { Alexa } from "@xapp/stentor-alexa";
-import { HandlerFactory } from "@xapp/stentor-handler-factory";
+import { HandlerFactory } from "stentor-handler-factory";
 import { AudioStorage, PLAY_LIVE_STREAM_HANDLER_TYPE, PlayLivestreamHandler } from "@xapp/stentor-handler-media";
 import { HandlerService, RuntimeContext } from "stentor-models";
 import { DynamoHandlerService } from "@xapp/stentor-service-handler";

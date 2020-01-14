@@ -8,7 +8,7 @@ import * as sinonChai from "sinon-chai";
 import { Alexa, AlexaRequestBuilder } from "@xapp/stentor-alexa";
 import { Dialogflow, DialogflowV2RequestBuilder } from "@xapp/stentor-dialogflow";
 import { ConversationHandler } from "@xapp/stentor-handler";
-import { HandlerFactory } from "@xapp/stentor-handler-factory";
+import { HandlerFactory } from "stentor-handler-factory";
 import {
     Channel,
     Content,

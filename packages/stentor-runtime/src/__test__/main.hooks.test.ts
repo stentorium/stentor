@@ -10,7 +10,7 @@ const expect = chai.expect;
 import { AlexaRequestBuilder, LAUNCH_REQUEST } from "@xapp/stentor-alexa";
 import { DialogflowV2RequestBuilder } from "@xapp/stentor-dialogflow";
 import { ConversationHandler } from "@xapp/stentor-handler";
-import { HandlerFactory } from "@xapp/stentor-handler-factory";
+import { HandlerFactory } from "stentor-handler-factory";
 import {
     AbstractResponseBuilder,
     Request as StentorRequest
@@ -60,7 +60,7 @@ createdDate.setDate(createdDate.getDate() - 1);
 const storage: Storage = {
     createdTimestamp: createdDate.getTime(),
     lastActiveTimestamp: createdDate.getTime(),
-    sessionStore: { id: "fakeSession", data: {}}
+    sessionStore: { id: "fakeSession", data: {} }
 };
 
 describe("#main() with hooks", () => {
@@ -284,7 +284,7 @@ describe("#main() with hooks", () => {
                 const transcript = [];
 
                 if (isLaunchRequest(request)) {
-                    transcript.push(request.rawQuery|| request.intentId);
+                    transcript.push(request.rawQuery || request.intentId);
                 }
                 transcript.push(dessmlify(response.response.outputSpeech.ssml));
 
@@ -343,7 +343,7 @@ describe("#main() with hooks", () => {
                 const transcript = [];
 
                 if (isLaunchRequest(request)) {
-                    transcript.push(request.rawQuery|| request.intentId);
+                    transcript.push(request.rawQuery || request.intentId);
                 }
                 transcript.push(dessmlify(response.response.outputSpeech.ssml));
 

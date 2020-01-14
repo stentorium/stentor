@@ -7,7 +7,7 @@ import * as sinonChai from "sinon-chai";
 
 import { ActionsOnGoogle } from "@xapp/stentor-actions-on-google";
 import { Alexa } from "@xapp/stentor-alexa";
-import { HandlerFactory } from "@xapp/stentor-handler-factory";
+import { HandlerFactory } from "stentor-handler-factory";
 import { AudioStorage, PLAY_PODCAST_HANDLER_TYPE, PlayPodcastHandler } from "@xapp/stentor-handler-media";
 import { HandlerService, NLUQueryResponse, NLUService, RuntimeContext } from "stentor-models";
 import { EventService } from "@xapp/stentor-service-event";

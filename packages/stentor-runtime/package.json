@@ -45,17 +45,17 @@
   "dependencies": {
     "@xapp/logger": "^1.16.13",
     "@xapp/stentor-context": "^1.16.14",
-    "@xapp/stentor-handler": "^1.16.14",
-    "@xapp/stentor-handler-factory": "^1.16.14",
     "@xapp/stentor-handler-manager": "^1.16.14",
+    "@xapp/stentor-handler": "^1.16.14",
     "@xapp/stentor-history": "^1.16.11",
     "@xapp/stentor-interaction-model": "^1.16.11",
-    "@xapp/stentor-request": "^1.16.11",
-    "@xapp/stentor-response": "^1.16.11",
     "@xapp/stentor-service-event": "^1.16.11",
     "@xapp/stentor-utils": "^1.16.11",
     "stentor-constants": "1.15.11",
-    "stentor-models": "1.17.1"
+    "stentor-handler-factory": "1.16.14",
+    "stentor-models": "1.17.1",
+    "stentor-request": "1.16.11",
+    "stentor-response": "1.16.11"
   },
   "scripts": {
     "build": "tsc -d true -p .",

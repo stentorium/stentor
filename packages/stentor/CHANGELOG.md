@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.16.13](https://github.com/stentorium/stentor/compare/stentor@1.16.12...stentor@1.16.13) (2020-01-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/logger to v1.16.11 ([#42](https://github.com/stentorium/stentor/issues/42)) ([e9b47d6](https://github.com/stentorium/stentor/commit/e9b47d6253ef43aaa9986b50072cf2883b60ba56))
+
+
+
+
+
 ## [1.16.12](https://github.com/stentorium/stentor/compare/stentor@1.16.11...stentor@1.16.12) (2020-01-14)
 
 

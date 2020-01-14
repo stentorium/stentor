@@ -1,6 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { ContextBuilder } from "@xapp/stentor-context";
-export { ContextBuilder };
+import { ContextBuilder, ContextFactory } from "stentor-context";
+export { ContextBuilder, ContextFactory };
 
 import {
     AbstractHandler,
@@ -100,7 +100,7 @@ import {
     keyFromRequest,
     LaunchRequestBuilder,
     SessionEndedRequestBuilder
-} from "@xapp/stentor-request";
+} from "stentor-request";
 export {
     getSlots,
     InputUnknownRequestBuilder,

@@ -27,7 +27,7 @@ export {
     getSlotType
 };
 
-import { HandlerFactory, HandlersArray, HandlersKeyValue, HandlersMap } from "@xapp/stentor-handler-factory";
+import { HandlerFactory, HandlersArray, HandlersKeyValue, HandlersMap } from "stentor-handler-factory";
 export { HandlerFactory, HandlersArray, HandlersKeyValue, HandlersMap };
 
 import {

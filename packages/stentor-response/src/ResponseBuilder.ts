@@ -18,18 +18,14 @@ import { toResponseOutput } from "@xapp/stentor-utils";
 import { concatResponseOutput } from "./concat";
 
 /**
- * A response builder for stentor responses.
- *
- * @export
- * @class ResponseBuilder
- * @extends {AbstractResponseBuilder<Response>}
+ * A builder for stentor responses.
  */
 export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractResponseBuilder<T> {
-    constructor(props: ResponseBuilderProps) {
+    public constructor(props: ResponseBuilderProps) {
         super(props);
     }
 
-    respond(response: Response): ResponseBuilder<T> {
+    public respond(response: Response): ResponseBuilder<T> {
         if (!response) {
             return this;
         }
@@ -46,7 +42,7 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         return this;
     }
 
-    say(say: string | ResponseOutput, append?: boolean): ResponseBuilder<T> {
+    public say(say: string | ResponseOutput, append?: boolean): ResponseBuilder<T> {
         if (!say) {
             return this;
         }
@@ -61,7 +57,7 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         return this;
     }
 
-    reprompt(reprompt: string | ResponseOutput, append?: boolean): ResponseBuilder<T> {
+    public reprompt(reprompt: string | ResponseOutput, append?: boolean): ResponseBuilder<T> {
         if (!this._response.outputSpeech) {
             throw new Error("Cannot call #reprompt() without first calling #say()");
         }
@@ -82,7 +78,7 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         return this;
     }
 
-    withSuggestions(suggestion: SuggestionTypes | SuggestionTypes[], append?: boolean): ResponseBuilder<T> {
+    public withSuggestions(suggestion: SuggestionTypes | SuggestionTypes[], append?: boolean): ResponseBuilder<T> {
         if (!this._response.outputSpeech) {
             throw new Error("Cannot call #withSuggestions() without first calling #say()");
         }
@@ -114,7 +110,7 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
      * Display
      */
 
-    withCard(card: Card): ResponseBuilder<T> {
+    public withCard(card: Card): ResponseBuilder<T> {
         if (!card) {
             return this;
         }
@@ -126,7 +122,7 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         return this;
     }
 
-    withList(items: ListItem[], title?: string): ResponseBuilder<T> {
+    public withList(items: ListItem[], title?: string): ResponseBuilder<T> {
         if (Array.isArray(items)) {
             if (!Array.isArray(this._response.displays)) {
                 this._response.displays = [];
@@ -141,7 +137,7 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         return this;
     }
 
-    withCarousel(items: ListItem[]): ResponseBuilder<T> {
+    public withCarousel(items: ListItem[]): ResponseBuilder<T> {
         if (Array.isArray(items)) {
             if (!Array.isArray(this._response.displays)) {
                 this._response.displays = [];
@@ -158,7 +154,7 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
      * System
      */
 
-    async askForUserData(userDataType: UserDataType): Promise<UserDataValue> {
+    public async askForUserData(userDataType: UserDataType): Promise<UserDataValue> {
         const permissionContext = {
             ["NAME"]: "",
             ["EMAIL"]: "To send you emails",
@@ -189,7 +185,7 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         return Promise.resolve({ requestStatus: UserDataRequestStatus.DEFERRED });
     }
 
-    askForAccountLinking(response?: string): ResponseBuilder<T> {
+    public askForAccountLinking(response?: string): ResponseBuilder<T> {
         this._response.system = "ACCOUNT_LINK";
         if (response) {
             // TODO: Make sure this aligns
@@ -200,7 +196,7 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         return this;
     }
 
-    askForNotification(intentId?: string): ResponseBuilder<T> {
+    public askForNotification(intentId?: string): ResponseBuilder<T> {
         this._response.system = "PERMISSION_NOTIFICATION";
         this._response.data = {
             permissionNotificationIntent: intentId
@@ -208,7 +204,7 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         return this;
     }
 
-    askForSurfaceChange(notificationText?: string, notificationLabel?: string): ResponseBuilder<T> {
+    public askForSurfaceChange(notificationText?: string, notificationLabel?: string): ResponseBuilder<T> {
         this._response.system = "SURFACE_CHANGE";
         if (notificationText) {
             this._response.data = {
@@ -225,7 +221,7 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         return this;
     }
 
-    askForListAccess(response?: string | Response): ResponseBuilder<T> {
+    public askForListAccess(response?: string | Response): ResponseBuilder<T> {
         this._response.system = "PERMISSION_LIST";
         if (typeof response === "string") {
             this._response.outputSpeech = {
@@ -241,7 +237,7 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
     /*
      * Media
      */
-    play(playable: PlayableMedia): ResponseBuilder<T> {
+    public play(playable: PlayableMedia): ResponseBuilder<T> {
         if (!playable) {
             return this;
         }
@@ -252,7 +248,7 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         return this;
     }
 
-    playPlaylist(playlist: Playlist<PlayableMedia> | PlayableMedia[]): ResponseBuilder<T> {
+    public playPlaylist(playlist: Playlist<PlayableMedia> | PlayableMedia[]): ResponseBuilder<T> {
         if (!playlist) {
             return this;
         }
@@ -260,12 +256,12 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         return this;
     }
 
-    stop(): ResponseBuilder<T> {
+    public stop(): ResponseBuilder<T> {
         this._response.system = "MEDIA_STOP";
         return this;
     }
 
-    enqueue(next: PlayableMedia, current: PlayableMedia): ResponseBuilder<T> {
+    public enqueue(next: PlayableMedia, current: PlayableMedia): ResponseBuilder<T> {
         if (!next || !current) {
             return this;
         }
@@ -280,15 +276,21 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         return this;
     }
 
-    build(): T {
+    public build(): T {
         return this._response as T; // Not sure why I have to type this but it gives an error if I don't
     }
 
-    withCanFulfill(results: CanFulfillIntentResult): ResponseBuilder<T> {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    public withCanFulfill(results: CanFulfillIntentResult): ResponseBuilder<T> {
         return this;
     }
 
-    askForCallTransfer(phoneNumber: string): AbstractResponseBuilder<T> {
+    /**
+     * 
+     * @alpha - The feature is under active development
+     * @param phoneNumber - The phone number to transfer to
+     */
+    public askForCallTransfer(phoneNumber: string): AbstractResponseBuilder<T> {
         this._response.system = "TRANSFER_CALL";
         this._response.data = {
             transferPhoneNumber: phoneNumber

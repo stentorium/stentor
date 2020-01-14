@@ -13,7 +13,7 @@ export function isSimpleDisplay(display: Display): display is SimpleDisplay {
         return false;
     }
 
-    let isSimpleDisplay: boolean = false;
+    let isSimpleDisplay = false;
 
     switch ((display as SimpleDisplay).type) {
         case "ImageDisplay":

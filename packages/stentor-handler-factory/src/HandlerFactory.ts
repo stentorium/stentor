@@ -34,7 +34,7 @@ export class HandlerFactory {
 
     private delegates?: { [delegateTo: string]: HandlerDelegates };
 
-    constructor(props?: HandlerFactoryProps) {
+    public constructor(props?: HandlerFactoryProps) {
         // Set the delegates
         this.delegates = typeof props === "object" ? props.delegates : undefined;
         // Create the map and add the conversation handler
@@ -75,7 +75,7 @@ export class HandlerFactory {
      * @returns {AbstractHandler}
      * @memberof HandlerFactory
      */
-    fromProps(props: Handler): AbstractHandler | undefined {
+    public fromProps(props: Handler): AbstractHandler | undefined {
         if (typeof props !== "object") {
             throw new TypeError(`Invalid props for handler. Props were type:${typeof props}`);
         }
@@ -103,14 +103,10 @@ export class HandlerFactory {
      * Depending on if audio is playing or not, the correct
      * handler is picked off the storage if it is available
      * or not.
-     *
-     * @static
-     * @param {Request} request
-     * @param {Context} context
-     * @returns {Promise<AbstractHandler>}
-     * @memberof HandlerFactory
+     * 
+     * @public
      */
-    from(request: Request, context: Context): AbstractHandler | undefined {
+    public from(request: Request, context: Context): AbstractHandler | undefined {
         let handler: AbstractHandler;
 
         // 1. See if we have a handler on the storage
@@ -136,7 +132,7 @@ export class HandlerFactory {
             if (currentAudioHandler.canHandleRequest(request, context)) {
                 log().debug(
                     `Selecting audio handler ${currentAudioHandler.intentId} to handle the request ${
-                        request.type
+                    request.type
                     }-${keyFromRequest(request)}${handler ? ` over current handler ${handler.intentId}` : ""}`
                 );
                 handler = currentAudioHandler;

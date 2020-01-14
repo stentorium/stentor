@@ -13,5 +13,5 @@ export function isLinkoutSuggestion(suggestion: SuggestionTypes): suggestion is 
         return false;
     }
 
-    return (<LinkOutSuggestion>suggestion).url !== undefined;
+    return (suggestion as LinkOutSuggestion).url !== undefined;
 }

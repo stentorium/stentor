@@ -25,7 +25,7 @@ export function executeTemplate<T extends object>(
     // Using a promise right now because we will eventually
     // want to pass in the source and that will resolve the data
     // and then execute the template
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         const { data } = templatedResponse;
 
         const ssmlBuilder = template(templatedResponse.ssml);

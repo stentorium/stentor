@@ -10,7 +10,7 @@ import { isIntentRequest } from "./Guards";
  * @returns {boolean}
  */
 export function hasSlots(request: Request): boolean {
-    let hasSlots: boolean = false;
+    let hasSlots = false;
 
     if (isIntentRequest(request)) {
         if (request.slots && Object.keys(request.slots).length > 0) {

@@ -27,14 +27,14 @@ import * as REQUEST from "./Constants";
  */
 export class LaunchRequestBuilder extends AbstractBuilder<LaunchRequest> {
     private accessToken?: string;
-    private deviceId: string = "deviceId";
+    private deviceId = "deviceId";
 
     /**
      * Add a access token to the request.
      *
      * @param token - Access token for the request
      */
-    withAccessToken(token: string = "accessToken"): LaunchRequestBuilder {
+    withAccessToken(token = "accessToken"): LaunchRequestBuilder {
         this.accessToken = token;
         return this;
     }
@@ -73,7 +73,7 @@ export class LaunchRequestBuilder extends AbstractBuilder<LaunchRequest> {
  * @public
  */
 export class InputUnknownRequestBuilder extends AbstractBuilder<InputUnknownRequest> {
-    private deviceId: string = "deviceId";
+    private deviceId = "deviceId";
     private rawQuery: string;
 
     /**
@@ -124,14 +124,14 @@ export class InputUnknownRequestBuilder extends AbstractBuilder<InputUnknownRequ
  */
 export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
     private apiAccess: ApiAccessData;
-    private deviceId: string = "deviceId";
-    private intentId: string = "intentId";
-    private isNewSession: boolean = false;
+    private deviceId = "deviceId";
+    private intentId = "intentId";
+    private isNewSession = false;
     private locale: LanguageTag = "en-US";
     private platform: string;
     private rawQuery: string;
     private slots: RequestSlotMap;
-    private userId: string = "userId";
+    private userId = "userId";
 
     /**
      * Set the platform for the request.
@@ -315,8 +315,8 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
  */
 export class AudioPlayerRequestBuilder extends AbstractBuilder<AudioPlayerRequest> {
     private event: AudioPlayerEvent = REQUEST.AUDIO_PLAYER_PLAYBACK_STARTED_EVENT;
-    private token: string = "token";
-    private offsetInMilliseconds: number = 0;
+    private token = "token";
+    private offsetInMilliseconds = 0;
 
     withEvent(event: AudioPlayerEvent): AudioPlayerRequestBuilder {
         this.event = event;
@@ -450,7 +450,7 @@ export class SessionEndedRequestBuilder extends AbstractBuilder<SessionEndedRequ
  */
 export class OptionSelectBuilder extends AbstractBuilder<OptionSelectRequest> {
     private deviceId?: string;
-    private token: string = "optionToken";
+    private token = "optionToken";
 
     /**
      * Add a device ID to the request.

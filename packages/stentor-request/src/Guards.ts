@@ -157,7 +157,7 @@ export function isAnonymousUser(request: Request): boolean {
         return false;
     }
 
-    let isAnonymousUser: boolean = false;
+    let isAnonymousUser = false;
     const userId = request.userId;
 
     if (typeof userId === "string" && userId.length > 0 && userId.startsWith("1")) {

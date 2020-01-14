@@ -12,7 +12,7 @@ import { DelegatingHandlersMap, HandlersArray, HandlersKeyValue } from "./Handle
 export function isDelegatingHandlersMap(
     props: DelegatingHandlersMap | HandlersArray | HandlersKeyValue
 ): props is DelegatingHandlersMap {
-    let isDelegatingHandlersMap: boolean = false;
+    let isDelegatingHandlersMap = false;
 
     if (typeof props === "object") {
         const keys = Object.keys(props);
@@ -50,7 +50,7 @@ export function isHandlersArray(
 export function isHandlersKeyValue(
     props: DelegatingHandlersMap | HandlersArray | HandlersKeyValue
 ): props is HandlersKeyValue {
-    let isHandlersKeyValue: boolean = false;
+    let isHandlersKeyValue = false;
 
     // arrays are objects, need to check this first.
     if (Array.isArray(props)) {

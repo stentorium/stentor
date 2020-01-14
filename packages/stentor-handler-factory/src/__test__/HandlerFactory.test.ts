@@ -33,7 +33,7 @@ const intentId = "intentId";
 const content = {};
 
 class TestHandler extends AbstractHandler {
-    start(request: Request, context: Context): Promise<void> {
+    public start(): Promise<void> {
         return;
     }
 }

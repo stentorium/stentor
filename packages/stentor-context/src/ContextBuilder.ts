@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { AbstractBuilder } from "@xapp/patterns";
 import { Context, Device, Pii, Storage, UserData } from "stentor-models";
-import { ResponseBuilder } from "@xapp/stentor-response";
+import { ResponseBuilder } from "stentor-response";
 import { createSessionStore } from "@xapp/stentor-storage";
 
 export class ContextBuilder<S extends Storage = Storage> extends AbstractBuilder<Context<S>> {

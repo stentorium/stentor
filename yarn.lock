@@ -1255,6 +1255,23 @@
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.4.tgz#38fd73ddfd9b55abb1e1b2ed578cb55bd7b7d339"
   integrity sha512-8+KAKzEvSUdeo+kmqnKrqgeE+LcA0tjYWFY7RPProVYwnqDjukzO+3b6dLD56rYX5TdWejnEOLJYOIeh4CXKuA==
 
+"@types/jsonpath@0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@types/jsonpath/-/jsonpath-0.2.0.tgz#13c62db22a34d9c411364fac79fd374d63445aa1"
+  integrity sha512-v7qlPA0VpKUlEdhghbDqRoKMxFB3h3Ch688TApBJ6v+XLDdvWCGLJIYiPKGZnS6MAOie+IorCfNYVHOPIHSWwQ==
+
+"@types/lodash.template@4.4.6":
+  version "4.4.6"
+  resolved "https://registry.yarnpkg.com/@types/lodash.template/-/lodash.template-4.4.6.tgz#d28a380a0cd152e6846324bf8f68b93318f09bc0"
+  integrity sha512-nBw8J73e8AsYlS/ZoYRKDCQPHqm4F9xAeDLVe4M6xKDo4+1W0pruQ9egw5zgwxveb3C8kzSOetXalCzz3A1cTQ==
+  dependencies:
+    "@types/lodash" "*"
+
+"@types/lodash@*":
+  version "4.14.149"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.149.tgz#1342d63d948c6062838fbf961012f74d4e638440"
+  integrity sha512-ijGqzZt/b7BfzcK9vTrS6MFljQRPn5BFWOx8oE0GYxribu6uV+aA9zZuXI1zc/etK9E8nrgdoF2+LgUw7+9tJQ==
+
 "@types/long@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/long/-/long-4.0.0.tgz#719551d2352d301ac8b81db732acb6bdc28dbdef"
@@ -1340,6 +1357,11 @@
   version "4.3.3"
   resolved "https://registry.yarnpkg.com/@types/sinon/-/sinon-4.3.3.tgz#97cbbfddc3282b5fd40c7abf80b99db426fd4237"
   integrity sha512-Tt7w/ylBS/OEAlSCwzB0Db1KbxnkycP/1UkQpbvKFYoUuRn4uYsC3xh5TRPrOjTy0i8TIkSz1JdNL4GPVdf3KQ==
+
+"@types/sinon@7.0.11":
+  version "7.0.11"
+  resolved "https://registry.yarnpkg.com/@types/sinon/-/sinon-7.0.11.tgz#6f28f005a36e779b7db0f1359b9fb9eef72aae88"
+  integrity sha512-6ee09Ugx6GyEr0opUIakmxIWFNmqYPjkqa3/BuxCBokA0klsOLPgMD5K4q40lH7/yZVuJVzOfQpd7pipwjngkQ==
 
 "@types/xmldoc@1.1.4":
   version "1.1.4"
@@ -1637,7 +1659,7 @@
     "@xapp/stentor-utils" "^1.16.11"
     stentor-models "1.17.1"
 
-"@xapp/stentor-response@1.16.11", "@xapp/stentor-response@^1.16.11":
+"@xapp/stentor-response@^1.16.11":
   version "1.16.11"
   resolved "https://registry.yarnpkg.com/@xapp/stentor-response/-/stentor-response-1.16.11.tgz#8c89025f79f2ed23a3c23605e1e4db48783da6d2"
   integrity sha512-2ma2oRN1Xy6P/lBravKl2VCYCuCK3ZlUIGqkSs1uOPU++u433FmHhFRbd+j4b33K5Qj8vzlJr5kcKqAgQ7FQgQ==

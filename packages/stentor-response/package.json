@@ -1,11 +1,11 @@
 {
-  "name": "stentor-context",
+  "name": "stentor-response",
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"
   },
   "version": "1.16.11",
-  "description": "Context for stentor",
+  "description": "Response for stentor",
   "types": "lib/index",
   "main": "lib/index",
   "files": [
@@ -16,7 +16,9 @@
   },
   "devDependencies": {
     "@types/chai": "4.2.7",
-    "@types/sinon": "4.3.3",
+    "@types/jsonpath": "0.2.0",
+    "@types/lodash.template": "4.4.6",
+    "@types/sinon": "7.0.11",
     "@types/sinon-chai": "3.2.2",
     "@xapp/config": "0.2.3",
     "chai": "4.2.0",
@@ -28,15 +30,21 @@
   },
   "dependencies": {
     "@xapp/patterns": "^1.16.5",
-    "@xapp/stentor-alexa": "^1.16.11",
-    "stentor-response": "^1.16.11",
-    "@xapp/stentor-storage": "^1.16.11",
+    "@xapp/stentor-history": "^1.16.11",
+    "@xapp/stentor-locales": "^1.16.11",
+    "@xapp/stentor-media": "^1.16.11",
+    "@xapp/stentor-time": "^1.16.11",
+    "@xapp/stentor-utils": "^1.16.11",
+    "actions-on-google": "2.12.0",
+    "jsonpath": "1.0.2",
+    "lodash.template": "4.5.0",
+    "moment": "2.24.0",
     "stentor-models": "1.17.1",
     "stentor-request": "1.16.11"
   },
   "scripts": {
     "build": "tsc -d true -p .",
-    "clean": "rm -rf ./lib/*",
+    "clean": "rm -rf ./lib/* ",
     "test": "mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
   },
   "gitHead": "bb8fead16cbd0cff42ea73d73f0da9a5401c4c99"

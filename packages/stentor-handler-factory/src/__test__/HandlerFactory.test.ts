@@ -6,7 +6,6 @@ import * as sinonChai from "sinon-chai";
 import { ContextBuilder } from "@xapp/stentor-context";
 import { AbstractHandler, CONVERSATION_HANDLER_TYPE, ConversationHandler } from "@xapp/stentor-handler";
 import { DelegatingHandler } from "@xapp/stentor-handler-delegating";
-import { AudioHandlerProps, PLAY_LIVE_STREAM_HANDLER_TYPE, PlayLivestreamHandler } from "@xapp/stentor-handler-media";
 import * as INTENT from "@xapp/stentor-interaction-model/lib/Intent/Constants";
 import {
     AudioPlayerRequest,
@@ -22,7 +21,8 @@ import {
 import { AudioPlayerRequestBuilder, IntentRequestBuilder, LaunchRequestBuilder } from "@xapp/stentor-request";
 import { ResponseBuilder } from "@xapp/stentor-response";
 import { HandlerFactory } from "../HandlerFactory";
-import { PlayLivestreamData } from "@xapp/stentor-handler-media/src/PlayLivestreamHandler";
+
+import { TestHandler, TestAudioHandler, TestAudioData } from "./TestHandler";
 
 chai.use(sinonChai);
 const expect = chai.expect;
@@ -31,12 +31,6 @@ const appId = "appId";
 const organizationId = "organizationId";
 const intentId = "intentId";
 const content = {};
-
-class TestHandler extends AbstractHandler {
-    public start(): Promise<void> {
-        return;
-    }
-}
 
 /* tslint:disable:class-name */
 class t extends AbstractHandler { } // eslint-disable-line @typescript-eslint/class-name-casing
@@ -102,11 +96,11 @@ describe("HandlerFactory", () => {
                 it("returns the correct handler", () => {
                     const factory = new HandlerFactory({
                         handlers: [],
-                        mappings: { ["PlayLiveStreamIntent"]: PlayLivestreamHandler }
+                        mappings: { ["PlayLiveStreamIntent"]: TestAudioHandler }
                     });
                     const handler = factory.fromProps(playLiveStreamIntentProps);
                     expect(handler).to.exist;
-                    expect(handler).to.be.instanceOf(PlayLivestreamHandler);
+                    expect(handler).to.be.instanceOf(TestAudioHandler);
                 });
             });
         });
@@ -142,7 +136,6 @@ describe("HandlerFactory", () => {
         const anotherIntentRequest: IntentRequest = new IntentRequestBuilder().withIntentId(anotherIntent).build();
         const intentRequest: IntentRequest = new IntentRequestBuilder().withIntentId(intentId).build();
         const helpRequest: IntentRequest = new IntentRequestBuilder().help().build();
-        const cancelRequest: IntentRequest = new IntentRequestBuilder().cancel().build();
         const launchRequest: LaunchRequest = new LaunchRequestBuilder().build();
         const unhandledRequest: IntentRequest = new IntentRequestBuilder().withIntentId(unhandledIntentId).build();
         const audioPlayerRequest: AudioPlayerRequest = new AudioPlayerRequestBuilder().playbackStarted().build();
@@ -177,11 +170,11 @@ describe("HandlerFactory", () => {
             }
         };
 
-        const audioHandlerProps: AudioHandlerProps<Content, PlayLivestreamData> = {
+        const audioHandlerProps: Handler<Content, TestAudioData> = {
             appId,
             organizationId,
             intentId,
-            type: PLAY_LIVE_STREAM_HANDLER_TYPE,
+            type: "PlayLiveStreamIntent",
             data: {
                 url: "https://some.url"
             },
@@ -217,7 +210,7 @@ describe("HandlerFactory", () => {
                 beforeEach(() => {
                     context = { ...baseContext };
                     context.storage.currentHandler = handlerProps;
-                    factory = new HandlerFactory({ handlers: [PlayLivestreamHandler] });
+                    factory = new HandlerFactory({ handlers: [TestAudioHandler] });
                 });
                 it("passes out the handler", async () => {
                     const handler = await factory.from(anotherIntentRequest, context);
@@ -256,7 +249,7 @@ describe("HandlerFactory", () => {
             beforeEach(() => {
                 factory = new HandlerFactory({
                     handlers: [],
-                    mappings: { ["PlayLiveStreamIntent"]: PlayLivestreamHandler }
+                    mappings: { ["PlayLiveStreamIntent"]: TestAudioHandler }
                 });
             });
             describe("that can handle the event", () => {
@@ -270,7 +263,7 @@ describe("HandlerFactory", () => {
                 });
                 it("passes out the current handler", async () => {
                     const handler = await factory.from(audioPlayerRequest, context);
-                    expect(handler).to.be.instanceOf(PlayLivestreamHandler);
+                    expect(handler).to.be.instanceOf(TestAudioHandler);
                     expect(handler).to.include(audioHandlerProps);
                 });
             });
@@ -293,7 +286,7 @@ describe("HandlerFactory", () => {
             beforeEach(() => {
                 factory = new HandlerFactory({
                     handlers: [],
-                    mappings: { ["PlayLiveStreamIntent"]: PlayLivestreamHandler }
+                    mappings: { ["PlayLiveStreamIntent"]: TestAudioHandler }
                 });
             });
             describe("that receives an audio player event", () => {
@@ -341,26 +334,6 @@ describe("HandlerFactory", () => {
                 it("returns the handler", async () => {
                     const handler = factory.from(launchRequest, context);
                     expect(handler).to.include(handlerProps);
-                });
-            });
-            describe("that receives a CancelEvent", () => {
-                describe("while audio is playing", () => {
-                    let context: Context;
-                    beforeEach(() => {
-                        const newContext = { ...baseContext };
-                        newContext.storage.currentHandler = handlerProps;
-                        newContext.storage.currentAudioHandler = audioHandlerProps;
-                        newContext.audioPlayer = {
-                            token: "1234",
-                            offsetInMilliseconds: 12345,
-                            status: "STOPPED"
-                        };
-                        context = { ...newContext };
-                    });
-                    it("returns the audio handler", async () => {
-                        const handler = factory.from(cancelRequest, context);
-                        expect(handler).to.include(audioHandlerProps);
-                    });
                 });
             });
         });

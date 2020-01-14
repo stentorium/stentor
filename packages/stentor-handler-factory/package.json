@@ -19,7 +19,6 @@
     "@types/sinon": "4.3.3",
     "@types/sinon-chai": "3.2.2",
     "@xapp/config": "0.2.3",
-    "@xapp/stentor-handler-media": "^1.16.14",
     "chai": "4.2.0",
     "mocha": "6.2.2",
     "sinon": "7.4.2",

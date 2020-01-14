@@ -1,0 +1,52 @@
+{
+  "version": "1.0",
+  "session": {
+    "new": false,
+    "sessionId": "amzn1.echo-api.session.e1b200b8-1bfb-4505-924e-d121fb9f9042",
+    "application": {
+      "applicationId": "appId"
+    },
+    "user": {
+      "userId": "amzn1.ask.account.user3"
+    }
+  },
+  "context": {
+    "AudioPlayer": {
+      "offsetInMilliseconds": 1292608,
+      "token": "0",
+      "playerActivity": "STOPPED"
+    },
+    "System": {
+      "application": {
+        "applicationId": "appId"
+      },
+      "user": {
+        "userId": "amzn1.ask.account.user3"
+      },
+      "device": {
+        "deviceId": "amzn1.ask.device.FOO",
+        "supportedInterfaces": {
+          "AudioPlayer": {}
+        }
+      },
+      "apiEndpoint": "https://api.amazonalexa.com"
+    }
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "amzn1.echo-api.request.db",
+    "timestamp": "2017-05-26T21:41:30Z",
+    "locale": "en-US",
+    "intent": {
+      "name": "PlayPodcastOnlyIntent",
+      "confirmationStatus": "NONE",
+      "slots": {
+        "Podcast": {
+          "name": "Podcast",
+          "value": "back stage pass",
+          "confirmationStatus": "NONE"
+        }
+      }
+    }
+  }
+}

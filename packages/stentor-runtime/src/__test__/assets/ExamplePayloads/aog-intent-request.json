@@ -1,0 +1,64 @@
+{
+    "user": {
+      "userId": "15625311745083351491184",
+      "locale": "en-US",
+      "userStorage": "{\"userId\":\"15625311561631308512156\"}",
+      "userVerificationStatus": "GUEST"
+    },
+    "conversation": {
+      "conversationId": "15625311561631308512156",
+      "type": "NEW"
+    },
+    "inputs": [
+      {
+        "intent": "actions.intent.TEXT",
+        "rawInputs": [
+          {
+            "inputType": "TOUCH",
+            "query": "older episode"
+          }
+        ],
+        "arguments": [
+          {
+            "name": "text",
+            "rawText": "older episode",
+            "textValue": "older episode"
+          }
+        ]
+      }
+    ],
+    "surface": {
+      "capabilities": [
+        {
+          "name": "actions.capability.ACCOUNT_LINKING"
+        },
+        {
+          "name": "actions.capability.MEDIA_RESPONSE_AUDIO"
+        },
+        {
+          "name": "actions.capability.SCREEN_OUTPUT"
+        },
+        {
+          "name": "actions.capability.WEB_BROWSER"
+        },
+        {
+          "name": "actions.capability.AUDIO_OUTPUT"
+        }
+      ]
+    },
+    "availableSurfaces": [
+      {
+        "capabilities": [
+          {
+            "name": "actions.capability.SCREEN_OUTPUT"
+          },
+          {
+            "name": "actions.capability.WEB_BROWSER"
+          },
+          {
+            "name": "actions.capability.AUDIO_OUTPUT"
+          }
+        ]
+      }
+    ]
+  }

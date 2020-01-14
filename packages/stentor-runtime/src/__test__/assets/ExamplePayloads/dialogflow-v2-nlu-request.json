@@ -1,0 +1,24 @@
+{
+    "responseId": "81e85d3a-177a-4f1a-8599-8fae7cf0b867-712767ed",
+    "queryResult": {
+      "queryText": "try spaceship",
+      "action": "SpaceshipIntent",
+      "parameters": {
+        "station": [],
+        "negative_modifier": "",
+        "wrong_station": [],
+        "filter_carrier": ""
+      },
+      "allRequiredParamsPresent": true,
+      "intent": {
+        "name": "projects/spaceship-c4g4e/agent/intents/68e29cc1-85b8-4bfa-9ei9-8116d491a1d9",
+        "displayName": "Filter Spaceship"
+      },
+      "intentDetectionConfidence": 0.50394756,
+      "languageCode": "en"
+    },
+    "originalDetectIntentRequest": {
+      "payload": {}
+    },
+    "session": "projects/spaceship-c4g4e/agent/sessions/6ce28f51-247e-903b-6w1d-7a63b8913c04"
+  }

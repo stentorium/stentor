@@ -1,0 +1,37 @@
+{
+  "version": "1.0",
+  "session": {
+    "new": false,
+    "sessionId": "amzn1.echo-api.session.123",
+    "application": {
+      "applicationId": "appId"
+    },
+    "user": {
+      "userId": "amzn1.ask.account.test"
+    }
+  },
+  "context": {
+    "System": {
+      "application": {
+        "applicationId": "appId"
+      },
+      "user": {
+        "userId": "amzn1.ask.account.test"
+      },
+      "device": {
+        "deviceId": "amzn1.ask.device.FOO",
+        "supportedInterfaces": {
+          "AudioPlayer": {}
+        }
+      },
+      "apiEndpoint": "https://api.amazonalexa.com"
+    }
+  },
+  "request": {
+    "type": "SessionEndedRequest",
+    "requestId": "amzn1.echo-api.request.a499f29b-8c3a-4bb8-99d5-477fbdab5a41",
+    "timestamp": "2017-06-13T20:08:06Z",
+    "locale": "en-US",
+    "reason": "EXCEEDED_MAX_REPROMPTS"
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "appId": "appId",
+  "audioManager": {
+    "currentAudio": {
+      "currentTime": 22543,
+      "explicit": false,
+      "id": "dfc3f0141ea5609570370e726e9104f8",
+      "length": "19892653",
+      "podcastTitle": "radio's podcast",
+      "title": "Call - January 23, 2018",
+      "token": "e7f3f2fbbd9d7be9356cb178d8f0489",
+      "type": "PodcastEpisode",
+      "url": "https://traffic.podcast.com/"
+    },
+    "playlist": {
+      "0": {
+        "currentTime": 9012,
+        "explicit": false,
+        "id": "9ec24def69f185b04f85f5d1bd95dcac",
+        "length": "18795510",
+        "podcastTitle": "radio's podcast",
+        "title": "Call - January 24, 2018",
+        "token": "6da97005c0c8fbfa54503105967d9088",
+        "type": "PodcastEpisode",
+        "url": "https://traffic.podcast.com/"
+      },
+      "1": {
+        "currentTime": 22543,
+        "explicit": false,
+        "id": "dfc3f0141ea5609570370e726e9104f8",
+        "length": "19892653",
+        "podcastTitle": "radio's podcast",
+        "title": "Call - January 23, 2018",
+        "token": "e7f3f2efbbd9d7be9356cb178d8f0489",
+        "type": "PodcastEpisode",
+        "url": "https://traffic.podcast.com/"
+      }
+    },
+    "podcast": {
+      "description": "The Virginia Association of Broadcasters award winning \"Call Flo Radio Show\".",
+      "explicit": false,
+      "fetchTime": 1516823990541,
+      "imageUrl": "https://ssl-static.libsyn.com/p/assets/d/9/0/5/d9055bf3d396f9ea/soapy.jpg",
+      "playlist": {
+        "0": {
+          "currentTime": 9012,
+          "explicit": false,
+          "id": "9ec24def69f185b04f85f5d1bd95dcac",
+          "length": "18795510",
+          "podcastTitle": "radio's podcast",
+          "title": "Call - January 24, 2018",
+          "token": "6da97005c0c8fbfa54503105967d9088",
+          "type": "PodcastEpisode",
+          "url": "https://traffic.podcast.com/"
+        },
+        "1": {
+          "currentTime": 22543,
+          "explicit": false,
+          "id": "dfc3f0141ea5609570370e726e9104f8",
+          "length": "19892653",
+          "podcastTitle": "radio's podcast",
+          "title": "Call - January 23, 2018",
+          "token": "e7f3f2efbbd9d7be9356cb178d8f0489",
+          "type": "PodcastEpisode",
+          "url": "https://traffic.podcast.com/"
+        }
+      },
+      "title": "radio's podcast",
+      "url": "https://traffic.podcast.com/"
+    },
+    "url": "https://traffic.podcast.com/"
+  },
+  "createdTimestamp": 1502822024491,
+  "currentAudioHandler": {
+    "appId": "appId",
+    "content": {
+      "PlayPodcastOnlyIntent": []
+    },
+    "data": {},
+    "intentId": "PlayPodcastOnlyIntent",
+    "name": "PlayPodcastOnlyIntent",
+    "organizationId": "ColonialBroadcastingCompany",
+    "slots": [
+      {
+        "name": "Podcast",
+        "type": "LIST_OF_PODCASTS"
+      }
+    ],
+    "slotTypes": {
+      "LIST_OF_PODCASTS": {
+        "name": "LIST_OF_PODCASTS",
+        "values": [
+          {
+            "data": "https://radio.libsyn.com/rss",
+            "name": "call flow"
+          }
+        ]
+      }
+    },
+    "type": "PlayPodcastIntent"
+  },
+  "currentHandler": {
+    "appId": "appId",
+    "content": {
+      "HelpIntent": [
+        {
+          "name": "Help",
+          "outputSpeech": "<speak><audio src=\"https://s3.amazonaws.com/Prompt.mp3\" /></speak>",
+          "reprompt": "<speak><audio src=\"https://s3.amazonaws.com/Prompt.mp3\" /></speak>"
+        }
+      ],
+      "LaunchRequest": [
+        {
+          "name": "Francis Intro",
+          "outputSpeech": "<speak><audio src=\"https://s3.amazonaws.com/Intro.mp3\" /><audio src=\"https://s3.amazonaws.com/Prompt.mp3\" /></speak>",
+          "reprompt": "<speak><audio src=\"https://s3.amazonaws.com/Prompt.mp3\" /></speak>"
+        }
+      ]
+    },
+    "data": {},
+    "intentId": "LaunchRequest",
+    "name": "LaunchRequest",
+    "organizationId": "organizationId",
+    "slots": [],
+    "slotTypes": {},
+    "type": "InSessionIntent"
+  },
+  "lastActiveTimestamp": 1516824400500,
+  "userId": "amzn1.ask.account.AGOIC74Z33FIZCKQJWRBDFFIBLKICMJDGILNI4PDML5ESRM4DTTFTH5DPPJ5RHHRLENMU2DJIVMND7Y5SNCNHYZR2PURU46ID55NTPBAFCGWXJDGOWU44JCMOMTLQP7Y33MP2F6MB6CBT5KESS37C3XJYAFSMX5WT6AD662RIHVIDLIMSX2FMAYC54PR5H5MH22IWOYYIW5YAIY"
+}

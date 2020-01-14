@@ -1,0 +1,46 @@
+{
+  "currentIntent": {
+    "slotTypes": {},
+    "sampleUtterances": [],
+    "data": {
+      "url": "https://ice23.securenetsystems.net/WFKL"
+    },
+    "langCode": "en-US",
+    "intentId": "LaunchRequest",
+    "responseData": [
+      {
+        "name": "Custom Intro",
+        "outputSpeech": "<speak> <audio src='https://s3.amazonaws.com/foo/Intro.mp3'/></speak>"
+      }
+    ],
+    "type": "PlayLiveStreamIntent",
+    "helpData": [],
+    "utterancePatterns": [],
+    "organizationId": "organizationId",
+    "slots": [],
+    "appId": "fickle",
+    "name": "Live Stream"
+  },
+  "appId": "fickle",
+  "createdTimestamp": 1498702341647,
+  "userId": "amzn1.ask.account.user2",
+  "lastActiveTimestamp": 1498763443217,
+  "audioManager": {
+    "currentPlayable": {
+      "length": -1,
+      "currentTime": 145472,
+      "id": "https://ice23.securenetsystems.net/foo",
+      "type": "LiveStream",
+      "url": "https://ice23.securenetsystems.net/foo",
+      "token": "fd2d32f76ade04483680935f5306c1da"
+    },
+    "playlistData": [
+      {
+        "type": "LiveStream",
+        "currentTime": 0,
+        "url": "https://ice23.securenetsystems.net/foo"
+      }
+    ],
+    "url": "https://ice23.securenetsystems.net/foo"
+  }
+}

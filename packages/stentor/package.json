@@ -40,7 +40,6 @@
     "@xapp/logger": "1.16.11",
     "@xapp/patterns": "1.16.5",
     "@xapp/stentor-handler": "1.16.11",
-    "@xapp/stentor-runtime": "1.16.11",
     "@xapp/stentor-service-analytics": "1.16.11",
     "@xapp/stentor-service-event": "1.16.11",
     "@xapp/stentor-utils": "1.16.11",
@@ -51,6 +50,7 @@
     "stentor-models": "1.17.1",
     "stentor-request": "1.16.11",
     "stentor-response": "1.16.11",
+    "stentor-runtime": "1.16.14",
     "stentor-service-ovai": "1.15.6"
   },
   "peerDependencies": {

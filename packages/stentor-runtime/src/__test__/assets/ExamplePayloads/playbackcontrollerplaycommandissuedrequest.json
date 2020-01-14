@@ -1,0 +1,34 @@
+{
+  "version": "1.0",
+  "context": {
+    "AudioPlayer": {
+      "offsetInMilliseconds": 292016,
+      "token": "fd2d32f76ade04483680935f5306c1da",
+      "playerActivity": "STOPPED"
+    },
+    "System": {
+      "application": {
+        "applicationId": "appId"
+      },
+      "user": {
+        "userId": "amzn1.ask.account.user2"
+      },
+      "device": {
+        "deviceId": "amzn1.ask.device.FOO",
+        "supportedInterfaces": {
+          "Display": {
+            "templateVersion": "1.0",
+            "markupVersion": "1.0"
+          }
+        }
+      },
+      "apiEndpoint": "https://api.amazonalexa.com"
+    }
+  },
+  "request": {
+    "type": "PlaybackController.PlayCommandIssued",
+    "requestId": "amzn1.echo-api.request.95107d29-d38f-460b-a909-9bd4c4c47fbf",
+    "timestamp": "2017-06-29T18:18:31Z",
+    "locale": "en-US"
+  }
+}

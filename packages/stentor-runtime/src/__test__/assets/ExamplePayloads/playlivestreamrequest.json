@@ -1,0 +1,41 @@
+{
+  "version": "1.0",
+  "session": {
+    "new": false,
+    "sessionId": "amzn1.echo-api.session.123",
+    "application": {
+      "applicationId": "appId"
+    },
+    "user": {
+      "userId": "amzn1.ask.account.test"
+    }
+  },
+  "context": {
+    "AudioPlayer": {
+      "playerActivity": "IDLE"
+    },
+    "System": {
+      "application": {
+        "applicationId": "appId"
+      },
+      "user": {
+        "userId": "amzn1.ask.account.test"
+      },
+      "device": {
+        "deviceId": "amzn1.ask.device.FOO"
+      },
+      "apiEndpoint": "https://api.amazonalexa.com",
+      "apiAccessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjEifQ.eyJhdWQiOiJodHRwczovL2FwaS5hbWF6b25hbGV4YS5jb20iLCJpc3MiOiJBbGV4YVNraWxsS2l0Iiwic3ViIjoiYW16bjEuYXNrLnNraWxsLmY5ZjRlMmU5LWYwZGMtNGVkNC05MjVjLTRjMDM1MDY2Y2M4YyIsImV4cCI6MTUxNTc5MzcyMSwiaWF0IjoxNTE1NzkwMTIxLCJuYmYiOjE1MTU3OTAxMjEsInByaXZhdGVDbGFpbXMiOnsiY29uc2VudFRva2VuIjpudWxsLCJkZXZpY2VJZCI6ImFtem4xLmFzay5kZXZpY2UuQUdITFhUVUZHNllRNlVOMkhQNTVKVFA1TTVMTEFGRlMzTkdJQ05YNVBNVFlKQ1dSNjUzTUdTTkc3TlpHTUFUSFBKUEoyWUNKNVNOSFFSU01ZRzdPNUg3TkdVUVBNVk9YVlhMNFlBT1FFWk9CWTJNV0lSTlBKRFhNWkpGVEtDRlNBTTJaSjVVMzdFT1pLQjJDRkRZUUxHMjNaNVpBIiwidXNlcklkIjoiYW16bjEuYXNrLmFjY291bnQuQUVPT0ZYNkFaTE9FTTNSNkNZS1BJVlJHVVpaNTVPNElONlZWWVZXSkM2Q09OREw3RUFHMjRZRVBQQkJNV0hDQlpZR0tFSTNHMkJDWUxYV1FBNFJWUVNLSTI3TzVPNVdPUkJHWkgzMk9VU0c3QlJUS05BN0hCUktLVjYyREVKRFZMQ0NCMkdOT1dGRFhYRFpYWkNCSlVLUkVLWks1TVhGREVFQVdEQlc1NUNOSlNBVzRPQUhHV081RFpPRldPUE9ONklBUERPNU9QWVE2WFJJIn19.NwIs8AaBN2HgABHL4DA77cGb4t4naZHpLEdtPoD-Byx3RBnKwa2fn8LI0muad6wg0PhQ3Y23cTSikf-mpp60OaEzueQLd9pAxgMFSvFOco3AAvNcmkj19x5sNyILkpOc4HqwY0PZz73_C455gLqEKxiaRckEfacU7WdecQXWUij6GfJ_4_iB1Px_F7Wz-wvgwxI1GHK_aERRDDNqvfOf3vAsAfyUI78x6UmbFn0rBc1XZMI7Lrv6MktpWvHx7rJ_W7DNlGQUW5L04tPFGgvCbWe5yJFwBAATQT6-_Ze7kyD9GD7ThOQj-8BgdsfkAlRkQfPV2ZjKFleKUGBv4bjypw"
+    }
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "amzn1.echo-api.request.a0b4865e-c1fe-4380-85cf-3828c6a5be15",
+    "timestamp": "2018-01-12T20:48:41Z",
+    "locale": "en-US",
+    "intent": {
+      "name": "LiveStream",
+      "confirmationStatus": "NONE"
+    }
+  }
+}

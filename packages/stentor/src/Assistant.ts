@@ -22,7 +22,7 @@ import {
     RuntimeCallback,
     UserStorageService
 } from "stentor-models";
-import { main, translateEventAndContext } from "@xapp/stentor-runtime";
+import { main, translateEventAndContext } from "stentor-runtime";
 import {
     ANALYTICS_EVENT_NAME,
     ANALYTICS_EVENT_TYPE,

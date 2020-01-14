@@ -1,6 +1,4 @@
 /*! Copyright (c) 2019, XAPPmedia */
-// tslint:disable:no-null-keyword
-// tslint:disable:no-magic-numbers
 import * as chai from "chai";
 import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
@@ -26,8 +24,8 @@ import { MockHandlerService, MockUserStorageService } from "./Mocks";
 chai.use(sinonChai);
 const expect = chai.expect;
 
-const appId: string = "appId";
-const intentId: string = "intentId";
+const appId = "appId";
+const intentId = "intentId";
 
 const content: Content = {
     ["LaunchRequest"]: [
@@ -94,13 +92,13 @@ const storage: Storage = {
  */
 class TestEventStream implements EventStream {
     public events: Event[] = [];
-    public flushed: boolean = false;
+    public flushed = false;
 
-    addEvent(event: Event) {
+    public addEvent(event: Event) {
         this.events.push(event);
     }
 
-    async flush() {
+    public async flush() {
         this.flushed = true;
     }
 }
@@ -230,6 +228,7 @@ describe("#main() with EventService", () => {
             eventService.addStream(eventStream);
             error = new Error("💣💣💣💣💣💣🔥🔥🔥🔥🔥");
             // This is where we plant the bomb, it is rigged to explode.
+            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
             // @ts-ignore Trust us on this one.
             userStorageService = {
                 get() {

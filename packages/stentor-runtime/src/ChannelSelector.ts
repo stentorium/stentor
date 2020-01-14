@@ -10,7 +10,7 @@ export class ChannelSelector {
      * @param request The request body.
      * @param lambdaContext
      */
-    from(channels: Channel[], request: object, lambdaContext?: RuntimeContext): Channel {
+    public from(channels: Channel[], request: object, lambdaContext?: RuntimeContext): Channel {
         if (!existsAndNotEmpty(channels)) {
             throw new TypeError(
                 "Invalid properties passed to ChannelSelector.from().  The channels were either undefined or empty."
@@ -46,7 +46,7 @@ export class ChannelSelector {
         possibleChannels = uniq(possibleChannels);
 
         if (possibleChannels.length === 0) {
-            let errorMessage: string = `Unable to select channel.`;
+            let errorMessage = `Unable to select channel.`;
 
             const requestKeys = Object.keys(request);
             if (requestKeys.length > 0) {

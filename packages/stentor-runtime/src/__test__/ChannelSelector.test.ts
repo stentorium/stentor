@@ -7,13 +7,13 @@ import { IntentRequestBuilder } from "@xapp/stentor-request";
 import { ChannelSelector } from "../ChannelSelector";
 
 class TestTranslator extends Translator<object, Request> {
-    translate(request: object): Request {
+    public translate(): Request {
         return new IntentRequestBuilder().withIntentId("Test").build();
     }
 }
 
 class Test1Translator extends Translator<object, Request> {
-    translate(request: object): Request {
+    public translate(): Request {
         return new IntentRequestBuilder().withIntentId("Test1").build();
     }
 }
@@ -109,7 +109,7 @@ describe("ChannelSelector", () => {
                                 },
                                 {
                                     name: "foo",
-                                    test(body: object) {
+                                    test() {
                                         return false;
                                     },
                                     request: new Test1Translator(),
@@ -138,7 +138,7 @@ describe("ChannelSelector", () => {
                             },
                             {
                                 name: "foo",
-                                test(body: object) {
+                                test() {
                                     return true;
                                 },
                                 translator: new Test1Translator()
@@ -164,14 +164,14 @@ describe("ChannelSelector", () => {
                                 },
                                 {
                                     name: "foo",
-                                    test(body: object) {
+                                    test() {
                                         return true;
                                     },
                                     request: new TestTranslator()
                                 },
                                 {
                                     name: "bar",
-                                    test(body: object) {
+                                    test() {
                                         return true;
                                     },
                                     request: new Test1Translator()
@@ -193,7 +193,7 @@ describe("ChannelSelector", () => {
                     [
                         {
                             name: "test",
-                            test(body: object) {
+                            test() {
                                 return true;
                             },
                             request: new TestTranslator(),
@@ -214,7 +214,7 @@ describe("ChannelSelector", () => {
                         },
                         {
                             name: "foo",
-                            test(body: object) {
+                            test() {
                                 return false;
                             },
                             request: new Test1Translator(),
@@ -249,7 +249,7 @@ describe("ChannelSelector", () => {
                         [
                             {
                                 name: "test",
-                                test(body: object) {
+                                test() {
                                     return true;
                                 },
                                 request: new TestTranslator(),
@@ -270,7 +270,7 @@ describe("ChannelSelector", () => {
                             },
                             {
                                 name: "test1",
-                                test(body: object) {
+                                test() {
                                     return false;
                                 },
                                 request: new Test1Translator(),

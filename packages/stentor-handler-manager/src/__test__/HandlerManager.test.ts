@@ -5,7 +5,7 @@ import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
 
 import { CONVERSATION_HANDLER_TYPE, isHandler } from "@xapp/stentor-handler";
-import { HandlerFactory } from "@xapp/stentor-handler-factory";
+import { HandlerFactory } from "stentor-handler-factory";
 import { Context, Device, Handler, HandlerService, Request, Storage } from "stentor-models";
 import { IntentRequestBuilder, isIntentRequest } from "@xapp/stentor-request";
 import { ResponseBuilder } from "@xapp/stentor-response";
@@ -16,7 +16,7 @@ chai.use(sinonChai);
 const expect = chai.expect;
 
 class MockHandlerService implements HandlerService {
-    get(id: string | { intentId: string }): Promise<Handler> {
+    public get(): Promise<Handler> {
         // This is getting stubbed anyways, doesn't matter
         return {} as any;
     }

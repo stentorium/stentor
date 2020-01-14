@@ -38,7 +38,7 @@ describe("#requestForPath()", () => {
         });
     });
     describe("when passed a path with type:start", () => {
-        it("sets the overrideKey", () => {});
+        it("sets the overrideKey");
     });
     describe("when passed a path for an intent", () => {
         beforeEach(() => {

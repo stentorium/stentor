@@ -2,7 +2,7 @@
 // tslint:disable:cyclomatic-complexity <-- TODO: We want to remove the need for this.
 import { log } from "@xapp/logger";
 import { GOODBYE, TROUBLE_WITH_REQUEST } from "stentor-constants";
-import { ContextFactory } from "@xapp/stentor-context";
+import { ContextFactory } from "stentor-context";
 import { AbstractHandler, getResponse } from "@xapp/stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
 import { HandlerManager } from "stentor-handler-manager";

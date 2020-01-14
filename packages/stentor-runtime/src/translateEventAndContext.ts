@@ -20,7 +20,7 @@ export function translateEventAndContext(event: any, context: any): { event: obj
     } else if (context.request) {
         translated = bstContext(event, context);
     } else if (event.testContext) {
-        translated = virtualBstContext(event, context);
+        translated = virtualBstContext(event);
     }
 
     return translated;

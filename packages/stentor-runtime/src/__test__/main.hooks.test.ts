@@ -33,7 +33,7 @@ import { main } from "../main";
 import { ALEXA_APP_ID, DEFAULT_CHANNELS } from "./assets/Constants";
 import { MockHandlerService, MockUserStorageService } from "./Mocks";
 
-const appId: string = "appId";
+const appId = "appId";
 
 const content: Content = {
     ["LaunchRequest"]: [
@@ -192,6 +192,7 @@ describe("#main() with hooks", () => {
         });
         describe("on the channel", () => {
             it("returns the appropriate response", async () => {
+                // eslint-disable-next-line @typescript-eslint/no-var-requires
                 const dialogflowNLURequest = require("./assets/ExamplePayloads/dialogflow-v2-nlu-request");
                 await main(dialogflowNLURequest, context, callbackSpy, DEFAULT_CHANNELS, {
                     eventService,

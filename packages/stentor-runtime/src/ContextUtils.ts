@@ -2,6 +2,38 @@
 import { RuntimeContext } from "stentor-models";
 
 /**
+ * This follows the current Stentor path convention (.../dev/apps/{appId}/run/{platform})
+ *
+ * @param {string} path
+ * @returns {any}
+ */
+function parsePath(path: string): { platform?: string; appId?: string } {
+    const params: any = {};
+
+    const pathParts: any = path.split("/");
+    params.platform = pathParts.pop();
+    pathParts.pop(); // "/run/"
+    params.appId = pathParts.pop();
+
+    return params;
+}
+
+function parseQuery(query: string): any {
+    const params: any = {};
+
+    const parts = query.split("&");
+
+    parts.forEach((nvp: string) => {
+        if (nvp) {
+            const [name, value] = nvp.split("=");
+            params[name] = value;
+        }
+    });
+
+    return params;
+}
+
+/**
  * For simulating lambda environments.
  */
 const LAMBDA_TIMEOUT = 6000;
@@ -36,7 +68,7 @@ export function bstContext(lambdaEvent: any, lambdaContext: any): { event: objec
     };
 
     const end = new Date().getTime() + LAMBDA_TIMEOUT;
-    context.getRemainingTimeInMillis = () => {
+    context.getRemainingTimeInMillis = (): number => {
         const diff = end - new Date().getTime();
         const t = diff > 0 ? diff : 0;
         return t;
@@ -52,7 +84,7 @@ export function bstContext(lambdaEvent: any, lambdaContext: any): { event: objec
  * @param lambdaContext
  * @returns {any}
  */
-export function virtualBstContext(lambdaEvent: any, lambdaContext: any): { event: object; context: RuntimeContext } {
+export function virtualBstContext(lambdaEvent: any): { event: object; context: RuntimeContext } {
     const event = lambdaEvent;
     const path = lambdaEvent.testContext.path;
     const context = Object.assign({} as RuntimeContext, parsePath(path));
@@ -64,7 +96,7 @@ export function virtualBstContext(lambdaEvent: any, lambdaContext: any): { event
 
     // Fake the remaining time
     const end = new Date().getTime() + LAMBDA_TIMEOUT;
-    context.getRemainingTimeInMillis = () => {
+    context.getRemainingTimeInMillis = (): number => {
         const diff = end - new Date().getTime();
         return diff > 0 ? diff : 0;
     };
@@ -140,36 +172,4 @@ export function lambdaAPIGatewayContext(
     };
 
     return { event, context };
-}
-
-/**
- * This follows the current Stentor path convention (.../dev/apps/{appId}/run/{platform})
- *
- * @param {string} path
- * @returns {any}
- */
-function parsePath(path: string): { platform?: string; appId?: string } {
-    const params: any = {};
-
-    const pathParts: any = path.split("/");
-    params.platform = pathParts.pop();
-    pathParts.pop(); // "/run/"
-    params.appId = pathParts.pop();
-
-    return params;
-}
-
-function parseQuery(query: string): any {
-    const params: any = {};
-
-    const parts = query.split("&");
-
-    parts.forEach((nvp: string) => {
-        if (nvp) {
-            const [name, value] = nvp.split("=");
-            params[name] = value;
-        }
-    });
-
-    return params;
 }

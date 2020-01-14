@@ -2,11 +2,13 @@
 import { expect } from "chai";
 
 import { ConversationHandler } from "@xapp/stentor-handler";
-import { Content, Context, Data, HandlerDelegates, Request } from "stentor-models";
+import { HandlerDelegates } from "stentor-models";
 import { isDelegatingHandlersMap, isHandlersArray, isHandlersKeyValue } from "../Guards";
 
 const DELEGATES: HandlerDelegates = {
-    async handleRequest(request: Request, context: Context, content: Content, data: Data) {}
+    async handleRequest() {
+        return undefined;
+    }
 };
 
 describe("#isDelegatingHandlersMap()", () => {

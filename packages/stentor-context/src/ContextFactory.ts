@@ -35,7 +35,7 @@ export class ContextFactory {
      * @param intentService
      * @returns {Promise<Context>}
      */
-    static async fromRequest(
+    public static async fromRequest(
         request: Request,
         requestBody: any,
         services: ContextFactoryServices,
@@ -204,7 +204,7 @@ export class ContextFactory {
         return false;
     }
 
-    private static updateProfile(pii: Pii, userProfile: UserProfile) {
+    private static updateProfile(pii: Pii, userProfile: UserProfile): void {
         pii.emailAddress = pii.emailAddress || userProfile.email;
         pii.phoneNumber = pii.phoneNumber || userProfile.phone;
         pii.name = pii.name || userProfile.name;

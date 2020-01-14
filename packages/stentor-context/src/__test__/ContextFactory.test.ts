@@ -7,12 +7,10 @@ import * as sinonChai from "sinon-chai";
 import { AlexaRequestBuilder } from "@xapp/stentor-alexa";
 import {
     Channel,
-    CommFieldType,
     Pii,
     PIIService,
     Request,
     Storage,
-    UserDataType,
     UserDataValue,
     UserStorageService
 } from "stentor-models";
@@ -50,37 +48,37 @@ const TEST_CHANNEL: Channel = {
 };
 
 class TestUserStorageService implements UserStorageService {
-    get(id: string): Promise<Storage | undefined> {
+    public get(): Promise<Storage | undefined> {
         return undefined;
     }
 
-    create(id: string, storage: Storage): Promise<Storage> {
+    public create(): Promise<Storage> {
         return undefined;
     }
 
-    update(id: string, storage: Storage): Promise<Storage> {
+    public update(): Promise<Storage> {
         return undefined;
     }
 }
 
 class TestPIIService implements PIIService {
-    pii: Pii;
-    loadPii(token: string): Promise<Pii> {
+    public pii: Pii;
+    public loadPii(): Promise<Pii> {
         return undefined;
     }
-    savePii(pii: Pii): Promise<void> {
+    public savePii(): Promise<void> {
         return undefined;
     }
-    updatePii(pii: Pii): Promise<void> {
+    public updatePii(): Promise<void> {
         return undefined;
     }
-    getPiiForField(field: CommFieldType, value: string): Promise<Pii[]> {
+    public getPiiForField(): Promise<Pii[]> {
         return undefined;
     }
-    removePii(token?: string): Promise<void> {
+    public removePii(): Promise<void> {
         return undefined;
     }
-    redeem(userDataType: UserDataType, accessToken: string): Promise<UserDataValue> {
+    public redeem(): Promise<UserDataValue> {
         return undefined;
     }
 }

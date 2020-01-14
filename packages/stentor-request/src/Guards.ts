@@ -198,7 +198,7 @@ export function hasSessionId(
  * @returns {item is RequestDependable<T>}
  */
 export function isRequestDependable<T extends object>(item: object): item is RequestDependable<T> {
-    return !!item && (<RequestDependent>item).requestMatch !== undefined;
+    return !!item && (item as RequestDependent).requestMatch !== undefined;
 }
 /**
  * Guard to check if an object is SystemDependable
@@ -209,5 +209,5 @@ export function isRequestDependable<T extends object>(item: object): item is Req
  * @returns {item is SystemDependable<T>}
  */
 export function isSystemDependable<T extends object>(item: object): item is SystemDependable<T> {
-    return !!item && (<SystemDependent>item).systemCondition !== undefined;
+    return !!item && (item as SystemDependent).systemCondition !== undefined;
 }

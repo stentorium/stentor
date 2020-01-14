@@ -45,6 +45,24 @@ export function executeTemplate<T extends object>(
     });
 }
 
+
+function _replace(s: string, data: any): string {
+    if (!s) {
+        return s;
+    }
+
+    try {
+        const compiled = template(s);
+        const result = compiled(data);
+        return result;
+    } catch (error) {
+        console.error(error);
+    }
+
+    // return the original in case of error
+    return s;
+}
+
 /**
  * Replaces the placeholders in template
  *
@@ -86,19 +104,3 @@ export function replacePlaceholders(
     }
 }
 
-function _replace(s: string, data: any): string {
-    if (!s) {
-        return s;
-    }
-
-    try {
-        const compiled = template(s);
-        const result = compiled(data);
-        return result;
-    } catch (error) {
-        console.error(error);
-    }
-
-    // return the original in case of error
-    return s;
-}

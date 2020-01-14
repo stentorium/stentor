@@ -34,7 +34,7 @@ export class LaunchRequestBuilder extends AbstractBuilder<LaunchRequest> {
      *
      * @param token - Access token for the request
      */
-    withAccessToken(token = "accessToken"): LaunchRequestBuilder {
+    public withAccessToken(token = "accessToken"): LaunchRequestBuilder {
         this.accessToken = token;
         return this;
     }
@@ -44,7 +44,7 @@ export class LaunchRequestBuilder extends AbstractBuilder<LaunchRequest> {
      *
      * @param deviceId - Device ID for the request
      */
-    withDeviceId(deviceId: string): LaunchRequestBuilder {
+    public withDeviceId(deviceId: string): LaunchRequestBuilder {
         this.deviceId = deviceId;
         return this;
     }
@@ -52,7 +52,7 @@ export class LaunchRequestBuilder extends AbstractBuilder<LaunchRequest> {
     /**
      * Build the request.
      */
-    build(): LaunchRequest {
+    public build(): LaunchRequest {
         const { accessToken, deviceId } = this;
 
         return {
@@ -81,7 +81,7 @@ export class InputUnknownRequestBuilder extends AbstractBuilder<InputUnknownRequ
      *
      * @param deviceId - Device ID for the request
      */
-    withDeviceId(deviceId: string): InputUnknownRequestBuilder {
+    public withDeviceId(deviceId: string): InputUnknownRequestBuilder {
         this.deviceId = deviceId;
         return this;
     }
@@ -91,12 +91,12 @@ export class InputUnknownRequestBuilder extends AbstractBuilder<InputUnknownRequ
      *
      * @param rawQuery - The raw query for the request
      */
-    withRawQuery(rawQuery: string): InputUnknownRequestBuilder {
+    public withRawQuery(rawQuery: string): InputUnknownRequestBuilder {
         this.rawQuery = rawQuery;
         return this;
     }
 
-    build(): InputUnknownRequest {
+    public build(): InputUnknownRequest {
         const request: InputUnknownRequest = {
             intentId: REQUEST.INPUT_UNKNOWN_ID,
             type: REQUEST.INPUT_UNKNOWN_REQUEST_TYPE,
@@ -138,7 +138,7 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
      *
      * @param platform - Platform for the request
      */
-    onPlatform(platform: string): IntentRequestBuilder {
+    public onPlatform(platform: string): IntentRequestBuilder {
         this.platform = platform;
         return this;
     }
@@ -148,7 +148,7 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
      *
      * @param rawQuery - Raw query for the request
      */
-    withRawQuery(rawQuery: string): IntentRequestBuilder {
+    public withRawQuery(rawQuery: string): IntentRequestBuilder {
         this.rawQuery = rawQuery;
         return this;
     }
@@ -158,7 +158,7 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
      *
      * @param userId - User ID for the request
      */
-    withUserId(userId: string): IntentRequestBuilder {
+    public withUserId(userId: string): IntentRequestBuilder {
         this.userId = userId;
         return this;
     }
@@ -168,7 +168,7 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
      *
      * @param apiAccess - API access data for the request.
      */
-    withAPIAccess(apiAccess: ApiAccessData): IntentRequestBuilder {
+    public withAPIAccess(apiAccess: ApiAccessData): IntentRequestBuilder {
         this.apiAccess = apiAccess;
         return this;
     }
@@ -180,7 +180,7 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
      *
      * @param intentId - Intent ID for the request.
      */
-    withIntentId(intentId: string): IntentRequestBuilder {
+    public withIntentId(intentId: string): IntentRequestBuilder {
         this.intentId = intentId;
         return this;
     }
@@ -190,7 +190,7 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
      *
      * @param deviceId - Device ID for the request
      */
-    withDeviceId(deviceId: string): IntentRequestBuilder {
+    public withDeviceId(deviceId: string): IntentRequestBuilder {
         this.deviceId = deviceId;
         return this;
     }
@@ -198,7 +198,7 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
     /**
      * Sets the intent request to be for a resume intent.
      */
-    resumeIntent(): IntentRequestBuilder {
+    public resumeIntent(): IntentRequestBuilder {
         this.intentId = INTENT.RESUME_INTENT;
         return this;
     }
@@ -206,7 +206,7 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
     /**
      * Sets the intent request to be for a NextIntent
      */
-    nextIntent(): IntentRequestBuilder {
+    public nextIntent(): IntentRequestBuilder {
         this.intentId = INTENT.NEXT_INTENT;
         return this;
     }
@@ -214,14 +214,14 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
     /**
      * Sets the intent request to be for a PreviousIntent
      */
-    previousIntent(): IntentRequestBuilder {
+    public previousIntent(): IntentRequestBuilder {
         this.intentId = INTENT.PREVIOUS_INTENT;
         return this;
     }
     /**
      * Sets the intent request to be for a LatestIntent
      */
-    latestIntent(): IntentRequestBuilder {
+    public latestIntent(): IntentRequestBuilder {
         this.intentId = INTENT.LATEST_INTENT;
         return this;
     }
@@ -229,7 +229,7 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
     /**
      * Sets the intent request to be for a RepeatIntent
      */
-    repeatIntent(): IntentRequestBuilder {
+    public repeatIntent(): IntentRequestBuilder {
         this.intentId = INTENT.REPEAT_INTENT;
         return this;
     }
@@ -237,7 +237,7 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
     /**
      * Sets the intent request to be for a CancelIntent
      */
-    cancel(): IntentRequestBuilder {
+    public cancel(): IntentRequestBuilder {
         this.intentId = INTENT.CANCEL_INTENT;
         return this;
     }
@@ -245,7 +245,7 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
     /**
      * Sets the intent request to be for a HelpIntent
      */
-    help(): IntentRequestBuilder {
+    public help(): IntentRequestBuilder {
         this.intentId = INTENT.HELP_INTENT;
         return this;
     }
@@ -255,7 +255,7 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
      *
      * @param slots - Slots for the request.
      */
-    withSlots(slots: RequestSlotMap): IntentRequestBuilder {
+    public withSlots(slots: RequestSlotMap): IntentRequestBuilder {
         this.slots = slots;
         return this;
     }
@@ -265,7 +265,7 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
      *
      * @param locale - Locale for the intent request.
      */
-    withLocale(locale: LanguageTag) {
+    public withLocale(locale: LanguageTag): IntentRequestBuilder {
         this.locale = locale;
         return this;
     }
@@ -273,7 +273,7 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
     /**
      * Build the intent request.
      */
-    build(): IntentRequest {
+    public build(): IntentRequest {
         const { apiAccess, deviceId, intentId, locale, platform, slots, userId, isNewSession, rawQuery } = this;
 
         const request: IntentRequest = {
@@ -318,32 +318,32 @@ export class AudioPlayerRequestBuilder extends AbstractBuilder<AudioPlayerReques
     private token = "token";
     private offsetInMilliseconds = 0;
 
-    withEvent(event: AudioPlayerEvent): AudioPlayerRequestBuilder {
+    public withEvent(event: AudioPlayerEvent): AudioPlayerRequestBuilder {
         this.event = event;
         return this;
     }
 
-    playbackStarted(): AudioPlayerRequestBuilder {
+    public playbackStarted(): AudioPlayerRequestBuilder {
         this.event = REQUEST.AUDIO_PLAYER_PLAYBACK_STARTED_EVENT;
         return this;
     }
 
-    playbackStopped(): AudioPlayerRequestBuilder {
+    public playbackStopped(): AudioPlayerRequestBuilder {
         this.event = REQUEST.AUDIO_PLAYER_PLAYBACK_STOPPED_EVENT;
         return this;
     }
 
-    withOffset(offsetInMilliseconds: number): AudioPlayerRequestBuilder {
+    public withOffset(offsetInMilliseconds: number): AudioPlayerRequestBuilder {
         this.offsetInMilliseconds = offsetInMilliseconds;
         return this;
     }
 
-    withToken(token: string): AudioPlayerRequestBuilder {
+    public withToken(token: string): AudioPlayerRequestBuilder {
         this.token = token;
         return this;
     }
 
-    build(): AudioPlayerRequest {
+    public build(): AudioPlayerRequest {
         const { event, token, offsetInMilliseconds } = this;
 
         return {
@@ -367,27 +367,27 @@ export class AudioPlayerRequestBuilder extends AbstractBuilder<AudioPlayerReques
 export class PlaybackControlRequestBuilder extends AbstractBuilder<PlaybackControlRequest> {
     private event: PlaybackControlEvent = REQUEST.PLAYBACK_CONTROL_NEXT_EVENT;
 
-    withNextEvent(): PlaybackControlRequestBuilder {
+    public withNextEvent(): PlaybackControlRequestBuilder {
         this.event = REQUEST.PLAYBACK_CONTROL_NEXT_EVENT;
         return this;
     }
 
-    withPreviousEvent(): PlaybackControlRequestBuilder {
+    public withPreviousEvent(): PlaybackControlRequestBuilder {
         this.event = REQUEST.PLAYBACK_CONTROL_PREVIOUS_EVENT;
         return this;
     }
 
-    withPauseEvent(): PlaybackControlRequestBuilder {
+    public withPauseEvent(): PlaybackControlRequestBuilder {
         this.event = REQUEST.PLAYBACK_CONTROL_PAUSE_EVENT;
         return this;
     }
 
-    withPlayEvent(): PlaybackControlRequestBuilder {
+    public withPlayEvent(): PlaybackControlRequestBuilder {
         this.event = REQUEST.PLAYBACK_CONTROL_PLAY_EVENT;
         return this;
     }
 
-    build(): PlaybackControlRequest {
+    public build(): PlaybackControlRequest {
         const { event } = this;
 
         return {
@@ -407,7 +407,7 @@ export class PlaybackControlRequestBuilder extends AbstractBuilder<PlaybackContr
  * @extends {Builder<PermissionRequest>}
  */
 export class PermissionGrantBuilder extends AbstractBuilder<PermissionRequest> {
-    build(): PermissionRequest {
+    public build(): PermissionRequest {
         return {
             type: REQUEST.PERMISSION_REQUEST_TYPE,
             intentId: REQUEST.PERMISSION_GRANT_ID,
@@ -428,7 +428,7 @@ export class PermissionGrantBuilder extends AbstractBuilder<PermissionRequest> {
  * @extends {Builder<SessionEndedRequest>}
  */
 export class SessionEndedRequestBuilder extends AbstractBuilder<SessionEndedRequest> {
-    build(): SessionEndedRequest {
+    public build(): SessionEndedRequest {
         return {
             type: REQUEST.SESSION_ENDED_REQUEST_TYPE,
             sessionId: "sessionId",
@@ -457,7 +457,7 @@ export class OptionSelectBuilder extends AbstractBuilder<OptionSelectRequest> {
      *
      * @param deviceId - Device ID for the request
      */
-    withDeviceId(deviceId: string): OptionSelectBuilder {
+    public withDeviceId(deviceId: string): OptionSelectBuilder {
         this.deviceId = deviceId;
         return this;
     }
@@ -467,12 +467,12 @@ export class OptionSelectBuilder extends AbstractBuilder<OptionSelectRequest> {
      *
      * @param token - Set the selected token for the request
      */
-    withSelectedToken(token: string): OptionSelectBuilder {
+    public withSelectedToken(token: string): OptionSelectBuilder {
         this.token = token;
         return this;
     }
 
-    build(): OptionSelectRequest {
+    public build(): OptionSelectRequest {
         return {
             type: REQUEST.OPTION_SELECT_REQUEST_TYPE,
             intentId: REQUEST.OPTION_SELECT_ID,
@@ -491,12 +491,12 @@ export class OptionSelectBuilder extends AbstractBuilder<OptionSelectRequest> {
 export class SignInRequestBuilder extends AbstractBuilder<SignInRequest> {
     private granted = true;
 
-    notGranted() {
+    public notGranted(): SignInRequestBuilder {
         this.granted = false;
         return this;
     }
 
-    build(): SignInRequest {
+    public build(): SignInRequest {
         const { granted } = this;
         return {
             type: REQUEST.SIGN_IN_REQUEST_TYPE,

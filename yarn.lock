@@ -1382,7 +1382,16 @@
   dependencies:
     tslint-config-prettier "1.6.0"
 
-"@xapp/logger@1.16.8", "@xapp/logger@^1.16.8":
+"@xapp/logger@1.16.11":
+  version "1.16.11"
+  resolved "https://registry.yarnpkg.com/@xapp/logger/-/logger-1.16.11.tgz#88c489241921bab4c387a084867ec93137e9dd85"
+  integrity sha512-kOAPhKkAhmlVSupAMnu/cTVKZHYrhMig+PChq6l8ribQ3QSok68ig3SwLVn5hedtM/LI1XoA8dxJwFPpo9brPw==
+  dependencies:
+    "@xapp/stentor-utils" "^1.16.11"
+    chalk "2.4.2"
+    winston "3.2.1"
+
+"@xapp/logger@^1.16.8":
   version "1.16.8"
   resolved "https://registry.yarnpkg.com/@xapp/logger/-/logger-1.16.8.tgz#61e5bd09f5bda3af4c647ad95371f5ab6ca76eb1"
   integrity sha512-qwsGuvLwjwkSRtnj1bm6mXdd2w32JGSHC3XFGiI+0XQ3xaF+H0FJ/S0hIecnkqnH3ouEqytYi116a/yPKzluYg==
@@ -1757,6 +1766,33 @@
     slugify "1.3.5"
     stentor-constants "1.15.6"
     stentor-models "1.16.2"
+    winston "3.2.1"
+    words-to-numbers "1.5.1"
+    xmldoc "1.1.2"
+
+"@xapp/stentor-utils@^1.16.11":
+  version "1.16.11"
+  resolved "https://registry.yarnpkg.com/@xapp/stentor-utils/-/stentor-utils-1.16.11.tgz#ac4072f30ee8ec245e9ad768d86f6008331e7407"
+  integrity sha512-UcSzkiV78q9tZI2clNTQoNW8F54uUfSxql4OLBcZKYjv6fnyxBi5uAggnT72BkOqe0BVZkXgRv7mpBAOXtwmXA==
+  dependencies:
+    "@types/xmldoc" "1.1.4"
+    blueimp-md5 "2.11.1"
+    chrono-node "1.3.11"
+    date-fns "2.8.1"
+    dyno-item-size "0.3.1"
+    fuse.js "3.4.5"
+    lodash.clonedeep "4.5.0"
+    lodash.forown "4.4.0"
+    lodash.isempty "4.4.0"
+    lodash.isobject "3.0.2"
+    lodash.isstring "4.0.1"
+    lodash.pull "4.1.0"
+    lodash.uniq "4.5.0"
+    number-to-words "1.2.4"
+    numeral "2.0.6"
+    slugify "1.3.5"
+    stentor-constants "1.15.11"
+    stentor-models "1.17.1"
     winston "3.2.1"
     words-to-numbers "1.5.1"
     xmldoc "1.1.2"

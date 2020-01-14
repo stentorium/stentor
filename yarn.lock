@@ -1314,6 +1314,14 @@
     "@types/express-serve-static-core" "*"
     "@types/mime" "*"
 
+"@types/sinon-chai@3.2.2":
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@types/sinon-chai/-/sinon-chai-3.2.2.tgz#5cfdbda70bae30f79a9423334af9e490e4cce793"
+  integrity sha512-5zSs2AslzyPZdOsbm2NRtuSNAI2aTWzNKOHa/GRecKo7a5efYD7qGcPxMZXQDayVXT2Vnd5waXxBvV31eCZqiA==
+  dependencies:
+    "@types/chai" "*"
+    "@types/sinon" "*"
+
 "@types/sinon-chai@3.2.3":
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/@types/sinon-chai/-/sinon-chai-3.2.3.tgz#afe392303dda95cc8069685d1e537ff434fa506e"
@@ -1326,6 +1334,11 @@
   version "7.5.1"
   resolved "https://registry.yarnpkg.com/@types/sinon/-/sinon-7.5.1.tgz#d27b81af0d1cfe1f9b24eebe7a24f74ae40f5b7c"
   integrity sha512-EZQUP3hSZQyTQRfiLqelC9NMWd1kqLcmQE0dMiklxBkgi84T+cHOhnKpgk4NnOWpGX863yE6+IaGnOXUNFqDnQ==
+
+"@types/sinon@4.3.3":
+  version "4.3.3"
+  resolved "https://registry.yarnpkg.com/@types/sinon/-/sinon-4.3.3.tgz#97cbbfddc3282b5fd40c7abf80b99db426fd4237"
+  integrity sha512-Tt7w/ylBS/OEAlSCwzB0Db1KbxnkycP/1UkQpbvKFYoUuRn4uYsC3xh5TRPrOjTy0i8TIkSz1JdNL4GPVdf3KQ==
 
 "@types/xmldoc@1.1.4":
   version "1.1.4"
@@ -1553,6 +1566,15 @@
     "@xapp/stentor-utils" "^1.16.0"
     stentor-models "1.16.2"
 
+"@xapp/stentor-interaction-model@^1.16.11":
+  version "1.16.11"
+  resolved "https://registry.yarnpkg.com/@xapp/stentor-interaction-model/-/stentor-interaction-model-1.16.11.tgz#bc775dbf43cea8604b2920bb612adc898084214d"
+  integrity sha512-PLl3uvjMx44zeZRsVyTu3ipo7FC+IiSO+2uXgBP+Cxka+UY5SsAc64o1oefpB9RkVl4MxiafdUbGwRD0XxB4Fw==
+  dependencies:
+    "@xapp/stentor-locales" "^1.16.11"
+    "@xapp/stentor-utils" "^1.16.11"
+    stentor-models "1.17.1"
+
 "@xapp/stentor-interaction-model@^1.16.8":
   version "1.16.8"
   resolved "https://registry.yarnpkg.com/@xapp/stentor-interaction-model/-/stentor-interaction-model-1.16.8.tgz#a182cf31129f47f6c760db8ac9b13653acc0d1db"
@@ -1570,6 +1592,15 @@
     "@xapp/stentor-utils" "^1.16.0"
     lodash.uniq "4.5.0"
     stentor-models "1.16.2"
+
+"@xapp/stentor-locales@^1.16.11":
+  version "1.16.11"
+  resolved "https://registry.yarnpkg.com/@xapp/stentor-locales/-/stentor-locales-1.16.11.tgz#64ca2645d1114c338aaf090bd516012e421ba3d4"
+  integrity sha512-7fY7xwPjBynpueYnHEKsC7if8IUxTE2LpWyUbjTYTq4cyPPmsNFuEm6EkqArtRi3+lybM/v9ZDkQA09KtxTFOg==
+  dependencies:
+    "@xapp/stentor-utils" "^1.16.11"
+    lodash.uniq "4.5.0"
+    stentor-models "1.17.1"
 
 "@xapp/stentor-locales@^1.16.8":
   version "1.16.8"
@@ -1591,16 +1622,6 @@
     moment-timezone "0.5.27"
     stentor-models "1.17.0"
 
-"@xapp/stentor-request@1.16.10", "@xapp/stentor-request@^1.16.10":
-  version "1.16.10"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-request/-/stentor-request-1.16.10.tgz#d19a0a769e876ef7d58aad24afaf64dff94d4fa8"
-  integrity sha512-3DsfmpQqgyK4bctrt4sgwoGwzG33O7Cx/5Erc8qXZx7iPdHFf54FkzksVzf85c3zfjLJQ8jM5rrmlxmcWt1ayA==
-  dependencies:
-    "@xapp/patterns" "^1.16.5"
-    "@xapp/stentor-interaction-model" "^1.16.8"
-    "@xapp/stentor-utils" "^1.16.8"
-    stentor-models "1.17.0"
-
 "@xapp/stentor-request@^1.16.0":
   version "1.16.0"
   resolved "https://registry.yarnpkg.com/@xapp/stentor-request/-/stentor-request-1.16.0.tgz#529fffd05a6598fbac811b406c055659ade48b28"
@@ -1610,6 +1631,16 @@
     "@xapp/stentor-interaction-model" "^1.16.0"
     "@xapp/stentor-utils" "^1.16.0"
     stentor-models "1.16.2"
+
+"@xapp/stentor-request@^1.16.10":
+  version "1.16.10"
+  resolved "https://registry.yarnpkg.com/@xapp/stentor-request/-/stentor-request-1.16.10.tgz#d19a0a769e876ef7d58aad24afaf64dff94d4fa8"
+  integrity sha512-3DsfmpQqgyK4bctrt4sgwoGwzG33O7Cx/5Erc8qXZx7iPdHFf54FkzksVzf85c3zfjLJQ8jM5rrmlxmcWt1ayA==
+  dependencies:
+    "@xapp/patterns" "^1.16.5"
+    "@xapp/stentor-interaction-model" "^1.16.8"
+    "@xapp/stentor-utils" "^1.16.8"
+    stentor-models "1.17.0"
 
 "@xapp/stentor-response@1.16.10", "@xapp/stentor-response@^1.16.10":
   version "1.16.10"
@@ -1757,6 +1788,33 @@
     slugify "1.3.5"
     stentor-constants "1.15.6"
     stentor-models "1.16.2"
+    winston "3.2.1"
+    words-to-numbers "1.5.1"
+    xmldoc "1.1.2"
+
+"@xapp/stentor-utils@^1.16.11":
+  version "1.16.11"
+  resolved "https://registry.yarnpkg.com/@xapp/stentor-utils/-/stentor-utils-1.16.11.tgz#ac4072f30ee8ec245e9ad768d86f6008331e7407"
+  integrity sha512-UcSzkiV78q9tZI2clNTQoNW8F54uUfSxql4OLBcZKYjv6fnyxBi5uAggnT72BkOqe0BVZkXgRv7mpBAOXtwmXA==
+  dependencies:
+    "@types/xmldoc" "1.1.4"
+    blueimp-md5 "2.11.1"
+    chrono-node "1.3.11"
+    date-fns "2.8.1"
+    dyno-item-size "0.3.1"
+    fuse.js "3.4.5"
+    lodash.clonedeep "4.5.0"
+    lodash.forown "4.4.0"
+    lodash.isempty "4.4.0"
+    lodash.isobject "3.0.2"
+    lodash.isstring "4.0.1"
+    lodash.pull "4.1.0"
+    lodash.uniq "4.5.0"
+    number-to-words "1.2.4"
+    numeral "2.0.6"
+    slugify "1.3.5"
+    stentor-constants "1.15.11"
+    stentor-models "1.17.1"
     winston "3.2.1"
     words-to-numbers "1.5.1"
     xmldoc "1.1.2"
@@ -7140,6 +7198,19 @@ sinon-chai@3.4.0:
   resolved "https://registry.yarnpkg.com/sinon-chai/-/sinon-chai-3.4.0.tgz#06fb88dee80decc565106a3061d380007f21e18d"
   integrity sha512-BpVxsjEkGi6XPbDXrgWUe7Cb1ZzIfxKUbu/MmH5RoUnS7AXpKo3aIYIyQUg0FMvlUL05aPt7VZuAdaeQhEnWxg==
 
+sinon@7.4.2:
+  version "7.4.2"
+  resolved "https://registry.yarnpkg.com/sinon/-/sinon-7.4.2.tgz#ecd54158fef2fcfbdb231a3fa55140e8cb02ad6c"
+  integrity sha512-pY5RY99DKelU3pjNxcWo6XqeB1S118GBcVIIdDi6V+h6hevn1izcg2xv1hTHW/sViRXU7sUOxt4wTUJ3gsW2CQ==
+  dependencies:
+    "@sinonjs/commons" "^1.4.0"
+    "@sinonjs/formatio" "^3.2.1"
+    "@sinonjs/samsam" "^3.3.3"
+    diff "^3.5.0"
+    lolex "^4.2.0"
+    nise "^1.5.2"
+    supports-color "^5.5.0"
+
 sinon@7.5.0:
   version "7.5.0"
   resolved "https://registry.yarnpkg.com/sinon/-/sinon-7.5.0.tgz#e9488ea466070ea908fd44a3d6478fd4923c67ec"
@@ -7823,6 +7894,17 @@ triple-beam@^1.2.0, triple-beam@^1.3.0:
   resolved "https://registry.yarnpkg.com/triple-beam/-/triple-beam-1.3.0.tgz#a595214c7298db8339eeeee083e4d10bd8cb8dd9"
   integrity sha512-XrHUvV5HpdLmIj4uVMxHggLbFSZYIn7HEWsqePZcI50pco+MPqJ50wMGY794X7AOOhxOBAjbkqfAbEe/QMp2Lw==
 
+ts-node@8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-8.2.0.tgz#4a89754b00560bb24cd54526e1685fa38c45f240"
+  integrity sha512-m8XQwUurkbYqXrKqr3WHCW310utRNvV5OnRVeISeea7LoCWVcdfeB/Ntl8JYWFh+WRoUAdBgESrzKochQt7sMw==
+  dependencies:
+    arg "^4.1.0"
+    diff "^4.0.1"
+    make-error "^1.1.1"
+    source-map-support "^0.5.6"
+    yn "^3.0.0"
+
 ts-node@8.6.1:
   version "8.6.1"
   resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-8.6.1.tgz#a31838d93cb67bbe2c56026848ab6c9224564c4e"
@@ -8427,6 +8509,11 @@ yargs@^15.0.2:
     which-module "^2.0.0"
     y18n "^4.0.0"
     yargs-parser "^16.1.0"
+
+yn@^3.0.0:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/yn/-/yn-3.1.1.tgz#1e87401a09d767c1d5eab26a6e4c185182d2eb50"
+  integrity sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==
 
 yn@^4.0.0:
   version "4.0.0"

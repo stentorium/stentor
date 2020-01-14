@@ -42,7 +42,7 @@
     "@xapp/stentor-context": "1.16.10",
     "@xapp/stentor-handler": "1.16.10",
     "@xapp/stentor-handler-factory": "1.16.10",
-    "@xapp/stentor-request": "1.16.10",
+    "stentor-request": "1.16.11",
     "@xapp/stentor-response": "1.16.10",
     "@xapp/stentor-runtime": "1.16.10",
     "@xapp/stentor-service-analytics": "1.16.10",

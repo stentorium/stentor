@@ -1,6 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { ContextBuilder } from "@xapp/stentor-context";
-export { ContextBuilder };
+import { ContextBuilder, ContextFactory } from "stentor-context";
+export { ContextBuilder, ContextFactory };
 
 import {
     AbstractHandler,
@@ -27,7 +27,7 @@ export {
     getSlotType
 };
 
-import { HandlerFactory, HandlersArray, HandlersKeyValue, HandlersMap } from "@xapp/stentor-handler-factory";
+import { HandlerFactory, HandlersArray, HandlersKeyValue, HandlersMap } from "stentor-handler-factory";
 export { HandlerFactory, HandlersArray, HandlersKeyValue, HandlersMap };
 
 import {
@@ -37,17 +37,22 @@ import {
     Data,
     DateTime,
     DateTimeRange,
+    Device,
+    Forward,
     Handler,
     Intent,
     IntentRequest,
     List,
     ListItem,
     OptionSelectRequest,
+    Redirect,
     Request,
     RequestSlot,
     RequestSlotMap,
     Response,
     ResponseOutput,
+    RuntimeCallback,
+    RuntimeContext,
     Storage,
     UserStorageService
 } from "stentor-models";
@@ -56,19 +61,24 @@ export {
     Content,
     Context,
     Data,
+    DateTime,
+    DateTimeRange,
+    Device,
+    Forward,
     Handler,
     Intent,
     IntentRequest,
     List,
     ListItem,
     OptionSelectRequest,
+    Redirect,
     Request,
     RequestSlot,
-    DateTime,
-    DateTimeRange,
     RequestSlotMap,
     Response,
     ResponseOutput,
+    RuntimeCallback,
+    RuntimeContext,
     Storage,
     UserStorageService
 };
@@ -90,7 +100,7 @@ import {
     keyFromRequest,
     LaunchRequestBuilder,
     SessionEndedRequestBuilder
-} from "@xapp/stentor-request";
+} from "stentor-request";
 export {
     getSlots,
     InputUnknownRequestBuilder,

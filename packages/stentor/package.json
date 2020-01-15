@@ -39,18 +39,18 @@
   "dependencies": {
     "@xapp/logger": "1.16.11",
     "@xapp/patterns": "1.16.5",
-    "@xapp/stentor-context": "1.16.11",
     "@xapp/stentor-handler": "1.16.11",
-    "@xapp/stentor-handler-factory": "1.16.11",
-    "@xapp/stentor-request": "1.16.11",
-    "@xapp/stentor-response": "1.16.11",
-    "@xapp/stentor-runtime": "1.16.12",
     "@xapp/stentor-service-analytics": "1.16.11",
     "@xapp/stentor-service-event": "1.16.11",
     "@xapp/stentor-utils": "1.16.11",
     "dotenv": "8.2.0",
     "stentor-constants": "1.15.12",
+    "stentor-context": "1.16.11",
+    "stentor-handler-factory": "1.16.14",
     "stentor-models": "1.17.2",
+    "stentor-request": "1.16.11",
+    "stentor-response": "1.16.11",
+    "stentor-runtime": "1.16.14",
     "stentor-service-ovai": "1.15.7"
   },
   "peerDependencies": {

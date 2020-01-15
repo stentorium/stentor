@@ -10,7 +10,7 @@ import {
     isDelegatingHandlersMap,
     isHandlersArray,
     isHandlersKeyValue
-} from "@xapp/stentor-handler-factory";
+} from "stentor-handler-factory";
 import { HTTP_200_OK, HTTP_500_INTERNAL_SERVICE_ERROR } from "stentor-constants";
 import {
     AppRuntimeData,
@@ -22,7 +22,7 @@ import {
     RuntimeCallback,
     UserStorageService
 } from "stentor-models";
-import { main, translateEventAndContext } from "@xapp/stentor-runtime";
+import { main, translateEventAndContext } from "stentor-runtime";
 import {
     ANALYTICS_EVENT_NAME,
     ANALYTICS_EVENT_TYPE,

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.17.0](https://github.com/stentorium/stentor/compare/stentor@1.16.18...stentor@1.17.0) (2020-01-15)
+
+
+### Features
+
+* Open-sourcing Runtime, Context, Response, Request, Handler Factory, and Handler Manager ([#46](https://github.com/stentorium/stentor/issues/46)) ([f1f62c1](https://github.com/stentorium/stentor/commit/f1f62c1cc7b78ac5168c92a9a17b959dc80dc1a8))
+
+
+
+
+
 ## [1.16.18](https://github.com/stentorium/stentor/compare/stentor@1.16.17...stentor@1.16.18) (2020-01-15)
 
 **Note:** Version bump only for package stentor

@@ -7,6 +7,7 @@ import {
     AudioPlayerPlaybackStoppedEvent,
     AudioPlayerRequestType,
     AudioPlayerSystemExceptionEvent,
+    AttachmentAnswerID,
     InputUnknownID,
     InputUnknownRequestType,
     IntentRequestType,

@@ -134,5 +134,5 @@ export interface IntentRequest extends BaseRequest {
     /**
      * Uploads from the request
      */
-    attachmentAnswer?: AttachmentAnswer[];
+    attachments?: AttachmentAnswer[];
 }

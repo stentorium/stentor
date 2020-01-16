@@ -25,6 +25,17 @@ export interface KnowledgeAnswer {
     matchConfidence: number;
 }
 
+export interface AttachmentAnswer {
+    /**
+     * Url to the uploaded file
+     */
+    url: string;
+    /**
+     * Optional type if available (media type, like "image")
+     */
+    type?: string;
+}
+
 /**
  * Information for a slot coming in on the request.
  */
@@ -94,9 +105,9 @@ export interface IntentRequest extends BaseRequest {
     intentId: string;
     /**
      * The ID of the user's current session.
-     * 
+     *
      * A session is typically defined by the channel is on but it is typically a set
-     * of requests and responses that are linked together. 
+     * of requests and responses that are linked together.
      */
     sessionId: string;
     /**
@@ -117,7 +128,11 @@ export interface IntentRequest extends BaseRequest {
      */
     data?: Data;
     /**
-     * A unique request provided by a question answering system.  
+     * A unique request provided by a question answering system.
      */
     knowledgeAnswer?: KnowledgeAnswer;
+    /**
+     * Uploads from the request
+     */
+    attachmentAnswer?: AttachmentAnswer[];
 }

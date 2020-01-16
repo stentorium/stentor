@@ -256,6 +256,8 @@ export class Assistant {
                     userStorageService,
                     handlerFactory: factory,
                     handlerService,
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+                    // @ts-ignore Remove after we fix the build issues
                     eventService: this.eventService,
                     piiService: this.piiService
                 },

@@ -23,6 +23,7 @@
     "mocha": "6.2.2",
     "sinon": "7.4.2",
     "sinon-chai": "3.4.0",
+    "stentor-models": "1.17.1",
     "ts-node": "8.1.0",
     "typescript": "3.7.4"
   },
@@ -33,9 +34,11 @@
     "@xapp/stentor-interaction-model": "^1.16.11",
     "@xapp/stentor-utils": "^1.16.11",
     "stentor-context": "1.17.1",
-    "stentor-models": "1.17.1",
     "stentor-request": "1.17.1",
     "stentor-response": "1.17.1"
+  },
+  "peerDependencies": {
+    "stentor-models": "1.x"
   },
   "scripts": {
     "build": "tsc -d true -p .",

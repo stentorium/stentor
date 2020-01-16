@@ -3,7 +3,7 @@ import { expect } from "chai";
 
 import { Translator } from "@xapp/patterns";
 import { Request, RuntimeContext } from "stentor-models";
-import { IntentRequestBuilder } from "@xapp/stentor-request";
+import { IntentRequestBuilder } from "stentor-request";
 import { ChannelSelector } from "../ChannelSelector";
 
 class TestTranslator extends Translator<object, Request> {

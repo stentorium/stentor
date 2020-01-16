@@ -8,7 +8,7 @@ import {
 } from "@xapp/stentor-handler";
 import { DELEGATING_HANDLER_TYPE, DelegatingHandler, isDelegatingHandler } from "@xapp/stentor-handler-delegating";
 import { Context, Handler, HandlerDelegates, Request } from "stentor-models";
-import { keyFromRequest } from "@xapp/stentor-request";
+import { keyFromRequest } from "stentor-request";
 import { existsAndNotEmpty } from "@xapp/stentor-utils";
 
 export type HandlersArray = Array<new (props: Handler) => AbstractHandler>;
@@ -91,6 +91,8 @@ export class HandlerFactory {
         const handler = new HANDLER_CLASS(props);
         // Check to see if delegating and if so set the delegates
         if (isDelegatingHandler(handler)) {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+            // @ts-ignore Remove when we figure out the build problems
             handler.setHandlerDelegates(this.delegates);
         }
 
@@ -128,7 +130,8 @@ export class HandlerFactory {
         ) {
             // Go the legacy path
             const currentAudioHandler = this.fromProps(context.storage.currentAudioHandler);
-
+            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+            // @ts-ignore Remove when we figure out the build problems
             if (currentAudioHandler.canHandleRequest(request, context)) {
                 log().debug(
                     `Selecting audio handler ${currentAudioHandler.intentId} to handle the request ${

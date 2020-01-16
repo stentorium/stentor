@@ -12,7 +12,7 @@ export class HandlerManager {
 
     private readonly factory: HandlerFactory;
 
-    constructor(props: { service: HandlerService; factory: HandlerFactory }) {
+    public constructor(props: { service: HandlerService; factory: HandlerFactory }) {
         if (typeof props !== "object") {
             throw new TypeError("Invalid props passed to HandlerManager");
         }
@@ -37,13 +37,10 @@ export class HandlerManager {
      * will want to address is the fact it modifies the request & context that is
      * passed in instead of making new ones and passing them out as well.
      *
-     * @static
-     * @param {Context} context
-     * @param {Request} request
-     * @returns {Promise<RequestHandler>}
-     * @memberof RequestHandlerFactory
+     * @param request - Current request
+     * @param context - Current context
      */
-    async from(request: Request, context: Context): Promise<AbstractHandler> {
+    public async from(request: Request, context: Context): Promise<AbstractHandler> {
         /* tslint:disable:cyclomatic-complexity This needs some major refactoring*/
         // Look for some failure conditions
         if (!request) {
@@ -63,6 +60,8 @@ export class HandlerManager {
         let id: string;
         // STEP #0 Try to get one from storage, either currentHandler or currentMediaHandler
         const handlerFromStorage: AbstractHandler = this.factory.from(request, context);
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // @ts-ignore Remove when we figure out the build problems
         if (isHandler(handlerFromStorage) && handlerFromStorage.canHandleRequest(request, context)) {
             log().info(
                 `Using handler from storage with id: ${handlerFromStorage.intentId} which can handle the request ${
@@ -79,6 +78,8 @@ export class HandlerManager {
         // NOTE: if a path is found, it sets requestHandler = undefined;
         if (handler) {
             if (isHandler(handler)) {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+                // @ts-ignore Remove when we figure out the build problems
                 const path = handler.forwardingPathForRequest(request, context);
                 // if we do have a path
                 if (path) {
@@ -130,6 +131,8 @@ export class HandlerManager {
         // handle an input unknown.  If it can we will use that
         if (!handler && handlerFromStorage) {
             if (isHandler(handlerFromStorage)) {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+                // @ts-ignore Remove when we figure out the build problems
                 if (handlerFromStorage.canHandleInputUnknown(request, context)) {
                     log().info("Handler from storage can handle input unknown, going to use it");
                     handler = handlerFromStorage;
@@ -179,6 +182,8 @@ export class HandlerManager {
         // See if we have a redirecting path for the request
         if (handler) {
             if (isHandler(handler)) {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+                // @ts-ignore Remove when we figure out the build problems
                 const path = handler.redirectingPathForRequest(request, context);
                 // if we do have a path
                 if (path) {

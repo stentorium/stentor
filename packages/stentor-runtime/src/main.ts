@@ -27,8 +27,8 @@ import {
     isLaunchRequest,
     isSessionEndedRequest,
     keyFromRequest
-} from "@xapp/stentor-request";
-import { canFulfillAll, canFulfillNothing } from "@xapp/stentor-response";
+} from "stentor-request";
+import { canFulfillAll, canFulfillNothing } from "stentor-response";
 import { EventService, wrapCallback as eventServiceCallbackWrapper } from "@xapp/stentor-service-event";
 import { existsAndNotEmpty } from "@xapp/stentor-utils";
 import { ChannelSelector } from "./ChannelSelector";
@@ -252,12 +252,12 @@ export const main = async (
             // TODO: Test this and make sure the spanish Goodbye is returned
             // for spanish requests
             if (request.intentId === STOP_INTENT || request.intentId === CANCEL_INTENT) {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+                // @ts-ignore Remove when we figure out the build problems
                 const goodbye = context.response.respond(getResponse(GOODBYE, request, context)).build();
                 const translatedGoodbye = channel.response.translate(goodbye);
-                // tslint:disable:no-null-keyword
                 // Right now null is for BST.
                 callback(null, translatedGoodbye, request, goodbye);
-                // tslint:enable:no-null-keyword
                 return;
             }
             // not either of these just fall through
@@ -265,6 +265,8 @@ export const main = async (
         // report the error
         console.error(error.stack);
         // & apologize to the user
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // @ts-ignore Remove when we figure out the build problems
         const response = context.response.respond(getResponse(TROUBLE_WITH_REQUEST, request, context)).build();
         const translatedTrouble = channel.response.translate({ request, response });
         // tslint:disable:no-null-keyword
@@ -326,11 +328,15 @@ export const main = async (
     }
 
     try {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // @ts-ignore Remove when we figure out the build problems
         await handler.handleRequest(request, context);
     } catch (error) {
         // report the error
         console.error(error.stack);
         // & apologize to the user
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // @ts-ignore Remove when we figure out the build problems
         const response = context.response.respond(getResponse(TROUBLE_WITH_REQUEST, request, context)).build();
         const translatedTrouble = channel.response.translate({ request, response });
         // Add the error to the event service

@@ -2,7 +2,7 @@
 import { expect } from "chai";
 
 import { ExecutablePath, Request } from "stentor-models";
-import { IntentRequestBuilder, isIntentRequest, LaunchRequestBuilder } from "@xapp/stentor-request";
+import { IntentRequestBuilder, isIntentRequest, LaunchRequestBuilder } from "stentor-request";
 import { requestForPath } from "../requestForPath";
 
 const launchRequest: Request = new LaunchRequestBuilder().build();

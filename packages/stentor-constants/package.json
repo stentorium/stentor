@@ -17,10 +17,11 @@
   },
   "devDependencies": {
     "@xapp/config": "0.2.3",
-    "typescript": "3.7.4"
-  },
-  "dependencies": {
+    "typescript": "3.7.4",
     "stentor-models": "1.17.2"
+  },
+  "peerDependencies": {
+    "stentor-models": "1.x"
   },
   "scripts": {
     "build": "tsc -d true -p .",

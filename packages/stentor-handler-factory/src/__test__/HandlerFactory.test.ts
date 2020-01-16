@@ -18,8 +18,8 @@ import {
     Request,
     Storage
 } from "stentor-models";
-import { AudioPlayerRequestBuilder, IntentRequestBuilder, LaunchRequestBuilder } from "@xapp/stentor-request";
-import { ResponseBuilder } from "@xapp/stentor-response";
+import { AudioPlayerRequestBuilder, IntentRequestBuilder, LaunchRequestBuilder } from "stentor-request";
+import { ResponseBuilder } from "stentor-response";
 import { HandlerFactory } from "../HandlerFactory";
 
 import { TestHandler, TestAudioHandler, TestAudioData } from "./TestHandler";

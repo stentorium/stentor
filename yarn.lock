@@ -1457,15 +1457,15 @@
     chalk "2.4.2"
     winston "3.2.1"
 
+"@xapp/patterns@1.16.17", "@xapp/patterns@^1.16.17", "@xapp/patterns@^1.16.5":
+  version "1.16.17"
+  resolved "https://registry.yarnpkg.com/@xapp/patterns/-/patterns-1.16.17.tgz#ff3cec5c835e1c935fc2576fff0f7f299c41629f"
+  integrity sha512-f1vK4MIpkSyvNQ2QVR8mSs0zHxJ6gbEv3QXYhhV7FZNqEDgCPlnRXaevHJ0k5P0I9tTLR4m5FQMU2HFfbwekzg==
+
 "@xapp/patterns@1.16.5":
   version "1.16.5"
   resolved "https://registry.yarnpkg.com/@xapp/patterns/-/patterns-1.16.5.tgz#a2de0a46569d337844db6cfdb3478714bfc71870"
   integrity sha512-0U9E7UZDs0+lfZYWEIK0eITc+WYRwKExq2PTbedkqGXoS4QjUKpX5wsaAOm6GZyUErNCj68mIrmViNLmKXgzIQ==
-
-"@xapp/patterns@^1.16.17", "@xapp/patterns@^1.16.5":
-  version "1.16.17"
-  resolved "https://registry.yarnpkg.com/@xapp/patterns/-/patterns-1.16.17.tgz#ff3cec5c835e1c935fc2576fff0f7f299c41629f"
-  integrity sha512-f1vK4MIpkSyvNQ2QVR8mSs0zHxJ6gbEv3QXYhhV7FZNqEDgCPlnRXaevHJ0k5P0I9tTLR4m5FQMU2HFfbwekzg==
 
 "@xapp/stentor-actions-on-google@1.16.15":
   version "1.16.15"

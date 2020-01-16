@@ -133,6 +133,8 @@ describe("#main() with EventService", () => {
                 eventService.addStream(eventStream);
             });
             it("reports the events", async () => {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+                // @ts-ignore Remove after we fix the build issues
                 await main(request, context, callbackSpy, [Dialogflow()], {
                     eventService,
                     handlerFactory,
@@ -191,6 +193,8 @@ describe("#main() with EventService", () => {
             eventService.addStream(eventStream);
         });
         it("reports the error", async () => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+            // @ts-ignore Remove after we fix the build issues
             await main(request, context, callbackSpy, [Dialogflow(true)], {
                 eventService,
                 handlerFactory,
@@ -237,6 +241,8 @@ describe("#main() with EventService", () => {
             } as UserStorageService;
         });
         it("reports the error", async () => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+            // @ts-ignore Remove after we fix the build issues
             await main(request, context, callbackSpy, [Alexa(appId), Dialogflow(true)], {
                 eventService,
                 handlerFactory,
@@ -281,6 +287,8 @@ describe("#main() with EventService", () => {
             });
         });
         it("reports the error", async () => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+            // @ts-ignore Remove after we fix the build issues
             await main(request, context, callbackSpy, [Alexa(appId), Dialogflow(true)], {
                 eventService,
                 handlerFactory,
@@ -338,6 +346,8 @@ describe("#main() with EventService", () => {
             });
         });
         it("reports the error", async () => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+            // @ts-ignore Remove after we fix the build issues
             await main(request, context, callbackSpy, [Alexa(appId), Dialogflow(true)], {
                 eventService,
                 handlerFactory,
@@ -397,6 +407,8 @@ describe("#main() with EventService", () => {
             };
         });
         it("reports the error", async () => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+            // @ts-ignore Remove after we fix the build issues
             await main(request, context, callbackSpy, [Alexa(appId), Dialogflow(true)], {
                 eventService,
                 handlerFactory,
@@ -446,6 +458,8 @@ describe("#main() with EventService", () => {
                 get: Promise.resolve({ ...storage })
             });
             // To throw the error, we plant a bomb on the translate method
+            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+            // @ts-ignore Remove after we fix the build issues
             badAlexaChannel = Alexa(appId);
             badAlexaChannel.response = {
                 translate() {

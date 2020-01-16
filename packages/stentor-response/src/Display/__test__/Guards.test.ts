@@ -1,29 +1,14 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { expect } from "chai";
 
-import { Card, NativeTemplateDirective, SimpleDisplay } from "stentor-models";
-import { isCard, isNativeTemplateDirective, isSimpleDisplay } from "../Guards";
+import { Card, SimpleDisplay } from "stentor-models";
+import { isCard, isSimpleDisplay } from "../Guards";
 
 const card: Card = {
     type: "CARD",
     title: "Title",
     content: "Content",
     smallImageUrl: "https://some.icon"
-};
-
-const nativeTemplateDirective: NativeTemplateDirective = {
-    type: "NativeTemplate",
-    template: {
-        type: "BodyTemplate1",
-        token: "token",
-        title: "Title",
-        textContent: {
-            primaryText: {
-                type: "RichText",
-                text: "Content"
-            }
-        }
-    }
 };
 
 const simpleDisplay: SimpleDisplay = {
@@ -38,9 +23,9 @@ describe("#isSimpleDisplay()", () => {
             expect(isSimpleDisplay(undefined)).to.be.false;
         });
     });
-    describe("when passed a Render Template", () => {
+    describe("when passed another object", () => {
         it("returns false", () => {
-            expect(isSimpleDisplay(nativeTemplateDirective)).to.be.false;
+            expect(isSimpleDisplay({ foo: "foo" })).to.be.false;
         });
     });
     describe("when passed a Card", () => {
@@ -55,29 +40,6 @@ describe("#isSimpleDisplay()", () => {
     });
 });
 
-describe("#isNativeTemplateDirective()", () => {
-    describe("when passed undefined", () => {
-        it("returns false", () => {
-            expect(isNativeTemplateDirective(undefined)).to.be.false;
-        });
-    });
-    describe("when passed a Render Template", () => {
-        it("returns true", () => {
-            expect(isNativeTemplateDirective(nativeTemplateDirective)).to.be.true;
-        });
-    });
-    describe("when passed a Card", () => {
-        it("returns false", () => {
-            expect(isNativeTemplateDirective(card)).to.be.false;
-        });
-    });
-    describe("when passed a Simple Display", () => {
-        it("returns false", () => {
-            expect(isNativeTemplateDirective(simpleDisplay)).to.be.false;
-        });
-    });
-});
-
 describe("#isCard()", () => {
     describe("when passed undefined", () => {
         it("returns false", () => {
@@ -86,7 +48,7 @@ describe("#isCard()", () => {
     });
     describe("when passed a Render Template", () => {
         it("returns false", () => {
-            expect(isCard(nativeTemplateDirective)).to.be.false;
+            expect(isCard(simpleDisplay)).to.be.false;
         });
     });
     describe("when passed a Card", () => {

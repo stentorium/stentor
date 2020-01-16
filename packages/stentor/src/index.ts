@@ -120,7 +120,7 @@ export {
     SessionEndedRequestBuilder
 };
 
-import { concatResponseOutput, ResponseBuilder } from "@xapp/stentor-response";
+import { concatResponseOutput, ResponseBuilder } from "stentor-response";
 export { concatResponseOutput, ResponseBuilder };
 
 import {

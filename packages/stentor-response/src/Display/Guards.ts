@@ -1,5 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { Card, Display, List, NativeTemplateDirective, SimpleDisplay } from "stentor-models";
+import { Card, Display, List, SimpleDisplay } from "stentor-models";
 
 /**
  * Check if the display is a simple display
@@ -32,17 +32,6 @@ export function isSimpleDisplay(display: Display): display is SimpleDisplay {
 }
 
 /* Guards */
-
-/**
- * Checks if the display template is native
- *
- * @export
- * @param {Display} display
- * @returns {display is NativeTemplateDirective}
- */
-export function isNativeTemplateDirective(display: Display): display is NativeTemplateDirective {
-    return !!display && (display as NativeTemplateDirective).type === "NativeTemplate";
-}
 
 /**
  * Checks if the display is a card

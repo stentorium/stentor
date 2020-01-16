@@ -1187,10 +1187,10 @@
     "@types/connect" "*"
     "@types/node" "*"
 
-"@types/chai-as-promised@7.1.1":
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/@types/chai-as-promised/-/chai-as-promised-7.1.1.tgz#004c27a4ac640e9590e25d8b0980cb0a6609bfd8"
-  integrity sha512-dberBxQW/XWv6BMj0su1lV9/C9AUx5Hqu2pisuS6S4YK/Qt6vurcj/BmcbEsobIWWCQzhesNY8k73kIxx4X7Mg==
+"@types/chai-as-promised@7.1.2":
+  version "7.1.2"
+  resolved "https://registry.yarnpkg.com/@types/chai-as-promised/-/chai-as-promised-7.1.2.tgz#2f564420e81eaf8650169e5a3a6b93e096e5068b"
+  integrity sha512-PO2gcfR3Oxa+u0QvECLe1xKXOqYTzCmWf0FhLhjREoW3fPAVamjihL7v1MOVLJLsnAMdLcjkfrs01yvDMwVK4Q==
   dependencies:
     "@types/chai" "*"
 
@@ -7561,6 +7561,18 @@ stentor-constants@1.15.11:
   dependencies:
     stentor-models "1.17.1"
 
+stentor-context@1.17.0:
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/stentor-context/-/stentor-context-1.17.0.tgz#f675efd7af3ca2945c5d6f702478f72a3474a5fc"
+  integrity sha512-US84W8oVs3l5H94AFawepmICd5IXAnT24mBvLJ+JNj64BonRt8gQnH65Is6R9g58eJcKTCREPz8wPOrNhuraSw==
+  dependencies:
+    "@xapp/patterns" "^1.16.5"
+    "@xapp/stentor-alexa" "^1.16.11"
+    "@xapp/stentor-storage" "^1.16.11"
+    stentor-models "1.17.1"
+    stentor-request "1.17.0"
+    stentor-response "1.17.0"
+
 stentor-models@1.17.1:
   version "1.17.1"
   resolved "https://registry.yarnpkg.com/stentor-models/-/stentor-models-1.17.1.tgz#1bb59123db7b10a3e9d91cd54c818b0c6fff172a"
@@ -7569,6 +7581,34 @@ stentor-models@1.17.1:
     "@xapp/patterns" "1.16.5"
     actions-on-google "2.12.0"
     ask-sdk-model "1.25.1"
+
+stentor-request@1.17.0:
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/stentor-request/-/stentor-request-1.17.0.tgz#8094ebdec8ae21077cb6217a631176bf2c0fa6eb"
+  integrity sha512-Im8dJ/8dvma9Owo7qFUpVsRqoCEUMOJedMHCmf8Rb9/PCJILHNKa8VChUJRXwUanfwxX5TsG49za/2usE2B6wQ==
+  dependencies:
+    "@xapp/patterns" "^1.16.5"
+    "@xapp/stentor-interaction-model" "^1.16.11"
+    "@xapp/stentor-utils" "^1.16.11"
+    stentor-models "1.17.1"
+
+stentor-response@1.17.0:
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/stentor-response/-/stentor-response-1.17.0.tgz#b52745a48cfbab95ad32aba0f4bb98ccaef689e5"
+  integrity sha512-Lyj+zDRu27tikFnHZ4QlA4KHotXRCyBH3sSV4y6acNSm+ecXIm6WeAyd6THd4SMwTjGmRfI1ECgYbUzKiXAdmA==
+  dependencies:
+    "@xapp/patterns" "^1.16.5"
+    "@xapp/stentor-history" "^1.16.11"
+    "@xapp/stentor-locales" "^1.16.11"
+    "@xapp/stentor-media" "^1.16.11"
+    "@xapp/stentor-time" "^1.16.11"
+    "@xapp/stentor-utils" "^1.16.11"
+    actions-on-google "2.12.0"
+    jsonpath "1.0.2"
+    lodash.template "4.5.0"
+    moment "2.24.0"
+    stentor-models "1.17.1"
+    stentor-request "1.17.0"
 
 stream-each@^1.1.0:
   version "1.2.3"

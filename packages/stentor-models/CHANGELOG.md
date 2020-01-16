@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.19.0 (2020-01-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.16.5 ([#32](https://github.com/stentorium/stentor/issues/32)) ([2fceb52](https://github.com/stentorium/stentor/commit/2fceb5298b71057f58a657b60bac418f43a79b97))
+* **deps:** update dependency ask-sdk-model to v1.25.1 ([#11](https://github.com/stentorium/stentor/issues/11)) ([36c572a](https://github.com/stentorium/stentor/commit/36c572a84fa866c56c313c9874a3a7616aaa577a))
+* Skinnier stentor-models as peer dependency ([#58](https://github.com/stentorium/stentor/issues/58)) ([ccb3092](https://github.com/stentorium/stentor/commit/ccb3092950914132284b931e8e21962ebefdb312))
+
+
+### Features
+
+* Adding deviceId, matchConfidence to Request ([#16](https://github.com/stentorium/stentor/issues/16)) ([525cc22](https://github.com/stentorium/stentor/commit/525cc22f9904a64a59b93adfcfb5cbacec1594f6))
+* Models & Constants ([#1](https://github.com/stentorium/stentor/issues/1)) ([9723857](https://github.com/stentorium/stentor/commit/97238573662b27131d5a7e27def1fc92a28c6909))
+* Primary facade package stentor open source ([#19](https://github.com/stentorium/stentor/issues/19)) ([bbb0848](https://github.com/stentorium/stentor/commit/bbb0848e0abd40f8322c0fab8944a2688fb445b7))
+
+
+
+
+
 ## [1.17.2](https://github.com/stentorium/stentor/compare/stentor-models@1.17.1...stentor-models@1.17.2) (2020-01-15)
 
 **Note:** Version bump only for package stentor-models

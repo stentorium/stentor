@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.3](https://github.com/stentorium/stentor/compare/v1.19.2...v1.19.3) (2020-01-17)
+
+
+### Bug Fixes
+
+* **deps:** ensure all [@xapp](https://github.com/xapp) are v1.16.18 & remove [@ts-ignores](https://github.com/ts-ignores) ([#64](https://github.com/stentorium/stentor/issues/64)) ([c10f3a5](https://github.com/stentorium/stentor/commit/c10f3a5315e8d748abddb829709322d3f60751a4))
+
+
+
+
+
+## [1.19.2](https://github.com/stentorium/stentor/compare/v1.19.1...v1.19.2) (2020-01-17)
+
+**Note:** Version bump only for package stentor-request
+
+
+
+
+
 # 1.19.0 (2020-01-16)
 
 

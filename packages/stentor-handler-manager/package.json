@@ -33,7 +33,7 @@
     "@xapp/logger": "1.16.18",
     "@xapp/stentor-handler": "1.16.18",
     "@xapp/stentor-storage": "1.16.18",
-    "stentor-handler-factory": "1.19.0",
+    "stentor-handler-factory": "1.19.2",
     "stentor-request": "1.19.2",
     "stentor-response": "1.19.2"
   },

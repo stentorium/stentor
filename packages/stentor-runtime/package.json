@@ -41,7 +41,7 @@
     "@xapp/stentor-interaction-model": "1.16.18",
     "@xapp/stentor-service-event": "1.16.18",
     "@xapp/stentor-utils": "1.16.18",
-    "stentor-constants": "1.19.2",
+    "stentor-constants": "1.19.0",
     "stentor-context": "1.19.2",
     "stentor-handler-factory": "1.19.2",
     "stentor-handler-manager": "1.19.2",

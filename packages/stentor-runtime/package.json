@@ -19,7 +19,7 @@
     "@types/sinon": "7.0.12",
     "@types/sinon-chai": "3.2.3",
     "@xapp/config": "0.2.3",
-    "@xapp/patterns": "1.16.5",
+    "@xapp/patterns": "1.16.18",
     "@xapp/stentor-actions-on-google": "1.16.18",
     "@xapp/stentor-alexa": "1.16.18",
     "@xapp/stentor-dialogflow": "1.16.18",

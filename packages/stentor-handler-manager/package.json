@@ -30,9 +30,9 @@
     "typescript": "3.7.4"
   },
   "dependencies": {
-    "@xapp/logger": "^1.16.13",
-    "@xapp/stentor-handler": "^1.16.14",
-    "@xapp/stentor-storage": "^1.16.11",
+    "@xapp/logger": "1.16.18",
+    "@xapp/stentor-handler": "1.16.18",
+    "@xapp/stentor-storage": "1.16.18",
     "stentor-handler-factory": "1.19.0",
     "stentor-request": "1.19.0",
     "stentor-response": "1.19.0"

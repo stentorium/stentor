@@ -60,8 +60,6 @@ export class HandlerManager {
         let id: string;
         // STEP #0 Try to get one from storage, either currentHandler or currentMediaHandler
         const handlerFromStorage: AbstractHandler = this.factory.from(request, context);
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-        // @ts-ignore Remove when we figure out the build problems
         if (isHandler(handlerFromStorage) && handlerFromStorage.canHandleRequest(request, context)) {
             log().info(
                 `Using handler from storage with id: ${handlerFromStorage.intentId} which can handle the request ${
@@ -78,8 +76,6 @@ export class HandlerManager {
         // NOTE: if a path is found, it sets requestHandler = undefined;
         if (handler) {
             if (isHandler(handler)) {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-                // @ts-ignore Remove when we figure out the build problems
                 const path = handler.forwardingPathForRequest(request, context);
                 // if we do have a path
                 if (path) {
@@ -131,8 +127,6 @@ export class HandlerManager {
         // handle an input unknown.  If it can we will use that
         if (!handler && handlerFromStorage) {
             if (isHandler(handlerFromStorage)) {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-                // @ts-ignore Remove when we figure out the build problems
                 if (handlerFromStorage.canHandleInputUnknown(request, context)) {
                     log().info("Handler from storage can handle input unknown, going to use it");
                     handler = handlerFromStorage;
@@ -182,8 +176,6 @@ export class HandlerManager {
         // See if we have a redirecting path for the request
         if (handler) {
             if (isHandler(handler)) {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-                // @ts-ignore Remove when we figure out the build problems
                 const path = handler.redirectingPathForRequest(request, context);
                 // if we do have a path
                 if (path) {

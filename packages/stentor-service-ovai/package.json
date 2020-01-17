@@ -26,8 +26,8 @@
     "typescript": "3.7.4"
   },
   "dependencies": {
-    "@xapp/stentor-service-event": "^1.14.4",
-    "@xapp/stentor-utils": "^1.14.4",
+    "@xapp/stentor-service-event": "1.16.18",
+    "@xapp/stentor-utils": "1.16.18",
     "isomorphic-fetch": "2.2.1",
     "stentor-constants": "1.19.0"
   },

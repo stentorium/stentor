@@ -67,8 +67,7 @@ describe("#main()", () => {
                     .withSkillId("appId")
                     .isALaunchRequest()
                     .build();
-                // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-                // @ts-ignore Remove after we fix the build issues
+
                 await main(request, context, callbackSpy, [Alexa("appId"), Dialogflow(true)], {
                     handlerFactory,
                     handlerService,

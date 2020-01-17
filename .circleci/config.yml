@@ -165,4 +165,5 @@ workflows:
           requires:
             - build
             - lint
+            - test
           context: publish-packages

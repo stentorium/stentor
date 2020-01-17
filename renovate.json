@@ -7,15 +7,14 @@
       "automerge": true
     },
     {
-      "packagePatterns": ["stentor"],
-      "groupName": "stentor",
+      "packagePatterns": ["stentor", "@xapp"],
+      "groupName": "@xapp/stentor",
       "schedule": null,
       "automerge": true
     },
     {
-      "packagePatterns": ["@xapp"],
-      "schedule": null,
-      "automerge": true
+      "packageNames": ["aws-sdk"],
+      "schedule": ["after 9pm on sunday"]
     }
   ]
 }

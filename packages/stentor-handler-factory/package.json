@@ -28,7 +28,7 @@
     "typescript": "3.7.4"
   },
   "dependencies": {
-    "@xapp/logger": "1.16.18",
+    "@xapp/logger": "1.16.19",
     "@xapp/stentor-handler": "1.16.18",
     "@xapp/stentor-handler-delegating": "1.16.18",
     "@xapp/stentor-interaction-model": "1.16.18",

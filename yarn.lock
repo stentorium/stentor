@@ -1434,7 +1434,16 @@
   dependencies:
     tslint-config-prettier "1.6.0"
 
-"@xapp/logger@1.16.18", "@xapp/logger@^1.16.18":
+"@xapp/logger@1.16.19":
+  version "1.16.19"
+  resolved "https://registry.yarnpkg.com/@xapp/logger/-/logger-1.16.19.tgz#d23ed46fae39b96cc2bad2bae8a0414088b2458c"
+  integrity sha512-yGN5Aay2pWsL3bqAbA0ghmchXMsORkka5YokXzeKpzh7C6onFDGc+CONvdRW1uzGwhdzKtxQjGsXwQf9Qio0Tg==
+  dependencies:
+    "@xapp/stentor-utils" "^1.16.19"
+    chalk "2.4.2"
+    winston "3.2.1"
+
+"@xapp/logger@^1.16.18":
   version "1.16.18"
   resolved "https://registry.yarnpkg.com/@xapp/logger/-/logger-1.16.18.tgz#b1284c0417b39a1174874ba76046864bddaacc3a"
   integrity sha512-USFXQK6KyYHvdsfSja8zS3lOO3fie/YMaunyHbaiJo8InJ1tY/vHBwQCSmjmXLzPQr5Ca2KKwdatatj4PZ0q8w==
@@ -1676,6 +1685,32 @@
     numeral "2.0.6"
     slugify "1.3.5"
     stentor-constants "1.19.0"
+    winston "3.2.1"
+    words-to-numbers "1.5.1"
+    xmldoc "1.1.2"
+
+"@xapp/stentor-utils@^1.16.19":
+  version "1.16.19"
+  resolved "https://registry.yarnpkg.com/@xapp/stentor-utils/-/stentor-utils-1.16.19.tgz#a180b0aa38c70297dbc3a84d6b2acae77816624a"
+  integrity sha512-7QvMwcGAvX8tVPXp/wtZooHPoEsH42YzFmbQv2McjOE3oe338NEviyf/2oaN+oGBFQbqyu3STJ8RQ+askd5ACw==
+  dependencies:
+    "@types/xmldoc" "1.1.4"
+    blueimp-md5 "2.11.1"
+    chrono-node "1.3.11"
+    date-fns "2.8.1"
+    dyno-item-size "0.3.1"
+    fuse.js "3.4.5"
+    lodash.clonedeep "4.5.0"
+    lodash.forown "4.4.0"
+    lodash.isempty "4.4.0"
+    lodash.isobject "3.0.2"
+    lodash.isstring "4.0.1"
+    lodash.pull "4.1.0"
+    lodash.uniq "4.5.0"
+    number-to-words "1.2.4"
+    numeral "2.0.6"
+    slugify "1.3.5"
+    stentor-constants "1.19.3"
     winston "3.2.1"
     words-to-numbers "1.5.1"
     xmldoc "1.1.2"
@@ -7471,6 +7506,11 @@ stentor-constants@1.15.11:
   integrity sha512-6GhYIIlwF+Yu9jB4pu9+Jpj6Vo6YYQApIZfLVJmW0ZZT4eHepEFqYgU/nZMbVqsPzBu8xf5xptCBdPN063jJkQ==
   dependencies:
     stentor-models "1.17.1"
+
+stentor-constants@1.19.0:
+  version "1.19.0"
+  resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.19.0.tgz#542f44430caa845c91636704dff9cf9b3f1fb392"
+  integrity sha512-Kvz7njrsvg4Tl5Q4YdksAAha0u+TQA41Qn5dvsOE3GUEJZm3N4c6jLhnA5NSvmbPIxLb1Yy694JBSqLDgrt/wA==
 
 stentor-context@1.19.0:
   version "1.19.0"

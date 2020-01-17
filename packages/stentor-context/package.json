@@ -29,8 +29,8 @@
   },
   "dependencies": {
     "@xapp/patterns": "1.16.18",
-    "@xapp/stentor-alexa": "1.16.18",
-    "@xapp/stentor-storage": "1.16.18",
+    "@xapp/stentor-alexa": "1.16.19",
+    "@xapp/stentor-storage": "1.16.19",
     "stentor-request": "1.19.3",
     "stentor-response": "1.19.3"
   },

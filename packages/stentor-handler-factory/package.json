@@ -29,10 +29,10 @@
   },
   "dependencies": {
     "@xapp/logger": "1.16.18",
-    "@xapp/stentor-handler": "1.16.18",
-    "@xapp/stentor-handler-delegating": "1.16.18",
-    "@xapp/stentor-interaction-model": "1.16.18",
-    "@xapp/stentor-utils": "1.16.18",
+    "@xapp/stentor-handler": "1.16.19",
+    "@xapp/stentor-handler-delegating": "1.16.19",
+    "@xapp/stentor-interaction-model": "1.16.19",
+    "@xapp/stentor-utils": "1.16.19",
     "stentor-context": "1.19.3",
     "stentor-request": "1.19.3",
     "stentor-response": "1.19.3"

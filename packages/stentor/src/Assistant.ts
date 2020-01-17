@@ -249,15 +249,11 @@ export class Assistant {
                 runtimeEvent,
                 runtimeContext,
                 myCallback,
-                // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-                // @ts-ignore Need to migrate more packages
                 this.channels,
                 {
                     userStorageService,
                     handlerFactory: factory,
                     handlerService,
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-                    // @ts-ignore Remove after we fix the build issues
                     eventService: this.eventService,
                     piiService: this.piiService
                 },

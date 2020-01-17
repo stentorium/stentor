@@ -1434,12 +1434,12 @@
   dependencies:
     tslint-config-prettier "1.6.0"
 
-"@xapp/logger@1.16.11":
-  version "1.16.11"
-  resolved "https://registry.yarnpkg.com/@xapp/logger/-/logger-1.16.11.tgz#88c489241921bab4c387a084867ec93137e9dd85"
-  integrity sha512-kOAPhKkAhmlVSupAMnu/cTVKZHYrhMig+PChq6l8ribQ3QSok68ig3SwLVn5hedtM/LI1XoA8dxJwFPpo9brPw==
+"@xapp/logger@1.16.18", "@xapp/logger@^1.16.18":
+  version "1.16.18"
+  resolved "https://registry.yarnpkg.com/@xapp/logger/-/logger-1.16.18.tgz#b1284c0417b39a1174874ba76046864bddaacc3a"
+  integrity sha512-USFXQK6KyYHvdsfSja8zS3lOO3fie/YMaunyHbaiJo8InJ1tY/vHBwQCSmjmXLzPQr5Ca2KKwdatatj4PZ0q8w==
   dependencies:
-    "@xapp/stentor-utils" "^1.16.11"
+    "@xapp/stentor-utils" "^1.16.18"
     chalk "2.4.2"
     winston "3.2.1"
 
@@ -1449,15 +1449,6 @@
   integrity sha512-BFFkBHYwPHiKdjo/lBKA6ubUwq9Ty593Sd7elOHl0X8dp40fOle6OE0g358Dj/0341jAqzk60T8dg4xH09+WIg==
   dependencies:
     "@xapp/stentor-utils" "^1.16.17"
-    chalk "2.4.2"
-    winston "3.2.1"
-
-"@xapp/logger@^1.16.18":
-  version "1.16.18"
-  resolved "https://registry.yarnpkg.com/@xapp/logger/-/logger-1.16.18.tgz#b1284c0417b39a1174874ba76046864bddaacc3a"
-  integrity sha512-USFXQK6KyYHvdsfSja8zS3lOO3fie/YMaunyHbaiJo8InJ1tY/vHBwQCSmjmXLzPQr5Ca2KKwdatatj4PZ0q8w==
-  dependencies:
-    "@xapp/stentor-utils" "^1.16.18"
     chalk "2.4.2"
     winston "3.2.1"
 

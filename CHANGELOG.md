@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.4](https://github.com/stentorium/stentor/compare/v1.19.3...v1.19.4) (2020-01-18)
+
+
+### Bug Fixes
+
+* Reconfigure Renovate to only update aws once a week and group [@xapp](https://github.com/xapp) & stentor npm ([#65](https://github.com/stentorium/stentor/issues/65)) ([5a9a0f2](https://github.com/stentorium/stentor/commit/5a9a0f2e215b50f87da2172223fc0edb35a4e019))
+
+
+
+
+
 ## [1.19.3](https://github.com/stentorium/stentor/compare/v1.19.2...v1.19.3) (2020-01-17)
 
 

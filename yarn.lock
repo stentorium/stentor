@@ -7472,6 +7472,11 @@ stentor-constants@1.15.11:
   dependencies:
     stentor-models "1.17.1"
 
+stentor-constants@1.19.0:
+  version "1.19.0"
+  resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.19.0.tgz#542f44430caa845c91636704dff9cf9b3f1fb392"
+  integrity sha512-Kvz7njrsvg4Tl5Q4YdksAAha0u+TQA41Qn5dvsOE3GUEJZm3N4c6jLhnA5NSvmbPIxLb1Yy694JBSqLDgrt/wA==
+
 stentor-context@1.19.0:
   version "1.19.0"
   resolved "https://registry.yarnpkg.com/stentor-context/-/stentor-context-1.19.0.tgz#9f5217b6d4a5a2202869df5db3d53c3c0bf22c2e"
@@ -8013,7 +8018,12 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@3.7.4, typescript@~3.7.2:
+typescript@3.7.5:
+  version "3.7.5"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.7.5.tgz#0692e21f65fd4108b9330238aac11dd2e177a1ae"
+  integrity sha512-/P5lkRXkWHNAbcJIiHPfRoKqyd7bsyCma1hZNUGfn20qm64T6ZBlrzprymeu918H+mB/0rIg2gGK/BXkhhYgBw==
+
+typescript@~3.7.2:
   version "3.7.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.7.4.tgz#1743a5ec5fef6a1fa9f3e4708e33c81c73876c19"
   integrity sha512-A25xv5XCtarLwXpcDNZzCGvW2D1S3/bACratYBx2sax8PefsFhlYmkQicKHvpYflFS8if4zne5zT5kpJ7pzuvw==

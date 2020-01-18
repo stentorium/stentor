@@ -28,9 +28,9 @@
     "typescript": "3.7.5"
   },
   "dependencies": {
-    "@xapp/patterns": "1.16.18",
-    "@xapp/stentor-alexa": "1.16.18",
-    "@xapp/stentor-storage": "1.16.18",
+    "@xapp/patterns": "1.16.21",
+    "@xapp/stentor-alexa": "1.16.21",
+    "@xapp/stentor-storage": "1.16.21",
     "stentor-request": "1.19.7",
     "stentor-response": "1.19.7"
   },

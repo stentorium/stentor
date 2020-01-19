@@ -37,12 +37,12 @@
     "test": "mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
   },
   "dependencies": {
-    "@xapp/logger": "1.16.18",
-    "@xapp/patterns": "1.16.18",
-    "@xapp/stentor-handler": "1.16.18",
-    "@xapp/stentor-service-analytics": "1.16.18",
-    "@xapp/stentor-service-event": "1.16.18",
-    "@xapp/stentor-utils": "1.16.18",
+    "@xapp/logger": "1.16.21",
+    "@xapp/patterns": "1.16.21",
+    "@xapp/stentor-handler": "1.16.21",
+    "@xapp/stentor-service-analytics": "1.16.21",
+    "@xapp/stentor-service-event": "1.16.21",
+    "@xapp/stentor-utils": "1.16.21",
     "dotenv": "8.2.0",
     "stentor-constants": "1.19.5",
     "stentor-context": "1.19.7",

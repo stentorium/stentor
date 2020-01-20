@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.12](https://github.com/stentorium/stentor/compare/v1.19.11...v1.19.12) (2020-01-20)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
 ## [1.19.9](https://github.com/stentorium/stentor/compare/v1.19.8...v1.19.9) (2020-01-19)
 
 **Note:** Version bump only for package stentor-response

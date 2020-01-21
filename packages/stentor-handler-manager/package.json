@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.19.12",
+  "version": "1.19.13",
   "description": "Handler manager for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -30,12 +30,12 @@
     "typescript": "3.7.5"
   },
   "dependencies": {
-    "@xapp/logger": "1.16.21",
-    "@xapp/stentor-handler": "1.16.21",
-    "@xapp/stentor-storage": "1.16.21",
-    "stentor-handler-factory": "1.19.12",
-    "stentor-request": "1.19.12",
-    "stentor-response": "1.19.12"
+    "@xapp/logger": "1.16.29",
+    "@xapp/stentor-handler": "1.16.30",
+    "@xapp/stentor-storage": "1.16.29",
+    "stentor-handler-factory": "1.19.13",
+    "stentor-request": "1.19.13",
+    "stentor-response": "1.19.13"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

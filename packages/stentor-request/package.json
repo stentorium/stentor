@@ -29,8 +29,8 @@
   },
   "dependencies": {
     "@xapp/patterns": "1.16.21",
-    "@xapp/stentor-interaction-model": "1.16.21",
-    "@xapp/stentor-utils": "1.16.21"
+    "@xapp/stentor-interaction-model": "1.16.29",
+    "@xapp/stentor-utils": "1.16.29"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

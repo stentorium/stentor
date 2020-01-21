@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.14](https://github.com/stentorium/stentor/compare/v1.19.13...v1.19.14) (2020-01-21)
+
+
+### Bug Fixes
+
+* Attachments on intent request change to store the data in the request object ([#59](https://github.com/stentorium/stentor/issues/59)) ([7e560a1](https://github.com/stentorium/stentor/commit/7e560a1a058abbf74572fa7d5eed59682c201790))
+
+
+
+
+
 ## [1.19.12](https://github.com/stentorium/stentor/compare/v1.19.11...v1.19.12) (2020-01-20)
 
 **Note:** Version bump only for package stentor-models

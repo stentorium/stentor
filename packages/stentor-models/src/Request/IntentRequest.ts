@@ -25,7 +25,7 @@ export interface KnowledgeAnswer {
     matchConfidence: number;
 }
 
-export interface AttachmentAnswer {
+export interface RequestAttachment {
     /**
      * Url to the uploaded file
      */
@@ -129,10 +129,14 @@ export interface IntentRequest extends BaseRequest {
     data?: Data;
     /**
      * A unique request provided by a question answering system.
+     * 
+     * @beta
      */
     knowledgeAnswer?: KnowledgeAnswer;
     /**
      * Uploads from the request
+     * 
+     * @beta 
      */
-    attachments?: AttachmentAnswer[];
+    attachments?: RequestAttachment[];
 }

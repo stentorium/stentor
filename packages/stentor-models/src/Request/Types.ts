@@ -30,4 +30,4 @@ export type InputUnknownID = "InputUnknown";
 export type OptionSelectID = "OptionSelect";
 export type SignInID = "SignIn";
 export type KnowledgeAnswerID = "KnowledgeAnswer";
-export type AttachmentAnswerID = "AttachmentAnswer";
+export type AttachmentRequestID = "AttachmentRequest";

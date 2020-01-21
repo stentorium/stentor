@@ -7,7 +7,7 @@ import {
     AudioPlayerPlaybackStoppedEvent,
     AudioPlayerRequestType,
     AudioPlayerSystemExceptionEvent,
-    AttachmentAnswerID,
+    AttachmentRequestID,
     InputUnknownID,
     InputUnknownRequestType,
     IntentRequestType,
@@ -37,7 +37,7 @@ export const PERMISSION_GRANT_ID: PermissionGrantID = "PermissionGrant";
 export const OPTION_SELECT_ID: OptionSelectID = "OptionSelect";
 export const SIGN_IN_ID: SignInID = "SignIn";
 export const KNOWLEDGE_ANSWER_ID: KnowledgeAnswerID = "KnowledgeAnswer";
-export const ATTACHMENT_ANSWER_ID: AttachmentAnswerID = "AttachmentAnswer";
+export const ATTACHMENT_REQUEST_ID: AttachmentRequestID = "AttachmentRequest";
 
 // Standard Request Types
 export const LAUNCH_REQUEST_TYPE: LaunchRequestType = "LAUNCH_REQUEST";

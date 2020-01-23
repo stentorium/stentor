@@ -1,6 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { Request, RequestDependable } from "stentor-models";
-import { compare, random } from "@xapp/stentor-utils";
+import { compare, random } from "stentor-utils";
 import { isRequestDependable } from "./Guards";
 
 /**

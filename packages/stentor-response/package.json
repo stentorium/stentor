@@ -35,7 +35,7 @@
     "@xapp/stentor-locales": "1.17.2",
     "@xapp/stentor-media": "1.17.2",
     "@xapp/stentor-time": "1.17.2",
-    "@xapp/stentor-utils": "1.17.2",
+    "stentor-utils": "1.19.17",
     "actions-on-google": "2.12.0",
     "jsonpath": "1.0.2",
     "lodash.template": "4.5.0",

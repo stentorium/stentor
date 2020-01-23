@@ -30,7 +30,7 @@
   "dependencies": {
     "@xapp/patterns": "1.16.21",
     "@xapp/stentor-interaction-model": "1.17.2",
-    "@xapp/stentor-utils": "1.17.2"
+    "stentor-utils": "1.19.17"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

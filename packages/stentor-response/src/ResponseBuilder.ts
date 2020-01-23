@@ -14,7 +14,7 @@ import {
     UserDataType,
     UserDataValue
 } from "stentor-models";
-import { toResponseOutput } from "@xapp/stentor-utils";
+import { toResponseOutput } from "stentor-utils";
 import { concatResponseOutput } from "./concat";
 
 /**

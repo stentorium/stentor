@@ -32,7 +32,7 @@
     "@xapp/stentor-handler": "1.17.2",
     "@xapp/stentor-handler-delegating": "1.17.2",
     "@xapp/stentor-interaction-model": "1.17.2",
-    "@xapp/stentor-utils": "1.17.2",
+    "stentor-utils": "1.19.17",
     "stentor-context": "1.19.17",
     "stentor-request": "1.19.17",
     "stentor-response": "1.19.17"

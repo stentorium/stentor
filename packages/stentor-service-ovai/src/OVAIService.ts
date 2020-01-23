@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { HTTP_200_OK } from "stentor-constants";
 import { Event, Handler, HandlerService } from "stentor-models";
-import { existsAndNotEmpty } from "@xapp/stentor-utils";
+import { existsAndNotEmpty } from "stentor-utils";
 import "isomorphic-fetch";
 import { OVAIHandlerResponse, OVAIHandlersResponse } from "./Response";
 

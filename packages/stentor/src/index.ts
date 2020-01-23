@@ -136,7 +136,7 @@ import {
     pruneEmpty,
     random,
     ssmlify
-} from "@xapp/stentor-utils";
+} from "stentor-utils";
 export {
     dessmlify,
     estimateSize,

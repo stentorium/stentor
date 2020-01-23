@@ -9,7 +9,7 @@ import {
 import { DELEGATING_HANDLER_TYPE, DelegatingHandler, isDelegatingHandler } from "@xapp/stentor-handler-delegating";
 import { Context, Handler, HandlerDelegates, Request } from "stentor-models";
 import { keyFromRequest } from "stentor-request";
-import { existsAndNotEmpty } from "@xapp/stentor-utils";
+import { existsAndNotEmpty } from "stentor-utils";
 
 export type HandlersArray = Array<new (props: Handler) => AbstractHandler>;
 

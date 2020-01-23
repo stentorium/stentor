@@ -40,7 +40,7 @@
     "@xapp/stentor-history": "1.16.35",
     "@xapp/stentor-interaction-model": "1.17.2",
     "@xapp/stentor-service-event": "1.17.2",
-    "@xapp/stentor-utils": "1.17.2",
+    "stentor-utils": "1.19.17",
     "stentor-constants": "1.19.16",
     "stentor-context": "1.19.17",
     "stentor-handler-factory": "1.19.17",

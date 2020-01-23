@@ -42,7 +42,7 @@
     "@xapp/stentor-handler": "1.17.2",
     "@xapp/stentor-service-analytics": "1.17.2",
     "@xapp/stentor-service-event": "1.17.2",
-    "@xapp/stentor-utils": "1.17.2",
+    "stentor-utils": "1.19.17",
     "dotenv": "8.2.0",
     "stentor-constants": "1.19.16",
     "stentor-context": "1.19.17",

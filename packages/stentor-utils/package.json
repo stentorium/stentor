@@ -60,7 +60,7 @@
   },
   "scripts": {
     "build": "tsc -d true -p .",
-    "clean": "rm -rf ./lib/* && rm -rf ./src/**.js",
+    "clean": "rm -rf ./lib/*",
     "test": "TZ=UTC mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
   }
 }

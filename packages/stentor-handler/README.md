@@ -1,3 +1,3 @@
-## @xapp/stentor-handler
+## stentor-handler
 
 Handlers for :mega: stentor

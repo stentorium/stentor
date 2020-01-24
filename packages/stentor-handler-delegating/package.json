@@ -18,13 +18,13 @@
     "@types/chai": "4.2.7",
     "@xapp/config": "0.2.3",
     "chai": "4.2.0",
-    "stentor-models": "1.19.16",
+    "stentor-models": "1.19.18",
     "ts-node": "8.6.2",
     "typescript": "3.7.5"
   },
   "dependencies": {
     "stentor-handler": "1.19.17",
-    "stentor-request": "1.19.17"
+    "stentor-request": "1.19.19"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

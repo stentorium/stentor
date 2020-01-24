@@ -26,7 +26,7 @@
     "moment": "2.24.0",
     "sinon": "7.4.2",
     "sinon-chai": "3.4.0",
-    "stentor-models": "1.19.16",
+    "stentor-models": "1.19.18",
     "ts-node": "8.6.2",
     "typescript": "3.7.5"
   },
@@ -40,10 +40,10 @@
     "@xapp/stentor-storage": "1.17.2",
     "@xapp/stentor-time": "1.17.2",
     "jsonpath": "1.0.2",
-    "stentor-constants": "1.19.16",
-    "stentor-context": "1.19.17",
-    "stentor-request": "1.19.17",
-    "stentor-response": "1.19.17",
+    "stentor-constants": "1.19.18",
+    "stentor-context": "1.19.19",
+    "stentor-request": "1.19.19",
+    "stentor-response": "1.19.19",
     "stentor-utils": "1.19.17"
   },
   "peerDependencies": {

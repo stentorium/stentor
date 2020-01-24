@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.19.17",
+  "version": "1.19.20",
   "description": "SDK for building omni-channel conversational assistants",
   "types": "lib/index",
   "typings": "lib/index",
@@ -19,14 +19,14 @@
   "devDependencies": {
     "@types/chai": "4.2.7",
     "@types/mocha": "5.2.7",
-    "@types/node": "13.1.8",
+    "@types/node": "13.5.0",
     "@types/sinon": "7.5.1",
     "@types/sinon-chai": "3.2.3",
     "@xapp/config": "0.2.3",
     "aws-sdk": "2.606.0",
     "chai": "4.2.0",
     "mocha": "7.0.0",
-    "sinon": "8.1.0",
+    "sinon": "8.1.1",
     "sinon-chai": "3.4.0",
     "ts-node": "8.6.2",
     "typescript": "3.7.5"
@@ -44,14 +44,14 @@
     "@xapp/stentor-service-event": "1.17.2",
     "stentor-utils": "1.19.17",
     "dotenv": "8.2.0",
-    "stentor-constants": "1.19.16",
-    "stentor-context": "1.19.17",
-    "stentor-handler-factory": "1.19.17",
-    "stentor-models": "1.19.16",
-    "stentor-request": "1.19.17",
-    "stentor-response": "1.19.17",
-    "stentor-runtime": "1.19.17",
-    "stentor-service-ovai": "1.19.17"
+    "stentor-constants": "1.19.18",
+    "stentor-context": "1.19.19",
+    "stentor-handler-factory": "1.19.19",
+    "stentor-models": "1.19.18",
+    "stentor-request": "1.19.19",
+    "stentor-response": "1.19.19",
+    "stentor-runtime": "1.19.19",
+    "stentor-service-ovai": "1.19.18"
   },
   "peerDependencies": {
     "aws-sdk": "2.X"

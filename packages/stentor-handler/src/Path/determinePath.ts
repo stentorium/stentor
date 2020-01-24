@@ -5,13 +5,34 @@ import { compileHistoricalPath } from "./compileHistoricalPath";
 import { compilePreviousHandlerPath } from "./compilePreviousHandlerPath";
 import { isHistoricalPath, isPreviousHandlerPath } from "./Guards";
 
+
+function compilePaths(paths: Path[], request: Request, context: Context): ExecutablePath[] {
+    const compiledPaths: ExecutablePath[] = [];
+
+    // Find historical and previous
+    paths.forEach(path => {
+        if (isHistoricalPath(path)) {
+            const compiledHistoricalPath = compileHistoricalPath(path, context);
+            if (compiledHistoricalPath) {
+                compiledPaths.push(compiledHistoricalPath);
+            }
+        } else if (isPreviousHandlerPath(path)) {
+            const compiledPreviousHandlerPath = compilePreviousHandlerPath(path, request, context);
+            if (compiledPreviousHandlerPath) {
+                compiledPaths.push(compiledPreviousHandlerPath);
+            }
+        } else {
+            compiledPaths.push(path);
+        }
+    });
+
+    return compiledPaths;
+}
+
 /**
  * Determine a possible path that is best suited for the request.
  *
- * @export
- * @param {Path[]} paths
- * @param {Request} [request]
- * @returns {Path}
+ * @public
  */
 export function determinePath(definedPaths: Path[], request: Request, context: Context): ExecutablePath {
     // Sanity check
@@ -43,25 +64,4 @@ export function determinePath(definedPaths: Path[], request: Request, context: C
     return determinedPath;
 }
 
-function compilePaths(paths: Path[], request: Request, context: Context): ExecutablePath[] {
-    const compiledPaths: ExecutablePath[] = [];
 
-    // Find historical and previous
-    paths.forEach(path => {
-        if (isHistoricalPath(path)) {
-            const compiledHistoricalPath = compileHistoricalPath(path, context);
-            if (compiledHistoricalPath) {
-                compiledPaths.push(compiledHistoricalPath);
-            }
-        } else if (isPreviousHandlerPath(path)) {
-            const compiledPreviousHandlerPath = compilePreviousHandlerPath(path, request, context);
-            if (compiledPreviousHandlerPath) {
-                compiledPaths.push(compiledPreviousHandlerPath);
-            }
-        } else {
-            compiledPaths.push(path);
-        }
-    });
-
-    return compiledPaths;
-}

@@ -9,7 +9,7 @@ import { Contextual, JSONDependable, JSONDependent } from "stentor-models";
  * @returns {path is JSONPathDependentPath}
  */
 export function isJSONDependable<T>(item: object): item is JSONDependable<T> {
-    return !!item && !!(<JSONDependent>item).JSONPathMatch;
+    return !!item && !!(item as JSONDependent).JSONPathMatch;
 }
 
 export function isContextual(item: object): item is Contextual {

@@ -31,6 +31,20 @@ export interface Connection {
     to: string;
 }
 
+function humanReadable(intentId: string): string {
+    let readable: string;
+
+    switch (intentId) {
+        case "^((?!(StopIntent|HelpIntent|CancelIntent)).)*$":
+            readable = "open-ended";
+            break;
+        default:
+            readable = intentId;
+    }
+
+    return readable;
+}
+
 /**
  * Convert a graph to nodes and connections, a format required for display within a GUI.
  *
@@ -137,6 +151,7 @@ export function toNodesAndConnections(
             // Find the intentId that will lead to the edge (path.intentId)
             const intentId = determineIntentIdToPath(handler, edge);
 
+            // eslint-disable-next-line @typescript-eslint/camelcase
             const to_node = hashCode(edge);
 
             const description = describeKey(edge);
@@ -144,11 +159,12 @@ export function toNodesAndConnections(
             const connection: Connection = {
                 id: `${nid.toString()}_${index}`,
                 description,
-                //
+                // eslint-disable-next-line @typescript-eslint/camelcase
                 from_node: nid,
                 // this needs to be within the outs on the node, which is the key on the
                 // forward
                 from: humanReadable(intentId),
+                // eslint-disable-next-line @typescript-eslint/camelcase
                 to_node,
                 to: humanReadable(edge)
             };
@@ -160,16 +176,4 @@ export function toNodesAndConnections(
     return { nodes, connections };
 }
 
-function humanReadable(intentId: string): string {
-    let readable: string;
 
-    switch (intentId) {
-        case "^((?!(StopIntent|HelpIntent|CancelIntent)).)*$":
-            readable = "open-ended";
-            break;
-        default:
-            readable = intentId;
-    }
-
-    return readable;
-}

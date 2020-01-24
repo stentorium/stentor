@@ -152,7 +152,7 @@ export function hasUtterances(intent: Intent | Handler): boolean {
  * @returns {boolean}
  */
 export function hasContent(intent: Intent | Handler): boolean {
-    let hasContent: boolean = false;
+    let hasContent = false;
 
     if (isHandler(intent) && intent.content) {
         hasContent = Object.keys(intent.content).length > 0;
@@ -169,7 +169,7 @@ export function hasContent(intent: Intent | Handler): boolean {
  * @returns {boolean}
  */
 export function hasReprompt(intent: Intent | Handler): boolean {
-    let hasReprompt: boolean = false;
+    let hasReprompt = false;
 
     if (isHandler(intent) && intent.content) {
         Object.keys(intent.content).forEach(key => {
@@ -193,7 +193,7 @@ export function hasReprompt(intent: Intent | Handler): boolean {
  * @returns {boolean}
  */
 export function hasForwards(intent: Intent | Handler): boolean {
-    let hasForward: boolean = false;
+    let hasForward = false;
 
     if (isHandler(intent) && typeof intent.forward === "object") {
         hasForward = Object.keys(intent.forward).length > 0;
@@ -235,7 +235,7 @@ export function filterOutIntents(handlersAndIntents: (Intent | Handler)[]): Hand
  * @returns {boolean}
  */
 export function forwardsTo(intent: Intent | Handler, intentId: string): boolean {
-    let forwardsTo: boolean = false;
+    let forwardsTo = false;
 
     if (isHandler(intent)) {
         if (intent.forward) {
@@ -276,7 +276,7 @@ export enum HandledIn {
  * @returns {boolean}
  */
 export function handles(intent: Intent | Handler, id: string, how: HandledIn = HandledIn.Any): boolean {
-    let handles: boolean = false;
+    let handles = false;
 
     if (isHandler(intent)) {
         const handledInRedirect: boolean = intent.redirect ? Object.keys(intent.redirect).indexOf(id) !== -1 : false;
@@ -346,7 +346,7 @@ export function determineIntentIdToPath(handler: Handler, pathId: string): strin
  * @returns {boolean}
  */
 export function responsesContain(intent: Intent | Handler, character: string): boolean {
-    let responsesContains: boolean = false;
+    let responsesContains = false;
 
     if (isHandler(intent) && intent.content) {
         const contentAsJSON = JSON.stringify(intent.content);

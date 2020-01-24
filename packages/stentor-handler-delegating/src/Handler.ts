@@ -21,17 +21,16 @@ import { DelegatingHandlerType } from "./Types";
  * @extends {AbstractHandler<Content, DelegatingData>}
  */
 export class DelegatingHandler extends AbstractHandler<Content, DelegatingData> {
-    type: DelegatingHandlerType;
+    public type: DelegatingHandlerType;
 
     private handlerDelegates: HandlerDelegates;
 
     /**
      * Pick out the method this handler should delegate to. The default is the intentId of the handler.
      *
-     * @param {{ [delegateTo: string]: HandlerDelegates }} handlerDelegates
-     * @memberof DelegatingHandler
+     * @public
      */
-    setHandlerDelegates(handlerDelegates: { [delegateTo: string]: HandlerDelegates }) {
+    public setHandlerDelegates(handlerDelegates: { [delegateTo: string]: HandlerDelegates }): void {
         const delegateTo = (this.data && this.data.delegateTo) || this.intentId;
 
         this.handlerDelegates = handlerDelegates[delegateTo];
@@ -44,11 +43,9 @@ export class DelegatingHandler extends AbstractHandler<Content, DelegatingData> 
     /**
      * Call start if we have an override
      *
-     * @param {Request} request
-     * @param {Context} context
-     * @returns {Promise<void>}
+     * @public
      */
-    async start(request: Request, context: Context) {
+    public async start(request: Request, context: Context): Promise<void> {
         const method: DelegatedHandlerMethod = this.handlerDelegates.start;
 
         if (method) {
@@ -68,7 +65,7 @@ export class DelegatingHandler extends AbstractHandler<Content, DelegatingData> 
      * @param {Context} context
      * @returns {Promise<void>}
      */
-    async handleRequest(request: Request, context: Context) {
+    public async handleRequest(request: Request, context: Context): Promise<void> {
         const event = keyFromRequest(request);
 
         // Own intent - try start

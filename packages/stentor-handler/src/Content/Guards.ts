@@ -9,5 +9,5 @@ import { Contentable } from "./Contentable";
  * @returns {item is Contentable}
  */
 export function isContentable(item: object): item is Contentable {
-    return !!item && (<Contentable>item).content !== undefined;
+    return !!item && (item as Contentable).content !== undefined;
 }

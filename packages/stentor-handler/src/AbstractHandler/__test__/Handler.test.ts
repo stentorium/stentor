@@ -127,7 +127,7 @@ describe("AbstractHandler", () => {
         };
 
         response = sinon.createStubInstance(ResponseBuilder);
-        (<any>response.say).restore();
+        (response.say as any).restore();
         sinon.stub(response, "say").returns(response);
 
         context = new ContextBuilder()

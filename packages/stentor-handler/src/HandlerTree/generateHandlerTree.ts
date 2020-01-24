@@ -11,7 +11,7 @@ export function generateHandlerTree(root: Handler, handlers: Handler[]): Handler
 
     const tree = new HandlerTree({ data: root, children: [] });
 
-    let infiniteLoopDetector: number = 0;
+    let infiniteLoopDetector = 0;
 
     // Start with the root in the queue
     const queue: Handler[] = [root];

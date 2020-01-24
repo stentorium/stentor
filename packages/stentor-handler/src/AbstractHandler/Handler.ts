@@ -45,33 +45,33 @@ export abstract class AbstractHandler<
     F extends Forward = Forward,
     R extends Redirect = Redirect
     > implements RequestHandler, Handler<C, D, F, R> {
-    readonly type: string;
+    public readonly type: string;
 
-    readonly intentId: string;
+    public readonly intentId: string;
 
-    readonly appId: string;
+    public readonly appId: string;
 
-    readonly organizationId: string;
+    public readonly organizationId: string;
 
-    readonly createdAt: string;
+    public readonly createdAt: string;
 
-    readonly content: C;
+    public readonly content: C;
     // TODO: We need to figure out how to make this readonly again
-    data: D;
+    public data: D;
 
-    readonly forward: F;
+    public readonly forward: F;
 
-    readonly redirect: R;
+    public readonly redirect: R;
 
-    readonly name?: string;
+    public readonly name?: string;
 
-    readonly slots?: Slot[];
+    public readonly slots?: Slot[];
 
-    readonly slotTypes?: SlotTypeMap;
+    public readonly slotTypes?: SlotTypeMap;
 
-    readonly permissions?: UserDataType[];
+    public readonly permissions?: UserDataType[];
 
-    constructor(props: Handler<C, D, F, R>) {
+    public constructor(props: Handler<C, D, F, R>) {
         if (typeof props !== "object") {
             throw new TypeError("Invalid props passed to handler");
         }
@@ -93,12 +93,8 @@ export abstract class AbstractHandler<
 
     /**
      * Determines if the request is for itself.
-     *
-     * @param {Request} request
-     * @returns {boolean}
-     * @memberof Handler
      */
-    isOwnRequest(request: Request): boolean {
+    public isOwnRequest(request: Request): boolean {
         const key = keyFromRequest(request);
         return this.intentId === key;
     }
@@ -107,11 +103,9 @@ export abstract class AbstractHandler<
      * In order to determine if another handler needs to be requested, we need to see if the
      * current handler can handle the request.
      *
-     * @param {Request} request
-     * @returns {boolean}
-     * @memberof Handler
+     * @public
      */
-    canHandleRequest(request: Request, context: Context): boolean {
+    public canHandleRequest(request: Request, context: Context): boolean {
         const key = keyFromRequest(request);
 
         // First see if we have a forwarding path
@@ -136,12 +130,9 @@ export abstract class AbstractHandler<
      *
      * Returns undefined if a path could not be found.
      *
-     * @param {Request} request
-     * @param {Context} context
-     * @returns {Path}
-     * @memberof AbstractHandler
+     * @public
      */
-    forwardingPathForRequest(request: Request, context: Context): ExecutablePath | undefined {
+    public forwardingPathForRequest(request: Request, context: Context): ExecutablePath | undefined {
         const key = keyFromRequest(request);
         const paths = findValueForKey(key, this.forward);
         return determinePath(paths, request, context);
@@ -152,12 +143,9 @@ export abstract class AbstractHandler<
      *
      * Returns undefined if a path could not be found.
      *
-     * @param {Request} request
-     * @param {Context} context
-     * @returns {Path | undefined}
-     * @memberof AbstractHandler
+     * @public
      */
-    redirectingPathForRequest(request: Request, context: Context): ExecutablePath | undefined {
+    public redirectingPathForRequest(request: Request, context: Context): ExecutablePath | undefined {
         const key = keyFromRequest(request);
         const paths = findValueForKey(key, this.redirect);
         return determinePath(paths, request, context);
@@ -170,11 +158,11 @@ export abstract class AbstractHandler<
      * @returns {boolean}
      * @memberof Handler
      */
-    canHandleInputUnknown(request: Request, context: Context): boolean {
-        let canHandleInputUnknown: boolean = false;
+    public canHandleInputUnknown(request: Request, context: Context): boolean {
+        let canHandleInputUnknown = false;
 
         // We need this if the INPUT_UNKNOWN_STRATEGY is REPROMPT
-        let hasPreviousRepromptResponse: boolean = false;
+        let hasPreviousRepromptResponse = false;
         if (context.storage && context.storage.previousResponse && context.storage.previousResponse.reprompt) {
             hasPreviousRepromptResponse = true;
         }
@@ -195,13 +183,9 @@ export abstract class AbstractHandler<
      * Kicks off the handler, typically called when the intent associated with the
      * handler is requested.
      *
-     * @abstract
-     * @param {Request} request
-     * @param {Context} context
-     * @returns {Promise<void>}
-     * @memberof Handler
+     * @public
      */
-    async start(request: Request, context: Context): Promise<void> {
+    public async start(request: Request, context: Context): Promise<void> {
         const response = getResponse(this.content, request, context);
         if (response) {
             context.response.respond(response);
@@ -215,10 +199,6 @@ export abstract class AbstractHandler<
      * Repeats the last uttered response.
      *
      * @protected
-     * @param {Request} request
-     * @param {Context} context
-     * @returns {Promise<void>}
-     * @memberof Handler
      */
     protected async repeat(request: Request, context: Context): Promise<void> {
         // Look on the storage, pull of the previous request and send it back
@@ -270,7 +250,7 @@ export abstract class AbstractHandler<
                         // Reprompt first, then help if available.
                         const response = reprompt || helpOutputSpeech;
                         // Set a default one in case no help response
-                        let help: string = "What was that?";
+                        let help = "What was that?";
                         if (response) {
                             if (typeof response === "string") {
                                 help = response;
@@ -300,12 +280,9 @@ export abstract class AbstractHandler<
      * Handles the incoming request.  Sets the necessary responses and saves the necessary items
      * to storage.
      *
-     * @param {Request} request
-     * @param {Context} context
-     * @returns {Promise<void>}
-     * @memberof Handler
+     * @public
      */
-    async handleRequest(request: Request, context: Context): Promise<void> {
+    public async handleRequest(request: Request, context: Context): Promise<void> {
         const event = keyFromRequest(request);
 
         switch (event) {

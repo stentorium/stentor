@@ -9,7 +9,7 @@ import { CompilablePath, ExecutablePath, HistoricalPath, Path, PreviousHandlerPa
  * @returns {path is HistoricalPath}
  */
 export function isHistoricalPath(path: Path): path is HistoricalPath {
-    return !!path && (<HistoricalPath>path).historicalIndex !== undefined;
+    return !!path && (path as HistoricalPath).historicalIndex !== undefined;
 }
 /**
  * Guard to determine if the path is a previous handler path.
@@ -19,7 +19,7 @@ export function isHistoricalPath(path: Path): path is HistoricalPath {
  * @returns {path is PreviousHandlerPath}
  */
 export function isPreviousHandlerPath(path: Path): path is PreviousHandlerPath {
-    return !!path && (<PreviousHandlerPath>path).previousHandler === true;
+    return !!path && (path as PreviousHandlerPath).previousHandler === true;
 }
 /**
  * Guard to determine if the path is compilable
@@ -39,5 +39,5 @@ export function isCompilablePath(path: Path): path is CompilablePath {
  * @returns {path is ExecutablePath}
  */
 export function isExecutablePath(path: Path): path is ExecutablePath {
-    return !!path && (<ExecutablePath>path).intentId !== undefined;
+    return !!path && (path as ExecutablePath).intentId !== undefined;
 }

@@ -7,14 +7,13 @@ export type ConversationHandlerType = "InSessionIntent";
 export const CONVERSATION_HANDLER_TYPE: ConversationHandlerType = "InSessionIntent";
 
 /**
- * The most basic implementation of an abstract handler.
+ * The most basic implementation of an abstract handler, the conversation handler
+ * facilitates basic back and forth, request & response, with users.
  *
- * @export
- * @class ConversationHandler
- * @extends {Handler}
+ * @public
  */
 export class ConversationHandler extends AbstractHandler {
-    async handleRequest(request: Request, context: Context) {
+    public async handleRequest(request: Request, context: Context): Promise<void> {
         await super.handleRequest(request, context);
     }
 }

@@ -15,9 +15,7 @@ describe("Utils", () => {
         });
 
         it("Tests that it returns false when object is null.", () => {
-            // tslint:disable
             expect(Utils.objHasAttrs(null)).to.be.false;
-            // tslint:enable
         });
 
         it("Tests that it returns false when object is empty.", () => {
@@ -161,7 +159,7 @@ describe("Utils", () => {
             try {
                 Utils.throwIfDoesNotContain({ param1: 0 }, ["param1"], false);
             } catch (e) {
-                expect(e, "An exception was thrown even thoguh it was not supposed to be.").to.not.exist;
+                expect(e, "An exception was thrown even though it was not supposed to be.").to.not.exist;
             }
         });
     });
@@ -376,9 +374,9 @@ describe("Utils", () => {
         });
 
         it("Tests that it works with a callback function.", () => {
-            /* tslint:disable:no-magic-numbers */
             let i = 0;
-            const callback = (): boolean => {
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            const callback = (key: any): boolean => {
                 switch (i++) {
                     case 0:
                     case 2:
@@ -400,7 +398,8 @@ describe("Utils", () => {
 
         it("Tests that the object works with arrays and a function.", () => {
             let i = 0;
-            const callback = (): boolean => {
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            const callback = (key: any): boolean => {
                 switch (i++) {
                     case 0:
                     case 2:

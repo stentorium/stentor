@@ -13,7 +13,7 @@ import {
     getMatchedSlotData,
     getResponse,
     getSlotType
-} from "@xapp/stentor-handler";
+} from "stentor-handler";
 export {
     AbstractHandler,
     compileResponse,

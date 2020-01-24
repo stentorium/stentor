@@ -4,7 +4,7 @@ import * as chaiAsPromised from "chai-as-promised";
 import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
 
-import { CONVERSATION_HANDLER_TYPE, isHandler } from "@xapp/stentor-handler";
+import { CONVERSATION_HANDLER_TYPE, isHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
 import { Context, Device, Handler, HandlerService, Request, Storage } from "stentor-models";
 import { IntentRequestBuilder, isIntentRequest } from "stentor-request";

@@ -4,7 +4,7 @@ import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
 
 import { ContextBuilder } from "stentor-context";
-import { AbstractHandler, CONVERSATION_HANDLER_TYPE, ConversationHandler } from "@xapp/stentor-handler";
+import { AbstractHandler, CONVERSATION_HANDLER_TYPE, ConversationHandler } from "stentor-handler";
 import { DelegatingHandler } from "@xapp/stentor-handler-delegating";
 import * as INTENT from "@xapp/stentor-interaction-model/lib/Intent/Constants";
 import {

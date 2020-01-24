@@ -5,7 +5,7 @@ import {
     BASE_HANDLER_TYPE,
     CONVERSATION_HANDLER_TYPE,
     ConversationHandler
-} from "@xapp/stentor-handler";
+} from "stentor-handler";
 import { DELEGATING_HANDLER_TYPE, DelegatingHandler, isDelegatingHandler } from "@xapp/stentor-handler-delegating";
 import { Context, Handler, HandlerDelegates, Request } from "stentor-models";
 import { keyFromRequest } from "stentor-request";

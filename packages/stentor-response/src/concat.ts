@@ -1,6 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { ResponseOutput } from "stentor-models";
-import { concatSSML, concatText } from "@xapp/stentor-utils";
+import { concatSSML, concatText } from "stentor-utils";
 
 /**
  * Options used when concatenating two ResponseOutputs

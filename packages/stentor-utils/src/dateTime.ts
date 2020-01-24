@@ -17,12 +17,36 @@ import {
 } from "date-fns";
 import { pruneEmpty } from "./json";
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const chrono = require("chrono-node");
 
 export const ISO_8601 = /^(\d{4}-\d{2}-\d{2})?(?:T?(\d{2}:\d{2}:\d{2})((?:[-+]\d{2}:\d{2})|Z)?)?$/;
 export const ISO_8601_RANGE = /^(\d{4}-\d{2}-\d{2})(?:T(\d{2}:\d{2}:\d{2})((?:[-+]\d{2}:\d{2})|Z)?)?\/(\d{4}-\d{2}-\d{2})(?:T(\d{2}:\d{2}:\d{2})((?:[-+]\d{2}:\d{2})|Z)?)?$/;
 export const ISO_8601_DATE_ONLY = /\d{4}-\d{2}-\d{2}/;
 export const ISO_8601_TIME_ONLY = /(\d{2}:\d{2}:\d{2})(?:-\d{2}:\d{2})?/;
+
+/**
+ * Used on a RequestSlot.dateTime to determine if it is just dateTime or a range.
+ *
+ * @export
+ * @param {(DateTime | DateTimeRange)} item
+ * @returns {item is DateTime}
+ */
+export function isDateTime(item: DateTime | DateTimeRange): item is DateTime {
+    return !!item && (!!(item as DateTime).date || !!(item as DateTime).time);
+}
+
+/**
+ * Used on a RequestSlot.dateTime to determine if it is just dateTime or a range.
+ *
+ * @export
+ * @param {(DateTime | DateTimeRange)} item
+ * @returns {item is DateTimeRange}
+ */
+export function isDateTimeRange(item: DateTime | DateTimeRange): item is DateTimeRange {
+    return !!item && (!!(item as DateTimeRange).start || !!(item as DateTimeRange).end);
+}
+
 
 /**
  * Converts a date time object to a string.
@@ -214,6 +238,29 @@ export function getDateTimeRangeFrom(date: string): DateTimeRange | undefined {
 }
 
 /**
+ * Parses the date within the string.  Returns undefined if
+ * it cannot parse one.
+ *
+ * It does not handle date periods such as "last week" or "last month".
+ *
+ * Note: This is a wrapper around chrono-node parseDate.
+ * See https://github.com/wanasit/chrono for more information.
+ *
+ * @public
+ */
+export function parseDate(parsable: string, returnOnly?: "date" | "time"): DateTime | undefined {
+    // For docs on parseDate see
+    // https://github.com/wanasit/chrono#usage
+    const dateTime: Date = chrono.parseDate(parsable);
+
+    if (!dateTime) {
+        return undefined;
+    }
+
+    return getDateTimeFrom(dateTime, returnOnly);
+}
+
+/**
  * Parses the relative date string and returns a date time.
  *
  * Support is currently limited, see possible RelativeDateType & RelativeDateRangeType for current
@@ -237,7 +284,7 @@ export function parseRelativeDate(
         relative.includes("WEEKEND")
     ) {
         // The delta tells us how much we add depending on the prefix of LAST, THIS, or NEXT
-        let delta: number = 0;
+        let delta = 0;
         if (relative.includes("LAST")) {
             delta = -1;
         } else if (relative.includes("NEXT")) {
@@ -344,50 +391,3 @@ export function parseRelativeDate(
     return dateTime;
 }
 
-/**
- * Parses the date within the string.  Returns undefined if
- * it cannot parse one.
- *
- * It does not handle date periods such as "last week" or "last month".
- *
- * Note: This is a wrapper around chrono-node parseDate.
- * See https://github.com/wanasit/chrono for more information.
- *
- * @export
- * @param {string} parsable
- * @param {("date" | "time")} [returnOnly]
- * @returns {(DateTime | undefined)}
- */
-export function parseDate(parsable: string, returnOnly?: "date" | "time"): DateTime | undefined {
-    // For docs on parseDate see
-    // https://github.com/wanasit/chrono#usage
-    const dateTime: Date = chrono.parseDate(parsable);
-
-    if (!dateTime) {
-        return undefined;
-    }
-
-    return getDateTimeFrom(dateTime, returnOnly);
-}
-
-/**
- * Used on a RequestSlot.dateTime to determine if it is just dateTime or a range.
- *
- * @export
- * @param {(DateTime | DateTimeRange)} item
- * @returns {item is DateTime}
- */
-export function isDateTime(item: DateTime | DateTimeRange): item is DateTime {
-    return !!item && (!!(<DateTime>item).date || !!(<DateTime>item).time);
-}
-
-/**
- * Used on a RequestSlot.dateTime to determine if it is just dateTime or a range.
- *
- * @export
- * @param {(DateTime | DateTimeRange)} item
- * @returns {item is DateTimeRange}
- */
-export function isDateTimeRange(item: DateTime | DateTimeRange): item is DateTimeRange {
-    return !!item && (!!(<DateTimeRange>item).start || !!(<DateTimeRange>item).end);
-}

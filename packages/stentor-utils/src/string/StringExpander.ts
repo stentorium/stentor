@@ -25,21 +25,21 @@ export class StringExpanderProps {
      * @type {StringVariableStyle}
      * @memberof StringExpanderProps
      */
-    variableStyle?: StringVariableStyle;
+    public variableStyle?: StringVariableStyle;
     /**
      * Reduce multiple spaces to one.
      *
      * @type {boolean}
      * @memberof StringExpanderProps
      */
-    reduceToOneSpace?: boolean;
+    public reduceToOneSpace?: boolean;
     /**
      * Trim leading and trailing spaces
      *
      * @type {boolean}
      * @memberof StringExpanderProps
      */
-    trim?: boolean;
+    public trim?: boolean;
 }
 
 /**
@@ -50,9 +50,9 @@ export class StringExpanderProps {
  */
 export class StringExpander {
     private variableStyle: StringVariableStyle = StringVariableStyle.ESTemplateLiteral;
-    private reduceToOneSpace: boolean = false;
-    private trim: boolean = false;
-    constructor(props?: StringExpanderProps) {
+    private reduceToOneSpace = false;
+    private trim = false;
+    public constructor(props?: StringExpanderProps) {
         if (props) {
             this.variableStyle = props.variableStyle !== undefined ? props.variableStyle : this.variableStyle;
             this.reduceToOneSpace =
@@ -61,7 +61,7 @@ export class StringExpander {
         }
     }
 
-    expand(str: string): string[] {
+    public expand(str: string): string[] {
         if (!str) {
             return [];
         }

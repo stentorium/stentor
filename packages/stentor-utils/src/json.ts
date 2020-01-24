@@ -1,4 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
+/* eslint-disable @typescript-eslint/no-var-requires */
+
 const cloneDeep = require("lodash.clonedeep");
 const forOwn = require("lodash.forown");
 const isEmpty = require("lodash.isempty");
@@ -15,7 +17,7 @@ const pull = require("lodash.pull");
  * @param obj
  */
 export function pruneEmpty<T>(obj: T): T {
-    return (function prune(current: any) {
+    return (function prune(current: any): any {
         forOwn(current, (value: any, key: any) => {
             if (
                 typeof value === "undefined" ||

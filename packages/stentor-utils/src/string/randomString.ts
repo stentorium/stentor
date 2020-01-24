@@ -5,7 +5,7 @@
  * @param {number} size Length of the string.  Can not be null.
  * @param {string} charset Optionally a subset of characters to pull from.
  */
-export function randomString(size: number) {
+export function randomString(size: number): string {
     if (size < 0) {
         throw Error("Random string can not have a negative length.");
     }

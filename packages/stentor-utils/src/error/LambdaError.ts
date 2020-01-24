@@ -11,7 +11,7 @@ import { HTTP_500_INTERNAL_SERVICE_ERROR } from "stentor-constants";
  * @extends {Error}
  */
 export class LambdaError extends Error {
-    statusCode?: number;
+    public statusCode?: number;
 
     /**
      * Creates an instance of LambdaError.
@@ -20,8 +20,8 @@ export class LambdaError extends Error {
      * @param {number} [statusCode] The status code linked to the error message. Default is 500.
      * @memberof LambdaError
      */
-    constructor(message: string | Error | LambdaError, statusCode?: number) {
+    public constructor(message: string | Error | LambdaError, statusCode?: number) {
         super(typeof message === "string" ? message : message.message);
-        this.statusCode = (<LambdaError>message).statusCode || statusCode || HTTP_500_INTERNAL_SERVICE_ERROR;
+        this.statusCode = (message as LambdaError).statusCode || statusCode || HTTP_500_INTERNAL_SERVICE_ERROR;
     }
 }

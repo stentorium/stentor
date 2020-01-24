@@ -15,7 +15,7 @@ export type Comparable = boolean | string | number | undefined;
  * @returns {boolean}
  */
 export function compare(value1: Comparable, value2: Comparable, operator: MatchOperation = "==="): boolean {
-    let match: boolean = false;
+    let match = false;
 
     // See if value is undefined
     if (value1 === "undefined") {

@@ -1,4 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const slugify = require("slugify");
 
 /**

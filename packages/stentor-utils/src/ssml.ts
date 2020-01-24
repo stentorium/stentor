@@ -1,5 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { XmlElement } from "xmldoc";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const xmldoc = require("xmldoc");
 
 /**
@@ -12,7 +13,7 @@ export function isValidSSML(response: string): boolean {
         return false;
     }
 
-    let result: boolean = false;
+    let result = false;
 
     try {
         new xmldoc.XmlDocument(response);
@@ -107,7 +108,7 @@ export function dessmlify(outputSpeech: string): string {
  * @param {string} outputSpeech
  * @returns {string}
  */
-export function ssmlify(outputSpeech: string, clean: boolean = true): string {
+export function ssmlify(outputSpeech: string, clean = true): string {
     // fast return
     if (!outputSpeech) {
         return "<speak></speak>";
@@ -189,6 +190,18 @@ export function concatSSML(one: string, two: string, delimiter?: string): string
     return ssmlify(concatText(dessmlify(one), dessmlify(two), delimiter));
 }
 
+function removeTagWithContent(speech: string, tag: string): string {
+    // Step 1
+    const regex1 = new RegExp("(<" + tag + "([^>]+)>)", "ig"); //     /(<break([^>]+)>)/ig;
+    speech = speech.replace(regex1, "");
+
+    // Step 2
+    const regex2 = new RegExp("(</" + tag + "([ ]*)>)", "ig"); //     /(<\/break([ ]*)>)/ig;
+    speech = speech.replace(regex2, "");
+
+    return speech;
+}
+
 export function removeTagsWithContent(speech: string, tags: string[]): string {
     if (!speech) {
         return speech;
@@ -201,14 +214,4 @@ export function removeTagsWithContent(speech: string, tags: string[]): string {
     return speech;
 }
 
-function removeTagWithContent(speech: string, tag: string): string {
-    // Step 1
-    const regex1 = new RegExp("(<" + tag + "([^>]+)>)", "ig"); //     /(<break([^>]+)>)/ig;
-    speech = speech.replace(regex1, "");
 
-    // Step 2
-    const regex2 = new RegExp("(</" + tag + "([ ]*)>)", "ig"); //     /(<\/break([ ]*)>)/ig;
-    speech = speech.replace(regex2, "");
-
-    return speech;
-}

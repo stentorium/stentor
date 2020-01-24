@@ -1,4 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const converter = require("number-to-words");
 import * as numeral from "numeral";
 import wordsToNumbers from "words-to-numbers";
@@ -104,7 +105,7 @@ export function maskNumber(phoneNumber: string): string {
  * @param {boolean} [partial=false] When true it keeps the last four digits of the number
  * @returns {string}
  */
-export function maskPhoneNumbers(s: string, partial: boolean = false): string {
+export function maskPhoneNumbers(s: string, partial = false): string {
     if (typeof s !== "string") {
         return undefined;
     }
@@ -152,7 +153,7 @@ export function numberToWord(n: number): string | undefined {
  * @param {string} [format="0,0"]
  * @returns {string}
  */
-export function formatNumberForDisplay(n: number | string, format: string = "0,0"): string {
+export function formatNumberForDisplay(n: number | string, format = "0,0"): string {
     return numeral(n).format(format);
 }
 

@@ -7,9 +7,10 @@ export interface PercentCompleteAndRemaining<T> {
 
 /**
  * Checks for all falsey items that we allow.
+ * 
  * @param val
  */
-function isAllowed(val: any) {
+function isAllowed(val: any): boolean {
     if (!val) {
         // We like 'false' and '0'
         return val === 0 || val === false;
@@ -41,7 +42,7 @@ export function percentComplete<T>(
     const denominator = required.length;
     const remaining: (keyof T)[] = [];
 
-    let count: number = 0;
+    let count = 0;
     for (const requiredKey of required) {
         if (isAllowed(template[requiredKey])) {
             ++count;

@@ -3,6 +3,83 @@ export * from "./findValueForKey";
 export * from "./percentComplete";
 
 /**
+ * A function that's the opposite of "subset" in which it will remove the attributes that are given in the function.
+ *
+ * The original object is not affected.
+ *
+ * @param obj Object to remove the items from.
+ * @param attrs The attribute keys to remove from the object. It can be strings for generic javascript objects or
+ *      numbers for arrays.
+ *      It can also be a function that returns a boolean where "true" means to keep and "false" means to remove.
+ *      In the case for functions, the first parameters will be the "key" of the object (string for objects and numbers for arrays.).
+ *
+ */
+export function removeItems(obj: any, attrs: (string | number)[] | ValidateKeyCallback): any {
+    if (!obj) {
+        return obj;
+    }
+
+    if (!attrs || attrs.length === 0) {
+        return { ...obj };
+    }
+
+    const objIsArray: boolean = Array.isArray(obj);
+    const returnObj: any = objIsArray ? (obj as Array<any>).slice() : { ...obj };
+
+    const deleteItem = (key: string | number): void => {
+        if (objIsArray) {
+            (returnObj as Array<any>).splice(key as number, 1);
+        } else {
+            delete returnObj[key];
+        }
+    };
+
+    if (typeof attrs === "function") {
+        // Reverse order in case it's an array so it shrinks it appropriately.
+        Object.keys(obj)
+            .reverse()
+            .forEach((key: any) => {
+                if (!attrs(key, returnObj[key])) {
+                    deleteItem(key);
+                }
+            });
+    } else {
+        attrs.reverse().forEach((value: string | number) => {
+            deleteItem(value);
+        });
+    }
+    return returnObj;
+}
+
+/**
+ * A function that will return a subset of a given object keeping only the attributes that it contains.
+ *
+ * The original object is not affected.
+ *
+ * @param obj Object to create a subset for.
+ * @param attrs The attributes to retain in the object.
+ */
+export function subset(obj: object, attrs: string[]): object {
+    if (!obj) {
+        return obj;
+    }
+
+    if (!attrs || attrs.length === 0) {
+        return {};
+    }
+
+    const check: any = obj;
+    const returnObj: any = {};
+    attrs.forEach((value: string) => {
+        if (check.hasOwnProperty(value)) {
+            returnObj[value] = check[value];
+        }
+    });
+
+    return returnObj;
+}
+
+/**
  * A Utility function to determine if an object has attributes or not.
  *
  *
@@ -16,7 +93,7 @@ export function objHasAttrs(obj: object): boolean {
 
 export type ValidationErrorHandler = (keys: string[], error: Error) => void;
 
-function defaultValidationErrorHandler(keys: string[], error: Error) {
+function defaultValidationErrorHandler(keys: string[], error: Error): void {
     throw error;
 }
 
@@ -118,84 +195,9 @@ export function throwIfContainsExtra(
     // Rejoice!
 }
 
-/**
- * A function that will return a subset of a given object keeping only the attributes that it contains.
- *
- * The original object is not affected.
- *
- * @param obj Object to create a subset for.
- * @param attrs The attributes to retain in the object.
- */
-export function subset(obj: object, attrs: string[]): object {
-    if (!obj) {
-        return obj;
-    }
 
-    if (!attrs || attrs.length === 0) {
-        return {};
-    }
-
-    const check: any = obj;
-    const returnObj: any = {};
-    attrs.forEach((value: string) => {
-        if (check.hasOwnProperty(value)) {
-            returnObj[value] = check[value];
-        }
-    });
-
-    return returnObj;
-}
 
 export type ValidateKeyCallback = (key: string | number, value: any) => boolean;
-
-/**
- * A function that's the opposite of "subset" in which it will remove the attributes that are given in the function.
- *
- * The original object is not affected.
- *
- * @param obj Object to remove the items from.
- * @param attrs The attribute keys to remove from the object. It can be strings for generic javascript objects or
- *      numbers for arrays.
- *      It can also be a function that returns a boolean where "true" means to keep and "false" means to remove.
- *      In the case for functions, the first parameters will be the "key" of the object (string for objects and numbers for arrays.).
- *
- */
-export function removeItems(obj: any, attrs: (string | number)[] | ValidateKeyCallback): any {
-    if (!obj) {
-        return obj;
-    }
-
-    if (!attrs || attrs.length === 0) {
-        return { ...obj };
-    }
-
-    const objIsArray: boolean = Array.isArray(obj);
-    const returnObj: any = objIsArray ? (obj as Array<any>).slice() : { ...obj };
-
-    const deleteItem = (key: string | number) => {
-        if (objIsArray) {
-            (returnObj as Array<any>).splice(key as number, 1);
-        } else {
-            delete returnObj[key];
-        }
-    };
-
-    if (typeof attrs === "function") {
-        // Reverse order in case it's an array so it shrinks it appropriately.
-        Object.keys(obj)
-            .reverse()
-            .forEach((key: any) => {
-                if (!attrs(key, returnObj[key])) {
-                    deleteItem(key);
-                }
-            });
-    } else {
-        attrs.reverse().forEach((value: string | number) => {
-            deleteItem(value);
-        });
-    }
-    return returnObj;
-}
 
 /**
  * Creates a copy and removes the empty strings from the object.
@@ -214,13 +216,13 @@ export function removeEmptyStrings<T extends object>(obj: T): T {
     // The <any> caste is to make TS happy
     // It says spread operators are only available on
     // object types, which T is since it extends it
-    const copy: T = { ...(<any>obj) };
+    const copy: T = { ...(obj as any) };
 
     Object.keys(obj).forEach(key => {
-        const value = (<any>obj)[key];
+        const value = (obj as any)[key];
         if (typeof value === "string" && value === "") {
             // delete the key on the copy, not the original
-            delete (<any>copy)[key];
+            delete (copy as any)[key];
         }
     });
 

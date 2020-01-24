@@ -9,5 +9,5 @@ import { LambdaError } from "./LambdaError";
  * @returns {error is LambdaError}
  */
 export function isLambdaError(error: LambdaError | Error): error is LambdaError {
-    return !!error && (<LambdaError>error).statusCode !== undefined;
+    return !!error && (error as LambdaError).statusCode !== undefined;
 }

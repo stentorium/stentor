@@ -378,7 +378,7 @@ describe("Utils", () => {
         it("Tests that it works with a callback function.", () => {
             /* tslint:disable:no-magic-numbers */
             let i = 0;
-            const callback = (key: string, value: any): boolean => {
+            const callback = (): boolean => {
                 switch (i++) {
                     case 0:
                     case 2:
@@ -400,7 +400,7 @@ describe("Utils", () => {
 
         it("Tests that the object works with arrays and a function.", () => {
             let i = 0;
-            const callback = (key: string, value: any): boolean => {
+            const callback = (): boolean => {
                 switch (i++) {
                     case 0:
                     case 2:
@@ -448,11 +448,11 @@ describe("Utils", () => {
                 expect(original.greeting).to.equal("");
             });
             it("removes the empty strings", () => {
-                expect((<any>cleaned).greeting).to.be.undefined;
+                expect((cleaned as any).greeting).to.be.undefined;
             });
             it("does not remove valid keys", () => {
-                expect((<any>cleaned).key).to.equal("value");
-                expect((<any>cleaned).bool).to.be.true;
+                expect((cleaned as any).key).to.equal("value");
+                expect((cleaned as any).bool).to.be.true;
             });
         });
     });

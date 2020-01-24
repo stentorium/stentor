@@ -41,7 +41,7 @@ export function maskEmail(email: string): string {
  * @param {boolean} [partial=false] When true, some of the email remains
  * @returns {string}
  */
-export function maskEmails(s: string, partial: boolean = false): string {
+export function maskEmails(s: string, partial = false): string {
     if (typeof s !== "string") {
         return undefined;
     }

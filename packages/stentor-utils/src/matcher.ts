@@ -2,14 +2,45 @@
 import { RequestSlot, SlotTypeValue } from "stentor-models";
 import * as Fuse from "fuse.js";
 
+
+/**
+ * Matches the utterance to the slot type.
+ * 
+ * @public
+ */
+export function matchUtteranceToSlotTypeValue<T>(
+    utterance: string | number,
+    slotTypeValues: SlotTypeValue<T>[]
+): MatchResult<T>[] {
+    // Lets make sure the input is good
+    if (typeof utterance !== "string" && typeof utterance !== "number") {
+        return [];
+    }
+
+    // Options for fuzzy string matching
+    const options: Fuse.FuseOptions<SlotTypeValue<T>> = {
+        distance: 100,
+        keys: ["name"],
+        location: 0,
+        maxPatternLength: 32,
+        minMatchCharLength: 1,
+        shouldSort: true,
+        threshold: 0.5,
+        includeScore: true
+    };
+
+    const fuse = new Fuse(slotTypeValues, options);
+    const searchValue = `${utterance}`;
+    const result = fuse.search(searchValue); // Literal here is to turn numbers to strings
+    return result;
+}
+
 /**
  * Results returned by the fuzzy string matcher.
  *
- * @export
- * @interface MatchResult
- * @template T
+ * @public
  */
-export interface MatchResult<T> extends Fuse.FuseResult<SlotTypeValue<T>> {}
+export interface MatchResult<T> extends Fuse.FuseResult<SlotTypeValue<T>> { }
 
 /**
  * Match the request slot to the provided slot type values.
@@ -17,11 +48,7 @@ export interface MatchResult<T> extends Fuse.FuseResult<SlotTypeValue<T>> {}
  * Both synonym and value are used, whichever has the highest
  * score is returned.
  *
- * @export
- * @template T
- * @param {RequestSlot} slot
- * @param {SlotTypeValue<T>[]} slotTypeValues
- * @returns {(SlotTypeValue<T> | undefined)}
+ * @public
  */
 export function matchRequestSlotToSlotTypeValue<T>(
     slot: RequestSlot,
@@ -67,39 +94,4 @@ export function matchRequestSlotToSlotTypeValue<T>(
     return highestMatch ? highestMatch.item : undefined;
 }
 
-/**
- * Matches the utterance to the slot type.
- *
- * @export
- * @template T
- * @param {string} utterance
- * @param {SlotTypeValue<T>[]} slotTypeValues
- * @returns {(SlotTypeValue<T> | undefined)}
- */
-export function matchUtteranceToSlotTypeValue<T>(
-    utterance: string | number,
-    slotTypeValues: SlotTypeValue<T>[]
-): MatchResult<T>[] {
-    // Lets make sure the input is good
-    if (typeof utterance !== "string" && typeof utterance !== "number") {
-        return [];
-    }
 
-    // Options for fuzzy string matching
-    const options: Fuse.FuseOptions<SlotTypeValue<T>> = {
-        distance: 100,
-        keys: ["name"],
-        location: 0,
-        maxPatternLength: 32,
-        minMatchCharLength: 1,
-        shouldSort: true,
-        threshold: 0.5,
-        includeScore: true
-    };
-
-    const fuse = new Fuse(slotTypeValues, options);
-    const searchValue = `${utterance}`;
-    const result = fuse.search(searchValue); // Literal here is to turn numbers to strings
-    // @ts-ignore: Something is wrong with the types for fuse.js.  Output is good
-    return result;
-}

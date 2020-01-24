@@ -1,11 +1,11 @@
 {
-  "name": "stentor-handler-factory",
+  "name": "stentor-handler-delegating",
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"
   },
   "version": "1.19.17",
-  "description": "Handler factory for stentor",
+  "description": "Delegating handler for stentor",
   "types": "lib/index",
   "main": "lib/index",
   "files": [
@@ -16,26 +16,15 @@
   },
   "devDependencies": {
     "@types/chai": "4.2.7",
-    "@types/sinon": "7.5.1",
-    "@types/sinon-chai": "3.2.3",
     "@xapp/config": "0.2.3",
     "chai": "4.2.0",
-    "mocha": "6.2.2",
-    "sinon": "8.1.0",
-    "sinon-chai": "3.4.0",
     "stentor-models": "1.19.16",
-    "ts-node": "8.1.0",
+    "ts-node": "8.6.2",
     "typescript": "3.7.5"
   },
   "dependencies": {
-    "@xapp/logger": "1.17.2",
-    "@xapp/stentor-interaction-model": "1.17.2",
-    "stentor-context": "1.19.17",
-    "stentor-handler-delegating": "1.19.17",
     "stentor-handler": "1.19.17",
-    "stentor-request": "1.19.17",
-    "stentor-response": "1.19.17",
-    "stentor-utils": "1.19.17"
+    "stentor-request": "1.19.17"
   },
   "peerDependencies": {
     "stentor-models": "1.x"
@@ -44,6 +33,5 @@
     "build": "tsc -d true -p .",
     "clean": "rm -rf ./lib/*",
     "test": "mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
-  },
-  "gitHead": "bb8fead16cbd0cff42ea73d73f0da9a5401c4c99"
+  }
 }

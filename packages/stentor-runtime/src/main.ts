@@ -3,7 +3,7 @@
 import { log } from "@xapp/logger";
 import { GOODBYE, TROUBLE_WITH_REQUEST } from "stentor-constants";
 import { ContextFactory } from "stentor-context";
-import { AbstractHandler, getResponse } from "@xapp/stentor-handler";
+import { AbstractHandler, getResponse } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
 import { HandlerManager } from "stentor-handler-manager";
 import { trimHistory } from "@xapp/stentor-history";
@@ -30,7 +30,7 @@ import {
 } from "stentor-request";
 import { canFulfillAll, canFulfillNothing } from "stentor-response";
 import { EventService, wrapCallback as eventServiceCallbackWrapper } from "@xapp/stentor-service-event";
-import { existsAndNotEmpty } from "@xapp/stentor-utils";
+import { existsAndNotEmpty } from "stentor-utils";
 import { ChannelSelector } from "./ChannelSelector";
 
 /**

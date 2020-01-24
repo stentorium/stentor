@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { expect } from "chai";
 
-import { ConversationHandler } from "@xapp/stentor-handler";
+import { ConversationHandler } from "stentor-handler";
 import { HandlerDelegates } from "stentor-models";
 import { isDelegatingHandlersMap, isHandlersArray, isHandlersKeyValue } from "../Guards";
 

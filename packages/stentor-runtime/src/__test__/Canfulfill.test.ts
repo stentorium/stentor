@@ -3,7 +3,7 @@ import * as chai from "chai";
 import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
 
-import { CONVERSATION_HANDLER_TYPE, ConversationHandler } from "@xapp/stentor-handler";
+import { CONVERSATION_HANDLER_TYPE, ConversationHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
 import { Handler, HandlerService, RuntimeContext, Storage, UserStorageService } from "stentor-models";
 import { main } from "../index";

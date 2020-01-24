@@ -5,11 +5,11 @@ import {
     BASE_HANDLER_TYPE,
     CONVERSATION_HANDLER_TYPE,
     ConversationHandler
-} from "@xapp/stentor-handler";
-import { DELEGATING_HANDLER_TYPE, DelegatingHandler, isDelegatingHandler } from "@xapp/stentor-handler-delegating";
+} from "stentor-handler";
+import { DELEGATING_HANDLER_TYPE, DelegatingHandler, isDelegatingHandler } from "stentor-handler-delegating";
 import { Context, Handler, HandlerDelegates, Request } from "stentor-models";
 import { keyFromRequest } from "stentor-request";
-import { existsAndNotEmpty } from "@xapp/stentor-utils";
+import { existsAndNotEmpty } from "stentor-utils";
 
 export type HandlersArray = Array<new (props: Handler) => AbstractHandler>;
 

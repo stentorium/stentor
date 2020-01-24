@@ -1,0 +1,37 @@
+{
+  "name": "stentor-handler-delegating",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.19.17",
+  "description": "Delegating handler for stentor",
+  "types": "lib/index",
+  "main": "lib/index",
+  "files": [
+    "lib"
+  ],
+  "engines": {
+    "node": "10.x"
+  },
+  "devDependencies": {
+    "@types/chai": "4.2.7",
+    "@xapp/config": "0.2.3",
+    "chai": "4.2.0",
+    "stentor-models": "1.19.18",
+    "ts-node": "8.6.2",
+    "typescript": "3.7.5"
+  },
+  "dependencies": {
+    "stentor-handler": "1.19.17",
+    "stentor-request": "1.19.19"
+  },
+  "peerDependencies": {
+    "stentor-models": "1.x"
+  },
+  "scripts": {
+    "build": "tsc -d true -p .",
+    "clean": "rm -rf ./lib/*",
+    "test": "mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
+  }
+}

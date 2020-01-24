@@ -1,6 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { Channel, RuntimeContext } from "stentor-models";
-import { existsAndNotEmpty, uniq } from "@xapp/stentor-utils";
+import { existsAndNotEmpty, uniq } from "stentor-utils";
 
 export class ChannelSelector {
     /**

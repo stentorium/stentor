@@ -13,7 +13,7 @@ import {
     getMatchedSlotData,
     getResponse,
     getSlotType
-} from "@xapp/stentor-handler";
+} from "stentor-handler";
 export {
     AbstractHandler,
     compileResponse,
@@ -136,7 +136,7 @@ import {
     pruneEmpty,
     random,
     ssmlify
-} from "@xapp/stentor-utils";
+} from "stentor-utils";
 export {
     dessmlify,
     estimateSize,

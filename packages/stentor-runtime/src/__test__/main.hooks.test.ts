@@ -9,7 +9,7 @@ const expect = chai.expect;
 
 import { AlexaRequestBuilder, LAUNCH_REQUEST } from "@xapp/stentor-alexa";
 import { DialogflowV2RequestBuilder } from "@xapp/stentor-dialogflow";
-import { ConversationHandler } from "@xapp/stentor-handler";
+import { ConversationHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
 import {
     AbstractResponseBuilder,
@@ -27,7 +27,7 @@ import {
 } from "stentor-models";
 import { isLaunchRequest } from "stentor-request";
 import { EventService } from "@xapp/stentor-service-event";
-import { dessmlify, LambdaError } from "@xapp/stentor-utils";
+import { dessmlify, LambdaError } from "stentor-utils";
 
 import { main } from "../main";
 import { ALEXA_APP_ID, DEFAULT_CHANNELS } from "./assets/Constants";

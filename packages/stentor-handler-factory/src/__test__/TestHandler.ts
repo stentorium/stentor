@@ -7,7 +7,7 @@ import {
     Data
 } from "stentor-models";
 
-import { AbstractHandler } from "@xapp/stentor-handler";
+import { AbstractHandler } from "stentor-handler";
 
 
 export class TestHandler extends AbstractHandler {

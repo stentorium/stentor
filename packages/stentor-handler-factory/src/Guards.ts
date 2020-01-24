@@ -1,5 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { existsAndNotEmpty } from "@xapp/stentor-utils";
+import { existsAndNotEmpty } from "stentor-utils";
 import { DelegatingHandlersMap, HandlersArray, HandlersKeyValue } from "./HandlerFactory";
 
 /**

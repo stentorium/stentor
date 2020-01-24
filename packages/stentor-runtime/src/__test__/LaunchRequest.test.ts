@@ -5,7 +5,7 @@ import * as sinonChai from "sinon-chai";
 
 import { Alexa, AlexaRequestBuilder } from "@xapp/stentor-alexa";
 import { Dialogflow } from "@xapp/stentor-dialogflow";
-import { ConversationHandler } from "@xapp/stentor-handler";
+import { ConversationHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
 import { Content, Handler, HandlerService, Storage, UserStorageService } from "stentor-models";
 import { main } from "../main";

@@ -6,8 +6,8 @@ import * as sinonChai from "sinon-chai";
 
 import { CONVERSATION_HANDLER_TYPE, isHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
-import { Context, Device, Handler, HandlerService, Request, Storage } from "stentor-models";
-import { IntentRequestBuilder, isIntentRequest } from "stentor-request";
+import { Context, Device, Handler, HandlerService, Request, Storage, InputUnknownRequest } from "stentor-models";
+import { IntentRequestBuilder, isIntentRequest, InputUnknownRequestBuilder } from "stentor-request";
 import { ResponseBuilder } from "stentor-response";
 import { HandlerManager } from "../HandlerManager";
 
@@ -137,7 +137,7 @@ describe("HandlerManager", () => {
     afterEach(() => {
         handlerGetStub.restore();
     });
-    describe("#from()", () => {
+    describe(`#${HandlerManager.prototype.from.name}()`, () => {
         beforeEach(() => {
             baseContext = {
                 device,
@@ -307,6 +307,45 @@ describe("HandlerManager", () => {
                             const handler = await manager.from(request, newContext);
                             expect(handler).to.exist;
                             expect(handler).to.include(inputUnknownHandler);
+                        });
+                    });
+                });
+            });
+            describe("for an input unknown request", () => {
+                let request: InputUnknownRequest;
+                let newContext: Context;
+                let handlerWithInputUnknownStrategy: Handler;
+                describe("with current handler on storage that can handle it", () => {
+                    beforeEach(() => {
+                        // create a request with the same intentId
+                        request = new InputUnknownRequestBuilder().build();
+                        newContext = { ...baseContext };
+                        // We will use a REPROMPT inputUnknownStrategy
+                        handlerWithInputUnknownStrategy = { ...handlerProps };
+                        handlerWithInputUnknownStrategy.data = { inputUnknownStrategy: "REPROMPT" };
+                        newContext.storage.currentHandler = handlerWithInputUnknownStrategy;
+                        // In order for a REPROMPT strategy to work, there
+                        // needs to be a previousResponse
+                        newContext.storage.previousResponse = {
+                            outputSpeech: "output",
+                            reprompt: "reprompt"
+                        };
+                    });
+                    it("doesn't call the request handler service", async () => {
+                        await manager.from(request, newContext);
+                        expect(handlerGetStub).to.have.not.been.called;
+                    });
+                    it("returns the handler", async () => {
+                        const requestHandler = await manager.from(request, newContext);
+                        expect(isHandler(requestHandler)).to.be.true;
+                        expect(requestHandler).to.include(handlerWithInputUnknownStrategy);
+                        // Go ahead and execute to confirm the output
+                        await requestHandler.handleRequest(request, newContext);
+                        const response = newContext.response.build();
+                        expect(response).to.exist;
+                        expect(response).to.deep.equal({
+                            outputSpeech: { ssml: '<speak>reprompt</speak>', displayText: 'reprompt' },
+                            reprompt: { ssml: '<speak>reprompt</speak>', displayText: 'reprompt' }
                         });
                     });
                 });

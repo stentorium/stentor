@@ -3,7 +3,7 @@ import { log } from "@xapp/logger";
 import { AbstractHandler, isActionable, isHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
 import { Context, HandlerService, Request } from "stentor-models";
-import { isIntentRequest, isLaunchRequest, keyFromRequest } from "stentor-request";
+import { isIntentRequest, isLaunchRequest, keyFromRequest, isInputUnknownRequest } from "stentor-request";
 import { manipulateStorage } from "@xapp/stentor-storage";
 import { requestForPath } from "./requestForPath";
 
@@ -61,6 +61,15 @@ export class HandlerManager {
         // STEP #0 Try to get one from storage, either currentHandler or currentMediaHandler
         const handlerFromStorage: AbstractHandler = this.factory.from(request, context);
         if (isHandler(handlerFromStorage) && handlerFromStorage.canHandleRequest(request, context)) {
+            log().info(
+                `Using handler from storage with id: ${handlerFromStorage.intentId} which can handle the request ${
+                request.type
+                }-${keyFromRequest(request)}`
+            );
+            handler = handlerFromStorage;
+        }
+        // STEP #0.1 Another check, see if it is an InputUnknown request and it can handle it
+        if (isHandler(handlerFromStorage) && isInputUnknownRequest(request) && handlerFromStorage.canHandleInputUnknown(request, context)) {
             log().info(
                 `Using handler from storage with id: ${handlerFromStorage.intentId} which can handle the request ${
                 request.type

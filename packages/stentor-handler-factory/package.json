@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.20.0",
+  "version": "1.20.1",
   "description": "Handler factory for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -30,11 +30,11 @@
   "dependencies": {
     "@xapp/logger": "1.17.6",
     "@xapp/stentor-interaction-model": "1.17.6",
-    "stentor-context": "1.20.0",
-    "stentor-handler": "1.20.0",
-    "stentor-handler-delegating": "1.20.0",
-    "stentor-request": "1.20.0",
-    "stentor-response": "1.20.0",
+    "stentor-context": "1.20.1",
+    "stentor-handler": "1.20.1",
+    "stentor-handler-delegating": "1.20.1",
+    "stentor-request": "1.20.1",
+    "stentor-response": "1.20.1",
     "stentor-utils": "1.20.0"
   },
   "peerDependencies": {

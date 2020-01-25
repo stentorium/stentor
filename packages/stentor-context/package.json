@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@xapp/patterns": "1.16.21",
-    "@xapp/stentor-alexa": "1.17.6",
+    "@xapp/stentor-alexa": "1.17.7",
     "@xapp/stentor-storage": "1.17.6",
     "stentor-request": "1.20.1",
     "stentor-response": "1.20.1"

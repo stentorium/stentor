@@ -22,7 +22,7 @@
     "@types/sinon-chai": "3.2.2",
     "@xapp/config": "0.2.3",
     "chai": "4.2.0",
-    "mocha": "6.2.2",
+    "mocha": "7.0.1",
     "moment": "2.24.0",
     "sinon": "7.4.2",
     "sinon-chai": "3.4.0",

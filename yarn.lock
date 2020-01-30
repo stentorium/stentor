@@ -1351,10 +1351,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.26.tgz#213e153babac0ed169d44a6d919501e68f59dea9"
   integrity sha512-UmUm94/QZvU5xLcUlNR8hA7Ac+fGpO1EG/a8bcWVz0P0LqtxFmun9Y2bbtuckwGboWJIT70DoWq1r3hb56n3DA==
 
-"@types/node@13.5.1":
-  version "13.5.1"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.5.1.tgz#6fae50892d1841f4b38b298e2f78fb68c5960cb9"
-  integrity sha512-Jj2W7VWQ2uM83f8Ls5ON9adxN98MvyJsMSASYFuSvrov8RMRY64Ayay7KV35ph1TSGIJ2gG9ZVDdEq3c3zaydA==
+"@types/node@13.5.3":
+  version "13.5.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.5.3.tgz#37f1f539b7535b9fb4ef77d59db1847a837b7f17"
+  integrity sha512-ZPnWX9PW992w6DUsz3JIXHaSb5v7qmKCVzC3km6SxcDGxk7zmLfYaCJTbktIa5NeywJkkZDhGldKqDIvC5DRrA==
 
 "@types/node@^9.4.6":
   version "9.6.55"
@@ -7414,6 +7414,11 @@ stentor-constants@1.19.18:
   version "1.19.18"
   resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.19.18.tgz#75cf6e68194e06fe79c2d254f2c79f019d2ae769"
   integrity sha512-RGKMqgCK4lumZEY7xWeULKKU2a6KF+HvtkwQjOgOREwwQJaX7F9lxj4IFexQDVqSAAYcTXvXyurEfj0r9qnCkw==
+
+stentor-constants@1.20.9:
+  version "1.20.9"
+  resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.20.9.tgz#fe29fff8c08b6a3a0cb71306dfb7355bfd07a21a"
+  integrity sha512-dIKcuvcVkElG1JZLNkXUeYY9jbvf0bOapAw3LaifWLh0qCyFTsdDA0PSnVZTdvXKuqJ5EIlZTiEk4rHjDUdE/g==
 
 stentor-request@1.20.11:
   version "1.20.11"

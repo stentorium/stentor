@@ -15,7 +15,7 @@
     "node": "10.x"
   },
   "devDependencies": {
-    "@types/chai": "4.2.7",
+    "@types/chai": "4.2.8",
     "@types/fetch-mock": "7.3.2",
     "@xapp/config": "0.2.3",
     "chai": "4.2.0",

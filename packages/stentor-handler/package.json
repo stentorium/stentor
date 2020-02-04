@@ -33,7 +33,6 @@
   "dependencies": {
     "@xapp/logger": "1.17.15",
     "@xapp/patterns": "1.17.15",
-    "@xapp/stentor-alexa": "1.17.15",
     "@xapp/stentor-history": "1.17.15",
     "@xapp/stentor-interaction-model": "1.17.15",
     "@xapp/stentor-locales": "1.17.15",

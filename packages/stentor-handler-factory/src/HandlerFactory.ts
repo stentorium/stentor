@@ -11,6 +11,7 @@ import { Context, Handler, HandlerDelegates, Request } from "stentor-models";
 import { keyFromRequest } from "stentor-request";
 import { existsAndNotEmpty } from "stentor-utils";
 
+// eslint-disable-next-line @typescript-eslint/array-type
 export type HandlersArray = Array<new (props: Handler) => AbstractHandler>;
 
 export interface HandlersKeyValue {
@@ -120,8 +121,8 @@ export class HandlerFactory {
         // We select the audio handler if it can handle the request,
         // otherwise we pass out undefined.
         if (
-            (context.audioPlayer &&
-                context.audioPlayer.token &&
+            (context.device.mediaPlayerStatus &&
+                context.device.mediaPlayerStatus.token &&
                 context.storage &&
                 context.storage.currentAudioHandler) ||
             (!handler && context.storage.currentAudioHandler)

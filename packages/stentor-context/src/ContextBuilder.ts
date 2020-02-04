@@ -7,7 +7,7 @@ import { createSessionStore } from "@xapp/stentor-storage";
 export class ContextBuilder<S extends Storage = Storage> extends AbstractBuilder<Context<S>> {
     private context: Context<S>;
 
-    constructor() {
+    public constructor() {
         super();
 
         const device: Device = {
@@ -47,22 +47,22 @@ export class ContextBuilder<S extends Storage = Storage> extends AbstractBuilder
         };
     }
 
-    withDevice(device: Device): ContextBuilder<S> {
+    public withDevice(device: Device): ContextBuilder<S> {
         this.context.device = device;
         return this;
     }
 
-    withResponse(response: ResponseBuilder): ContextBuilder<S> {
+    public withResponse(response: ResponseBuilder): ContextBuilder<S> {
         this.context.response = response;
         return this;
     }
 
-    withRequestUserData(userData: UserData): ContextBuilder<S> {
+    public withRequestUserData(userData: UserData): ContextBuilder<S> {
         this.context.requestUserData = userData;
         return this;
     }
 
-    withStorage(storage: S): ContextBuilder<S> {
+    public withStorage(storage: S): ContextBuilder<S> {
         this.context.storage = {
             ...this.context.storage,
             ...storage
@@ -80,15 +80,19 @@ export class ContextBuilder<S extends Storage = Storage> extends AbstractBuilder
         return this;
     }
 
-    playingAudio(): ContextBuilder<S> {
-        this.context.audioPlayer = {
-            status: "PLAYING",
-            token: "TOKEN"
-        };
+    public playingAudio(): ContextBuilder<S> {
+
+        if (this.context.device) {
+            this.context.device.mediaPlayerStatus = {
+                status: "PLAYING",
+                token: "TOKEN"
+            };
+        }
+
         return this;
     }
 
-    build(): Context<S> {
+    public build(): Context<S> {
         return this.context;
     }
 }

@@ -294,8 +294,8 @@ describe("HandlerFactory", () => {
                 let request: Request;
                 beforeEach(() => {
                     context = new ContextBuilder()
-                        .playingAudio()
                         .withDevice(device)
+                        .playingAudio()
                         .withStorage({
                             ...storage,
                             currentAudioHandler: audioHandlerProps,

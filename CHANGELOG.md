@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.20.19](https://github.com/stentorium/stentor/compare/v1.20.18...v1.20.19) (2020-02-04)
+
+
+### Bug Fixes
+
+* Removing unused stentor-alexa in stentor-handlers ([#110](https://github.com/stentorium/stentor/issues/110)) ([0fc69f4](https://github.com/stentorium/stentor/commit/0fc69f4d14615aa548a0e921b0c3615b932f0565))
+
+
+
+
+
 ## [1.20.18](https://github.com/stentorium/stentor/compare/v1.20.17...v1.20.18) (2020-02-04)
 
 

@@ -50,7 +50,12 @@ export interface Channel {
      */
     builder?: new (props: object) => AbstractResponseBuilder;
     /**
-     * Determine the device capabilities for the channel.
+     * Determine the capabilities and contextual information
+     * related to the device the user is accessing the channel on.
+     * 
+     * @privateRemarks We have continued to add more information to {@link Device}
+     * so that it now includes contextual information.  The function name `capabilities()`
+     * could be better.
      */
     capabilities(body: object): Device;
     /**

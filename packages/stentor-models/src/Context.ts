@@ -20,20 +20,14 @@ export interface UserDataValue {
 
 export type UserData = (userDataType: UserDataType) => Promise<UserDataRequestStatus>;
 
-export interface AudioPlayer {
-    token?: string;
-    offsetInMilliseconds?: number;
-    status: "IDLE" | "PAUSED" | "PLAYING" | "STOPPED" | "FINISHED" | "BUFFER_UNDERRUN";
-}
-
 /**
- * Context object that is passed around while formulating the response
- *
- * NOTE: This is really HandlerContext
+ * Context object that is passed around while formulating the response.
+ * 
+ * It contains contextual information relevant to the user.
  */
 export interface Context<S extends Storage = Storage> {
     /**
-     * Device Capabilities
+     * Information about the current device the user is on within the channel.
      */
     device: Device;
     /**
@@ -48,12 +42,6 @@ export interface Context<S extends Storage = Storage> {
      * The response builder.
      */
     response: AbstractResponseBuilder;
-    /**
-     * Status of the Audio Player
-     *
-     * Only exists if the app is playing audio
-     */
-    audioPlayer?: AudioPlayer;
     /**
      * A method that servers user profile data (email, location, phone number, etc)
      */

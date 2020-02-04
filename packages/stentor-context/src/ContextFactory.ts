@@ -1,9 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { isAlexaRequestBody } from "@xapp/stentor-alexa";
 import {
     AbstractResponseBuilder,
     AppRuntimeData,
-    AudioPlayer,
     Channel,
     Context,
     Device,
@@ -28,43 +26,22 @@ export interface ContextFactoryServices {
 
 export class ContextFactory {
     /**
-     * Hand down the incoming request top the platform specific context generator
-     *
-     * @param requestBody Platform specific body
-     * @param userStorageService
-     * @param intentService
-     * @returns {Promise<Context>}
+     * Build context from the provided request.
      */
     public static async fromRequest(
         request: Request,
-        requestBody: any,
+        requestBody: object,
         services: ContextFactoryServices,
         channel: Channel,
         appData?: AppRuntimeData
     ): Promise<Readonly<Context>> {
         const { userStorageService, piiService } = services;
 
-        let audioPlayer: AudioPlayer;
-
         const device: Device = channel.capabilities(requestBody);
 
-        const response: AbstractResponseBuilder<any> = channel.builder
+        const response: AbstractResponseBuilder<object> = channel.builder
             ? new channel.builder({ device, ...appData })
             : new ResponseBuilder({ device, ...appData });
-
-        // TODO: Remove the need for this, we want it to be independent of all channels.
-        if (isAlexaRequestBody(requestBody)) {
-            // If it is an Alexa request and there is AudioPlayer info..
-            if (requestBody.context.AudioPlayer) {
-                // then add audioPlayer context
-                const { token, offsetInMilliseconds, playerActivity } = requestBody.context.AudioPlayer;
-                audioPlayer = {
-                    token,
-                    offsetInMilliseconds,
-                    status: playerActivity
-                };
-            }
-        }
 
         // Get the storage
         let storage: Storage = await userStorageService.get(request.userId);
@@ -162,7 +139,6 @@ export class ContextFactory {
         }
 
         return {
-            audioPlayer,
             device,
             response,
             storage,

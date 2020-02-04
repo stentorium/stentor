@@ -1,5 +1,12 @@
 /*! Copyright (c) 2019, XAPPmedia */
 
+export interface MediaPlayerStatus {
+    type?: "AUDIO" | "VIDEO";
+    token?: string;
+    offsetInMilliseconds?: number;
+    status: "IDLE" | "PAUSED" | "PLAYING" | "STOPPED" | "FINISHED" | "BUFFER_UNDERRUN";
+}
+
 /**
  * The hardware type (screen) if we have it
  */
@@ -44,6 +51,12 @@ export interface Device {
      */
     canThrowCard: boolean;
     /**
+     * If the device is capable to transfer calls (usually to an live agent).
+     *
+     * Telephony channels typically can perform this.
+     */
+    canTransferCall: boolean;
+    /**
      * If the device has a screen.
      *
      * Used to determine if we can link accounts on Google
@@ -57,11 +70,9 @@ export interface Device {
      */
     displayData?: DisplayData;
     /**
-   * If the device is capable to transfer calls (usually to an live agent).
-   *
-   * Telephony channels typically can perform this.
-   */
-    canTransferCall: boolean;
+     * Some channels and devices also support media playback
+     */
+    mediaPlayerStatus?: MediaPlayerStatus;
 }
 
 export interface DisplayData {

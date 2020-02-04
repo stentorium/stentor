@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.20.17",
+  "version": "1.20.18",
   "description": "SDK for building omni-channel conversational assistants",
   "types": "lib/index",
   "typings": "lib/index",
@@ -43,13 +43,13 @@
     "@xapp/stentor-service-event": "1.17.15",
     "dotenv": "8.2.0",
     "stentor-constants": "1.20.17",
-    "stentor-context": "1.20.17",
-    "stentor-handler": "1.20.17",
-    "stentor-handler-factory": "1.20.17",
+    "stentor-context": "1.20.18",
+    "stentor-handler": "1.20.18",
+    "stentor-handler-factory": "1.20.18",
     "stentor-models": "1.20.17",
     "stentor-request": "1.20.17",
-    "stentor-response": "1.20.17",
-    "stentor-runtime": "1.20.17",
+    "stentor-response": "1.20.18",
+    "stentor-runtime": "1.20.18",
     "stentor-service-ovai": "1.20.17",
     "stentor-utils": "1.20.17"
   },

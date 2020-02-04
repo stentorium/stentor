@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.20.18](https://github.com/stentorium/stentor/compare/v1.20.17...v1.20.18) (2020-02-04)
+
+
+### Bug Fixes
+
+* Export the guards in stentor-response ([#109](https://github.com/stentorium/stentor/issues/109)) ([1243f20](https://github.com/stentorium/stentor/commit/1243f20e4c97c72af72e6c5bc402d09292b1c830))
+
+
+
+
+
 ## [1.20.17](https://github.com/stentorium/stentor/compare/v1.20.16...v1.20.17) (2020-02-04)
 
 **Note:** Version bump only for package stentor-response

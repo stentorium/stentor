@@ -30,11 +30,11 @@
     "typescript": "3.7.5"
   },
   "dependencies": {
-    "@xapp/patterns": "1.17.15",
-    "@xapp/stentor-history": "1.17.15",
-    "@xapp/stentor-locales": "1.17.15",
-    "@xapp/stentor-media": "1.17.15",
-    "@xapp/stentor-time": "1.17.15",
+    "@xapp/patterns": "1.18.0",
+    "@xapp/stentor-history": "1.18.0",
+    "@xapp/stentor-locales": "1.18.0",
+    "@xapp/stentor-media": "1.18.0",
+    "@xapp/stentor-time": "1.18.0",
     "actions-on-google": "2.12.0",
     "jsonpath": "1.0.2",
     "lodash.template": "4.5.0",

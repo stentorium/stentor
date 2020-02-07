@@ -1,6 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 const uniq = require("lodash/uniq");
-import { getAttribute } from "@xapp/stentor-locales";
+import { getAttribute } from "stentor-locales";
 import { Intent, Locale } from "stentor-models";
 import {
     existsAndNotEmpty,

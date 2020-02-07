@@ -1596,14 +1596,6 @@
     lodash.uniq "4.5.0"
     stentor-utils "1.20.17"
 
-"@xapp/stentor-locales@1.18.1":
-  version "1.18.1"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-locales/-/stentor-locales-1.18.1.tgz#84665876968aed3aad64af20d1cd2ec582124d67"
-  integrity sha512-F2aQp5/6yQZGdsIPCaqR9sWxDv26SBKSmnBEGJHsOssNIvbYrvSa0E5/FCz4Y3jZqBByylwn9at/SAQ+nZ57fw==
-  dependencies:
-    lodash.uniq "4.5.0"
-    stentor-utils "1.20.20"
-
 "@xapp/stentor-media@1.17.15":
   version "1.17.15"
   resolved "https://registry.yarnpkg.com/@xapp/stentor-media/-/stentor-media-1.17.15.tgz#a8968debf851e5d97f44d2ae5affdba3b698bfec"

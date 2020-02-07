@@ -1,5 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { localize } from "@xapp/stentor-locales";
+import { localize } from "stentor-locales";
 import { Context, Request, ResponseOutput, ResponseSegment, ResponseSegmentsMap } from "stentor-models";
 import { dessmlify } from "stentor-utils";
 import { TEMPLATE_REGEX } from "./Constants";

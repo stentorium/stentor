@@ -29,10 +29,10 @@
   },
   "dependencies": {
     "@xapp/logger": "1.18.0",
-    "@xapp/stentor-interaction-model": "1.18.0",
     "stentor-context": "1.20.20",
-    "stentor-handler": "1.20.20",
     "stentor-handler-delegating": "1.20.20",
+    "stentor-handler": "1.20.20",
+    "stentor-interaction-model": "1.20.20",
     "stentor-request": "1.20.20",
     "stentor-response": "1.20.20",
     "stentor-utils": "1.20.20"

@@ -1,5 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { findSlotDependentMatch, isSlotDependable } from "@xapp/stentor-interaction-model";
+import { findSlotDependentMatch, isSlotDependable } from "stentor-interaction-model";
 import {
     Context,
     JSONDependable,

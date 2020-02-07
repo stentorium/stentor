@@ -1,0 +1,41 @@
+{
+  "name": "stentor-logger",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.20.20",
+  "description": "Simple logging library built on top of Winston for :mega: stentor",
+  "types": "lib/index",
+  "main": "lib/index",
+  "files": [
+    "lib"
+  ],
+  "engines": {
+    "node": "10.x"
+  },
+  "devDependencies": {
+    "@types/mocha": "7.0.1",
+    "@types/sinon": "4.3.3",
+    "@types/sinon-chai": "3.2.3",
+    "@xapp/config": "0.2.3",
+    "chai": "4.2.0",
+    "mocha": "7.0.1",
+    "sinon": "8.1.1",
+    "sinon-chai": "3.4.0",
+    "stentor-models": "1.20.20",
+    "ts-node": "8.6.2",
+    "typescript": "3.7.5"
+  },
+  "dependencies": {
+    "chalk": "2.4.2",
+    "stentor-utils": "1.20.20",
+    "winston": "3.2.1"
+  },
+  "scripts": {
+    "build": "tsc -d true -p .",
+    "clean": "rm -rf ./lib/*",
+    "test": "mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
+  },
+  "gitHead": "bb8fead16cbd0cff42ea73d73f0da9a5401c4c99"
+}

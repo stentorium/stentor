@@ -1,5 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { log } from "@xapp/logger";
+import { log } from "stentor-logger";
 import { AbstractHandler, isActionable, isHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
 import { Context, HandlerService, Request } from "stentor-models";

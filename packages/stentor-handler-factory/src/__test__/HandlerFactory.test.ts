@@ -6,7 +6,7 @@ import * as sinonChai from "sinon-chai";
 import { ContextBuilder } from "stentor-context";
 import { AbstractHandler, CONVERSATION_HANDLER_TYPE, ConversationHandler } from "stentor-handler";
 import { DelegatingHandler } from "stentor-handler-delegating";
-import * as INTENT from "@xapp/stentor-interaction-model/lib/Intent/Constants";
+import * as INTENT from "stentor-interaction-model/lib/Intent/Constants";
 import {
     AudioPlayerRequest,
     Content,

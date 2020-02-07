@@ -17,7 +17,7 @@ import {
     ApiAccessData
 } from "stentor-models";
 
-import * as INTENT from "@xapp/stentor-interaction-model/lib/Intent/Constants";
+import * as INTENT from "stentor-interaction-model/lib/Intent/Constants";
 import * as REQUEST from "./Constants";
 
 /**

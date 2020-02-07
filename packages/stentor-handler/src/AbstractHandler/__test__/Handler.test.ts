@@ -4,7 +4,7 @@ import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
 
 import { ContextBuilder } from "stentor-context";
-import { HELP_INTENT, STOP_INTENT } from "@xapp/stentor-interaction-model";
+import { HELP_INTENT, STOP_INTENT } from "stentor-interaction-model";
 import {
     Content,
     Context,

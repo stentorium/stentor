@@ -1,5 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { log } from "@xapp/logger";
+import { log } from "stentor-logger";
 import AWS = require("aws-sdk");
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires

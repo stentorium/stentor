@@ -1,5 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { log } from "@xapp/logger";
+import { log } from "stentor-logger";
 import { REPEAT_INTENT } from "stentor-interaction-model";
 import {
     Content,

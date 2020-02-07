@@ -1,6 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 // tslint:disable:cyclomatic-complexity <-- TODO: We want to remove the need for this.
-import { log } from "@xapp/logger";
+import { log } from "stentor-logger";
 import { GOODBYE, TROUBLE_WITH_REQUEST } from "stentor-constants";
 import { ContextFactory } from "stentor-context";
 import { AbstractHandler, getResponse } from "stentor-handler";

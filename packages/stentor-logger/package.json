@@ -1,11 +1,11 @@
 {
-  "name": "stentor-handler-manager",
+  "name": "stentor-logger",
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"
   },
   "version": "1.20.20",
-  "description": "Handler manager for stentor",
+  "description": "Simple logging library built on top of Winston for :mega: stentor",
   "types": "lib/index",
   "main": "lib/index",
   "files": [
@@ -15,30 +15,22 @@
     "node": "10.x"
   },
   "devDependencies": {
-    "@types/chai": "4.2.8",
-    "@types/chai-as-promised": "7.1.2",
-    "@types/sinon": "7.5.1",
+    "@types/mocha": "7.0.1",
+    "@types/sinon": "4.3.3",
     "@types/sinon-chai": "3.2.3",
     "@xapp/config": "0.2.3",
     "chai": "4.2.0",
-    "chai-as-promised": "7.1.1",
     "mocha": "7.0.1",
     "sinon": "8.1.1",
     "sinon-chai": "3.4.0",
     "stentor-models": "1.20.20",
-    "ts-node": "8.1.0",
+    "ts-node": "8.6.2",
     "typescript": "3.7.5"
   },
   "dependencies": {
-    "@xapp/stentor-storage": "1.18.0",
-    "stentor-handler-factory": "1.20.20",
-    "stentor-handler": "1.20.20",
-    "stentor-logger": "1.20.20",
-    "stentor-request": "1.20.20",
-    "stentor-response": "1.20.20"
-  },
-  "peerDependencies": {
-    "stentor-models": "1.x"
+    "chalk": "2.4.2",
+    "stentor-utils": "1.20.20",
+    "winston": "3.2.1"
   },
   "scripts": {
     "build": "tsc -d true -p .",

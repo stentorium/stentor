@@ -12,12 +12,8 @@ import { getLanguageTags } from "./getLanguageTags";
  * of "es-ES" (from the defaultLocale) and "en-US" (from the locale object).
  *
  * NOTE: If a defaultLocale is not defined on the object, "en" is used.
- *
- * @export
- * @param {(Pick<App, "defaultLocale" | "locales">)} app
- * @returns {Locale[]}
  */
-export function getLanguageTagsFromLocalizable<O extends LocaleObject>(obj: Localizable<O>, supported: LanguageTag[]) {
+export function getLanguageTagsFromLocalizable<O extends LocaleObject>(obj: Localizable<O>, supported: LanguageTag[]): LanguageTag[] {
     if (typeof obj !== "object") {
         return [];
     }

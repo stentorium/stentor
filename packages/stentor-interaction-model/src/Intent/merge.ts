@@ -3,6 +3,103 @@ import { Intent } from "stentor-models";
 import { mergeSlots, MergeSlotsResult, mergeSlotTypeMaps } from "../Slot";
 import { UtteranceGenerator } from "./UtteranceGenerator";
 
+
+/**
+ * Merge two arrays utterance patterns.
+ */
+export function mergeUtterancePatterns(
+    primary: string[],
+    secondary: string[],
+    results: MergePatternsResults = {}
+): string[] {
+    // initial values
+    results.totalAddedPatterns = 0;
+    results.addedPatterns = [];
+    results.totalOverlappedPatterns = 0;
+
+    if (!primary && !secondary) {
+        return undefined;
+    }
+
+    if (!primary) {
+        results.totalAddedPatterns = secondary.length;
+        return secondary;
+    }
+
+    let mergedPatterns: string[] = primary.slice();
+
+    if (Array.isArray(secondary)) {
+        const utteranceGenerator = new UtteranceGenerator();
+        // Generate the utterances from the primary and look for the new ones on the secondary
+        const primarySampleUtterances: string[] = utteranceGenerator.forPatterns(primary);
+
+        secondary.forEach(utterancePattern => {
+            // generate utterances for each pattern
+            const patternSampleUtterances: string[] = utteranceGenerator.forPatterns([utterancePattern]);
+            const addableSampleUtterances: string[] = [];
+
+            patternSampleUtterances.forEach(sample => {
+                if (primarySampleUtterances.indexOf(sample) === -1) {
+                    addableSampleUtterances.push(sample);
+                }
+            });
+
+            if (patternSampleUtterances.length === addableSampleUtterances.length) {
+                // if same length just add the pattern
+                mergedPatterns.push(utterancePattern);
+                // add the result
+                ++results.totalAddedPatterns;
+                results.addedPatterns.push(utterancePattern);
+            } else {
+                // otherwise just add the addable ones
+                mergedPatterns = mergedPatterns.concat(addableSampleUtterances);
+                results.totalAddedPatterns += addableSampleUtterances.length;
+                results.totalOverlappedPatterns += patternSampleUtterances.length - addableSampleUtterances.length;
+                results.addedPatterns = results.addedPatterns.concat(addableSampleUtterances);
+            }
+        });
+    }
+
+    return mergedPatterns;
+}
+
+/**
+ * Merge the properties of two intents.
+ *
+ * The first intent being the primary, and the second being the
+ * secondary.  Values from the primary are preferred
+ * over the secondary.
+ */
+export function mergeIntents(primary: Intent, secondary: Intent, results?: MergeIntentsResults): Intent {
+    if (!primary && !secondary) {
+        return undefined;
+    }
+
+    if (!primary) {
+        return secondary;
+    }
+
+    // Make a copy, bringing in the fields from both
+    // while also preferring the primary
+    const newIntent: Intent = {
+        ...secondary,
+        ...primary
+    };
+
+    // Merge the patterns
+    newIntent.utterancePatterns = mergeUtterancePatterns(
+        primary.utterancePatterns,
+        secondary.utterancePatterns,
+        results
+    );
+    // Merge the slots
+    newIntent.slots = mergeSlots(primary.slots, secondary.slots, results);
+    // Merge the slot type maps
+    newIntent.slotTypes = mergeSlotTypeMaps(primary.slotTypes, secondary.slotTypes);
+
+    return newIntent;
+}
+
 export interface MergeModelsResults extends MergeIntentsResults {
     /**
      * The number of intents that were merged
@@ -76,50 +173,7 @@ export function mergeModels(primary: Intent[], secondary: Intent[], results: Mer
     return existingIntents.concat(newIntents);
 }
 
-export interface MergeIntentsResults extends MergePatternsResults, MergeSlotsResult {}
-
-/**
- * Merge the properties of two intents.
- *
- * The first intent being the primary, and the second being the
- * secondary.  Values from the primary are preferred
- * over the secondary.
- *
- * @export
- * @param {Intent} primary
- * @param {Intent} secondary
- * @param {MergeIntentsResults} [results]
- * @returns {Intent}
- */
-export function mergeIntents(primary: Intent, secondary: Intent, results?: MergeIntentsResults): Intent {
-    if (!primary && !secondary) {
-        return undefined;
-    }
-
-    if (!primary) {
-        return secondary;
-    }
-
-    // Make a copy, bringing in the fields from both
-    // while also preferring the primary
-    const newIntent: Intent = {
-        ...secondary,
-        ...primary
-    };
-
-    // Merge the patterns
-    newIntent.utterancePatterns = mergeUtterancePatterns(
-        primary.utterancePatterns,
-        secondary.utterancePatterns,
-        results
-    );
-    // Merge the slots
-    newIntent.slots = mergeSlots(primary.slots, secondary.slots, results);
-    // Merge the slot type maps
-    newIntent.slotTypes = mergeSlotTypeMaps(primary.slotTypes, secondary.slotTypes);
-
-    return newIntent;
-}
+export interface MergeIntentsResults extends MergePatternsResults, MergeSlotsResult { }
 
 export interface MergePatternsResults {
     /**
@@ -145,67 +199,3 @@ export interface MergePatternsResults {
     totalOverlappedPatterns?: number;
 }
 
-/**
- * Merge two arrays utterance patterns.
- *
- * @export
- * @param {string[]} primary
- * @param {string[]} secondary
- * @param {MergePatternsResults} [results={}]
- * @returns {string[]}
- */
-export function mergeUtterancePatterns(
-    primary: string[],
-    secondary: string[],
-    results: MergePatternsResults = {}
-): string[] {
-    // initial values
-    results.totalAddedPatterns = 0;
-    results.addedPatterns = [];
-    results.totalOverlappedPatterns = 0;
-
-    if (!primary && !secondary) {
-        return undefined;
-    }
-
-    if (!primary) {
-        results.totalAddedPatterns = secondary.length;
-        return secondary;
-    }
-
-    let mergedPatterns: string[] = primary.slice();
-
-    if (Array.isArray(secondary)) {
-        const utteranceGenerator = new UtteranceGenerator();
-        // Generate the utterances from the primary and look for the new ones on the secondary
-        const primarySampleUtterances: string[] = utteranceGenerator.forPatterns(primary);
-
-        secondary.forEach(utterancePattern => {
-            // generate utterances for each pattern
-            const patternSampleUtterances: string[] = utteranceGenerator.forPatterns([utterancePattern]);
-            const addableSampleUtterances: string[] = [];
-
-            patternSampleUtterances.forEach(sample => {
-                if (primarySampleUtterances.indexOf(sample) === -1) {
-                    addableSampleUtterances.push(sample);
-                }
-            });
-
-            if (patternSampleUtterances.length === addableSampleUtterances.length) {
-                // if same length just add the pattern
-                mergedPatterns.push(utterancePattern);
-                // add the result
-                ++results.totalAddedPatterns;
-                results.addedPatterns.push(utterancePattern);
-            } else {
-                // otherwise just add the addable ones
-                mergedPatterns = mergedPatterns.concat(addableSampleUtterances);
-                results.totalAddedPatterns += addableSampleUtterances.length;
-                results.totalOverlappedPatterns += patternSampleUtterances.length - addableSampleUtterances.length;
-                results.addedPatterns = results.addedPatterns.concat(addableSampleUtterances);
-            }
-        });
-    }
-
-    return mergedPatterns;
-}

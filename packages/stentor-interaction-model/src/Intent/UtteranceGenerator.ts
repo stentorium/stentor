@@ -1,4 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const uniq = require("lodash/uniq");
 import { getAttribute } from "stentor-locales";
 import { Intent, Locale } from "stentor-models";
@@ -29,14 +30,14 @@ export class UtteranceGenerator {
     private slotPattern: UtteranceGeneratorSlotPattern = UtteranceGeneratorSlotPattern.ESTemplateLiteral;
     private ignoreInvalidUtterancesForPlatform?: "alexa" | "dialogflow";
 
-    constructor(props?: UtteranceGeneratorProps) {
+    public constructor(props?: UtteranceGeneratorProps) {
         if (props) {
             this.ignoreInvalidUtterancesForPlatform = props.ignoreInvalidUtterancesForPlatform;
             this.slotPattern = props.slotPattern !== undefined ? props.slotPattern : this.slotPattern;
         }
     }
 
-    forIntent(intent: Intent, locale?: Locale): string[] {
+    public forIntent(intent: Intent, locale?: Locale): string[] {
         if (!intent) {
             return [];
         }
@@ -78,7 +79,7 @@ export class UtteranceGenerator {
         return utterances;
     }
 
-    forPatterns(utterancePatterns: string[], substitutions?: { [sub: string]: string }): string[] {
+    public forPatterns(utterancePatterns: string[], substitutions?: { [sub: string]: string }): string[] {
         utterancePatterns = Array.isArray(utterancePatterns) ? utterancePatterns : [];
 
         if (typeof substitutions === "object" && Object.keys(substitutions).length > 0) {

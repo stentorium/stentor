@@ -5,7 +5,7 @@ import { determineSlots } from "../determineSlots";
 
 describe("#determineSlots()", () => {
     it("should return an array of Slots for an utterance", () => {
-        const exampleUtterance: string = "{-|Podcast}";
+        const exampleUtterance = "{-|Podcast}";
         const expectedResponse: Slot[] = [{ name: "Podcast", type: "" }];
         const actual = determineSlots([exampleUtterance], []);
 
@@ -18,7 +18,7 @@ describe("#determineSlots()", () => {
     });
     describe("when passed patterns without any slots", () => {
         it("passes out an empty array", () => {
-            const exampleUtterance: string = "{neato}";
+            const exampleUtterance = "{neato}";
             const expectedResponse: Slot[] = [];
             const actual = determineSlots([exampleUtterance], []);
 

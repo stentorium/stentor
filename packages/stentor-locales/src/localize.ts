@@ -23,10 +23,6 @@ export type Omit<T extends object, K extends keyof T> = Pick<T, Exclude<keyof T,
 
 /**
  * This will flatten a LocaleObj and return the object with the overridden attributes.
- *
- * @export
- * @template L
- * @template Return
  */
 export function localize<L extends Localizable<any>>(localeObj?: L, locale?: Locale): Omit<L, keyof Localizable<any>> {
     if (!localeObj) {
@@ -35,7 +31,7 @@ export function localize<L extends Localizable<any>>(localeObj?: L, locale?: Loc
     interface ExtendedLocaleObj extends Localizable<ExtendedLocaleObj> {
         [key: string]: any;
     }
-    const { locales, defaultLocale, ...remaining } = localeObj as ExtendedLocaleObj;
+    const { locales, ...remaining } = localeObj as ExtendedLocaleObj;
 
     for (const attribute of Object.keys(remaining)) {
         remaining[attribute] = getAttributeFromLocale(attribute, remaining, locale, locales);

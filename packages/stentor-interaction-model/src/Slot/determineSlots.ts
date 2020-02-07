@@ -31,7 +31,7 @@ export function determineSlots(utterancePatterns: string[], slots: Slot[]): Slot
     const foundSlotMap: SlotMap = {};
 
     // For each utterance, look for for {-|SlotName}
-    utterancePatterns.forEach((pattern, index) => {
+    utterancePatterns.forEach((pattern) => {
         const res = SLOT_UTTERANCE_PATTERNS_REGEX.exec(pattern);
         // if there was a match
         if (res && res[1]) {

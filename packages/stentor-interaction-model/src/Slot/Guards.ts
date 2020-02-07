@@ -10,5 +10,5 @@ import { SlotDependable, SlotDependent } from "stentor-models";
  * @returns {item is SlotDependable<T>}
  */
 export function isSlotDependable<T>(item: object): item is SlotDependable<T> {
-    return !!item && (<SlotDependent>item).slotMatch !== undefined;
+    return !!item && (item as SlotDependent).slotMatch !== undefined;
 }

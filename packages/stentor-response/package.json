@@ -32,8 +32,8 @@
   "dependencies": {
     "@xapp/patterns": "1.18.0",
     "@xapp/stentor-history": "1.18.1",
-    "@xapp/stentor-media": "1.18.1",
-    "@xapp/stentor-time": "1.18.1",
+    "@xapp/stentor-media": "1.18.4",
+    "@xapp/stentor-time": "1.18.4",
     "actions-on-google": "2.12.0",
     "jsonpath": "1.0.2",
     "lodash.template": "4.5.0",

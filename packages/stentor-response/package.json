@@ -15,7 +15,7 @@
     "node": "10.x"
   },
   "devDependencies": {
-    "@types/chai": "4.2.8",
+    "@types/chai": "4.2.9",
     "@types/jsonpath": "0.2.0",
     "@types/lodash.template": "4.4.6",
     "@types/sinon": "7.5.1",

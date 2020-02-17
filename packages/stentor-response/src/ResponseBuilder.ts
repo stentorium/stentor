@@ -1,5 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { Playlist } from "@xapp/stentor-media";
+import { Playlist } from "stentor-media";
 import {
     AbstractResponseBuilder,
     CanFulfillIntentResult,

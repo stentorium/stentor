@@ -1,5 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { findSchedulableMatch, findWithoutSchedule } from "@xapp/stentor-time";
+import { findSchedulableMatch, findWithoutSchedule } from "stentor-time";
 import { MediaSource } from "./MediaSource";
 import { Multimedia, PlaybackCapabilities } from "./Multimedia";
 

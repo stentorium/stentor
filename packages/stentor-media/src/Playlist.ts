@@ -1,15 +1,11 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { Playable, Scheduled } from "stentor-models";
-import { findSchedulableMatch, isScheduled } from "@xapp/stentor-time";
+import { findSchedulableMatch, isScheduled } from "stentor-time";
 
 import { isPlaylistProps } from "./Guards";
 
 /**
  * Properties for a playlist when it contains a name property.
- *
- * @export
- * @interface PlaylistProps
- * @template P
  */
 export interface PlaylistProps<P extends Playable = Playable> {
     name?: string;
@@ -20,11 +16,6 @@ export interface PlaylistProps<P extends Playable = Playable> {
  * A list of playables
  *
  * The playlist also supports SchedulablePlayables.
- *
- * @export
- * @class Playlist
- * @extends {Array<P>}
- * @template P
  */
 export class Playlist<P extends Playable = Playable> extends Array<P> {
     /**

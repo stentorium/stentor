@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.20.20",
+  "version": "1.21.9",
   "description": "Models for :mega: stentor",
   "types": "lib/index",
   "typings": "lib/index",
@@ -20,7 +20,7 @@
     "@microsoft/api-extractor": "7.7.8",
     "@rollup/plugin-typescript": "3.0.0",
     "@xapp/config": "0.2.3",
-    "rollup": "1.31.0",
+    "rollup": "1.31.1",
     "tslib": "1.10.0",
     "typescript": "3.7.5"
   },

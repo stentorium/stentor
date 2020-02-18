@@ -736,6 +736,20 @@ describe("AbstractHandler", () => {
                 data: {}
             });
         });
+        describe("when data is undefined", () => {
+            it('returns false', () => {
+                request = new IntentRequestBuilder().withIntentId("foo").build();
+                context = new ContextBuilder().build();
+                expect(new TestHandler({
+                    appId,
+                    organizationId,
+                    intentId,
+                    type: BASE_HANDLER_TYPE,
+                    content: {},
+                    forward
+                }).canHandleInputUnknown(request, context)).to.be.false;
+            });
+        });
         describe("without an input unknown strategy", () => {
             it("returns false", () => {
                 request = new IntentRequestBuilder().withIntentId("foo").build();

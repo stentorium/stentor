@@ -158,12 +158,12 @@ export abstract class AbstractHandler<
             hasPreviousRepromptResponse = true;
         }
 
-        if (this.data.inputUnknownStrategy === INPUT_UNKNOWN_STRATEGY_REPROMPT && hasPreviousRepromptResponse) {
+        if (typeof this.data === "object" && this.data.inputUnknownStrategy === INPUT_UNKNOWN_STRATEGY_REPROMPT && hasPreviousRepromptResponse) {
             // we need a reprompt
             canHandleInputUnknown = true;
         }
 
-        if (this.data.inputUnknownStrategy === INPUT_UNKNOWN_STRATEGY_GOOGLE && hasPreviousRepromptResponse) {
+        if (typeof this.data === "object" && this.data.inputUnknownStrategy === INPUT_UNKNOWN_STRATEGY_GOOGLE && hasPreviousRepromptResponse) {
             canHandleInputUnknown = true;
         }
 

@@ -7398,14 +7398,6 @@ stentor-interaction-model@1.21.3:
     stentor-locales "1.21.3"
     stentor-utils "1.21.3"
 
-stentor-interaction-model@1.21.6:
-  version "1.21.6"
-  resolved "https://registry.yarnpkg.com/stentor-interaction-model/-/stentor-interaction-model-1.21.6.tgz#51bfffce8012a5e8fc4e57b4a1eb0f366977d2a7"
-  integrity sha512-Ln0Sq0yrsiY2ANQxZNu8j7iHPHnmE+8l24GyKlYwaHmiIvrl8qgPVZtBfQSL6TWvIDQ+x6DPK1J7jRn86AdeMw==
-  dependencies:
-    stentor-locales "1.21.6"
-    stentor-utils "1.21.6"
-
 stentor-locales@1.21.3:
   version "1.21.3"
   resolved "https://registry.yarnpkg.com/stentor-locales/-/stentor-locales-1.21.3.tgz#021661530d228ad7a16ed96f5f60c015d9486a09"
@@ -7413,14 +7405,6 @@ stentor-locales@1.21.3:
   dependencies:
     lodash.uniq "4.5.0"
     stentor-utils "1.21.3"
-
-stentor-locales@1.21.6:
-  version "1.21.6"
-  resolved "https://registry.yarnpkg.com/stentor-locales/-/stentor-locales-1.21.6.tgz#cf913bb5d04944c0d67c26157c6f57c6b7a3e4f8"
-  integrity sha512-2dXzySRxxer56EtjnKv5c1zjuehRzMVZUm9vrtAShlUZZ8Q3q+7O7zv1b2/Z4wno0VSTjEtrP5alY6E1JAVB9w==
-  dependencies:
-    lodash.uniq "4.5.0"
-    stentor-utils "1.21.6"
 
 stentor-logger@1.21.3:
   version "1.21.3"
@@ -7446,15 +7430,6 @@ stentor-request@1.21.3:
     "@xapp/patterns" "1.18.0"
     stentor-interaction-model "1.21.3"
     stentor-utils "1.21.3"
-
-stentor-request@1.21.6:
-  version "1.21.6"
-  resolved "https://registry.yarnpkg.com/stentor-request/-/stentor-request-1.21.6.tgz#4ec81d1454d5b9471519f524c0571e1dfc6a0deb"
-  integrity sha512-ohjPN7XOJH5Ss03P25kaJvqqRxLDcsIatXnDsP/SLo0tuZHhnw0g5o+D6GCZ/Ob7VfLFFZrgaVYILmdXJBJf2w==
-  dependencies:
-    "@xapp/patterns" "1.18.0"
-    stentor-interaction-model "1.21.6"
-    stentor-utils "1.21.6"
 
 stentor-response@1.21.3:
   version "1.21.3"
@@ -7503,32 +7478,6 @@ stentor-utils@1.21.3:
   version "1.21.3"
   resolved "https://registry.yarnpkg.com/stentor-utils/-/stentor-utils-1.21.3.tgz#82c4b0bd6a8f282ca1d21301224c4c29e3d2664c"
   integrity sha512-6N7WNyou3OnDlchIrTA1GX88M9hF3oNadKPxEz0NI3UpI26Vnq5fmxH4flR/stFkD7WMFWkq2yxNYRd/TE9Xbw==
-  dependencies:
-    "@types/xmldoc" "1.1.4"
-    blueimp-md5 "2.12.0"
-    chrono-node "1.4.3"
-    date-fns "2.8.1"
-    dyno-item-size "0.3.1"
-    fuse.js "3.4.5"
-    lodash.clonedeep "4.5.0"
-    lodash.forown "4.4.0"
-    lodash.isempty "4.4.0"
-    lodash.isobject "3.0.2"
-    lodash.isstring "4.0.1"
-    lodash.pull "4.1.0"
-    lodash.uniq "4.5.0"
-    number-to-words "1.2.4"
-    numeral "2.0.6"
-    slugify "1.3.6"
-    stentor-constants "1.20.20"
-    winston "3.2.1"
-    words-to-numbers "1.5.1"
-    xmldoc "1.1.2"
-
-stentor-utils@1.21.6:
-  version "1.21.6"
-  resolved "https://registry.yarnpkg.com/stentor-utils/-/stentor-utils-1.21.6.tgz#c6ef6f251627d05714d02dd084250930ecb1a784"
-  integrity sha512-0MwYrxA0pdOJIHIBjNd+svsXx0T0Wp8MxwNCyNM69BVgtGXW4Zy9p76mvYX2N0PX3yMnGnRY4dDfJ08H7qpsOg==
   dependencies:
     "@types/xmldoc" "1.1.4"
     blueimp-md5 "2.12.0"

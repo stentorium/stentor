@@ -16,7 +16,7 @@ import {
     UserDataType
 } from "stentor-models";
 import { INPUT_UNKNOWN_ID, keyFromRequest } from "stentor-request";
-import { manipulateStorage } from "@xapp/stentor-storage";
+import { manipulateStorage } from "stentor-storage";
 import { concatText, dessmlify, findValueForKey } from "stentor-utils";
 import { isActionable } from "../Action";
 import { determineResponse } from "../determineResponse";

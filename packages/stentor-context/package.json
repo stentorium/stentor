@@ -29,9 +29,9 @@
   },
   "dependencies": {
     "@xapp/patterns": "1.18.0",
-    "@xapp/stentor-storage": "1.18.8",
     "stentor-request": "1.21.10",
-    "stentor-response": "1.21.10"
+    "stentor-response": "1.21.10",
+    "stentor-storage": "1.21.10"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

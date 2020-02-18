@@ -25,7 +25,7 @@ import {
     OptionSelectBuilder
 } from "stentor-request";
 import { ResponseBuilder } from "stentor-response";
-import { createSessionStore } from "@xapp/stentor-storage";
+import { createSessionStore } from "stentor-storage";
 import { BASE_HANDLER_TYPE } from "../Constants";
 import { AbstractHandler } from "../Handler";
 

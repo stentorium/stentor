@@ -1582,14 +1582,6 @@
     stentor-utils "1.21.3"
     traverse "0.6.6"
 
-"@xapp/stentor-storage@1.18.8":
-  version "1.18.8"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-storage/-/stentor-storage-1.18.8.tgz#d9017bccba3115d06353bcbe60e91c024bdca2cf"
-  integrity sha512-i5MKUa1WcBrfaOMRAzlOQ5ElVsyDfdLp7x70vOrQRM5rgxydRU/1I7i3BucDlQco+v9d7Rym54ZCgtIiDn9wig==
-  dependencies:
-    jsonpath "1.0.2"
-    stentor-utils "1.21.3"
-
 "@xapp/stentor-time@1.18.4":
   version "1.18.4"
   resolved "https://registry.yarnpkg.com/@xapp/stentor-time/-/stentor-time-1.18.4.tgz#99cbe22561f8ba8856b671747347963f6f253658"
@@ -7414,13 +7406,6 @@ stentor-logger@1.21.3:
     chalk "2.4.2"
     stentor-utils "1.21.3"
     winston "3.2.1"
-
-stentor-models@1.20.20:
-  version "1.20.20"
-  resolved "https://registry.yarnpkg.com/stentor-models/-/stentor-models-1.20.20.tgz#13b8b1d8306db6636ab2663642bdb55824ef761c"
-  integrity sha512-C9cyD1W82Ilr+j8UcWpERlprJ5jUYiYZOOQYHFB+jrdPn7+S3o5jTvPoFNK6U/TAQ4ow3khapnmsJybZlQzHgQ==
-  dependencies:
-    "@xapp/patterns" "1.18.0"
 
 stentor-request@1.21.3:
   version "1.21.3"

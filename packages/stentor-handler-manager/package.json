@@ -30,7 +30,7 @@
     "typescript": "3.7.5"
   },
   "dependencies": {
-    "@xapp/stentor-storage": "1.18.8",
+    "@xapp/stentor-storage": "1.18.9",
     "stentor-handler": "1.21.10",
     "stentor-handler-factory": "1.21.10",
     "stentor-logger": "1.21.10",

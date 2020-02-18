@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@xapp/patterns": "1.18.0",
-    "@xapp/stentor-service-event": "1.18.8",
+    "@xapp/stentor-service-event": "1.18.9",
     "dotenv": "8.2.0",
     "stentor-constants": "1.21.9",
     "stentor-context": "1.21.10",

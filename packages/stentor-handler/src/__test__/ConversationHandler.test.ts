@@ -66,7 +66,8 @@ describe("ConversationHandler", () => {
                 createdTimestamp: Date.now(),
                 lastActiveTimestamp: Date.now()
             };
-
+            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+            // @ts-ignore The stubbed instance types can't see the private properties, which cause TS errors
             response = sinon.createStubInstance(ResponseBuilder);
 
             context = new ContextBuilder()

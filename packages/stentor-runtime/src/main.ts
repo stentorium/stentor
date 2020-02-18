@@ -6,7 +6,7 @@ import { ContextFactory } from "stentor-context";
 import { AbstractHandler, getResponse } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
 import { HandlerManager } from "stentor-handler-manager";
-import { trimHistory } from "@xapp/stentor-history";
+import { trimHistory } from "stentor-history";
 import { CANCEL_INTENT, STOP_INTENT } from "stentor-interaction-model";
 import {
     Channel,
@@ -29,7 +29,7 @@ import {
     keyFromRequest
 } from "stentor-request";
 import { canFulfillAll, canFulfillNothing } from "stentor-response";
-import { EventService, wrapCallback as eventServiceCallbackWrapper } from "@xapp/stentor-service-event";
+import { EventService, wrapCallback as eventServiceCallbackWrapper } from "stentor-service-event";
 import { existsAndNotEmpty } from "stentor-utils";
 import { ChannelSelector } from "./ChannelSelector";
 

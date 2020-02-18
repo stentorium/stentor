@@ -25,7 +25,7 @@ import {
     OptionSelectBuilder
 } from "stentor-request";
 import { ResponseBuilder } from "stentor-response";
-import { createSessionStore } from "@xapp/stentor-storage";
+import { createSessionStore } from "stentor-storage";
 import { BASE_HANDLER_TYPE } from "../Constants";
 import { AbstractHandler } from "../Handler";
 
@@ -125,7 +125,8 @@ describe("AbstractHandler", () => {
                 }
             ]
         };
-
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // @ts-ignore The stubbed instance types can't see the private properties, which cause TS errors
         response = sinon.createStubInstance(ResponseBuilder);
         (response.say as any).restore();
         sinon.stub(response, "say").returns(response);

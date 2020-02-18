@@ -26,9 +26,9 @@
     "typescript": "3.7.5"
   },
   "dependencies": {
-    "@xapp/stentor-service-event": "1.18.8",
     "isomorphic-fetch": "2.2.1",
     "stentor-constants": "1.21.9",
+    "stentor-service-event": "1.21.9",
     "stentor-utils": "1.21.10"
   },
   "peerDependencies": {

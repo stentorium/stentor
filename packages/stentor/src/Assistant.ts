@@ -23,7 +23,7 @@ import {
     UserStorageService
 } from "stentor-models";
 import { main, translateEventAndContext } from "stentor-runtime";
-import { EventPrefix, EventService } from "@xapp/stentor-service-event";
+import { EventPrefix, EventService } from "stentor-service-event";
 import { OVAIEventStream, OVAIService } from "stentor-service-ovai";
 import { isLambdaError } from "stentor-utils";
 import * as AWSLambda from "aws-lambda";

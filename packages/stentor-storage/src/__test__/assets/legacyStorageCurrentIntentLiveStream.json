@@ -1,0 +1,46 @@
+{
+    "currentIntent": {
+        "slotTypes": {},
+        "sampleUtterances": [],
+        "data": {
+            "url": "https://ice23.securenetsystems.net/WFKL"
+        },
+        "langCode": "en-US",
+        "intentId": "LaunchRequest",
+        "responseData": [
+            {
+                "name": "Custom Intro",
+                "outputSpeech": "<speak> <audio src='https://s3.amazonaws.com/xapp-files/Voice+Apps/Stephens+Media/Intros/WFKL_Intro.mp3'/></speak>"
+            }
+        ],
+        "type": "PlayLiveStreamIntent",
+        "helpData": [],
+        "utterancePatterns": [],
+        "organizationId": "stephensmedia",
+        "slots": [],
+        "appId": "fickle",
+        "name": "Live Stream"
+    },
+    "appId": "fickle",
+    "createdTimestamp": 1498702341647,
+    "userId": "amzn1.ask.account.AGRE3DBBJJRXMDDYC76JUX4V32FQL4R76N6YW56JH32U32DRHZIRRMFWGVYKQO5RWWLX3PP2N5F6WRMXKDWNTSKYTFSFI6E5TXUDUTAZEM47INAZJRI2VD2LB77XSQMWLLOMSEATZJLWJGELOHHGVGYI2A4CUUWZJ2WEWYQWUTZG6OJCD3JC5OVRAOFHVG5LHPBSGBDQWZRENVI",
+    "lastActiveTimestamp": 1498763443217,
+    "audioManager": {
+        "currentPlayable": {
+            "length": -1,
+            "currentTime": 145472,
+            "id": "https://ice23.securenetsystems.net/WFKL",
+            "type": "LiveStream",
+            "url": "https://ice23.securenetsystems.net/WFKL",
+            "token": "fd2d32f76ade04483680935f5306c1da"
+        },
+        "playlistData": [
+            {
+                "type": "LiveStream",
+                "currentTime": 0,
+                "url": "https://ice23.securenetsystems.net/WFKL"
+            }
+        ],
+        "url": "https://ice23.securenetsystems.net/WFKL"
+    }
+}

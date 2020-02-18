@@ -1,0 +1,36 @@
+{
+  "name": "stentor-storage",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.21.10",
+  "description": "Storage for stentor",
+  "types": "lib/index",
+  "main": "lib/index",
+  "files": [
+    "lib"
+  ],
+  "engines": {
+    "node": "10.x"
+  },
+  "devDependencies": {
+    "@types/chai": "4.2.8",
+    "@types/jsonpath": "0.2.0",
+    "@xapp/config": "0.2.3",
+    "chai": "4.2.0",
+    "stentor-models": "1.21.9",
+    "typescript": "3.7.5"
+  },
+  "dependencies": {
+    "jsonpath": "1.0.2",
+    "stentor-utils": "1.21.10"
+  },
+  "peerDependencies": {
+    "stentor-models": "1.x"
+  },
+  "scripts": {
+    "build": "tsc -d true -p .",
+    "clean": "rm -rf ./lib/*"
+  }
+}

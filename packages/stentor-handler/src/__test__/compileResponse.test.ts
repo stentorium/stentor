@@ -4,7 +4,7 @@ import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
 
 import { ContextBuilder } from "stentor-context";
-import { Context, Request, Response, SimpleResponse, Storage } from "stentor-models";
+import { Context, Request, Response, SimpleResponse, Storage, ResponseOutput } from "stentor-models";
 import { IntentRequestBuilder } from "stentor-request";
 import { isList, ResponseBuilder } from "stentor-response";
 import { compileResponse } from "../compileResponse";
@@ -19,7 +19,7 @@ interface TestStorage extends Storage {
 
 describe("#compileResponse()", () => {
     let request: Request;
-    let response: ResponseBuilder;
+    let response: ResponseBuilder<Response<ResponseOutput>>;
     let context: Context<TestStorage>;
     beforeEach(() => {
         const slots = {
@@ -32,6 +32,8 @@ describe("#compileResponse()", () => {
             .withIntentId("intentId")
             .withSlots(slots)
             .build();
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // @ts-ignore The stubbed instance types can't see the private properties, which cause TS errors
         response = sinon.createStubInstance(ResponseBuilder);
         context = new ContextBuilder()
             .withResponse(response)
@@ -356,6 +358,8 @@ describe("#compileResponse()", () => {
     describe("when passed a templated response accessing the previous response on storage", () => {
         beforeEach(() => {
             request = new IntentRequestBuilder().withIntentId("intentId").build();
+            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+            // @ts-ignore The stubbed instance types can't see the private properties, which cause TS errors
             response = sinon.createStubInstance(ResponseBuilder);
             context = new ContextBuilder()
                 .withResponse(response)
@@ -449,6 +453,8 @@ describe("#compileResponse()", () => {
                 .withIntentId("intentId")
                 .withSlots(slots)
                 .build();
+            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+            // @ts-ignore The stubbed instance types can't see the private properties, which cause TS errors
             response = sinon.createStubInstance(ResponseBuilder);
             context = new ContextBuilder()
                 .withStorage({

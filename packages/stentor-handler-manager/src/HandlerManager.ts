@@ -4,7 +4,7 @@ import { AbstractHandler, isActionable, isHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
 import { Context, HandlerService, Request } from "stentor-models";
 import { isIntentRequest, isLaunchRequest, keyFromRequest, isInputUnknownRequest } from "stentor-request";
-import { manipulateStorage } from "@xapp/stentor-storage";
+import { manipulateStorage } from "stentor-storage";
 import { requestForPath } from "./requestForPath";
 
 export class HandlerManager {

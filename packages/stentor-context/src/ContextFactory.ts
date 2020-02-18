@@ -17,7 +17,7 @@ import {
 } from "stentor-models";
 import { hasSessionId, isInputUnknownRequest, PERMISSION_REQUEST_TYPE } from "stentor-request";
 import { ResponseBuilder } from "stentor-response";
-import { createSessionStore } from "@xapp/stentor-storage";
+import { createSessionStore } from "stentor-storage";
 
 export interface ContextFactoryServices {
     userStorageService: UserStorageService;

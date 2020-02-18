@@ -17,8 +17,8 @@ import {
     isRequestDependable,
     isSystemDependable
 } from "stentor-request";
-import { findStorageDependentMatch, isStorageDependable } from "@xapp/stentor-storage";
-import { findTimeContextualMatch, isTimeContextual } from "@xapp/stentor-time";
+import { findStorageDependentMatch, isStorageDependable } from "stentor-storage";
+import { findTimeContextualMatch, isTimeContextual } from "stentor-time";
 import { random } from "stentor-utils";
 import { findJSONDependentMatch } from "./findJSONDependentMatch";
 import { isJSONDependable } from "./Guards";

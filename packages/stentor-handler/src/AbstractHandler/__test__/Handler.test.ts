@@ -125,7 +125,8 @@ describe("AbstractHandler", () => {
                 }
             ]
         };
-
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // @ts-ignore The stubbed instance types can't see the private properties, which cause TS errors
         response = sinon.createStubInstance(ResponseBuilder);
         (response.say as any).restore();
         sinon.stub(response, "say").returns(response);

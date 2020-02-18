@@ -28,16 +28,6 @@ import { INPUT_UNKNOWN_STRATEGY_GOOGLE, INPUT_UNKNOWN_STRATEGY_REPROMPT } from "
  * The AbstractHandler takes in intents and translates them to responses.
  *
  * All handlers must extend the AbstractHandler.
- *
- * @export
- * @abstract
- * @class Handler
- * @implements {RequestHandler}
- * @implements {Handler<T>}
- * @template T
- * @template Content
- * @template D
- * @template Data
  */
 export abstract class AbstractHandler<
     C extends Content = Content,
@@ -45,6 +35,7 @@ export abstract class AbstractHandler<
     F extends Forward = Forward,
     R extends Redirect = Redirect
     > implements RequestHandler, Handler<C, D, F, R> {
+
     public readonly type: string;
 
     public readonly intentId: string;

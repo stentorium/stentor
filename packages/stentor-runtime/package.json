@@ -36,16 +36,16 @@
   },
   "dependencies": {
     "@xapp/stentor-history": "1.18.1",
-    "@xapp/stentor-service-event": "1.18.8",
     "stentor-constants": "1.21.9",
     "stentor-context": "1.21.9",
-    "stentor-handler": "1.21.9",
     "stentor-handler-factory": "1.21.9",
     "stentor-handler-manager": "1.21.9",
+    "stentor-handler": "1.21.9",
     "stentor-interaction-model": "1.21.9",
     "stentor-logger": "1.21.9",
     "stentor-request": "1.21.9",
     "stentor-response": "1.21.9",
+    "stentor-service-event": "1.21.9",
     "stentor-utils": "1.21.9"
   },
   "peerDependencies": {

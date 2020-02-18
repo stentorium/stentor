@@ -1,11 +1,11 @@
 {
-  "name": "stentor-service-ovai",
+  "name": "stentor-service-event",
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"
   },
   "version": "1.21.9",
-  "description": "OV·AI service for stentor",
+  "description": "Event service for :mega: stentor",
   "types": "lib/index",
   "main": "lib/index",
   "files": [
@@ -15,23 +15,27 @@
     "node": "10.x"
   },
   "devDependencies": {
-    "@types/chai": "4.2.9",
-    "@types/fetch-mock": "7.3.2",
+    "@types/chai": "4.2.8",
+    "@types/mocha": "7.0.1",
+    "@types/sinon": "4.3.3",
+    "@types/sinon-chai": "3.2.2",
     "@xapp/config": "0.2.3",
+    "aws-sdk": "2.614.0",
     "chai": "4.2.0",
-    "fetch-mock": "8.3.2",
     "mocha": "7.0.1",
-    "stentor-models": "1.21.9",
+    "sinon": "8.1.1",
+    "sinon-chai": "3.4.0",
+    "stentor-models": "1.20.20",
     "ts-node": "8.6.2",
     "typescript": "3.7.5"
   },
   "dependencies": {
-    "isomorphic-fetch": "2.2.1",
-    "stentor-constants": "1.21.9",
-    "stentor-service-event": "1.21.9",
-    "stentor-utils": "1.21.9"
+    "stacktrace-parser": "0.1.8",
+    "stentor-request": "1.21.6",
+    "stentor-utils": "1.21.6"
   },
   "peerDependencies": {
+    "aws-sdk": "2.x",
     "stentor-models": "1.x"
   },
   "scripts": {

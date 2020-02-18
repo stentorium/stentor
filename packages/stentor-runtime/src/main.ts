@@ -29,7 +29,7 @@ import {
     keyFromRequest
 } from "stentor-request";
 import { canFulfillAll, canFulfillNothing } from "stentor-response";
-import { EventService, wrapCallback as eventServiceCallbackWrapper } from "@xapp/stentor-service-event";
+import { EventService, wrapCallback as eventServiceCallbackWrapper } from "stentor-service-event";
 import { existsAndNotEmpty } from "stentor-utils";
 import { ChannelSelector } from "./ChannelSelector";
 

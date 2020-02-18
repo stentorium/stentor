@@ -1,6 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { Event } from "stentor-models";
-import { AbstractEventStream } from "@xapp/stentor-service-event";
+import { AbstractEventStream } from "stentor-service-event";
 import { OVAIService } from "./OVAIService";
 
 export class OVAIEventStream extends AbstractEventStream {

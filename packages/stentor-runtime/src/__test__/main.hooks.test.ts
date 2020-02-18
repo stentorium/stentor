@@ -26,7 +26,7 @@ import {
     UserStorageService
 } from "stentor-models";
 import { isLaunchRequest } from "stentor-request";
-import { EventService } from "@xapp/stentor-service-event";
+import { EventService } from "stentor-service-event";
 import { dessmlify, LambdaError } from "stentor-utils";
 
 import { main } from "../main";

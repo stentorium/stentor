@@ -17,7 +17,7 @@ import {
     Storage,
     UserStorageService
 } from "stentor-models";
-import { EventService } from "@xapp/stentor-service-event";
+import { EventService } from "stentor-service-event";
 import { main } from "../main";
 import { MockHandlerService, MockUserStorageService } from "./Mocks";
 

@@ -1,0 +1,36 @@
+{
+  "name": "stentor-history",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.21.10",
+  "description": "History for :mega: stentor",
+  "types": "lib/index",
+  "main": "lib/index",
+  "files": [
+    "lib"
+  ],
+  "engines": {
+    "node": "10.x"
+  },
+  "devDependencies": {
+    "@types/chai": "4.2.8",
+    "@types/sinon": "4.3.3",
+    "@xapp/config": "0.2.3",
+    "chai": "4.2.0",
+    "mocha": "7.0.1",
+    "sinon": "8.1.1",
+    "stentor-models": "1.21.9",
+    "ts-node": "8.6.2",
+    "typescript": "3.7.5"
+  },
+  "peerDependencies": {
+    "stentor-models": "1.x"
+  },
+  "scripts": {
+    "build": "tsc -d true -p .",
+    "clean": "rm -rf ./lib/*",
+    "test": "mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
+  }
+}

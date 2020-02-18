@@ -1,5 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { getHandlerHistory } from "@xapp/stentor-history";
+import { getHandlerHistory } from "stentor-history";
 import { Context, ExecutablePath, HistoricalPath } from "stentor-models";
 import { isHistoricalPath } from "./Guards";
 

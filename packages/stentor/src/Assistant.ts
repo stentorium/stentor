@@ -23,12 +23,6 @@ import {
     UserStorageService
 } from "stentor-models";
 import { main, translateEventAndContext } from "stentor-runtime";
-import {
-    ANALYTICS_EVENT_NAME,
-    ANALYTICS_EVENT_TYPE,
-    AnalyticsService,
-    AnalyticsServiceEvent
-} from "@xapp/stentor-service-analytics";
 import { EventPrefix, EventService } from "stentor-service-event";
 import { OVAIEventStream, OVAIService } from "stentor-service-ovai";
 import { isLambdaError } from "stentor-utils";
@@ -222,8 +216,8 @@ export class Assistant {
 
             const myCallback: RuntimeCallback = (error: undefined | Error | null | string, result: any): void => {
                 if (this.eventService) {
-                    const analyticsEvent: AnalyticsServiceEvent = AnalyticsService.event(runtimeEvent, result);
-                    this.eventService.event(ANALYTICS_EVENT_TYPE, ANALYTICS_EVENT_NAME, analyticsEvent);
+                    // Create a analytics event which is used to send data to 3rd party analytics providers
+                    this.eventService.event("AnalyticsEvent", "SKILL_DATA", { request: runtimeEvent, response: result });
                 }
                 let code = HTTP_200_OK;
 

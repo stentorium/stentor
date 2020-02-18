@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.21.11](https://github.com/stentorium/stentor/compare/v1.21.10...v1.21.11) (2020-02-18)
+
+
+### Bug Fixes
+
+* remove analytics service from stentor ([#128](https://github.com/stentorium/stentor/issues/128)) ([37c4347](https://github.com/stentorium/stentor/commit/37c4347786e19c5268577a8c6d518324eefcf770))
+
+
+
+
+
 ## [1.21.10](https://github.com/stentorium/stentor/compare/v1.21.9...v1.21.10) (2020-02-17)
 
 **Note:** Version bump only for package stentor

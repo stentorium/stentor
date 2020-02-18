@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.22.2](https://github.com/stentorium/stentor/compare/v1.22.1...v1.22.2) (2020-02-18)
+
+
+### Bug Fixes
+
+* Crash within AbstractHandler.canHandlerInputUnknown when handler data is undefined ([#132](https://github.com/stentorium/stentor/issues/132)) ([9eb90eb](https://github.com/stentorium/stentor/commit/9eb90ebe7e3a94030361d55f9f5b49dda7d5c716))
+
+
+
+
+
 ## [1.22.1](https://github.com/stentorium/stentor/compare/v1.22.0...v1.22.1) (2020-02-18)
 
 **Note:** Version bump only for package repo

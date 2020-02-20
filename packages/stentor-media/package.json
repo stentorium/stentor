@@ -23,7 +23,7 @@
     "@xapp/config": "0.2.3",
     "chai": "4.2.0",
     "mocha": "7.0.1",
-    "sinon": "8.1.1",
+    "sinon": "9.0.0",
     "stentor-models": "1.21.9",
     "typescript": "3.7.5"
   },

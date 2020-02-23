@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.22.10](https://github.com/stentorium/stentor/compare/v1.22.9...v1.22.10) (2020-02-23)
+
+
+### Bug Fixes
+
+* **deps:** update @xapp/stentor ([2942810](https://github.com/stentorium/stentor/commit/2942810bf6a806a6917be3cc593a5e5683f6ecf3))
+
+
+
+
+
 ## [1.22.7](https://github.com/stentorium/stentor/compare/v1.22.6...v1.22.7) (2020-02-23)
 
 **Note:** Version bump only for package stentor-models

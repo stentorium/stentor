@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.22.9",
+  "version": "1.22.10",
   "description": "Delegating handler for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -18,13 +18,13 @@
     "@types/chai": "4.2.9",
     "@xapp/config": "0.2.3",
     "chai": "4.2.0",
-    "stentor-models": "1.22.7",
+    "stentor-models": "1.22.10",
     "ts-node": "8.6.2",
     "typescript": "3.8.2"
   },
   "dependencies": {
-    "stentor-handler": "1.22.9",
-    "stentor-request": "1.22.9"
+    "stentor-handler": "1.22.10",
+    "stentor-request": "1.22.10"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

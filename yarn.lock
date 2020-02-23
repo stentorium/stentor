@@ -7131,6 +7131,11 @@ static-extend@^0.1.1:
     define-property "^0.2.5"
     object-copy "^0.1.0"
 
+stentor-constants@1.21.9:
+  version "1.21.9"
+  resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.21.9.tgz#67fd69b850ee8eb50921ecf3f43709c8751df497"
+  integrity sha512-09j/WhC7TrfVjoToOVmir1rxWgZv1hlYsCF0yZpNOEqXbh0hbaaZp1L8LFMJSjePUJQzf9wRqpFAtrE9mlDD+w==
+
 stentor-interaction-model@1.22.3:
   version "1.22.3"
   resolved "https://registry.yarnpkg.com/stentor-interaction-model/-/stentor-interaction-model-1.22.3.tgz#c9695054595e4cccd2c40281512ae05edd5a587f"
@@ -7634,7 +7639,12 @@ ts-node@8.6.2:
     source-map-support "^0.5.6"
     yn "3.1.1"
 
-tslib@1.10.0, tslib@^1.8.1, tslib@^1.9.0:
+tslib@1.11.0:
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.11.0.tgz#f1f3528301621a53220d58373ae510ff747a66bc"
+  integrity sha512-BmndXUtiTn/VDDrJzQE7Mm22Ix3PxgLltW9bSNLoeCY31gnG2OPx0QqJnuc9oMIKioYrz487i6K9o4Pdn0j+Kg==
+
+tslib@^1.8.1, tslib@^1.9.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
   integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==

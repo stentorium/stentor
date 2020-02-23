@@ -30,7 +30,7 @@
     "typescript": "3.8.2"
   },
   "dependencies": {
-    "@xapp/patterns": "1.18.0",
+    "@xapp/patterns": "1.18.27",
     "actions-on-google": "2.12.0",
     "jsonpath": "1.0.2",
     "lodash.template": "4.5.0",

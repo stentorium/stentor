@@ -1389,11 +1389,6 @@
   resolved "https://registry.yarnpkg.com/@types/sinon/-/sinon-7.5.1.tgz#d27b81af0d1cfe1f9b24eebe7a24f74ae40f5b7c"
   integrity sha512-EZQUP3hSZQyTQRfiLqelC9NMWd1kqLcmQE0dMiklxBkgi84T+cHOhnKpgk4NnOWpGX863yE6+IaGnOXUNFqDnQ==
 
-"@types/sinon@4.3.3":
-  version "4.3.3"
-  resolved "https://registry.yarnpkg.com/@types/sinon/-/sinon-4.3.3.tgz#97cbbfddc3282b5fd40c7abf80b99db426fd4237"
-  integrity sha512-Tt7w/ylBS/OEAlSCwzB0Db1KbxnkycP/1UkQpbvKFYoUuRn4uYsC3xh5TRPrOjTy0i8TIkSz1JdNL4GPVdf3KQ==
-
 "@types/xmldoc@1.1.4":
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/@types/xmldoc/-/xmldoc-1.1.4.tgz#5867d4e29739719c633bf16413c5a4a4c1c3c802"
@@ -7127,6 +7122,11 @@ static-extend@^0.1.1:
   dependencies:
     define-property "^0.2.5"
     object-copy "^0.1.0"
+
+stentor-constants@1.22.7:
+  version "1.22.7"
+  resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.22.7.tgz#4b3174f9f8ead299ccdd19052e2e62ecbc5622b5"
+  integrity sha512-gOK9dUwvkgZG83UN2Hu9wjriY5k1xqeNvRj+oIBui5TY81TwbntNdxptYqA75aNThSpFc8LeU4yFZDk0DmzTXw==
 
 stentor-interaction-model@1.22.8:
   version "1.22.8"

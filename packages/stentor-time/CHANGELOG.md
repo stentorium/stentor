@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.22.13](https://github.com/stentorium/stentor/compare/v1.22.12...v1.22.13) (2020-02-24)
+
+
+### Bug Fixes
+
+* **deps:** update dependency moment-timezone to v0.5.28 ([#141](https://github.com/stentorium/stentor/issues/141)) ([ec85897](https://github.com/stentorium/stentor/commit/ec8589704dacba482a8a54f874b4c3cb3b336aeb))
+
+
+
+
+
 ## [1.22.10](https://github.com/stentorium/stentor/compare/v1.22.9...v1.22.10) (2020-02-23)
 
 **Note:** Version bump only for package stentor-time

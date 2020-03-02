@@ -20,7 +20,7 @@
     "chai": "4.2.0",
     "stentor-models": "1.22.18",
     "ts-node": "8.6.2",
-    "typescript": "3.8.2"
+    "typescript": "3.8.3"
   },
   "dependencies": {
     "stentor-handler": "1.22.20",

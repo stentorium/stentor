@@ -17,7 +17,7 @@
   "devDependencies": {
     "@types/blueimp-md5": "2.7.0",
     "@types/chai": "4.2.9",
-    "@types/mocha": "7.0.1",
+    "@types/mocha": "7.0.2",
     "@types/node": "13.7.6",
     "@types/numeral": "0.0.26",
     "@types/sinon": "7.5.2",

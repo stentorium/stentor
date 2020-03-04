@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.22.22",
+  "version": "1.22.23",
   "description": "Runtime for stentor",
   "types": "lib/index",
   "main": "lib/index",

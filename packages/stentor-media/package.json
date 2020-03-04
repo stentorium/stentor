@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@types/chai": "4.2.9",
-    "@types/mocha": "7.0.1",
+    "@types/mocha": "7.0.2",
     "@types/moment-timezone": "0.5.12",
     "@types/node": "13.7.6",
     "@types/sinon": "7.5.2",

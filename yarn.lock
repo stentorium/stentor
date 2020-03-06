@@ -1117,10 +1117,10 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
-"@rollup/plugin-typescript@3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@rollup/plugin-typescript/-/plugin-typescript-3.0.0.tgz#9398fcca1cef67ac325fef19c28dece24c9a5263"
-  integrity sha512-O6915Ril3+Q0B4P898PULAcPFZfPuatEB/4nox7bnK48ekGrmamMYhMB5tOqWjihEWrw4oz/NL+c+/kS3Fk95g==
+"@rollup/plugin-typescript@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-typescript/-/plugin-typescript-3.1.0.tgz#cf2247a7757903c5c6905027b535732f9d772612"
+  integrity sha512-ChNRozzMydushztZ95eXwUBBMhctKyXU61TdDf8iZF02zkB2uhOH0Pe2lQmvyek7Fdh7OZQrj3Vt1mzJCT9+MA==
   dependencies:
     "@rollup/pluginutils" "^3.0.1"
     resolve "^1.14.1"

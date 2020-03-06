@@ -25,7 +25,7 @@
     "@xapp/stentor-dialogflow": "1.18.59",
     "aws-sdk": "2.630.0",
     "chai": "4.2.0",
-    "fetch-mock": "9.1.0",
+    "fetch-mock": "9.1.1",
     "mocha": "7.1.0",
     "rimraf": "3.0.2",
     "sinon": "9.0.0",

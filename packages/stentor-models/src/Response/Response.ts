@@ -1,6 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { Actionable } from "../Action";
-import { Conditional } from "../Conditional";
+import { Conditioned } from "../Conditional";
 import { LastActive, Scheduled } from "../DateTime";
 import { Display } from "../Display";
 import { JSONDependable } from "../JSONDependent";

@@ -1,6 +1,6 @@
 /*! Copyright (c) 2020, XAPPmedia */
 import { log } from "stentor-logger";
-import { Contexts, Conditional, ConditionalCheck } from "stentor-models";
+import { Contexts, ConditionalCheck, Conditioned } from "stentor-models";
 import { VM } from "vm2";
 
 /**
@@ -17,7 +17,7 @@ export class ConditionalDeterminer {
 
     }
 
-    public determine(conditionals: Conditional[]): Conditional[] {
+    public determine(conditionals: Conditioned[]): Conditioned[] {
 
         if (!Array.isArray(conditionals)) {
             return [];
@@ -27,7 +27,7 @@ export class ConditionalDeterminer {
             return [];
         }
 
-        const possible: Conditional[] = [];
+        const possible: Conditioned[] = [];
 
         // For each of the conditionals
         conditionals.forEach((conditional) => {

@@ -2,7 +2,7 @@
 import { expect } from "chai";
 
 import { ConditionalDeterminer } from "../ConditionalDeterminer";
-import { Conditional, ConditionalCheck } from "stentor-models";
+import { ConditionalCheck, Conditioned } from "stentor-models";
 
 // Data model
 interface YouTellMe {
@@ -34,26 +34,29 @@ const SIMPLE_CHECK: ConditionalCheck = {
 }
 
 const FALSE_CHECK: ConditionalCheck = {
-    test: () => { return false },
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    test: (t: any): t is any => {
+        return false
+    },
     check: () => { return false },
     functions: [tellMe.bind(false)]
 };
 
-const MUST_TRUE: Conditional = {
+const MUST_TRUE: Conditioned = {
     conditions: {
         must: [{ tellMe: true }],
         should: []
     }
 };
 
-const MUST_TRUE_FALSE: Conditional = {
+const MUST_TRUE_FALSE: Conditioned = {
     conditions: {
         must: [{ tellMe: true }, { tellMe: false }],
         should: []
     }
 }
 
-const MUST_FALSE: Conditional = {
+const MUST_FALSE: Conditioned = {
     conditions: {
         must: [{ tellMe: false }, { tellMe: false }],
         should: []
@@ -61,28 +64,28 @@ const MUST_FALSE: Conditional = {
 }
 
 // Should return TRUE
-const MUST_TRUE_SHOULD_TRUE_FALSE: Conditional = {
+const MUST_TRUE_SHOULD_TRUE_FALSE: Conditioned = {
     conditions: {
         must: [{ tellMe: true }, { tellMe: true }],
         should: [{ tellMe: true }, { tellMe: false }]
     }
 }
 
-const SHOULD_TRUE: Conditional = {
+const SHOULD_TRUE: Conditioned = {
     conditions: {
         must: [],
         should: [{ tellMe: true }]
     }
 }
 
-const SHOULD_FALSE: Conditional = {
+const SHOULD_FALSE: Conditioned = {
     conditions: {
         must: [],
         should: [{ tellMe: false }]
     }
 }
 
-const STRING_TRUE_AND_TRUE: Conditional = {
+const STRING_TRUE_AND_TRUE: Conditioned = {
     conditions: "true && true"
 }
 

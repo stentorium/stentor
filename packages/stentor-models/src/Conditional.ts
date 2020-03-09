@@ -8,8 +8,29 @@ import { Contexts } from "./Contextual";
  * The functions are used to check the condition with evaluating a string conditional.  
  */
 export interface ConditionalCheck<T = any> {
-    test: (obj: T | object) => boolean;
-    check: (obj: T | object) => boolean;
+    /**
+     * A test for an object, that if returns true, can then be passed
+     * to the check function.  
+     */
+    test: (obj: T | object) => obj is T;
+    /**
+     * Check that is performed on the object to determine if it passes
+     * or fails the criteria.
+     * 
+     * The first argument is the object while the subsequent parameters
+     * are any additional optional information that is required to make
+     * the determination.
+     */
+    check: (obj: T, ...args: any) => boolean;
+    /**
+     * A set of functions that help determination within a string.
+     * 
+     * For example, for a time based conditional check, you can provide a function:
+     * 
+     * shedule(startTime: string, duration: number, timezone: string): boolean
+     * 
+     * which turns true if the current time is within the provided parameters.
+     */
     functions: ((...args: any) => boolean)[];
 }
 
@@ -39,11 +60,11 @@ export interface Conditions {
 }
 
 /**
- * An object can implement Conditional if it has a set of conditions.
+ * An object can implement Conditioned if it has a set of conditions.
  * 
  * @beta
  */
-export interface Conditional {
+export interface Conditioned {
     /**
      * Conditions to be met.
      * 
@@ -51,3 +72,8 @@ export interface Conditional {
      */
     conditions: Conditions | string;
 }
+
+/**
+ * An object that is Conditional implements Conditioned.
+ */
+export type Conditional<T> = T & Conditioned;

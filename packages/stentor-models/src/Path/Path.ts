@@ -1,6 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { Actionable } from "../Action";
-import { Conditional } from "../Conditional";
+import { Conditioned } from "../Conditional";
 import { JSONDependable } from "../JSONDependent";
 import { RequestDependable, RequestSlotMap, SystemDependable } from "../Request";
 import { SlotDependable } from "../Slot";
@@ -61,7 +61,7 @@ export interface PreviousHandlerPath extends SharedPath {
 /**
  * Shared parameters on a path.
  */
-export interface SharedPath extends Partial<Actionable>, Partial<Conditional> {
+export interface SharedPath extends Partial<Actionable>, Partial<Conditioned> {
     // maybe data this is injected to the handler?
     data?: object;
     /**

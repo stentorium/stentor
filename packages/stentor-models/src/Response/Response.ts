@@ -42,7 +42,7 @@ export interface ResponseData {
 /**
  * A response that expects a user's input.
  */
-export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Actionable>, Partial<Conditional> {
+export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Actionable>, Partial<Conditioned> {
     /**
      * Name of the response.
      *

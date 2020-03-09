@@ -33,6 +33,7 @@
   "dependencies": {
     "@xapp/patterns": "1.18.53",
     "jsonpath": "1.0.2",
+    "stentor-conditional": "1.22.22",
     "stentor-constants": "1.22.22",
     "stentor-context": "1.22.24",
     "stentor-history": "1.22.22",

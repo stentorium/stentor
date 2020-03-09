@@ -1,4 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { log } from "stentor-logger";
 import { Context, ExecutablePath, Path, Request } from "stentor-models";
 import { determine } from "../determine";
 import { compileHistoricalPath } from "./compileHistoricalPath";
@@ -58,7 +59,7 @@ export function determinePath(definedPaths: Path[], request: Request, context: C
     if (!determinedPath) {
         // We want to keep track of this in case somebody was expecting a
         // response but didn't get one.
-        console.info("Could not determine a path.");
+        log().info("Could not determine a path.");
     }
 
     return determinedPath;

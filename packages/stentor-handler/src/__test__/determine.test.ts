@@ -2,7 +2,7 @@
 import { expect } from "chai";
 
 import { ContextBuilder } from "stentor-context";
-import { Context, JSONDependent, Request, RequestDependent, SystemDependent } from "stentor-models";
+import { Context, JSONDependent, Request, RequestDependent, SystemDependent, Conditioned } from "stentor-models";
 import { LaunchRequestBuilder } from "stentor-request";
 import { determine } from "../determine";
 
@@ -54,7 +54,11 @@ const jsonAndRequestDependent: JSONDependent & RequestDependent = {
     }
 }; */
 
-describe("#determine()", () => {
+const CONDITIONAL_0: Conditioned = {
+    conditions: '"${$.context.storage.foo}" === "bar"'
+}
+
+describe(`#${determine.name}()`, () => {
     let request: Request;
     let context: Context;
     describe("when passed undefined", () => {
@@ -115,8 +119,19 @@ describe("#determine()", () => {
             );
         });
     });
-    xdescribe("when passed responses with more than one possible context", () => {
-        // TODO: We want to support this at some point however we need to figure out
-        // how to do ORs and ANDs
+    describe("when passed conditionals", () => {
+        beforeEach(() => {
+            request = new LaunchRequestBuilder().build();
+            context = new ContextBuilder()
+                .withStorage({
+                    createdTimestamp: 1234,
+                    foo: "bar"
+                })
+                .build();
+        });
+        it('returns the correct match', () => {
+            expect(determine([CONDITIONAL_0], request, context)).to.exist;
+            expect(determine([CONDITIONAL_0], request, context)).to.deep.equal(CONDITIONAL_0);
+        });
     });
 });

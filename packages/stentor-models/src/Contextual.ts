@@ -1,13 +1,15 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { LastActive, Schedulable } from "./DateTime";
+import { Schedulable, ActiveWithinable, FirstTimeable, HaveNotSeenWithinable } from "./DateTime";
 import { JSONDependent } from "./JSONDependent";
 import { RequestDependent, SystemDependent } from "./Request";
 import { SlotDependent } from "./Slot";
 import { StorageDependent } from "./Storage";
 
 export type Contexts =
+    | ActiveWithinable
+    | FirstTimeable
+    | HaveNotSeenWithinable
     | JSONDependent
-    | LastActive<object>
     | RequestDependent
     | Schedulable
     | SlotDependent

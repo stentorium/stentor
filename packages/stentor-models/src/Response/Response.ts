@@ -1,5 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { Actionable } from "../Action";
+import { Conditional } from "../Conditional";
 import { LastActive, Scheduled } from "../DateTime";
 import { Display } from "../Display";
 import { JSONDependable } from "../JSONDependent";
@@ -41,7 +42,7 @@ export interface ResponseData {
 /**
  * A response that expects a user's input.
  */
-export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Actionable> {
+export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Actionable>, Partial<Conditional> {
     /**
      * Name of the response.
      *
@@ -92,7 +93,6 @@ export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Act
     | "PERMISSION_LOCATION_COARSE"
     | "PERMISSION_NOTIFICATION"
     | "TRANSFER_CALL";
-
     /**
      * Supplemental data to augment the response.
      */

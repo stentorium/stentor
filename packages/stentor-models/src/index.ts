@@ -2,8 +2,10 @@
 export * from "./Action";
 export * from "./App";
 export * from "./Channel";
+export * from "./Conditional";
 export * from "./Context";
 export * from "./Contextual";
+export * from "./DateTime";
 export * from "./DelegatingHandler";
 export * from "./Device";
 export * from "./Display";
@@ -33,6 +35,5 @@ export * from "./SMS";
 export * from "./Storage";
 export * from "./Suggestion";
 export * from "./Template";
-export * from "./DateTime";
 export * from "./UserData";
 export * from "./UserProfile";

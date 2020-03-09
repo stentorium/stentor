@@ -42,21 +42,16 @@ const systemDependent0: SystemDependent = {
     systemCondition: "ACCOUNT_LINKED"
 };
 
-/*
-const jsonAndRequestDependent: JSONDependent & RequestDependent = {
-    JSONPathMatch: {
-        name: "$.context.storage.foo",
-        value: "bar"
-    },
-    requestMatch: {
-        name: "newSession",
-        value: true
-    }
-}; */
-
 const CONDITIONAL_0: Conditioned = {
     conditions: '"${$.context.storage.foo}" === "bar"'
 }
+
+const CONDITIONAL_1: Conditioned = {
+    conditions: {
+        must: [jsonDependent0],
+        should: []
+    }
+};
 
 describe(`#${determine.name}()`, () => {
     let request: Request;
@@ -130,8 +125,12 @@ describe(`#${determine.name}()`, () => {
                 .build();
         });
         it('returns the correct match', () => {
+            // This one uses a string
             expect(determine([CONDITIONAL_0], request, context)).to.exist;
             expect(determine([CONDITIONAL_0], request, context)).to.deep.equal(CONDITIONAL_0);
+            // This one uses an object
+            expect(determine([CONDITIONAL_1], request, context)).to.exist;
+            expect(determine([CONDITIONAL_1], request, context)).to.deep.equal(CONDITIONAL_1);
         });
     });
 });

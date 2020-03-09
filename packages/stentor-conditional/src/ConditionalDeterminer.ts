@@ -1,23 +1,31 @@
 /*! Copyright (c) 2020, XAPPmedia */
 import { log } from "stentor-logger";
-import { Contexts, ConditionalCheck, Conditioned } from "stentor-models";
+import { Contexts, ConditionalCheck, Conditional } from "stentor-models";
 import { VM } from "vm2";
 
 /**
- * 
+ * ConditionalDeterminer is first configured with a set of conditional 
+ * checks it can perform and then determines which is the best match.
  */
 export class ConditionalDeterminer {
 
     private timeout = 500;
 
-    private checks: ConditionalCheck[];
+    private checks: ConditionalCheck[] = [];
 
-    public constructor(checks: ConditionalCheck[]) {
-        this.checks = checks;
-
+    public constructor(checks?: ConditionalCheck[]) {
+        if (Array.isArray(checks)) {
+            this.checks = checks;
+        }
     }
 
-    public determine(conditionals: Conditioned[]): Conditioned[] {
+    /**
+     * Determine the best conditional matches
+     * 
+     * @param conditionals 
+     * @returns All matching conditionals based on the available checks
+     */
+    public determine<T>(conditionals: Conditional<T>[]): Conditional<T>[] {
 
         if (!Array.isArray(conditionals)) {
             return [];
@@ -27,7 +35,7 @@ export class ConditionalDeterminer {
             return [];
         }
 
-        const possible: Conditioned[] = [];
+        const possible: Conditional<T>[] = [];
 
         // For each of the conditionals
         conditionals.forEach((conditional) => {
@@ -98,13 +106,15 @@ export class ConditionalDeterminer {
                     }
                 }
             }
-
-
         });
 
         return possible;
     }
 
+    /**
+     * Determine if the object passes.
+     * @param obj 
+     */
     private pass(obj: (Contexts | object)): boolean {
 
         let passed = false;

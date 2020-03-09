@@ -22,7 +22,7 @@ import {
 import { findStorageDependentMatch, isStorageDependable } from "stentor-storage";
 import { findTimeContextualMatch, isTimeContextual } from "stentor-time";
 import { random, existsAndNotEmpty } from "stentor-utils";
-import { findJSONDependentMatch } from "./findJSONDependentMatch";
+import { findJSONDependentMatch, JSONConditionalCheck } from "./findJSONDependentMatch";
 import { isJSONDependable, isConditional } from "./Guards";
 import { compileJSONPaths } from "./compileJSONPaths";
 
@@ -97,7 +97,7 @@ export function determine<P extends object>(potentials: P[], request: Request, c
             }
         });
         // Big show, determine the matches
-        const matches = new ConditionalDeterminer([]).determine<P>(compiledConditionals);
+        const matches = new ConditionalDeterminer([JSONConditionalCheck(request, context)]).determine<P>(compiledConditionals);
         // Look through them and match them up to the original
         const matchedOriginals: Conditional<P>[] = [];
         matches.forEach((match) => {

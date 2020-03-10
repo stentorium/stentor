@@ -47,8 +47,14 @@ export class ConditionalDeterminer {
                     this.checks.forEach((check) => {
                         if (Array.isArray(check.functions)) {
                             check.functions.forEach((func) => {
-                                sandboxFunctions[func.name] = func;
-                            })
+                                // Function might be bounded, in which case we need to clean off
+                                // the "bound " in front of it
+                                let name = func.name;
+                                if (name.startsWith("bound ")) {
+                                    name = name.replace("bound ", "");
+                                }
+                                sandboxFunctions[name] = func;
+                            });
                         }
                     });
                 }

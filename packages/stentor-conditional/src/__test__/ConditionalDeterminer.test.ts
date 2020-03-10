@@ -24,13 +24,17 @@ function tellMeTwice(input: boolean, optional?: boolean): boolean {
 
     return input;
 }
+
+function tellMeBounded(input: boolean): boolean {
+    return tellMe(input);
+}
 // The TellMe check
 const SIMPLE_CHECK: ConditionalCheck = {
     test: isYouTellMe,
     check: (obj: YouTellMe) => {
         return obj.tellMe;
     },
-    functions: [tellMe, tellMeTwice]
+    functions: [tellMe, tellMeTwice, tellMeBounded.bind(null, true)]
 }
 
 const FALSE_CHECK: ConditionalCheck = {
@@ -134,6 +138,9 @@ describe(`${ConditionalDeterminer.name}`, () => {
                     // on tellMeTwice, if the second one is provided it uses that one
                     conditions: "tellMe(false) || false || tellMeTwice(true, false)"
                 }])).to.have.length(0);
+                expect(new ConditionalDeterminer([SIMPLE_CHECK]).determine([{
+                    conditions: "tellMe(true) && tellMeBounded()"
+                }])).to.have.length(1);
             });
             describe('with a bad function', () => {
                 it('returns the correct result', () => {

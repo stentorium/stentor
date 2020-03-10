@@ -8,6 +8,14 @@ describe("#compare()", () => {
             expect(compare("test", "test")).to.be.true;
         });
     });
+    describe("when passed an empty string as a value", () => {
+        it("returns the correct result", () => {
+            expect(compare("", "")).to.be.true;
+            expect(compare("", "", "==")).to.be.true;
+            expect(compare("", "", "!==")).to.be.false;
+            expect(compare("", "", "!==")).to.be.false;
+        });
+    });
     describe("when passed undefined as a value", () => {
         it("returns the correct result", () => {
             expect(compare(undefined, undefined)).to.be.true;

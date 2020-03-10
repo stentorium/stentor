@@ -34,7 +34,7 @@ import { compileJSONPaths } from "./compileJSONPaths";
  * @param {P[]} potentials
  * @param {Request} request
  * @param {Context} context
- * @returns {(P | undefined)}
+ * @returns The best match from the provided potential matches, undefined if now match could be determined.
  */
 export function determine<P extends object>(potentials: P[], request: Request, context: Context): P | undefined {
     if (!Array.isArray(potentials) || potentials.length === 0) {

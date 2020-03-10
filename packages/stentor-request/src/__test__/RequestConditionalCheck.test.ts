@@ -43,7 +43,6 @@ describe(`${RequestConditionalCheck.name}`, () => {
             // 5th is isNewSession
             const isNewSession = RequestConditionalCheck(launchRequest).functions[5];
             expect(isNewSession()).to.be.true;
-
         });
     });
 });

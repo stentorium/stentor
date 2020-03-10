@@ -4,25 +4,25 @@ import {
     NOTIFICATION_PERMISSION_REQUEST_TYPE,
     OPTION_SELECT_REQUEST_TYPE,
     PERMISSION_REQUEST_TYPE,
-    SURFACE_CHANGE_REQUEST_TYPE }
-from "./Constants";
+    SURFACE_CHANGE_REQUEST_TYPE
+}
+    from "./Constants";
 import { isSystemDependable } from "./Guards";
 
 /**
- * Based on the request, it finds the slot dependent path
+ * Based on the provided request, it finds the slot dependent object
  * that is a match.
  *
- * @export
- * @param {SlotDependentPath[]} paths
- * @param {Request} request
- * @returns {(SlotDependentPath | undefined)}
+ * @public
+ * @param objects - Objects to check against the request
+ * @param request - Request that the objects will be tested against
+ * @returns The matched object or undefined if no match was found.
  */
-// tslint:disable-next-line:cyclomatic-complexity
 export function findSystemDependentMatch<T extends object>(
-    potentials: (T | SystemDependable<T>)[],
+    objects: (T | SystemDependable<T>)[],
     request: Request
 ): SystemDependable<T> | undefined {
-    if (!Array.isArray(potentials) || potentials.length === 0) {
+    if (!Array.isArray(objects) || objects.length === 0) {
         return undefined;
     }
 
@@ -31,7 +31,7 @@ export function findSystemDependentMatch<T extends object>(
     }
 
     // The first should win - not a random
-    const path = potentials[0];
+    const path = objects[0];
 
     if (!isSystemDependable(path)) {
         return;

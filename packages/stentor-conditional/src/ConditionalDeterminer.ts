@@ -126,26 +126,13 @@ export class ConditionalDeterminer {
      * @param obj 
      */
     private pass(obj: (Contexts | object)): boolean {
-
-        let passed = false;
-        let failed = false;
-
-        this.checks.forEach((check) => {
-            // Make sure the check applies to this object
-            // and it hasn't already passed
-            if (check.test(obj)) {
-                if (check.check(obj)) {
-                    passed = true;
-                } else {
-                    failed = true;
-                }
+        for (const check of this.checks) {
+            // If it passes the test and then fails the check
+            if (check.test(obj) && !check.check(obj)) {
+                // fast fail
+                return false;
             }
-        });
-
-        if (failed) {
-            return false;
         }
-
-        return passed;
+        return true;
     }
 }

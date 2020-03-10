@@ -78,32 +78,36 @@ export class ConditionalDeterminer {
             } else if (typeof conditional.conditions === "object") {
                 const { must, should } = conditional.conditions;
                 let mustsPassed = false;
-                let mustsFailed = false;
 
                 if (Array.isArray(must) && must.length > 0) {
-                    must.forEach((obj) => {
+                    // All the musts must pass
+                    for (const obj of must) {
                         if (this.pass(obj)) {
                             mustsPassed = true;
                         } else {
-                            mustsFailed = true;
+                            // Break on a failure.
+                            mustsPassed = false;
+                            break;
                         }
-                    });
+                    };
                 } else {
                     mustsPassed = true;
                 }
 
-                if (mustsPassed && !mustsFailed) {
+                if (mustsPassed) {
                     // Just need one to pass
                     let shouldsPassed = false;
                     // First, see if we have shoulds
                     if (Array.isArray(should) && should.length > 0) {
-                        should.forEach((obj) => {
+                        for (const obj of should) {
                             if (this.pass(obj)) {
+                                // We just need one to pass, break;
                                 shouldsPassed = true;
+                                break;
                             }
-                        });
+                        }
                     } else {
-                        // No shoulds, pass
+                        // No shoulds, auto pass
                         shouldsPassed = true;
                     }
 

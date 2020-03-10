@@ -7122,13 +7122,6 @@ stentor-logger@1.22.24:
     stentor-utils "1.22.24"
     winston "3.2.1"
 
-stentor-models@1.22.22:
-  version "1.22.22"
-  resolved "https://registry.yarnpkg.com/stentor-models/-/stentor-models-1.22.22.tgz#5cebdacd47eb2cd1b692041d30859000805f8b02"
-  integrity sha512-fmsRUVgUGAPUflfZeXKpawxi1pQjAR0/86evDwz7VyZhS1Veg1vtMUr2A1oHcgXzC5VVOG+GzWoZUL6UZbAfTA==
-  dependencies:
-    "@xapp/patterns" "1.18.53"
-
 stentor-utils@1.22.24:
   version "1.22.24"
   resolved "https://registry.yarnpkg.com/stentor-utils/-/stentor-utils-1.22.24.tgz#0e3a5fe2105d11777ba2c9e8e6519371d23adf56"

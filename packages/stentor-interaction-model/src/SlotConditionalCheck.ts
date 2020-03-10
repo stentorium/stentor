@@ -1,4 +1,5 @@
 /*! Copyright (c) 2020, XAPPmedia */
+import { log } from "stentor-logger";
 import { ConditionalCheck, RequestSlotMap, SlotDependable } from "stentor-models";
 
 import { isSlotDependable } from "./Slot";
@@ -12,7 +13,6 @@ import { findSlotDependentMatch } from "./Slot/findSlotDependentMatch";
  * @param name 
  */
 export function hasSlot(slots: RequestSlotMap, name: string): boolean {
-
     const isNotUndefined = !!findSlotDependentMatch([{
         slotMatch: {
             name,
@@ -78,12 +78,20 @@ export function slotDoesNotExist(slots: RequestSlotMap, name: string): boolean {
  * @param value 
  */
 export function slotEquals(slots: RequestSlotMap, name: string, value: string | string[]): boolean {
-    return !!findSlotDependentMatch([{
+    const slotEquals = !!findSlotDependentMatch([{
         slotMatch: {
             name,
             value
         }
     }], slots);
+
+    if (slotEquals) {
+        log().debug(`Slot ${name} did NOT equal ${value}`);
+    } else {
+        log().debug(`Slot ${name} equals ${value}`);
+    }
+
+    return slotEquals;
 }
 
 export function SlotConditionalCheck<T extends object>(slots: RequestSlotMap): ConditionalCheck {

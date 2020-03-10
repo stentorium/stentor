@@ -1,7 +1,8 @@
 /*! Copyright (c) 2020, XAPPmedia */
 import * as Moment from "moment";
 import { extendMoment } from "moment-range";
-import { ConditionalCheck, TimeContextual, DurationFormat, Schedule } from "stentor-models";
+import { log } from "stentor-logger";
+import { ConditionalCheck, TimeContextual, DurationFormat, Schedulable } from "stentor-models";
 import { isTimeContextual } from "./Guards";
 import { findTimeContextualMatch } from "./findTimeContextualMatch";
 import { findSchedulableMatch } from "./findSchedulableMatch";
@@ -26,9 +27,10 @@ export function activeWithin(context: { lastActiveTimestamp: number }, amount: n
     const range = moment.range(rangeStart, now);
 
     if (lastActive && range.contains(lastActive)) {
+        log().debug(`User was active within ${amount} ${format}`);
         return true;
     }
-
+    log().debug(`User was NOT active within ${amount} ${format}`);
     return false;
 }
 
@@ -42,19 +44,29 @@ export function activeWithin(context: { lastActiveTimestamp: number }, amount: n
  * @param timeZone - Optional time zone
  */
 export function fitsSchedule(start: string, startFormat: string, duration: number, durationFormat: DurationFormat, timeZone?: string): boolean {
-    const schedule: Schedule = {
-        start: {
-            time: start,
-            format: startFormat,
-            timeZone
-        },
-        duration: {
-            amount: duration,
-            format: durationFormat
+    const schedule: Schedulable = {
+        schedule: {
+            start: {
+                time: start,
+                format: startFormat,
+                timeZone
+            },
+            duration: {
+                amount: duration,
+                format: durationFormat
+            }
         }
-    };
+    }
 
-    return !!findSchedulableMatch([schedule]);
+    const fitSchedule = !!findSchedulableMatch([schedule]);
+
+    if (!fitSchedule) {
+        log().debug(`Schedule starting ${start}, with format ${startFormat}, and running for ${duration} ${durationFormat} did NOT fit.  Current date ${new Date().toISOString()}`);
+    } else {
+        log().debug(`Schedule starting ${start}, with format ${startFormat}, and running for ${duration} ${durationFormat} fits.`);
+    }
+
+    return fitSchedule;
 }
 
 /**
@@ -69,6 +81,9 @@ export function TimeConditionalCheck<T extends object>(context: { lastActiveTime
         check: (obj: TimeContextual<T>): boolean => {
             return !!findTimeContextualMatch([obj], context);
         },
-        functions: [activeWithin.bind(null, context), fitsSchedule]
+        functions: [
+            activeWithin.bind(null, context),
+            fitsSchedule
+        ]
     }
 }

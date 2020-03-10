@@ -1,9 +1,10 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { expect } from "chai";
+import * as sinon from "sinon";
 
 import { ContextBuilder } from "stentor-context";
 import { Context, JSONDependent, Request, RequestDependent, SystemDependent, Conditioned } from "stentor-models";
-import { LaunchRequestBuilder } from "stentor-request";
+import { LaunchRequestBuilder, IntentRequestBuilder } from "stentor-request";
 import { determine } from "../determine";
 
 const simple: object = {
@@ -51,6 +52,10 @@ const CONDITIONAL_1: Conditioned = {
         must: [jsonDependent0],
         should: []
     }
+};
+
+const CONDITIONAL_SCHEDULE_SLOTS: Conditioned = {
+    conditions: 'fitsSchedule("2019-09-11T00:00", "YYYY-MM-DDTmm:ss", 5, "days") && (slotEquals("foo", "bar") || slotEquals("foo", "baz"))'
 };
 
 describe(`#${determine.name}()`, () => {
@@ -131,6 +136,37 @@ describe(`#${determine.name}()`, () => {
             // This one uses an object
             expect(determine([CONDITIONAL_1], request, context)).to.exist;
             expect(determine([CONDITIONAL_1], request, context)).to.deep.equal(CONDITIONAL_1);
+        });
+        describe('that uses a schedule and slot match string', () => {
+            let clock: sinon.SinonFakeTimers;
+            beforeEach(() => {
+
+
+                request = new IntentRequestBuilder().withSlots({
+                    foo: {
+                        name: "foo",
+                        value: "bar"
+                    }
+                }).build();
+                context = new ContextBuilder()
+                    .withStorage({
+                        lastActiveTimestamp: 1234,
+                        createdTimestamp: 1234,
+                        foo: "bar"
+                    })
+                    .build();
+            });
+            beforeEach(() => {
+                const date = new Date("2019-09-11T18:40:00-05:00");
+                clock = sinon.useFakeTimers(date.getTime());
+            });
+            afterEach(() => {
+                clock.restore();
+            });
+            it('returns the correct match', () => {
+                expect(determine([CONDITIONAL_SCHEDULE_SLOTS], request, context)).to.exist;
+                expect(determine([CONDITIONAL_SCHEDULE_SLOTS], request, context)).to.deep.equal(CONDITIONAL_SCHEDULE_SLOTS);
+            });
         });
     });
 });

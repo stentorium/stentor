@@ -3,6 +3,7 @@ import { Scheduled } from "stentor-models";
 import * as moment from "moment-timezone";
 import { findMostSpecificSchedulable } from "./findMostSpecificSchedulable";
 import { isScheduled } from "./Guards";
+import { log } from "stentor-logger";
 
 /**
  * Within a list of Schedulables, find a match for the provided time
@@ -61,8 +62,9 @@ export function findSchedulableMatch<T extends object>(
             }
         }
 
+        const duration = item.schedule.duration;
         // calculate the end time based on the duration set
-        const end = moment(start).add(item.schedule.duration.amount, item.schedule.duration.format);
+        const end = moment(start).add(duration.amount, duration.format);
 
         let correctDayOfWeek = true;
 
@@ -81,7 +83,11 @@ export function findSchedulableMatch<T extends object>(
             // the start but exclude the end
             if (now.isBetween(start, end, undefined, "[)")) {
                 matches.push(item);
+            } else {
+                log().debug(`Schedule starting ${time}, with format ${format}, and duration ${duration.amount} ${duration.format} was NOT in-between ${start.format()} --> ${end.format()}`);
             }
+        } else {
+            log().debug(`Incorrect day of the week for schedule starting ${time}, with format ${format}, and duration ${duration.amount} ${duration.format}`)
         }
     });
 

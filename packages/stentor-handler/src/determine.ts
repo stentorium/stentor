@@ -1,6 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { ConditionalDeterminer } from "stentor-conditional";
-import { findSlotDependentMatch, isSlotDependable } from "stentor-interaction-model";
+import { findSlotDependentMatch, isSlotDependable, SlotConditionalCheck } from "stentor-interaction-model";
+import { log } from "stentor-logger";
 import {
     Context,
     JSONDependable,
@@ -10,17 +11,21 @@ import {
     StorageDependable,
     SystemDependable,
     TimeContextual,
-    Conditional
+    Conditional,
+    ConditionalCheck
 } from "stentor-models";
 import {
     findRequestDependentMatch,
     findSystemDependentMatch,
     isIntentRequest,
     isRequestDependable,
-    isSystemDependable
+    isSystemDependable,
+    SystemConditionalCheck,
+    RequestConditionalCheck,
+    hasSlots
 } from "stentor-request";
 import { findStorageDependentMatch, isStorageDependable } from "stentor-storage";
-import { findTimeContextualMatch, isTimeContextual } from "stentor-time";
+import { findTimeContextualMatch, isTimeContextual, TimeConditionalCheck } from "stentor-time";
 import { random, existsAndNotEmpty } from "stentor-utils";
 import { findJSONDependentMatch, JSONConditionalCheck } from "./findJSONDependentMatch";
 import { isJSONDependable, isConditional } from "./Guards";
@@ -31,9 +36,9 @@ import { compileJSONPaths } from "./compileJSONPaths";
  *
  * @export
  * @template P extends object
- * @param {P[]} potentials
- * @param {Request} request
- * @param {Context} context
+ * @param potentials
+ * @param request
+ * @param context
  * @returns The best match from the provided potential matches, undefined if now match could be determined.
  */
 export function determine<P extends object>(potentials: P[], request: Request, context: Context): P | undefined {
@@ -96,8 +101,27 @@ export function determine<P extends object>(potentials: P[], request: Request, c
                 compiledConditionals.push(conditional);
             }
         });
+
+        // Build up our list of conditional checks
+        const checks: ConditionalCheck[] = [
+            JSONConditionalCheck(request, context),
+            SystemConditionalCheck(request),
+            RequestConditionalCheck(request)
+        ];
+        // If we have a lastActiveTimestamp, which we most always do 
+        if (context && context.storage && typeof context.storage.lastActiveTimestamp === "number") {
+            const lastActiveTimestamp = context.storage.lastActiveTimestamp;
+            checks.push(TimeConditionalCheck({ lastActiveTimestamp }));
+        }
+
+        // If we have slots
+        if (hasSlots(request) && isIntentRequest(request)) {
+            const slots = request.slots;
+            checks.push(SlotConditionalCheck(slots));
+        }
+
         // Big show, determine the matches
-        const matches = new ConditionalDeterminer([JSONConditionalCheck(request, context)]).determine<P>(compiledConditionals);
+        const matches = new ConditionalDeterminer(checks).determine<P>(compiledConditionals);
         // Look through them and match them up to the original
         const matchedOriginals: Conditional<P>[] = [];
         matches.forEach((match) => {
@@ -108,6 +132,10 @@ export function determine<P extends object>(potentials: P[], request: Request, c
                 matchedOriginals.push(match);
             }
         });
+
+        if (matchedOriginals.length > 1) {
+            log().debug(`Found ${matchedOriginals.length} conditional matches, picking a random one.`);
+        }
         // Pick a random one
         conditionalMatch = random(matchedOriginals);
     }

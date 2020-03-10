@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "stentor-logger": "1.22.24",
+    "stentor-models": "1.22.35",
     "vm2": "3.8.4"
   },
   "peerDependencies": {

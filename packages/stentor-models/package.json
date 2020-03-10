@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.22.22",
+  "version": "1.22.35",
   "description": "Models for :mega: stentor",
   "types": "lib/index",
   "typings": "lib/index",
@@ -18,9 +18,9 @@
   },
   "devDependencies": {
     "@microsoft/api-extractor": "7.7.8",
-    "@rollup/plugin-typescript": "3.0.0",
+    "@rollup/plugin-typescript": "4.0.0",
     "@xapp/config": "0.2.3",
-    "rollup": "1.31.1",
+    "rollup": "2.0.2",
     "tslib": "1.11.1",
     "typescript": "3.8.3"
   },

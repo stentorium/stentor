@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.22.40](https://github.com/stentorium/stentor/compare/v1.22.39...v1.22.40) (2020-03-09)
+
+**Note:** Version bump only for package stentor-handler
+
+
+
+
+
+## [1.22.38](https://github.com/stentorium/stentor/compare/v1.22.37...v1.22.38) (2020-03-08)
+
+**Note:** Version bump only for package stentor-handler
+
+
+
+
+
+## [1.22.35](https://github.com/stentorium/stentor/compare/v1.22.34...v1.22.35) (2020-03-08)
+
+**Note:** Version bump only for package stentor-handler
+
+
+
+
+
+## [1.22.34](https://github.com/stentorium/stentor/compare/v1.22.33...v1.22.34) (2020-03-08)
+
+**Note:** Version bump only for package stentor-handler
+
+
+
+
+
+## [1.22.32](https://github.com/stentorium/stentor/compare/v1.22.31...v1.22.32) (2020-03-07)
+
+**Note:** Version bump only for package stentor-handler
+
+
+
+
+
+## [1.22.28](https://github.com/stentorium/stentor/compare/v1.22.27...v1.22.28) (2020-03-06)
+
+**Note:** Version bump only for package stentor-handler
+
+
+
+
+
 ## [1.22.24](https://github.com/stentorium/stentor/compare/v1.22.23...v1.22.24) (2020-03-04)
 
 **Note:** Version bump only for package stentor-handler

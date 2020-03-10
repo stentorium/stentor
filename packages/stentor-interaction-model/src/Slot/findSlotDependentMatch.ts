@@ -1,23 +1,23 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { log } from "stentor-logger";
 import { RequestSlotMap, SlotDependable } from "stentor-models";
 import { random } from "stentor-utils";
 import { compare, isComparable } from "stentor-utils";
 import { isSlotDependable } from "./Guards";
 
 /**
- * Based on the request, it finds the slot dependent path
- * that is a match.
+ * Based on the request, it finds a slot dependent object that matches.
  *
- * @export
- * @param {SlotDependentPath[]} paths
- * @param {Request} request
- * @returns {(SlotDependentPath | undefined)}
+ * @public
+ * @param objects - Objects to look within
+ * @param request - Request to compare the objects to in order to find a match
+ * @returns - Returns the matched slot dependent object or undefined if not match was found.
  */
 export function findSlotDependentMatch<T extends object>(
-    paths: (T | SlotDependable<T>)[],
+    objects: (T | SlotDependable<T>)[],
     slots: RequestSlotMap
 ): SlotDependable<T> | undefined {
-    if (!Array.isArray(paths) || paths.length === 0) {
+    if (!Array.isArray(objects) || objects.length === 0) {
         return undefined;
     }
 
@@ -27,13 +27,14 @@ export function findSlotDependentMatch<T extends object>(
 
     const matches: SlotDependable<T>[] = [];
 
-    paths.forEach(path => {
-        if (!isSlotDependable(path)) {
+    objects.forEach(obj => {
+        if (!isSlotDependable(obj)) {
+            // Fast fail
             return;
         }
 
         // See if we meet the criteria
-        const test = path.slotMatch;
+        const test = obj.slotMatch;
         const operation = test.operation;
         const slotName = test.name;
         const slot = slots[slotName];
@@ -45,21 +46,21 @@ export function findSlotDependentMatch<T extends object>(
             test.value.forEach(value => {
                 if (isComparable(slotValue)) {
                     if (compare(slotValue, value, operation)) {
-                        matches.push(path);
+                        matches.push(obj);
                     }
                 }
             });
         } else {
             if (isComparable(slotValue)) {
                 if (compare(slotValue, test.value, operation)) {
-                    matches.push(path);
+                    matches.push(obj);
                 }
             }
         }
     });
 
     if (matches.length > 1) {
-        console.info("Found more than one slot dependent match.");
+        log().info("Found more than one slot dependent match.");
     }
 
     // Not expecting more than one match at the moment but we need to

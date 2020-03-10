@@ -1,8 +1,11 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { Context, JSONDependable, Request } from "stentor-models";
+import { ConditionalCheck, Context, JSONDependable, Request } from "stentor-models";
 import { compare, random } from "stentor-utils";
 import * as jp from "jsonpath";
 import { isJSONDependable } from "./Guards";
+
+
+
 
 /**
  * Based on the provided request and context, it finds the a JSON dependent match or undefined if not match is found
@@ -70,3 +73,19 @@ export function findJSONDependentMatch<T extends object>(
     // return one before defining better behavior
     return random(matches);
 }
+
+/**
+ * Returns a JSON conditional check for the provided request and context.
+ * 
+ * @param request 
+ * @param context 
+ */
+export function JSONConditionalCheck<T extends object>(request: Request, context: Context): ConditionalCheck {
+    return {
+        test: isJSONDependable,
+        check: (jsonDependable: JSONDependable<T>): boolean => {
+            return !!findJSONDependentMatch<T>([jsonDependable], request, context);
+        },
+        functions: []
+    }
+};

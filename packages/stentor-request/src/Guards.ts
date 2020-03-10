@@ -171,6 +171,17 @@ export function isAnonymousUser(request: Request): boolean {
 
     return isAnonymousUser;
 }
+
+/**
+ * Is the request a new session.
+ * 
+ * @param request
+ */
+export function isNewSession(request: Request): boolean {
+    return request.isNewSession;
+}
+
+
 /**
  * Helper function to determine if the request has a sessionID.
  *

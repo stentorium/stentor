@@ -1,9 +1,10 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { expect } from "chai";
+import * as sinon from "sinon";
 
 import { ContextBuilder } from "stentor-context";
-import { Context, JSONDependent, Request, RequestDependent, SystemDependent } from "stentor-models";
-import { LaunchRequestBuilder } from "stentor-request";
+import { Context, JSONDependent, Request, RequestDependent, SystemDependent, Conditioned } from "stentor-models";
+import { LaunchRequestBuilder, IntentRequestBuilder } from "stentor-request";
 import { determine } from "../determine";
 
 const simple: object = {
@@ -42,19 +43,22 @@ const systemDependent0: SystemDependent = {
     systemCondition: "ACCOUNT_LINKED"
 };
 
-/*
-const jsonAndRequestDependent: JSONDependent & RequestDependent = {
-    JSONPathMatch: {
-        name: "$.context.storage.foo",
-        value: "bar"
-    },
-    requestMatch: {
-        name: "newSession",
-        value: true
-    }
-}; */
+const CONDITIONAL_0: Conditioned = {
+    conditions: '"${$.context.storage.foo}" === "bar"'
+}
 
-describe("#determine()", () => {
+const CONDITIONAL_1: Conditioned = {
+    conditions: {
+        must: [jsonDependent0],
+        should: []
+    }
+};
+
+const CONDITIONAL_SCHEDULE_SLOTS: Conditioned = {
+    conditions: 'fitsSchedule("2019-09-11T00:00", "YYYY-MM-DDTmm:ss", 5, "days") && (slotEquals("foo", "bar") || slotEquals("foo", "baz"))'
+};
+
+describe(`#${determine.name}()`, () => {
     let request: Request;
     let context: Context;
     describe("when passed undefined", () => {
@@ -115,8 +119,54 @@ describe("#determine()", () => {
             );
         });
     });
-    xdescribe("when passed responses with more than one possible context", () => {
-        // TODO: We want to support this at some point however we need to figure out
-        // how to do ORs and ANDs
+    describe("when passed conditionals", () => {
+        beforeEach(() => {
+            request = new LaunchRequestBuilder().build();
+            context = new ContextBuilder()
+                .withStorage({
+                    createdTimestamp: 1234,
+                    foo: "bar"
+                })
+                .build();
+        });
+        it('returns the correct match', () => {
+            // This one uses a string
+            expect(determine([CONDITIONAL_0], request, context)).to.exist;
+            expect(determine([CONDITIONAL_0], request, context)).to.deep.equal(CONDITIONAL_0);
+            // This one uses an object
+            expect(determine([CONDITIONAL_1], request, context)).to.exist;
+            expect(determine([CONDITIONAL_1], request, context)).to.deep.equal(CONDITIONAL_1);
+        });
+        describe('that uses a schedule and slot match string', () => {
+            let clock: sinon.SinonFakeTimers;
+            beforeEach(() => {
+
+
+                request = new IntentRequestBuilder().withSlots({
+                    foo: {
+                        name: "foo",
+                        value: "bar"
+                    }
+                }).build();
+                context = new ContextBuilder()
+                    .withStorage({
+                        lastActiveTimestamp: 1234,
+                        createdTimestamp: 1234,
+                        foo: "bar"
+                    })
+                    .build();
+            });
+            beforeEach(() => {
+                const date = new Date("2019-09-11T18:40:00-05:00");
+                clock = sinon.useFakeTimers(date.getTime());
+            });
+            afterEach(() => {
+                clock.restore();
+            });
+            it('returns the correct match', () => {
+                expect(determine([CONDITIONAL_SCHEDULE_SLOTS], request, context)).to.exist;
+                expect(determine([CONDITIONAL_SCHEDULE_SLOTS], request, context)).to.deep.equal(CONDITIONAL_SCHEDULE_SLOTS);
+            });
+        });
     });
 });

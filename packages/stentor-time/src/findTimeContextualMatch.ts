@@ -5,13 +5,11 @@ import { findSchedulableMatch } from "./findSchedulableMatch";
 import { isLastActive, isScheduled } from "./Guards";
 
 /**
- * Determines which response is best based on the provided list of possible responses.
- *
- * @export
- * @template T
- * @param {((T | TimeContextual<T>)[])} objects
- * @param {{ lastActiveTimestamp: number }} [context]
- * @returns {(TimeContextual<T> | undefined)}
+ * Find the best time contextual match from the provided objects.
+ * 
+ * @param objects 
+ * @param context 
+ * @returns Returns the best match or undefined if no match is found.
  */
 export function findTimeContextualMatch<T extends object>(
     objects: (T | TimeContextual<T>)[],

@@ -14,8 +14,14 @@ const slot2: RequestSlot = {
     value: "slot2"
 };
 
+const slot3: RequestSlot = {
+    name: "slot3",
+    value: ""
+};
+
 const slots1: RequestSlotMap = { ["slot1"]: slot1 };
 const slots2: RequestSlotMap = { ["slot2"]: slot2 };
+const slots3: RequestSlotMap = { ["slot3"]: slot3 };
 
 const path1: SlotDependent = {
     slotMatch: {
@@ -33,6 +39,24 @@ const path2: SlotDependent = {
     }
 };
 
+// We want this to be defined or not an empty string
+const object3: SlotDependent = {
+    slotMatch: {
+        name: "slot3",
+        operation: "!=",
+        value: ""
+    }
+};
+
+// This one does not exist
+// Think of this as being defined
+const object4: SlotDependent = {
+    slotMatch: {
+        name: "slot4",
+        value: "undefined"
+    }
+};
+
 const path1WithArray: SlotDependent = {
     slotMatch: {
         name: "slot1",
@@ -43,7 +67,7 @@ const path1WithArray: SlotDependent = {
     }
 };
 
-describe("#findSlotDependentMatch()", () => {
+describe(`#${findSlotDependentMatch.name}()`, () => {
     describe("when passed undefined paths", () => {
         it("returns undefined", () => {
             expect(findSlotDependentMatch(undefined, slots1)).to.be.undefined;
@@ -68,6 +92,18 @@ describe("#findSlotDependentMatch()", () => {
     describe("when passed a path that has an array of values", () => {
         it("returns the match", () => {
             expect(findSlotDependentMatch([path1WithArray], slots1)).to.equal(path1WithArray);
+        });
+    });
+    describe("when passed a map with empty string value", () => {
+        it('returns the match', () => {
+            // Object 3 is looking for != empty string
+            expect(findSlotDependentMatch([object3], slots3)).to.be.undefined;
+        });
+    });
+    describe('when passed != undefined for a slot that does not exist', () => {
+        it('returns the match', () => {
+            // Object 4 is looking for != undefined, me
+            expect(findSlotDependentMatch([object4], slots3)).to.deep.equal(object4);
         });
     });
 });

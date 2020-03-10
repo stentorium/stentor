@@ -6,3 +6,4 @@ export * from "./Guards";
 export * from "./Intent";
 export * from "./isBuiltIn";
 export * from "./Slot";
+export * from "./SlotConditionalCheck";

@@ -1,4 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { Conditioned } from "../Conditional";
 import { LastActive, Scheduled } from "../DateTime";
 import { RequestDependable } from "../Request";
 import { SlotDependable } from "../Slot";
@@ -8,7 +9,7 @@ import { ResponseOutput } from "./ResponseOutput";
 /**
  * Simple segment, just the segment that will replace the template.
  */
-export interface SimpleSegment {
+export interface SimpleSegment extends Partial<Conditioned> {
     /**
      * The segment replaces the template in the templated string.
      *

@@ -31,7 +31,7 @@
     "typescript": "3.8.3"
   },
   "dependencies": {
-    "@xapp/patterns": "1.18.53",
+    "@xapp/patterns": "1.18.77",
     "jsonpath": "1.0.2",
     "stentor-conditional": "1.23.2",
     "stentor-constants": "1.23.2",

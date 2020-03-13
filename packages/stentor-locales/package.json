@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.23.7",
+  "version": "1.23.10",
   "description": "Locales for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "lodash.uniq": "4.5.0",
-    "stentor-utils": "1.23.7"
+    "stentor-utils": "1.23.10"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

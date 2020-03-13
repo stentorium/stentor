@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.23.15](https://github.com/stentorium/stentor/compare/v1.23.14...v1.23.15) (2020-03-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency dyno-item-size to v0.3.3 ([#183](https://github.com/stentorium/stentor/issues/183)) ([e9b5f6e](https://github.com/stentorium/stentor/commit/e9b5f6eb7ebefc9df95846e4cfcdbfd87ea8e235))
+
+
+
+
+
 ## [1.23.11](https://github.com/stentorium/stentor/compare/v1.23.10...v1.23.11) (2020-03-13)
 
 **Note:** Version bump only for package stentor-utils

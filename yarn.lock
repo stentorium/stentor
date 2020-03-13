@@ -1479,10 +1479,10 @@
   dependencies:
     ask-sdk-model "1.26.0"
 
-"@xapp/stentor-alexa@1.18.83":
-  version "1.18.83"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-alexa/-/stentor-alexa-1.18.83.tgz#4c603fa77c7c8c8edbe51fef6491f1f5b6457553"
-  integrity sha512-WvCwYg9Vzl63yium22Ik8rDNqUh2UDTVXLpCafPMsGGKi5hbkx0K2t7+qwheiJVj/HtZ8SJFwot2K1anzajf1Q==
+"@xapp/stentor-alexa@1.18.88":
+  version "1.18.88"
+  resolved "https://registry.yarnpkg.com/@xapp/stentor-alexa/-/stentor-alexa-1.18.88.tgz#6154872dd9068192198339109c010200e38dfdf7"
+  integrity sha512-ITsSxBRunDq7U4wYL+nt0gfvueM6pMKFl1gAbGWDhXdXPqJ0tSRHrpBGA92pTP/ZafHv0yDFYgpjhk3jVlFnGA==
   dependencies:
     "@xapp/patterns" "1.18.77"
     "@xapp/stentor-alexa-lib" "1.18.79"
@@ -7121,6 +7121,11 @@ stentor-constants@1.22.22:
   version "1.22.22"
   resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.22.22.tgz#2b23e9831ecef3cb7d9332e6dc0c39a1bcd6aa7b"
   integrity sha512-tSd/wG131wCLHg8PYUB9DVHEaRfgR3fSgAhO1hH9Pe8pjuCeuW/JjuEPztsYoUN5U8KLgaUlo8TB2tFFDpxNBQ==
+
+stentor-constants@1.23.4:
+  version "1.23.4"
+  resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.23.4.tgz#a50f9fc498ad9be4018884b37b0e679ccffda3c0"
+  integrity sha512-svfkvHNXBSkokxB/pOHgDVp8eLCewcfvq7AD/OtXlTVyOws0VsoMFEafD3KCxVMYLll8bXLQQR2Y7QQBuKWdwg==
 
 stentor-interaction-model@1.23.7:
   version "1.23.7"

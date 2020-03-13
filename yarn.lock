@@ -1458,10 +1458,10 @@
   resolved "https://registry.yarnpkg.com/@xapp/patterns/-/patterns-1.18.77.tgz#adb774809e9d3d2d48ccc90d66f35c385d147638"
   integrity sha512-8XgYWxLNYbq+QTEM+b7782Av0RkxFbgjVWVAE4XwhtqKjinKi5o3kZW/a5DLm9YP55bxIdXqhDV9e6peBFHxeQ==
 
-"@xapp/stentor-actions-on-google@1.18.89":
-  version "1.18.89"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-actions-on-google/-/stentor-actions-on-google-1.18.89.tgz#c2b3c7f41d4effdd7fb2da35f73453c3d6e2c79e"
-  integrity sha512-DGQUQxLyVmF+lO43usBLb0LdJgPmW2dcbu5SwHC3qGm4m1iHrTo6v/n2gJTqH13XnCjCwiV6fU4DG4Pv4EpCvQ==
+"@xapp/stentor-actions-on-google@1.18.91":
+  version "1.18.91"
+  resolved "https://registry.yarnpkg.com/@xapp/stentor-actions-on-google/-/stentor-actions-on-google-1.18.91.tgz#13a2d125e10ae5d1dee1757d4973717b7f201fd1"
+  integrity sha512-twBUrITR/OCBdgs11cGA5DAbJo/dkdH9Tk3iWahCOY+iPH9ofnUEdqiYwC243ahrZJIzVm9LkdgB+lMBaXCypw==
   dependencies:
     "@xapp/patterns" "1.18.77"
     actions-on-google "2.12.0"
@@ -1509,14 +1509,14 @@
   dependencies:
     stentor-utils "1.23.11"
 
-"@xapp/stentor-dialogflow@1.18.89":
-  version "1.18.89"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-dialogflow/-/stentor-dialogflow-1.18.89.tgz#c91df8253fa5133e104906ee59dcfb39041891be"
-  integrity sha512-03sSCuvstva6q/bi5AEjB6xF+rJf9vo0pU05m/Q2dBzGHKs/1+bhlBFSi+LWuclLdUSEEIJqcRqSfoGD3CtViQ==
+"@xapp/stentor-dialogflow@1.18.91":
+  version "1.18.91"
+  resolved "https://registry.yarnpkg.com/@xapp/stentor-dialogflow/-/stentor-dialogflow-1.18.91.tgz#001a0afb0d3f782cecef4711353f930b46e3ce09"
+  integrity sha512-N5CynXXyzC7sDpYe2VyCnH/WaS0owVMczlOZrQx08n9dYhEaTXZVmr3qmHTOjsx9v2cqGB5AoQgIaTCa60MQiQ==
   dependencies:
     "@types/dialogflow" "0.11.0"
     "@xapp/patterns" "1.18.77"
-    "@xapp/stentor-actions-on-google" "1.18.89"
+    "@xapp/stentor-actions-on-google" "1.18.91"
     "@xapp/stentor-app" "1.18.89"
     actions-on-google "2.12.0"
     dialogflow "0.14.1"

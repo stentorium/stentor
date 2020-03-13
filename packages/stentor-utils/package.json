@@ -37,7 +37,7 @@
     "blueimp-md5": "2.12.0",
     "chrono-node": "1.4.3",
     "date-fns": "2.8.1",
-    "dyno-item-size": "0.3.1",
+    "dyno-item-size": "0.3.3",
     "fuse.js": "3.4.5",
     "lodash.clonedeep": "4.5.0",
     "lodash.forown": "4.4.0",

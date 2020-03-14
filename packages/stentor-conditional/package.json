@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.23.11",
+  "version": "1.23.17",
   "description": "Conditionals for :mega: stentor",
   "types": "lib/index",
   "typings": "lib/index",
@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "stentor-logger": "1.22.24",
-    "stentor-models": "1.23.11",
+    "stentor-models": "1.23.17",
     "vm2": "3.8.4"
   },
   "peerDependencies": {

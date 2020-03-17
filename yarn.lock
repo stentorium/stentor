@@ -1472,23 +1472,23 @@
     stentor-response "1.23.24"
     stentor-utils "1.23.24"
 
-"@xapp/stentor-alexa-lib@1.18.98":
-  version "1.18.98"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-alexa-lib/-/stentor-alexa-lib-1.18.98.tgz#0c8e4650d43a68f6f2b55d9a7e759bc049287ca8"
-  integrity sha512-6eYj5IZOrc1iQYp7USWoo2+a7yKQyhnHH2cahj4TKbovAKK1CTofCW1Os4dod/HQsD3coKhJUzWvpqlzduHU4w==
+"@xapp/stentor-alexa-lib@1.18.106":
+  version "1.18.106"
+  resolved "https://registry.yarnpkg.com/@xapp/stentor-alexa-lib/-/stentor-alexa-lib-1.18.106.tgz#c3d7a343d11bd3bdfbc08eee19be68fb63843a71"
+  integrity sha512-rNwR5hVFosEAewzzdi3Om+d9Gl1Ug11CqhBWe/+eghtethiM06Ol75bTFjaMISY+O/iarpOhGnsMlck+Z2+02Q==
   dependencies:
-    ask-sdk-model "1.26.0"
+    ask-sdk-model "1.27.0"
 
-"@xapp/stentor-alexa@1.18.104":
-  version "1.18.104"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-alexa/-/stentor-alexa-1.18.104.tgz#b083010a2badc8817eecdb81b880298d1cb4e846"
-  integrity sha512-GVS6L+Tdt3A7nAkgUf/rAcXTzm6eE8NLlZpg5mjYNTbJv4cu09iSMP4ocO41cVlwjHTsxzZijydAcDRh2Qn3yw==
+"@xapp/stentor-alexa@1.18.106":
+  version "1.18.106"
+  resolved "https://registry.yarnpkg.com/@xapp/stentor-alexa/-/stentor-alexa-1.18.106.tgz#e28365f360cb907572c61177e1f7567c7b4bc784"
+  integrity sha512-pe8fScre5IPiXzvX3BrNlxQx+n2X+kVfO7T0QR7c+cwtNsJaHvmUxNH5XGM7ZnzFVmTohQV0TFN2Z/sj8AJK5w==
   dependencies:
     "@xapp/patterns" "1.18.96"
-    "@xapp/stentor-alexa-lib" "1.18.98"
+    "@xapp/stentor-alexa-lib" "1.18.106"
     alexa-verifier "2.0.1"
     amazon-date-parser "0.3.0"
-    ask-sdk-model "1.26.0"
+    ask-sdk-model "1.27.0"
     isomorphic-fetch "2.2.1"
     jsonpath "1.0.2"
     lodash.intersection "4.4.0"
@@ -1808,10 +1808,10 @@ asap@^2.0.0:
   resolved "https://registry.yarnpkg.com/asap/-/asap-2.0.6.tgz#e50347611d7e690943208bbdafebcbc2fb866d46"
   integrity sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=
 
-ask-sdk-model@1.26.0:
-  version "1.26.0"
-  resolved "https://registry.yarnpkg.com/ask-sdk-model/-/ask-sdk-model-1.26.0.tgz#28dde85c887be2b7c355eab26d377cecbe0e0bad"
-  integrity sha512-Flkw4rowQtuaSdUON6/OLml85lZMJQRsac9AtF+pKcp06gmiNX0x8x4/u4WBbzBUd5PoFoYBs79i3VnmQ+Vn5w==
+ask-sdk-model@1.27.0:
+  version "1.27.0"
+  resolved "https://registry.yarnpkg.com/ask-sdk-model/-/ask-sdk-model-1.27.0.tgz#ecd8139f716ce49f1d71d3c3bd3f53560039b38d"
+  integrity sha512-LnS/RDEVHcrXoXIBo3UljQUGOn/xCdKM7GIYHj123mpCFqtNW5BuStUUAEHnYsN+vIxOiYub0yj1x0vBmDOAPA==
 
 asn1@~0.2.3:
   version "0.2.4"

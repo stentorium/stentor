@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.23.27",
+  "version": "1.23.28",
   "description": "SDK for building omni-channel conversational assistants",
   "types": "lib/index",
   "typings": "lib/index",
@@ -47,7 +47,7 @@
     "stentor-models": "1.23.27",
     "stentor-request": "1.23.27",
     "stentor-response": "1.23.27",
-    "stentor-runtime": "1.23.27",
+    "stentor-runtime": "1.23.28",
     "stentor-service-event": "1.23.27",
     "stentor-service-ovai": "1.23.27",
     "stentor-utils": "1.23.27"

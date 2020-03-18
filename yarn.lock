@@ -1458,34 +1458,34 @@
   resolved "https://registry.yarnpkg.com/@xapp/patterns/-/patterns-1.18.96.tgz#143c058237838c153b328154a8f9087530f803b6"
   integrity sha512-4XddKdhNZ3DjNHN3tFLnAnWV6onZ0etCfb4Zz03q/XzuFlEcnEtb6yEYPzGGiolQIeGPhlWp9gRw64eHci4pIg==
 
-"@xapp/stentor-actions-on-google@1.18.104":
-  version "1.18.104"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-actions-on-google/-/stentor-actions-on-google-1.18.104.tgz#593ca38d0c808e6148c7016ce6f0de6decf8b87c"
-  integrity sha512-ijR9MTQc/ZojyURPJQgldcFUynFg6ZgU5e5nsiWPxdOWpxKh+xkHoVSH5tVhl4WARIIoxHS32fYw7mYlWFyNRQ==
+"@xapp/stentor-actions-on-google@1.18.108":
+  version "1.18.108"
+  resolved "https://registry.yarnpkg.com/@xapp/stentor-actions-on-google/-/stentor-actions-on-google-1.18.108.tgz#66d547dbb066f9eef4c3e47a8f42ab0f1acb8fca"
+  integrity sha512-cN0QSmtVAqTsdgmB0653s+Eno8WNnEa0bEy9xt7mkUF9hbIYz/8gatR5c14HKgNOGN4mlgRehsi5k1t4ZX2dNw==
   dependencies:
     "@xapp/patterns" "1.18.96"
     actions-on-google "2.12.0"
-    stentor-constants "1.23.19"
-    stentor-interaction-model "1.23.24"
-    stentor-media "1.23.24"
-    stentor-request "1.23.24"
-    stentor-response "1.23.24"
-    stentor-utils "1.23.24"
+    stentor-constants "1.23.27"
+    stentor-interaction-model "1.23.27"
+    stentor-media "1.23.27"
+    stentor-request "1.23.27"
+    stentor-response "1.23.27"
+    stentor-utils "1.23.27"
 
-"@xapp/stentor-alexa-lib@1.18.106":
-  version "1.18.106"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-alexa-lib/-/stentor-alexa-lib-1.18.106.tgz#c3d7a343d11bd3bdfbc08eee19be68fb63843a71"
-  integrity sha512-rNwR5hVFosEAewzzdi3Om+d9Gl1Ug11CqhBWe/+eghtethiM06Ol75bTFjaMISY+O/iarpOhGnsMlck+Z2+02Q==
+"@xapp/stentor-alexa-lib@1.18.108":
+  version "1.18.108"
+  resolved "https://registry.yarnpkg.com/@xapp/stentor-alexa-lib/-/stentor-alexa-lib-1.18.108.tgz#043b2938a6d2335c1a53b9f5c982e0f854441914"
+  integrity sha512-nY+XxrC6uyN3wKHWB6h25kGu4oCBTW2jC1noH4N/I4aQMoV3fr5ws4RyTDeyXZfIxorKjsG4xWCXQx0uG/OB3g==
   dependencies:
     ask-sdk-model "1.27.0"
 
-"@xapp/stentor-alexa@1.18.106":
-  version "1.18.106"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-alexa/-/stentor-alexa-1.18.106.tgz#e28365f360cb907572c61177e1f7567c7b4bc784"
-  integrity sha512-pe8fScre5IPiXzvX3BrNlxQx+n2X+kVfO7T0QR7c+cwtNsJaHvmUxNH5XGM7ZnzFVmTohQV0TFN2Z/sj8AJK5w==
+"@xapp/stentor-alexa@1.18.108":
+  version "1.18.108"
+  resolved "https://registry.yarnpkg.com/@xapp/stentor-alexa/-/stentor-alexa-1.18.108.tgz#168ba46ce1955b1417ce8a436d6dc772e2df0043"
+  integrity sha512-xAwWCXcei2h+/LXAsqeIYhbd8TOOVaSUwBNIK2f4AaYgMWOtMloHblEPNExwl5HDtKiSSQot6lHQ4SPahDPv8w==
   dependencies:
     "@xapp/patterns" "1.18.96"
-    "@xapp/stentor-alexa-lib" "1.18.106"
+    "@xapp/stentor-alexa-lib" "1.18.108"
     alexa-verifier "2.0.1"
     amazon-date-parser "0.3.0"
     ask-sdk-model "1.27.0"
@@ -1494,39 +1494,39 @@
     lodash.intersection "4.4.0"
     lodash.invert "4.3.0"
     moment "2.24.0"
-    stentor-constants "1.23.19"
-    stentor-interaction-model "1.23.24"
-    stentor-locales "1.23.24"
-    stentor-media "1.23.24"
-    stentor-request "1.23.24"
-    stentor-response "1.23.24"
-    stentor-utils "1.23.24"
+    stentor-constants "1.23.27"
+    stentor-interaction-model "1.23.27"
+    stentor-locales "1.23.27"
+    stentor-media "1.23.27"
+    stentor-request "1.23.27"
+    stentor-response "1.23.27"
+    stentor-utils "1.23.27"
 
-"@xapp/stentor-app@1.18.104":
-  version "1.18.104"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-app/-/stentor-app-1.18.104.tgz#c878f82b3f561da9a4678575a10a3c951186a447"
-  integrity sha512-F5ROshFjLF/TuJNau4V/IeHLmFIbAhG5IAsjnhYkormeo5f6/yE/J02DR+iZZYCHqaTOoV/SGQLH3BAPmgyYRA==
+"@xapp/stentor-app@1.18.108":
+  version "1.18.108"
+  resolved "https://registry.yarnpkg.com/@xapp/stentor-app/-/stentor-app-1.18.108.tgz#177df5a142a6042afec59de8c3457fcf08e7b4a0"
+  integrity sha512-kwS++nSgPbhCZLjsVpUP58NZtz2FoTAtI+jXUeOzRm8WB9hS8pwmp9Ga4gEjHPxYarqQfXneLEvez/bwTTYeLQ==
   dependencies:
-    stentor-utils "1.23.24"
+    stentor-utils "1.23.27"
 
-"@xapp/stentor-dialogflow@1.18.104":
-  version "1.18.104"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-dialogflow/-/stentor-dialogflow-1.18.104.tgz#a8004a6e7cb91206a0b47fc3ebc31395da626a32"
-  integrity sha512-8e5wrWGCbM3xpgJEX9i7cI+SsQjOyKau20dLgN6wMR6WinALZf2/nFlNl/HAwBhwDUHBfE+4xCvH1ImkWNtJCA==
+"@xapp/stentor-dialogflow@1.18.108":
+  version "1.18.108"
+  resolved "https://registry.yarnpkg.com/@xapp/stentor-dialogflow/-/stentor-dialogflow-1.18.108.tgz#05b5e4bb81edfc9764eb69a235edc83cc1cd2d73"
+  integrity sha512-urvL7/40fjH3bU84oKjq9jqmNOgKzkoq4qlNku4YkdjCiHpwpGpq7XES797vpLUmMPIxFUrilOXZkHqRidnqww==
   dependencies:
     "@types/dialogflow" "0.11.0"
     "@xapp/patterns" "1.18.96"
-    "@xapp/stentor-actions-on-google" "1.18.104"
-    "@xapp/stentor-app" "1.18.104"
+    "@xapp/stentor-actions-on-google" "1.18.108"
+    "@xapp/stentor-app" "1.18.108"
     actions-on-google "2.12.0"
     dialogflow "0.14.1"
-    stentor-interaction-model "1.23.24"
-    stentor-locales "1.23.24"
-    stentor-logger "1.23.24"
-    stentor-media "1.23.24"
-    stentor-request "1.23.24"
-    stentor-response "1.23.24"
-    stentor-utils "1.23.24"
+    stentor-interaction-model "1.23.27"
+    stentor-locales "1.23.27"
+    stentor-logger "1.23.27"
+    stentor-media "1.23.27"
+    stentor-request "1.23.27"
+    stentor-response "1.23.27"
+    stentor-utils "1.23.27"
 
 "@zkochan/cmd-shim@^3.1.0":
   version "3.1.0"

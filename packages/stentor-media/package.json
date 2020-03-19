@@ -18,7 +18,7 @@
     "@types/chai": "4.2.11",
     "@types/mocha": "7.0.2",
     "@types/moment-timezone": "0.5.12",
-    "@types/node": "13.9.1",
+    "@types/node": "13.9.2",
     "@types/sinon": "7.5.2",
     "@xapp/config": "0.2.3",
     "chai": "4.2.0",

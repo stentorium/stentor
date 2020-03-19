@@ -3,6 +3,7 @@ export * from "./isActionable";
 export * from "./isActiveWithin";
 export * from "./isContextual";
 export * from "./isFirstTime";
+export * from "./isGlobalHandler";
 export * from "./isHandler";
 export * from "./isHaveNotSeenWithin";
 export * from "./isIntent";

@@ -3,4 +3,5 @@ export * from "./error";
 export * from "./http";
 export * from "./regex";
 export * from "./responses";
+export * from "./requests";
 export * from "./string";

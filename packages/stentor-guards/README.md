@@ -1,3 +1,3 @@
-## stentor-response
+## stentor-guards
 
-Response for :mega: stentor
+Common type guards for :mega: stentor.

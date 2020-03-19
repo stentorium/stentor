@@ -16,7 +16,6 @@ import {
     hasForwards,
     hasReprompt,
     hasUtterances,
-    isGlobalHandler,
     responsesContain,
     toMap
 } from "../Util";
@@ -273,29 +272,6 @@ describe("#getMatchedSlotData()", () => {
                 const request = new IntentRequestBuilder().withSlots(requestSlots).build();
                 expect(getMatchedSlotData(request, slotName, slots, slotTypeMap)).to.equal("data");
             });
-        });
-    });
-});
-
-describe("#isGlobalHandler()", () => {
-    describe("when passed undefined", () => {
-        it("returns false", () => {
-            expect(isGlobalHandler(undefined)).to.be.false;
-        });
-    });
-    describe("when passed a normal handler", () => {
-        it("returns false", () => {
-            expect(isGlobalHandler(anotherHandler)).to.be.false;
-        });
-    });
-    describe("when passed a global handler", () => {
-        it("returns true", () => {
-            expect(isGlobalHandler(globalHandler)).to.be.true;
-        });
-    });
-    describe("when passed a LaunchRequest", () => {
-        it("returns true", () => {
-            expect(isGlobalHandler(launchRequest)).to.be.true;
         });
     });
 });

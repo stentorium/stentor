@@ -6,11 +6,12 @@ import * as sinonChai from "sinon-chai";
 chai.use(sinonChai);
 const expect = chai.expect;
 
+import { CONVERSATION_HANDLER_TYPE } from "stentor-constants";
 import { ContextBuilder } from "stentor-context";
 import { Context, Device, Handler, Storage } from "stentor-models";
 import { IntentRequestBuilder } from "stentor-request";
 import { ResponseBuilder } from "stentor-response";
-import { CONVERSATION_HANDLER_TYPE, ConversationHandler } from "../ConversationHandler";
+import { ConversationHandler } from "../ConversationHandler";
 
 describe("ConversationHandler", () => {
     const appId = "appId";

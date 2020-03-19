@@ -4,6 +4,6 @@
     "rootDir": "src",
     "outDir": "lib"
   },
-  "include": ["src", "../stentor-guards/src/Guards.ts"],
+  "include": ["src", "../stentor-response/src/determineResponse.ts"],
   "exclude": ["node_modules", "src/**/__test__/*"]
 }

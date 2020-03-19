@@ -4,9 +4,6 @@ import { compare, random } from "stentor-utils";
 import * as jp from "jsonpath";
 import { isJSONDependable } from "./Guards";
 
-
-
-
 /**
  * Based on the provided request and context, it finds the a JSON dependent match or undefined if not match is found
  *

@@ -2,33 +2,36 @@
 import { ContextBuilder, ContextFactory } from "stentor-context";
 export { ContextBuilder, ContextFactory };
 
+import { determine } from "stentor-determiner";
+export { determine };
+
 import {
     AbstractHandler,
-    compileResponse,
     ConversationHandler,
-    determine,
     determinePath,
-    determineResponse,
-    determineSegment,
     getMatchedSlotData,
-    getResponse,
     getSlotType
 } from "stentor-handler";
 export {
     AbstractHandler,
-    compileResponse,
     ConversationHandler,
-    determine,
     determinePath,
-    determineResponse,
-    determineSegment,
     getMatchedSlotData,
-    getResponse,
     getSlotType
 };
 
-import { HandlerFactory, HandlersArray, HandlersKeyValue, HandlersMap } from "stentor-handler-factory";
-export { HandlerFactory, HandlersArray, HandlersKeyValue, HandlersMap };
+import {
+    HandlerFactory,
+    HandlersArray,
+    HandlersKeyValue,
+    HandlersMap
+} from "stentor-handler-factory";
+export {
+    HandlerFactory,
+    HandlersArray,
+    HandlersKeyValue,
+    HandlersMap
+};
 
 import {
     Channel,
@@ -120,8 +123,22 @@ export {
     SessionEndedRequestBuilder
 };
 
-import { concatResponseOutput, ResponseBuilder } from "stentor-response";
-export { concatResponseOutput, ResponseBuilder };
+import {
+    compileResponse,
+    concatResponseOutput,
+    determineResponse,
+    determineSegment,
+    getResponse,
+    ResponseBuilder
+} from "stentor-response";
+export {
+    compileResponse,
+    concatResponseOutput,
+    determineResponse,
+    determineSegment,
+    getResponse,
+    ResponseBuilder
+};
 
 import {
     dessmlify,

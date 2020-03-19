@@ -1,3 +1,3 @@
-## stentor-context
+## stentor-determiner
 
-Context for stentor
+Determine the best possible option from a list based on incoming request and current context.

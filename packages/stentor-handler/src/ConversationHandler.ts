@@ -2,10 +2,6 @@
 import { Context, Request } from "stentor-models";
 import { AbstractHandler } from "./AbstractHandler";
 
-export type ConversationHandlerType = "InSessionIntent";
-
-export const CONVERSATION_HANDLER_TYPE: ConversationHandlerType = "InSessionIntent";
-
 /**
  * The most basic implementation of an abstract handler, the conversation handler
  * facilitates basic back and forth, request & response, with users.

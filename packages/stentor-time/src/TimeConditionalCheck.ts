@@ -3,7 +3,7 @@ import * as Moment from "moment";
 import { extendMoment } from "moment-range";
 import { log } from "stentor-logger";
 import { ConditionalCheck, TimeContextual, DurationFormat, Schedulable } from "stentor-models";
-import { isTimeContextual } from "./Guards";
+import { isTimeContextual } from "stentor-guards";
 import { findTimeContextualMatch } from "./findTimeContextualMatch";
 import { findSchedulableMatch } from "./findSchedulableMatch";
 

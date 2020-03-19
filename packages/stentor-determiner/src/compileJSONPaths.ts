@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { TEMPLATE_REGEX } from "stentor-constants";
 import { ResponseOutput } from "stentor-models";
 import * as jp from "jsonpath";
-import { TEMPLATE_REGEX } from "./Constants";
 
 type ResponseOutputKeysOnly = Pick<ResponseOutput, "ssml" | "displayText" | "textToSpeech">;
 

@@ -1,12 +1,11 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { BASE_HANDLER_TYPE, CONVERSATION_HANDLER_TYPE, DELEGATING_HANDLER_TYPE } from "stentor-constants";
 import { log } from "stentor-logger";
 import {
     AbstractHandler,
-    BASE_HANDLER_TYPE,
-    CONVERSATION_HANDLER_TYPE,
     ConversationHandler
 } from "stentor-handler";
-import { DELEGATING_HANDLER_TYPE, DelegatingHandler, isDelegatingHandler } from "stentor-handler-delegating";
+import { DelegatingHandler, isDelegatingHandler } from "stentor-handler-delegating";
 import { Context, Handler, HandlerDelegates, Request } from "stentor-models";
 import { keyFromRequest } from "stentor-request";
 import { existsAndNotEmpty } from "stentor-utils";

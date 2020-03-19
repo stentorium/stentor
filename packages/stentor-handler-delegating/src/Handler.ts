@@ -4,6 +4,7 @@ import {
     Content,
     Context,
     DelegatedHandlerMethod,
+    DelegatingHandlerType,
     DelegatedRequestMethod,
     HandlerDelegates,
     Request
@@ -11,7 +12,6 @@ import {
 import { keyFromRequest } from "stentor-request";
 
 import { DelegatingData } from "./Data";
-import { DelegatingHandlerType } from "./Types";
 
 /**
  * This handler can call registered methods outside Stentor.

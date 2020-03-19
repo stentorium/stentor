@@ -1,6 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { Context, Request, ResponseSegment } from "stentor-models";
-import { determine } from "./determine";
+import { determine } from "stentor-determiner";
 /**
  * Determine which segment is the best based on the provided list of segments and context.
  *

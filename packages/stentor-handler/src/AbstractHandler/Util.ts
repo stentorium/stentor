@@ -1,9 +1,9 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { isHandler } from "stentor-guards";
 import { Handler, Intent, Request, RequestSlot, Slot, SlotTypeMap } from "stentor-models";
 import { hasSlots, INPUT_UNKNOWN_ID, isIntentRequest, LAUNCH_REQUEST_ID } from "stentor-request";
 import { dessmlify, isValidSSML, matchRequestSlotToSlotTypeValue, ssmlify } from "stentor-utils";
 import { isExecutablePath } from "../Path";
-import { isHandler } from "./Guards";
 
 /**
  * Returns the slot type for the given slot name.

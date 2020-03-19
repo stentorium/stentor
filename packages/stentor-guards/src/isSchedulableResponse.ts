@@ -1,4 +1,6 @@
-
+/*! Copyright (c) 2019, XAPPmedia */
+import { Response, SchedulableResponse } from "stentor-models";
+import { isScheduled } from "./isScheduled";
 
 /**
  * Type guard to determine if the Response is a SchedulableResponse

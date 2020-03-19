@@ -1,8 +1,8 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { TEMPLATE_REGEX } from "stentor-constants";
 import { localize } from "stentor-locales";
 import { Context, Request, ResponseOutput, ResponseSegment, ResponseSegmentsMap } from "stentor-models";
 import { dessmlify } from "stentor-utils";
-import { TEMPLATE_REGEX } from "./Constants";
 import { determineSegment } from "./determineSegment";
 
 type ResponseOutputKeysOnly = Pick<ResponseOutput, "ssml" | "displayText" | "textToSpeech">;

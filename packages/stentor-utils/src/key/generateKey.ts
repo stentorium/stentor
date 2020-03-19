@@ -1,5 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { existsAndNotEmpty } from "stentor-utils";
+import { existsAndNotEmpty } from "../array";
 import { CATCH_ALL_REGEX } from "./Constants";
 import { KeyDescription } from "./KeyDescription";
 

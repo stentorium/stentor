@@ -1,5 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { ConditionalDeterminer } from "stentor-conditional";
+import { isTimeContextual } from "stentor-guards";
 import { findSlotDependentMatch, isSlotDependable, SlotConditionalCheck } from "stentor-interaction-model";
 import { log } from "stentor-logger";
 import {
@@ -25,7 +26,7 @@ import {
     hasSlots
 } from "stentor-request";
 import { findStorageDependentMatch, isStorageDependable } from "stentor-storage";
-import { findTimeContextualMatch, isTimeContextual, TimeConditionalCheck } from "stentor-time";
+import { findTimeContextualMatch, TimeConditionalCheck } from "stentor-time";
 import { random, existsAndNotEmpty } from "stentor-utils";
 import { findJSONDependentMatch, JSONConditionalCheck } from "./findJSONDependentMatch";
 import { isJSONDependable, isConditional } from "./Guards";

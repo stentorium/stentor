@@ -1,8 +1,8 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { expect } from "chai";
-import { isActionable } from "../Guards";
+import { isActionable } from "../isActionable";
 
-describe("#isActionable()", () => {
+describe(`#${isActionable.name}()`, () => {
     describe("when passed undefined", () => {
         it("returns false", () => {
             expect(isActionable(undefined)).to.be.false;

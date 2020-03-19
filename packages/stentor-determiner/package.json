@@ -28,10 +28,15 @@
     "typescript": "3.8.3"
   },
   "dependencies": {
-    "stentor-request":"1.23.34",
+    "stentor-conditional": "1.23.34",
+    "stentor-constants": "1.23.34",
+    "stentor-guards": "1.23.34",
+    "stentor-interaction-model": "1.23.34",
+    "stentor-logger": "1.23.34",
+    "stentor-request": "1.23.34",
     "stentor-storage": "1.23.34",
-    "stentor-time":"1.23.34",
-    "stentor-utils":"1.23.34"
+    "stentor-time": "1.23.34",
+    "stentor-utils": "1.23.34"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

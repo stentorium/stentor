@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { compileJSONPaths } from "stentor-determiner";
 import { localize } from "stentor-locales";
 import { Context, Request, Response } from "stentor-models";
-import { compileJSONPaths } from "./compileJSONPaths";
 import { compileSegments } from "./compileSegments";
 
 /**

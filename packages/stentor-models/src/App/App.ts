@@ -4,12 +4,17 @@ import { ImageSpecification } from "../Display";
 import { Locale, Localizable } from "../Locale";
 import { Location } from "../Location";
 import { NLUData } from "../NLU";
-import { IPRights } from "../Organization";
-import { TemplateType } from "../Template";
 import { AppDataStreamsMap } from "./AppDataStreams";
 import { AppEndpointMap } from "./AppEndpoint";
 import { AppPlatformDataMap } from "./AppPlatformData";
 import { AppStatus } from "./AppStatus";
+
+export interface FullAppStatus extends AppStatus {
+    /**
+     * History of the app's status
+     */
+    statusHistory?: AppStatus[];
+}
 
 /**
  * An app locale is a description of an app as it will appear to users in other countries.
@@ -31,13 +36,6 @@ export type LocaleSpecificApp = Partial<
         | "privacyPolicyUrl"
     >
 >;
-
-export interface FullAppStatus extends AppStatus {
-    /**
-     * History of the app's status
-     */
-    statusHistory?: AppStatus[];
-}
 
 export interface AppRuntimeData {
     /**
@@ -62,17 +60,9 @@ export interface App extends Localizable<LocaleSpecificApp> {
      */
     name: string;
     /**
-     * The ID of the organization the app belongs to
-     */
-    organizationId: string;
-    /**
      * The ID for the application
      */
     appId: string;
-    /**
-     * Current status of the app
-     */
-    status?: FullAppStatus;
     /**
      * The Alexa skill identifier.
      *
@@ -103,12 +93,6 @@ export interface App extends Localizable<LocaleSpecificApp> {
      * @deprecated Use channels instead
      */
     dialogflowDeveloperToken?: string;
-    /**
-     * Type of template the app and its intents
-     * adhere to.
-     *
-     */
-    templateType?: TemplateType;
     /**
      * The invocation name.
      *
@@ -233,24 +217,6 @@ export interface App extends Localizable<LocaleSpecificApp> {
      * Physical location associated with the app.
      */
     location?: Location;
-    /**
-     * The subscription ID that is linked to this app.
-     *
-     * @deprecated Will be moving to OVAI specific App model
-     */
-    stripeSubscriptionId?: string;
-    /**
-     * Allows app-specific overriding of IPRights
-     *
-     * @deprecated Will be moving to OVAI specific App model
-     */
-    ipRights?: IPRights;
-    /**
-     * Allows stentor_admins to view and add notes to apps for internal use
-     *
-     * @deprecated Will be moving to OVAI specific App model
-     */
-    internalNotes?: string;
     /**
      * The type of the account linking. This tells us how to redeem the token for PII.
      *

@@ -8,6 +8,7 @@ export * from "./error";
 export * from "./hash";
 export * from "./id";
 export * from "./json";
+export * from "./key";
 export * from "./markup";
 export * from "./matcher";
 export * from "./net";

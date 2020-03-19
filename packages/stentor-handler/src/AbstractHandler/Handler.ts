@@ -1,6 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { log } from "stentor-logger";
+import { isActionable } from "stentor-guards";
 import { REPEAT_INTENT } from "stentor-interaction-model";
+import { log } from "stentor-logger";
 import {
     Content,
     Context,
@@ -16,11 +17,10 @@ import {
     UserDataType
 } from "stentor-models";
 import { INPUT_UNKNOWN_ID, keyFromRequest } from "stentor-request";
+import { determineResponse, getResponse } from "stentor-response";
 import { manipulateStorage } from "stentor-storage";
 import { concatText, dessmlify, findValueForKey } from "stentor-utils";
-import { isActionable } from "../Action";
-import { determineResponse } from "../determineResponse";
-import { getResponse } from "../getResponse";
+
 import { determinePath } from "../Path";
 import { INPUT_UNKNOWN_STRATEGY_GOOGLE, INPUT_UNKNOWN_STRATEGY_REPROMPT } from "./Constants";
 

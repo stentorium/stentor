@@ -41,6 +41,7 @@
     "dotenv": "8.2.0",
     "stentor-constants": "1.23.34",
     "stentor-context": "1.23.34",
+    "stentor-determiner": "1.23.34",
     "stentor-handler": "1.23.34",
     "stentor-handler-factory": "1.23.34",
     "stentor-logger": "1.23.34",

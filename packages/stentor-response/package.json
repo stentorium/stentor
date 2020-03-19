@@ -35,6 +35,7 @@
     "jsonpath": "1.0.2",
     "lodash.template": "4.5.0",
     "moment": "2.24.0",
+    "stentor-determiner": "1.23.34",
     "stentor-locales": "1.23.34",
     "stentor-media": "1.23.34",
     "stentor-request": "1.23.34",

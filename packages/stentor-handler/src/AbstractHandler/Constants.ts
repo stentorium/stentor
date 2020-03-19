@@ -5,25 +5,6 @@ import {
     InputUnknownStrategyReprompt
 } from "stentor-models";
 
-import { BaseHandlerType } from "./Types";
-
-/**
- * DO NOT CHANGE THE VALUES OF THE STRING CONSTANTS
- * THINGS WILL BREAK BECAUSE THEY ALIGN TO STRINGS
- * IN THE DATABASE
- */
-
-// Audio Player
-
-// Media
-
-// In Session
-export const BASE_HANDLER_TYPE: BaseHandlerType = "HandlerIntent";
-
-// Logic
-
-// Custom
-
 // InputUnknown Strategies
 
 /* Calls the global InputUnknown handler */

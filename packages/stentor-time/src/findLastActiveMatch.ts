@@ -1,8 +1,8 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { isActiveWithin, isFirstTime, isHaveNotSeenWithin } from "stentor-guards";
 import { LastActive } from "stentor-models";
 import * as Moment from "moment";
 import { DateRange, extendMoment } from "moment-range";
-import { isActiveWithin, isFirstTime, isHaveNotSeenWithin } from "./Guards";
 
 // Add the range plugin to moment
 const moment = extendMoment(Moment);

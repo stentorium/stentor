@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { determine } from "stentor-determiner";
 import { log } from "stentor-logger";
 import { Context, ExecutablePath, Path, Request } from "stentor-models";
-import { determine } from "../determine";
 import { compileHistoricalPath } from "./compileHistoricalPath";
 import { compilePreviousHandlerPath } from "./compilePreviousHandlerPath";
 import { isHistoricalPath, isPreviousHandlerPath } from "./Guards";

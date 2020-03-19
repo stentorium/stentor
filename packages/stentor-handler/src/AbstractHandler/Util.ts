@@ -1,9 +1,9 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { isHandler } from "stentor-guards";
 import { Handler, Intent, Request, RequestSlot, Slot, SlotTypeMap } from "stentor-models";
-import { hasSlots, INPUT_UNKNOWN_ID, isIntentRequest, LAUNCH_REQUEST_ID } from "stentor-request";
+import { hasSlots, isIntentRequest } from "stentor-request";
 import { dessmlify, isValidSSML, matchRequestSlotToSlotTypeValue, ssmlify } from "stentor-utils";
 import { isExecutablePath } from "../Path";
-import { isHandler } from "./Guards";
 
 /**
  * Returns the slot type for the given slot name.
@@ -80,29 +80,6 @@ export function getMatchedSlotData<T>(
     }
 
     return data;
-}
-
-/**
- * Global handlers have utterances and can be accessed
- * at any time.
- *
- * @export
- * @param {(Intent | Handler)} handler
- * @returns {boolean}
- */
-export function isGlobalHandler(handler: Intent | Handler): boolean {
-    if (!handler) {
-        return false;
-    }
-
-    // LaunchRequests & InputUnknowns are auto global
-    if (handler.intentId === LAUNCH_REQUEST_ID || handler.intentId === INPUT_UNKNOWN_ID) {
-        return true;
-    }
-
-    const isActualHandler: boolean = isHandler(handler);
-    const hasUtterances: boolean = Array.isArray(handler.utterancePatterns) && handler.utterancePatterns.length > 0;
-    return isActualHandler && hasUtterances;
 }
 
 export interface IntentMap {

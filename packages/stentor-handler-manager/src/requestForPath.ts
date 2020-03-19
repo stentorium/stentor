@@ -1,4 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { log } from "stentor-logger";
 import { ExecutablePath, Request } from "stentor-models";
 import {
     INTENT_REQUEST_TYPE,
@@ -32,7 +33,7 @@ export function requestForPath(request: Request, path: ExecutablePath): Request 
             isInputUnknownRequest(request) ||
             isOptionSelectRequest(request)
         ) {
-            console.info(`Setting overrideKey on request to ${path.intentId}`);
+            log().info(`Setting overrideKey on request to ${path.intentId}`);
             request.overrideKey = path.intentId;
         } else {
             console.warn(`Could not update request for a type: START path, passing through original`);

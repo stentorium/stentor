@@ -4,6 +4,7 @@ import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
 
 import { ContextBuilder } from "stentor-context";
+import { BASE_HANDLER_TYPE, OPTION_SELECT_ID, } from "stentor-constants";
 import { HELP_INTENT, STOP_INTENT } from "stentor-interaction-model";
 import {
     Content,
@@ -21,12 +22,11 @@ import {
     InputUnknownRequestBuilder,
     INTENT_REQUEST_TYPE,
     IntentRequestBuilder,
-    OPTION_SELECT_ID,
+
     OptionSelectBuilder
 } from "stentor-request";
 import { ResponseBuilder } from "stentor-response";
 import { createSessionStore } from "stentor-storage";
-import { BASE_HANDLER_TYPE } from "../Constants";
 import { AbstractHandler } from "../Handler";
 
 chai.use(sinonChai);

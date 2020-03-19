@@ -30,6 +30,7 @@
     "typescript": "3.8.3"
   },
   "dependencies": {
+    "stentor-guards": "1.23.34",
     "stentor-handler": "1.23.34",
     "stentor-handler-factory": "1.23.34",
     "stentor-logger": "1.23.34",

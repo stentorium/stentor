@@ -5,5 +5,4 @@ export * from "./findMostSpecificSchedulable";
 export * from "./findSchedulableMatch";
 export * from "./findTimeContextualMatch";
 export * from "./findWithoutSchedule";
-export * from "./Guards";
 export * from "./TimeConditionalCheck";

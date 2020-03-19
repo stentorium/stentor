@@ -7,17 +7,11 @@ import {
     AudioPlayerPlaybackStoppedEvent,
     AudioPlayerRequestType,
     AudioPlayerSystemExceptionEvent,
-    AttachmentRequestID,
-    InputUnknownID,
     InputUnknownRequestType,
     IntentRequestType,
-    KnowledgeAnswerID,
-    LaunchRequestID,
     LaunchRequestType,
     NotificationPermissionRequestType,
-    OptionSelectID,
     OptionSelectRequestType,
-    PermissionGrantID,
     PermissionRequestType,
     PlaybackControlNextEvent,
     PlaybackControlPauseEvent,
@@ -25,19 +19,9 @@ import {
     PlaybackControlPreviousEvent,
     PlaybackControlRequestType,
     SessionEndedRequestType,
-    SignInID,
     SignInRequestType,
     SurfaceChangeRequestType
 } from "stentor-models";
-
-export const LAUNCH_REQUEST_ID: LaunchRequestID = "LaunchRequest";
-export const INPUT_UNKNOWN_ID: InputUnknownID = "InputUnknown";
-
-export const PERMISSION_GRANT_ID: PermissionGrantID = "PermissionGrant";
-export const OPTION_SELECT_ID: OptionSelectID = "OptionSelect";
-export const SIGN_IN_ID: SignInID = "SignIn";
-export const KNOWLEDGE_ANSWER_ID: KnowledgeAnswerID = "KnowledgeAnswer";
-export const ATTACHMENT_REQUEST_ID: AttachmentRequestID = "AttachmentRequest";
 
 // Standard Request Types
 export const LAUNCH_REQUEST_TYPE: LaunchRequestType = "LAUNCH_REQUEST";
@@ -56,8 +40,7 @@ export const NOTIFICATION_PERMISSION_REQUEST_TYPE: NotificationPermissionRequest
 export const AUDIO_PLAYER_PLAYBACK_STARTED_EVENT: AudioPlayerPlaybackStartedEvent = "AudioPlayerPlaybackStarted";
 export const AUDIO_PLAYER_PLAYBACK_FINISHED_EVENT: AudioPlayerPlaybackFinishedEvent = "AudioPlayerPlaybackFinished";
 export const AUDIO_PLAYER_PLAYBACK_STOPPED_EVENT: AudioPlayerPlaybackStoppedEvent = "AudioPlayerPlaybackStopped";
-export const AUDIO_PLAYER_PLAYBACK_NEARLY_FINISHED_EVENT: AudioPlayerPlaybackNearlyFinishedEvent =
-    "AudioPlayerPlaybackNearlyFinished";
+export const AUDIO_PLAYER_PLAYBACK_NEARLY_FINISHED_EVENT: AudioPlayerPlaybackNearlyFinishedEvent = "AudioPlayerPlaybackNearlyFinished";
 export const AUDIO_PLAYER_PLAYBACK_FAILED_EVENT: AudioPlayerPlaybackFailedEvent = "AudioPlayerPlaybackFailed";
 export const AUDIO_PLAYER_SYSTEM_EXCEPTION_EVENT: AudioPlayerSystemExceptionEvent = "AudioPlayerSystemException";
 

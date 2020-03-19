@@ -4,7 +4,8 @@ import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
 
 import { AlexaRequestBuilder, RequestBody } from "@xapp/stentor-alexa";
-import { CONVERSATION_HANDLER_TYPE, ConversationHandler } from "stentor-handler";
+import { CONVERSATION_HANDLER_TYPE } from "stentor-constants";
+import { ConversationHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
 import { HandlerService, RuntimeContext, Storage, UserStorageService } from "stentor-models";
 import { main } from "../index";

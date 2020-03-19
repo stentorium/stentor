@@ -3,7 +3,7 @@
 import { log } from "stentor-logger";
 import { GOODBYE, TROUBLE_WITH_REQUEST } from "stentor-constants";
 import { ContextFactory } from "stentor-context";
-import { AbstractHandler, getResponse } from "stentor-handler";
+import { AbstractHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
 import { HandlerManager } from "stentor-handler-manager";
 import { trimHistory } from "stentor-history";
@@ -28,7 +28,7 @@ import {
     isSessionEndedRequest,
     keyFromRequest
 } from "stentor-request";
-import { canFulfillAll, canFulfillNothing } from "stentor-response";
+import { canFulfillAll, canFulfillNothing, getResponse } from "stentor-response";
 import { EventService, wrapCallback as eventServiceCallbackWrapper } from "stentor-service-event";
 import { existsAndNotEmpty } from "stentor-utils";
 import { ChannelSelector } from "./ChannelSelector";

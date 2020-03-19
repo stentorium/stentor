@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { Scheduled } from "stentor-models";
 import { random } from "stentor-utils";
-import { isScheduled } from "./Guards";
+import { isScheduled } from "stentor-guards";
 
 /**
  * Within a list of objects, some potentially Scheduled, return a random object

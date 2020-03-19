@@ -1,6 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { isScheduled } from "stentor-guards";
 import { Playable, Scheduled } from "stentor-models";
-import { findSchedulableMatch, isScheduled } from "stentor-time";
+import { findSchedulableMatch } from "stentor-time";
 
 import { isPlaylistProps } from "./Guards";
 

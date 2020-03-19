@@ -1,8 +1,8 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { isLastActive, isScheduled } from "stentor-guards";
 import { LastActive, Scheduled, TimeContextual } from "stentor-models";
 import { findLastActiveMatch } from "./findLastActiveMatch";
 import { findSchedulableMatch } from "./findSchedulableMatch";
-import { isLastActive, isScheduled } from "./Guards";
 
 /**
  * Find the best time contextual match from the provided objects.

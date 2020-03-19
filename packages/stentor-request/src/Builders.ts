@@ -1,5 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { AbstractBuilder } from "@xapp/patterns";
+import { LAUNCH_REQUEST_ID, INPUT_UNKNOWN_ID, PERMISSION_GRANT_ID, SIGN_IN_ID, OPTION_SELECT_ID } from "stentor-constants";
 import {
     AudioPlayerEvent,
     AudioPlayerRequest,
@@ -56,7 +57,7 @@ export class LaunchRequestBuilder extends AbstractBuilder<LaunchRequest> {
         const { accessToken, deviceId } = this;
 
         return {
-            intentId: REQUEST.LAUNCH_REQUEST_ID,
+            intentId: LAUNCH_REQUEST_ID,
             type: REQUEST.LAUNCH_REQUEST_TYPE,
             isNewSession: true,
             deviceId,
@@ -98,7 +99,7 @@ export class InputUnknownRequestBuilder extends AbstractBuilder<InputUnknownRequ
 
     public build(): InputUnknownRequest {
         const request: InputUnknownRequest = {
-            intentId: REQUEST.INPUT_UNKNOWN_ID,
+            intentId: INPUT_UNKNOWN_ID,
             type: REQUEST.INPUT_UNKNOWN_REQUEST_TYPE,
             sessionId: "sessionId",
             isNewSession: false,
@@ -410,7 +411,7 @@ export class PermissionGrantBuilder extends AbstractBuilder<PermissionRequest> {
     public build(): PermissionRequest {
         return {
             type: REQUEST.PERMISSION_REQUEST_TYPE,
-            intentId: REQUEST.PERMISSION_GRANT_ID,
+            intentId: PERMISSION_GRANT_ID,
             sessionId: "sessionId",
             granted: true,
             userId: "userId",
@@ -475,7 +476,7 @@ export class OptionSelectBuilder extends AbstractBuilder<OptionSelectRequest> {
     public build(): OptionSelectRequest {
         return {
             type: REQUEST.OPTION_SELECT_REQUEST_TYPE,
-            intentId: REQUEST.OPTION_SELECT_ID,
+            intentId: OPTION_SELECT_ID,
             sessionId: "sessionId",
             token: this.token,
             userId: "userId",
@@ -500,7 +501,7 @@ export class SignInRequestBuilder extends AbstractBuilder<SignInRequest> {
         const { granted } = this;
         return {
             type: REQUEST.SIGN_IN_REQUEST_TYPE,
-            intentId: REQUEST.SIGN_IN_ID,
+            intentId: SIGN_IN_ID,
             sessionId: "sessionId",
             userId: "userId",
             isNewSession: false,

@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "moment-timezone": "0.5.28",
+    "stentor-guards": "1.23.34",
     "stentor-time": "1.23.34",
     "stentor-utils": "1.23.34"
   },

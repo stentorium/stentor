@@ -1,7 +1,8 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { log } from "stentor-logger";
-import { AbstractHandler, isActionable, isHandler } from "stentor-handler";
+import { isActionable, isHandler } from "stentor-guards";
+import { AbstractHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
+import { log } from "stentor-logger";
 import { Context, HandlerService, Request } from "stentor-models";
 import { isIntentRequest, isLaunchRequest, keyFromRequest, isInputUnknownRequest } from "stentor-request";
 import { manipulateStorage } from "stentor-storage";

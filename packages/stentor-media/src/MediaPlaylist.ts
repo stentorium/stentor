@@ -8,9 +8,9 @@ export interface MediaPlaylistProps<T extends PlayableMedia = PlayableMedia> ext
 }
 
 export class MediaPlaylist<T extends PlayableMedia = PlayableMedia> extends Playlist<T> {
-    readonly type: MediaPlaylistType = GENERIC_MEDIA_PLAYLIST;
+    public readonly type: MediaPlaylistType = GENERIC_MEDIA_PLAYLIST;
 
-    constructor(playlist?: T[] | MediaPlaylist<T> | MediaPlaylistProps<T> | PlaylistProps<T> | Playlist<T>) {
+    public constructor(playlist?: T[] | MediaPlaylist<T> | MediaPlaylistProps<T> | PlaylistProps<T> | Playlist<T>) {
         super(playlist);
 
         // Set the prototype explicitly.

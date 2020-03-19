@@ -1,8 +1,8 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { isScheduled } from "stentor-guards";
 import { Scheduled } from "stentor-models";
 import * as moment from "moment-timezone";
 import { findMostSpecificSchedulable } from "./findMostSpecificSchedulable";
-import { isScheduled } from "./Guards";
 import { log } from "stentor-logger";
 
 /**

@@ -1458,10 +1458,10 @@
   resolved "https://registry.yarnpkg.com/@xapp/patterns/-/patterns-1.18.96.tgz#143c058237838c153b328154a8f9087530f803b6"
   integrity sha512-4XddKdhNZ3DjNHN3tFLnAnWV6onZ0etCfb4Zz03q/XzuFlEcnEtb6yEYPzGGiolQIeGPhlWp9gRw64eHci4pIg==
 
-"@xapp/stentor-actions-on-google@1.18.108":
-  version "1.18.108"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-actions-on-google/-/stentor-actions-on-google-1.18.108.tgz#66d547dbb066f9eef4c3e47a8f42ab0f1acb8fca"
-  integrity sha512-cN0QSmtVAqTsdgmB0653s+Eno8WNnEa0bEy9xt7mkUF9hbIYz/8gatR5c14HKgNOGN4mlgRehsi5k1t4ZX2dNw==
+"@xapp/stentor-actions-on-google@1.18.110":
+  version "1.18.110"
+  resolved "https://registry.yarnpkg.com/@xapp/stentor-actions-on-google/-/stentor-actions-on-google-1.18.110.tgz#894a84c72ba3be44761ef6e2a9cd5fcf46cd0c17"
+  integrity sha512-Tkn/s0mgCpobQuhE6Uf72ziEgSunV/Bz1FxwDDe1FEmLTeQ2P/R8dP5muWMVmTYEr+P5eLzD74HiRa1XSG2w2g==
   dependencies:
     "@xapp/patterns" "1.18.96"
     actions-on-google "2.12.0"
@@ -1472,20 +1472,20 @@
     stentor-response "1.23.27"
     stentor-utils "1.23.27"
 
-"@xapp/stentor-alexa-lib@1.18.108":
-  version "1.18.108"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-alexa-lib/-/stentor-alexa-lib-1.18.108.tgz#043b2938a6d2335c1a53b9f5c982e0f854441914"
-  integrity sha512-nY+XxrC6uyN3wKHWB6h25kGu4oCBTW2jC1noH4N/I4aQMoV3fr5ws4RyTDeyXZfIxorKjsG4xWCXQx0uG/OB3g==
+"@xapp/stentor-alexa-lib@1.18.110":
+  version "1.18.110"
+  resolved "https://registry.yarnpkg.com/@xapp/stentor-alexa-lib/-/stentor-alexa-lib-1.18.110.tgz#c04a1dad867f21dd74f0d9f515abf73bc4546658"
+  integrity sha512-hhCKrtXevGEFuz5tEUMyh+TUU9xG47plsm6Q3opuxhDemxqmrA4mpVT2oAEqkLK3GoC/PUgGzZSlYlv47Vf8fg==
   dependencies:
     ask-sdk-model "1.27.0"
 
-"@xapp/stentor-alexa@1.18.108":
-  version "1.18.108"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-alexa/-/stentor-alexa-1.18.108.tgz#168ba46ce1955b1417ce8a436d6dc772e2df0043"
-  integrity sha512-xAwWCXcei2h+/LXAsqeIYhbd8TOOVaSUwBNIK2f4AaYgMWOtMloHblEPNExwl5HDtKiSSQot6lHQ4SPahDPv8w==
+"@xapp/stentor-alexa@1.18.110":
+  version "1.18.110"
+  resolved "https://registry.yarnpkg.com/@xapp/stentor-alexa/-/stentor-alexa-1.18.110.tgz#a97f24ab1e3a98c74f91afc094de8d1b525b088d"
+  integrity sha512-Ff6AWu4Y+6HkakGkSJE7O+t5DLgeRxgoue1fTfpfh3jft6wJlngd3HKoZFFfuvr6AYaqaX3q0T5I5qv/f9NRew==
   dependencies:
     "@xapp/patterns" "1.18.96"
-    "@xapp/stentor-alexa-lib" "1.18.108"
+    "@xapp/stentor-alexa-lib" "1.18.110"
     alexa-verifier "2.0.1"
     amazon-date-parser "0.3.0"
     ask-sdk-model "1.27.0"
@@ -1502,22 +1502,22 @@
     stentor-response "1.23.27"
     stentor-utils "1.23.27"
 
-"@xapp/stentor-app@1.18.108":
-  version "1.18.108"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-app/-/stentor-app-1.18.108.tgz#177df5a142a6042afec59de8c3457fcf08e7b4a0"
-  integrity sha512-kwS++nSgPbhCZLjsVpUP58NZtz2FoTAtI+jXUeOzRm8WB9hS8pwmp9Ga4gEjHPxYarqQfXneLEvez/bwTTYeLQ==
+"@xapp/stentor-app@1.18.110":
+  version "1.18.110"
+  resolved "https://registry.yarnpkg.com/@xapp/stentor-app/-/stentor-app-1.18.110.tgz#3183f264d59af024b6ccb8026c5dfabd319576f4"
+  integrity sha512-ar7mnfMmafzD6z9f4BJCgibvHsJWLsVDmKSGlkYW5wMnpgiQndgDrbTGGM7Ql1D3Jwm/duDwPl8cR+rjqiTXPw==
   dependencies:
     stentor-utils "1.23.27"
 
-"@xapp/stentor-dialogflow@1.18.108":
-  version "1.18.108"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-dialogflow/-/stentor-dialogflow-1.18.108.tgz#05b5e4bb81edfc9764eb69a235edc83cc1cd2d73"
-  integrity sha512-urvL7/40fjH3bU84oKjq9jqmNOgKzkoq4qlNku4YkdjCiHpwpGpq7XES797vpLUmMPIxFUrilOXZkHqRidnqww==
+"@xapp/stentor-dialogflow@1.18.110":
+  version "1.18.110"
+  resolved "https://registry.yarnpkg.com/@xapp/stentor-dialogflow/-/stentor-dialogflow-1.18.110.tgz#2df4f90f2aa772937375f0ffcd50ee33c2a2af4f"
+  integrity sha512-F+YrVtZ1BqMG1R3xvbO7SptVphocRDdBmNCTKxQMQFSTT0/AZNV04RAIGur43CYlyfVuxeZVoOywnQnb78HAaQ==
   dependencies:
     "@types/dialogflow" "0.11.0"
     "@xapp/patterns" "1.18.96"
-    "@xapp/stentor-actions-on-google" "1.18.108"
-    "@xapp/stentor-app" "1.18.108"
+    "@xapp/stentor-actions-on-google" "1.18.110"
+    "@xapp/stentor-app" "1.18.110"
     actions-on-google "2.12.0"
     dialogflow "0.14.1"
     stentor-interaction-model "1.23.27"

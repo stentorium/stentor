@@ -64,6 +64,10 @@ export interface App extends Localizable<LocaleSpecificApp> {
      */
     appId: string;
     /**
+     * @deprecated
+     */
+    organizationId?: string;
+    /**
      * The Alexa skill identifier.
      *
      * @deprecated Use channels instead.

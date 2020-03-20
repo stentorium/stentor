@@ -134,7 +134,8 @@ describe(`#${getDateTimeFrom.name}()`, () => {
                 date: "2019-09-11",
                 // Remember, these tests are running in UTC,
                 // see package.json "test":"TZ=UTC mocha..."
-                time: "22:25:05"
+                time: "22:25:05",
+                tz: "Z"
             });
         });
     });

@@ -22,7 +22,7 @@
     "fetch-mock": "9.2.1",
     "mocha": "7.1.1",
     "stentor-models": "1.23.35",
-    "ts-node": "8.6.2",
+    "ts-node": "8.7.0",
     "typescript": "3.8.3"
   },
   "dependencies": {

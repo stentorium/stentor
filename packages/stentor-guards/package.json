@@ -28,8 +28,7 @@
     "typescript": "3.8.3"
   },
   "dependencies": {
-    "stentor-constants": "1.23.37",
-    "stentor-utils": "1.23.45"
+    "stentor-constants": "1.23.37"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

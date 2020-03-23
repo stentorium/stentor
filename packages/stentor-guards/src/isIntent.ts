@@ -1,8 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { Intent, Handler } from "stentor-models";
-import { existsAndNotEmpty } from "stentor-utils";
 import { isHandler } from "./isHandler";
-
 
 /**
  * Determine if the props are for an Intent
@@ -10,5 +8,5 @@ import { isHandler } from "./isHandler";
  * @public
  */
 export function isIntent(props: Handler | Intent): props is Intent {
-    return !!props && (!isHandler(props) || existsAndNotEmpty((props as Intent).utterancePatterns));
+    return !!props && (!isHandler(props) || (Array.isArray((props as Intent).utterancePatterns) && (props as Intent).utterancePatterns.length > 0));
 }

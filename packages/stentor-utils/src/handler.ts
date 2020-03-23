@@ -3,7 +3,6 @@ import { isExecutablePath, isHandler } from "stentor-guards";
 import { Handler, Intent } from "stentor-models";
 import { dessmlify, isValidSSML, ssmlify } from "./ssml";
 
-
 export interface IntentMap {
     [intentId: string]: Intent | Handler;
 }

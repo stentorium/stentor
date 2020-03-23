@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { isHistoricalPath } from "stentor-guards";
 import { getHandlerHistory } from "stentor-history";
 import { Context, ExecutablePath, HistoricalPath } from "stentor-models";
-import { isHistoricalPath } from "./Guards";
 
 /**
  * Compiles a HistoricalPath to a ExecutablePath based on the provided

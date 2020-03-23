@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { isExecutablePath } from "stentor-guards";
 import { Handler } from "stentor-models";
-import { toMap } from "../AbstractHandler";
-import { isExecutablePath } from "../Path";
+import { toMap } from "stentor-utils";
 import { HandlerTree } from "./HandlerTree";
 
 const MAX_RECURSION = 500;

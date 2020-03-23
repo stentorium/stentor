@@ -1,8 +1,8 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { AbstractGraph } from "@xapp/patterns";
+import { isExecutablePath } from "stentor-guards";
 import { Handler } from "stentor-models";
-import { filterOutIntents, HandlerMap, toMap } from "../AbstractHandler";
-import { isExecutablePath } from "../Path";
+import { filterOutIntents, HandlerMap, toMap } from "stentor-utils";
 
 /**
  * Generate a graph of handlers.

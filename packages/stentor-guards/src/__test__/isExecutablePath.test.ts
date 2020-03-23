@@ -2,7 +2,7 @@
 import { expect } from "chai";
 
 import { ExecutablePath, SlotDependentPath } from "stentor-models";
-import { isExecutablePath } from "../Guards";
+import { isExecutablePath } from "../isExecutablePath";
 
 const path1: SlotDependentPath = {
     intentId: "intentId",

@@ -2,4 +2,3 @@
 export * from "./compileHistoricalPath";
 export * from "./compilePreviousHandlerPath";
 export * from "./determinePath";
-export * from "./Guards";

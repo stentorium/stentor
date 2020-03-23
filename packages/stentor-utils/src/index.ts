@@ -5,6 +5,7 @@ export * from "./dateTime";
 export * from "./dynamo";
 export * from "./email";
 export * from "./error";
+export * from "./handler";
 export * from "./hash";
 export * from "./id";
 export * from "./json";

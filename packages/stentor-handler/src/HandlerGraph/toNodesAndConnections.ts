@@ -1,7 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { isGlobalHandler } from "stentor-guards";
-import { describeKey, KeyDescription, hashCode } from "stentor-utils";
-import { determineIntentIdToPath } from "../AbstractHandler";
+import { describeKey, determineIntentIdToPath, KeyDescription, hashCode } from "stentor-utils";
 import { HandlerGraph } from "./HandlerGraph";
 
 export interface NodeField {

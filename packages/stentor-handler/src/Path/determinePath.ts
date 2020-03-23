@@ -1,11 +1,10 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { determine } from "stentor-determiner";
+import { isHistoricalPath, isPreviousHandlerPath } from "stentor-guards";
 import { log } from "stentor-logger";
 import { Context, ExecutablePath, Path, Request } from "stentor-models";
 import { compileHistoricalPath } from "./compileHistoricalPath";
 import { compilePreviousHandlerPath } from "./compilePreviousHandlerPath";
-import { isHistoricalPath, isPreviousHandlerPath } from "./Guards";
-
 
 function compilePaths(paths: Path[], request: Request, context: Context): ExecutablePath[] {
     const compiledPaths: ExecutablePath[] = [];

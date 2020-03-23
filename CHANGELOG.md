@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.23.47](https://github.com/stentorium/stentor/compare/v1.23.46...v1.23.47) (2020-03-23)
+
+
+### Bug Fixes
+
+* Moves guards and utilities out of stentor-handler ([#222](https://github.com/stentorium/stentor/issues/222)) ([0f6e974](https://github.com/stentorium/stentor/commit/0f6e974a9d52d0f76543294501ee6e27e4da212b))
+
+
+
+
+
 ## [1.23.46](https://github.com/stentorium/stentor/compare/v1.23.45...v1.23.46) (2020-03-23)
 
 **Note:** Version bump only for package repo

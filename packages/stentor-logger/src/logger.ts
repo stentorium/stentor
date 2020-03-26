@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 
 import { maskEmails, maskPhoneNumbers } from "stentor-utils";
-import chalk from "chalk";
+import chalk = require("chalk");
 import { TransformableInfo } from "logform";
 import { createLogger, format, transports } from "winston";
 

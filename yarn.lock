@@ -1487,10 +1487,10 @@
   dependencies:
     ask-sdk-model "1.27.0"
 
-"@xapp/stentor-alexa@1.18.117":
-  version "1.18.117"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-alexa/-/stentor-alexa-1.18.117.tgz#7bf85882ef66ed07178af2f34d774e2fa990ca20"
-  integrity sha512-0QwW9fkHloE7yxTAq0H17Pn+cSJIH0lb5h162kv8O4js+LmiHpeOfgGsvH9I+zIldE0d1BbQ3JoXMK7zVoevPg==
+"@xapp/stentor-alexa@1.18.118":
+  version "1.18.118"
+  resolved "https://registry.yarnpkg.com/@xapp/stentor-alexa/-/stentor-alexa-1.18.118.tgz#3660760e7f80ac554a19c65d424d8b1c03b6d41e"
+  integrity sha512-6GShXgo9J+IChaw0aTJA9GtAV30SGsy8LfRtbspxdpKV98uqLfYSpyCGj66p6eU4TRrrd15W2ZsPxI3lKE1z6Q==
   dependencies:
     "@xapp/patterns" "1.18.111"
     "@xapp/stentor-alexa-lib" "1.18.114"

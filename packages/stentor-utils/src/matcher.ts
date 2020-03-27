@@ -18,11 +18,10 @@ export function matchUtteranceToSlotTypeValue<T>(
     }
 
     // Options for fuzzy string matching
-    const options: Fuse.FuseOptions<SlotTypeValue<T>> = {
+    const options: Fuse.IFuseOptions<SlotTypeValue<T>> = {
         distance: 100,
         keys: ["name"],
         location: 0,
-        maxPatternLength: 32,
         minMatchCharLength: 1,
         shouldSort: true,
         threshold: 0.5,
@@ -36,6 +35,8 @@ export function matchUtteranceToSlotTypeValue<T>(
     // @ts-ignore The types from Fuse are not 100%
     return result;
 }
+
+
 
 /**
  * Results returned by the fuzzy string matcher.

@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.23.56](https://github.com/stentorium/stentor/compare/v1.23.55...v1.23.56) (2020-03-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency blueimp-md5 to v2.13.0 ([#230](https://github.com/stentorium/stentor/issues/230)) ([79b48a3](https://github.com/stentorium/stentor/commit/79b48a34dfbbf0ee694727d4f05f3602b86911a7))
+
+
+
+
+
+## [1.23.55](https://github.com/stentorium/stentor/compare/v1.23.54...v1.23.55) (2020-03-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.11.1 ([#231](https://github.com/stentorium/stentor/issues/231)) ([9391c82](https://github.com/stentorium/stentor/commit/9391c82fbf70fb8f75042a80a9fdbb862e2a480c))
+
+
+
+
+
 ## [1.23.54](https://github.com/stentorium/stentor/compare/v1.23.53...v1.23.54) (2020-03-26)
 
 

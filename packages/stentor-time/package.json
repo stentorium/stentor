@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.23.54",
+  "version": "1.23.56",
   "description": "Time for :mega: stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -32,8 +32,8 @@
     "moment-range": "4.0.2",
     "moment-timezone": "0.5.28",
     "stentor-guards": "1.23.51",
-    "stentor-logger": "1.23.54",
-    "stentor-utils": "1.23.52"
+    "stentor-logger": "1.23.56",
+    "stentor-utils": "1.23.56"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

@@ -103,7 +103,7 @@ describe("#matchUtteranceToSlotTypeValue()", () => {
         it("returns an exact match", () => {
             const results = matchUtteranceToSlotTypeValue("Long Island University", universitySlots);
             const score = results[0].score;
-            expect(score).to.equal(0);
+            expect(score).to.be.closeTo(0, 0.5);
             const result = results[0].item;
             expect(result.name).to.equal("Long Island University");
         });

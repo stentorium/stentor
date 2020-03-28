@@ -343,6 +343,20 @@ describe(`#${parseRelativeDate.name}`, () => {
                 });
             }
 
+            const nextTwoMonths = parseRelativeDate("NEXT_TWO_MONTHS");
+            expect(nextTwoMonths).to.exist;
+            expect(isDateTimeRange(nextTwoMonths)).to.be.true;
+            if (isDateTimeRange(nextTwoMonths)) {
+                expect(nextTwoMonths).to.deep.equal({
+                    start: {
+                        date: "2019-10-01"
+                    },
+                    end: {
+                        date: "2019-11-30"
+                    }
+                });
+            }
+
             const lastYear = parseRelativeDate("LAST_YEAR");
             expect(lastYear).to.exist;
             expect(isDateTimeRange(lastYear)).to.be.true;
@@ -417,6 +431,34 @@ describe(`#${parseRelativeDate.name}`, () => {
                     });
                 }
 
+                const lastTwoWeeks = parseRelativeDate("${LAST_TWO_WEEK}");
+                expect(lastTwoWeeks).to.exist;
+                expect(isDateTimeRange(lastTwoWeeks)).to.be.true;
+                if (isDateTimeRange(lastTwoWeeks)) {
+                    expect(lastTwoWeeks).to.deep.equal({
+                        start: {
+                            date: "2019-08-25"
+                        },
+                        end: {
+                            date: "2019-09-07"
+                        }
+                    });
+                }
+
+                const nextTwoWeeks = parseRelativeDate("${NEXT_TWO_WEEKS}");
+                expect(nextTwoWeeks).to.exist;
+                expect(isDateTimeRange(nextTwoWeeks)).to.be.true;
+                if (isDateTimeRange(nextTwoWeeks)) {
+                    expect(nextTwoWeeks).to.deep.equal({
+                        start: {
+                            date: "2019-09-15"
+                        },
+                        end: {
+                            date: "2019-09-28"
+                        }
+                    });
+                }
+
                 const thisWeek = parseRelativeDate("${THIS_WEEK}");
                 expect(thisWeek).to.exist;
                 expect(isDateTimeRange(thisWeek)).to.be.true;
@@ -466,6 +508,20 @@ describe(`#${parseRelativeDate.name}`, () => {
                     expect(lastYear).to.deep.equal({
                         start: {
                             date: "2018-01-01"
+                        },
+                        end: {
+                            date: "2018-12-31"
+                        }
+                    });
+                }
+
+                const lastTwoYear = parseRelativeDate("${LAST_TWO_YEAR}");
+                expect(lastTwoYear).to.exist;
+                expect(isDateTimeRange(lastTwoYear)).to.be.true;
+                if (isDateTimeRange(lastTwoYear)) {
+                    expect(lastTwoYear).to.deep.equal({
+                        start: {
+                            date: "2017-01-01"
                         },
                         end: {
                             date: "2018-12-31"

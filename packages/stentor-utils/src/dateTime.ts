@@ -15,6 +15,7 @@ import {
     startOfWeek,
     startOfYear
 } from "date-fns";
+import { wordToNumber } from "./number";
 import { pruneEmpty } from "./json";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -284,13 +285,28 @@ export function parseRelativeDate(
         relative.includes("WEEKEND")
     ) {
         // The delta tells us how much we add depending on the prefix of LAST, THIS, or NEXT
-        let delta = 0;
+        let deltaStart = 0;
+        let deltaEnd = 0;
         if (relative.includes("LAST")) {
-            delta = -1;
+            deltaStart = -1;
+            deltaEnd = -1;
+            // See if we have a number
+            const possibleNumber = wordToNumber(relative.split("_")[1]);
+            if (typeof possibleNumber === "number") {
+                // Make it negative
+                deltaStart = -possibleNumber;
+            }
         } else if (relative.includes("NEXT")) {
-            delta = 1;
+            deltaEnd = 1;
+            deltaStart = 1;
+            // Search for other NUMBER words and change the delta
+            const possibleNumber = wordToNumber(relative.split("_")[1]);
+            if (typeof possibleNumber === "number") {
+                deltaEnd = possibleNumber;
+            }
         } else if (relative.includes("THIS")) {
-            delta = 0;
+            deltaStart = 0
+            deltaEnd = 0;
         }
 
         if (relative.includes("WEEKEND")) {
@@ -299,7 +315,7 @@ export function parseRelativeDate(
             // If currently in a weekend, THIS is the current one.
             // tslint:disable-next-line:no-magic-numbers
             let interval: Interval;
-            if (delta === 0) {
+            if (deltaStart === 0) {
                 // This is where we have to account for if
                 // we are in the weekend.
                 // In case we are on Sunday, we go back one
@@ -309,15 +325,15 @@ export function parseRelativeDate(
                     // tslint:disable-next-line:no-magic-numbers
                     end: addDays(now, 7)
                 };
-            } else if (delta === -1) {
+            } else if (deltaStart === -1) {
                 interval = {
-                    start: addWeeks(now, delta),
+                    start: addWeeks(now, deltaStart),
                     end: now
                 };
-            } else if (delta === 1) {
+            } else if (deltaEnd === 1) {
                 interval = {
                     start: now,
-                    end: addWeeks(now, delta)
+                    end: addWeeks(now, deltaEnd)
                 };
             }
 
@@ -327,26 +343,29 @@ export function parseRelativeDate(
                 end: getDateTimeFrom(weekends[1], "date")
             };
         } else if (relative.includes("WEEK")) {
-            const updatedDate = addWeeks(now, delta);
-            const start = getDateTimeFrom(startOfWeek(updatedDate), "date");
-            const end = getDateTimeFrom(endOfWeek(updatedDate), "date");
+            const updatedDateStart = addWeeks(now, deltaStart);
+            const start = getDateTimeFrom(startOfWeek(updatedDateStart), "date");
+            const updatedDateEnd = addWeeks(now, deltaEnd);
+            const end = getDateTimeFrom(endOfWeek(updatedDateEnd), "date");
             // FYI: weeks start on Sunday
             dateTime = {
                 start,
                 end
             };
         } else if (relative.includes("MONTH")) {
-            const updatedDate = addMonths(now, delta);
-            const start = getDateTimeFrom(startOfMonth(updatedDate), "date");
-            const end = getDateTimeFrom(endOfMonth(updatedDate), "date");
+            const updatedDateStart = addMonths(now, deltaStart);
+            const start = getDateTimeFrom(startOfMonth(updatedDateStart), "date");
+            const updatedEndDate = addMonths(now, deltaEnd);
+            const end = getDateTimeFrom(endOfMonth(updatedEndDate), "date");
             dateTime = {
                 start,
                 end
             };
         } else if (relative.includes("YEAR")) {
-            const updatedDate = addYears(now, delta);
-            const start = getDateTimeFrom(startOfYear(updatedDate), "date");
-            const end = getDateTimeFrom(endOfYear(updatedDate), "date");
+            const updatedStartDate = addYears(now, deltaStart);
+            const start = getDateTimeFrom(startOfYear(updatedStartDate), "date");
+            const updatedEndDate = addYears(now, deltaEnd);
+            const end = getDateTimeFrom(endOfYear(updatedEndDate), "date");
             dateTime = {
                 start,
                 end

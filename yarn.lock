@@ -908,6 +908,27 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
+"@microsoft/api-documenter@7.7.15":
+  version "7.7.15"
+  resolved "https://registry.yarnpkg.com/@microsoft/api-documenter/-/api-documenter-7.7.15.tgz#66f2c25af9fe1641f511a780f797dd18f7826cee"
+  integrity sha512-6W2vIlOp7G3+PdKczVYiEYyxxh/5FYFh/9Ft1pdcDiMUOUujRmgRlp4gp5La0sY3b9Y2g9RO4illgyNPw1F8kQ==
+  dependencies:
+    "@microsoft/api-extractor-model" "7.7.10"
+    "@microsoft/tsdoc" "0.12.19"
+    "@rushstack/node-core-library" "3.19.6"
+    "@rushstack/ts-command-line" "4.3.13"
+    colors "~1.2.1"
+    js-yaml "~3.13.1"
+    resolve "1.8.1"
+
+"@microsoft/api-extractor-model@7.7.10":
+  version "7.7.10"
+  resolved "https://registry.yarnpkg.com/@microsoft/api-extractor-model/-/api-extractor-model-7.7.10.tgz#52c661825f05a311b9d2dfdecd8d523c0c751b92"
+  integrity sha512-gMFDXwUgoQYz9TgatyNPALDdZN4xBC3Un3fGwlzME+vM13PoJ26pGuqI7kv/OlK9+q2sgrEdxWns8D3UnLf2TA==
+  dependencies:
+    "@microsoft/tsdoc" "0.12.19"
+    "@rushstack/node-core-library" "3.19.6"
+
 "@microsoft/api-extractor-model@7.7.9":
   version "7.7.9"
   resolved "https://registry.yarnpkg.com/@microsoft/api-extractor-model/-/api-extractor-model-7.7.9.tgz#9a6ded46f63b6729b1c6630f6ef4e20c1396e177"
@@ -935,6 +956,11 @@
   version "0.12.14"
   resolved "https://registry.yarnpkg.com/@microsoft/tsdoc/-/tsdoc-0.12.14.tgz#0e0810a0a174e50e22dfe8edb30599840712f22d"
   integrity sha512-518yewjSga1jLdiLrcmpMFlaba5P+50b0TWNFUpC+SL9Yzf0kMi57qw+bMl+rQ08cGqH1vLx4eg9YFUbZXgZ0Q==
+
+"@microsoft/tsdoc@0.12.19":
+  version "0.12.19"
+  resolved "https://registry.yarnpkg.com/@microsoft/tsdoc/-/tsdoc-0.12.19.tgz#2173ccb92469aaf62031fa9499d21b16d07f9b57"
+  integrity sha512-IpgPxHrNxZiMNUSXqR1l/gePKPkfAmIKoDRP9hp7OwjU29ZR8WCJsOJ8iBKgw0Qk+pFwR+8Y1cy8ImLY6e9m4A==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
@@ -1123,10 +1149,32 @@
     timsort "~0.3.0"
     z-schema "~3.18.3"
 
+"@rushstack/node-core-library@3.19.6":
+  version "3.19.6"
+  resolved "https://registry.yarnpkg.com/@rushstack/node-core-library/-/node-core-library-3.19.6.tgz#da67dc9e93fb36b807007892ca6b699fc0c81e6d"
+  integrity sha512-1+FoymIdr9W9k0D8fdZBBPwi5YcMwh/RyESuL5bY29rLICFxSLOPK+ImVZ1OcWj9GEMsvDx5pNpJ311mHQk+MA==
+  dependencies:
+    "@types/node" "10.17.13"
+    colors "~1.2.1"
+    fs-extra "~7.0.1"
+    jju "~1.4.0"
+    semver "~5.3.0"
+    timsort "~0.3.0"
+    z-schema "~3.18.3"
+
 "@rushstack/ts-command-line@4.3.12":
   version "4.3.12"
   resolved "https://registry.yarnpkg.com/@rushstack/ts-command-line/-/ts-command-line-4.3.12.tgz#35f4e96f5f6870d51dac0186da3992e658d97cf0"
   integrity sha512-x+AHiWVy0Wx6OSFlzHmXkm2Z23kn4OVMd8/57hZpzeAn1iAIILGFW1L7uWQaAhnt+mZCFqgwRpggQbPQuZOT7w==
+  dependencies:
+    "@types/argparse" "1.0.33"
+    argparse "~1.0.9"
+    colors "~1.2.1"
+
+"@rushstack/ts-command-line@4.3.13":
+  version "4.3.13"
+  resolved "https://registry.yarnpkg.com/@rushstack/ts-command-line/-/ts-command-line-4.3.13.tgz#f84cdfad2e50663419bcf4064acf6b9dbfc6e674"
+  integrity sha512-BUBbjYu67NJGQkpHu8aYm7kDoMFizL1qx78+72XE3mX/vDdXYJzw/FWS7TPcMJmY4kNlYs979v2B0Q0qa2wRiw==
   dependencies:
     "@types/argparse" "1.0.33"
     argparse "~1.0.9"
@@ -1329,6 +1377,13 @@
   version "7.0.2"
   resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-7.0.2.tgz#b17f16cf933597e10d6d78eae3251e692ce8b0ce"
   integrity sha512-ZvO2tAcjmMi8V/5Z3JsyofMe3hasRcaw88cto5etSVMwVQfeivGAlEYmaQgceUSVYFofVjT+ioHsATjdWcFt1w==
+
+"@types/moment-timezone@0.5.12":
+  version "0.5.12"
+  resolved "https://registry.yarnpkg.com/@types/moment-timezone/-/moment-timezone-0.5.12.tgz#0fb680c03db194fe8ff4551eaeb1eec8d3d80e9f"
+  integrity sha512-hnHH2+Efg2vExr/dSz+IX860nSiyk9Sk4pJF2EmS11lRpMcNXeB4KBW5xcgw2QPsb9amTXdsVNEe5IoJXiT0uw==
+  dependencies:
+    moment ">=2.14.0"
 
 "@types/moment-timezone@0.5.13":
   version "0.5.13"
@@ -4681,7 +4736,7 @@ js-tokens@^4.0.0:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
-js-yaml@3.13.1, js-yaml@^3.13.1:
+js-yaml@3.13.1, js-yaml@^3.13.1, js-yaml@~3.13.1:
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
   integrity sha512-YfbcO7jXDdyj0DGxYVSlSeQNHbD7XPWvrVWeVUujrQEoZzWJIRrCPoyk6kL6IAjAG2IolMK4T0hNUe0HOUs5Jw==
@@ -7160,6 +7215,21 @@ stentor-constants@1.22.22:
   resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.22.22.tgz#2b23e9831ecef3cb7d9332e6dc0c39a1bcd6aa7b"
   integrity sha512-tSd/wG131wCLHg8PYUB9DVHEaRfgR3fSgAhO1hH9Pe8pjuCeuW/JjuEPztsYoUN5U8KLgaUlo8TB2tFFDpxNBQ==
 
+stentor-determiner@1.23.47:
+  version "1.23.47"
+  resolved "https://registry.yarnpkg.com/stentor-determiner/-/stentor-determiner-1.23.47.tgz#6f5bfbb31f585a39bcd846a98aa3efe2e5b68b1f"
+  integrity sha512-V9fBVjJcODG0acCb9CP0Co/RphyuBFLe0h1RR0VwiOp6m+v6vi1x5gBsAZiffDJBvCWubEJ9JCD1YYMbWHpLWg==
+  dependencies:
+    stentor-conditional "1.23.42"
+    stentor-constants "1.23.37"
+    stentor-guards "1.23.47"
+    stentor-interaction-model "1.23.47"
+    stentor-logger "1.23.47"
+    stentor-request "1.23.47"
+    stentor-storage "1.23.47"
+    stentor-time "1.23.47"
+    stentor-utils "1.23.47"
+
 stentor-logger@1.22.24:
   version "1.22.24"
   resolved "https://registry.yarnpkg.com/stentor-logger/-/stentor-logger-1.22.24.tgz#b71bc684f375ac5201935e96637208d6946add23"
@@ -7168,6 +7238,46 @@ stentor-logger@1.22.24:
     chalk "2.4.2"
     stentor-utils "1.22.24"
     winston "3.2.1"
+
+stentor-media@1.23.47:
+  version "1.23.47"
+  resolved "https://registry.yarnpkg.com/stentor-media/-/stentor-media-1.23.47.tgz#0a0287174483f84a0fb74e1c13fb0315d8264d32"
+  integrity sha512-VeH8m4felC4XpMdQPS5tXhdwzuJhIO4+3Gs4miYGjHm2q9Z/zfotW/N2RVViidEDLmAiNo9xO9ulrsuQFTFNOw==
+  dependencies:
+    moment-timezone "0.5.28"
+    stentor-guards "1.23.47"
+    stentor-time "1.23.47"
+    stentor-utils "1.23.47"
+
+stentor-response@1.23.47:
+  version "1.23.47"
+  resolved "https://registry.yarnpkg.com/stentor-response/-/stentor-response-1.23.47.tgz#67c4e34d4c1bd36d1663abe5867db872530d5a4c"
+  integrity sha512-fFGRH3pWWFJeb5dFEOuVlxoxFxXg+mg+t11/QQPEGIJsNGMQESDQZYZe+KLx2eUIgpBTujtHXluaxDnMNAH1ZQ==
+  dependencies:
+    "@xapp/patterns" "1.18.111"
+    actions-on-google "2.12.0"
+    jsonpath "1.0.2"
+    lodash.template "4.5.0"
+    moment "2.24.0"
+    stentor-determiner "1.23.47"
+    stentor-locales "1.23.47"
+    stentor-media "1.23.47"
+    stentor-request "1.23.47"
+    stentor-time "1.23.47"
+    stentor-utils "1.23.47"
+
+stentor-time@1.23.47:
+  version "1.23.47"
+  resolved "https://registry.yarnpkg.com/stentor-time/-/stentor-time-1.23.47.tgz#37e4987c8b3e64629292f20e79095356f412adfb"
+  integrity sha512-CCiKze8eox/gfbU7+Gp56UtGmUAxJutF0MdczD4pfHECAq2J0wq3jqblEIJpE3xx3mwUKr364YHEnNKcubBavQ==
+  dependencies:
+    "@types/moment-timezone" "0.5.12"
+    moment "2.24.0"
+    moment-range "4.0.2"
+    moment-timezone "0.5.28"
+    stentor-guards "1.23.47"
+    stentor-logger "1.23.47"
+    stentor-utils "1.23.47"
 
 stentor-utils@1.22.24:
   version "1.22.24"

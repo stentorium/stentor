@@ -47,7 +47,7 @@ export class Assistant {
      * Data that can be leveraged at runtime for certain responses. 
      * 
      * @beta 
-     * @param runtime 
+     * @param runtime - Runtime data
      * @public
      */
     public withRuntimeData(runtime: AppRuntimeData): Assistant {

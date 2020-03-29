@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.23.61",
+  "version": "1.23.62",
   "description": "Runtime for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -23,7 +23,7 @@
     "@xapp/stentor-actions-on-google": "1.18.115",
     "@xapp/stentor-alexa": "1.18.119",
     "@xapp/stentor-dialogflow": "1.18.115",
-    "aws-sdk": "2.643.0",
+    "aws-sdk": "2.648.0",
     "chai": "4.2.0",
     "fetch-mock": "9.3.1",
     "mocha": "7.1.1",
@@ -36,17 +36,17 @@
   },
   "dependencies": {
     "stentor-constants": "1.23.61",
-    "stentor-context": "1.23.61",
-    "stentor-handler": "1.23.61",
-    "stentor-handler-factory": "1.23.61",
-    "stentor-handler-manager": "1.23.61",
+    "stentor-context": "1.23.62",
+    "stentor-handler": "1.23.62",
+    "stentor-handler-factory": "1.23.62",
+    "stentor-handler-manager": "1.23.62",
     "stentor-history": "1.23.61",
-    "stentor-interaction-model": "1.23.61",
-    "stentor-logger": "1.23.61",
-    "stentor-request": "1.23.61",
-    "stentor-response": "1.23.61",
-    "stentor-service-event": "1.23.61",
-    "stentor-utils": "1.23.61"
+    "stentor-interaction-model": "1.23.62",
+    "stentor-logger": "1.23.62",
+    "stentor-request": "1.23.62",
+    "stentor-response": "1.23.62",
+    "stentor-service-event": "1.23.62",
+    "stentor-utils": "1.23.62"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

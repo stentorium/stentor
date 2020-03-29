@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.23.61",
+  "version": "1.23.62",
   "description": "Utilities for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -24,7 +24,7 @@
     "@types/sinon": "7.5.2",
     "@types/sinon-chai": "3.2.3",
     "@xapp/config": "0.2.3",
-    "aws-sdk": "2.643.0",
+    "aws-sdk": "2.648.0",
     "chai": "4.2.0",
     "mocha": "7.1.1",
     "sinon": "9.0.1",

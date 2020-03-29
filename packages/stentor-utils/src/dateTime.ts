@@ -48,7 +48,6 @@ export function isDateTimeRange(item: DateTime | DateTimeRange): item is DateTim
     return !!item && (!!(item as DateTimeRange).start || !!(item as DateTimeRange).end);
 }
 
-
 /**
  * Converts a date time object to a string.
  *
@@ -89,14 +88,14 @@ export function dateTimeToString(dateTime: DateTime | DateTimeRange): string {
 /**
  * Determines if the string is an ISO-8601 style string.
  *
+ * @remarks
  * This does not cover the entire 8601 spec, just a version
  * that is commonly used by NLUs to communicate date & time.
+ * For example, durations (like P1Y2M10D) are not supported.
  *
- * For example, durations (like P1Y2M10D) are not supported
- *
- * @export
- * @param {string} potential
- * @returns {boolean}
+ * @public
+ * @param potential - Potential ISO-8601 string
+ * @returns True if the string is ISO-8601 Date & Time string
  */
 export function isISO8601(potential: string): boolean {
     if (!potential) {
@@ -115,11 +114,11 @@ export function isISO8601(potential: string): boolean {
  * commonly used by NLUs to communicate date & time.
  *
  *
- * @see isISO8601
- * @see https://en.wikipedia.org/wiki/ISO_8601#Time_intervals
- * @export
- * @param {string} potential
- * @returns {boolean}
+ * {@link isISO8601}
+ * {@link https://en.wikipedia.org/wiki/ISO_8601#Time_intervals}
+ * @public
+ * @param potential
+ * @returns True if the string confirms to ISO-8601 range format
  */
 export function isISO8601Range(potential: string): boolean {
     // Ranges have / in between them
@@ -267,11 +266,11 @@ export function parseDate(parsable: string, returnOnly?: "date" | "time"): DateT
  * Support is currently limited, see possible RelativeDateType & RelativeDateRangeType for current
  * supported values.
  *
- * @export
- * @param {(RelativeDateType | RelativeDateRangeType)} relative
- * @param {Date} [now=new Date()]
- * @returns {(DateTime | DateTimeRange)}
- */
+ *  @public
+  * @param relative - The relative date
+  * @param now - Optional date to use to calculate date off of
+  * @returns 
+  */
 export function parseRelativeDate(
     relative: RelativeDateRangeType | RelativeDateType | string,
     now: Date = new Date()

@@ -3,6 +3,79 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.23.61](https://github.com/stentorium/stentor/compare/v1.23.60...v1.23.61) (2020-03-29)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.23.59](https://github.com/stentorium/stentor/compare/v1.23.58...v1.23.59) (2020-03-28)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.23.58](https://github.com/stentorium/stentor/compare/v1.23.57...v1.23.58) (2020-03-28)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.23.57](https://github.com/stentorium/stentor/compare/v1.23.56...v1.23.57) (2020-03-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fuse.js to v3.6.1 ([#89](https://github.com/stentorium/stentor/issues/89)) ([ec53775](https://github.com/stentorium/stentor/commit/ec53775d153214f58894eae431f4e5e78f4e1e47))
+
+
+
+
+
+## [1.23.56](https://github.com/stentorium/stentor/compare/v1.23.55...v1.23.56) (2020-03-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency blueimp-md5 to v2.13.0 ([#230](https://github.com/stentorium/stentor/issues/230)) ([79b48a3](https://github.com/stentorium/stentor/commit/79b48a34dfbbf0ee694727d4f05f3602b86911a7))
+
+
+
+
+
+## [1.23.55](https://github.com/stentorium/stentor/compare/v1.23.54...v1.23.55) (2020-03-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.11.1 ([#231](https://github.com/stentorium/stentor/issues/231)) ([9391c82](https://github.com/stentorium/stentor/commit/9391c82fbf70fb8f75042a80a9fdbb862e2a480c))
+
+
+
+
+
+## [1.23.52](https://github.com/stentorium/stentor/compare/v1.23.51...v1.23.52) (2020-03-26)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.23.51](https://github.com/stentorium/stentor/compare/v1.23.50...v1.23.51) (2020-03-25)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
 ## [1.23.47](https://github.com/stentorium/stentor/compare/v1.23.46...v1.23.47) (2020-03-23)
 
 

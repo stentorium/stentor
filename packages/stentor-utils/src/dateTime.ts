@@ -1,5 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { DateTime, DateTimeRange, RelativeDateRangeType, RelativeDateType } from "stentor-models";
+import { DateTime, DateTimeRange, RelativeDateRangeType, RelativeDateType, RequestSlotValues } from "stentor-models";
 import {
     addDays,
     addMonths,
@@ -27,25 +27,23 @@ export const ISO_8601_DATE_ONLY = /\d{4}-\d{2}-\d{2}/;
 export const ISO_8601_TIME_ONLY = /(\d{2}:\d{2}:\d{2})(?:-\d{2}:\d{2})?/;
 
 /**
- * Used on a RequestSlot.dateTime to determine if it is just dateTime or a range.
+ * Determine if the request slot value is a DateTime
  *
- * @export
- * @param {(DateTime | DateTimeRange)} item
- * @returns {item is DateTime}
+ * @public
+ * @param slotValue - Slot value to check 
  */
-export function isDateTime(item: DateTime | DateTimeRange): item is DateTime {
-    return !!item && (!!(item as DateTime).date || !!(item as DateTime).time);
+export function isDateTime(slotValue: RequestSlotValues): slotValue is DateTime {
+    return !!slotValue && (!!(slotValue as DateTime).date || !!(slotValue as DateTime).time);
 }
 
 /**
- * Used on a RequestSlot.dateTime to determine if it is just dateTime or a range.
+ * Determine if the request slot value is a DateTimeRange
  *
- * @export
- * @param {(DateTime | DateTimeRange)} item
- * @returns {item is DateTimeRange}
+ * @public
+ * @param slotValue - Slot value to check
  */
-export function isDateTimeRange(item: DateTime | DateTimeRange): item is DateTimeRange {
-    return !!item && (!!(item as DateTimeRange).start || !!(item as DateTimeRange).end);
+export function isDateTimeRange(slotValue: RequestSlotValues): slotValue is DateTimeRange {
+    return !!slotValue && (!!(slotValue as DateTimeRange).start || !!(slotValue as DateTimeRange).end);
 }
 
 /**
@@ -53,7 +51,7 @@ export function isDateTimeRange(item: DateTime | DateTimeRange): item is DateTim
  *
  * Either a single date (2020-07-19T23:59:59) or a range (2019-07-19T00:00:00 --> 2020-07-19T23:59:59).
  *
- * @param dateTime
+ * @param dateTime - Either DateTime or DateTimeRange to convert to a string
  */
 export function dateTimeToString(dateTime: DateTime | DateTimeRange): string {
     if (typeof dateTime !== "object") {
@@ -187,7 +185,7 @@ export function getDateTimeFrom(date: string | Date, includeOnly?: "time" | "dat
             }
         }
     } else {
-        // Not a typical ISO from dialogflow, going to try to pull out the individual components
+        // Not a typical ISO from Dialogflow, going to try to pull out the individual components
         // First date.
         const dateRegex = new RegExp(ISO_8601_DATE_ONLY);
         const dateResults = dateRegex.exec(dateTime);

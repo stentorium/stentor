@@ -17,6 +17,7 @@
     "node": "10.x"
   },
   "devDependencies": {
+    "@microsoft/api-extractor": "7.7.10",
     "@types/chai": "4.2.11",
     "@types/mocha": "7.0.2",
     "@types/node": "13.9.5",
@@ -32,6 +33,7 @@
     "typescript": "3.8.3"
   },
   "scripts": {
+    "api": "api-extractor run --local",
     "build": "tsc -d true -p .",
     "clean": "rm -rf ./lib/*",
     "test": "mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""

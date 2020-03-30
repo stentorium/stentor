@@ -11,6 +11,7 @@
     "packages/*"
   ],
   "devDependencies": {
+    "@microsoft/api-documenter": "7.7.15",
     "@typescript-eslint/eslint-plugin": "2.25.0",
     "@typescript-eslint/parser": "2.25.0",
     "@xapp/config": "0.2.3",
@@ -23,6 +24,8 @@
     "nyc": "15.0.0"
   },
   "scripts": {
+    "api": "lerna run api",
+    "docs": "api-documenter markdown -i ./api/json -o ./api/docs",
     "lerna": "lerna",
     "postinstall": "lerna bootstrap",
     "clean": "lerna run clean",

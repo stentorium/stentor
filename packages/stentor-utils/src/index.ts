@@ -1,6 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 export * from "./array";
 export * from "./compare";
+export * from "./date-time";
 export * from "./dateTime";
 export * from "./dynamo";
 export * from "./email";

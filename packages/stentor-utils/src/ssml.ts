@@ -1,4 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
+
 import { XmlElement } from "xmldoc";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const xmldoc = require("xmldoc");
@@ -70,52 +71,52 @@ export function cleanInvalid(outputSpeech: string): string {
 /**
  * Removes tags <speak> & </speak> from SSML
  *
- * @export
- * @param {string} outputSpeech
- * @returns {string}
+ * @public
+ * @param str - String to remove <speak> tags. 
+ * @returns String without <speak> tags.
  */
-export function dessmlify(outputSpeech: string): string {
+export function dessmlify(str: string): string {
     // fast return
-    if (!outputSpeech) {
+    if (!str) {
         return "";
     }
 
     // can only handle strings, they got a bug
-    if (typeof outputSpeech !== "string") {
+    if (typeof str !== "string") {
         throw new Error("Invalid input passed to dessmlify");
     }
 
     // First trim leading & trailing spaces
-    outputSpeech = outputSpeech.trim();
+    str = str.trim();
     // TODO: Replace below with regex
-    outputSpeech = outputSpeech.replace("<speak>", "");
-    outputSpeech = outputSpeech.replace("< speak>", "");
-    outputSpeech = outputSpeech.replace("<speak >", "");
-    outputSpeech = outputSpeech.replace("< speak >", "");
-    outputSpeech = outputSpeech.replace("</speak>", "");
-    outputSpeech = outputSpeech.replace("</ speak>", "");
-    outputSpeech = outputSpeech.replace("</speak >", "");
-    outputSpeech = outputSpeech.replace("</ speak >", "");
+    str = str.replace("<speak>", "");
+    str = str.replace("< speak>", "");
+    str = str.replace("<speak >", "");
+    str = str.replace("< speak >", "");
+    str = str.replace("</speak>", "");
+    str = str.replace("</ speak>", "");
+    str = str.replace("</speak >", "");
+    str = str.replace("</ speak >", "");
 
-    return outputSpeech;
+    return str;
 }
 
 /**
  * Ensures the speech is properly wrapped by <speak> tags.
  * The method is innocuous if they already exist
  *
- * @export
- * @param {string} outputSpeech
- * @returns {string}
+ * @public
+ * @param str - String to surround with <speak> tags
+ * @returns String surrounded by <speak> tags
  */
-export function ssmlify(outputSpeech: string, clean = true): string {
+export function ssmlify(str: string, clean = true): string {
     // fast return
-    if (!outputSpeech) {
+    if (!str) {
         return "<speak></speak>";
     }
 
     // we can only handle strings, they got a bug
-    if (typeof outputSpeech !== "string") {
+    if (typeof str !== "string") {
         throw new Error("Invalid input passed to ssmlify");
     }
 
@@ -125,21 +126,21 @@ export function ssmlify(outputSpeech: string, clean = true): string {
 
     // first clean it
     if (clean) {
-        outputSpeech = cleanInvalid(outputSpeech);
+        str = cleanInvalid(str);
     }
 
     // trim leading and trailing spaces
-    outputSpeech = outputSpeech.trim();
+    str = str.trim();
 
-    if (outputSpeech.substring(SPEAK_START, SPEAK_END) !== "<speak>") {
-        outputSpeech = "<speak>" + outputSpeech;
+    if (str.substring(SPEAK_START, SPEAK_END) !== "<speak>") {
+        str = "<speak>" + str;
     }
 
-    if (outputSpeech.substring(outputSpeech.length - SPEAK_LENGTH, outputSpeech.length) !== "</speak>") {
-        outputSpeech = outputSpeech + "</speak>";
+    if (str.substring(str.length - SPEAK_LENGTH, str.length) !== "</speak>") {
+        str = str + "</speak>";
     }
 
-    return outputSpeech;
+    return str;
 }
 
 /**

@@ -8148,6 +8148,11 @@ vm2@3.9.0:
   resolved "https://registry.yarnpkg.com/vm2/-/vm2-3.9.0.tgz#00fd8c84bffcef3ce12df29a8db39171f4a485a2"
   integrity sha512-Bsnvxu50AryMYOsarSAuFmmAQO5X/H5fF/VCVkcDKTj3slrpHQuepUP45U90aaqjk4OdNmlmHfoF6oou3aUJRw==
 
+vm2@3.9.1:
+  version "3.9.1"
+  resolved "https://registry.yarnpkg.com/vm2/-/vm2-3.9.1.tgz#11b9390a07745fcfb0b682078e84fcad147aae97"
+  integrity sha512-cLW0IgjWO9i4+kZ55mH7MWTmOHgAz1/lxGYpsEJa4KVB/obJZB7c/oeZGsw96srpVFJD4HIRqKc7HheO82moyA==
+
 walkdir@^0.4.0:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/walkdir/-/walkdir-0.4.1.tgz#dc119f83f4421df52e3061e514228a2db20afa39"

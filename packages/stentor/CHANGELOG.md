@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.24.0](https://github.com/stentorium/stentor/compare/v1.23.63...v1.24.0) (2020-03-30)
+
+
+### Features
+
+* ISO-8601 Duration Support ([#236](https://github.com/stentorium/stentor/issues/236)) ([b11172d](https://github.com/stentorium/stentor/commit/b11172d33d6ceb7d7cf0a81c9b4bdeeae67d421e))
+
+
+
+
+
 ## [1.23.63](https://github.com/stentorium/stentor/compare/v1.23.62...v1.23.63) (2020-03-30)
 
 **Note:** Version bump only for package stentor

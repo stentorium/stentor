@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.24.1](https://github.com/stentorium/stentor/compare/v1.24.0...v1.24.1) (2020-03-30)
+
+
+### Bug Fixes
+
+* Adding isDuration to make the new potential slot value easier to consume ([#240](https://github.com/stentorium/stentor/issues/240)) ([d2c7dbb](https://github.com/stentorium/stentor/commit/d2c7dbbc6bd4d09c08cfbc1f1c49efdd415b1e06))
+
+
+
+
+
 # [1.24.0](https://github.com/stentorium/stentor/compare/v1.23.63...v1.24.0) (2020-03-30)
 
 

@@ -14,6 +14,33 @@ export interface GraphCoords {
     y?: number;
 }
 
+
+export interface UtterancePattern {
+    /**
+     * The utterance pattern.
+     */
+    pattern: string;
+    /**
+     * Training phrases that were used to develop the pattern.  
+     */
+    trainingPhrases: string[];
+    /**
+     * When the pattern was added.
+     */
+    addedOn?: string;
+    /**
+     * Why the pattern was added, it's source.  This is used to understand why the pattern 
+     * exists in order to determine how important it is.
+     * 
+     * Values can include IMPORT, PRODUCTION_DATA, MANUAL_ADD
+     */
+    addedFrom?: string;
+    /**
+     * Who added the training data, in case they need to contacted.
+     */
+    addedBy?: string;
+}
+
 /**
  * Intents represent the request of a user.
  *
@@ -85,7 +112,7 @@ export interface Intent extends Localizable<LocaleSpecificIntent> {
      *
      * For more information on syntax see {@link https://github.com/alexa-js/alexa-utterances}
      */
-    utterancePatterns?: string[];
+    utterancePatterns?: string | UtterancePattern[];
     /**
      * The language code.  Defaults to "en-US".
      *

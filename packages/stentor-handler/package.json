@@ -19,7 +19,7 @@
     "@types/jsonpath": "0.2.0",
     "@types/moment-timezone": "0.5.13",
     "@types/sinon": "7.5.2",
-    "@types/sinon-chai": "3.2.3",
+    "@types/sinon-chai": "3.2.4",
     "@xapp/config": "0.2.3",
     "chai": "4.2.0",
     "mocha": "7.1.1",

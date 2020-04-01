@@ -1,6 +1,13 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { expect } from "chai";
-import { formatNumberForDisplay, maskPhoneNumbers, numberToWord, sanitizePhoneNumber, wordToNumber } from "../number";
+import {
+    formatNumberForDisplay,
+    maskPhoneNumbers,
+    numberToWord,
+    sanitizePhoneNumber,
+    wordToNumber,
+    isNumeric
+} from "../number";
 
 describe("#sanitizePhoneNumber()", () => {
     describe("when passed undefined", () => {
@@ -81,17 +88,16 @@ describe("#numberToWord()", () => {
     });
     describe("when passed a number", () => {
         it("returns the correct word", () => {
-            /* tslint:disable:no-magic-numbers */
             expect(numberToWord(1)).to.equal("one");
             expect(numberToWord(-1)).to.equal("minus one");
             expect(numberToWord(0)).to.equal("zero");
             expect(numberToWord(1986)).to.equal("one thousand, nine hundred eighty-six");
-            /* tslint:enable:no-magic-numbers */
+            // This isn't supported yet https://github.com/marlun78/number-to-words/issues/9
+            expect(numberToWord(2.2)).to.equal("two");
         });
     });
 });
 
-/* tslint:disable:no-magic-numbers */
 describe("#formatNumberForDisplay()", () => {
     describe("when using the default format", () => {
         it("returns the correct formatting", () => {
@@ -106,7 +112,6 @@ describe("#formatNumberForDisplay()", () => {
         });
     });
 });
-/* tslint:enable:no-magic-numbers */
 
 describe("#wordToNumber()", () => {
     describe("when passed undefined", () => {
@@ -119,10 +124,22 @@ describe("#wordToNumber()", () => {
             expect(wordToNumber("foo")).to.equal("foo");
         });
     });
-    /* tslint:disable:no-magic-numbers */
     describe("when passed a word that is a number", () => {
         it("passes it through", () => {
             expect(wordToNumber("fifty-five")).to.equal(55);
         });
+    });
+});
+
+describe(`#${isNumeric.name}()`, () => {
+    it('it returns the correct value', () => {
+        expect(isNumeric(undefined)).to.be.false;
+        expect(isNumeric("2")).to.be.true;
+        expect(isNumeric(2)).to.be.true;
+        expect(isNumeric("2.2")).to.be.true;
+        expect(isNumeric(2.2)).to.be.true;
+        expect(isNumeric({})).to.be.false;
+        expect(isNumeric(true)).to.be.false;
+        expect(isNumeric("foo")).to.be.false;
     });
 });

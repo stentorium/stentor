@@ -1,5 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 // tslint:disable:no-null-keyword
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as chai from "chai";
 import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
@@ -16,6 +17,7 @@ import {
     Request as StentorRequest
 } from "stentor-models";
 import {
+    Channel,
     Content,
     Handler,
     HandlerService,
@@ -31,7 +33,7 @@ import { dessmlify, LambdaError } from "stentor-utils";
 
 import { main } from "../main";
 import { ALEXA_APP_ID, DEFAULT_CHANNELS } from "./assets/Constants";
-import { MockHandlerService, MockUserStorageService } from "./Mocks";
+import { MOCK_CHANNEL, MockHandlerService, MockUserStorageService } from "./Mocks";
 
 const appId = "appId";
 
@@ -205,6 +207,34 @@ describe("#main() with hooks", () => {
                 expect(arg.args).to.have.length(2);
                 expect(arg.args[0]).to.be.undefined;
                 expect(arg.args[1]).to.deep.equal({});
+            });
+            describe("with a postRequestTranslation hook", () => {
+                let postRequestTranslationHookSpy: sinon.SinonSpy;
+                beforeEach(() => {
+                    postRequestTranslationHookSpy = sinon.spy((incoming: object) => { return incoming; });
+                });
+                it("is called", async () => {
+
+                    const channelWithHooks: Channel = { ...MOCK_CHANNEL };
+                    channelWithHooks.hooks = {
+                        postRequestTranslation: postRequestTranslationHookSpy
+                    }
+
+                    await main({ "text": "hello!" }, context, callbackSpy, [channelWithHooks], {
+                        eventService,
+                        handlerFactory,
+                        handlerService,
+                        userStorageService
+                    });
+                    // Make sure it was called
+                    expect(postRequestTranslationHookSpy).to.have.been.calledOnce;
+                    // And make sure the callback is called and execution completes
+                    expect(callbackSpy).to.have.been.calledOnce;
+                    const arg = callbackSpy.getCall(0);
+                    expect(arg.args).to.have.length(2);
+                    expect(arg.args[0]).to.not.exist;
+                    expect(arg.args[1]).to.contain({ mock: true });
+                });
             });
         });
     });

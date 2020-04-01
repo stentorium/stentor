@@ -133,7 +133,10 @@ export const main = async (
             platform: channel.name,
             ...channel.request.translate(requestBody)
         };
-        // First hook opportunity, post request translation
+        // Second hook opportunity, post request translation
+        if (channel.hooks && typeof channel.hooks.postRequestTranslation === "function") {
+            request = await channel.hooks.postRequestTranslation(request);
+        }
         if (hooks && typeof hooks.postRequestTranslation === "function") {
             request = await hooks.postRequestTranslation(request);
         }

@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.24.0",
+  "version": "1.24.6",
   "description": "Common type guards for :mega: stentor",
   "types": "lib/index",
   "main": "lib/index",

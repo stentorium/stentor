@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.24.3",
+  "version": "1.24.6",
   "description": "Event service for :mega: stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -31,8 +31,8 @@
   },
   "dependencies": {
     "stacktrace-parser": "0.1.9",
-    "stentor-request": "1.24.3",
-    "stentor-utils": "1.24.3"
+    "stentor-request": "1.24.6",
+    "stentor-utils": "1.24.6"
   },
   "peerDependencies": {
     "aws-sdk": "2.x",

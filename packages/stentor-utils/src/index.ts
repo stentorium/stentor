@@ -16,6 +16,7 @@ export * from "./matcher";
 export * from "./net";
 export * from "./number";
 export * from "./object";
+export * from "./request";
 export * from "./response";
 export * from "./speech";
 export * from "./ssml";

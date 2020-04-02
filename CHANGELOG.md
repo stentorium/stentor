@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.25.0](https://github.com/stentorium/stentor/compare/v1.24.9...v1.25.0) (2020-04-02)
+
+
+### Features
+
+* Adding postRequestTranslation to the Channel Hooks ([#251](https://github.com/stentorium/stentor/issues/251)) ([b81164f](https://github.com/stentorium/stentor/commit/b81164f6c947c216c14cdd6431e6a148eda11892))
+
+
+
+
+
 ## [1.24.9](https://github.com/stentorium/stentor/compare/v1.24.8...v1.24.9) (2020-04-01)
 
 **Note:** Version bump only for package repo

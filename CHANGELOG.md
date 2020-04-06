@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.25.10](https://github.com/stentorium/stentor/compare/v1.25.9...v1.25.10) (2020-04-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chalk to v4 ([#257](https://github.com/stentorium/stentor/issues/257)) ([e202dae](https://github.com/stentorium/stentor/commit/e202dae2b7b544a1e2ab077efad0913061992076))
+
+
+
+
+
 ## [1.25.9](https://github.com/stentorium/stentor/compare/v1.25.8...v1.25.9) (2020-04-06)
 
 **Note:** Version bump only for package repo

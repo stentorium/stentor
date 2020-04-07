@@ -3735,10 +3735,10 @@ fuse.js@3.4.5:
   resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-3.4.5.tgz#8954fb43f9729bd5dbcb8c08f251db552595a7a6"
   integrity sha512-s9PGTaQIkT69HaeoTVjwGsLfb8V8ScJLx5XGFcKHg0MqLUH/UZ4EKOtqtXX9k7AFqCGxD1aJmYb8Q5VYDibVRQ==
 
-fuse.js@5.0.8-beta:
-  version "5.0.8-beta"
-  resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-5.0.8-beta.tgz#63c9349f55ebd17f7f5994f25c835f845b97c4a3"
-  integrity sha512-nUsID//s9dnT/d17Lnq312+2VpIpS+5MeDrcqqgiw6LcEJDJK1Nr2oojs1QzsBWS5Ed2maezb9YnivQ6qde1vA==
+fuse.js@5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-5.1.0.tgz#192a670e48bc3ac0247cf9a61590714ab991f7a8"
+  integrity sha512-R8nPr9tQx0HdjRJsqkESimL7o/2Xe0/Lw0cMBrBjkAKAJFq6D6u/o3obteqxkvOJNEgS4xPP78dxoNMaCWNoGg==
 
 gauge@~2.7.3:
   version "2.7.4"

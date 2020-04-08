@@ -39,7 +39,7 @@
     "test": "mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
   },
   "dependencies": {
-    "@xapp/patterns": "1.18.111",
+    "@xapp/patterns": "1.18.147",
     "dotenv": "8.2.0",
     "stentor-constants": "1.25.14",
     "stentor-context": "1.25.14",

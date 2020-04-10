@@ -1219,7 +1219,14 @@
   dependencies:
     type-detect "4.0.8"
 
-"@sinonjs/fake-timers@^6.0.0":
+"@sinonjs/commons@^1.7.2":
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/@sinonjs/commons/-/commons-1.7.2.tgz#505f55c74e0272b43f6c52d81946bed7058fc0e2"
+  integrity sha512-+DUO6pnp3udV/v2VfUWgaY5BIE1IfT7lLfeDzPVeMT1XKkaAp9LgSI9x5RtrFQoZ9Oi0PgXQQHPaoKu7dCjVxw==
+  dependencies:
+    type-detect "4.0.8"
+
+"@sinonjs/fake-timers@^6.0.0", "@sinonjs/fake-timers@^6.0.1":
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/@sinonjs/fake-timers/-/fake-timers-6.0.1.tgz#293674fccb3262ac782c7aadfdeca86b10c75c40"
   integrity sha512-MZPUxrmFubI36XS1DI3qmI0YdN1gks62JtFZvxR67ljjSNCeK6U08Zx4msEWOXuofgqUt6zPHSi1H9fbjR/NRA==
@@ -6993,13 +7000,13 @@ sinon-chai@3.5.0:
   resolved "https://registry.yarnpkg.com/sinon-chai/-/sinon-chai-3.5.0.tgz#c9a78304b0e15befe57ef68e8a85a00553f5c60e"
   integrity sha512-IifbusYiQBpUxxFJkR3wTU68xzBN0+bxCScEaKMjBvAQERg6FnTTc1F17rseLb1tjmkJ23730AXpFI0c47FgAg==
 
-sinon@9.0.1:
-  version "9.0.1"
-  resolved "https://registry.yarnpkg.com/sinon/-/sinon-9.0.1.tgz#dbb18f7d8f5835bcf91578089c0a97b2fffdd73b"
-  integrity sha512-iTTyiQo5T94jrOx7X7QLBZyucUJ2WvL9J13+96HMfm2CGoJYbIPqRfl6wgNcqmzk0DI28jeGx5bUTXizkrqBmg==
+sinon@9.0.2:
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/sinon/-/sinon-9.0.2.tgz#b9017e24633f4b1c98dfb6e784a5f0509f5fd85d"
+  integrity sha512-0uF8Q/QHkizNUmbK3LRFqx5cpTttEVXudywY9Uwzy8bTfZUhljZ7ARzSxnRHWYWtVTeh4Cw+tTb3iU21FQVO9A==
   dependencies:
-    "@sinonjs/commons" "^1.7.0"
-    "@sinonjs/fake-timers" "^6.0.0"
+    "@sinonjs/commons" "^1.7.2"
+    "@sinonjs/fake-timers" "^6.0.1"
     "@sinonjs/formatio" "^5.0.1"
     "@sinonjs/samsam" "^5.0.3"
     diff "^4.0.2"
@@ -7258,10 +7265,24 @@ static-extend@^0.1.1:
     define-property "^0.2.5"
     object-copy "^0.1.0"
 
+stentor-conditional@1.25.18:
+  version "1.25.18"
+  resolved "https://registry.yarnpkg.com/stentor-conditional/-/stentor-conditional-1.25.18.tgz#45d1b8b302036d73c1e0676f2423c5bcbdc3bf0c"
+  integrity sha512-45JUTZoT2bzX1vOF8+PNp7aQ8YcJmfQXvZGQI0eUt0CHqcgwxwlBEfQ4ugQUseIZCcwRePwbLdL2uTdSIt6Cgw==
+  dependencies:
+    stentor-logger "1.22.24"
+    stentor-models "1.25.18"
+    vm2 "3.9.1"
+
 stentor-constants@1.22.22:
   version "1.22.22"
   resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.22.22.tgz#2b23e9831ecef3cb7d9332e6dc0c39a1bcd6aa7b"
   integrity sha512-tSd/wG131wCLHg8PYUB9DVHEaRfgR3fSgAhO1hH9Pe8pjuCeuW/JjuEPztsYoUN5U8KLgaUlo8TB2tFFDpxNBQ==
+
+stentor-constants@1.25.18:
+  version "1.25.18"
+  resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.25.18.tgz#41900c51e698a6d15f22c5c4c2d6a067bb1e01cb"
+  integrity sha512-2b30eJGQvj/G7vRQUCRpiNgPpJb9LKexcK7qqpywCnbZYvGZx/d8A6+QX+Fzoao3Vn7JfanbI5xJUklyPGRn/g==
 
 stentor-determiner@1.25.18:
   version "1.25.18"
@@ -7277,6 +7298,13 @@ stentor-determiner@1.25.18:
     stentor-storage "1.25.18"
     stentor-time "1.25.18"
     stentor-utils "1.25.18"
+
+stentor-guards@1.25.18:
+  version "1.25.18"
+  resolved "https://registry.yarnpkg.com/stentor-guards/-/stentor-guards-1.25.18.tgz#b8314ceef04fce1878de8bfa133b402edb49a685"
+  integrity sha512-kcLETjSWncjqX+t+rXViAcdCzs1wl9T/vWxxwRwcdCTBR4Xhe+BgSxylHMf9Myo+/UbA6JtzreNEiFKvEt3Pfw==
+  dependencies:
+    stentor-constants "1.25.18"
 
 stentor-interaction-model@1.25.18:
   version "1.25.18"
@@ -7322,6 +7350,13 @@ stentor-media@1.25.18:
     stentor-guards "1.25.18"
     stentor-time "1.25.18"
     stentor-utils "1.25.18"
+
+stentor-models@1.25.18:
+  version "1.25.18"
+  resolved "https://registry.yarnpkg.com/stentor-models/-/stentor-models-1.25.18.tgz#7ef7426fdf8635cde7e333e70cf8d41cc63abeb9"
+  integrity sha512-xY32Z1BgS2R8eGPWUO+xs6Ecn/PFwBwhO4bOydW5d+9PSBkTSVTGSl+LZ5dGXuz4JUdEsgDLmCCrWwlO4f7rTg==
+  dependencies:
+    "@xapp/patterns" "1.18.147"
 
 stentor-request@1.25.18:
   version "1.25.18"

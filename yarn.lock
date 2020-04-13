@@ -6862,10 +6862,10 @@ rimraf@^2.5.4, rimraf@^2.6.2, rimraf@^2.6.3:
   dependencies:
     glob "^7.1.3"
 
-rollup@2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.6.0.tgz#e69d50dc2217af23ab5f6df9a48e45df4ab56df1"
-  integrity sha512-qbvQ9ZbvbhBdtRBZ/A4g+9z3iJQ1rHAtjinn3FiN+j5tfz8xiNyTE1JEEMcFWqlH7+NHadI9ieeqKdp8HwYLnQ==
+rollup@2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.6.1.tgz#8354e67caa7b8bf24c2488d9e2f64da2be62eebe"
+  integrity sha512-1RhFDRJeg027YjBO6+JxmVWkEZY0ASztHhoEUEWxOwkh4mjO58TFD6Uo7T7Y3FbmDpRTfKhM5NVxJyimCn0Elg==
   optionalDependencies:
     fsevents "~2.1.2"
 
@@ -7265,10 +7265,24 @@ static-extend@^0.1.1:
     define-property "^0.2.5"
     object-copy "^0.1.0"
 
+stentor-conditional@1.25.26:
+  version "1.25.26"
+  resolved "https://registry.yarnpkg.com/stentor-conditional/-/stentor-conditional-1.25.26.tgz#7b6b0eeed2e893793256fd42f93629fb833f73c1"
+  integrity sha512-YDMAyXko9A30673bG6DnxGrcoizsPRFNh0LwkgHfVSe54Tz88r7gdSj0a2AFu3FFZGzFpKqvW4niCJuRV8A+xA==
+  dependencies:
+    stentor-logger "1.22.24"
+    stentor-models "1.25.26"
+    vm2 "3.9.1"
+
 stentor-constants@1.22.22:
   version "1.22.22"
   resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.22.22.tgz#2b23e9831ecef3cb7d9332e6dc0c39a1bcd6aa7b"
   integrity sha512-tSd/wG131wCLHg8PYUB9DVHEaRfgR3fSgAhO1hH9Pe8pjuCeuW/JjuEPztsYoUN5U8KLgaUlo8TB2tFFDpxNBQ==
+
+stentor-constants@1.25.26:
+  version "1.25.26"
+  resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.25.26.tgz#6ee48894e3e930191512c5f9716d133a32acd35b"
+  integrity sha512-CojmB5poShBf6fd7KYDSFY4G5O/6TX0xxJkBhpj6WEjS+bfgqp0Z5JQcp0mAq4dx+CaO2svhLE4juXtX41Pmgw==
 
 stentor-determiner@1.25.26:
   version "1.25.26"
@@ -7284,6 +7298,13 @@ stentor-determiner@1.25.26:
     stentor-storage "1.25.26"
     stentor-time "1.25.26"
     stentor-utils "1.25.26"
+
+stentor-guards@1.25.26:
+  version "1.25.26"
+  resolved "https://registry.yarnpkg.com/stentor-guards/-/stentor-guards-1.25.26.tgz#0d9878a56812dc3ebc01d3f1b3c335917138a4e4"
+  integrity sha512-H2HGekFZTcrQcvrFINtdsfTv+5Pdlci9V2zDhrN/qqkFF8l+5DASn56j6StdrDvU1acA7pGEf6p1oPtUpJgcpg==
+  dependencies:
+    stentor-constants "1.25.26"
 
 stentor-interaction-model@1.25.26:
   version "1.25.26"
@@ -7329,6 +7350,13 @@ stentor-media@1.25.26:
     stentor-guards "1.25.26"
     stentor-time "1.25.26"
     stentor-utils "1.25.26"
+
+stentor-models@1.25.26:
+  version "1.25.26"
+  resolved "https://registry.yarnpkg.com/stentor-models/-/stentor-models-1.25.26.tgz#936704360c13e3d395550a33dfd2c94049ca4efb"
+  integrity sha512-L4p7GaA1lKejz0aikl6OEYeQwphprxK3enOSCDmgPzS8O8lSJMHKSpSli6flTey0MKTpNRtZICCUIU0SQQoXwA==
+  dependencies:
+    "@xapp/patterns" "1.18.147"
 
 stentor-request@1.25.26:
   version "1.25.26"

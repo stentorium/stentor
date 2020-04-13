@@ -3,6 +3,70 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.25.33](https://github.com/stentorium/stentor/compare/v1.25.32...v1.25.33) (2020-04-13)
+
+**Note:** Version bump only for package stentor
+
+
+
+
+
+## [1.25.32](https://github.com/stentorium/stentor/compare/v1.25.31...v1.25.32) (2020-04-13)
+
+**Note:** Version bump only for package stentor
+
+
+
+
+
+## [1.25.31](https://github.com/stentorium/stentor/compare/v1.25.30...v1.25.31) (2020-04-13)
+
+**Note:** Version bump only for package stentor
+
+
+
+
+
+## [1.25.30](https://github.com/stentorium/stentor/compare/v1.25.29...v1.25.30) (2020-04-13)
+
+**Note:** Version bump only for package stentor
+
+
+
+
+
+## [1.25.29](https://github.com/stentorium/stentor/compare/v1.25.28...v1.25.29) (2020-04-13)
+
+**Note:** Version bump only for package stentor
+
+
+
+
+
+## [1.25.28](https://github.com/stentorium/stentor/compare/v1.25.27...v1.25.28) (2020-04-12)
+
+**Note:** Version bump only for package stentor
+
+
+
+
+
+## [1.25.27](https://github.com/stentorium/stentor/compare/v1.25.26...v1.25.27) (2020-04-11)
+
+**Note:** Version bump only for package stentor
+
+
+
+
+
+## [1.25.26](https://github.com/stentorium/stentor/compare/v1.25.25...v1.25.26) (2020-04-11)
+
+**Note:** Version bump only for package stentor
+
+
+
+
+
 ## [1.25.25](https://github.com/stentorium/stentor/compare/v1.25.24...v1.25.25) (2020-04-10)
 
 **Note:** Version bump only for package stentor

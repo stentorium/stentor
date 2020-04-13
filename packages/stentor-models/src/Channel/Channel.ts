@@ -19,7 +19,7 @@ export interface Channel {
      *
      * This must be alphanumeric characters only, dashes instead of spaces.
      *
-     * For example: actions-on-google or alexa
+     * For example: "actions-on-google" or "alexa"
      *
      * This is used in analytics and in some cases platform selection if the platform is provided in the
      * URL as a query or path parameter.

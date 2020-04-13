@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.25.29",
+  "version": "1.25.30",
   "description": "Storage for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -19,12 +19,12 @@
     "@types/jsonpath": "0.2.0",
     "@xapp/config": "0.2.3",
     "chai": "4.2.0",
-    "stentor-models": "1.25.29",
+    "stentor-models": "1.25.30",
     "typescript": "3.8.3"
   },
   "dependencies": {
     "jsonpath": "1.0.2",
-    "stentor-utils": "1.25.29"
+    "stentor-utils": "1.25.30"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

@@ -286,7 +286,7 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
     }
 
     /**
-     * 
+     *
      * @alpha - The feature is under active development
      * @param phoneNumber - The phone number to transfer to
      */
@@ -294,6 +294,20 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         this._response.system = "TRANSFER_CALL";
         this._response.data = {
             transferPhoneNumber: phoneNumber
+        };
+
+        return this;
+    }
+
+    /**
+     *
+     * @alpha - The feature is under active development
+     * @param handoffTargetId - The id that represents the handoff target (app id/name, queue id/name, etc)
+     */
+    public askForHandoff(handoffTargetId: string): AbstractResponseBuilder<T> {
+        this._response.system = "HANDOFF";
+        this._response.data = {
+            handoffTargetId
         };
 
         return this;

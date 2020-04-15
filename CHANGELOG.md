@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.26.0](https://github.com/stentorium/stentor/compare/v1.25.36...v1.26.0) (2020-04-15)
+
+
+### Features
+
+* Hand-off Response - Transfer to Live Agent ([#299](https://github.com/stentorium/stentor/issues/299)) ([ba449c6](https://github.com/stentorium/stentor/commit/ba449c66f64f6296be3c3580751e1a8b0cb3329d))
+
+
+
+
+
 ## [1.25.36](https://github.com/stentorium/stentor/compare/v1.25.35...v1.25.36) (2020-04-13)
 
 **Note:** Version bump only for package repo

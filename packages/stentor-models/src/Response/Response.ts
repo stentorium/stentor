@@ -17,13 +17,13 @@ import { ResponseSegmentsMap } from "./ResponseSegment";
 export interface ResponseData {
     /**
      * Provides context to the user for select system responses.
-     * 
+     *
      * Used for SURFACE_CHANGE, ACCOUNT_LINK,
      */
     content?: string;
     /**
      * Provides a title for select system responses.
-     * 
+     *
      * Used for SURFACE_CHANGE
      */
     title?: string;
@@ -92,7 +92,8 @@ export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Act
     | "PERMISSION_LOCATION_PRECISE"
     | "PERMISSION_LOCATION_COARSE"
     | "PERMISSION_NOTIFICATION"
-    | "TRANSFER_CALL";
+    | "TRANSFER_CALL"
+    | "HANDOFF";
     /**
      * Supplemental data to augment the response.
      */

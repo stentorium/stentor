@@ -33,19 +33,19 @@ export abstract class AbstractResponseBuilder<R = any> {
     /**
      * Information about the device capabilities.  Use to determine
      * if you can present display information or play media.
-     * 
+     *
      * @readonly
      */
     protected readonly device: Readonly<Device>;
     /**
      * Do not use.
-     * 
+     *
      * @deprecated Use metadata from the App model
      */
     protected readonly backgroundImage?: ImageSpecification[];
     /**
      * Do not use.
-     * 
+     *
      * @deprecated Use metadata from the App model
      */
     protected readonly assistantTitle?: string;
@@ -76,14 +76,14 @@ export abstract class AbstractResponseBuilder<R = any> {
      * Respond to the user.
      *
      * Can contain just an output speech but can also contain an reprompt.
-     * 
+     *
      * @param response - The entire response
      * @returns The builder instance
      */
     abstract respond(response: Response): AbstractResponseBuilder<R>;
     /**
      * Say something to the user.
-     * 
+     *
      * @param ssml - The response, either as a string or a response output object which contains SSML and display text.
      * @param append - Append the response to the existing, if available
      * @returns The builder instance
@@ -114,7 +114,7 @@ export abstract class AbstractResponseBuilder<R = any> {
     abstract withList(items: ListItem[], title?: string): AbstractResponseBuilder<R>;
     /**
      * Provide a carousel (horizontal selection)
-     * 
+     *
      * @param items - List items to display in the carousel
      * @returns The builder instance
      */
@@ -133,7 +133,7 @@ export abstract class AbstractResponseBuilder<R = any> {
     ): AbstractResponseBuilder<R>;
     /**
      * Build intent pre-fetch results aka "CanFulfillRequest"
-     * 
+     *
      * @param results
      * @returns The builder instance
      */
@@ -162,7 +162,7 @@ export abstract class AbstractResponseBuilder<R = any> {
     abstract playPlaylist(playlist: Array<PlayableMedia> | PlayableMedia[]): AbstractResponseBuilder<R>;
     /**
      * Stop the current audio
-     * 
+     *
      * @returns The builder instance
      */
     abstract stop(): AbstractResponseBuilder<R>;
@@ -187,7 +187,7 @@ export abstract class AbstractResponseBuilder<R = any> {
 
     /**
      * Request account linking
-     * 
+     *
      * @returns The builder instance
      */
     abstract askForAccountLinking(response?: string | SimpleResponse): AbstractResponseBuilder<R>;
@@ -195,13 +195,13 @@ export abstract class AbstractResponseBuilder<R = any> {
      * Request notification to intent
      *
      * @beta This is a beta feature.
-     * @param intentId - 
+     * @param intentId -
      * @returns The builder instance
      */
     abstract askForNotification(intentId?: string): AbstractResponseBuilder<R>;
     /**
      * Ask the user to change surfaces, for example from a smart speaker to a mobile phone.
-     * 
+     *
      * @param response - Response to give as context to the user for the surface change
      * @param notificationLabel - The label for the notification on the new surface
      * @returns The builder instance
@@ -212,7 +212,7 @@ export abstract class AbstractResponseBuilder<R = any> {
     ): AbstractResponseBuilder<R>;
     /**
      * Request access to shopping lists
-     * 
+     *
      * @returns The builder instance
      */
     abstract askForListAccess(response?: string | SimpleResponse): AbstractResponseBuilder<R>;
@@ -224,14 +224,20 @@ export abstract class AbstractResponseBuilder<R = any> {
     abstract askForUserData(userDataType: UserDataType, accessData?: ApiAccessData): Promise<UserDataValue>;
     /**
      * Ask for call transfer (on telephony capable channels)
-     * 
+     *
      * @param phoneNumber - The phone number to transfer the call to
      * @returns The builder instance
      */
     abstract askForCallTransfer(phoneNumber: string): AbstractResponseBuilder<R>;
+     /**
+     *
+     * @alpha - The feature is under active development
+     * @param handoffTargetId - The id that represents the handoff target (app id/name, queue id/name, etc)
+     */
+     abstract askForHandoff(handoffTargetId: string): AbstractResponseBuilder<R>;
     /**
      * Build the response
-     * 
+     *
      * @returns The built response
      */
     abstract build(): R;

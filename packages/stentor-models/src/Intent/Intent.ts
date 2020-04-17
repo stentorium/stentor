@@ -85,7 +85,7 @@ export interface Intent extends Localizable<LocaleSpecificIntent> {
      *
      * For more information on syntax see {@link https://github.com/alexa-js/alexa-utterances}
      */
-    utterancePatterns?: string[];
+    utterancePatterns: string[];
     /**
      * The language code.  Defaults to "en-US".
      *

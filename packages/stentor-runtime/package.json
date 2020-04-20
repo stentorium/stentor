@@ -21,7 +21,7 @@
     "@xapp/config": "0.2.3",
     "@xapp/patterns": "1.18.147",
     "@xapp/stentor-actions-on-google": "1.19.13",
-    "@xapp/stentor-alexa": "1.19.13",
+    "@xapp/stentor-alexa": "1.20.0",
     "@xapp/stentor-dialogflow": "1.19.13",
     "aws-sdk": "2.658.0",
     "chai": "4.2.0",

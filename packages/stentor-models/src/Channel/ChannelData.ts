@@ -9,7 +9,7 @@ export interface ChannelData {
     /**
      * Unique ID of the channel.
      */
-    id?: string;
+    id: string;
     /**
      * The channel type
      */

@@ -3,7 +3,7 @@ export interface NLUData {
     /**
      * The reference ID for the NLU
      */
-    id?: string;
+    id: string;
     /**
      * The type of NLU
      */

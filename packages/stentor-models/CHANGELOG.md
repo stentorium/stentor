@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.26.14](https://github.com/stentorium/stentor/compare/v1.26.13...v1.26.14) (2020-04-22)
+
+
+### Bug Fixes
+
+* Require id on channel & nlu data models ([#317](https://github.com/stentorium/stentor/issues/317)) ([7a8a1dc](https://github.com/stentorium/stentor/commit/7a8a1dc1aa24e60a778745a7472683ad1abd2f92))
+
+
+
+
+
 # [1.26.0](https://github.com/stentorium/stentor/compare/v1.25.36...v1.26.0) (2020-04-15)
 
 

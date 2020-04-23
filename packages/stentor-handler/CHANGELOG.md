@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.26.21](https://github.com/stentorium/stentor/compare/v1.26.20...v1.26.21) (2020-04-23)
+
+
+### Bug Fixes
+
+* Remove unnecessary dependencies (Renovate Update) ([#324](https://github.com/stentorium/stentor/issues/324)) ([9a24107](https://github.com/stentorium/stentor/commit/9a241071081ad2030f113cb68620648cf22ea248))
+
+
+
+
+
 ## [1.26.18](https://github.com/stentorium/stentor/compare/v1.26.17...v1.26.18) (2020-04-23)
 
 **Note:** Version bump only for package stentor-handler

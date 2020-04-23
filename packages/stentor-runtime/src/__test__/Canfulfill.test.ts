@@ -44,7 +44,7 @@ const yesWeCan = {
 };
 
 class MyHandlerService implements HandlerService {
-    get(intentId: string) {
+    public get(intentId: string) {
         return { type: "InSessionIntent", intentId } as any;
     }
 }

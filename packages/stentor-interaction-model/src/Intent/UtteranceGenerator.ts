@@ -1,6 +1,4 @@
 /*! Copyright (c) 2019, XAPPmedia */
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const uniq = require("lodash/uniq");
 import { getAttribute } from "stentor-locales";
 import { Intent, Locale } from "stentor-models";
 import {
@@ -112,7 +110,6 @@ export class UtteranceGenerator {
             return current.concat(utterances);
         }, []);
 
-        // and finally deduplicate and return
-        return uniq(sampleUtterances);
+        return [...new Set(sampleUtterances)];
     }
 }

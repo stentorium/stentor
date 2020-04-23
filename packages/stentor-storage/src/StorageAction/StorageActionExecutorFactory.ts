@@ -13,7 +13,7 @@ export class StorageActionExecutorFactory {
      * @returns {StorageActionExecutor}
      * @memberof StorageActionExecutorFactory
      */
-    executorForAction(action: StorageAction): StorageActionExecutor {
+    public executorForAction(action: StorageAction): StorageActionExecutor {
         if (!action) {
             throw new Error(`Unable to determine executor.  Undefined was passed for the action.`);
         }

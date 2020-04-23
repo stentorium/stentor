@@ -1,7 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { AudioLiveStream, Schedule, Scheduled, VideoLiveStream } from "stentor-models";
 import { expect } from "chai";
-import * as moment from "moment-timezone";
 import { AUDIO_LIVE_STREAM, VIDEO_LIVE_STREAM } from "../Constants";
 import { determineMediaSource } from "../determineMediaSource";
 import { Multimedia, PlaybackCapabilities } from "../Multimedia";
@@ -59,7 +58,7 @@ const audio2: AudioLiveStream = {
 };
 
 describe("#determinePlayableMedia()", () => {
-    let now: moment.Moment;
+    let now: Date;
     let schedule: Schedule;
 
     let emptyMultimedia: Multimedia;
@@ -73,10 +72,10 @@ describe("#determinePlayableMedia()", () => {
             video: []
         };
 
-        now = moment.utc();
+        now = new Date();
         schedule = {
             start: {
-                time: moment(now).format()
+                time: now.toISOString()
             },
             duration: {
                 amount: 5,

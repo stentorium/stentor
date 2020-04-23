@@ -3,9 +3,9 @@ import { expect } from "chai";
 import { pruneEmpty } from "../json";
 
 class ArrayExtension extends Array<string> {
-    name: string;
+    public name: string;
 
-    constructor() {
+    public constructor() {
         super();
 
         Object.setPrototypeOf(this, ArrayExtension.prototype);

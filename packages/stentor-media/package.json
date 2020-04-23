@@ -17,7 +17,6 @@
   "devDependencies": {
     "@types/chai": "4.2.11",
     "@types/mocha": "7.0.2",
-    "@types/moment-timezone": "0.5.13",
     "@types/node": "13.13.2",
     "@types/sinon": "9.0.0",
     "@xapp/config": "0.2.3",
@@ -28,7 +27,6 @@
     "typescript": "3.8.3"
   },
   "dependencies": {
-    "moment-timezone": "0.5.28",
     "stentor-guards": "1.26.18",
     "stentor-time": "1.26.18",
     "stentor-utils": "1.26.18"

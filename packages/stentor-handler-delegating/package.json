@@ -19,7 +19,7 @@
     "@xapp/config": "0.2.3",
     "chai": "4.2.0",
     "stentor-models": "1.26.18",
-    "ts-node": "8.9.0",
+    "ts-node": "8.9.1",
     "typescript": "3.8.3"
   },
   "dependencies": {

@@ -19,7 +19,7 @@
     "eslint-plugin-notice": "0.8.10",
     "lerna": "3.20.2",
     "license-checker": "25.0.1",
-    "mocha": "7.1.1",
+    "mocha": "7.1.2",
     "mocha-junit-reporter": "1.23.3",
     "nyc": "15.0.1"
   },

@@ -23,7 +23,7 @@
     "@xapp/stentor-actions-on-google": "1.21.0",
     "@xapp/stentor-alexa": "1.21.1",
     "@xapp/stentor-dialogflow": "1.21.0",
-    "aws-sdk": "2.668.0",
+    "aws-sdk": "2.673.0",
     "chai": "4.2.0",
     "fetch-mock": "9.5.0",
     "mocha": "7.1.2",

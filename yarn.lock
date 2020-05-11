@@ -2040,10 +2040,10 @@ blueimp-md5@2.12.0:
   resolved "https://registry.yarnpkg.com/blueimp-md5/-/blueimp-md5-2.12.0.tgz#be7367938a889dec3ffbb71138617c117e9c130a"
   integrity sha512-zo+HIdIhzojv6F1siQPqPFROyVy7C50KzHv/k/Iz+BtvtVzSHXiMXOpq2wCfNkeBqdCv+V8XOV96tsEt2W/3rQ==
 
-blueimp-md5@2.14.0:
-  version "2.14.0"
-  resolved "https://registry.yarnpkg.com/blueimp-md5/-/blueimp-md5-2.14.0.tgz#ac45786ede87d2a985478040d2ac38a9af7a16ac"
-  integrity sha512-fhX8JsIgugJ39g9MUJ4Y0S+WYd/1HATNVzW4nEVknP5uJU1mA7LZCV3OuVH9OvxpuYQXu6ttst0IYIlAyVfBQg==
+blueimp-md5@2.15.0:
+  version "2.15.0"
+  resolved "https://registry.yarnpkg.com/blueimp-md5/-/blueimp-md5-2.15.0.tgz#ae945f87ca6c2c11e2562983e11450b0545f9bb3"
+  integrity sha512-Zc6sowqlCWu3+V0bocZwdaPPXlRv14EHtYcQDCOghj9EdyKLMkAOODBh3HHAx5r7QRylDYCOaXa/b/edgBLDpA==
 
 brace-expansion@^1.1.7:
   version "1.1.11"

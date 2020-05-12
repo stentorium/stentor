@@ -18,7 +18,7 @@ import {
     START_OVER_INTENT,
     STOP_INTENT,
     YES_INTENT
-} from "./Constants";
+} from "stentor-constants";
 import { Polyfill } from "./Polyfill";
 import {
     CANCEL_POLYFILL,

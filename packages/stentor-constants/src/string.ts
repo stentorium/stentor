@@ -7,7 +7,6 @@ import { BaseHandlerType, ConversationHandlerType, DelegatingHandlerType } from 
  */
 export const STENTOR = "stentor";
 
-
 export const BASE_HANDLER_TYPE: BaseHandlerType = "HandlerIntent";
 
 export const CONVERSATION_HANDLER_TYPE: ConversationHandlerType = "InSessionIntent";

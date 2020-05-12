@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.26.23](https://github.com/stentorium/stentor/compare/v1.26.22...v1.26.23) (2020-05-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency blueimp-md5 to v2.14.0 ([#344](https://github.com/stentorium/stentor/issues/344)) ([fd40e41](https://github.com/stentorium/stentor/commit/fd40e41a61f528d1d3f05117c653bc5172c1310c))
+* **deps:** update dependency blueimp-md5 to v2.15.0 ([#355](https://github.com/stentorium/stentor/issues/355)) ([7f017e2](https://github.com/stentorium/stentor/commit/7f017e2e07000656bfbf3b675448083be1ad1cce))
+* **deps:** update dependency chrono-node to v1.4.6 ([#336](https://github.com/stentorium/stentor/issues/336)) ([99277e2](https://github.com/stentorium/stentor/commit/99277e258828f82dd727fc304668951337072092))
+* **deps:** update dependency date-fns to v2.13.0 ([#352](https://github.com/stentorium/stentor/issues/352)) ([7793fb2](https://github.com/stentorium/stentor/commit/7793fb20885d680268d508106a69966dc9cca97c))
+* **deps:** update dependency moment to v2.25.3 ([#340](https://github.com/stentorium/stentor/issues/340)) ([7c75c05](https://github.com/stentorium/stentor/commit/7c75c059ccdde5ff7b8f66c6d874eeb127774c26))
+* **deps:** update dependency stacktrace-parser to v0.1.10 ([#354](https://github.com/stentorium/stentor/issues/354)) ([b41dc8d](https://github.com/stentorium/stentor/commit/b41dc8d694f35cafa79f6f0ce72e848d40e344bf))
+* **deps:** update dependency vm2 to v3.9.2 ([#338](https://github.com/stentorium/stentor/issues/338)) ([fc5bb71](https://github.com/stentorium/stentor/commit/fc5bb71526b85cd9fb1a7763794567f35b4e0055))
+* Remove older node version in circle config ([07f7e22](https://github.com/stentorium/stentor/commit/07f7e22155424b0db8f703aa8549e917fdcef42e))
+
+
+
+
+
 ## [1.26.22](https://github.com/stentorium/stentor/compare/v1.26.21...v1.26.22) (2020-04-23)
 
 

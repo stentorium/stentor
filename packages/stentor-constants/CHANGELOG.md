@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.26.24](https://github.com/stentorium/stentor/compare/v1.26.23...v1.26.24) (2020-05-12)
+
+
+### Bug Fixes
+
+* Adding new Entities for better AWS LEX Support ([#366](https://github.com/stentorium/stentor/issues/366)) ([7a8b404](https://github.com/stentorium/stentor/commit/7a8b4044b70207597b3c3aaad382e432c782860e))
+
+
+
+
+
 ## [1.26.23](https://github.com/stentorium/stentor/compare/v1.26.22...v1.26.23) (2020-05-12)
 
 **Note:** Version bump only for package stentor-constants

@@ -21,7 +21,7 @@
     "@rollup/plugin-typescript": "4.1.1",
     "@xapp/config": "0.2.3",
     "rollup": "2.10.0",
-    "tslib": "1.12.0",
+    "tslib": "1.13.0",
     "typescript": "3.8.3"
   },
   "scripts": {

@@ -987,15 +987,15 @@
     "@microsoft/tsdoc" "0.12.19"
     "@rushstack/node-core-library" "3.19.7"
 
-"@microsoft/api-extractor@7.8.0":
-  version "7.8.0"
-  resolved "https://registry.yarnpkg.com/@microsoft/api-extractor/-/api-extractor-7.8.0.tgz#fea68e4f21c1bf18020560fd5728b15fe44f0976"
-  integrity sha512-H9dI7dCw005XuGa1dPAdZLQWEUu+B4yiF2v7NZ3p70mKo2iAZcd9LwmDTZ5OFALsNiHnJk1I5JZjcsj8dtB73g==
+"@microsoft/api-extractor@7.8.1":
+  version "7.8.1"
+  resolved "https://registry.yarnpkg.com/@microsoft/api-extractor/-/api-extractor-7.8.1.tgz#29b473ef85273b6b28974f89f1ccd46329297bc3"
+  integrity sha512-jS1B1E7kQK8yrCM6SwwYFdtXTHb0/xLrF/kbHJoRnNQYKz2c1hwHMK35JKTTDiWTwpBMpkbzCR5Fj+6Up3yy0A==
   dependencies:
     "@microsoft/api-extractor-model" "7.8.0"
     "@microsoft/tsdoc" "0.12.19"
     "@rushstack/node-core-library" "3.19.7"
-    "@rushstack/ts-command-line" "4.3.14"
+    "@rushstack/ts-command-line" "4.4.0"
     colors "~1.2.1"
     lodash "~4.17.15"
     resolve "1.8.1"
@@ -1203,15 +1203,6 @@
     timsort "~0.3.0"
     z-schema "~3.18.3"
 
-"@rushstack/ts-command-line@4.3.14":
-  version "4.3.14"
-  resolved "https://registry.yarnpkg.com/@rushstack/ts-command-line/-/ts-command-line-4.3.14.tgz#5d7a437d4e9c564ff1b8e876215fca96c74858a1"
-  integrity sha512-YJZIyKvkm3f6ZdKSfMntHS9542Y2mmMWzaiPPoXxLFZntKxEIDE3WfUNlvOSo3yK4fNd09Tz3hfvTivQNHSiKQ==
-  dependencies:
-    "@types/argparse" "1.0.33"
-    argparse "~1.0.9"
-    colors "~1.2.1"
-
 "@rushstack/ts-command-line@4.4.0":
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/@rushstack/ts-command-line/-/ts-command-line-4.4.0.tgz#796f24681fdcbd01d463278c9e80a51ea5f73b2b"
@@ -1263,11 +1254,6 @@
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/@sinonjs/text-encoding/-/text-encoding-0.7.1.tgz#8da5c6530915653f3a1f38fd5f101d8c3f8079c5"
   integrity sha512-+iTbntw2IZPb/anVDbypzfQa+ay64MW0Zo8aJ8gZPWMMK6/OubMVb6lUPMagqjOPnmtauXnFCACVl3O7ogjeqQ==
-
-"@types/argparse@1.0.33":
-  version "1.0.33"
-  resolved "https://registry.yarnpkg.com/@types/argparse/-/argparse-1.0.33.tgz#2728669427cdd74a99e53c9f457ca2866a37c52d"
-  integrity sha512-VQgHxyPMTj3hIlq9SY1mctqx+Jj8kpQfoLvDlVSDNOyuYs8JYfkuY3OW/4+dO657yPmNhHpePRx0/Tje5ImNVQ==
 
 "@types/argparse@1.0.38":
   version "1.0.38"

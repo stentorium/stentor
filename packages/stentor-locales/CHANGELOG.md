@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.26.34](https://github.com/stentorium/stentor/compare/v1.26.33...v1.26.34) (2020-05-17)
+
+**Note:** Version bump only for package stentor-locales
+
+
+
+
+
 ## [1.26.33](https://github.com/stentorium/stentor/compare/v1.26.32...v1.26.33) (2020-05-17)
 
 **Note:** Version bump only for package stentor-locales

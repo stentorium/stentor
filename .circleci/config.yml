@@ -34,7 +34,6 @@ jobs:
             - .eslintignore
             - .eslintrc.js
             - .yarnrc
-
   build:
     <<: *defaults
     steps:
@@ -48,7 +47,6 @@ jobs:
           root: ~/repo
           paths:
             - packages/*/lib/*
-
   lint:
     <<: *defaults
     steps:
@@ -57,7 +55,14 @@ jobs:
       - run:
           name: Lint
           command: yarn lint
-
+  version_check:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Version Check
+          command: yarn version-check
   test:
     <<: *defaults
     steps:
@@ -81,7 +86,6 @@ jobs:
       #    paths:
       #      - coverage/
       #      - .nyc_output/*
-
   license_check:
     <<: *defaults
     steps:
@@ -90,7 +94,6 @@ jobs:
       - run:
           name: License Check
           command: yarn license-check
-
   release:
     <<: *defaults
     steps:
@@ -128,6 +131,9 @@ workflows:
             branches:
               ignore: master
       - lint:
+          requires:
+            - checkout
+      - version_check:
           requires:
             - checkout
       - build:

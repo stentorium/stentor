@@ -39,7 +39,7 @@
     "chrono-node": "1.4.6",
     "date-fns": "2.13.0",
     "dyno-item-size": "0.3.3",
-    "fuse.js": "5.1.0",
+    "fuse.js": "5.2.3",
     "lodash.clonedeep": "4.5.0",
     "lodash.forown": "4.4.0",
     "lodash.isempty": "4.4.0",

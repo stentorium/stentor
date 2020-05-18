@@ -310,7 +310,12 @@ export const main = async (
     // #3 Kick off the request - check for canFulfill first
     if (isIntentRequest(request) && request.canFulfill) {
         // Only if the key is a real intent (not unknown input) and the handler is canFulfill "aware" - fulfill all
+        // NOTE: TypeScript is giving an error here saying it will never happen
+        //       which I mostly agree with.  Going to keep it here for now as a just
+        //       in case and backwards compat.  -- Michael
         if (isInputUnknownRequest(request)) {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+            // @ts-ignore
             context.response.withCanFulfill(canFulfillNothing(request.slots));
         } else {
             if (handler.data && handler.data.accessibleThroughDiscovery) {

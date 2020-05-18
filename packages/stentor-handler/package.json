@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.26.36",
+  "version": "1.26.37",
   "description": "Handlers for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -24,25 +24,25 @@
     "mocha": "7.1.2",
     "sinon": "9.0.2",
     "sinon-chai": "3.5.0",
-    "stentor-models": "1.26.34",
+    "stentor-models": "1.26.37",
     "ts-node": "8.10.1",
     "typescript": "3.8.3"
   },
   "dependencies": {
     "@xapp/patterns": "1.21.7",
     "jsonpath": "1.0.2",
-    "stentor-conditional": "1.26.34",
-    "stentor-constants": "1.26.34",
-    "stentor-context": "1.26.36",
-    "stentor-guards": "1.26.34",
-    "stentor-history": "1.26.34",
-    "stentor-interaction-model": "1.26.36",
-    "stentor-locales": "1.26.36",
-    "stentor-logger": "1.26.36",
-    "stentor-request": "1.26.36",
-    "stentor-response": "1.26.36",
-    "stentor-storage": "1.26.36",
-    "stentor-utils": "1.26.36"
+    "stentor-conditional": "1.26.37",
+    "stentor-constants": "1.26.37",
+    "stentor-context": "1.26.37",
+    "stentor-guards": "1.26.37",
+    "stentor-history": "1.26.37",
+    "stentor-interaction-model": "1.26.37",
+    "stentor-locales": "1.26.37",
+    "stentor-logger": "1.26.37",
+    "stentor-request": "1.26.37",
+    "stentor-response": "1.26.37",
+    "stentor-storage": "1.26.37",
+    "stentor-utils": "1.26.37"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

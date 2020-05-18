@@ -24,7 +24,7 @@
     "typescript": "3.9.2"
   },
   "dependencies": {
-    "stentor-logger": "1.22.24",
+    "stentor-logger": "1.26.37",
     "stentor-models": "1.26.37",
     "vm2": "3.9.2"
   },

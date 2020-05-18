@@ -7312,10 +7312,24 @@ static-extend@^0.1.1:
     define-property "^0.2.5"
     object-copy "^0.1.0"
 
+stentor-conditional@1.26.34:
+  version "1.26.34"
+  resolved "https://registry.yarnpkg.com/stentor-conditional/-/stentor-conditional-1.26.34.tgz#0c3412e94d19f18bdd6a428afc74ec0fc3de1257"
+  integrity sha512-LsZPsWS+GqwHa2/6UijEfhKMKxV5g+qcaVH9po1HdwvZBfRuhPdP3txMFRGJ9oUhejtTpwkfev5CC/SUFWdXTQ==
+  dependencies:
+    stentor-logger "1.22.24"
+    stentor-models "1.26.34"
+    vm2 "3.9.2"
+
 stentor-constants@1.22.22:
   version "1.22.22"
   resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.22.22.tgz#2b23e9831ecef3cb7d9332e6dc0c39a1bcd6aa7b"
   integrity sha512-tSd/wG131wCLHg8PYUB9DVHEaRfgR3fSgAhO1hH9Pe8pjuCeuW/JjuEPztsYoUN5U8KLgaUlo8TB2tFFDpxNBQ==
+
+stentor-constants@1.26.34:
+  version "1.26.34"
+  resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.26.34.tgz#55ff8d360523cbf8dd7e0df26f0193837319ee24"
+  integrity sha512-Q1W8b9P30RFdSiYNYBe8BgFqfLrE2oF0Oo/AZ1bHTx3qYwVbNu4vzsacX/SeJzSYS8qCbe7PBe0SXmO2m4gmhQ==
 
 stentor-determiner@1.26.34:
   version "1.26.34"
@@ -7331,6 +7345,13 @@ stentor-determiner@1.26.34:
     stentor-storage "1.26.34"
     stentor-time "1.26.34"
     stentor-utils "1.26.34"
+
+stentor-guards@1.26.34:
+  version "1.26.34"
+  resolved "https://registry.yarnpkg.com/stentor-guards/-/stentor-guards-1.26.34.tgz#c8bcef45374f48314077b03bd877bae044280d29"
+  integrity sha512-BNzpk9uQi+HVD9B6oZEJZAoqlAC9BWwyKry1c+QYBJYzi6lGi7A+rxM0U2wpPRzpIKmWKtTDBR8l0VKqiXQ+ng==
+  dependencies:
+    stentor-constants "1.26.34"
 
 stentor-interaction-model@1.26.34:
   version "1.26.34"
@@ -7375,6 +7396,13 @@ stentor-media@1.26.34:
     stentor-guards "1.26.34"
     stentor-time "1.26.34"
     stentor-utils "1.26.34"
+
+stentor-models@1.26.34:
+  version "1.26.34"
+  resolved "https://registry.yarnpkg.com/stentor-models/-/stentor-models-1.26.34.tgz#37bb2ac70cac9a7daae1793fc1de69ec14455cfe"
+  integrity sha512-3pHb3eBXAcKAkWn3YKbmVJZ22RiWZ9uLwMSUaka47RjA9L8F1EPgOHc9ZnVQugw+YmgVAZUSM73cMkdO+zOcEQ==
+  dependencies:
+    "@xapp/patterns" "1.18.147"
 
 stentor-request@1.26.34:
   version "1.26.34"
@@ -7953,10 +7981,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@3.8.3:
-  version "3.8.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.8.3.tgz#409eb8544ea0335711205869ec458ab109ee1061"
-  integrity sha512-MYlEfn5VrLNsgudQTVJeNaQFUAI7DkhnOjdpAp4T+ku1TfQClewlbSuTVHiA+8skNBgaf02TL/kLOvig4y3G8w==
+typescript@3.9.2:
+  version "3.9.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.2.tgz#64e9c8e9be6ea583c54607677dd4680a1cf35db9"
+  integrity sha512-q2ktq4n/uLuNNShyayit+DTobV2ApPEo/6so68JaD5ojvc/6GClBipedB9zNWYxRSAlZXAe405Rlijzl6qDiSw==
 
 typescript@~3.7.2:
   version "3.7.5"

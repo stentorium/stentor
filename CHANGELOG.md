@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.26.40](https://github.com/stentorium/stentor/compare/v1.26.39...v1.26.40) (2020-05-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.14.0 ([#388](https://github.com/stentorium/stentor/issues/388)) ([de3e576](https://github.com/stentorium/stentor/commit/de3e5760b8a8bf51ee2f831c9a9d3549475d0a06))
+
+
+
+
+
 ## [1.26.39](https://github.com/stentorium/stentor/compare/v1.26.38...v1.26.39) (2020-05-19)
 
 **Note:** Version bump only for package repo

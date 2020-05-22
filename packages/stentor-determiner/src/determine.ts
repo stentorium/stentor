@@ -27,10 +27,9 @@ import {
 } from "stentor-request";
 import { findStorageDependentMatch, isStorageDependable } from "stentor-storage";
 import { findTimeContextualMatch, TimeConditionalCheck } from "stentor-time";
-import { random, existsAndNotEmpty } from "stentor-utils";
+import { compileJSONPaths, random, existsAndNotEmpty } from "stentor-utils";
 import { findJSONDependentMatch, JSONConditionalCheck } from "./findJSONDependentMatch";
 import { isJSONDependable, isConditional } from "./Guards";
-import { compileJSONPaths } from "./compileJSONPaths";
 
 /**
  * Determine which of the provided objects is best based on provided request and context.

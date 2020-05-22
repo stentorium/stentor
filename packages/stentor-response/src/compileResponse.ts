@@ -1,7 +1,9 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { compileJSONPaths } from "stentor-determiner";
 import { localize } from "stentor-locales";
 import { Context, Request, Response } from "stentor-models";
+import { isIntentRequest } from "stentor-request";
+import { compileJSONPaths, compileSlotValues } from "stentor-utils";
+
 import { compileSegments } from "./compileSegments";
 
 /**
@@ -14,12 +16,11 @@ import { compileSegments } from "./compileSegments";
  *
  * will be transformed to "Hello Bob" when passed an intent request
  * with a slot "NAME" and value "Bob"
- *
- * @export
- * @param {Response} response
- * @param {Request} request
- * @param {Context} context
- * @returns {Response}
+ * 
+ * @param response - Response to be compiled
+ * @param request - Request to pull information from for compilation 
+ * @param context - Context to pull information from for compilation
+ * @param additionalContext - Additional, optional, context to pull information from for compilation
  */
 export function compileResponse(
     response: Response,
@@ -45,23 +46,29 @@ export function compileResponse(
         const responseOutput = compiledResponse[key];
         if (responseOutput) {
             if (typeof responseOutput === "string") {
-                const valueWithCompiledSegments = compileSegments(
+                let valueCompiled = compileSegments(
                     responseOutput,
                     compiledResponse.segments,
                     request,
                     context
                 );
-                compiledResponse[key] = compileJSONPaths(valueWithCompiledSegments, object);
+                if (isIntentRequest(request)) {
+                    valueCompiled = compileSlotValues(valueCompiled, request.slots);
+                }
+                compiledResponse[key] = compileJSONPaths(valueCompiled, object, true);
             } else {
                 // Flatten for locales
                 const localizedResponseOutput = localize(responseOutput, request.locale);
-                const valueWithCompiledSegments = compileSegments(
+                let valueCompiled = compileSegments(
                     localizedResponseOutput,
                     compiledResponse.segments,
                     request,
                     context
                 );
-                compiledResponse[key] = compileJSONPaths(valueWithCompiledSegments, object);
+                if (isIntentRequest(request)) {
+                    valueCompiled = compileSlotValues(valueCompiled, request.slots);
+                }
+                compiledResponse[key] = compileJSONPaths(valueCompiled, object, true);
             }
         }
     });

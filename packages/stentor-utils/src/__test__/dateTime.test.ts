@@ -39,6 +39,20 @@ describe(`#${dateTimeToString.name}()`, () => {
                     date: "2020-07-19"
                 })
             ).to.deep.equal("2020-07-19");
+            expect(
+                dateTimeToString({
+                    date: "2020-7-4"
+                })
+            ).to.deep.equal("2020-07-04");
+        });
+        describe('with date not formatted yyyy-MM-dd', () => {
+            it("returns the correct result", () => {
+                expect(
+                    dateTimeToString({
+                        date: "2020-7-4"
+                    })
+                ).to.deep.equal("2020-07-04");
+            });
         });
     });
     describe("when passed a range", () => {
@@ -84,6 +98,22 @@ describe(`#${dateTimeToString.name}()`, () => {
                     }
                 })
             ).to.deep.equal("2020-07-19T23:59:59");
+        });
+        describe('with dates not formatted yyyy-MM-dd', () => {
+            it("returns the correct result", () => {
+                expect(
+                    dateTimeToString(
+                        {
+                            start: {
+                                date: "2020-7-4"
+                            },
+                            end: {
+                                date: "2020-7-10"
+                            }
+                        }
+                    )
+                ).to.deep.equal("2020-07-04 --> 2020-07-10");
+            });
         });
     });
 });

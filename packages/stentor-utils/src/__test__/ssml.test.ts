@@ -1,6 +1,13 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { expect } from "chai";
-import { cleanInvalid, concatSSML, concatText, dessmlify, removeTagsWithContent, ssmlify } from "../ssml";
+import {
+    cleanInvalid,
+    concatSSML,
+    concatText,
+    dessmlify,
+    removeTagsWithContent,
+    ssmlify
+} from "../ssml";
 
 describe("#cleanInvalid()", () => {
     describe("when passed undefined", () => {
@@ -43,7 +50,6 @@ describe("#cleanInvalid()", () => {
         });
     });
 });
-
 describe("dessmlify", () => {
     it("removes the surrounding speak tags", () => {
         const speech = dessmlify("<speak>Hello!</speak>");

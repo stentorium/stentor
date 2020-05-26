@@ -9,8 +9,10 @@ import {
     endOfMonth,
     endOfWeek,
     endOfYear,
+    format,
     formatISO,
     Interval,
+    parse,
     startOfMonth,
     startOfWeek,
     startOfYear
@@ -59,24 +61,24 @@ export function dateTimeToString(dateTime: DateTime | DateTimeRange): string {
     }
 
     if (isDateTime(dateTime)) {
-        const date = (dateTime as DateTime).date;
-        const time = (dateTime as DateTime).time;
+        const date = dateTime.date ? format(parse(dateTime.date, "y-M-d", new Date()), "yyyy-MM-dd") : undefined;
+        const time = dateTime.time;
         return `${date ? date : ""}${date && time ? "T" : ""}${time ? time : ""}`;
     } else {
-        const start = (dateTime as DateTimeRange).start;
-        const end = (dateTime as DateTimeRange).end;
+        const start = dateTime.start;
+        const end = dateTime.end;
         let str = "";
         if (start) {
-            const date = (start as DateTime).date;
-            const time = (start as DateTime).time;
+            const date = start.date ? format(parse(start.date, "y-M-d", new Date()), "yyyy-MM-dd") : undefined;
+            const time = start.time;
             str = `${date ? date : ""}${date && time ? "T" : ""}${time ? time : ""}`;
         }
         if (start && end) {
             str += ` --> `;
         }
         if (end) {
-            const date = (end as DateTime).date;
-            const time = (end as DateTime).time;
+            const date = end.date ? format(parse(end.date, "y-M-d", new Date()), "yyyy-MM-dd") : undefined;
+            const time = end.time;
             str += `${date ? date : ""}${date && time ? "T" : ""}${time ? time : ""}`;
         }
         return str;
@@ -93,7 +95,7 @@ export function dateTimeToString(dateTime: DateTime | DateTimeRange): string {
  *
  * @public
  * @param potential - Potential ISO-8601 string
- * @returns True if the string is ISO-8601 Date & Time string
+ * @returns - True if the string is ISO-8601 Date & Time string
  */
 export function isISO8601(potential: string): boolean {
     if (!potential) {
@@ -131,8 +133,8 @@ export function isISO8601Range(potential: string): boolean {
  * separated by "-->"
  *
  * @export
- * @param {string} potential
- * @returns {boolean}
+ * @param potential
+ * @returns 
  */
 export function isDateTimeRangeString(potential: string): boolean {
     const regex = new RegExp(/^.+-->.+$/);
@@ -146,9 +148,9 @@ export function isDateTimeRangeString(potential: string): boolean {
  * it pulls out the date and the time.
  *
  * @export
- * @param {(string | Date)} date
- * @param {("time" | "date")} [includeOnly]
- * @returns {(DateTime | undefined)}
+ * @param date
+ * @param includeOnly
+ * @return 
  */
 export function getDateTimeFrom(date: string | Date, includeOnly?: "time" | "date"): DateTime | undefined {
     let slotDateTime: DateTime;
@@ -211,8 +213,8 @@ export function getDateTimeFrom(date: string | Date, includeOnly?: "time" | "dat
  * Supports both the ISO-8601 range & "-->" style date range.
  *
  * @export
- * @param {string} date
- * @returns {(DateTimeRange | undefined)}
+ * @param date
+ * @returns
  */
 export function getDateTimeRangeFrom(date: string): DateTimeRange | undefined {
     let delimiter: string;
@@ -264,11 +266,10 @@ export function parseDate(parsable: string, returnOnly?: "date" | "time"): DateT
  * Support is currently limited, see possible RelativeDateType & RelativeDateRangeType for current
  * supported values.
  *
- *  @public
-  * @param relative - The relative date
-  * @param now - Optional date to use to calculate date off of
-  * @returns 
-  */
+ * @param relative - The relative date
+ * @param now - Optional date to use to calculate date off of
+ * @returns - Computed relative data time
+ */
 export function parseRelativeDate(
     relative: RelativeDateRangeType | RelativeDateType | string,
     now: Date = new Date()

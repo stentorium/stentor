@@ -1,6 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 
 import { XmlElement } from "xmldoc";
+
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const xmldoc = require("xmldoc");
 
@@ -32,10 +33,8 @@ export function isValidSSML(response: string): boolean {
  * Note: This will need to be beefed up in the future.
  * </p>
  *
- * @see https://github.com/mandnyc/ssml-builder/blob/master/index.js#L257
- * @export
- * @param {string} outputSpeech
- * @returns {string}
+ * {@link https://github.com/mandnyc/ssml-builder/blob/master/index.js#L257}
+ * 
  */
 export function cleanInvalid(outputSpeech: string): string {
     if (outputSpeech && typeof outputSpeech === "string" && outputSpeech.indexOf("&") > 0) {
@@ -146,11 +145,6 @@ export function ssmlify(str: string, clean = true): string {
 /**
  * Combine two strings in a smart way for TTS or display.
  *
- * @export
- * @param {string} one
- * @param {string} two
- * @param {string} [delimiter]
- * @returns {string}
  */
 export function concatText(one: string, two: string, delimiter?: string): string {
     one = one ? one : "";
@@ -179,13 +173,7 @@ export function concatText(one: string, two: string, delimiter?: string): string
 }
 
 /**
- * Concat SSML in a smart way
- *
- * @export
- * @param {string} one
- * @param {string} two
- * @param {string} [delimiter]
- * @returns {string}
+ * Concat SSML in a smart way for TTS or display.
  */
 export function concatSSML(one: string, two: string, delimiter?: string): string {
     return ssmlify(concatText(dessmlify(one), dessmlify(two), delimiter));
@@ -203,6 +191,12 @@ function removeTagWithContent(speech: string, tag: string): string {
     return speech;
 }
 
+/**
+ * Removes the provided XML tags from the provided speech.
+ *
+ * @param speech - A string to have the tags 
+ * @param tags - The names of the tags such as "speak"
+ */
 export function removeTagsWithContent(speech: string, tags: string[]): string {
     if (!speech) {
         return speech;
@@ -214,5 +208,3 @@ export function removeTagsWithContent(speech: string, tags: string[]): string {
 
     return speech;
 }
-
-

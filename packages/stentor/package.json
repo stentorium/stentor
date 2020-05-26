@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.26.45",
+  "version": "1.26.56",
   "description": "SDK for building omni-channel conversational assistants",
   "types": "lib/index",
   "typings": "lib/index",
@@ -17,20 +17,20 @@
     "node": "10.x"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "7.8.2",
+    "@microsoft/api-extractor": "7.8.5",
     "@types/chai": "4.2.11",
     "@types/mocha": "7.0.2",
-    "@types/node": "13.13.8",
-    "@types/sinon": "9.0.3",
+    "@types/node": "13.13.9",
+    "@types/sinon": "9.0.4",
     "@types/sinon-chai": "3.2.4",
     "@xapp/config": "0.2.3",
-    "aws-sdk": "2.678.0",
+    "aws-sdk": "2.683.0",
     "chai": "4.2.0",
-    "mocha": "7.1.2",
+    "mocha": "7.2.0",
     "sinon": "9.0.2",
     "sinon-chai": "3.5.0",
     "ts-node": "8.10.1",
-    "typescript": "3.9.2"
+    "typescript": "3.9.3"
   },
   "scripts": {
     "api": "api-extractor run --local",
@@ -39,21 +39,21 @@
     "test": "mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
   },
   "dependencies": {
-    "@xapp/patterns": "1.21.7",
+    "@xapp/patterns": "1.24.2",
     "dotenv": "8.2.0",
-    "stentor-constants": "1.26.45",
-    "stentor-context": "1.26.45",
-    "stentor-determiner": "1.26.45",
-    "stentor-handler": "1.26.45",
-    "stentor-handler-factory": "1.26.45",
-    "stentor-logger": "1.26.45",
-    "stentor-models": "1.26.45",
-    "stentor-request": "1.26.45",
-    "stentor-response": "1.26.45",
-    "stentor-runtime": "1.26.45",
-    "stentor-service-event": "1.26.45",
-    "stentor-service-ovai": "1.26.45",
-    "stentor-utils": "1.26.45"
+    "stentor-constants": "1.26.55",
+    "stentor-context": "1.26.56",
+    "stentor-determiner": "1.26.56",
+    "stentor-handler": "1.26.56",
+    "stentor-handler-factory": "1.26.56",
+    "stentor-logger": "1.26.55",
+    "stentor-models": "1.26.55",
+    "stentor-request": "1.26.55",
+    "stentor-response": "1.26.56",
+    "stentor-runtime": "1.26.56",
+    "stentor-service-event": "1.26.55",
+    "stentor-service-ovai": "1.26.55",
+    "stentor-utils": "1.26.55"
   },
   "peerDependencies": {
     "aws-sdk": "2.X"

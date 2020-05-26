@@ -30,7 +30,7 @@ import {
 } from "stentor-request";
 import { canFulfillAll, canFulfillNothing, getResponse } from "stentor-response";
 import { EventService, wrapCallback as eventServiceCallbackWrapper } from "stentor-service-event";
-import { existsAndNotEmpty } from "stentor-utils";
+import { combineRequestSlots, existsAndNotEmpty } from "stentor-utils";
 import { ChannelSelector } from "./ChannelSelector";
 
 /**
@@ -304,6 +304,13 @@ export const main = async (
     context.storage.previousHandler = context.storage.currentHandler;
     context.storage.currentHandler = handler;
 
+    if (isIntentRequest(request)) {
+        // Update the slots on the user's session storage
+        // This is helpful when slot filling.
+        const currentSlots = context.session.get("slots");
+        context.session.set("slots", combineRequestSlots(currentSlots, request.slots));
+    }
+
     // More logging
     log().info(`appId:${handler.appId}|selectedHandler:${handler.intentId}`);
 
@@ -329,7 +336,11 @@ export const main = async (
         callback(null, response, request, response);
         return;
     }
-
+    // Majority of the logic will occur in the handleRequest method!
+    // It will take the request and objects on the context
+    // to determine a response.
+    // The response is built using the response builder on the
+    // context.
     try {
         await handler.handleRequest(request, context);
     } catch (error) {
@@ -371,7 +382,7 @@ export const main = async (
         }
     }
 
-    // Pre-translation hook - only real content (leave the errors alone)
+    // preResponseTranslation hook - only real content (leave the errors alone)
     if (typeof hooks === "object" && typeof hooks.preResponseTranslation === "function") {
         const returns = await hooks.preResponseTranslation(request, context.response, context.storage);
         if (returns) {

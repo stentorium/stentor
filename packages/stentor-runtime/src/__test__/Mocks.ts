@@ -2,10 +2,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Translator } from "@xapp/patterns";
 import {
+    Device,
     Channel,
     HandlerService,
     Pii,
     PIIService,
+    Response,
     Request,
     RequestResponse,
     UserDataValue,
@@ -96,3 +98,50 @@ export const MOCK_CHANNEL: Channel = {
         }
     }
 }
+
+export interface PassThroughChannelOptions {
+    device?: Device;
+}
+
+export class PassThroughRequestTranslator extends Translator<Request, Request> {
+    public translate(request: Request): Request {
+        return request;
+    }
+}
+
+export class PassThroughResponseTranslator extends Translator<RequestResponse, Response> {
+    public translate(response: RequestResponse): Response {
+        return response.response;
+    }
+}
+
+export function passThroughChannel(options?: PassThroughChannelOptions): Channel {
+
+    const device: Device = {
+        canPlayAudio: true,
+        canPlayVideo: true,
+        canSpeak: true,
+        audioSupported: true,
+        videoSupported: true,
+        canThrowCard: true,
+        canTransferCall: false,
+        channel: "MOCK",
+        hasScreen: true
+    };
+
+    return {
+        name: "MOCK",
+        test: (): boolean => {
+            return true;
+        },
+        request: new PassThroughRequestTranslator(),
+        response: new PassThroughResponseTranslator(),
+        capabilities: (): Device => {
+            if (options && options.device) {
+                return options.device;
+            } else {
+                return device;
+            }
+        }
+    }
+};

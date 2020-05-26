@@ -584,6 +584,14 @@ describe("#compileResponse()", () => {
                 ssml: "<speak>What's the delivery date for the roses?</speak>",
                 displayText: "What's the delivery date for the roses?"
             });
+
+            // Find the display
+            expect(compiledResponse.displays).to.have.length(1);
+            const display = compiledResponse.displays[0];
+            expect(isList(display)).to.be.true;
+            if (isList(display)) {
+                expect(display.title).to.equal('Delivery date for the roses?');
+            }
         });
     });
 });

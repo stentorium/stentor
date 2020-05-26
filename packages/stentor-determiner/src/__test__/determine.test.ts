@@ -54,6 +54,10 @@ const CONDITIONAL_1: Conditioned = {
     }
 };
 
+const CONDITIONAL_2: Conditioned = {
+    conditions: '"${$.context.storage.foo}" === "${foo}"'
+}
+
 const CONDITIONAL_SCHEDULE_SLOTS: Conditioned = {
     conditions: 'fitsSchedule("2019-09-11T00:00", "YYYY-MM-DDTmm:ss", 5, "days") && (slotEquals("foo", "bar") || slotEquals("foo", "baz"))'
 };
@@ -140,8 +144,6 @@ describe(`#${determine.name}()`, () => {
         describe('that uses a schedule and slot match string', () => {
             let clock: sinon.SinonFakeTimers;
             beforeEach(() => {
-
-
                 request = new IntentRequestBuilder().withSlots({
                     foo: {
                         name: "foo",
@@ -166,6 +168,19 @@ describe(`#${determine.name}()`, () => {
             it('returns the correct match', () => {
                 expect(determine([CONDITIONAL_SCHEDULE_SLOTS], request, context)).to.exist;
                 expect(determine([CONDITIONAL_SCHEDULE_SLOTS], request, context)).to.deep.equal(CONDITIONAL_SCHEDULE_SLOTS);
+
+                expect(determine([CONDITIONAL_SCHEDULE_SLOTS, systemDependent0], request, context)).to.exist;
+                expect(determine([CONDITIONAL_SCHEDULE_SLOTS, systemDependent0], request, context)).to.deep.equal(CONDITIONAL_SCHEDULE_SLOTS);
+
+            });
+            describe("with slot name short hand in the conditional", () => {
+                it('returns the correct match', () => {
+                    expect(determine([CONDITIONAL_2], request, context)).to.exist;
+                    expect(determine([CONDITIONAL_2], request, context)).to.deep.equal(CONDITIONAL_2);
+
+                    expect(determine([CONDITIONAL_2, {}], request, context)).to.exist;
+                    expect(determine([CONDITIONAL_2, {}], request, context)).to.deep.equal(CONDITIONAL_2);
+                });
             });
         });
     });

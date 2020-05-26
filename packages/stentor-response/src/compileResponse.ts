@@ -79,6 +79,9 @@ export function compileResponse(
         const displaysString = JSON.stringify(compiledResponse.displays, undefined, 2);
         // Compile the segments
         let compiledDisplayString = compileSegments(displaysString, compiledResponse.segments, request, context);
+        if (isIntentRequest(request)) {
+            compiledDisplayString = compileSlotValues(compiledDisplayString, request.slots);
+        }
         // Compile the JSON
         compiledDisplayString = compileJSONPaths(compiledDisplayString, object);
         // Set it back

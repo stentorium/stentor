@@ -27,7 +27,7 @@ import {
 } from "stentor-request";
 import { findStorageDependentMatch, isStorageDependable } from "stentor-storage";
 import { findTimeContextualMatch, TimeConditionalCheck } from "stentor-time";
-import { compileJSONPaths, random, existsAndNotEmpty } from "stentor-utils";
+import { compileJSONPaths, random, existsAndNotEmpty, compileSlotValues } from "stentor-utils";
 import { findJSONDependentMatch, JSONConditionalCheck } from "./findJSONDependentMatch";
 import { isJSONDependable, isConditional } from "./Guards";
 
@@ -88,7 +88,11 @@ export function determine<P extends object>(potentials: P[], request: Request, c
         conditionals.forEach((conditional) => {
             if (typeof conditional.conditions === "string") {
                 // Compile it
-                const compiled = compileJSONPaths(conditional.conditions, { request, context });
+                let compiled: string = conditional.conditions
+                if (isIntentRequest(request)) {
+                    compiled = compileSlotValues(compiled, request.slots);
+                }
+                compiled = compileJSONPaths(compiled, { request, context });
                 // Keep hold of the original
                 originals[compiled] = conditional;
                 // Push a compiled version

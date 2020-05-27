@@ -7,4 +7,5 @@ export * from "./intents";
 export * from "./regex";
 export * from "./requests";
 export * from "./responses";
+export * from "./storage";
 export * from "./string";

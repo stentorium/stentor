@@ -55,7 +55,7 @@ const CONDITIONAL_1: Conditioned = {
 };
 
 const CONDITIONAL_2: Conditioned = {
-    conditions: '"${$.context.storage.foo}" === "${foo}"'
+    conditions: '"${$.context.storage.foo}" === "${slot_foo}"'
 }
 
 const CONDITIONAL_SCHEDULE_SLOTS: Conditioned = {
@@ -154,7 +154,18 @@ describe(`#${determine.name}()`, () => {
                     .withStorage({
                         lastActiveTimestamp: 1234,
                         createdTimestamp: 1234,
-                        foo: "bar"
+                        foo: "bar",
+                        sessionStore: {
+                            id: "sessionId",
+                            data: {
+                                slots: {
+                                    ["slot_foo"]: {
+                                        name: "slot_foo",
+                                        value: "bar"
+                                    }
+                                }
+                            }
+                        }
                     })
                     .build();
             });

@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { SESSION_STORAGE_SLOTS_KEY } from "stentor-constants";
 import { localize } from "stentor-locales";
 import { Context, Request, Response } from "stentor-models";
-import { isIntentRequest } from "stentor-request";
 import { compileJSONPaths, compileSlotValues } from "stentor-utils";
 
 import { compileSegments } from "./compileSegments";
@@ -52,9 +52,7 @@ export function compileResponse(
                     request,
                     context
                 );
-                if (isIntentRequest(request)) {
-                    valueCompiled = compileSlotValues(valueCompiled, request.slots);
-                }
+                valueCompiled = compileSlotValues(valueCompiled, context.session.get(SESSION_STORAGE_SLOTS_KEY));
                 compiledResponse[key] = compileJSONPaths(valueCompiled, object, true);
             } else {
                 // Flatten for locales
@@ -65,9 +63,7 @@ export function compileResponse(
                     request,
                     context
                 );
-                if (isIntentRequest(request)) {
-                    valueCompiled = compileSlotValues(valueCompiled, request.slots);
-                }
+                valueCompiled = compileSlotValues(valueCompiled, context.session.get(SESSION_STORAGE_SLOTS_KEY));
                 compiledResponse[key] = compileJSONPaths(valueCompiled, object, true);
             }
         }
@@ -79,10 +75,7 @@ export function compileResponse(
         const displaysString = JSON.stringify(compiledResponse.displays, undefined, 2);
         // Compile the segments
         let compiledDisplayString = compileSegments(displaysString, compiledResponse.segments, request, context);
-        if (isIntentRequest(request)) {
-            compiledDisplayString = compileSlotValues(compiledDisplayString, request.slots);
-        }
-        // Compile the JSON
+        compiledDisplayString = compileSlotValues(compiledDisplayString, context.session.get(SESSION_STORAGE_SLOTS_KEY));
         compiledDisplayString = compileJSONPaths(compiledDisplayString, object);
         // Set it back
         try {

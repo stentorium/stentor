@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 // tslint:disable:cyclomatic-complexity <-- TODO: We want to remove the need for this.
 import { log } from "stentor-logger";
-import { GOODBYE, TROUBLE_WITH_REQUEST } from "stentor-constants";
+import { GOODBYE, TROUBLE_WITH_REQUEST, SESSION_STORAGE_SLOTS_KEY } from "stentor-constants";
 import { ContextFactory } from "stentor-context";
 import { AbstractHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
@@ -237,6 +237,15 @@ export const main = async (
         eventService.addPrefix({ currentHandler });
     }
 
+    // Before we start determining things like handler or responses, we 
+    // want to update the slots on the session storage
+    // so they can be used for slot filling logic
+    if (isIntentRequest(request)) {
+        // Update the slots on the user's session storage
+        // This is helpful when slot filling.
+        context.session.set(SESSION_STORAGE_SLOTS_KEY, combineRequestSlots(context.session.get(SESSION_STORAGE_SLOTS_KEY), request.slots));
+    }
+
     // #2 Get the request handler
     let handler: AbstractHandler;
     try {
@@ -303,13 +312,6 @@ export const main = async (
     // Swap out handlers on storage, this is very important
     context.storage.previousHandler = context.storage.currentHandler;
     context.storage.currentHandler = handler;
-
-    if (isIntentRequest(request)) {
-        // Update the slots on the user's session storage
-        // This is helpful when slot filling.
-        const currentSlots = context.session.get("slots");
-        context.session.set("slots", combineRequestSlots(currentSlots, request.slots));
-    }
 
     // More logging
     log().info(`appId:${handler.appId}|selectedHandler:${handler.intentId}`);

@@ -32,10 +32,6 @@ describe("#compileResponse()", () => {
                 value: {
 
                 }
-            },
-            ["flower_type"]: {
-                name: "flower_type",
-                value: "roses"
             }
         };
         request = new IntentRequestBuilder()
@@ -52,7 +48,18 @@ describe("#compileResponse()", () => {
                 lastActiveTimestamp: Date.now(),
                 name: "Bob",
                 metBefore: true,
-                score: 3
+                score: 3,
+                sessionStore: {
+                    id: "sessionId",
+                    data: {
+                        slots: {
+                            ["flower_type"]: {
+                                name: "flower_type",
+                                value: "roses"
+                            }
+                        }
+                    }
+                }
             })
             .build() as Context<TestStorage>;
     });
@@ -574,12 +581,10 @@ describe("#compileResponse()", () => {
         it("compiles correctly", () => {
             expect(compiledResponse).to.exist;
             expect(typeof compiledResponse.outputSpeech !== "string").to.be.true;
-            if (typeof compiledResponse.outputSpeech !== "string") {
-                expect(compiledResponse.outputSpeech).to.deep.equal({
-                    ssml: "<speak>When do you want your roses delivered?</speak>",
-                    displayText: "When do you want your roses delivered?"
-                });
-            }
+            expect(compiledResponse.outputSpeech).to.deep.equal({
+                ssml: "<speak>When do you want your roses delivered?</speak>",
+                displayText: "When do you want your roses delivered?"
+            });
             expect(compiledResponse.reprompt).to.deep.equal({
                 ssml: "<speak>What's the delivery date for the roses?</speak>",
                 displayText: "What's the delivery date for the roses?"

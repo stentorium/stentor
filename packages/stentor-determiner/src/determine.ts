@@ -1,5 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { ConditionalDeterminer } from "stentor-conditional";
+import { SESSION_STORAGE_SLOTS_KEY } from "stentor-constants";
 import { isTimeContextual } from "stentor-guards";
 import { findSlotDependentMatch, isSlotDependable, SlotConditionalCheck } from "stentor-interaction-model";
 import { log } from "stentor-logger";
@@ -89,9 +90,7 @@ export function determine<P extends object>(potentials: P[], request: Request, c
             if (typeof conditional.conditions === "string") {
                 // Compile it
                 let compiled: string = conditional.conditions
-                if (isIntentRequest(request)) {
-                    compiled = compileSlotValues(compiled, request.slots);
-                }
+                compiled = compileSlotValues(compiled, context.session.get(SESSION_STORAGE_SLOTS_KEY));
                 compiled = compileJSONPaths(compiled, { request, context });
                 // Keep hold of the original
                 originals[compiled] = conditional;

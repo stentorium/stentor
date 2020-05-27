@@ -84,7 +84,16 @@ export function dateTimeToSpeech(value: DateTime, type: "ssml" | "displayText" =
     return speech;
 }
 
-
+/**
+ * Converts a date time range to speech to be added to a response.
+ * 
+ * In the case where the date is the same for the start and the end, the date
+ * will only be mentioned once.  For example "on July 4th 2019 from 1:00 PM to 2:00PM"
+ * 
+ * 
+ * @param value - DateTimeRange slot value
+ * @param type - Optional type, defaults to "ssml".
+ */
 export function dateTimeRangeToSpeech(value: DateTimeRange, type: "ssml" | "displayText" = "ssml"): string {
 
     if (!value) {

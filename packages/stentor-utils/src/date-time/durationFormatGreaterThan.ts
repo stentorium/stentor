@@ -1,9 +1,7 @@
 /*! Copyright (c) 2020, XAPPmedia */
 import { DurationFormat } from "stentor-models";
 
-
 export type DurationFormatToMSMultiplier = Record<DurationFormat, number>;
-
 
 /**
  * Lookup table to convert a duration format to a multiplier that will convert it to milliseconds

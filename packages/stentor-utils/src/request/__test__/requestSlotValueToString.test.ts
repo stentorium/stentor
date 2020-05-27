@@ -8,6 +8,6 @@ describe(`#${requestSlotValueToString.name}()`, () => {
         expect(requestSlotValueToString(4)).to.equal("4");
         expect(requestSlotValueToString("foo")).to.equal("foo");
         expect(requestSlotValueToString(["a", "b"])).to.equal("[a,b]");
-        expect(requestSlotValueToString({ date: "date", time: "time", tz: "Z" })).to.equal("dateTtime");
+        expect(requestSlotValueToString({ date: "2019-09-11", time: "18:30:00", tz: "Z" })).to.equal("2019-09-11T18:30:00");
     });
 });

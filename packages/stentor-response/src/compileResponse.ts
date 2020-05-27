@@ -1,7 +1,9 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { compileJSONPaths } from "stentor-determiner";
+import { SESSION_STORAGE_SLOTS_KEY } from "stentor-constants";
 import { localize } from "stentor-locales";
 import { Context, Request, Response } from "stentor-models";
+import { compileJSONPaths, compileSlotValues } from "stentor-utils";
+
 import { compileSegments } from "./compileSegments";
 
 /**
@@ -14,12 +16,11 @@ import { compileSegments } from "./compileSegments";
  *
  * will be transformed to "Hello Bob" when passed an intent request
  * with a slot "NAME" and value "Bob"
- *
- * @export
- * @param {Response} response
- * @param {Request} request
- * @param {Context} context
- * @returns {Response}
+ * 
+ * @param response - Response to be compiled
+ * @param request - Request to pull information from for compilation 
+ * @param context - Context to pull information from for compilation
+ * @param additionalContext - Additional, optional, context to pull information from for compilation
  */
 export function compileResponse(
     response: Response,
@@ -45,23 +46,25 @@ export function compileResponse(
         const responseOutput = compiledResponse[key];
         if (responseOutput) {
             if (typeof responseOutput === "string") {
-                const valueWithCompiledSegments = compileSegments(
+                let valueCompiled = compileSegments(
                     responseOutput,
                     compiledResponse.segments,
                     request,
                     context
                 );
-                compiledResponse[key] = compileJSONPaths(valueWithCompiledSegments, object);
+                valueCompiled = compileSlotValues(valueCompiled, context.session.get(SESSION_STORAGE_SLOTS_KEY));
+                compiledResponse[key] = compileJSONPaths(valueCompiled, object, true);
             } else {
                 // Flatten for locales
                 const localizedResponseOutput = localize(responseOutput, request.locale);
-                const valueWithCompiledSegments = compileSegments(
+                let valueCompiled = compileSegments(
                     localizedResponseOutput,
                     compiledResponse.segments,
                     request,
                     context
                 );
-                compiledResponse[key] = compileJSONPaths(valueWithCompiledSegments, object);
+                valueCompiled = compileSlotValues(valueCompiled, context.session.get(SESSION_STORAGE_SLOTS_KEY));
+                compiledResponse[key] = compileJSONPaths(valueCompiled, object, true);
             }
         }
     });
@@ -72,7 +75,7 @@ export function compileResponse(
         const displaysString = JSON.stringify(compiledResponse.displays, undefined, 2);
         // Compile the segments
         let compiledDisplayString = compileSegments(displaysString, compiledResponse.segments, request, context);
-        // Compile the JSON
+        compiledDisplayString = compileSlotValues(compiledDisplayString, context.session.get(SESSION_STORAGE_SLOTS_KEY));
         compiledDisplayString = compileJSONPaths(compiledDisplayString, object);
         // Set it back
         try {

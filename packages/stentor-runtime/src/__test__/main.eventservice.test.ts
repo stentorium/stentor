@@ -299,7 +299,7 @@ describe("#main() with EventService", () => {
                 sessionAttributes: {},
                 version: "1.0"
             });
-            // console.log(eventStream.events);
+
             expect(eventStream.events).to.have.length(3);
             const errorEvent = eventStream.events[0];
             expect(errorEvent.type).to.equal("ERROR");

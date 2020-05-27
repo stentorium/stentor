@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.27.0](https://github.com/stentorium/stentor/compare/v1.26.56...v1.27.0) (2020-05-27)
+
+
+### Features
+
+* Adds Support for slot name shorthand for compilation and maintains slots in session storage ([#410](https://github.com/stentorium/stentor/issues/410)) ([685d8bb](https://github.com/stentorium/stentor/commit/685d8bbb5986700d11670c426b117ecd6cbcd6c6))
+
+
+
+
+
 ## [1.26.56](https://github.com/stentorium/stentor/compare/v1.26.55...v1.26.56) (2020-05-26)
 
 **Note:** Version bump only for package stentor-response

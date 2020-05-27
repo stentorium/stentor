@@ -39,10 +39,16 @@ function compileString(value: string, slots: RequestSlotMap, key: "ssml" | "disp
  * Compiles a templated response with slot values from the
  * provided slot map.
  * 
- * For example, when passed "What date do you want your ${Flowers}?"
+ * For example, when passed "What date do you want your ${flowers}?"
+ * and the slot map contains a slot with name `flowers` it will replace
+ * it with the value.
+ * 
+ * It will handle the different potential value types for slots such as
+ * strings, numbers, dates and durations.
  * 
  * @param responseOutput 
  * @param slots 
+ * @param replaceWhenUndefined 
  */
 export function compileSlotValues(responseOutput: string, slots: RequestSlotMap, replaceWhenUndefined?: boolean): string;
 export function compileSlotValues(responseOutput: ResponseOutput, slots: RequestSlotMap, replaceWhenUndefined?: boolean): ResponseOutput;

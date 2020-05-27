@@ -124,8 +124,6 @@ export function durationToSpeech(duration: Duration, type: "ssml" | "displayText
         return "";
     }
 
-
-
     const plural: boolean = duration.amount > 1;
     const amount = type === "ssml" ? `<say-as interpret-as="cardinal">${duration.amount}</say-as>` : duration.amount;
 

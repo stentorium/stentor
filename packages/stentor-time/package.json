@@ -30,7 +30,7 @@
     "@types/moment-timezone": "0.5.13",
     "moment": "2.26.0",
     "moment-range": "4.0.2",
-    "moment-timezone": "0.5.28",
+    "moment-timezone": "0.5.31",
     "stentor-guards": "1.27.0",
     "stentor-logger": "1.27.0",
     "stentor-utils": "1.27.0"

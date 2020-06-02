@@ -174,14 +174,12 @@ export function getDateTimeFrom(date: string | Date, includeOnly?: "time" | "dat
             } else if (includeOnly === "time") {
                 slotDateTime = pruneEmpty({
                     time: results[2],
-                    // tslint:disable-next-line:no-magic-numbers
                     tz: results[3]
                 });
             } else {
                 slotDateTime = pruneEmpty({
                     date: results[1],
                     time: results[2],
-                    // tslint:disable-next-line:no-magic-numbers
                     tz: results[3]
                 });
             }
@@ -311,7 +309,6 @@ export function parseRelativeDate(
             // Weekend is different.
             // THIS & NEXT can mean the same thing Monday - Friday
             // If currently in a weekend, THIS is the current one.
-            // tslint:disable-next-line:no-magic-numbers
             let interval: Interval;
             if (deltaStart === 0) {
                 // This is where we have to account for if
@@ -320,7 +317,6 @@ export function parseRelativeDate(
                 // and still go forward a week
                 interval = {
                     start: addDays(now, -1),
-                    // tslint:disable-next-line:no-magic-numbers
                     end: addDays(now, 7)
                 };
             } else if (deltaStart === -1) {

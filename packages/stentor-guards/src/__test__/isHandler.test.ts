@@ -14,7 +14,6 @@ describe(`#${isHandler.name}()`, () => {
         });
     });
     it("returns the correct result", () => {
-        // tslint:disable-next-line:no-null-keyword
         expect(isHandler({ appId, intentId, organizationId, utterancePatterns: ["foo"], type: null })).to.be.false;
         expect(isHandler({ appId, intentId, organizationId, utterancePatterns: ["foo"], type: undefined })).to.be.false;
         expect(isHandler({ appId, intentId, organizationId, utterancePatterns: ["foo"] })).to.be.false;

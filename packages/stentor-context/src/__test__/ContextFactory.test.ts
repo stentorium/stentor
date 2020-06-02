@@ -114,6 +114,7 @@ describe("ContextFactory", () => {
     describe("#fromRequest()", () => {
         beforeEach(() => {
             request = new IntentRequestBuilder().cancel().build();
+            // copy the payload and use that instead of brining this in
             requestBody = new AlexaRequestBuilder()
                 .isACancelRequest()
                 .withAudioPlayerContext({ token: "token", offsetInMilliseconds: 29204, playerActivity: "STOPPED" })

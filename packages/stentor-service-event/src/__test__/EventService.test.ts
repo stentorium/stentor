@@ -384,5 +384,26 @@ describe("EventService", () => {
             });
         });
     });
+    describe("#event()", () => {
+        describe("for incomplete event", () => {
+            let eventService: EventService.EventService;
+            beforeEach(() => {
+                eventService = newService();
+            });
+            it("throws an error", () => {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+                // @ts-ignore Testing bad input
+                expect(eventService.event.bind(eventService, {
+                    type: "REQUEST"
+                })).to.throw("Unable to process event, event name was invalid.");
+
+                // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+                // @ts-ignore Testing bad input
+                expect(eventService.event.bind(eventService, {
+                    name: "foo"
+                })).to.throw("Unable to process event, event type was invalid.");
+            });
+        });
+    });
 });
 

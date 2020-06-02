@@ -4,7 +4,7 @@ import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
 
 import { main } from "../main";
-import { DEFAULT_CHANNELS } from "./assets/Constants";
+import { passThroughChannel } from "./Mocks";
 
 chai.use(sinonChai);
 const expect = chai.expect;
@@ -16,7 +16,7 @@ describe("main()", () => {
     });
     describe("when passed undefined request", () => {
         it("throws an error", async () => {
-            const error = await main(undefined, undefined, callbackSpy, DEFAULT_CHANNELS, undefined).catch(
+            const error = await main(undefined, undefined, callbackSpy, [passThroughChannel()], undefined).catch(
                 error => error
             );
             expect(error).to.exist;
@@ -28,7 +28,7 @@ describe("main()", () => {
     });
     describe("when passed undefined context", () => {
         it("throws an error", async () => {
-            const error = await main({}, undefined, callbackSpy, DEFAULT_CHANNELS, undefined).catch(error => error);
+            const error = await main({}, undefined, callbackSpy, [passThroughChannel()], undefined).catch(error => error);
             expect(error).to.exist;
             expect(error).to.be.instanceOf(TypeError);
             expect((error as TypeError).message).to.equal(
@@ -38,7 +38,7 @@ describe("main()", () => {
     });
     describe("when passed undefined callback", () => {
         it("throws an error", async () => {
-            const error = await main({}, {} as any, undefined, DEFAULT_CHANNELS, undefined).catch(error => error);
+            const error = await main({}, {} as any, undefined, [passThroughChannel()], undefined).catch(error => error);
             expect(error).to.exist;
             expect(error).to.be.instanceOf(TypeError);
             expect((error as TypeError).message).to.equal(

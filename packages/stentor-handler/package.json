@@ -16,7 +16,6 @@
   },
   "devDependencies": {
     "@types/chai": "4.2.11",
-    "@types/jsonpath": "0.2.0",
     "@types/sinon": "9.0.4",
     "@types/sinon-chai": "3.2.4",
     "@xapp/config": "0.2.3",
@@ -30,7 +29,6 @@
   },
   "dependencies": {
     "@xapp/patterns": "1.24.2",
-    "jsonpath": "1.0.2",
     "stentor-conditional": "1.27.0",
     "stentor-constants": "1.27.0",
     "stentor-context": "1.27.0",

@@ -1,5 +1,4 @@
 /*! Copyright (c) 2019, XAPPmedia */
-// tslint:disable:cyclomatic-complexity <-- TODO: We want to remove the need for this.
 import { log } from "stentor-logger";
 import { GOODBYE, TROUBLE_WITH_REQUEST, SESSION_STORAGE_SLOTS_KEY } from "stentor-constants";
 import { ContextFactory } from "stentor-context";
@@ -177,10 +176,8 @@ export const main = async (
         // A session ended request.
         // For Alexa, you cannot respond to a session ended request, end it
         // see: https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/custom-standard-request-types-reference#valid-response-types-2
-        // tslint:disable:no-null-keyword
         // Right now null is for BST.
         callback(null, {}, request);
-        // tslint:enable:no-null-keyword
         return;
     }
 
@@ -279,10 +276,8 @@ export const main = async (
 
         const response = context.response.respond(getResponse(TROUBLE_WITH_REQUEST, request, context)).build();
         const translatedTrouble = channel.response.translate({ request, response });
-        // tslint:disable:no-null-keyword
-        // Right now null is for BST.
+
         callback(null, translatedTrouble, request, response);
-        // tslint:enable:no-null-keyword
         return;
     }
 
@@ -427,9 +422,5 @@ export const main = async (
         finalResponse = {};
     }
     // #5 Finish it off by calling the callback
-    // tslint:disable:no-null-keyword
-    // Right now null is for BST.
     callback(null, finalResponse, request, response);
-    // tslint:enable:no-null-keyword
 };
-// tslint:enable:cyclomatic-complexity

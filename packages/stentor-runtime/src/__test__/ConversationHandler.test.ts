@@ -3,17 +3,18 @@ import * as chai from "chai";
 import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
 
-import { AlexaRequestBuilder, RequestBody } from "@xapp/stentor-alexa";
 import { CONVERSATION_HANDLER_TYPE } from "stentor-constants";
 import { ConversationHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
-import { HandlerService, RuntimeContext, Storage, UserStorageService } from "stentor-models";
+import { Channel, HandlerService, Request, RuntimeContext, Storage, UserStorageService } from "stentor-models";
 import { main } from "../index";
-import { ALEXA_APP_ID, DEFAULT_CHANNELS } from "./assets/Constants";
-import { MockHandlerService, MockUserStorageService } from "./Mocks";
+import { MockHandlerService, MockUserStorageService, passThroughChannel } from "./Mocks";
+import { LaunchRequestBuilder, IntentRequestBuilder } from "stentor-request";
 
 chai.use(sinonChai);
 const expect = chai.expect;
+
+const DEFAULT_CHANNELS: Channel[] = [passThroughChannel()];
 
 describe("ConversationHandler", () => {
     const organizationId = "organizationId";
@@ -50,7 +51,7 @@ describe("ConversationHandler", () => {
         createdTimestamp: createdDate.getTime(),
         lastActiveTimestamp: createdDate.getTime()
     };
-    let requestBody: RequestBody;
+    let request: Request;
     let callbackSpy: sinon.SinonSpy;
     let fakeContext: RuntimeContext;
     let handlerFactory: HandlerFactory;
@@ -67,10 +68,7 @@ describe("ConversationHandler", () => {
     describe("as LaunchRequest", () => {
         beforeEach(() => {
             const storageCopy = { ...storage };
-            requestBody = new AlexaRequestBuilder()
-                .withSkillId(ALEXA_APP_ID)
-                .isALaunchRequest()
-                .build();
+            request = new LaunchRequestBuilder().build();
             handlerService = sinon.createStubInstance(MockHandlerService, {
                 get: Promise.resolve(handler)
             });
@@ -80,7 +78,7 @@ describe("ConversationHandler", () => {
             });
         });
         it("returns SSML", async () => {
-            await main(requestBody, fakeContext, callbackSpy, DEFAULT_CHANNELS, {
+            await main(request, fakeContext, callbackSpy, DEFAULT_CHANNELS, {
                 handlerFactory,
                 handlerService,
                 userStorageService
@@ -92,10 +90,10 @@ describe("ConversationHandler", () => {
             expect(error).to.not.exist;
             const payload = callBackArgs[1];
             expect(payload).to.exist;
-            expect(payload.response.outputSpeech.ssml).to.equal("<speak>Hello World!</speak>");
+            expect(payload.outputSpeech.ssml).to.equal("<speak>Hello World!</speak>");
         });
         it("gets the intent from the intent service", async () => {
-            await main(requestBody, fakeContext, callbackSpy, DEFAULT_CHANNELS, {
+            await main(request, fakeContext, callbackSpy, DEFAULT_CHANNELS, {
                 handlerFactory,
                 handlerService,
                 userStorageService
@@ -104,16 +102,16 @@ describe("ConversationHandler", () => {
             expect(handlerService.get).to.have.been.calledWith("LaunchRequest");
         });
         it("gets the storage for the user", async () => {
-            await main(requestBody, fakeContext, callbackSpy, DEFAULT_CHANNELS, {
+            await main(request, fakeContext, callbackSpy, DEFAULT_CHANNELS, {
                 handlerFactory,
                 handlerService,
                 userStorageService
             });
             expect(userStorageService.get).to.have.been.calledOnce;
-            expect(userStorageService.get).to.have.been.calledWith(requestBody.session.user.userId);
+            expect(userStorageService.get).to.have.been.calledWith(request.userId);
         });
         it("sets the proper items on the storage", async () => {
-            await main(requestBody, fakeContext, callbackSpy, DEFAULT_CHANNELS, {
+            await main(request, fakeContext, callbackSpy, DEFAULT_CHANNELS, {
                 handlerFactory,
                 handlerService,
                 userStorageService
@@ -121,7 +119,7 @@ describe("ConversationHandler", () => {
             expect(userStorageService.update).to.have.been.calledOnce;
             const args = (userStorageService.update as sinon.SinonStub).getCall(0).args;
             const userId = args[0];
-            expect(userId).to.equal(requestBody.session.user.userId);
+            expect(userId).to.equal(request.userId);
             const updatedStorage = args[1] as Storage;
             expect(updatedStorage.createdTimestamp).to.equal(createdDate.getTime());
             expect(updatedStorage.currentHandler).to.deep.equal(handler);
@@ -133,10 +131,8 @@ describe("ConversationHandler", () => {
             // reset the spy
             callbackSpy = sinon.spy();
 
-            requestBody = new AlexaRequestBuilder()
-                .withSkillId(ALEXA_APP_ID)
-                .intentRequestFor("intentOne")
-                .build();
+            request = new IntentRequestBuilder().withIntentId("intentOne").build(); //intentOne
+
             // Add our HandlerIntent as the currentIntent on the storage
             const updatedStorage = { ...storage, currentHandler: handler };
 
@@ -147,16 +143,16 @@ describe("ConversationHandler", () => {
             });
         });
         it("gets the storage for the user", async () => {
-            await main(requestBody, fakeContext, callbackSpy, DEFAULT_CHANNELS, {
+            await main(request, fakeContext, callbackSpy, DEFAULT_CHANNELS, {
                 handlerFactory,
                 handlerService,
                 userStorageService
             });
             expect(userStorageService.get).to.have.been.calledOnce;
-            expect(userStorageService.get).to.have.been.calledWith(requestBody.session.user.userId);
+            expect(userStorageService.get).to.have.been.calledWith(request.userId);
         });
         it("does not call the intent service", async () => {
-            await main(requestBody, fakeContext, callbackSpy, DEFAULT_CHANNELS, {
+            await main(request, fakeContext, callbackSpy, DEFAULT_CHANNELS, {
                 handlerFactory,
                 handlerService,
                 userStorageService
@@ -164,7 +160,7 @@ describe("ConversationHandler", () => {
             expect(handlerService.get).to.have.not.been.called;
         });
         it("returns SSML", async () => {
-            await main(requestBody, fakeContext, callbackSpy, DEFAULT_CHANNELS, {
+            await main(request, fakeContext, callbackSpy, DEFAULT_CHANNELS, {
                 handlerFactory,
                 handlerService,
                 userStorageService
@@ -176,10 +172,10 @@ describe("ConversationHandler", () => {
             expect(error).to.not.exist;
             const payload = callBackArgs[1];
             expect(payload).to.exist;
-            expect(payload.response.outputSpeech.ssml).to.equal("<speak>This is the first response</speak>");
+            expect(payload.outputSpeech.ssml).to.equal("<speak>This is the first response</speak>");
         });
         it("sets the proper items on the storage", async () => {
-            await main(requestBody, fakeContext, callbackSpy, DEFAULT_CHANNELS, {
+            await main(request, fakeContext, callbackSpy, DEFAULT_CHANNELS, {
                 handlerFactory,
                 handlerService,
                 userStorageService
@@ -187,7 +183,7 @@ describe("ConversationHandler", () => {
             expect(userStorageService.update).to.have.been.calledOnce;
             const args = (userStorageService.update as sinon.SinonStub).getCall(0).args;
             const userId = args[0];
-            expect(userId).to.equal(requestBody.session.user.userId);
+            expect(userId).to.equal(request.userId);
             const updatedStorage = args[1] as Storage;
             expect(updatedStorage.createdTimestamp).to.equal(createdDate.getTime());
             expect(updatedStorage.currentHandler).to.deep.equal(handler);

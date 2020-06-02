@@ -46,7 +46,7 @@ class MyHandlerService implements HandlerService {
     }
 }
 
-describe.only("CanFulfill", () => {
+describe("CanFulfill", () => {
     const organizationId = "organizationId";
     const appId = "amzn1.ask.skill.test";
     const intentId = "LaunchRequest";

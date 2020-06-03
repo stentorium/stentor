@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.27.6",
+  "version": "1.27.7",
   "description": "Utilities for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -18,7 +18,7 @@
     "@microsoft/api-extractor": "7.8.5",
     "@types/blueimp-md5": "2.7.0",
     "@types/chai": "4.2.11",
-    "@types/jsonpath":"0.2.0",
+    "@types/jsonpath": "0.2.0",
     "@types/mocha": "7.0.2",
     "@types/node": "13.13.9",
     "@types/numeral": "0.0.28",
@@ -30,7 +30,7 @@
     "mocha": "7.2.0",
     "sinon": "9.0.2",
     "sinon-chai": "3.5.0",
-    "stentor-models": "1.27.6",
+    "stentor-models": "1.27.7",
     "ts-node": "8.10.2",
     "typescript": "3.9.3"
   },
@@ -40,8 +40,8 @@
     "chrono-node": "1.4.6",
     "date-fns": "2.14.0",
     "dyno-item-size": "0.3.3",
-    "jsonpath":"1.0.2",
     "fuse.js": "5.1.0",
+    "jsonpath": "1.0.2",
     "lodash.clonedeep": "4.5.0",
     "lodash.forown": "4.4.0",
     "lodash.isempty": "4.4.0",
@@ -51,8 +51,8 @@
     "number-to-words": "1.2.4",
     "numeral": "2.0.6",
     "slugify": "1.4.0",
-    "stentor-constants": "1.27.6",
-    "stentor-guards": "1.27.6",
+    "stentor-constants": "1.27.7",
+    "stentor-guards": "1.27.7",
     "winston": "3.2.1",
     "words-to-numbers": "1.5.1",
     "xmldoc": "1.1.2"

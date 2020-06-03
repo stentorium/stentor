@@ -52,7 +52,7 @@ const handler: Handler = {
 const createdDate = new Date();
 createdDate.setDate(createdDate.getDate() - 1);
 
-describe(`#${main.name}() templated response`, () => {
+describe(`#main() templated response`, () => {
     let request: Request;
     let context: any;
     let handlerFactory: HandlerFactory;

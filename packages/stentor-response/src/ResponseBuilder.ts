@@ -280,8 +280,14 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         return this._response as T; // Not sure why I have to type this but it gives an error if I don't
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     public withCanFulfill(results: CanFulfillIntentResult): ResponseBuilder<T> {
+        this._response.data = {
+            ...this._response.data,
+            canFulfillIntent: {
+                ...results
+            }
+        }
+
         return this;
     }
 

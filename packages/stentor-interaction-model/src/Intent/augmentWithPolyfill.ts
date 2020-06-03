@@ -56,7 +56,6 @@ export function augmentWithPolyfill(intent: Intent): Intent | undefined {
 
     let polyfill: Polyfill;
 
-    // tslint:disable:cyclomatic-complexity
     switch (intent.intentId) {
         case CANCEL_INTENT:
             polyfill = CANCEL_POLYFILL;
@@ -113,7 +112,6 @@ export function augmentWithPolyfill(intent: Intent): Intent | undefined {
             polyfill = undefined;
             break;
     }
-    // tslint:enable:cyclomatic-complexity
 
     if (polyfill) {
         // Pull in the name if it doesn't exist

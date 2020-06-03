@@ -266,9 +266,7 @@ describe("Utils", () => {
         });
 
         it("Tests that it returns null when null is passed in.", () => {
-            // tslint:disable
             expect(Utils.subset(null, ["param3", "param4"])).to.be.null;
-            // tslint:enable
         });
 
         it("Tests that it returns the same contents if attrs is undefined.", () => {
@@ -303,7 +301,6 @@ describe("Utils", () => {
         });
 
         it("Tests that it works when the values are falsy", () => {
-            // tslint:disable:no-null-keyword
             const testObj = {
                 param1: false,
                 param2: 0,
@@ -326,7 +323,6 @@ describe("Utils", () => {
                 param6: "",
                 param7: NaN
             });
-            // tslint:enable:no-null-keyword
         });
     });
 

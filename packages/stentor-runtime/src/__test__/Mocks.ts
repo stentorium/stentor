@@ -101,6 +101,7 @@ export const MOCK_CHANNEL: Channel = {
 
 export interface PassThroughChannelOptions {
     device?: Device;
+    test?(body: object): boolean;
 }
 
 export class PassThroughRequestTranslator extends Translator<Request, Request> {
@@ -131,8 +132,12 @@ export function passThroughChannel(options?: PassThroughChannelOptions): Channel
 
     return {
         name: "MOCK",
-        test: (): boolean => {
-            return true;
+        test: (request: object): boolean => {
+            if (options && typeof options.test === "function") {
+                return options.test(request);
+            } else {
+                return true;
+            }
         },
         request: new PassThroughRequestTranslator(),
         response: new PassThroughResponseTranslator(),

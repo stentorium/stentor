@@ -3,7 +3,6 @@ import { expect } from "chai";
 
 import { toNumberIfPossible } from "../toNumberIfPossible";
 
-// tslint:disable:no-magic-numbers
 describe("#toNumberIfPossible()", () => {
     describe("when passed undefined", () => {
         it("returns undefined", () => {

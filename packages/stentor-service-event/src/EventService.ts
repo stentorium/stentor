@@ -11,6 +11,7 @@ import {
     Response,
     RuntimeCallback
 } from "stentor-models";
+import { log } from "stentor-logger";
 import {
     isAudioPlayerRequest,
     isInputUnknownRequest,
@@ -201,12 +202,20 @@ export class EventService {
     public event(type: EventType, name: string, payload?: string | object): Event<any>;
     public event(type: EventType | Event<any>, name?: string, payload?: string | object): Event<any> {
         const event: Event<any> = typeof type === "string" ? { name, type, payload } : type;
+
+        if (typeof event.name !== "string") {
+            throw new TypeError("Unable to process event, event name was invalid.");
+        }
         event.name.trim();
+
+        if (typeof event.type !== "string") {
+            throw new TypeError("Unable to process event, event type was invalid.");
+        }
         event.type.trim().toUpperCase();
 
         const prefix = getPrefix(this.prefix);
         if (containsSameKeys(prefix, event)) {
-            console.warn(
+            log().warn(
                 "Warning: The event contains matching keys to the event prefix. This may be an error. Please check that the do not match."
             );
         }
@@ -243,21 +252,31 @@ function getLambdaEvent(error: Error, result: object): LambdaFinishEvent {
  */
 export function wrapCallback(event: EventService, lambdaCallback: RuntimeCallback): RuntimeCallback {
     return (error: Error, result: object, request: Request, response: Response, ...args: any[]): void => {
+
         if (request) {
-            event.request(request);
+            try {
+                event.request(request);
+            } catch (e) {
+                log().error(`Error adding request event: ${e}`);
+            }
         }
         if (error) {
-            event.error(error);
+            try {
+                event.error(error);
+            } catch (e) {
+                log().error(`Error adding error event: ${e}`);
+            }
         }
         const finishEvent: LambdaFinishEvent = getLambdaEvent(error, result);
         // The last event in the stream.
         event.event(finishEvent);
+
         console.time("callback");
         lambdaCallback(error, result, ...args);
         console.time("flush");
         event
             .flush()
-            .catch(e => console.error(e))
+            .catch(e => log().error(e))
             .then(() => console.timeEnd("flush"));
 
         console.timeEnd("callback");

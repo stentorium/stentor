@@ -1,5 +1,4 @@
 /*! Copyright (c) 2019, XAPPmedia */
-// tslint:disable:no-null-keyword
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as chai from "chai";
 import * as sinon from "sinon";
@@ -8,15 +7,10 @@ import * as sinonChai from "sinon-chai";
 chai.use(sinonChai);
 const expect = chai.expect;
 
-import { AlexaRequestBuilder, LAUNCH_REQUEST } from "@xapp/stentor-alexa";
-import { DialogflowV2RequestBuilder } from "@xapp/stentor-dialogflow";
 import { ConversationHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
 import {
     AbstractResponseBuilder,
-    Request as StentorRequest
-} from "stentor-models";
-import {
     Channel,
     Content,
     Handler,
@@ -27,13 +21,12 @@ import {
     Storage,
     UserStorageService
 } from "stentor-models";
-import { isLaunchRequest } from "stentor-request";
+import { isLaunchRequest, LaunchRequestBuilder } from "stentor-request";
 import { EventService } from "stentor-service-event";
 import { dessmlify, LambdaError } from "stentor-utils";
 
 import { main } from "../main";
-import { ALEXA_APP_ID, DEFAULT_CHANNELS } from "./assets/Constants";
-import { MOCK_CHANNEL, MockHandlerService, MockUserStorageService } from "./Mocks";
+import { MOCK_CHANNEL, MockHandlerService, MockUserStorageService, passThroughChannel } from "./Mocks";
 
 const appId = "appId";
 
@@ -84,10 +77,7 @@ describe("#main() with hooks", () => {
             callback: RuntimeCallback
         ) => Promise<{ event: object; context: RuntimeContext; callback: RuntimeCallback } | undefined>;
         beforeEach(() => {
-            request = new AlexaRequestBuilder()
-                .withSkillId(ALEXA_APP_ID)
-                .isALaunchRequest()
-                .build();
+            request = new LaunchRequestBuilder().build();
             handlerFactory = new HandlerFactory({ handlers: [ConversationHandler] });
             context = { ovai: { appId } };
             callbackSpy = sinon.spy();
@@ -110,7 +100,7 @@ describe("#main() with hooks", () => {
                     request,
                     context,
                     callbackSpy,
-                    DEFAULT_CHANNELS,
+                    [passThroughChannel()],
                     {
                         eventService,
                         handlerFactory,
@@ -143,7 +133,7 @@ describe("#main() with hooks", () => {
                     request,
                     context,
                     callbackSpy,
-                    DEFAULT_CHANNELS,
+                    [passThroughChannel()],
                     {
                         eventService,
                         handlerFactory,
@@ -155,10 +145,17 @@ describe("#main() with hooks", () => {
                     }
                 );
                 expect(callbackSpy).to.have.been.calledOnce;
-                const arg = callbackSpy.getCall(0);
-                expect(arg.args).to.have.length(2);
-                expect(arg.args[0] instanceof Error).to.be.true;
-                expect(arg.args[1]).to.be.undefined;
+                expect(callbackSpy).to.have.been.calledWith(null, {
+                    name: 'I\'m having trouble with that request',
+                    tag: 'TROUBLE_WITH_REQUEST',
+                    outputSpeech:
+                    {
+                        ssml:
+                            '<speak>I\'m sorry, I\'m having trouble with that request.</speak>',
+                        displayText: 'I\'m sorry, I\'m having trouble with that request.',
+                        defaultLocale: 'en'
+                    }
+                });
             });
         });
         describe("that throws an error", () => {
@@ -174,7 +171,7 @@ describe("#main() with hooks", () => {
                     request,
                     context,
                     callbackSpy,
-                    DEFAULT_CHANNELS,
+                    [passThroughChannel()],
                     {
                         eventService,
                         handlerFactory,
@@ -193,21 +190,6 @@ describe("#main() with hooks", () => {
             });
         });
         describe("on the channel", () => {
-            it("returns the appropriate response", async () => {
-                // eslint-disable-next-line @typescript-eslint/no-var-requires
-                const dialogflowNLURequest = require("./assets/ExamplePayloads/dialogflow-v2-nlu-request");
-                await main(dialogflowNLURequest, context, callbackSpy, DEFAULT_CHANNELS, {
-                    eventService,
-                    handlerFactory,
-                    handlerService,
-                    userStorageService
-                });
-                expect(callbackSpy).to.have.been.calledOnce;
-                const arg = callbackSpy.getCall(0);
-                expect(arg.args).to.have.length(2);
-                expect(arg.args[0]).to.be.undefined;
-                expect(arg.args[1]).to.deep.equal({});
-            });
             describe("with a postRequestTranslation hook", () => {
                 let postRequestTranslationHookSpy: sinon.SinonSpy;
                 beforeEach(() => {
@@ -241,10 +223,7 @@ describe("#main() with hooks", () => {
     describe("with postRequestTranslate hook", () => {
         let postRequestTranslation: (request: Request) => Promise<Request>;
         beforeEach(() => {
-            request = new AlexaRequestBuilder()
-                .withSkillId(ALEXA_APP_ID)
-                .isALaunchRequest()
-                .build();
+            request = new LaunchRequestBuilder().build();
             handlerFactory = new HandlerFactory({ handlers: [ConversationHandler] });
             context = { ovai: { appId } };
             callbackSpy = sinon.spy();
@@ -265,7 +244,7 @@ describe("#main() with hooks", () => {
                 request,
                 context,
                 callbackSpy,
-                DEFAULT_CHANNELS,
+                [passThroughChannel()],
                 {
                     eventService,
                     handlerFactory,
@@ -278,12 +257,11 @@ describe("#main() with hooks", () => {
             );
             expect(callbackSpy).to.have.been.calledOnce;
             expect(callbackSpy).to.have.been.calledWith(null, {
-                response: {
-                    outputSpeech: { ssml: "<speak>Hello World!</speak>", type: "SSML" },
-                    shouldEndSession: true
+                name: "Name",
+                outputSpeech: {
+                    ssml: "<speak>Hello World!</speak>",
+                    displayText: "Hello World!"
                 },
-                sessionAttributes: {},
-                version: "1.0"
             });
             // Validate the request was called by checking the ID is was called with
             expect(userStorageService.get).to.has.been.called;
@@ -292,13 +270,10 @@ describe("#main() with hooks", () => {
     });
 
     describe("with preResponseTranslation hook (alexa)", () => {
-        let preResponseTranslation: (request: StentorRequest, response: AbstractResponseBuilder, storage: Storage) => Promise<{ request: StentorRequest; response: AbstractResponseBuilder; storage: Storage }>;
+        let preResponseTranslation: (request: Request, response: AbstractResponseBuilder, storage: Storage) => Promise<{ request: Request; response: AbstractResponseBuilder; storage: Storage }>;
 
         beforeEach(() => {
-            request = new AlexaRequestBuilder()
-                .withSkillId(ALEXA_APP_ID)
-                .isALaunchRequest()
-                .build();
+            request = new LaunchRequestBuilder().build();
             handlerFactory = new HandlerFactory({ handlers: [ConversationHandler] });
             context = { ovai: { appId } };
             callbackSpy = sinon.spy();
@@ -311,7 +286,7 @@ describe("#main() with hooks", () => {
             });
 
             // The hook
-            preResponseTranslation = async (request: StentorRequest, response: AbstractResponseBuilder, userStorage: Storage): Promise<{ request: StentorRequest; response: AbstractResponseBuilder; storage: Storage }> => {
+            preResponseTranslation = async (request: Request, response: AbstractResponseBuilder, userStorage: Storage): Promise<{ request: Request; response: AbstractResponseBuilder; storage: Storage }> => {
                 const transcript = [];
 
                 if (isLaunchRequest(request)) {
@@ -329,7 +304,7 @@ describe("#main() with hooks", () => {
                 request,
                 context,
                 callbackSpy,
-                DEFAULT_CHANNELS,
+                [passThroughChannel()],
                 {
                     eventService,
                     handlerFactory,
@@ -346,18 +321,16 @@ describe("#main() with hooks", () => {
 
             expect(transcript).exist;
             expect(transcript.length).equals(2);
-            expect(transcript[0]).equals(LAUNCH_REQUEST);
+            expect(transcript[0]).equals("LaunchRequest");
             expect(transcript[1]).equals("Hello World!");
         });
     });
 
     describe("with preResponseTranslation hook (dialogflow)", () => {
-        let preResponseTranslation: (request: StentorRequest, response: AbstractResponseBuilder, userStorage: Storage) => Promise<{ request: StentorRequest; response: AbstractResponseBuilder; storage: Storage }>;
+        let preResponseTranslation: (request: Request, response: AbstractResponseBuilder, userStorage: Storage) => Promise<{ request: Request; response: AbstractResponseBuilder; storage: Storage }>;
 
         beforeEach(() => {
-            request = new DialogflowV2RequestBuilder()
-                .isALaunchRequest()
-                .build();
+            request = new LaunchRequestBuilder().build();
             handlerFactory = new HandlerFactory({ handlers: [ConversationHandler] });
             context = { ovai: { appId } };
             callbackSpy = sinon.spy();
@@ -370,7 +343,7 @@ describe("#main() with hooks", () => {
             });
 
             // The hook
-            preResponseTranslation = async (request: StentorRequest, response: AbstractResponseBuilder, userStorage: Storage): Promise<{ request: StentorRequest; response: AbstractResponseBuilder; storage: Storage }> => {
+            preResponseTranslation = async (request: Request, response: AbstractResponseBuilder, userStorage: Storage): Promise<{ request: Request; response: AbstractResponseBuilder; storage: Storage }> => {
                 const transcript = [];
 
                 if (isLaunchRequest(request)) {
@@ -388,7 +361,7 @@ describe("#main() with hooks", () => {
                 request,
                 context,
                 callbackSpy,
-                DEFAULT_CHANNELS,
+                [passThroughChannel()],
                 {
                     eventService,
                     handlerFactory,
@@ -405,7 +378,7 @@ describe("#main() with hooks", () => {
 
             expect(transcript).exist;
             expect(transcript.length).equals(2);
-            expect(transcript[0]).equals("talk to an action");
+            expect(transcript[0]).equals("LaunchRequest");
             expect(transcript[1]).equals("Hello World!");
         });
     });

@@ -6,15 +6,12 @@ import * as sinonChai from "sinon-chai";
 import { CONVERSATION_HANDLER_TYPE } from "stentor-constants";
 import { ConversationHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
-import { Handler, HandlerService, RuntimeContext, Storage, UserStorageService } from "stentor-models";
+import { Channel, Handler, HandlerService, Request, RuntimeContext, Storage, UserStorageService } from "stentor-models";
+import { IntentRequestBuilder } from "stentor-request";
 import { main } from "../index";
-import { DEFAULT_CHANNELS } from "./assets/Constants";
-import { MockUserStorageService } from "./Mocks";
+import { MockUserStorageService, passThroughChannel } from "./Mocks";
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const requestBody = require("./assets/ExamplePayloads/can-fulfill-intent-request.json");
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const bogusIntentRequest = require("./assets/ExamplePayloads/can-fulfill-bogus-intent-request.json");
+const DEFAULT_CHANNELS: Channel[] = [passThroughChannel()];
 
 chai.use(sinonChai);
 const expect = chai.expect;
@@ -90,6 +87,7 @@ describe("CanFulfill", () => {
     let handlerFactory: HandlerFactory;
     let handlerService: HandlerService;
     let userStorageService: UserStorageService;
+    let request: Request;
 
     beforeEach(() => {
         callbackSpy = sinon.spy();
@@ -97,8 +95,14 @@ describe("CanFulfill", () => {
         handlerFactory = new HandlerFactory();
         handlerService = new MyHandlerService();
     });
-    describe("With disabled canFulfill on Handler", () => {
+    describe("with disabled canFulfill on Handler", () => {
         beforeEach(() => {
+            request = new IntentRequestBuilder().withIntentId("intentOne").withSlots({
+                foo: {
+                    name: "foo",
+                    value: "bar"
+                }
+            }).canFulfill().build();
             // reset the spy
             callbackSpy = sinon.spy();
 
@@ -110,7 +114,7 @@ describe("CanFulfill", () => {
             });
         });
         it("with existing intent", async () => {
-            await main(requestBody, fakeContext, callbackSpy, DEFAULT_CHANNELS, {
+            await main(request, fakeContext, callbackSpy, DEFAULT_CHANNELS, {
                 handlerFactory,
                 handlerService,
                 userStorageService
@@ -119,10 +123,15 @@ describe("CanFulfill", () => {
             const callBackArgs = callbackSpy.args[0];
             const payload = callBackArgs[1];
             expect(payload).to.exist;
-
-            expect(payload.response).to.deep.equal(noWeCant);
+            expect(payload.data.canFulfillIntent).to.deep.equal(noWeCant.canFulfillIntent);
         });
         it("with bogus intent", async () => {
+            const bogusIntentRequest = new IntentRequestBuilder().withIntentId("bogus").withSlots({
+                foo: {
+                    name: "foo",
+                    value: "bar"
+                }
+            }).canFulfill().build();
             await main(bogusIntentRequest, fakeContext, callbackSpy, DEFAULT_CHANNELS, {
                 handlerFactory,
                 handlerService,
@@ -132,8 +141,7 @@ describe("CanFulfill", () => {
             const callBackArgs = callbackSpy.args[0];
             const payload = callBackArgs[1];
             expect(payload).to.exist;
-
-            expect(payload.response).to.deep.equal(noWeCant);
+            expect(payload.data.canFulfillIntent).to.deep.equal(noWeCant.canFulfillIntent);
         });
     });
     describe("With enabled canFulfill on Handler", () => {
@@ -149,7 +157,7 @@ describe("CanFulfill", () => {
             });
         });
         it("with existing intent", async () => {
-            await main(requestBody, fakeContext, callbackSpy, DEFAULT_CHANNELS, {
+            await main(request, fakeContext, callbackSpy, DEFAULT_CHANNELS, {
                 handlerFactory,
                 handlerService,
                 userStorageService
@@ -158,10 +166,15 @@ describe("CanFulfill", () => {
             const callBackArgs = callbackSpy.args[0];
             const payload = callBackArgs[1];
             expect(payload).to.exist;
-
-            expect(payload.response).to.deep.equal(yesWeCan);
+            expect(payload.data.canFulfillIntent).to.deep.equal(yesWeCan.canFulfillIntent);
         });
         it("with bogus intent", async () => {
+            const bogusIntentRequest = new IntentRequestBuilder().withIntentId("bogus").withSlots({
+                foo: {
+                    name: "foo",
+                    value: "bar"
+                }
+            }).canFulfill().build();
             await main(bogusIntentRequest, fakeContext, callbackSpy, DEFAULT_CHANNELS, {
                 handlerFactory,
                 handlerService,
@@ -172,7 +185,7 @@ describe("CanFulfill", () => {
             const payload = callBackArgs[1];
             expect(payload).to.exist;
 
-            expect(payload.response).to.deep.equal(noWeCant);
+            expect(payload.data.canFulfillIntent).to.deep.equal(noWeCant.canFulfillIntent);
         });
     });
 });

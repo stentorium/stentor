@@ -4,7 +4,6 @@ import * as chai from "chai";
 import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
 
-import { AlexaRequestBuilder } from "@xapp/stentor-alexa";
 import {
     Channel,
     Pii,
@@ -17,6 +16,9 @@ import {
 import { IntentRequestBuilder } from "stentor-request";
 
 import { ContextFactory } from "../ContextFactory";
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const alexaCancel = require("./assets/alexa-cancel-intent.json");
 
 chai.use(sinonChai);
 const expect = chai.expect;
@@ -114,10 +116,7 @@ describe("ContextFactory", () => {
     describe("#fromRequest()", () => {
         beforeEach(() => {
             request = new IntentRequestBuilder().cancel().build();
-            requestBody = new AlexaRequestBuilder()
-                .isACancelRequest()
-                .withAudioPlayerContext({ token: "token", offsetInMilliseconds: 29204, playerActivity: "STOPPED" })
-                .build();
+            requestBody = alexaCancel;
         });
         describe("for a new user", () => {
             beforeEach(() => {

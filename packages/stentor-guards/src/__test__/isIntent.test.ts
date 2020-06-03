@@ -14,7 +14,6 @@ describe(`#${isIntent.name}()`, () => {
         });
     });
     it("returns the correct result", () => {
-        // tslint:disable-next-line:no-null-keyword
         expect(isIntent({ appId, intentId, organizationId, utterancePatterns: null })).to.be.true;
         expect(isIntent({ appId, intentId, organizationId, utterancePatterns: ["foo"] })).to.be.true;
         expect(isIntent({ appId, intentId, organizationId, utterancePatterns: ["foo"], type: "bar" })).to.be.true;

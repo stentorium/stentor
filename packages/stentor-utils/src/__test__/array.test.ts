@@ -49,14 +49,12 @@ describe(`#${shuffle.name}`, () => {
     });
     describe("when passed an array", () => {
         it("returns the array shuffled", () => {
-            // tslint:disable:no-magic-numbers
             const shuffled = shuffle([1, 2, 3, 4]);
             expect(shuffled).to.have.length(4);
             expect(shuffled).to.contain(1);
             expect(shuffled).to.contain(2);
             expect(shuffled).to.contain(3);
             expect(shuffled).to.contain(4);
-            // tslint:enable:no-magic-numbers
         });
     });
 });

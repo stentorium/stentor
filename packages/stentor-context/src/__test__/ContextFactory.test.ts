@@ -17,6 +17,7 @@ import { IntentRequestBuilder } from "stentor-request";
 
 import { ContextFactory } from "../ContextFactory";
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const alexaCancel = require("./assets/alexa-cancel-intent.json");
 
 chai.use(sinonChai);

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.27.14](https://github.com/stentorium/stentor/compare/v1.27.13...v1.27.14) (2020-06-08)
+
+**Note:** Version bump only for package stentor-conditional
+
+
+
+
+
 ## [1.27.13](https://github.com/stentorium/stentor/compare/v1.27.12...v1.27.13) (2020-06-07)
 
 **Note:** Version bump only for package stentor-conditional

@@ -64,6 +64,12 @@ export interface Device {
      */
     hasScreen: boolean;
     /**
+     * If the device has web browser capability
+     *
+     * Google assistant app has it, hub doesn't
+     */
+    hasWebBrowser: boolean;
+    /**
      * Display data
      *
      * Used to tell a little bit more about the display type if data is available

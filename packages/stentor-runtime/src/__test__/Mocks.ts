@@ -94,7 +94,8 @@ export const MOCK_CHANNEL: Channel = {
             canThrowCard: true,
             canTransferCall: false,
             channel: "MOCK",
-            hasScreen: true
+            hasScreen: true,
+            hasWebBrowser: false
         }
     }
 }
@@ -127,7 +128,8 @@ export function passThroughChannel(options?: PassThroughChannelOptions): Channel
         canThrowCard: true,
         canTransferCall: false,
         channel: "MOCK",
-        hasScreen: true
+        hasScreen: true,
+        hasWebBrowser: false
     };
 
     return {

@@ -19,6 +19,7 @@ export class ContextBuilder<S extends Storage = Storage> extends AbstractBuilder
             canSpeak: true,
             canThrowCard: true,
             hasScreen: false,
+            hasWebBrowser: false,
             canTransferCall: false
         };
 

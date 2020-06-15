@@ -13,7 +13,8 @@ const device: Device = {
     canThrowCard: false,
     audioSupported: true,
     videoSupported: false,
-    canTransferCall: false
+    canTransferCall: false,
+    hasWebBrowser: false
 };
 
 describe("ResponseBuilder", () => {

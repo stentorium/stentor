@@ -208,7 +208,8 @@ describe("ChannelSelector", () => {
                                     audioSupported: true,
                                     videoSupported: false,
                                     hasScreen: false,
-                                    canTransferCall: false
+                                    canTransferCall: false,
+                                    hasWebBrowser: false
                                 };
                             }
                         },
@@ -229,7 +230,8 @@ describe("ChannelSelector", () => {
                                     audioSupported: true,
                                     videoSupported: false,
                                     hasScreen: false,
-                                    canTransferCall: false
+                                    canTransferCall: false,
+                                    hasWebBrowser: false
                                 };
                             }
                         }
@@ -264,7 +266,8 @@ describe("ChannelSelector", () => {
                                         audioSupported: true,
                                         videoSupported: false,
                                         hasScreen: false,
-                                        canTransferCall: false
+                                        canTransferCall: false,
+                                        hasWebBrowser: false
                                     };
                                 }
                             },
@@ -285,7 +288,8 @@ describe("ChannelSelector", () => {
                                         audioSupported: true,
                                         videoSupported: false,
                                         hasScreen: false,
-                                        canTransferCall: false
+                                        canTransferCall: false,
+                                        hasWebBrowser: false
                                     };
                                 }
                             }

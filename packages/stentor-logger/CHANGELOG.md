@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.27.24](https://github.com/stentorium/stentor/compare/v1.27.23...v1.27.24) (2020-06-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chalk to v4.1.0 ([#437](https://github.com/stentorium/stentor/issues/437)) ([d448a91](https://github.com/stentorium/stentor/commit/d448a91359251ec29ea1d8c1db17e2824ad428e9))
+
+
+
+
+
 ## [1.27.23](https://github.com/stentorium/stentor/compare/v1.27.22...v1.27.23) (2020-06-15)
 
 **Note:** Version bump only for package stentor-logger

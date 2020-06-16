@@ -40,7 +40,8 @@ const device: Device = {
     canSpeak: true,
     canThrowCard: true,
     hasScreen: false,
-    canTransferCall: false
+    canTransferCall: false,
+    hasWebBrowser: false
 };
 
 const createdDate = new Date();

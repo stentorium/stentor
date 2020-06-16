@@ -44,7 +44,8 @@ const TEST_CHANNEL: Channel = {
             canSpeak: true,
             canThrowCard: false,
             hasScreen: true,
-            canTransferCall: false
+            canTransferCall: false,
+            hasWebBrowser: false
         };
     }
 };

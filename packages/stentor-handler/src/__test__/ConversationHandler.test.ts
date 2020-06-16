@@ -46,7 +46,8 @@ describe("ConversationHandler", () => {
         canSpeak: true,
         canThrowCard: true,
         hasScreen: false,
-        canTransferCall: false
+        canTransferCall: false,
+        hasWebBrowser: false
     };
 
     let context: Context;

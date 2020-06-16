@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.27.26](https://github.com/stentorium/stentor/compare/v1.27.25...v1.27.26) (2020-06-16)
+
+
+### Bug Fixes
+
+* Adds hasWebBrowser to Device ([#442](https://github.com/stentorium/stentor/issues/442)) ([20a88c3](https://github.com/stentorium/stentor/commit/20a88c3ae64ce7de16a8efc78bb8c38f8a9f2d9a))
+
+
+
+
+
 ## [1.27.25](https://github.com/stentorium/stentor/compare/v1.27.24...v1.27.25) (2020-06-16)
 
 **Note:** Version bump only for package repo

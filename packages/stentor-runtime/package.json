@@ -22,7 +22,7 @@
     "@xapp/patterns": "1.24.26",
     "aws-sdk": "2.701.0",
     "chai": "4.2.0",
-    "fetch-mock": "9.10.1",
+    "fetch-mock": "9.10.2",
     "mocha": "8.0.1",
     "rimraf": "3.0.2",
     "sinon": "9.0.2",

@@ -53,7 +53,7 @@
     "slugify": "1.4.0",
     "stentor-constants": "1.27.32",
     "stentor-guards": "1.27.32",
-    "winston": "3.2.1",
+    "winston": "3.3.3",
     "words-to-numbers": "1.5.1",
     "xmldoc": "1.1.2"
   },

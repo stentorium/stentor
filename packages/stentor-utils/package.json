@@ -50,7 +50,7 @@
     "lodash.pull": "4.1.0",
     "number-to-words": "1.2.4",
     "numeral": "2.0.6",
-    "slugify": "1.4.2",
+    "slugify": "1.4.4",
     "stentor-constants": "1.27.42",
     "stentor-guards": "1.27.42",
     "winston": "3.3.3",

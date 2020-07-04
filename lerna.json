@@ -3,7 +3,7 @@
     "packages/**"
   ],
   "npmClient": "yarn",
-  "version": "1.27.44",
+  "version": "1.27.45",
   "useWorkspaces": true,
   "command": {
     "init": {

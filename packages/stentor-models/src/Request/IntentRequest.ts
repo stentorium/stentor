@@ -4,7 +4,7 @@ import { Data } from "../Handler";
 import { BaseRequest } from "./Request";
 import { IntentRequestType } from "./Types";
 
-export type RequestSlotValues = string | number | DateTimeRange | DateTime | Duration | (string)[];
+export type RequestSlotValues = string | number | object | DateTimeRange | DateTime | Duration | (string)[];
 
 export interface KnowledgeAnswer {
     /**

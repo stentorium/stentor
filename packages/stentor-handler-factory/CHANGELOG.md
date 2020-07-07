@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.27.52](https://github.com/stentorium/stentor/compare/v1.27.51...v1.27.52) (2020-07-07)
+
+
+### Bug Fixes
+
+* Removing verbose stack trace for no handler error ([#478](https://github.com/stentorium/stentor/issues/478)) ([1227eed](https://github.com/stentorium/stentor/commit/1227eede6c26e82c3daa48e916e6ce885268e592))
+
+
+
+
+
 ## [1.27.51](https://github.com/stentorium/stentor/compare/v1.27.50...v1.27.51) (2020-07-07)
 
 **Note:** Version bump only for package stentor-handler-factory

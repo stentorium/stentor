@@ -9,6 +9,7 @@ import { DelegatingHandler, isDelegatingHandler } from "stentor-handler-delegati
 import { Context, Handler, HandlerDelegates, Request } from "stentor-models";
 import { keyFromRequest } from "stentor-request";
 import { existsAndNotEmpty } from "stentor-utils";
+import { NoHandlerClassError } from "./NoHandlerClassError";
 
 // eslint-disable-next-line @typescript-eslint/array-type
 export type HandlersArray = Array<new (props: Handler) => AbstractHandler>;
@@ -85,7 +86,7 @@ export class HandlerFactory {
         const HANDLER_CLASS = this.handlers.get(type);
 
         if (!HANDLER_CLASS) {
-            throw new Error(`Could not match handler type ${type} to a handler with id ${intentId}`);
+            throw new NoHandlerClassError(`Could not match handler type ${type} to a handler with id ${intentId}`);
         }
 
         const handler = new HANDLER_CLASS(props);
@@ -103,7 +104,7 @@ export class HandlerFactory {
      * Depending on if audio is playing or not, the correct
      * handler is picked off the storage if it is available
      * or not.
-     * 
+     *
      * @public
      */
     public from(request: Request, context: Context): AbstractHandler | undefined {

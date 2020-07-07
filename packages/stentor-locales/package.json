@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.27.50",
+  "version": "1.27.51",
   "description": "Locales for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -19,12 +19,12 @@
     "@xapp/config": "0.2.3",
     "chai": "4.2.0",
     "mocha": "8.0.1",
-    "stentor-models": "1.27.48",
+    "stentor-models": "1.27.51",
     "ts-node": "8.10.2",
     "typescript": "3.9.6"
   },
   "dependencies": {
-    "stentor-utils": "1.27.50"
+    "stentor-utils": "1.27.51"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

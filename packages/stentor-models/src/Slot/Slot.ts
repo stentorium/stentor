@@ -19,7 +19,13 @@ export interface Slot {
      *
      * For legacy applications, SlotType is used.
      */
-    type: string;
+    type?: string;
+    /**
+     * NLU specific metadata used when translating to the NLU entity.
+     * 
+     * Use to override the type for a specific NLU. 
+     */
+    nlu?: { [nlu: string]: { type: string } };
     /**
      * Is the slot a list of values.
      * 

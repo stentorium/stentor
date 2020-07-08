@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.27.51",
+  "version": "1.27.54",
   "description": "Utilities for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -30,14 +30,14 @@
     "mocha": "8.0.1",
     "sinon": "9.0.2",
     "sinon-chai": "3.5.0",
-    "stentor-models": "1.27.51",
+    "stentor-models": "1.27.53",
     "ts-node": "8.10.2",
     "typescript": "3.9.6"
   },
   "dependencies": {
     "@types/xmldoc": "1.1.4",
     "blueimp-md5": "2.16.0",
-    "chrono-node": "1.4.6",
+    "chrono-node": "2.0.2",
     "date-fns": "2.14.0",
     "dyno-item-size": "0.3.3",
     "fuse.js": "5.1.0",
@@ -51,8 +51,8 @@
     "number-to-words": "1.2.4",
     "numeral": "2.0.6",
     "slugify": "1.4.4",
-    "stentor-constants": "1.27.51",
-    "stentor-guards": "1.27.51",
+    "stentor-constants": "1.27.53",
+    "stentor-guards": "1.27.53",
     "winston": "3.3.3",
     "words-to-numbers": "1.5.1",
     "xmldoc": "1.1.2"

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.28.0](https://github.com/stentorium/stentor/compare/v1.27.54...v1.28.0) (2020-07-08)
+
+
+### Features
+
+* Ability to override entity type on Slot & Entity for a specified NLU ([#482](https://github.com/stentorium/stentor/issues/482)) ([16fc8e9](https://github.com/stentorium/stentor/commit/16fc8e97af57dd6c8dc15c6bf245fe66f9029907))
+
+
+
+
+
 ## [1.27.54](https://github.com/stentorium/stentor/compare/v1.27.53...v1.27.54) (2020-07-08)
 
 

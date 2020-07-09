@@ -108,13 +108,26 @@ export class ContextFactory {
                 throw new Error("You need a PII service to request user data");
             }
 
+            // Do we have it?
             if (ContextFactory.checkStorage(pii, userDataType)) {
                 return Promise.resolve(UserDataRequestStatus.AVAILABLE);
             }
 
-            // We ask it for now on both platforms
+            // We ask it for now on both platforms - even anonymous users
             if (userDataType === "PHONE_NUMBER") {
                 return Promise.resolve(UserDataRequestStatus.NOT_AVAILABLE);
+            }
+
+            // Guest - no pii info
+            if (request.anonymous) {
+                return Promise.resolve(UserDataRequestStatus.NOT_AVAILABLE);
+            }
+
+            // Rejected?
+            if (request.type === PERMISSION_REQUEST_TYPE) {
+                if (!request.granted) {
+                    return Promise.resolve(UserDataRequestStatus.NOT_AVAILABLE);
+                }
             }
 
             // Ask the Pii service first

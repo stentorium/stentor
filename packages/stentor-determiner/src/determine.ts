@@ -108,7 +108,7 @@ export function determine<P extends object>(potentials: P[], request: Request, c
         // Build up our list of conditional checks
         const checks: ConditionalCheck[] = [
             JSONConditionalCheck(request, context),
-            SystemConditionalCheck(request),
+            SystemConditionalCheck(request, context),
             RequestConditionalCheck(request)
         ];
         // If we have a lastActiveTimestamp, which we most always do 

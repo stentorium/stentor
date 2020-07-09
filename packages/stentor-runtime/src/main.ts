@@ -1,6 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { log } from "stentor-logger";
-import { GOODBYE, TROUBLE_WITH_REQUEST, SESSION_STORAGE_SLOTS_KEY } from "stentor-constants";
+import { GOODBYE, TROUBLE_WITH_REQUEST, SESSION_STORAGE_NEW_USER, SESSION_STORAGE_SLOTS_KEY } from "stentor-constants";
 import { ContextFactory } from "stentor-context";
 import { AbstractHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
@@ -225,6 +225,12 @@ export const main = async (
         console.error(error.stack);
         callback(error, undefined, request);
         return;
+    }
+
+    // See if it doesn't have a lastActiveTimestamp
+    if (typeof context.storage.lastActiveTimestamp !== "number") {
+        // We want to set a session variable so we can keep track of if they are a new user for the entire session
+        context.session.set(SESSION_STORAGE_NEW_USER, true);
     }
 
     // Update with the currentHandler

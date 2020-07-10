@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.29.0](https://github.com/stentorium/stentor/compare/v1.28.2...v1.29.0) (2020-07-10)
+
+
+### Features
+
+* Adding a couple new helpful conditional macros ([#484](https://github.com/stentorium/stentor/issues/484)) ([47ccd10](https://github.com/stentorium/stentor/commit/47ccd10fc617850f1ac1cf71fdab5bcd33fc96ed))
+
+
+
+
+
 ## [1.28.2](https://github.com/stentorium/stentor/compare/v1.28.1...v1.28.2) (2020-07-10)
 
 **Note:** Version bump only for package stentor-runtime

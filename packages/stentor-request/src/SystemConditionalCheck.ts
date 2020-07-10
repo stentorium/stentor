@@ -30,6 +30,41 @@ export function isNewUser(context: Context): boolean {
     return !!context.session.get(SESSION_STORAGE_NEW_USER);
 }
 
+/**
+ * Checks if the request is for the provided platform.  
+ * 
+ * @param request 
+ * @param platform 
+ */
+export function isPlatform(request: Request, platform: string): boolean {
+    if (!platform) {
+        return false;
+    }
+
+    return request.platform.toLowerCase() === platform.toLowerCase();
+}
+
+/**
+ * Checks the storage if the value at the provided key is equal to the provided value.
+ * 
+ * @param context 
+ * @param key 
+ * @param value 
+ */
+export function storageEquals(context: Context, key: string, value: string | number | boolean): boolean {
+    return context.storage[key] === value;
+}
+
+/**
+ * Checks the session storage if the value at the provided key is equal to the provided value.
+ * 
+ * @param context 
+ * @param key 
+ * @param value 
+ */
+export function sessionStorageEqual(context: Context, key: string, value: string | number | boolean): boolean {
+    return context.session.get(key) === value;
+}
 
 /**
  * Returns a system conditional check 
@@ -42,6 +77,12 @@ export function SystemConditionalCheck<T extends object>(request: Request, conte
         check: (obj: SystemDependable<T>): boolean => {
             return !!findSystemDependentMatch([obj], request);
         },
-        functions: [hasLinkedAccount.bind(null, request), isNewUser.bind(null, context)]
+        functions: [
+            hasLinkedAccount.bind(null, request),
+            isNewUser.bind(null, context),
+            isPlatform.bind(null, request),
+            storageEquals.bind(null, context),
+            sessionStorageEqual.bind(null, context)
+        ]
     }
 }

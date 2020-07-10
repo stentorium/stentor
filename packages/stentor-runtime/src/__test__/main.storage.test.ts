@@ -61,6 +61,59 @@ describe(`#${main.name}() storage`, () => {
         eventService = new EventService();
         eventService.addPrefix({ appId });
     });
+    describe('for a new user', () => {
+        beforeEach(() => {
+            const storage: Storage = {
+                createdTimestamp: createdDate.getTime(),
+                sessionStore: {
+                    id: sessionId,
+                    data: {
+                    }
+                }
+            };
+
+            request = new IntentRequestBuilder().withSlots({
+                foo: {
+                    name: "foo",
+                    value: "phew"
+                }
+            }).build();
+            handlerFactory = new HandlerFactory({ handlers: [ConversationHandler] });
+            context = { ovai: { appId } };
+            callbackSpy = sinon.spy();
+            handlerService = sinon.createStubInstance(MockHandlerService, {
+                get: handler
+            });
+            userStorageService = sinon.createStubInstance(MockUserStorageService, {
+                get: Promise.resolve({ ...storage })
+            });
+        });
+        it("sets the new user on the session storage", async () => {
+            await main(
+                request,
+                context,
+                callbackSpy,
+                [passThroughChannel()],
+                {
+                    eventService,
+                    handlerFactory,
+                    handlerService,
+                    userStorageService
+                }
+            )
+            expect(callbackSpy).to.have.been.calledOnce;
+            expect(userStorageService.update).to.have.been.calledOnce;
+            expect(userStorageService.update).to.have.been.calledWithMatch("userId", {
+                sessionStore: {
+                    data: {
+                        // eslint-disable-next-line @typescript-eslint/camelcase
+                        new_user: true
+                    },
+                    id: "sessionId"
+                }
+            });
+        });
+    });
     describe('with slots on the session store', () => {
         beforeEach(() => {
 
@@ -190,5 +243,4 @@ describe(`#${main.name}() storage`, () => {
             });
         });
     });
-
 });

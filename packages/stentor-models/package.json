@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@microsoft/api-extractor": "7.9.2",
-    "@rollup/plugin-typescript": "5.0.1",
+    "@rollup/plugin-typescript": "5.0.2",
     "@xapp/config": "0.2.3",
     "rollup": "2.21.0",
     "tslib": "2.0.0",

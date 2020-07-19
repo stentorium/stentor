@@ -31,6 +31,6 @@
     "clean": "rm -rf ./lib/* && rm -rf ./dist/*"
   },
   "dependencies": {
-    "@xapp/patterns": "1.24.62"
+    "@xapp/patterns": "1.25.1"
   }
 }

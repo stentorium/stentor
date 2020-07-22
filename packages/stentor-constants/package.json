@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.29.9",
+  "version": "1.29.12",
   "description": "Constants for :mega: stentor",
   "types": "lib/index",
   "typings": "lib/index",
@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@xapp/config": "0.2.3",
-    "stentor-models": "1.29.9",
+    "stentor-models": "1.29.12",
     "typescript": "3.9.7"
   },
   "peerDependencies": {

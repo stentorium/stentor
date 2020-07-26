@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.29.20](https://github.com/stentorium/stentor/compare/v1.29.19...v1.29.20) (2020-07-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.25.16 ([28bbee0](https://github.com/stentorium/stentor/commit/28bbee0b2e0f596df510ff60db0e85ee3cfb28f4))
+
+
+
+
+
 ## [1.29.19](https://github.com/stentorium/stentor/compare/v1.29.18...v1.29.19) (2020-07-26)
 
 **Note:** Version bump only for package stentor-runtime

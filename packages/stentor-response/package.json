@@ -29,7 +29,7 @@
     "typescript": "3.9.7"
   },
   "dependencies": {
-    "@xapp/patterns": "1.25.1",
+    "@xapp/patterns": "1.25.16",
     "actions-on-google": "2.12.0",
     "lodash.template": "4.5.0",
     "stentor-determiner": "1.29.19",

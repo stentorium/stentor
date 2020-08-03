@@ -550,8 +550,8 @@ describe("#compileResponse()", () => {
                 displayText: "When do you want your ${flower_type} delivered?"
             },
             reprompt: {
-                ssml: "<speak>What's the delivery date for the ${flower_type}?</speak>",
-                displayText: "What's the delivery date for the ${flower_type}?"
+                ssml: "<speak>What's the delivery date for the ${ flower_type }?</speak>",
+                displayText: "What's the delivery date for the ${ flower_type }?"
             },
             displays: [
                 {
@@ -597,6 +597,39 @@ describe("#compileResponse()", () => {
             if (isList(display)) {
                 expect(display.title).to.equal('Delivery date for the roses?');
             }
+        });
+        describe("that pulls from both session store slots and request slots", () => {
+            const displayResponse: SimpleResponse = {
+                outputSpeech: {
+                    ssml: "<speak>Ok confirming ${date} for the ${flower_type} delivery?</speak>",
+                    displayText: "Ok confirming ${date} for the ${flower_type} delivery"
+                },
+                reprompt: {
+                    ssml: "<speak>${ date } for the ${flower_type} right?</speak>",
+                    displayText: "${ date } for the ${flower_type} right?"
+                }
+            };
+            beforeEach(() => {
+                request = new IntentRequestBuilder().withSlots({
+                    date: {
+                        name: "date",
+                        value: "Tuesday"
+                    }
+                }).build();
+                compiledResponse = compileResponse(displayResponse, request, context);
+            });
+            it("compiles correctly", () => {
+                expect(compiledResponse).to.exist;
+                expect(typeof compiledResponse.outputSpeech !== "string").to.be.true;
+                expect(compiledResponse.outputSpeech).to.deep.equal({
+                    ssml: "<speak>Ok confirming Tuesday for the roses delivery?</speak>",
+                    displayText: "Ok confirming Tuesday for the roses delivery"
+                });
+                expect(compiledResponse.reprompt).to.deep.equal({
+                    ssml: "<speak>Tuesday for the roses right?</speak>",
+                    displayText: "Tuesday for the roses right?"
+                });
+            });
         });
     });
 });

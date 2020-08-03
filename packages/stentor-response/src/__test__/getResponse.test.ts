@@ -4,7 +4,7 @@ import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
 
 import { ContextBuilder } from "stentor-context";
-import { Content, Context, Request, Response } from "stentor-models";
+import { Content, Context, Request, Response, Handler } from "stentor-models";
 import { IntentRequestBuilder } from "stentor-request";
 import { ResponseBuilder } from "stentor-response";
 import { getResponse } from "../getResponse";
@@ -12,16 +12,130 @@ import { getResponse } from "../getResponse";
 chai.use(sinonChai);
 const expect = chai.expect;
 
-let responses: Response[];
 let content: Content;
+let context: Context;
+let handler: Handler;
 let request: Request;
 let response: ResponseBuilder;
-let context: Context;
+let responses: Response[];
 
 describe("#getResponse()", () => {
     describe("when passed undefined", () => {
         it("returns undefined", () => {
             expect(getResponse(undefined, undefined, undefined)).to.be.undefined;
+        });
+    });
+    describe("when passed a handler", () => {
+        beforeEach(() => {
+            handler = {
+                appId: "app",
+                organizationId: "org",
+                type: "InSessionIntent",
+                intentId: "Fill",
+                content: {
+                    ["FillFoo"]: [{
+                        outputSpeech: "What kind of foo?",
+                        reprompt: "What kind of foo was that?"
+                    }],
+                    ["FillBaz"]: [{ outputSpeech: "What kind of baz for the ${ foo }?" }],
+                    ["Filled"]: [{ outputSpeech: "Great, we will get on that." }],
+                },
+                slots: [
+                    {
+                        type: "FOO",
+                        name: "foo",
+                        slotElicitationContentKey: "FillFoo"
+                    },
+                    {
+                        type: "BAZ",
+                        name: "baz",
+                        slotElicitationContentKey: "FillBaz"
+                    },
+                    {
+                        type: "BAR",
+                        name: "bar",
+                    }
+                ]
+            }
+
+            request = new IntentRequestBuilder().withIntentId("intentId").withSlots({
+                bar: {
+                    name: "bar",
+                    value: "Moe's"
+                },
+                baz: {
+                    name: "baz",
+                    value: "baz a roo"
+                }
+            }).build();
+            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+            // @ts-ignore The stubbed instance types can't see the private properties, which cause TS errors
+            response = sinon.createStubInstance(ResponseBuilder);
+            context = new ContextBuilder()
+                .withResponse(response)
+                .withStorage({
+                    createdTimestamp: Date.now(),
+                    lastActiveTimestamp: Date.now(),
+                    name: "Bob",
+                    metBefore: true,
+                    score: 3
+                })
+                .build();
+        });
+        describe("with slot filling", () => {
+            it("returns the correct response", () => {
+                const response = getResponse(handler, request, context);
+                expect(response).to.exist;
+                expect(response).to.be.a("object");
+                expect(response.outputSpeech).to.equal("What kind of foo?");
+                expect(response.reprompt).to.equal("What kind of foo was that?");
+            });
+            describe("with some slots already filled and on the session storage", () => {
+                beforeEach(() => {
+                    request = new IntentRequestBuilder().withIntentId("intentId").withSlots({
+                        bar: {
+                            name: "bar",
+                            value: "Moe's"
+                        },
+                        baz: {
+                            name: "baz",
+                            value: ""
+                        }
+                    }).build();
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+                    // @ts-ignore The stubbed instance types can't see the private properties, which cause TS errors
+                    response = sinon.createStubInstance(ResponseBuilder);
+                    context = new ContextBuilder()
+                        .withResponse(response)
+                        .withStorage({
+                            createdTimestamp: Date.now(),
+                            lastActiveTimestamp: Date.now(),
+                            name: "Bob",
+                            metBefore: true,
+                            score: 3,
+                            sessionStore: {
+                                id: "sessionId",
+                                data: {
+                                    slots: {
+                                        foo: {
+                                            name: "foo",
+                                            value: "F000D"
+                                        }
+                                    }
+                                }
+                            }
+                        })
+                        .build();
+                });
+                it("returns the correct response", () => {
+                    const response = getResponse(handler, request, context);
+                    console.log('response!')
+                    console.log(response);
+                    expect(response).to.exist;
+                    expect(response).to.be.a("object");
+                    expect(response.outputSpeech).to.equal("What kind of baz for the F000D?");
+                });
+            });
         });
     });
     describe("when passed an array of responses", () => {

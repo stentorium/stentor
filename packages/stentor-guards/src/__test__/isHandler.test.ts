@@ -14,6 +14,9 @@ describe(`#${isHandler.name}()`, () => {
         });
     });
     it("returns the correct result", () => {
+        expect(isHandler(true)).to.be.false;
+        expect(isHandler(1)).to.be.false;
+        expect(isHandler([])).to.be.false;
         expect(isHandler({ appId, intentId, organizationId, utterancePatterns: ["foo"], type: null })).to.be.false;
         expect(isHandler({ appId, intentId, organizationId, utterancePatterns: ["foo"], type: undefined })).to.be.false;
         expect(isHandler({ appId, intentId, organizationId, utterancePatterns: ["foo"] })).to.be.false;

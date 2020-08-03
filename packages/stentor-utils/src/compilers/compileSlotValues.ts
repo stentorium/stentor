@@ -13,7 +13,8 @@ function compileString(value: string, slots: RequestSlotMap, key: "ssml" | "disp
     // Set exit condition to be when the results are null
     while (result !== null) {
         // index 1 is the capture
-        const captured = result[1];
+        // trim it so we can support ${ name }
+        const captured = result[1].trim();
 
         let speakableSlotValue: string;
 
@@ -29,6 +30,7 @@ function compileString(value: string, slots: RequestSlotMap, key: "ssml" | "disp
             // replace it
             compiledValue = compiledValue.replace(result[0], speakableSlotValue);
         }
+
         // loop it around again
         result = TEMPLATE_REGEX.exec(value);
     }

@@ -36,6 +36,18 @@ describe(`#${compileSlotValues.name}()`, () => {
                 displayText: "Hi bob!"
             });
         });
+        describe("when there is a space around the slot name", () => {
+            it("compiles the value", () => {
+                const compiled = compileSlotValues({
+                    ssml: "<speak>Hi ${ name }!",
+                    displayText: "Hi ${ name }!"
+                }, slots);
+                expect(compiled).to.deep.equal({
+                    ssml: "<speak>Hi bob!",
+                    displayText: "Hi bob!"
+                });
+            });
+        });
     });
     describe("when the slot value doesn't exist", () => {
         describe("when replaceWhenUndefined is true", () => {

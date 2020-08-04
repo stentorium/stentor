@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.29.20",
+  "version": "1.29.25",
   "description": "Runtime for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -20,10 +20,10 @@
     "@types/sinon-chai": "3.2.4",
     "@xapp/config": "0.2.3",
     "@xapp/patterns": "1.25.16",
-    "aws-sdk": "2.720.0",
+    "aws-sdk": "2.725.0",
     "chai": "4.2.0",
-    "fetch-mock": "9.10.5",
-    "mocha": "8.0.1",
+    "fetch-mock": "9.10.6",
+    "mocha": "8.1.0",
     "rimraf": "3.0.2",
     "sinon": "9.0.2",
     "sinon-chai": "3.5.0",
@@ -33,17 +33,17 @@
   },
   "dependencies": {
     "stentor-constants": "1.29.20",
-    "stentor-context": "1.29.20",
-    "stentor-handler": "1.29.20",
-    "stentor-handler-factory": "1.29.20",
-    "stentor-handler-manager": "1.29.20",
-    "stentor-history": "1.29.20",
-    "stentor-interaction-model": "1.29.20",
-    "stentor-logger": "1.29.20",
-    "stentor-request": "1.29.20",
-    "stentor-response": "1.29.20",
-    "stentor-service-event": "1.29.20",
-    "stentor-utils": "1.29.20"
+    "stentor-context": "1.29.24",
+    "stentor-handler": "1.29.24",
+    "stentor-handler-factory": "1.29.24",
+    "stentor-handler-manager": "1.29.24",
+    "stentor-history": "1.29.22",
+    "stentor-interaction-model": "1.29.24",
+    "stentor-logger": "1.29.24",
+    "stentor-request": "1.29.24",
+    "stentor-response": "1.29.24",
+    "stentor-service-event": "1.29.24",
+    "stentor-utils": "1.29.24"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

@@ -7,6 +7,8 @@ import { RequestSlotMap } from "stentor-models";
  * @remarks
  * The incoming will only override the current if the value doesn't exist
  * on the current and exists on the incoming.  This is helpful for slot filling.
+ * 
+ * If both are undefined, an empty object is returned.
  *  
  * @param current - The current slots 
  * @param incoming - The new incoming slots
@@ -15,7 +17,8 @@ export function combineRequestSlots(current: RequestSlotMap, incoming: RequestSl
     // A couple of quick failure conditions
     // Neither exist
     if (typeof current !== "object" && typeof incoming !== "object") {
-        return undefined;
+        // Return empty
+        return {};
     }
     // Current does not exist, incoming does
     if (typeof current !== "object" && typeof incoming === "object") {

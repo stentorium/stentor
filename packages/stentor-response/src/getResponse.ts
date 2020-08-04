@@ -37,6 +37,7 @@ export function getResponse(
             const required: Slot[] = content.slots.filter((slot) => {
                 return typeof slot.slotElicitationContentKey === "string" && slot.slotElicitationContentKey.length > 0;
             });
+
             // Merged request slots
             const requestSlots = combineRequestSlots(context.session.get(SESSION_STORAGE_SLOTS_KEY), request.slots);
             // Figure out which ones we don't have a value for
@@ -44,11 +45,14 @@ export function getResponse(
                 const slotFromRequest = requestSlots[slot.name];
                 return !slotFromRequest || !slotFromRequest.value
             });
-            // For the ones need filling, randomly take one.  
-            // We may want to specify order in the future however
-            // random will get it done for now
-            const slotToFill = random(needFilling);
-            responses = findValueForKey(slotToFill.slotElicitationContentKey, content.content);
+
+            if (existsAndNotEmpty(needFilling)) {
+                // For the ones need filling, randomly take one.  
+                // We may want to specify order in the future however
+                // random will get it done for now
+                const slotToFill = random(needFilling);
+                responses = findValueForKey(slotToFill.slotElicitationContentKey, content.content);
+            }
         }
     } else {
         const key = keyFromRequest(request);

@@ -1,8 +1,9 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { SESSION_STORAGE_SLOTS_KEY } from "stentor-constants";
 import { localize } from "stentor-locales";
-import { Context, Request, Response } from "stentor-models";
-import { compileJSONPaths, compileSlotValues } from "stentor-utils";
+import { Context, Request, Response, RequestSlotMap } from "stentor-models";
+import { isIntentRequest } from "stentor-request";
+import { combineRequestSlots, compileJSONPaths, compileSlotValues } from "stentor-utils";
 
 import { compileSegments } from "./compileSegments";
 
@@ -52,7 +53,8 @@ export function compileResponse(
                     request,
                     context
                 );
-                valueCompiled = compileSlotValues(valueCompiled, context.session.get(SESSION_STORAGE_SLOTS_KEY));
+                const requestSlots: RequestSlotMap = isIntentRequest(request) && context.session ? combineRequestSlots(context.session.get(SESSION_STORAGE_SLOTS_KEY), request.slots) : context.session ? context.session.get(SESSION_STORAGE_SLOTS_KEY) : {};
+                valueCompiled = compileSlotValues(valueCompiled, requestSlots);
                 compiledResponse[key] = compileJSONPaths(valueCompiled, object, true);
             } else {
                 // Flatten for locales
@@ -63,7 +65,8 @@ export function compileResponse(
                     request,
                     context
                 );
-                valueCompiled = compileSlotValues(valueCompiled, context.session.get(SESSION_STORAGE_SLOTS_KEY));
+                const requestSlots: RequestSlotMap = isIntentRequest(request) && context.session ? combineRequestSlots(context.session.get(SESSION_STORAGE_SLOTS_KEY), request.slots) : context.session ? context.session.get(SESSION_STORAGE_SLOTS_KEY) : {};
+                valueCompiled = compileSlotValues(valueCompiled, requestSlots);
                 compiledResponse[key] = compileJSONPaths(valueCompiled, object, true);
             }
         }
@@ -75,7 +78,8 @@ export function compileResponse(
         const displaysString = JSON.stringify(compiledResponse.displays, undefined, 2);
         // Compile the segments
         let compiledDisplayString = compileSegments(displaysString, compiledResponse.segments, request, context);
-        compiledDisplayString = compileSlotValues(compiledDisplayString, context.session.get(SESSION_STORAGE_SLOTS_KEY));
+        const requestSlots: RequestSlotMap = isIntentRequest(request) && context.session ? combineRequestSlots(context.session.get(SESSION_STORAGE_SLOTS_KEY), request.slots) : context.session ? context.session.get(SESSION_STORAGE_SLOTS_KEY) : {};
+        compiledDisplayString = compileSlotValues(compiledDisplayString, requestSlots);
         compiledDisplayString = compileJSONPaths(compiledDisplayString, object);
         // Set it back
         try {

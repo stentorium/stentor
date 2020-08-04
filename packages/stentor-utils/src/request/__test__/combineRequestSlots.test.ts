@@ -5,7 +5,7 @@ import { combineRequestSlots } from '../combineRequestSlots';
 describe(`#${combineRequestSlots.name}()`, () => {
     describe('when current and incoming are undefined', () => {
         it('returns undefined', () => {
-            expect(combineRequestSlots(undefined, undefined)).to.be.undefined;
+            expect(combineRequestSlots(undefined, undefined)).to.deep.equal({});
         });
     });
     describe('when current is undefined', () => {

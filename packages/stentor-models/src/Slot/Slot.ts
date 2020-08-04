@@ -38,4 +38,10 @@ export interface Slot {
      * Only one isList slot is supported per utterance pattern.
      */
     isList?: boolean | number;
+    /**
+     * When set, if the slot is not provided by the user the key will be used to 
+     * get the response off of the content for the handler in order to ask the user
+     * to provide the slot.  
+     */
+    slotElicitationContentKey?: string;
 }

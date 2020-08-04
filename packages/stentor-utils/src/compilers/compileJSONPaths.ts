@@ -12,7 +12,7 @@ function compileString(value: string, object: object, replaceWhenUndefined: bool
     // Set exit condition to be when the results are null
     while (result !== null) {
         // index 1 is the capture
-        const captured = result[1];
+        const captured = result[1].trim();
         // query the path
         const pathResult = jp.query(object, captured.trim());
         const replacement = pathResult[0];

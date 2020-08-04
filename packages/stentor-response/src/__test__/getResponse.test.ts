@@ -129,8 +129,6 @@ describe("#getResponse()", () => {
                 });
                 it("returns the correct response", () => {
                     const response = getResponse(handler, request, context);
-                    console.log('response!')
-                    console.log(response);
                     expect(response).to.exist;
                     expect(response).to.be.a("object");
                     expect(response.outputSpeech).to.equal("What kind of baz for the F000D?");

@@ -179,9 +179,7 @@ export abstract class AbstractHandler<
      * @public
      */
     public async start(request: Request, context: Context): Promise<void> {
-        console.log('start');
         const response = getResponse(this, request, context);
-        console.log(response);
         if (response) {
             context.response.respond(response);
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.30.0](https://github.com/stentorium/stentor/compare/v1.29.25...v1.30.0) (2020-08-04)
+
+
+### Features
+
+* Required Slot Responses ([#518](https://github.com/stentorium/stentor/issues/518)) ([f68fae6](https://github.com/stentorium/stentor/commit/f68fae68fc0e60dc306bf60a4e94b55e018d671b))
+
+
+
+
+
 ## [1.29.24](https://github.com/stentorium/stentor/compare/v1.29.23...v1.29.24) (2020-08-02)
 
 **Note:** Version bump only for package stentor-handler

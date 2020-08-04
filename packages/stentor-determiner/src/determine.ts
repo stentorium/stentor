@@ -91,7 +91,7 @@ export function determine<P extends object>(potentials: P[], request: Request, c
             if (typeof conditional.conditions === "string") {
                 // Compile it
                 let compiled: string = conditional.conditions;
-                const requestSlots: RequestSlotMap = isIntentRequest(request) ? combineRequestSlots(context.session.get(SESSION_STORAGE_SLOTS_KEY), request.slots) : context.session.get(SESSION_STORAGE_SLOTS_KEY);
+                const requestSlots: RequestSlotMap = isIntentRequest(request) && context.session ? combineRequestSlots(context.session.get(SESSION_STORAGE_SLOTS_KEY), request.slots) : context.session ? context.session.get(SESSION_STORAGE_SLOTS_KEY) : {};
                 compiled = compileSlotValues(compiled, requestSlots);
                 compiled = compileJSONPaths(compiled, { request, context });
                 // Keep hold of the original

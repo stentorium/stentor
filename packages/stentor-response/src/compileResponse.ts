@@ -2,10 +2,10 @@
 import { SESSION_STORAGE_SLOTS_KEY } from "stentor-constants";
 import { localize } from "stentor-locales";
 import { Context, Request, Response, RequestSlotMap } from "stentor-models";
+import { isIntentRequest } from "stentor-request";
 import { combineRequestSlots, compileJSONPaths, compileSlotValues } from "stentor-utils";
 
 import { compileSegments } from "./compileSegments";
-import { isIntentRequest } from "stentor-request";
 
 /**
  * Compiles a templated response with provided request and context.

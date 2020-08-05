@@ -23,7 +23,7 @@
     "aws-sdk": "2.725.0",
     "chai": "4.2.0",
     "fetch-mock": "9.10.6",
-    "mocha": "8.1.0",
+    "mocha": "8.1.1",
     "rimraf": "3.0.2",
     "sinon": "9.0.2",
     "sinon-chai": "3.5.0",

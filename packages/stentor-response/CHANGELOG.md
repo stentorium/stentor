@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.31.0](https://github.com/stentorium/stentor/compare/v1.30.4...v1.31.0) (2020-08-06)
+
+
+### Features
+
+* Ability to order which slots need filling [#522](https://github.com/stentorium/stentor/issues/522) ([67746af](https://github.com/stentorium/stentor/commit/67746afb51c5be840dc1237c587cbac04a4a3400))
+
+
+
+
+
 ## [1.30.4](https://github.com/stentorium/stentor/compare/v1.30.3...v1.30.4) (2020-08-06)
 
 **Note:** Version bump only for package stentor-response

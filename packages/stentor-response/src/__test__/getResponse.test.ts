@@ -134,6 +134,74 @@ describe("#getResponse()", () => {
                     expect(response.outputSpeech).to.equal("What kind of baz for the F000D?");
                 });
             });
+            describe("with two required, only one able to be filled", () => {
+                beforeEach(() => {
+                    handler = {
+                        appId: "app",
+                        organizationId: "org",
+                        type: "InSessionIntent",
+                        intentId: "Fill",
+                        content: {
+                            ["FillFoo"]: [{
+                                outputSpeech: "What kind of foo?",
+                                reprompt: "What kind of foo was that?"
+                            }],
+                            ["FillBaz"]: [{ outputSpeech: "What kind of baz for the ${ foo }?", conditions: "slotExists(\"foo\")" }],
+                            ["Filled"]: [{ outputSpeech: "Great, we will get on that." }],
+                        },
+                        slots: [
+                            {
+                                type: "FOO",
+                                name: "foo",
+                                slotElicitationContentKey: "FillFoo"
+                            },
+                            {
+                                type: "BAZ",
+                                name: "baz",
+                                slotElicitationContentKey: "FillBaz"
+                            },
+                            {
+                                type: "BAR",
+                                name: "bar",
+                            }
+                        ]
+                    }
+
+                    request = new IntentRequestBuilder().withIntentId("intentId").withSlots({
+                        bar: {
+                            name: "bar",
+                            value: "Moe's"
+                        },
+                        foo: {
+                            name: "foo",
+                            value: ""
+                        },
+                        baz: {
+                            name: "baz",
+                            value: ""
+                        }
+                    }).build();
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+                    // @ts-ignore The stubbed instance types can't see the private properties, which cause TS errors
+                    response = sinon.createStubInstance(ResponseBuilder);
+                    context = new ContextBuilder()
+                        .withResponse(response)
+                        .withStorage({
+                            createdTimestamp: Date.now(),
+                            lastActiveTimestamp: Date.now(),
+                            name: "Bob",
+                            metBefore: true,
+                            score: 3
+                        })
+                        .build();
+                });
+                it("returns the correct response", () => {
+                    const response = getResponse(handler, request, context);
+                    expect(response).to.exist;
+                    expect(response).to.be.a("object");
+                    expect(response.outputSpeech).to.equal("What kind of foo?");
+                });
+            });
         });
     });
     describe("when passed an array of responses", () => {

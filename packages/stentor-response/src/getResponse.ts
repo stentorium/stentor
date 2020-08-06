@@ -10,6 +10,8 @@ import { determineResponse } from "./determineResponse";
 /**
  * Get the compiled response from the provided
  * content, request and context.
+ * 
+ * In order to leverage slot filling, you must pass in a Handler for content.
  *
  * @export
  * @param {(Content | Response[])} content
@@ -47,11 +49,17 @@ export function getResponse(
             });
 
             if (existsAndNotEmpty(needFilling)) {
-                // For the ones need filling, randomly take one.  
-                // We may want to specify order in the future however
-                // random will get it done for now
-                const slotToFill = random(needFilling);
-                responses = findValueForKey(slotToFill.slotElicitationContentKey, content.content);
+                // Of the ones that need filling, we need to dwindle 
+                // it down again to those that
+                // can actually return a response. 
+                const haveResponses: Slot[] = needFilling.filter((slot) => {
+                    const potentialResponses = findValueForKey(slot.slotElicitationContentKey, content.content);
+                    return !!determineResponse(potentialResponses, request, context);
+                });
+                if (existsAndNotEmpty(haveResponses)) {
+                    const slotToFill = random(haveResponses);
+                    responses = findValueForKey(slotToFill.slotElicitationContentKey, content.content);
+                }
             }
         }
     } else {

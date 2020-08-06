@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.30.4",
+  "version": "1.31.1",
   "description": "Simple logging library built on top of Winston for :mega: stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "chalk": "4.1.0",
-    "stentor-utils": "1.30.4",
+    "stentor-utils": "1.31.1",
     "winston": "3.3.3"
   },
   "scripts": {

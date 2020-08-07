@@ -51,7 +51,7 @@ export class DelegatingHandler extends AbstractHandler<Content, DelegatingData> 
         if (method) {
             return await method(request, context, this.content, this.data);
         } else {
-            return await super.handleRequest(request, context);
+            return await super.start(request, context);
         }
     }
 

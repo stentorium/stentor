@@ -250,6 +250,17 @@ export abstract class AbstractHandler<
                 context.session.set("unknownInputs", currentUnknownInputs + 1);
         }
     }
+
+    /**
+     * Kicks off the handler, typically called when the intent associated with the
+     * handler is requested.
+     * 
+     * @deprecated - Use handleRequest(), this is now just a wrapper that calls handleRequest()
+     */
+    public async start(request: Request, context: Context): Promise<void> {
+        return this.handleRequest(request, context);
+    }
+
     /**
      * Handles the incoming request.  Sets the necessary responses and saves the necessary items
      * to storage.

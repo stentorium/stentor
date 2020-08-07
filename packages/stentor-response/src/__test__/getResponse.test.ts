@@ -33,13 +33,22 @@ describe("#getResponse()", () => {
                 type: "InSessionIntent",
                 intentId: "Fill",
                 content: {
+                    ["Fill"]: [{
+                        outputSpeech: "Confirming ${ foo } and ${baz}."
+                    }],
                     ["FillFoo"]: [{
                         outputSpeech: "What kind of foo?",
                         reprompt: "What kind of foo was that?"
                     }],
                     ["FillBaz"]: [{ outputSpeech: "What kind of baz for the ${ foo }?" }],
                     ["Filled"]: [{ outputSpeech: "Great, we will get on that." }],
+                    ["CancelIntent"]: [{ outputSpeech: "Ok, we will cancel your order." }]
                 },
+                utterancePatterns: [
+                    "i want something",
+                    "i want ${foo} and ${bar}",
+                    "i want ${foo}"
+                ],
                 slots: [
                     {
                         type: "FOO",
@@ -58,7 +67,7 @@ describe("#getResponse()", () => {
                 ]
             }
 
-            request = new IntentRequestBuilder().withIntentId("intentId").withSlots({
+            request = new IntentRequestBuilder().withIntentId("Fill").withSlots({
                 bar: {
                     name: "bar",
                     value: "Moe's"
@@ -92,7 +101,7 @@ describe("#getResponse()", () => {
             });
             describe("with some slots already filled and on the session storage", () => {
                 beforeEach(() => {
-                    request = new IntentRequestBuilder().withIntentId("intentId").withSlots({
+                    request = new IntentRequestBuilder().withIntentId("Fill").withSlots({
                         bar: {
                             name: "bar",
                             value: "Moe's"
@@ -132,6 +141,17 @@ describe("#getResponse()", () => {
                     expect(response).to.exist;
                     expect(response).to.be.a("object");
                     expect(response.outputSpeech).to.equal("What kind of baz for the F000D?");
+                });
+                describe("when passed a cancel request", () => {
+                    beforeEach(() => {
+                        request = new IntentRequestBuilder().cancel().build();
+                    });
+                    it("returns the cancel response", () => {
+                        const response = getResponse(handler, request, context);
+                        expect(response).to.exist;
+                        expect(response).to.be.a("object");
+                        expect(response.outputSpeech).to.equal("Ok, we will cancel your order.");
+                    });
                 });
             });
             describe("with two required, only one able to be filled", () => {

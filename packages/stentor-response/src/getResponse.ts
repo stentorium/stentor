@@ -12,12 +12,6 @@ import { determineResponse } from "./determineResponse";
  * content, request and context.
  * 
  * In order to leverage slot filling, you must pass in a Handler for content.
- *
- * @export
- * @param {(Content | Response[])} content
- * @param {Request} request
- * @param {Context} context
- * @returns {Response}
  */
 export function getResponse(
     content: Handler | Content | Response[],
@@ -32,8 +26,11 @@ export function getResponse(
     } else if (isHandler(content)) {
         const key = keyFromRequest(request);
         responses = findValueForKey(key, content.content);
-        // Check for slot filling
-        if (isIntentRequest(request) && existsAndNotEmpty(content.slots)) {
+        // Check for slot filling:
+        // * If there is content it can't be for itself
+        // * It needs to be an intent request
+        // * We need slots on the content.
+        if (!(responses && key !== content.intentId) && isIntentRequest(request) && existsAndNotEmpty(content.slots)) {
             //OK! Intent request and we have slots
             // See if we have an slotElicitationResponseKeys
             const required: Slot[] = content.slots.filter((slot) => {
@@ -48,6 +45,7 @@ export function getResponse(
                 return !slotFromRequest || !slotFromRequest.value
             });
 
+            // We have slots that need filling
             if (existsAndNotEmpty(needFilling)) {
                 // Of the ones that need filling, we need to dwindle 
                 // it down again to those that

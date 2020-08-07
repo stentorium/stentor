@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.32.0](https://github.com/stentorium/stentor/compare/v1.31.2...v1.32.0) (2020-08-07)
+
+
+### Features
+
+* On last slot to be filled, it returns the content for itself ([#524](https://github.com/stentorium/stentor/issues/524)) ([fb29ae5](https://github.com/stentorium/stentor/commit/fb29ae589105aa36b903663ab464ec9f418aff8b))
+
+
+
+
+
 ## [1.31.2](https://github.com/stentorium/stentor/compare/v1.31.1...v1.31.2) (2020-08-07)
 
 **Note:** Version bump only for package repo

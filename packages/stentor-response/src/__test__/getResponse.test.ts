@@ -222,6 +222,46 @@ describe("#getResponse()", () => {
                     expect(response.outputSpeech).to.equal("What kind of foo?");
                 });
             });
+            describe("when the incoming request has the last slot to be filled", () => {
+                beforeEach(() => {
+                    request = new IntentRequestBuilder().withIntentId("BazOnly").withSlots({
+                        baz: {
+                            name: "baz",
+                            value: "BASH"
+                        }
+                    }).build();
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+                    // @ts-ignore The stubbed instance types can't see the private properties, which cause TS errors
+                    response = sinon.createStubInstance(ResponseBuilder);
+                    context = new ContextBuilder()
+                        .withResponse(response)
+                        .withStorage({
+                            createdTimestamp: Date.now(),
+                            lastActiveTimestamp: Date.now(),
+                            name: "Bob",
+                            metBefore: true,
+                            score: 3,
+                            sessionStore: {
+                                id: "sessionId",
+                                data: {
+                                    slots: {
+                                        foo: {
+                                            name: "foo",
+                                            value: "F000D"
+                                        }
+                                    }
+                                }
+                            }
+                        })
+                        .build();
+                });
+                it("returns the content for itself", () => {
+                    const response = getResponse(handler, request, context);
+                    expect(response).to.exist;
+                    expect(response).to.be.a("object");
+                    expect(response.outputSpeech).to.equal("Confirming F000D and BASH.");
+                });
+            });
         });
     });
     describe("when passed an array of responses", () => {

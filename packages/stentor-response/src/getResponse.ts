@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { SESSION_STORAGE_SLOTS_KEY } from "stentor-constants";
 import { isHandler } from "stentor-guards";
-import { Content, Context, Handler, Request, Response, Slot } from "stentor-models";
+import { Content, Context, Handler, Request, Response, Slot, RequestSlotMap } from "stentor-models";
 import { keyFromRequest, isIntentRequest } from "stentor-request";
 import { combineRequestSlots, findValueForKey, existsAndNotEmpty, random } from "stentor-utils";
 import { compileResponse } from "./compileResponse";
@@ -37,26 +37,40 @@ export function getResponse(
                 return typeof slot.slotElicitationContentKey === "string" && slot.slotElicitationContentKey.length > 0;
             });
 
-            // Merged request slots
-            const requestSlots = combineRequestSlots(context.session.get(SESSION_STORAGE_SLOTS_KEY), request.slots);
-            // Figure out which ones we don't have a value for
-            const needFilling: Slot[] = required.filter((slot) => {
-                const slotFromRequest = requestSlots[slot.name];
-                return !slotFromRequest || !slotFromRequest.value
-            });
+            const sessionSlots: RequestSlotMap = context.session ? context.session.get(SESSION_STORAGE_SLOTS_KEY) || {} : {};
 
-            // We have slots that need filling
-            if (existsAndNotEmpty(needFilling)) {
-                // Of the ones that need filling, we need to dwindle 
-                // it down again to those that
-                // can actually return a response. 
-                const haveResponses: Slot[] = needFilling.filter((slot) => {
-                    const potentialResponses = findValueForKey(slot.slotElicitationContentKey, content.content);
-                    return !!determineResponse(potentialResponses, request, context);
+            const needFillingFromStorage: Slot[] = required.filter((slot) => {
+                const slotFromSession = sessionSlots[slot.name];
+                return !slotFromSession || !slotFromSession.value;
+            });
+            // See if we are about to fill the last required slot with the incoming request
+            // need filling from storage needs to be length 1 and the incoming request needs to have the value
+            if (needFillingFromStorage.length === 1 && request.slots && request.slots[needFillingFromStorage[0].name] && request.slots[needFillingFromStorage[0].name].value) {
+                // The incoming request is going to fill the last required slot so 
+                // we get the content for itself
+                responses = findValueForKey(content.intentId, content.content);
+            } else {
+                // Otherwise, merge the request slots with the session slots 
+                const requestSlots = combineRequestSlots(sessionSlots, request.slots);
+                // Figure out which ones we don't have a value for
+                const needFilling: Slot[] = required.filter((slot) => {
+                    const slotFromRequest = requestSlots[slot.name];
+                    return !slotFromRequest || !slotFromRequest.value
                 });
-                if (existsAndNotEmpty(haveResponses)) {
-                    const slotToFill = random(haveResponses);
-                    responses = findValueForKey(slotToFill.slotElicitationContentKey, content.content);
+
+                // We have slots that need filling
+                if (existsAndNotEmpty(needFilling)) {
+                    // Of the ones that need filling, we need to dwindle 
+                    // it down again to those that
+                    // can actually return a response. 
+                    const haveResponses: Slot[] = needFilling.filter((slot) => {
+                        const potentialResponses = findValueForKey(slot.slotElicitationContentKey, content.content);
+                        return !!determineResponse(potentialResponses, request, context);
+                    });
+                    if (existsAndNotEmpty(haveResponses)) {
+                        const slotToFill = random(haveResponses);
+                        responses = findValueForKey(slotToFill.slotElicitationContentKey, content.content);
+                    }
                 }
             }
         }

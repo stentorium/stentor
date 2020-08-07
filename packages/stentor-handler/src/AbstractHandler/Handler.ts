@@ -171,23 +171,6 @@ export abstract class AbstractHandler<
 
         return canHandleInputUnknown;
     }
-
-    /**
-     * Kicks off the handler, typically called when the intent associated with the
-     * handler is requested.
-     *
-     * @public
-     */
-    public async start(request: Request, context: Context): Promise<void> {
-        const response = getResponse(this, request, context);
-        if (response) {
-            context.response.respond(response);
-
-            if (isActionable(response)) {
-                manipulateStorage(context.storage, response.actions);
-            }
-        }
-    }
     /**
      * Repeats the last uttered response.
      *
@@ -277,9 +260,6 @@ export abstract class AbstractHandler<
         const event = keyFromRequest(request);
 
         switch (event) {
-            /* If it is the first request for this intent, fire off start */
-            case this.intentId:
-                return this.start(request, context);
             case REPEAT_INTENT:
                 return this.repeat(request, context);
             case INPUT_UNKNOWN_ID:

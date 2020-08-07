@@ -187,10 +187,9 @@ describe("AbstractHandler", () => {
             });
         });
     });
-    describe("#start()", () => {
+    describe(`#start()`, () => {
         let handler: TestHandler;
         let request: IntentRequest;
-
         beforeEach(async () => {
             handler = new TestHandler({
                 appId,
@@ -577,6 +576,42 @@ describe("AbstractHandler", () => {
                 expect(response.respond).to.have.been.calledWith({
                     outputSpeech: "What type of foo?"
                 });
+            });
+        });
+        describe("for it's own request", () => {
+            let request: IntentRequest;
+            beforeEach(async () => {
+                handler = new TestHandler({
+                    appId,
+                    organizationId,
+                    intentId,
+                    type: BASE_HANDLER_TYPE,
+                    content,
+                    data: {}
+                });
+
+                context = new ContextBuilder()
+                    .withDevice(device)
+                    .withResponse(response)
+                    .withStorage({
+                        ...storageProps,
+                        history: {
+                            handler: [
+                                {
+                                    sessionId: "sessionId",
+                                    intentId: "LaunchRequest",
+                                    timestamp: 123123
+                                }
+                            ]
+                        }
+                    })
+                    .build();
+                request = new IntentRequestBuilder().withIntentId(intentId).build();
+                await handler.handleRequest(request, context);
+            });
+            it("it returns the response", async () => {
+                expect(response.respond).to.have.been.called;
+                expect(response.respond).to.have.been.calledWith(intentIdContent);
             });
         });
     });

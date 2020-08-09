@@ -37,7 +37,7 @@
   "dependencies": {
     "@types/xmldoc": "1.1.4",
     "blueimp-md5": "2.17.0",
-    "chrono-node": "2.1.6",
+    "chrono-node": "2.1.7",
     "date-fns": "2.15.0",
     "dyno-item-size": "0.3.3",
     "fuse.js": "5.1.0",

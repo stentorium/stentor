@@ -203,3 +203,16 @@ export const ENTITY_PERCENTAGE = "STENTOR.PERCENTAGE";
  */
 export const ENTITY_EMAIL_ADDRESS = "STENTOR.EMAIL_ADDRESS";
 
+/**
+ * People
+ * 
+ * Names of people, both fictional and non
+ * 
+ * Translated to:
+ *   @sys.person on Dialogflow
+ *   AMAZON.Person on Amazon Alexa & AWS LEX
+ *   PersonName on Luis
+ * 
+ */
+export const ENTITY_PERSON = "STENTOR.PERSON";
+

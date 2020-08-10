@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.32.3](https://github.com/stentorium/stentor/compare/v1.32.2...v1.32.3) (2020-08-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.1.7 ([#526](https://github.com/stentorium/stentor/issues/526)) ([4f3f2bd](https://github.com/stentorium/stentor/commit/4f3f2bdecdc093536db6953741773ecad967e407))
+
+
+
+
+
 ## [1.32.2](https://github.com/stentorium/stentor/compare/v1.32.1...v1.32.2) (2020-08-09)
 
 **Note:** Version bump only for package repo

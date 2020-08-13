@@ -19,7 +19,7 @@
     "@types/blueimp-md5": "2.7.0",
     "@types/chai": "4.2.12",
     "@types/jsonpath": "0.2.0",
-    "@types/mocha": "8.0.1",
+    "@types/mocha": "8.0.2",
     "@types/node": "13.13.15",
     "@types/numeral": "0.0.28",
     "@types/sinon": "9.0.4",

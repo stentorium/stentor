@@ -17,7 +17,7 @@
     "node": "10.x"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "7.9.3",
+    "@microsoft/api-extractor": "7.9.4",
     "@rollup/plugin-typescript": "5.0.2",
     "@xapp/config": "0.2.3",
     "rollup": "2.23.1",

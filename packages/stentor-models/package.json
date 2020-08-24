@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.33.17",
+  "version": "1.33.19",
   "description": "Models for :mega: stentor",
   "types": "lib/index",
   "typings": "lib/index",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.33.21](https://github.com/stentorium/stentor/compare/v1.33.20...v1.33.21) (2020-08-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency actions-on-google to v2.13.0 ([#562](https://github.com/stentorium/stentor/issues/562)) ([bfbe217](https://github.com/stentorium/stentor/commit/bfbe21743fb7d7026bbdffa3fa737ddf06ed87b4))
+
+
+
+
+
 ## [1.33.20](https://github.com/stentorium/stentor/compare/v1.33.19...v1.33.20) (2020-08-25)
 
 **Note:** Version bump only for package repo

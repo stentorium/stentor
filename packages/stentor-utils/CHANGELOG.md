@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.33.39](https://github.com/stentorium/stentor/compare/v1.33.38...v1.33.39) (2020-09-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency blueimp-md5 to v2.18.0 ([#583](https://github.com/stentorium/stentor/issues/583)) ([0cd049d](https://github.com/stentorium/stentor/commit/0cd049dfb96e89f39b92f4a58da22cf7dbd74988))
+
+
+
+
+
 ## [1.33.38](https://github.com/stentorium/stentor/compare/v1.33.37...v1.33.38) (2020-09-08)
 
 **Note:** Version bump only for package stentor-utils

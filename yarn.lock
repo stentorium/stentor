@@ -977,10 +977,10 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
-"@microsoft/api-documenter@7.8.42":
-  version "7.8.42"
-  resolved "https://registry.yarnpkg.com/@microsoft/api-documenter/-/api-documenter-7.8.42.tgz#c8c27febeae448a2d87a739a3c7aead381009816"
-  integrity sha512-k7GRf4KRlY0+9usDcw99NqeGldRH0fD6MCIUTyYwZiR0fXeGF1Q7+f0Dj67TKMEXN1nHlMthtrKo4FP6XLmaBg==
+"@microsoft/api-documenter@7.8.43":
+  version "7.8.43"
+  resolved "https://registry.yarnpkg.com/@microsoft/api-documenter/-/api-documenter-7.8.43.tgz#bd0bcc726931c2e63089c0322677df663a886d11"
+  integrity sha512-P5cL3rtWVREA6wwpDKnxSu2N9ML/V1jD+P0RBvdNJt2ZBQtxbfXaIj2cTTp26gcvNtrwd6jG2++AXGrISF54Lg==
   dependencies:
     "@microsoft/api-extractor-model" "7.8.21"
     "@microsoft/tsdoc" "0.12.19"

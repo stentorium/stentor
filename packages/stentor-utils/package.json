@@ -20,7 +20,7 @@
     "@types/chai": "4.2.12",
     "@types/jsonpath": "0.2.0",
     "@types/mocha": "8.0.3",
-    "@types/node": "13.13.17",
+    "@types/node": "13.13.18",
     "@types/numeral": "0.0.28",
     "@types/sinon": "9.0.5",
     "@types/sinon-chai": "3.2.4",

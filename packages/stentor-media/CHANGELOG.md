@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.33.43](https://github.com/stentorium/stentor/compare/v1.33.42...v1.33.43) (2020-09-12)
+
+**Note:** Version bump only for package stentor-media
+
+
+
+
+
 ## [1.33.42](https://github.com/stentorium/stentor/compare/v1.33.41...v1.33.42) (2020-09-11)
 
 **Note:** Version bump only for package stentor-media

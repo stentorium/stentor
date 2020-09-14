@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.33.46",
+  "version": "1.33.47",
   "description": "Response for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -32,9 +32,9 @@
     "@xapp/patterns": "1.26.27",
     "actions-on-google": "2.13.0",
     "lodash.template": "4.5.0",
-    "stentor-determiner": "1.33.46",
+    "stentor-determiner": "1.33.47",
     "stentor-locales": "1.33.46",
-    "stentor-media": "1.33.46",
+    "stentor-media": "1.33.47",
     "stentor-request": "1.33.46",
     "stentor-utils": "1.33.46"
   },

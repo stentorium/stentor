@@ -24,6 +24,8 @@ import {
     isInputUnknownRequest,
     isIntentRequest,
     isLaunchRequest,
+    isOptionSelectRequest,
+    isPermissionRequest,
     isSessionEndedRequest,
     keyFromRequest
 } from "stentor-request";
@@ -183,8 +185,8 @@ export const main = async (
 
     // #.75 Use the NLU service if required by the channel
     if (channel.nlu) {
-        // We don't call if it is a LaunchRequest
-        if (!isLaunchRequest(request)) {
+        // We don't call if it is a LaunchRequest, option, or permission grant
+        if (!isLaunchRequest(request) && !isOptionSelectRequest(request) && !isPermissionRequest(request)) {
             const nluResponse = await channel.nlu.query(request.rawQuery);
             // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
             // @ts-ignore TypeScript be cool
@@ -240,7 +242,7 @@ export const main = async (
         eventService.addPrefix({ currentHandler });
     }
 
-    // Before we start determining things like handler or responses, we 
+    // Before we start determining things like handler or responses, we
     // want to update the slots on the session storage
     // so they can be used for slot filling logic
     if (isIntentRequest(request)) {

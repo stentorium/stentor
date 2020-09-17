@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.33.49",
+  "version": "1.33.50",
   "description": "Time for :mega: stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -22,7 +22,7 @@
     "chai": "4.2.0",
     "mocha": "8.1.3",
     "sinon": "9.0.3",
-    "stentor-models": "1.33.46",
+    "stentor-models": "1.33.50",
     "ts-node": "9.0.0",
     "typescript": "4.0.2"
   },
@@ -30,9 +30,9 @@
     "moment": "2.28.0",
     "moment-range": "4.0.2",
     "moment-timezone": "0.5.31",
-    "stentor-guards": "1.33.46",
-    "stentor-logger": "1.33.49",
-    "stentor-utils": "1.33.49"
+    "stentor-guards": "1.33.50",
+    "stentor-logger": "1.33.50",
+    "stentor-utils": "1.33.50"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

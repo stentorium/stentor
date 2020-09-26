@@ -22,7 +22,7 @@
     "@types/mocha": "8.0.3",
     "@types/node": "13.13.21",
     "@types/sinon": "9.0.6",
-    "@types/sinon-chai": "3.2.4",
+    "@types/sinon-chai": "3.2.5",
     "@xapp/config": "0.2.3",
     "aws-sdk": "2.756.0",
     "chai": "4.2.0",

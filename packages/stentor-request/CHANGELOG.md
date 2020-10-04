@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.33.64](https://github.com/stentorium/stentor/compare/v1.33.63...v1.33.64) (2020-10-04)
+
+**Note:** Version bump only for package stentor-request
+
+
+
+
+
 ## [1.33.63](https://github.com/stentorium/stentor/compare/v1.33.62...v1.33.63) (2020-10-01)
 
 **Note:** Version bump only for package stentor-request

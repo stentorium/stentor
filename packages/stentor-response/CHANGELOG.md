@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.33.69](https://github.com/stentorium/stentor/compare/v1.33.68...v1.33.69) (2020-10-06)
+
+
+### Bug Fixes
+
+* Removes unused actions-on-google and adds missing @types/aws-lambda ([#635](https://github.com/stentorium/stentor/issues/635)) ([b1357e3](https://github.com/stentorium/stentor/commit/b1357e3fedbb3de036517c18656be163fd671a0b))
+
+
+
+
+
 ## [1.33.68](https://github.com/stentorium/stentor/compare/v1.33.67...v1.33.68) (2020-10-06)
 
 **Note:** Version bump only for package stentor-response

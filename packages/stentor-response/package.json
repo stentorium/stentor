@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.33.47",
+  "version": "1.33.66",
   "description": "Response for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -17,26 +17,26 @@
   "devDependencies": {
     "@types/chai": "4.2.12",
     "@types/lodash.template": "4.5.0",
-    "@types/sinon": "9.0.5",
-    "@types/sinon-chai": "3.2.4",
+    "@types/sinon": "9.0.8",
+    "@types/sinon-chai": "3.2.5",
     "@xapp/config": "0.2.3",
     "chai": "4.2.0",
     "mocha": "8.1.3",
-    "sinon": "9.0.3",
+    "sinon": "9.1.0",
     "sinon-chai": "3.5.0",
-    "stentor-models": "1.33.46",
+    "stentor-models": "1.33.66",
     "ts-node": "9.0.0",
-    "typescript": "4.0.2"
+    "typescript": "4.0.3"
   },
   "dependencies": {
     "@xapp/patterns": "1.26.27",
     "actions-on-google": "2.13.0",
     "lodash.template": "4.5.0",
-    "stentor-determiner": "1.33.47",
-    "stentor-locales": "1.33.46",
-    "stentor-media": "1.33.47",
-    "stentor-request": "1.33.46",
-    "stentor-utils": "1.33.46"
+    "stentor-determiner": "1.33.66",
+    "stentor-locales": "1.33.66",
+    "stentor-media": "1.33.66",
+    "stentor-request": "1.33.66",
+    "stentor-utils": "1.33.66"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

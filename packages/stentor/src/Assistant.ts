@@ -28,6 +28,8 @@ import { OVAIEventStream, OVAIService } from "stentor-service-ovai";
 import { isLambdaError } from "stentor-utils";
 import * as AWSLambda from "aws-lambda";
 
+import * as express from "express";
+
 /**
  * Omni-channel assistant application builder.
  *
@@ -121,7 +123,6 @@ export class Assistant {
         this.userStorageService = userStorage;
         return this;
     }
-
     /**
      * 
      * 
@@ -132,7 +133,6 @@ export class Assistant {
         this.hooks = hooks;
         return this;
     }
-
     /**
      * 
      * 
@@ -155,6 +155,17 @@ export class Assistant {
     public withEventPrefix(prefix: EventPrefix): Assistant {
         this.eventService.addPrefix(prefix);
         return this;
+    }
+
+    public express(app?: express.Application): express.Application {
+
+        if (!app) {
+            app = express();
+        }
+
+
+        return app;
+
     }
 
     /**
@@ -201,7 +212,7 @@ export class Assistant {
             });
         }
 
-        const factory = new HandlerFactory(this.factoryProps);
+        const handlerFactory = new HandlerFactory(this.factoryProps);
 
         const handler: AWSLambda.Handler = async (event, context, callback) => {
             const translated = translateEventAndContext(event, context);
@@ -246,7 +257,7 @@ export class Assistant {
                 this.channels,
                 {
                     userStorageService,
-                    handlerFactory: factory,
+                    handlerFactory,
                     handlerService,
                     eventService: this.eventService,
                     piiService: this.piiService

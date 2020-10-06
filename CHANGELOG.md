@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.33.67](https://github.com/stentorium/stentor/compare/v1.33.66...v1.33.67) (2020-10-06)
+
+
+### Bug Fixes
+
+* channel NLU call in main ([#600](https://github.com/stentorium/stentor/issues/600)) ([291d8f8](https://github.com/stentorium/stentor/commit/291d8f8c775df56f38729fb113c444d74b5e375b))
+
+
+
+
+
 ## [1.33.66](https://github.com/stentorium/stentor/compare/v1.33.65...v1.33.66) (2020-10-06)
 
 **Note:** Version bump only for package repo

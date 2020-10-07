@@ -23,7 +23,7 @@
     "aws-sdk": "2.766.0",
     "chai": "4.2.0",
     "mocha": "8.1.3",
-    "sinon": "9.1.0",
+    "sinon": "9.2.0",
     "sinon-chai": "3.5.0",
     "stentor-models": "1.33.71",
     "ts-node": "9.0.0",

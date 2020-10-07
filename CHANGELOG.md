@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.33.74](https://github.com/stentorium/stentor/compare/v1.33.73...v1.33.74) (2020-10-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency isomorphic-fetch to v3 ([#621](https://github.com/stentorium/stentor/issues/621)) ([5d6e76c](https://github.com/stentorium/stentor/commit/5d6e76c00b28f61613d36ba4c00d728c4c3e5563))
+
+
+
+
+
 ## [1.33.73](https://github.com/stentorium/stentor/compare/v1.33.72...v1.33.73) (2020-10-07)
 
 **Note:** Version bump only for package repo

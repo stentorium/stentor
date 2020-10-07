@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.33.70",
+  "version": "1.33.73",
   "description": "History for :mega: stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -20,8 +20,8 @@
     "@xapp/config": "0.2.3",
     "chai": "4.2.0",
     "mocha": "8.1.3",
-    "sinon": "9.1.0",
-    "stentor-models": "1.33.66",
+    "sinon": "9.2.0",
+    "stentor-models": "1.33.71",
     "ts-node": "9.0.0",
     "typescript": "4.0.3"
   },

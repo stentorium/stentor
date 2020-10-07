@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.33.71",
+  "version": "1.33.72",
   "description": "Handler factory for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -29,14 +29,14 @@
   },
   "dependencies": {
     "stentor-constants": "1.33.71",
-    "stentor-context": "1.33.71",
-    "stentor-handler": "1.33.71",
-    "stentor-handler-delegating": "1.33.71",
-    "stentor-interaction-model": "1.33.71",
-    "stentor-logger": "1.33.71",
-    "stentor-request": "1.33.71",
-    "stentor-response": "1.33.71",
-    "stentor-utils": "1.33.71"
+    "stentor-context": "1.33.72",
+    "stentor-handler": "1.33.72",
+    "stentor-handler-delegating": "1.33.72",
+    "stentor-interaction-model": "1.33.72",
+    "stentor-logger": "1.33.72",
+    "stentor-request": "1.33.72",
+    "stentor-response": "1.33.72",
+    "stentor-utils": "1.33.72"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.33.76](https://github.com/stentorium/stentor/compare/v1.33.75...v1.33.76) (2020-10-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/xmldoc to v1.1.5 ([#602](https://github.com/stentorium/stentor/issues/602)) ([8e2855c](https://github.com/stentorium/stentor/commit/8e2855ca753dbce278130311d0016c03b7ef42ce))
+
+
+
+
+
 ## [1.33.75](https://github.com/stentorium/stentor/compare/v1.33.74...v1.33.75) (2020-10-07)
 
 **Note:** Version bump only for package repo

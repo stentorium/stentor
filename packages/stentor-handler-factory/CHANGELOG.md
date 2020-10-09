@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.33.79](https://github.com/stentorium/stentor/compare/v1.33.78...v1.33.79) (2020-10-09)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
 ## [1.33.78](https://github.com/stentorium/stentor/compare/v1.33.77...v1.33.78) (2020-10-09)
 
 **Note:** Version bump only for package stentor-handler-factory

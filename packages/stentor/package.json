@@ -20,7 +20,7 @@
     "@microsoft/api-extractor": "7.10.4",
     "@types/chai": "4.2.13",
     "@types/mocha": "8.0.3",
-    "@types/node": "13.13.24",
+    "@types/node": "13.13.25",
     "@types/sinon": "9.0.8",
     "@types/sinon-chai": "3.2.5",
     "@xapp/config": "0.2.3",

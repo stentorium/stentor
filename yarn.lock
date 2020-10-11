@@ -1460,10 +1460,10 @@
   dependencies:
     tslint-config-prettier "1.6.0"
 
-"@xapp/patterns@1.26.27":
-  version "1.26.27"
-  resolved "https://registry.yarnpkg.com/@xapp/patterns/-/patterns-1.26.27.tgz#2a43653b5c8a9a543c4f8ab335095387383dbf09"
-  integrity sha512-AfAs3/zLBLXeQgAaS6T1zsaveZ0rRuP0vDyB5bnhuJSMrRW85oJ/hWiWLMhisN9d2r9kNW2xiv8ZORff2T9X1w==
+"@xapp/patterns@1.26.43":
+  version "1.26.43"
+  resolved "https://registry.yarnpkg.com/@xapp/patterns/-/patterns-1.26.43.tgz#add261604176da8685dd0404ae4743be0c471d0c"
+  integrity sha512-vEpT1kJ9vBWDt0H3ZTaGFeSmUiZ8nSiWE64+VcfaNG/DBWUS3r/2fYNbujENgDbXGE8oO7K5aG33P0K3hCcXdA==
 
 "@zkochan/cmd-shim@^3.1.0":
   version "3.1.0"

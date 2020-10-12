@@ -61,7 +61,7 @@ describe("Assistant", () => {
                     assistant = new Assistant();
                 });
                 it("throws an error", () => {
-                    expect(assistant.lambda.bind(assistant)).to.throw("HandlerService or STUDIO_TOKEN was not provided.");
+                    expect(assistant.lambda.bind(assistant)).to.throw("HandlerService or STUDIO_TOKEN was not provided, unable to create the Assistant.");
                 });
             });
 

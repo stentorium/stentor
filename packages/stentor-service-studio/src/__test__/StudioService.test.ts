@@ -50,7 +50,7 @@ describe(`${StudioService.name}`, () => {
             let service: StudioService;
             beforeEach(() => {
                 fetchMock.put(
-                    "https://api.xapp.media/cms/app/events",
+                    "https://api.xapp.ai/cms/app/events",
                     {},
                     {
                         name: "EVENTS",

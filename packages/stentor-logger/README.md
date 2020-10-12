@@ -1,6 +1,6 @@
 ## stentor-logger
 
-Simple logging library built on top of Winston for :mega: stentor.
+Simple logging library built on top of Winston for 📣 stentor.
 
 ## Usage
 

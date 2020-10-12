@@ -1,3 +1,3 @@
 ## stentor-models
 
-Models (interfaces) for :mega: stentor
+Models (interfaces) for 📣 stentor

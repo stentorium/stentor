@@ -1,3 +1,3 @@
 ## stentor-constants
 
-Constants for :mega: stentor
+Constants for 📣 stentor

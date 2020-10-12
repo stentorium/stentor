@@ -2,4 +2,4 @@
 
 ## @xapp/stentor-service-ovai
 
-OV·AI service for :mega: stentor
+OV·AI service for 📣 stentor

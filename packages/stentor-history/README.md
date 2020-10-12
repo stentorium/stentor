@@ -1,3 +1,3 @@
 ## stentor-history
 
-History for :mega: stentor
+History for 📣 stentor

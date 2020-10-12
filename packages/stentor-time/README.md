@@ -1,3 +1,3 @@
 ## stentor-time
 
-Time for :mega: stentor
+Time for 📣 stentor

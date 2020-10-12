@@ -5,7 +5,7 @@
     "access": "public"
   },
   "version": "1.33.83",
-  "description": "Models for :mega: stentor",
+  "description": "Models for 📣 stentor",
   "types": "lib/index",
   "typings": "lib/index",
   "main": "lib/index",

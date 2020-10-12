@@ -1,3 +1,3 @@
 ## stentor-locales
 
-Locales for :mega: stentor
+Locales for 📣 stentor

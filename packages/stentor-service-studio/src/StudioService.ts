@@ -5,7 +5,7 @@ import { existsAndNotEmpty } from "stentor-utils";
 import "isomorphic-fetch";
 import { StudioHandlerResponse, StudioHandlersResponse } from "./Response";
 
-const BASE_URL = "https://api.xapp.media";
+const BASE_URL = "https://api.xapp.ai";
 
 function getIntentId(id: string | { intentId: string }): string {
     return typeof id === "string" ? id : id.intentId;

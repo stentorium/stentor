@@ -6,15 +6,24 @@
 
 import { DateTime } from 'stentor-models';
 import { DateTimeRange } from 'stentor-models';
-import * as Fuse from 'fuse.js';
+import { Duration } from 'stentor-models';
+import { DurationFormat } from 'stentor-models';
+import * as Fuse_2 from 'fuse.js';
 import { Handler } from 'stentor-models';
 import { Intent } from 'stentor-models';
 import { MatchOperation } from 'stentor-models';
 import { RelativeDateRangeType } from 'stentor-models';
 import { RelativeDateType } from 'stentor-models';
 import { RequestSlot } from 'stentor-models';
+import { RequestSlotMap } from 'stentor-models';
+import { RequestSlotValues } from 'stentor-models';
 import { ResponseOutput } from 'stentor-models';
 import { SlotTypeValue } from 'stentor-models';
+
+// Warning: (ae-missing-release-tag) "addDurations" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function addDurations(durations: Duration[], format: DurationFormat, round?: boolean): Duration;
 
 // Warning: (ae-missing-release-tag) "baseUrl" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -41,6 +50,11 @@ export function cleanInvalid(outputSpeech: string): string;
 // @public
 export function cleanTags(str: string): string;
 
+// Warning: (ae-missing-release-tag) "combineRequestSlots" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function combineRequestSlots(current: RequestSlotMap, incoming: RequestSlotMap): RequestSlotMap;
+
 // Warning: (ae-missing-release-tag) "Comparable" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
@@ -50,6 +64,24 @@ export type Comparable = boolean | string | number | undefined;
 //
 // @public
 export function compare(value1: Comparable, value2: Comparable, operator?: MatchOperation): boolean;
+
+// Warning: (ae-missing-release-tag) "compileJSONPaths" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "compileJSONPaths" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function compileJSONPaths(responseOutput: string, object: object, replaceWhenUndefined?: boolean): string;
+
+// @public (undocumented)
+export function compileJSONPaths(responseOutput: ResponseOutput, object: object, replaceWhenUndefined?: boolean): ResponseOutput;
+
+// Warning: (ae-missing-release-tag) "compileSlotValues" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "compileSlotValues" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function compileSlotValues(responseOutput: string, slots: RequestSlotMap, replaceWhenUndefined?: boolean): string;
+
+// @public (undocumented)
+export function compileSlotValues(responseOutput: ResponseOutput, slots: RequestSlotMap, replaceWhenUndefined?: boolean): ResponseOutput;
 
 // Warning: (ae-missing-release-tag) "concatSSML" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -85,6 +117,14 @@ export function containsNumbers(word: string): boolean;
 //
 // @public
 export function containsUppercase(word: string): boolean;
+
+// Warning: (ae-missing-release-tag) "dateTimeRangeToSpeech" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function dateTimeRangeToSpeech(value: DateTimeRange, type?: "ssml" | "displayText"): string;
+
+// @beta
+export function dateTimeToSpeech(value: DateTime, type?: "ssml" | "displayText"): string;
 
 // Warning: (ae-missing-release-tag) "dateTimeToString" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -129,6 +169,26 @@ export const DETECTION_INCLUDE_ONLY_REGEX: RegExp;
 // @public
 export function determineIntentIdToPath(handler: Handler, pathId: string): string | undefined;
 
+// Warning: (ae-missing-release-tag) "DURATION_FORMAT_TO_MS_MULTIPLIER" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export const DURATION_FORMAT_TO_MS_MULTIPLIER: DurationFormatToMSMultiplier;
+
+// Warning: (ae-missing-release-tag) "durationFormatGreaterThan" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function durationFormatGreaterThan(one: DurationFormat, two: DurationFormat): boolean;
+
+// Warning: (ae-missing-release-tag) "DurationFormatToMSMultiplier" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type DurationFormatToMSMultiplier = Record<DurationFormat, number>;
+
+// Warning: (ae-missing-release-tag) "durationToSpeech" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function durationToSpeech(duration: Duration, type?: "ssml" | "displayText"): string;
+
 // Warning: (ae-missing-release-tag) "estimateSize" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
@@ -154,10 +214,8 @@ export function filterOutIntents(handlersAndIntents: (Intent | Handler)[]): Hand
 // @public
 export function findValueForKey<V>(key: string, obj: ObjectWithKeys<V>): V | undefined;
 
-// Warning: (ae-missing-release-tag) "formatNumberForDisplay" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
-export function formatNumberForDisplay(n: number | string, format?: string): string;
+export function formatNumberForDisplay(number: number | string, format?: string): string;
 
 // Warning: (ae-missing-release-tag) "forwardsTo" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -183,6 +241,21 @@ export function getDateTimeFrom(date: string | Date, includeOnly?: "time" | "dat
 //
 // @public
 export function getDateTimeRangeFrom(date: string): DateTimeRange | undefined;
+
+// Warning: (ae-missing-release-tag) "getDurationFrom" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function getDurationFrom(iso8601Duration: string, groupBy?: GetDurationGroupBy): Duration;
+
+// Warning: (ae-missing-release-tag) "GetDurationGroupBy" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export enum GetDurationGroupBy {
+    // (undocumented)
+    Largest = 0,
+    // (undocumented)
+    Smallest = 1
+}
 
 // Warning: (ae-missing-release-tag) "HandledIn" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -254,15 +327,11 @@ export interface IntentMap {
 // @public
 export function isComparable(potential: any): potential is Comparable;
 
-// Warning: (ae-missing-release-tag) "isDateTime" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
-export function isDateTime(item: DateTime | DateTimeRange): item is DateTime;
+export function isDateTime(slotValue: RequestSlotValues): slotValue is DateTime;
 
-// Warning: (ae-missing-release-tag) "isDateTimeRange" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
-export function isDateTimeRange(item: DateTime | DateTimeRange): item is DateTimeRange;
+export function isDateTimeRange(slotValue: RequestSlotValues): slotValue is DateTimeRange;
 
 // Warning: (ae-missing-release-tag) "isDateTimeRangeString" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -274,6 +343,9 @@ export function isDateTimeRangeString(potential: string): boolean;
 // @public
 export function isDefiniteArticle(word: string): boolean;
 
+// @public
+export function isDuration(slotValue: RequestSlotValues): slotValue is Duration;
+
 // Warning: (ae-missing-release-tag) "isIndefiniteArticle" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
@@ -284,11 +356,9 @@ export function isISO8601(potential: string): boolean;
 
 // Warning: (ae-missing-release-tag) "isISO8601Duration" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
-// @public (undocumented)
+// @public
 export function isISO8601Duration(potential: string): boolean;
 
-// Warning: (ae-missing-release-tag) "isISO8601Range" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
 export function isISO8601Range(potential: string): boolean;
 
@@ -296,6 +366,11 @@ export function isISO8601Range(potential: string): boolean;
 //
 // @public
 export function isLambdaError(error: LambdaError | Error): error is LambdaError;
+
+// Warning: (ae-missing-release-tag) "isNumeric" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function isNumeric(num: any): boolean;
 
 // Warning: (ae-missing-release-tag) "ISO_8601" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -306,6 +381,11 @@ export const ISO_8601: RegExp;
 //
 // @public (undocumented)
 export const ISO_8601_DATE_ONLY: RegExp;
+
+// Warning: (ae-missing-release-tag) "ISO_8601_DURATION" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export const ISO_8601_DURATION: RegExp;
 
 // Warning: (ae-missing-release-tag) "ISO_8601_RANGE" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -377,21 +457,17 @@ export function maskEmail(email: string): string;
 // @public
 export function maskEmails(s: string, partial?: boolean): string;
 
-// Warning: (ae-missing-release-tag) "maskNumber" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
 export function maskNumber(phoneNumber: string): string;
 
-// Warning: (ae-missing-release-tag) "maskPhoneNumbers" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
-export function maskPhoneNumbers(s: string, partial?: boolean): string;
+export function maskPhoneNumbers(str: string, partial?: boolean): string;
 
 // @public
 export function matchRequestSlotToSlotTypeValue<T>(slot: RequestSlot, slotTypeValues: SlotTypeValue<T>[]): SlotTypeValue<T> | undefined;
 
 // @public
-export interface MatchResult<T> extends Fuse.FuseResult<SlotTypeValue<T>> {
+export interface MatchResult<T> extends Fuse_2.FuseResult<SlotTypeValue<T>> {
 }
 
 // @public
@@ -402,10 +478,8 @@ export function matchUtteranceToSlotTypeValue<T>(utterance: string | number, slo
 // @public
 export function md5(input: string): string;
 
-// Warning: (ae-missing-release-tag) "numberToWord" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
-export function numberToWord(n: number): string | undefined;
+export function numberToWord(num: number): string | undefined;
 
 // Warning: (ae-missing-release-tag) "ObjectWithKeys" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -423,6 +497,8 @@ export function objHasAttrs(obj: object): boolean;
 // @public
 export function parseDate(parsable: string, returnOnly?: "date" | "time"): DateTime | undefined;
 
+// Warning: (ae-missing-release-tag) "parseRelativeDate" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
 // @public
 export function parseRelativeDate(relative: RelativeDateRangeType | RelativeDateType | string, now?: Date): DateTime | DateTimeRange;
 
@@ -482,16 +558,19 @@ export function removeItems(obj: any, attrs: (string | number)[] | ValidateKeyCa
 
 // Warning: (ae-missing-release-tag) "removeTagsWithContent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
-// @public (undocumented)
+// @public
 export function removeTagsWithContent(speech: string, tags: string[]): string;
+
+// Warning: (ae-missing-release-tag) "requestSlotValueToString" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function requestSlotValueToString(value: RequestSlotValues): string;
 
 // Warning: (ae-missing-release-tag) "responsesContain" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export function responsesContain(intent: Intent | Handler, character: string): boolean;
 
-// Warning: (ae-missing-release-tag) "sanitizePhoneNumber" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
 export function sanitizePhoneNumber(phoneNumber: string): string;
 
@@ -499,6 +578,11 @@ export function sanitizePhoneNumber(phoneNumber: string): string;
 //
 // @public
 export function shuffle<T>(array: T[]): T[];
+
+// Warning: (ae-missing-release-tag) "slotValueToSpeech" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function slotValueToSpeech(value: RequestSlotValues, type?: "ssml" | "displayText"): string;
 
 // @public
 export function ssmlify(str: string, clean?: boolean): string;
@@ -605,8 +689,6 @@ export type ValidateKeyCallback = (key: string | number, value: any) => boolean;
 // @public (undocumented)
 export type ValidationErrorHandler = (keys: string[], error: Error) => void;
 
-// Warning: (ae-missing-release-tag) "wordToNumber" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
 export function wordToNumber(word: string): number | string;
 

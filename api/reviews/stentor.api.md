@@ -6,7 +6,7 @@
 
 import { AbstractHandler } from 'stentor-handler';
 import { AppRuntimeData } from 'stentor-models';
-import * as AWSLambda from 'aws-lambda';
+import * as AWSLambda_2 from 'aws-lambda';
 import { Channel } from 'stentor-models';
 import { compileResponse } from 'stentor-response';
 import { concatResponseOutput } from 'stentor-response';
@@ -70,24 +70,24 @@ import { PIIService } from 'stentor-models';
 import { pruneEmpty } from 'stentor-utils';
 import { random } from 'stentor-utils';
 import { Redirect } from 'stentor-models';
-import { Request } from 'stentor-models';
+import { Request as Request_2 } from 'stentor-models';
 import { RequestSlot } from 'stentor-models';
 import { RequestSlotMap } from 'stentor-models';
-import { Response } from 'stentor-models';
+import { Response as Response_2 } from 'stentor-models';
 import { ResponseBuilder } from 'stentor-response';
 import { ResponseOutput } from 'stentor-models';
 import { RuntimeCallback } from 'stentor-models';
 import { RuntimeContext } from 'stentor-models';
 import { SessionEndedRequestBuilder } from 'stentor-request';
 import { ssmlify } from 'stentor-utils';
-import { Storage } from 'stentor-models';
+import { Storage as Storage_2 } from 'stentor-models';
 import { UserStorageService } from 'stentor-models';
 
 export { AbstractHandler }
 
 // @public
 export class Assistant {
-    lambda(): AWSLambda.Handler;
+    lambda(): AWSLambda_2.Handler;
     withChannels(channels: Channel[]): Assistant;
     // (undocumented)
     withEventPrefix(prefix: EventPrefix): Assistant;
@@ -216,13 +216,13 @@ export { random }
 
 export { Redirect }
 
-export { Request }
+export { Request_2 as Request }
 
 export { RequestSlot }
 
 export { RequestSlotMap }
 
-export { Response }
+export { Response_2 as Response }
 
 export { ResponseBuilder }
 
@@ -236,7 +236,7 @@ export { SessionEndedRequestBuilder }
 
 export { ssmlify }
 
-export { Storage }
+export { Storage_2 as Storage }
 
 export { UserStorageService }
 

@@ -1,12 +1,18 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { AppRuntimeData } from "../App";
-import { OVAIContext } from "./OVAIContext";
+import { StudioContext } from "./StudioContext";
 
 export interface RuntimeContext {
     /**
      * Context specific to One Voice AI
+     * 
+     * @deprecated Deprecated in favor of studio.
      */
-    ovai?: OVAIContext;
+    ovai?: StudioContext;
+    /**
+     * Context specific to the setup within OC Studio
+     */
+    studio?: StudioContext;
     /**
      * App data used at runtime.
      */

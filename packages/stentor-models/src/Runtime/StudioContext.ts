@@ -1,14 +1,14 @@
 /*! Copyright (c) 2019, XAPPmedia */
 /**
- * Context specific to One Voice AI.
+ * Context specific to XAPP AI's Optimal Conversation Studio.
  */
-export interface OVAIContext {
+export interface StudioContext {
     /**
      * Platform / Channel name
      */
     platform?: string;
     /**
-     * The OVAI unique appId
+     * The OC Studio unique appId
      */
     appId?: string;
 }

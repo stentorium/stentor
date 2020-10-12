@@ -5,7 +5,7 @@
     "access": "public"
   },
   "version": "1.33.83",
-  "description": "Conditionals for :mega: stentor",
+  "description": "Conditionals for 📣 stentor",
   "types": "lib/index",
   "typings": "lib/index",
   "main": "lib/index",

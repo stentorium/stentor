@@ -1,3 +1,3 @@
 ## stentor-handler
 
-Handlers for :mega: stentor
+Handlers for 📣 stentor

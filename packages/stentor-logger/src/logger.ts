@@ -26,11 +26,23 @@ let LOGGER: Logger;
 export function redact(info: TransformableInfo): TransformableInfo {
     // fast pass through check
     if (process.env.OVAI_LOG_PII === "true") {
+        console.warn('OVAI_LOG_PII is now deprecated, please update to use STENTOR_LOG_PII instead.')
+        return info;
+    }
+
+    if (process.env.STENTOR_LOG_PII === "true") {
         return info;
     }
     let message = info.message;
     if (typeof message === "string") {
-        const partial = process.env.OVAI_LOG_PII_MASK_PARTIAL === "true";
+        let partial = process.env.OVAI_LOG_PII_MASK_PARTIAL === "true";
+        if (partial) {
+            console.warn(`OVAI_LOG_PII_MASK_PARTIAL is now deprecated, please update to use STENTOR_LOG_PII_MASK_PARTIAL instead.`)
+        }
+        // Override the deprecated one if the real one exists.
+        if (process.env.STENTOR_LOG_PII_MASK_PARTIAL) {
+            partial = process.env.STENTOR_LOG_PII_MASK_PARTIAL === "true";
+        }
         message = maskEmails(message, partial);
         message = maskPhoneNumbers(message, partial);
     } else if (typeof message === "object") {
@@ -44,7 +56,10 @@ export function redact(info: TransformableInfo): TransformableInfo {
             message = info.message;
             // Setup an error message;
             const error = `PII redaction failed, entire log redacted.`;
-            if (process.env.OVAI_LOG_PII_ERRORS === "true") {
+            if (process.env.STENTOR_LOG_PII_ERRORS === "true") {
+                (message as any).___error___ = `PII redaction failed: ${asString}`;
+            } else if (process.env.OVAI_LOG_PII_ERRORS === "true") {
+                console.warn(`OVAI_LOG_PII_ERRORS is now deprecated, please update to STENTOR_LOG_PII_ERRORS.`);
                 (message as any).___error___ = `PII redaction failed: ${asString}`;
             } else {
                 message = error;

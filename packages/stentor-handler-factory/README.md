@@ -1,3 +1,3 @@
 ## stentor-handler-factory
 
-The Handler factory for :mega: stentor
+The Handler factory for 📣 stentor

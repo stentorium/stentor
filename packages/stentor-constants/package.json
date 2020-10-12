@@ -5,7 +5,7 @@
     "access": "public"
   },
   "version": "1.33.83",
-  "description": "Constants for :mega: stentor",
+  "description": "Constants for 📣 stentor",
   "types": "lib/index",
   "typings": "lib/index",
   "main": "lib/index",

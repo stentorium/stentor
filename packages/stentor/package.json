@@ -54,6 +54,7 @@
     "stentor-runtime": "1.33.83",
     "stentor-service-event": "1.33.83",
     "stentor-service-ovai": "1.33.83",
+    "stentor-service-studio": "1.33.83",
     "stentor-utils": "1.33.83"
   },
   "peerDependencies": {

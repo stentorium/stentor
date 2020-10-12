@@ -61,20 +61,20 @@ describe("Assistant", () => {
                     assistant = new Assistant();
                 });
                 it("throws an error", () => {
-                    expect(assistant.lambda.bind(assistant)).to.throw("HandlerService or OVAI_TOKEN was not provided.");
+                    expect(assistant.lambda.bind(assistant)).to.throw("HandlerService or STUDIO_TOKEN was not provided.");
                 });
             });
 
         });
         describe("with environment variables", () => {
             beforeEach(() => {
-                process.env.OVAI_TOKEN = "token";
-                process.env.OVAI_APP_ID = "appId";
+                process.env.STUDIO_TOKEN = "token";
+                process.env.STUDIO_APP_ID = "appId";
                 assistant = new Assistant().withUserStorage(new MockUserStorageService());
             });
             afterEach(() => {
-                delete process.env.OVAI_TOKEN;
-                delete process.env.OVAI_APP_ID;
+                delete process.env.STUDIO_TOKEN;
+                delete process.env.STUDIO_APP_ID;
             });
             it("doesn't throw an error", () => {
                 expect(assistant.lambda.bind(assistant)).to.not.throw();

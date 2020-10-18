@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@types/aws-lambda": "8.10.63",
-    "@xapp/patterns": "1.26.43",
+    "@xapp/patterns": "1.26.60",
     "dotenv": "8.2.0",
     "stentor-constants": "1.33.90",
     "stentor-context": "1.33.91",

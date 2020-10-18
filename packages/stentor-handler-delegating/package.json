@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.33.87",
+  "version": "1.33.88",
   "description": "Delegating handler for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -23,8 +23,8 @@
     "typescript": "4.0.3"
   },
   "dependencies": {
-    "stentor-handler": "1.33.87",
-    "stentor-request": "1.33.87"
+    "stentor-handler": "1.33.88",
+    "stentor-request": "1.33.88"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

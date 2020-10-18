@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.33.89",
+  "version": "1.33.90",
   "description": "Common type guards for 📣 stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -23,12 +23,12 @@
     "mocha": "8.2.0",
     "sinon": "9.2.0",
     "sinon-chai": "3.5.0",
-    "stentor-models": "1.33.86",
+    "stentor-models": "1.33.90",
     "ts-node": "9.0.0",
     "typescript": "4.0.3"
   },
   "dependencies": {
-    "stentor-constants": "1.33.86"
+    "stentor-constants": "1.33.90"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

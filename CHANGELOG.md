@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.33.95](https://github.com/stentorium/stentor/compare/v1.33.94...v1.33.95) (2020-10-22)
+
+
+### Bug Fixes
+
+* Adds basic Lambda Context Util ([#665](https://github.com/stentorium/stentor/issues/665)) ([c0f8e0a](https://github.com/stentorium/stentor/commit/c0f8e0a4ac46433ab4e7f3cb629861343a9e37e3))
+
+
+
+
+
 ## [1.33.94](https://github.com/stentorium/stentor/compare/v1.33.93...v1.33.94) (2020-10-22)
 
 **Note:** Version bump only for package repo

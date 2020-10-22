@@ -30,7 +30,7 @@ export interface RuntimeContext {
     /**
      * Current environment
      */
-    environment?: "dev" | "stage" | "prod" | "production";
+    environment?: "dev" | "stage" | "prod" | "production" | string;
     /**
      * The request body as a string.
      *

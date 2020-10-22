@@ -173,3 +173,25 @@ export function lambdaAPIGatewayContext(
 
     return { event, context };
 }
+
+/**
+ * Context for accessing a lambda directly
+ */
+export function lambdaContext(
+    lambdaEvent: object,
+    lambdaContext: LambdaContext
+): { event: object; context: RuntimeContext } {
+
+    const event = lambdaEvent;
+
+    const context: RuntimeContext = {};
+
+    context.getRemainingTimeInMillis = lambdaContext.getRemainingTimeInMillis;
+    context.environment = process.env.NODE_ENV;
+
+    context.buildResponse = (code: number, result: object): object => {
+        return result;
+    };
+
+    return { event, context }
+}

@@ -17,7 +17,7 @@ export function translateEventAndContext(event: any, context: any): { event: obj
     } else if (event.testContext) {
         translated = virtualBstContext(event);
     } else if (process.env.AWS_LAMBDA_FUNCTION_NAME) {
-        translated = lambdaContext(event, translated);
+        translated = lambdaContext(event, context);
     } else {
         // Default to a simple pass through
         translated.context.buildResponse.buildResponse = (code: number, result: object): object => {

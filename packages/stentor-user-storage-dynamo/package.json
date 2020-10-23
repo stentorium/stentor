@@ -1,13 +1,12 @@
 {
-  "name": "stentor-conditional",
+  "name": "stentor-user-storage-dynamo",
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"
   },
   "version": "1.33.96",
-  "description": "Conditionals for 📣 stentor",
+  "description": "Storage for :mega: stentor using AWS DynamoDB",
   "types": "lib/index",
-  "typings": "lib/index",
   "main": "lib/index",
   "files": [
     "lib"
@@ -16,16 +15,14 @@
     "node": "10.x"
   },
   "devDependencies": {
-    "@types/chai": "4.2.14",
+    "@types/chai": "4.2.11",
     "@xapp/config": "0.2.3",
     "chai": "4.2.0",
-    "mocha": "8.2.0",
     "stentor-models": "1.33.96",
-    "typescript": "4.0.3"
+    "typescript": "3.8.3"
   },
   "dependencies": {
-    "stentor-logger": "1.33.96",
-    "vm2": "3.9.2"
+    "@xapp/dynamo-service": "1.8.7"
   },
   "peerDependencies": {
     "stentor-models": "1.x"
@@ -33,6 +30,6 @@
   "scripts": {
     "build": "tsc -d true -p .",
     "clean": "rm -rf ./lib/*",
-    "test": "mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
+    "test": "TZ=UTC mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
   }
 }

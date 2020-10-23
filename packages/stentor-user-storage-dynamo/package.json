@@ -22,7 +22,7 @@
     "typescript": "3.8.3"
   },
   "dependencies": {
-    "@xapp/dynamo-service": "1.7.0"
+    "@xapp/dynamo-service": "1.8.7"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

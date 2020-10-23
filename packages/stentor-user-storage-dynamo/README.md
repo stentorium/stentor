@@ -1,3 +1,10 @@
 ## stentor-user-storage-dynamo
 
-Storage for :mega: stentor using AWS DynamoDB
+User storage for :mega: stentor using AWS DynamoDB
+
+Supported environment variables:
+
+```
+STUDIO_APP_ID=
+USER_STORAGE_TABLE=
+```

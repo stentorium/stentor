@@ -4,8 +4,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.23.57",
-  "description": "Time for :mega: stentor",
+  "version": "1.33.96",
+  "description": "Time for 📣 stentor",
   "types": "lib/index",
   "main": "lib/index",
   "files": [
@@ -15,25 +15,24 @@
     "node": "10.x"
   },
   "devDependencies": {
-    "@types/chai": "4.2.11",
-    "@types/mocha": "7.0.2",
-    "@types/sinon": "7.5.2",
+    "@types/chai": "4.2.14",
+    "@types/mocha": "8.0.3",
+    "@types/sinon": "9.0.8",
     "@xapp/config": "0.2.3",
     "chai": "4.2.0",
-    "mocha": "7.1.1",
-    "sinon": "9.0.1",
-    "stentor-models": "1.23.51",
-    "ts-node": "8.8.1",
-    "typescript": "3.8.3"
+    "mocha": "8.2.0",
+    "sinon": "9.2.0",
+    "stentor-models": "1.33.96",
+    "ts-node": "9.0.0",
+    "typescript": "4.0.3"
   },
   "dependencies": {
-    "@types/moment-timezone": "0.5.13",
-    "moment": "2.24.0",
+    "moment": "2.29.1",
     "moment-range": "4.0.2",
-    "moment-timezone": "0.5.28",
-    "stentor-guards": "1.23.51",
-    "stentor-logger": "1.23.57",
-    "stentor-utils": "1.23.57"
+    "moment-timezone": "0.5.31",
+    "stentor-guards": "1.33.96",
+    "stentor-logger": "1.33.96",
+    "stentor-utils": "1.33.96"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

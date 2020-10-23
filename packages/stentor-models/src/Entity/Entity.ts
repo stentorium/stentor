@@ -17,11 +17,19 @@ export interface Entity {
      */
     entityId: string;
     /**
+     * NLU specific metadata used when translating to the NLU entity.
+     * 
+     * Use it to override the entity type for a specific NLU
+     */
+    nlu?: { [nlu: string]: { type: string } };
+    /**
      * Optional display name, used to help better communicate the entity.
      */
     displayName?: string;
     /**
      * Optional ID if the slot type has a representation in Dialogflow.
+     * 
+     * @deprecated This field is being phased out.
      */
     dialogflowId?: string;
     /**

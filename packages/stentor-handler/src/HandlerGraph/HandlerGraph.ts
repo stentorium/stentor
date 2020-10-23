@@ -19,7 +19,7 @@ export class HandlerGraph extends AbstractGraph {
 
     private map: HandlerMap;
 
-    constructor(handlers?: Handler[]) {
+    public constructor(handlers?: Handler[]) {
         super();
 
         if (Array.isArray(handlers) && handlers.length > 0) {
@@ -55,7 +55,7 @@ export class HandlerGraph extends AbstractGraph {
      * @returns {(Handler | undefined)}
      * @memberof HandlerGraph
      */
-    getHandler(id: string): Handler | undefined {
+    public getHandler(id: string): Handler | undefined {
         return this.map[id];
     }
 }

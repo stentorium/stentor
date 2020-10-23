@@ -39,6 +39,7 @@ export function Test(options: TestChannelOptions = {}): Channel {
                 audioSupported: true,
                 videoSupported: true,
                 hasScreen: true,
+                hasWebBrowser: false,
                 channel: "test"
             }
         },

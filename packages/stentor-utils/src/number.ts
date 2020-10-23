@@ -23,9 +23,9 @@ const PHONE_REGEX = /(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8
 /**
  * Sanitizes a phone number for text to speech.
  *
- * @export
- * @param {string} phoneNumber
- * @returns {string}
+ * @public
+ * @param phoneNumber - Phone number to be cleaned for text to speech
+ * @returns Cleaned phone number
  */
 export function sanitizePhoneNumber(phoneNumber: string): string {
     if (typeof phoneNumber !== "string") {
@@ -62,9 +62,9 @@ export function sanitizePhoneNumber(phoneNumber: string): string {
  *   888-8888 -> XXX-8888
  *   (704) 444 1234 -> XXX-XXX-1234
  *
- * @export
- * @param {string} phoneNumber
- * @returns {string}
+ * @public
+ * @param phoneNumber - Number to be masked
+ * @returns The masked number, leaving the last four digits
  */
 export function maskNumber(phoneNumber: string): string {
     if (typeof phoneNumber !== "string") {
@@ -100,17 +100,17 @@ export function maskNumber(phoneNumber: string): string {
  * Detects the phone numbers within a string and masks the numbers
  * with #s, preserving the formatting.
  *
- * @export
- * @param {string} s
- * @param {boolean} [partial=false] When true it keeps the last four digits of the number
- * @returns {string}
+ * @public
+ * @param str The string containing phone numbers.
+ * @param partial - Defaults to false. When true it keeps the last four digits of the number
+ * @returns String with phone numbers masked.
  */
-export function maskPhoneNumbers(s: string, partial = false): string {
-    if (typeof s !== "string") {
+export function maskPhoneNumbers(str: string, partial = false): string {
+    if (typeof str !== "string") {
         return undefined;
     }
 
-    let cleanString: string = s;
+    let cleanString: string = str;
 
     const matches = cleanString.match(PHONE_REGEX);
 
@@ -132,29 +132,30 @@ export function maskPhoneNumbers(s: string, partial = false): string {
 }
 
 /**
- * Converts number to their word (en) equivalent
+ * Converts number to their word (en) equivalent.  For example,
+ * 1 is converted to one and 55 if converted to fifty-five
  *
- * @export
- * @param {number} n
- * @returns {string}
+ * @public
+ * @param num - Number to convert to it's word equivalent
+ * @returns The word representation of the number provided such as "one" or "fifty-five"
  */
-export function numberToWord(n: number): string | undefined {
-    return typeof n === "number" ? converter.toWords(n) : n;
+export function numberToWord(num: number): string | undefined {
+    return typeof num === "number" ? converter.toWords(num) : num;
 }
 
 /**
  * Format numbers for display.  This is a thin wrapper around http://numeraljs.com/
  *
  * Default format is "0,0" which turns 1000 to 1,000.  More
- * formats can be found http://numeraljs.com/#format
+ * formats can be found {@link http://numeraljs.com/#format}
  *
- * @export
- * @param {number} n
- * @param {string} [format="0,0"]
- * @returns {string}
+ * @public
+ * @param number - Number to be formatted for display.
+ * @param format - Defaults to "0,0"
+ * @returns Number in string form, properly formatted for display
  */
-export function formatNumberForDisplay(n: number | string, format = "0,0"): string {
-    return numeral(n).format(format);
+export function formatNumberForDisplay(number: number | string, format = "0,0"): string {
+    return numeral(number).format(format);
 }
 
 /**
@@ -162,9 +163,9 @@ export function formatNumberForDisplay(n: number | string, format = "0,0"): stri
  *
  * Words that are not numbers are passed through.
  *
- * @export
- * @param {string} word
- * @returns {(number | string)}
+ * @public
+ * @param word - Word to convert to a number
+ * @returns Returns either the original value or the number that was converted.
  */
 export function wordToNumber(word: string): number | string {
     if (typeof word === "undefined") {
@@ -172,4 +173,19 @@ export function wordToNumber(word: string): number | string {
     }
 
     return wordsToNumbers(word);
+}
+
+/**
+ * Check to see if the provided parameter is a number.
+ * 
+ * "2" or 2 will return true.
+ * 
+ * Source {@link https://stackoverflow.com/a/42356340/1349766}
+ * 
+ * @param num - The value to check if it is numeric
+ * @returns True if the value is numeric.
+ */
+export function isNumeric(num: any): boolean {
+    num = '' + num; //coerce num to be a string
+    return !isNaN(parseFloat(num)) && isFinite(num);
 }

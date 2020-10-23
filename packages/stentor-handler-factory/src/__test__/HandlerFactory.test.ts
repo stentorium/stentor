@@ -196,7 +196,8 @@ describe("HandlerFactory", () => {
                 canSpeak: true,
                 canThrowCard: true,
                 hasScreen: false,
-                canTransferCall: false
+                canTransferCall: false,
+                hasWebBrowser: false
             };
 
             baseContext = new ContextBuilder()

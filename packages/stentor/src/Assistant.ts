@@ -24,6 +24,7 @@ import {
 } from "stentor-models";
 import { main, translateEventAndContext } from "stentor-runtime";
 import { EventPrefix, EventService } from "stentor-service-event";
+import { StudioService } from "stentor-service-studio";
 import { OVAIEventStream, OVAIService } from "stentor-service-ovai";
 import { isLambdaError } from "stentor-utils";
 import * as AWSLambda from "aws-lambda";
@@ -47,7 +48,7 @@ export class Assistant {
      * Data that can be leveraged at runtime for certain responses. 
      * 
      * @beta 
-     * @param runtime 
+     * @param runtime - Runtime data
      * @public
      */
     public withRuntimeData(runtime: AppRuntimeData): Assistant {
@@ -166,7 +167,13 @@ export class Assistant {
         // Setup the handler service if we don't have one and have the token
         let handlerService: HandlerService;
         if (!this.handlerService) {
-            if (process.env.OVAI_TOKEN) {
+            if (process.env.STUDIO_TOKEN) {
+                handlerService = new StudioService({
+                    token: process.env.STUDIO_TOKEN,
+                    appId: process.env.STUDIO_APP_ID
+                });
+            } else if (process.env.OVAI_TOKEN) {
+                console.warn(`OVAI_TOKEN & OVAIService has been deprecated, please migrate to STUDIO_TOKEN.`);
                 // Create the API based handler service
                 const service = new OVAIService({
                     token: process.env.OVAI_TOKEN,
@@ -175,7 +182,7 @@ export class Assistant {
                 handlerService = service;
                 this.eventService.addStream(new OVAIEventStream({ service }));
             } else {
-                throw new Error("HandlerService or OVAI_TOKEN was not provided.");
+                throw new Error("HandlerService or STUDIO_TOKEN was not provided, unable to create the Assistant.");
             }
         } else {
             handlerService = this.handlerService;

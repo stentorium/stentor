@@ -1,5 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { ConditionalDeterminer } from "stentor-conditional";
+import { SESSION_STORAGE_SLOTS_KEY } from "stentor-constants";
 import { isTimeContextual } from "stentor-guards";
 import { findSlotDependentMatch, isSlotDependable, SlotConditionalCheck } from "stentor-interaction-model";
 import { log } from "stentor-logger";
@@ -8,6 +9,7 @@ import {
     JSONDependable,
     Request,
     RequestDependable,
+    RequestSlotMap,
     SlotDependable,
     StorageDependable,
     SystemDependable,
@@ -27,10 +29,9 @@ import {
 } from "stentor-request";
 import { findStorageDependentMatch, isStorageDependable } from "stentor-storage";
 import { findTimeContextualMatch, TimeConditionalCheck } from "stentor-time";
-import { random, existsAndNotEmpty } from "stentor-utils";
+import { combineRequestSlots, compileJSONPaths, random, existsAndNotEmpty, compileSlotValues } from "stentor-utils";
 import { findJSONDependentMatch, JSONConditionalCheck } from "./findJSONDependentMatch";
 import { isJSONDependable, isConditional } from "./Guards";
-import { compileJSONPaths } from "./compileJSONPaths";
 
 /**
  * Determine which of the provided objects is best based on provided request and context.
@@ -89,7 +90,10 @@ export function determine<P extends object>(potentials: P[], request: Request, c
         conditionals.forEach((conditional) => {
             if (typeof conditional.conditions === "string") {
                 // Compile it
-                const compiled = compileJSONPaths(conditional.conditions, { request, context });
+                let compiled: string = conditional.conditions;
+                const requestSlots: RequestSlotMap = isIntentRequest(request) && context.session ? combineRequestSlots(context.session.get(SESSION_STORAGE_SLOTS_KEY), request.slots) : context.session ? context.session.get(SESSION_STORAGE_SLOTS_KEY) : {};
+                compiled = compileSlotValues(compiled, requestSlots);
+                compiled = compileJSONPaths(compiled, { request, context });
                 // Keep hold of the original
                 originals[compiled] = conditional;
                 // Push a compiled version
@@ -106,7 +110,7 @@ export function determine<P extends object>(potentials: P[], request: Request, c
         // Build up our list of conditional checks
         const checks: ConditionalCheck[] = [
             JSONConditionalCheck(request, context),
-            SystemConditionalCheck(request),
+            SystemConditionalCheck(request, context),
             RequestConditionalCheck(request)
         ];
         // If we have a lastActiveTimestamp, which we most always do 

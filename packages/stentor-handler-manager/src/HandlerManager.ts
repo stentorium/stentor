@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { isActionable, isHandler } from "stentor-guards";
 import { AbstractHandler } from "stentor-handler";
-import { HandlerFactory } from "stentor-handler-factory";
+import { HandlerFactory, NoHandlerClassError } from "stentor-handler-factory";
 import { log } from "stentor-logger";
 import { Context, HandlerService, Request } from "stentor-models";
 import { isIntentRequest, isLaunchRequest, keyFromRequest, isInputUnknownRequest } from "stentor-request";
@@ -125,7 +125,11 @@ export class HandlerManager {
                 handler = this.factory.fromProps(props);
             } catch (error) {
                 log().warn(`Unable to get valid handler for ${id}`);
-                console.error(error);
+                if (error instanceof NoHandlerClassError) {
+                    console.error(error.message);
+                } else {
+                    console.error(error);
+                }
             }
         }
 

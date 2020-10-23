@@ -6,7 +6,7 @@ import { Handler, Intent } from "stentor-models";
  *
  * @public
  */
-export function isHandler(props: Handler | Intent): props is Handler {
+export function isHandler(props: Handler | Intent | object | number | boolean): props is Handler {
     return !!props && (props as Handler).type !== undefined && (props as Handler).type !== null;
 }
 

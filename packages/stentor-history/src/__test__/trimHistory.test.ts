@@ -104,7 +104,6 @@ describe("#trimHistory", () => {
         expect(Object.keys(newHistory)).length(7); // with TS
     });
     it("Test with old entries", () => {
-        // tslint:disable
         const history: History = {
             lastTrimmed: NOW - ONE_HOUR_IN_SECONDS * 1000 - 600000, // 1 hour plus 10 minutes ago
             token1: { currentTime: OFFSET, lastPlayed: NOW - ONE_MONTH_IN_SECONDS * 1000 },
@@ -130,7 +129,6 @@ describe("#trimHistory", () => {
         });
     });
     it("Test with last played missing entries", () => {
-        // tslint:disable
         const history: History = {
             lastTrimmed: NOW - ONE_HOUR_IN_SECONDS * 1000 - 600000, // 1 hour plus 10 minutes ago
             token1: { currentTime: OFFSET, lastPlayed: NOW - ONE_MONTH_IN_SECONDS * 1000 },

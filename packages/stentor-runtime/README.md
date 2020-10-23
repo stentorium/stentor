@@ -1,3 +1,3 @@
 ## stentor-runtime
 
-Runtime for :mega: stentor
+Runtime for 📣 stentor, the main() method.

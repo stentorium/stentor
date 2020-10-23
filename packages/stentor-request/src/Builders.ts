@@ -133,6 +133,15 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
     private rawQuery: string;
     private slots: RequestSlotMap;
     private userId = "userId";
+    private canFulFill: boolean;
+
+    /**
+     * Turns the request into a canfulfill intent request.
+     */
+    public canFulfill(): IntentRequestBuilder {
+        this.canFulFill = true;
+        return this;
+    }
 
     /**
      * Set the platform for the request.
@@ -275,7 +284,7 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
      * Build the intent request.
      */
     public build(): IntentRequest {
-        const { apiAccess, deviceId, intentId, locale, platform, slots, userId, isNewSession, rawQuery } = this;
+        const { apiAccess, canFulFill, deviceId, intentId, locale, platform, slots, userId, isNewSession, rawQuery } = this;
 
         const request: IntentRequest = {
             type: REQUEST.INTENT_REQUEST_TYPE,
@@ -297,6 +306,10 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
 
         if (platform) {
             request.platform = platform;
+        }
+
+        if (typeof canFulFill === "boolean") {
+            request.canFulfill = canFulFill;
         }
 
         if (typeof slots === "object") {

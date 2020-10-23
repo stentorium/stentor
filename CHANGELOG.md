@@ -3,6 +3,2623 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.33.96](https://github.com/stentorium/stentor/compare/v1.33.95...v1.33.96) (2020-10-23)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.95](https://github.com/stentorium/stentor/compare/v1.33.94...v1.33.95) (2020-10-22)
+
+
+### Bug Fixes
+
+* Adds basic Lambda Context Util ([#665](https://github.com/stentorium/stentor/issues/665)) ([c0f8e0a](https://github.com/stentorium/stentor/commit/c0f8e0a4ac46433ab4e7f3cb629861343a9e37e3))
+
+
+
+
+
+## [1.33.94](https://github.com/stentorium/stentor/compare/v1.33.93...v1.33.94) (2020-10-22)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.93](https://github.com/stentorium/stentor/compare/v1.33.92...v1.33.93) (2020-10-21)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.92](https://github.com/stentorium/stentor/compare/v1.33.91...v1.33.92) (2020-10-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.26.60 ([8cc9506](https://github.com/stentorium/stentor/commit/8cc9506a6289b465639f75dcbd4d5af9ee4e37e9))
+
+
+
+
+
+## [1.33.91](https://github.com/stentorium/stentor/compare/v1.33.90...v1.33.91) (2020-10-18)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.90](https://github.com/stentorium/stentor/compare/v1.33.89...v1.33.90) (2020-10-18)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.89](https://github.com/stentorium/stentor/compare/v1.33.88...v1.33.89) (2020-10-18)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.88](https://github.com/stentorium/stentor/compare/v1.33.87...v1.33.88) (2020-10-18)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.87](https://github.com/stentorium/stentor/compare/v1.33.86...v1.33.87) (2020-10-17)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.86](https://github.com/stentorium/stentor/compare/v1.33.85...v1.33.86) (2020-10-16)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.85](https://github.com/stentorium/stentor/compare/v1.33.84...v1.33.85) (2020-10-14)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.84](https://github.com/stentorium/stentor/compare/v1.33.83...v1.33.84) (2020-10-12)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.83](https://github.com/stentorium/stentor/compare/v1.33.82...v1.33.83) (2020-10-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.26.43 ([f30bc26](https://github.com/stentorium/stentor/commit/f30bc2668443c8df3d4b5331261c5970f23ccd70))
+
+
+
+
+
+## [1.33.82](https://github.com/stentorium/stentor/compare/v1.33.81...v1.33.82) (2020-10-11)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.81](https://github.com/stentorium/stentor/compare/v1.33.80...v1.33.81) (2020-10-10)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.80](https://github.com/stentorium/stentor/compare/v1.33.79...v1.33.80) (2020-10-10)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.79](https://github.com/stentorium/stentor/compare/v1.33.78...v1.33.79) (2020-10-09)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.78](https://github.com/stentorium/stentor/compare/v1.33.77...v1.33.78) (2020-10-09)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.77](https://github.com/stentorium/stentor/compare/v1.33.76...v1.33.77) (2020-10-08)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.76](https://github.com/stentorium/stentor/compare/v1.33.75...v1.33.76) (2020-10-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/xmldoc to v1.1.5 ([#602](https://github.com/stentorium/stentor/issues/602)) ([8e2855c](https://github.com/stentorium/stentor/commit/8e2855ca753dbce278130311d0016c03b7ef42ce))
+
+
+
+
+
+## [1.33.75](https://github.com/stentorium/stentor/compare/v1.33.74...v1.33.75) (2020-10-07)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.74](https://github.com/stentorium/stentor/compare/v1.33.73...v1.33.74) (2020-10-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency isomorphic-fetch to v3 ([#621](https://github.com/stentorium/stentor/issues/621)) ([5d6e76c](https://github.com/stentorium/stentor/commit/5d6e76c00b28f61613d36ba4c00d728c4c3e5563))
+
+
+
+
+
+## [1.33.73](https://github.com/stentorium/stentor/compare/v1.33.72...v1.33.73) (2020-10-07)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.72](https://github.com/stentorium/stentor/compare/v1.33.71...v1.33.72) (2020-10-07)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.71](https://github.com/stentorium/stentor/compare/v1.33.70...v1.33.71) (2020-10-07)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.70](https://github.com/stentorium/stentor/compare/v1.33.69...v1.33.70) (2020-10-07)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.69](https://github.com/stentorium/stentor/compare/v1.33.68...v1.33.69) (2020-10-06)
+
+
+### Bug Fixes
+
+* Removes unused actions-on-google and adds missing @types/aws-lambda ([#635](https://github.com/stentorium/stentor/issues/635)) ([b1357e3](https://github.com/stentorium/stentor/commit/b1357e3fedbb3de036517c18656be163fd671a0b))
+
+
+
+
+
+## [1.33.68](https://github.com/stentorium/stentor/compare/v1.33.67...v1.33.68) (2020-10-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency moment to v2.29.1 ([#620](https://github.com/stentorium/stentor/issues/620)) ([879d551](https://github.com/stentorium/stentor/commit/879d551069f1bc412b1bb900016da8c3a7abab12))
+
+
+
+
+
+## [1.33.67](https://github.com/stentorium/stentor/compare/v1.33.66...v1.33.67) (2020-10-06)
+
+
+### Bug Fixes
+
+* channel NLU call in main ([#600](https://github.com/stentorium/stentor/issues/600)) ([291d8f8](https://github.com/stentorium/stentor/commit/291d8f8c775df56f38729fb113c444d74b5e375b))
+
+
+
+
+
+## [1.33.66](https://github.com/stentorium/stentor/compare/v1.33.65...v1.33.66) (2020-10-06)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.65](https://github.com/stentorium/stentor/compare/v1.33.64...v1.33.65) (2020-10-05)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.64](https://github.com/stentorium/stentor/compare/v1.33.63...v1.33.64) (2020-10-04)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.63](https://github.com/stentorium/stentor/compare/v1.33.62...v1.33.63) (2020-10-01)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.62](https://github.com/stentorium/stentor/compare/v1.33.61...v1.33.62) (2020-09-30)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.61](https://github.com/stentorium/stentor/compare/v1.33.60...v1.33.61) (2020-09-27)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.60](https://github.com/stentorium/stentor/compare/v1.33.59...v1.33.60) (2020-09-26)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.59](https://github.com/stentorium/stentor/compare/v1.33.58...v1.33.59) (2020-09-26)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.58](https://github.com/stentorium/stentor/compare/v1.33.57...v1.33.58) (2020-09-25)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.57](https://github.com/stentorium/stentor/compare/v1.33.56...v1.33.57) (2020-09-23)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.56](https://github.com/stentorium/stentor/compare/v1.33.55...v1.33.56) (2020-09-23)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.55](https://github.com/stentorium/stentor/compare/v1.33.54...v1.33.55) (2020-09-20)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.54](https://github.com/stentorium/stentor/compare/v1.33.53...v1.33.54) (2020-09-20)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.53](https://github.com/stentorium/stentor/compare/v1.33.52...v1.33.53) (2020-09-19)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.52](https://github.com/stentorium/stentor/compare/v1.33.51...v1.33.52) (2020-09-19)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.51](https://github.com/stentorium/stentor/compare/v1.33.50...v1.33.51) (2020-09-18)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.50](https://github.com/stentorium/stentor/compare/v1.33.49...v1.33.50) (2020-09-17)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.49](https://github.com/stentorium/stentor/compare/v1.33.48...v1.33.49) (2020-09-17)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.48](https://github.com/stentorium/stentor/compare/v1.33.47...v1.33.48) (2020-09-16)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.47](https://github.com/stentorium/stentor/compare/v1.33.46...v1.33.47) (2020-09-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency moment to v2.28.0 ([#599](https://github.com/stentorium/stentor/issues/599)) ([85e5c07](https://github.com/stentorium/stentor/commit/85e5c071d418e998ad30c8beb9423352e6cdcd96))
+
+
+
+
+
+## [1.33.46](https://github.com/stentorium/stentor/compare/v1.33.45...v1.33.46) (2020-09-14)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.45](https://github.com/stentorium/stentor/compare/v1.33.44...v1.33.45) (2020-09-13)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.44](https://github.com/stentorium/stentor/compare/v1.33.43...v1.33.44) (2020-09-12)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.43](https://github.com/stentorium/stentor/compare/v1.33.42...v1.33.43) (2020-09-12)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.42](https://github.com/stentorium/stentor/compare/v1.33.41...v1.33.42) (2020-09-11)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.41](https://github.com/stentorium/stentor/compare/v1.33.40...v1.33.41) (2020-09-09)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.40](https://github.com/stentorium/stentor/compare/v1.33.39...v1.33.40) (2020-09-09)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.39](https://github.com/stentorium/stentor/compare/v1.33.38...v1.33.39) (2020-09-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency blueimp-md5 to v2.18.0 ([#583](https://github.com/stentorium/stentor/issues/583)) ([0cd049d](https://github.com/stentorium/stentor/commit/0cd049dfb96e89f39b92f4a58da22cf7dbd74988))
+
+
+
+
+
+## [1.33.38](https://github.com/stentorium/stentor/compare/v1.33.37...v1.33.38) (2020-09-08)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.37](https://github.com/stentorium/stentor/compare/v1.33.36...v1.33.37) (2020-09-06)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.36](https://github.com/stentorium/stentor/compare/v1.33.35...v1.33.36) (2020-09-06)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.35](https://github.com/stentorium/stentor/compare/v1.33.34...v1.33.35) (2020-09-05)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.34](https://github.com/stentorium/stentor/compare/v1.33.33...v1.33.34) (2020-09-03)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.33](https://github.com/stentorium/stentor/compare/v1.33.32...v1.33.33) (2020-09-03)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.32](https://github.com/stentorium/stentor/compare/v1.33.31...v1.33.32) (2020-09-02)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.31](https://github.com/stentorium/stentor/compare/v1.33.30...v1.33.31) (2020-08-31)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.16.1 ([#567](https://github.com/stentorium/stentor/issues/567)) ([2d02ac7](https://github.com/stentorium/stentor/commit/2d02ac79b69fd9baec64086ddc1ea7a0d95de3de))
+
+
+
+
+
+## [1.33.30](https://github.com/stentorium/stentor/compare/v1.33.29...v1.33.30) (2020-08-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.26.27 ([c0725d2](https://github.com/stentorium/stentor/commit/c0725d207396e3f220113b78ac1569bf40a83729))
+
+
+
+
+
+## [1.33.29](https://github.com/stentorium/stentor/compare/v1.33.28...v1.33.29) (2020-08-30)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.28](https://github.com/stentorium/stentor/compare/v1.33.27...v1.33.28) (2020-08-30)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.27](https://github.com/stentorium/stentor/compare/v1.33.26...v1.33.27) (2020-08-29)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.26](https://github.com/stentorium/stentor/compare/v1.33.25...v1.33.26) (2020-08-29)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.25](https://github.com/stentorium/stentor/compare/v1.33.24...v1.33.25) (2020-08-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.1.8 ([#560](https://github.com/stentorium/stentor/issues/560)) ([92cd1d9](https://github.com/stentorium/stentor/commit/92cd1d983f9a111aad6da9539dabc7381e4d6342))
+
+
+
+
+
+## [1.33.24](https://github.com/stentorium/stentor/compare/v1.33.23...v1.33.24) (2020-08-28)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.23](https://github.com/stentorium/stentor/compare/v1.33.22...v1.33.23) (2020-08-27)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.22](https://github.com/stentorium/stentor/compare/v1.33.21...v1.33.22) (2020-08-27)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.21](https://github.com/stentorium/stentor/compare/v1.33.20...v1.33.21) (2020-08-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency actions-on-google to v2.13.0 ([#562](https://github.com/stentorium/stentor/issues/562)) ([bfbe217](https://github.com/stentorium/stentor/commit/bfbe21743fb7d7026bbdffa3fa737ddf06ed87b4))
+
+
+
+
+
+## [1.33.20](https://github.com/stentorium/stentor/compare/v1.33.19...v1.33.20) (2020-08-25)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.19](https://github.com/stentorium/stentor/compare/v1.33.18...v1.33.19) (2020-08-24)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.18](https://github.com/stentorium/stentor/compare/v1.33.17...v1.33.18) (2020-08-23)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.17](https://github.com/stentorium/stentor/compare/v1.33.16...v1.33.17) (2020-08-23)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.16](https://github.com/stentorium/stentor/compare/v1.33.15...v1.33.16) (2020-08-23)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.15](https://github.com/stentorium/stentor/compare/v1.33.14...v1.33.15) (2020-08-22)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.14](https://github.com/stentorium/stentor/compare/v1.33.13...v1.33.14) (2020-08-21)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.13](https://github.com/stentorium/stentor/compare/v1.33.12...v1.33.13) (2020-08-20)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.12](https://github.com/stentorium/stentor/compare/v1.33.11...v1.33.12) (2020-08-19)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.11](https://github.com/stentorium/stentor/compare/v1.33.10...v1.33.11) (2020-08-18)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.10](https://github.com/stentorium/stentor/compare/v1.33.9...v1.33.10) (2020-08-18)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.9](https://github.com/stentorium/stentor/compare/v1.33.8...v1.33.9) (2020-08-17)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.8](https://github.com/stentorium/stentor/compare/v1.33.7...v1.33.8) (2020-08-16)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.7](https://github.com/stentorium/stentor/compare/v1.33.6...v1.33.7) (2020-08-16)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.6](https://github.com/stentorium/stentor/compare/v1.33.5...v1.33.6) (2020-08-16)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.5](https://github.com/stentorium/stentor/compare/v1.33.4...v1.33.5) (2020-08-15)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.4](https://github.com/stentorium/stentor/compare/v1.33.3...v1.33.4) (2020-08-14)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.3](https://github.com/stentorium/stentor/compare/v1.33.2...v1.33.3) (2020-08-13)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.2](https://github.com/stentorium/stentor/compare/v1.33.1...v1.33.2) (2020-08-13)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.33.1](https://github.com/stentorium/stentor/compare/v1.33.0...v1.33.1) (2020-08-13)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+# [1.33.0](https://github.com/stentorium/stentor/compare/v1.32.3...v1.33.0) (2020-08-10)
+
+
+### Features
+
+* adding STENTOR.PERSON ([#528](https://github.com/stentorium/stentor/issues/528)) ([9134203](https://github.com/stentorium/stentor/commit/9134203cc30c149ef44d9e060d30b7197bf921f7))
+
+
+
+
+
+## [1.32.3](https://github.com/stentorium/stentor/compare/v1.32.2...v1.32.3) (2020-08-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.1.7 ([#526](https://github.com/stentorium/stentor/issues/526)) ([4f3f2bd](https://github.com/stentorium/stentor/commit/4f3f2bdecdc093536db6953741773ecad967e407))
+
+
+
+
+
+## [1.32.2](https://github.com/stentorium/stentor/compare/v1.32.1...v1.32.2) (2020-08-09)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.32.1](https://github.com/stentorium/stentor/compare/v1.32.0...v1.32.1) (2020-08-08)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+# [1.32.0](https://github.com/stentorium/stentor/compare/v1.31.2...v1.32.0) (2020-08-07)
+
+
+### Features
+
+* On last slot to be filled, it returns the content for itself ([#524](https://github.com/stentorium/stentor/issues/524)) ([fb29ae5](https://github.com/stentorium/stentor/commit/fb29ae589105aa36b903663ab464ec9f418aff8b))
+
+
+
+
+
+## [1.31.2](https://github.com/stentorium/stentor/compare/v1.31.1...v1.31.2) (2020-08-07)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.31.1](https://github.com/stentorium/stentor/compare/v1.31.0...v1.31.1) (2020-08-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency slugify to v1.4.5 ([#510](https://github.com/stentorium/stentor/issues/510)) ([a21ee62](https://github.com/stentorium/stentor/commit/a21ee620e2dd74ab162eb34a923ee48cb0267c77))
+
+
+
+
+
+# [1.31.0](https://github.com/stentorium/stentor/compare/v1.30.4...v1.31.0) (2020-08-06)
+
+
+### Features
+
+* Ability to order which slots need filling [#522](https://github.com/stentorium/stentor/issues/522) ([67746af](https://github.com/stentorium/stentor/commit/67746afb51c5be840dc1237c587cbac04a4a3400))
+
+
+
+
+
+## [1.30.4](https://github.com/stentorium/stentor/compare/v1.30.3...v1.30.4) (2020-08-06)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.30.3](https://github.com/stentorium/stentor/compare/v1.30.2...v1.30.3) (2020-08-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.1.6 ([#517](https://github.com/stentorium/stentor/issues/517)) ([7f6d8e2](https://github.com/stentorium/stentor/commit/7f6d8e2e693e76c865104e676f0ea2090412ff47))
+
+
+
+
+
+## [1.30.2](https://github.com/stentorium/stentor/compare/v1.30.1...v1.30.2) (2020-08-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency blueimp-md5 to v2.17.0 ([#509](https://github.com/stentorium/stentor/issues/509)) ([2d7fc05](https://github.com/stentorium/stentor/commit/2d7fc05a97454ec53db9f729335c71b2c9acdcf3))
+
+
+
+
+
+## [1.30.1](https://github.com/stentorium/stentor/compare/v1.30.0...v1.30.1) (2020-08-05)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+# [1.30.0](https://github.com/stentorium/stentor/compare/v1.29.25...v1.30.0) (2020-08-04)
+
+
+### Features
+
+* Required Slot Responses ([#518](https://github.com/stentorium/stentor/issues/518)) ([f68fae6](https://github.com/stentorium/stentor/commit/f68fae68fc0e60dc306bf60a4e94b55e018d671b))
+
+
+
+
+
+## [1.29.25](https://github.com/stentorium/stentor/compare/v1.29.24...v1.29.25) (2020-08-03)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.29.24](https://github.com/stentorium/stentor/compare/v1.29.23...v1.29.24) (2020-08-02)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.29.23](https://github.com/stentorium/stentor/compare/v1.29.22...v1.29.23) (2020-08-01)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.29.22](https://github.com/stentorium/stentor/compare/v1.29.21...v1.29.22) (2020-07-31)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.29.21](https://github.com/stentorium/stentor/compare/v1.29.20...v1.29.21) (2020-07-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.1.5 ([#505](https://github.com/stentorium/stentor/issues/505)) ([407c73d](https://github.com/stentorium/stentor/commit/407c73d7aeebb6029b20a00803d712d89f45a07f))
+
+
+
+
+
+## [1.29.20](https://github.com/stentorium/stentor/compare/v1.29.19...v1.29.20) (2020-07-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.25.16 ([28bbee0](https://github.com/stentorium/stentor/commit/28bbee0b2e0f596df510ff60db0e85ee3cfb28f4))
+
+
+
+
+
+## [1.29.19](https://github.com/stentorium/stentor/compare/v1.29.18...v1.29.19) (2020-07-26)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.29.18](https://github.com/stentorium/stentor/compare/v1.29.17...v1.29.18) (2020-07-26)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.29.17](https://github.com/stentorium/stentor/compare/v1.29.16...v1.29.17) (2020-07-25)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.29.16](https://github.com/stentorium/stentor/compare/v1.29.15...v1.29.16) (2020-07-24)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.29.15](https://github.com/stentorium/stentor/compare/v1.29.14...v1.29.15) (2020-07-24)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.29.14](https://github.com/stentorium/stentor/compare/v1.29.13...v1.29.14) (2020-07-23)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.29.13](https://github.com/stentorium/stentor/compare/v1.29.12...v1.29.13) (2020-07-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.1.4 ([#495](https://github.com/stentorium/stentor/issues/495)) ([da78e0c](https://github.com/stentorium/stentor/commit/da78e0c5841fcedf66da75f05a429c7e0f0259a5))
+
+
+
+
+
+## [1.29.12](https://github.com/stentorium/stentor/compare/v1.29.11...v1.29.12) (2020-07-22)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.29.11](https://github.com/stentorium/stentor/compare/v1.29.10...v1.29.11) (2020-07-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.15.0 ([#492](https://github.com/stentorium/stentor/issues/492)) ([592c482](https://github.com/stentorium/stentor/commit/592c482f18c79c32cf56a697757cdd4939a6f61c))
+
+
+
+
+
+## [1.29.10](https://github.com/stentorium/stentor/compare/v1.29.9...v1.29.10) (2020-07-20)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.29.9](https://github.com/stentorium/stentor/compare/v1.29.8...v1.29.9) (2020-07-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.25.1 ([7748cb2](https://github.com/stentorium/stentor/commit/7748cb2f758c54cf8df0ca7291bcc8046258e3c0))
+
+
+
+
+
+## [1.29.8](https://github.com/stentorium/stentor/compare/v1.29.7...v1.29.8) (2020-07-19)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.29.7](https://github.com/stentorium/stentor/compare/v1.29.6...v1.29.7) (2020-07-19)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.29.6](https://github.com/stentorium/stentor/compare/v1.29.5...v1.29.6) (2020-07-17)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.29.5](https://github.com/stentorium/stentor/compare/v1.29.4...v1.29.5) (2020-07-13)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.29.4](https://github.com/stentorium/stentor/compare/v1.29.3...v1.29.4) (2020-07-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.1.3 ([#487](https://github.com/stentorium/stentor/issues/487)) ([8d34110](https://github.com/stentorium/stentor/commit/8d34110b9b531a9e4ac277bd7d1c102ad464de02))
+
+
+
+
+
+## [1.29.3](https://github.com/stentorium/stentor/compare/v1.29.2...v1.29.3) (2020-07-13)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.29.2](https://github.com/stentorium/stentor/compare/v1.29.1...v1.29.2) (2020-07-12)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.29.1](https://github.com/stentorium/stentor/compare/v1.29.0...v1.29.1) (2020-07-11)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+# [1.29.0](https://github.com/stentorium/stentor/compare/v1.28.2...v1.29.0) (2020-07-10)
+
+
+### Features
+
+* Adding a couple new helpful conditional macros ([#484](https://github.com/stentorium/stentor/issues/484)) ([47ccd10](https://github.com/stentorium/stentor/commit/47ccd10fc617850f1ac1cf71fdab5bcd33fc96ed))
+
+
+
+
+
+## [1.28.2](https://github.com/stentorium/stentor/compare/v1.28.1...v1.28.2) (2020-07-10)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.28.1](https://github.com/stentorium/stentor/compare/v1.28.0...v1.28.1) (2020-07-09)
+
+
+### Bug Fixes
+
+* Fixed anonymous user permission and rejections handling ([#483](https://github.com/stentorium/stentor/issues/483)) ([ab290fd](https://github.com/stentorium/stentor/commit/ab290fdc46429b24c941d5061e4ad75a228bb154))
+
+
+
+
+
+# [1.28.0](https://github.com/stentorium/stentor/compare/v1.27.54...v1.28.0) (2020-07-08)
+
+
+### Features
+
+* Ability to override entity type on Slot & Entity for a specified NLU ([#482](https://github.com/stentorium/stentor/issues/482)) ([16fc8e9](https://github.com/stentorium/stentor/commit/16fc8e97af57dd6c8dc15c6bf245fe66f9029907))
+
+
+
+
+
+## [1.27.54](https://github.com/stentorium/stentor/compare/v1.27.53...v1.27.54) (2020-07-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2 ([#481](https://github.com/stentorium/stentor/issues/481)) ([8593082](https://github.com/stentorium/stentor/commit/8593082dc6f7facc5aad8eca503e7968e90cee02))
+
+
+
+
+
+## [1.27.53](https://github.com/stentorium/stentor/compare/v1.27.52...v1.27.53) (2020-07-08)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.52](https://github.com/stentorium/stentor/compare/v1.27.51...v1.27.52) (2020-07-07)
+
+
+### Bug Fixes
+
+* Removing verbose stack trace for no handler error ([#478](https://github.com/stentorium/stentor/issues/478)) ([1227eed](https://github.com/stentorium/stentor/commit/1227eede6c26e82c3daa48e916e6ce885268e592))
+
+
+
+
+
+## [1.27.51](https://github.com/stentorium/stentor/compare/v1.27.50...v1.27.51) (2020-07-07)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.50](https://github.com/stentorium/stentor/compare/v1.27.49...v1.27.50) (2020-07-07)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.49](https://github.com/stentorium/stentor/compare/v1.27.48...v1.27.49) (2020-07-07)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.48](https://github.com/stentorium/stentor/compare/v1.27.47...v1.27.48) (2020-07-06)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.47](https://github.com/stentorium/stentor/compare/v1.27.46...v1.27.47) (2020-07-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.24.62 ([5b07eb8](https://github.com/stentorium/stentor/commit/5b07eb8ffcf4376246144db634b1b3312b212e52))
+
+
+
+
+
+## [1.27.46](https://github.com/stentorium/stentor/compare/v1.27.45...v1.27.46) (2020-07-05)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.45](https://github.com/stentorium/stentor/compare/v1.27.44...v1.27.45) (2020-07-04)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.44](https://github.com/stentorium/stentor/compare/v1.27.43...v1.27.44) (2020-07-03)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.43](https://github.com/stentorium/stentor/compare/v1.27.42...v1.27.43) (2020-07-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency slugify to v1.4.4 ([#465](https://github.com/stentorium/stentor/issues/465)) ([40bdb8b](https://github.com/stentorium/stentor/commit/40bdb8ba0f6e2e031936ae8e8889b38ca28d340d))
+
+
+
+
+
+## [1.27.42](https://github.com/stentorium/stentor/compare/v1.27.41...v1.27.42) (2020-07-02)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.41](https://github.com/stentorium/stentor/compare/v1.27.40...v1.27.41) (2020-06-29)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.40](https://github.com/stentorium/stentor/compare/v1.27.39...v1.27.40) (2020-06-29)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.39](https://github.com/stentorium/stentor/compare/v1.27.38...v1.27.39) (2020-06-27)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.38](https://github.com/stentorium/stentor/compare/v1.27.37...v1.27.38) (2020-06-27)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.37](https://github.com/stentorium/stentor/compare/v1.27.36...v1.27.37) (2020-06-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency slugify to v1.4.2 ([#457](https://github.com/stentorium/stentor/issues/457)) ([89aa271](https://github.com/stentorium/stentor/commit/89aa2710b68835387d795558d761e77dfa335c26))
+
+
+
+
+
+## [1.27.36](https://github.com/stentorium/stentor/compare/v1.27.35...v1.27.36) (2020-06-26)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.35](https://github.com/stentorium/stentor/compare/v1.27.34...v1.27.35) (2020-06-25)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.34](https://github.com/stentorium/stentor/compare/v1.27.33...v1.27.34) (2020-06-24)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.33](https://github.com/stentorium/stentor/compare/v1.27.32...v1.27.33) (2020-06-24)
+
+
+### Bug Fixes
+
+* **deps:** update dependency winston to v3.3.3 ([#453](https://github.com/stentorium/stentor/issues/453)) ([5342406](https://github.com/stentorium/stentor/commit/53424065126bd3cc445fa29970bc5683464b4fe4))
+
+
+
+
+
+## [1.27.32](https://github.com/stentorium/stentor/compare/v1.27.31...v1.27.32) (2020-06-23)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.31](https://github.com/stentorium/stentor/compare/v1.27.30...v1.27.31) (2020-06-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency moment to v2.27.0 ([#446](https://github.com/stentorium/stentor/issues/446)) ([73a0287](https://github.com/stentorium/stentor/commit/73a02873c5d4ea671e974ee919c2e4014060b8d2))
+
+
+
+
+
+## [1.27.30](https://github.com/stentorium/stentor/compare/v1.27.29...v1.27.30) (2020-06-22)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.29](https://github.com/stentorium/stentor/compare/v1.27.28...v1.27.29) (2020-06-22)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.28](https://github.com/stentorium/stentor/compare/v1.27.27...v1.27.28) (2020-06-20)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.27](https://github.com/stentorium/stentor/compare/v1.27.26...v1.27.27) (2020-06-18)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.26](https://github.com/stentorium/stentor/compare/v1.27.25...v1.27.26) (2020-06-16)
+
+
+### Bug Fixes
+
+* Adds hasWebBrowser to Device ([#442](https://github.com/stentorium/stentor/issues/442)) ([20a88c3](https://github.com/stentorium/stentor/commit/20a88c3ae64ce7de16a8efc78bb8c38f8a9f2d9a))
+
+
+
+
+
+## [1.27.25](https://github.com/stentorium/stentor/compare/v1.27.24...v1.27.25) (2020-06-16)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.24](https://github.com/stentorium/stentor/compare/v1.27.23...v1.27.24) (2020-06-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chalk to v4.1.0 ([#437](https://github.com/stentorium/stentor/issues/437)) ([d448a91](https://github.com/stentorium/stentor/commit/d448a91359251ec29ea1d8c1db17e2824ad428e9))
+
+
+
+
+
+## [1.27.23](https://github.com/stentorium/stentor/compare/v1.27.22...v1.27.23) (2020-06-15)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.22](https://github.com/stentorium/stentor/compare/v1.27.21...v1.27.22) (2020-06-15)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.21](https://github.com/stentorium/stentor/compare/v1.27.20...v1.27.21) (2020-06-14)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.20](https://github.com/stentorium/stentor/compare/v1.27.19...v1.27.20) (2020-06-14)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.19](https://github.com/stentorium/stentor/compare/v1.27.18...v1.27.19) (2020-06-13)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.18](https://github.com/stentorium/stentor/compare/v1.27.17...v1.27.18) (2020-06-10)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.17](https://github.com/stentorium/stentor/compare/v1.27.16...v1.27.17) (2020-06-09)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.16](https://github.com/stentorium/stentor/compare/v1.27.15...v1.27.16) (2020-06-09)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.15](https://github.com/stentorium/stentor/compare/v1.27.14...v1.27.15) (2020-06-08)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.14](https://github.com/stentorium/stentor/compare/v1.27.13...v1.27.14) (2020-06-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.24.26 ([b6f43ac](https://github.com/stentorium/stentor/commit/b6f43acc50b9d13bce5cb74863ee7e5f8efd0495))
+
+
+
+
+
+## [1.27.13](https://github.com/stentorium/stentor/compare/v1.27.12...v1.27.13) (2020-06-07)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.12](https://github.com/stentorium/stentor/compare/v1.27.11...v1.27.12) (2020-06-06)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.11](https://github.com/stentorium/stentor/compare/v1.27.10...v1.27.11) (2020-06-05)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.10](https://github.com/stentorium/stentor/compare/v1.27.9...v1.27.10) (2020-06-05)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.9](https://github.com/stentorium/stentor/compare/v1.27.8...v1.27.9) (2020-06-04)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.8](https://github.com/stentorium/stentor/compare/v1.27.7...v1.27.8) (2020-06-03)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.7](https://github.com/stentorium/stentor/compare/v1.27.6...v1.27.7) (2020-06-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency moment-timezone to v0.5.31 ([#383](https://github.com/stentorium/stentor/issues/383)) ([f7693e4](https://github.com/stentorium/stentor/commit/f7693e4e676b804110667a22cbfb456406eaf46d))
+
+
+
+
+
+## [1.27.6](https://github.com/stentorium/stentor/compare/v1.27.5...v1.27.6) (2020-06-03)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.5](https://github.com/stentorium/stentor/compare/v1.27.4...v1.27.5) (2020-06-01)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.4](https://github.com/stentorium/stentor/compare/v1.27.3...v1.27.4) (2020-05-31)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.3](https://github.com/stentorium/stentor/compare/v1.27.2...v1.27.3) (2020-05-31)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.2](https://github.com/stentorium/stentor/compare/v1.27.1...v1.27.2) (2020-05-29)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.27.1](https://github.com/stentorium/stentor/compare/v1.27.0...v1.27.1) (2020-05-29)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+# [1.27.0](https://github.com/stentorium/stentor/compare/v1.26.56...v1.27.0) (2020-05-27)
+
+
+### Features
+
+* Adds Support for slot name shorthand for compilation and maintains slots in session storage ([#410](https://github.com/stentorium/stentor/issues/410)) ([685d8bb](https://github.com/stentorium/stentor/commit/685d8bbb5986700d11670c426b117ecd6cbcd6c6))
+
+
+
+
+
+## [1.26.56](https://github.com/stentorium/stentor/compare/v1.26.55...v1.26.56) (2020-05-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency moment to v2.26.0 ([#409](https://github.com/stentorium/stentor/issues/409)) ([ce51e23](https://github.com/stentorium/stentor/commit/ce51e23666d1efa189de639dab7e9e03a9a64eb1))
+
+
+
+
+
+## [1.26.55](https://github.com/stentorium/stentor/compare/v1.26.54...v1.26.55) (2020-05-26)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.54](https://github.com/stentorium/stentor/compare/v1.26.53...v1.26.54) (2020-05-26)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.53](https://github.com/stentorium/stentor/compare/v1.26.52...v1.26.53) (2020-05-25)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.52](https://github.com/stentorium/stentor/compare/v1.26.51...v1.26.52) (2020-05-25)
+
+
+### Bug Fixes
+
+* **deps:** update @xapp/stentor ([2436d1b](https://github.com/stentorium/stentor/commit/2436d1b345318ca3ba453a65d54ad7b7ce7366b0))
+
+
+
+
+
+## [1.26.51](https://github.com/stentorium/stentor/compare/v1.26.50...v1.26.51) (2020-05-24)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.50](https://github.com/stentorium/stentor/compare/v1.26.49...v1.26.50) (2020-05-24)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.49](https://github.com/stentorium/stentor/compare/v1.26.48...v1.26.49) (2020-05-23)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.48](https://github.com/stentorium/stentor/compare/v1.26.47...v1.26.48) (2020-05-23)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.47](https://github.com/stentorium/stentor/compare/v1.26.46...v1.26.47) (2020-05-23)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.46](https://github.com/stentorium/stentor/compare/v1.26.45...v1.26.46) (2020-05-22)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.45](https://github.com/stentorium/stentor/compare/v1.26.44...v1.26.45) (2020-05-21)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.44](https://github.com/stentorium/stentor/compare/v1.26.43...v1.26.44) (2020-05-21)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.43](https://github.com/stentorium/stentor/compare/v1.26.42...v1.26.43) (2020-05-21)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.42](https://github.com/stentorium/stentor/compare/v1.26.41...v1.26.42) (2020-05-21)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.41](https://github.com/stentorium/stentor/compare/v1.26.40...v1.26.41) (2020-05-20)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.40](https://github.com/stentorium/stentor/compare/v1.26.39...v1.26.40) (2020-05-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.14.0 ([#388](https://github.com/stentorium/stentor/issues/388)) ([de3e576](https://github.com/stentorium/stentor/commit/de3e5760b8a8bf51ee2f831c9a9d3549475d0a06))
+
+
+
+
+
+## [1.26.39](https://github.com/stentorium/stentor/compare/v1.26.38...v1.26.39) (2020-05-19)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.38](https://github.com/stentorium/stentor/compare/v1.26.37...v1.26.38) (2020-05-18)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.37](https://github.com/stentorium/stentor/compare/v1.26.36...v1.26.37) (2020-05-18)
+
+
+### Bug Fixes
+
+* **deps:** update @xapp/stentor ([7a43220](https://github.com/stentorium/stentor/commit/7a43220e9b354f2166af7f5f34bade1a9ceddac9))
+
+
+
+
+
+## [1.26.36](https://github.com/stentorium/stentor/compare/v1.26.35...v1.26.36) (2020-05-17)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.35](https://github.com/stentorium/stentor/compare/v1.26.34...v1.26.35) (2020-05-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency blueimp-md5 to v2.16.0 ([#375](https://github.com/stentorium/stentor/issues/375)) ([b9a23a0](https://github.com/stentorium/stentor/commit/b9a23a0f352600893d296bdd05b8b423eff08375))
+
+
+
+
+
+## [1.26.34](https://github.com/stentorium/stentor/compare/v1.26.33...v1.26.34) (2020-05-17)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.33](https://github.com/stentorium/stentor/compare/v1.26.32...v1.26.33) (2020-05-17)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.32](https://github.com/stentorium/stentor/compare/v1.26.31...v1.26.32) (2020-05-16)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.31](https://github.com/stentorium/stentor/compare/v1.26.30...v1.26.31) (2020-05-16)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.30](https://github.com/stentorium/stentor/compare/v1.26.29...v1.26.30) (2020-05-16)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.29](https://github.com/stentorium/stentor/compare/v1.26.28...v1.26.29) (2020-05-14)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.28](https://github.com/stentorium/stentor/compare/v1.26.27...v1.26.28) (2020-05-14)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.27](https://github.com/stentorium/stentor/compare/v1.26.26...v1.26.27) (2020-05-14)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.26](https://github.com/stentorium/stentor/compare/v1.26.25...v1.26.26) (2020-05-13)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.25](https://github.com/stentorium/stentor/compare/v1.26.24...v1.26.25) (2020-05-13)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.24](https://github.com/stentorium/stentor/compare/v1.26.23...v1.26.24) (2020-05-12)
+
+
+### Bug Fixes
+
+* Adding new Entities for better AWS LEX Support ([#366](https://github.com/stentorium/stentor/issues/366)) ([7a8b404](https://github.com/stentorium/stentor/commit/7a8b4044b70207597b3c3aaad382e432c782860e))
+
+
+
+
+
+## [1.26.23](https://github.com/stentorium/stentor/compare/v1.26.22...v1.26.23) (2020-05-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency blueimp-md5 to v2.14.0 ([#344](https://github.com/stentorium/stentor/issues/344)) ([fd40e41](https://github.com/stentorium/stentor/commit/fd40e41a61f528d1d3f05117c653bc5172c1310c))
+* **deps:** update dependency blueimp-md5 to v2.15.0 ([#355](https://github.com/stentorium/stentor/issues/355)) ([7f017e2](https://github.com/stentorium/stentor/commit/7f017e2e07000656bfbf3b675448083be1ad1cce))
+* **deps:** update dependency chrono-node to v1.4.6 ([#336](https://github.com/stentorium/stentor/issues/336)) ([99277e2](https://github.com/stentorium/stentor/commit/99277e258828f82dd727fc304668951337072092))
+* **deps:** update dependency date-fns to v2.13.0 ([#352](https://github.com/stentorium/stentor/issues/352)) ([7793fb2](https://github.com/stentorium/stentor/commit/7793fb20885d680268d508106a69966dc9cca97c))
+* **deps:** update dependency moment to v2.25.3 ([#340](https://github.com/stentorium/stentor/issues/340)) ([7c75c05](https://github.com/stentorium/stentor/commit/7c75c059ccdde5ff7b8f66c6d874eeb127774c26))
+* **deps:** update dependency stacktrace-parser to v0.1.10 ([#354](https://github.com/stentorium/stentor/issues/354)) ([b41dc8d](https://github.com/stentorium/stentor/commit/b41dc8d694f35cafa79f6f0ce72e848d40e344bf))
+* **deps:** update dependency vm2 to v3.9.2 ([#338](https://github.com/stentorium/stentor/issues/338)) ([fc5bb71](https://github.com/stentorium/stentor/commit/fc5bb71526b85cd9fb1a7763794567f35b4e0055))
+* Remove older node version in circle config ([07f7e22](https://github.com/stentorium/stentor/commit/07f7e22155424b0db8f703aa8549e917fdcef42e))
+
+
+
+
+
+## [1.26.22](https://github.com/stentorium/stentor/compare/v1.26.21...v1.26.22) (2020-04-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v1.4.5 ([#289](https://github.com/stentorium/stentor/issues/289)) ([4797f7f](https://github.com/stentorium/stentor/commit/4797f7f62c7e0d9b010d06d33ceb98971e73e25a))
+
+
+
+
+
+## [1.26.21](https://github.com/stentorium/stentor/compare/v1.26.20...v1.26.21) (2020-04-23)
+
+
+### Bug Fixes
+
+* Remove unnecessary dependencies (Renovate Update) ([#324](https://github.com/stentorium/stentor/issues/324)) ([9a24107](https://github.com/stentorium/stentor/commit/9a241071081ad2030f113cb68620648cf22ea248))
+
+
+
+
+
+## [1.26.20](https://github.com/stentorium/stentor/compare/v1.26.19...v1.26.20) (2020-04-23)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.19](https://github.com/stentorium/stentor/compare/v1.26.18...v1.26.19) (2020-04-23)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.18](https://github.com/stentorium/stentor/compare/v1.26.17...v1.26.18) (2020-04-23)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.17](https://github.com/stentorium/stentor/compare/v1.26.16...v1.26.17) (2020-04-23)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.16](https://github.com/stentorium/stentor/compare/v1.26.15...v1.26.16) (2020-04-23)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.15](https://github.com/stentorium/stentor/compare/v1.26.14...v1.26.15) (2020-04-22)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.14](https://github.com/stentorium/stentor/compare/v1.26.13...v1.26.14) (2020-04-22)
+
+
+### Bug Fixes
+
+* Require id on channel & nlu data models ([#317](https://github.com/stentorium/stentor/issues/317)) ([7a8a1dc](https://github.com/stentorium/stentor/commit/7a8a1dc1aa24e60a778745a7472683ad1abd2f92))
+
+
+
+
+
+## [1.26.13](https://github.com/stentorium/stentor/compare/v1.26.12...v1.26.13) (2020-04-21)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.12](https://github.com/stentorium/stentor/compare/v1.26.11...v1.26.12) (2020-04-21)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.11](https://github.com/stentorium/stentor/compare/v1.26.10...v1.26.11) (2020-04-21)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.10](https://github.com/stentorium/stentor/compare/v1.26.9...v1.26.10) (2020-04-20)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.9](https://github.com/stentorium/stentor/compare/v1.26.8...v1.26.9) (2020-04-20)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.8](https://github.com/stentorium/stentor/compare/v1.26.7...v1.26.8) (2020-04-19)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.7](https://github.com/stentorium/stentor/compare/v1.26.6...v1.26.7) (2020-04-18)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.6](https://github.com/stentorium/stentor/compare/v1.26.5...v1.26.6) (2020-04-18)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.5](https://github.com/stentorium/stentor/compare/v1.26.4...v1.26.5) (2020-04-18)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.4](https://github.com/stentorium/stentor/compare/v1.26.3...v1.26.4) (2020-04-17)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.3](https://github.com/stentorium/stentor/compare/v1.26.2...v1.26.3) (2020-04-16)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.2](https://github.com/stentorium/stentor/compare/v1.26.1...v1.26.2) (2020-04-16)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.26.1](https://github.com/stentorium/stentor/compare/v1.26.0...v1.26.1) (2020-04-15)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+# [1.26.0](https://github.com/stentorium/stentor/compare/v1.25.36...v1.26.0) (2020-04-15)
+
+
+### Features
+
+* Hand-off Response - Transfer to Live Agent ([#299](https://github.com/stentorium/stentor/issues/299)) ([ba449c6](https://github.com/stentorium/stentor/commit/ba449c66f64f6296be3c3580751e1a8b0cb3329d))
+
+
+
+
+
+## [1.25.36](https://github.com/stentorium/stentor/compare/v1.25.35...v1.25.36) (2020-04-13)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.35](https://github.com/stentorium/stentor/compare/v1.25.34...v1.25.35) (2020-04-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.12.0 ([#287](https://github.com/stentorium/stentor/issues/287)) ([8099fe2](https://github.com/stentorium/stentor/commit/8099fe202108c69abfa3a6995d4b3488c25f8b66))
+
+
+
+
+
+## [1.25.34](https://github.com/stentorium/stentor/compare/v1.25.33...v1.25.34) (2020-04-13)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.33](https://github.com/stentorium/stentor/compare/v1.25.32...v1.25.33) (2020-04-13)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.32](https://github.com/stentorium/stentor/compare/v1.25.31...v1.25.32) (2020-04-13)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.31](https://github.com/stentorium/stentor/compare/v1.25.30...v1.25.31) (2020-04-13)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.30](https://github.com/stentorium/stentor/compare/v1.25.29...v1.25.30) (2020-04-13)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.29](https://github.com/stentorium/stentor/compare/v1.25.28...v1.25.29) (2020-04-13)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.28](https://github.com/stentorium/stentor/compare/v1.25.27...v1.25.28) (2020-04-12)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.27](https://github.com/stentorium/stentor/compare/v1.25.26...v1.25.27) (2020-04-11)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.26](https://github.com/stentorium/stentor/compare/v1.25.25...v1.25.26) (2020-04-11)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.25](https://github.com/stentorium/stentor/compare/v1.25.24...v1.25.25) (2020-04-10)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.24](https://github.com/stentorium/stentor/compare/v1.25.23...v1.25.24) (2020-04-10)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.23](https://github.com/stentorium/stentor/compare/v1.25.22...v1.25.23) (2020-04-10)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.22](https://github.com/stentorium/stentor/compare/v1.25.21...v1.25.22) (2020-04-10)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.21](https://github.com/stentorium/stentor/compare/v1.25.20...v1.25.21) (2020-04-10)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.20](https://github.com/stentorium/stentor/compare/v1.25.19...v1.25.20) (2020-04-09)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.19](https://github.com/stentorium/stentor/compare/v1.25.18...v1.25.19) (2020-04-09)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.18](https://github.com/stentorium/stentor/compare/v1.25.17...v1.25.18) (2020-04-09)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.17](https://github.com/stentorium/stentor/compare/v1.25.16...v1.25.17) (2020-04-09)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.16](https://github.com/stentorium/stentor/compare/v1.25.15...v1.25.16) (2020-04-08)
+
+
+### Bug Fixes
+
+* **deps:** update @xapp/stentor to v1.18.147 ([9f967ad](https://github.com/stentorium/stentor/commit/9f967ad7740b3fba2483d68e39f203c46e9e1ded))
+
+
+
+
+
+## [1.25.15](https://github.com/stentorium/stentor/compare/v1.25.14...v1.25.15) (2020-04-08)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.14](https://github.com/stentorium/stentor/compare/v1.25.13...v1.25.14) (2020-04-08)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.13](https://github.com/stentorium/stentor/compare/v1.25.12...v1.25.13) (2020-04-07)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.12](https://github.com/stentorium/stentor/compare/v1.25.11...v1.25.12) (2020-04-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fuse.js to v5.1.0 ([#256](https://github.com/stentorium/stentor/issues/256)) ([dbd4d2e](https://github.com/stentorium/stentor/commit/dbd4d2ebadc6fb3e36323f5d54e38549543c4d94))
+
+
+
+
+
+## [1.25.11](https://github.com/stentorium/stentor/compare/v1.25.10...v1.25.11) (2020-04-06)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.10](https://github.com/stentorium/stentor/compare/v1.25.9...v1.25.10) (2020-04-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chalk to v4 ([#257](https://github.com/stentorium/stentor/issues/257)) ([e202dae](https://github.com/stentorium/stentor/commit/e202dae2b7b544a1e2ab077efad0913061992076))
+
+
+
+
+
+## [1.25.9](https://github.com/stentorium/stentor/compare/v1.25.8...v1.25.9) (2020-04-06)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.8](https://github.com/stentorium/stentor/compare/v1.25.7...v1.25.8) (2020-04-05)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.7](https://github.com/stentorium/stentor/compare/v1.25.6...v1.25.7) (2020-04-05)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.6](https://github.com/stentorium/stentor/compare/v1.25.5...v1.25.6) (2020-04-05)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.5](https://github.com/stentorium/stentor/compare/v1.25.4...v1.25.5) (2020-04-05)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.4](https://github.com/stentorium/stentor/compare/v1.25.3...v1.25.4) (2020-04-03)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.3](https://github.com/stentorium/stentor/compare/v1.25.2...v1.25.3) (2020-04-03)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.2](https://github.com/stentorium/stentor/compare/v1.25.1...v1.25.2) (2020-04-03)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.25.1](https://github.com/stentorium/stentor/compare/v1.25.0...v1.25.1) (2020-04-02)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+# [1.25.0](https://github.com/stentorium/stentor/compare/v1.24.9...v1.25.0) (2020-04-02)
+
+
+### Features
+
+* Adding postRequestTranslation to the Channel Hooks ([#251](https://github.com/stentorium/stentor/issues/251)) ([b81164f](https://github.com/stentorium/stentor/commit/b81164f6c947c216c14cdd6431e6a148eda11892))
+
+
+
+
+
+## [1.24.9](https://github.com/stentorium/stentor/compare/v1.24.8...v1.24.9) (2020-04-01)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.24.8](https://github.com/stentorium/stentor/compare/v1.24.7...v1.24.8) (2020-04-01)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.24.7](https://github.com/stentorium/stentor/compare/v1.24.6...v1.24.7) (2020-04-01)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.24.6](https://github.com/stentorium/stentor/compare/v1.24.5...v1.24.6) (2020-04-01)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.24.5](https://github.com/stentorium/stentor/compare/v1.24.4...v1.24.5) (2020-03-31)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.24.4](https://github.com/stentorium/stentor/compare/v1.24.3...v1.24.4) (2020-03-31)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.24.3](https://github.com/stentorium/stentor/compare/v1.24.2...v1.24.3) (2020-03-31)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.24.2](https://github.com/stentorium/stentor/compare/v1.24.1...v1.24.2) (2020-03-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency vm2 to v3.9.1 ([#239](https://github.com/stentorium/stentor/issues/239)) ([8fe839e](https://github.com/stentorium/stentor/commit/8fe839e66fdea1a840b884b9051f7d2adfb7762c))
+
+
+
+
+
+## [1.24.1](https://github.com/stentorium/stentor/compare/v1.24.0...v1.24.1) (2020-03-30)
+
+
+### Bug Fixes
+
+* Adding isDuration to make the new potential slot value easier to consume ([#240](https://github.com/stentorium/stentor/issues/240)) ([d2c7dbb](https://github.com/stentorium/stentor/commit/d2c7dbbc6bd4d09c08cfbc1f1c49efdd415b1e06))
+
+
+
+
+
+# [1.24.0](https://github.com/stentorium/stentor/compare/v1.23.63...v1.24.0) (2020-03-30)
+
+
+### Features
+
+* ISO-8601 Duration Support ([#236](https://github.com/stentorium/stentor/issues/236)) ([b11172d](https://github.com/stentorium/stentor/commit/b11172d33d6ceb7d7cf0a81c9b4bdeeae67d421e))
+
+
+
+
+
+## [1.23.63](https://github.com/stentorium/stentor/compare/v1.23.62...v1.23.63) (2020-03-30)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.23.62](https://github.com/stentorium/stentor/compare/v1.23.61...v1.23.62) (2020-03-29)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.23.61](https://github.com/stentorium/stentor/compare/v1.23.60...v1.23.61) (2020-03-29)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.23.60](https://github.com/stentorium/stentor/compare/v1.23.59...v1.23.60) (2020-03-28)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.23.59](https://github.com/stentorium/stentor/compare/v1.23.58...v1.23.59) (2020-03-28)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.23.58](https://github.com/stentorium/stentor/compare/v1.23.57...v1.23.58) (2020-03-28)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
 ## [1.23.57](https://github.com/stentorium/stentor/compare/v1.23.56...v1.23.57) (2020-03-27)
 
 

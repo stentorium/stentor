@@ -3,8 +3,6 @@ import * as chai from "chai";
 import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
 
-import { Alexa, AlexaRequestBuilder } from "@xapp/stentor-alexa";
-import { Dialogflow, DialogflowV2RequestBuilder } from "@xapp/stentor-dialogflow";
 import { ConversationHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
 import {
@@ -14,12 +12,14 @@ import {
     EventStream,
     Handler,
     HandlerService,
+    Request,
     Storage,
     UserStorageService
 } from "stentor-models";
+import { LaunchRequestBuilder, IntentRequestBuilder } from "stentor-request";
 import { EventService } from "stentor-service-event";
 import { main } from "../main";
-import { MockHandlerService, MockUserStorageService } from "./Mocks";
+import { MockHandlerService, MockUserStorageService, passThroughChannel } from "./Mocks";
 
 chai.use(sinonChai);
 const expect = chai.expect;
@@ -74,7 +74,7 @@ const intentHandler: Handler = {
 };
 
 class ExplosionHandler extends ConversationHandler {
-    async handleRequest() {
+    public async handleRequest() {
         throw new Error("💣🔥");
     }
 }
@@ -104,7 +104,7 @@ class TestEventStream implements EventStream {
 }
 
 describe("#main() with EventService", () => {
-    let request: any;
+    let request: Request;
     let context: any;
     let handlerFactory: HandlerFactory;
     let callbackSpy: sinon.SinonSpy;
@@ -119,7 +119,7 @@ describe("#main() with EventService", () => {
     describe("during a normal transaction", () => {
         describe("with a handler on storage", () => {
             beforeEach(() => {
-                request = new DialogflowV2RequestBuilder().build();
+                request = new IntentRequestBuilder().build();
                 handlerFactory = new HandlerFactory({ handlers: [ConversationHandler] });
                 context = { ovai: { appId } };
                 callbackSpy = sinon.spy();
@@ -133,36 +133,23 @@ describe("#main() with EventService", () => {
                 eventService.addStream(eventStream);
             });
             it("reports the events", async () => {
-                await main(request, context, callbackSpy, [Dialogflow()], {
+                await main(request, context, callbackSpy, [passThroughChannel()], {
                     eventService,
                     handlerFactory,
                     handlerService,
                     userStorageService
                 });
                 expect(callbackSpy).to.have.been.calledOnce;
-                expect(callbackSpy).to.have.been.calledWithMatch(null, {
-                    payload: {
-                        google: {
-                            expectUserResponse: false,
-                            richResponse: {
-                                items: [
-                                    {
-                                        simpleResponse: {
-                                            displayText: "Intent Response",
-                                            ssml: "<speak>Intent Response</speak>"
-                                        }
-                                    }
-                                ]
-                            }
-                            // Can't match this, it changes with every test because the
-                            // userId is dynamically generated
-                            // userStorage: '{"userId": "9263411b-e595-64a5-87c6-090c75b35035"}'
-                        }
+                expect(callbackSpy).to.have.been.calledWith(null, {
+                    name: "Name",
+                    outputSpeech: {
+                        displayText: "Intent Response",
+                        ssml: "<speak>Intent Response</speak>"
                     }
                 });
                 expect(eventStream.events).to.have.length(2);
                 const requestEvent = eventStream.events[0];
-                expect(requestEvent.platform).to.equal("dialogflow");
+                expect(requestEvent.platform).to.equal("MOCK");
                 expect(requestEvent.type).to.equal("REQUEST");
                 expect(requestEvent.name).to.equal("INTENT_REQUEST");
                 expect(requestEvent.appId).to.equal(appId);
@@ -174,10 +161,9 @@ describe("#main() with EventService", () => {
     });
     describe("when the channel selector crashes", () => {
         beforeEach(() => {
-            request = new AlexaRequestBuilder()
-                .withSkillId(appId)
-                .isALaunchRequest()
-                .build();
+            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+            // @ts-ignore Bad request to crash the channel selector
+            request = { bogus: "request" };
             handlerFactory = new HandlerFactory({ handlers: [ConversationHandler] });
             context = { ovai: { appId } };
             callbackSpy = sinon.spy();
@@ -191,7 +177,11 @@ describe("#main() with EventService", () => {
             eventService.addStream(eventStream);
         });
         it("reports the error", async () => {
-            await main(request, context, callbackSpy, [Dialogflow(true)], {
+            await main(request, context, callbackSpy, [passThroughChannel({
+                test: (): boolean => {
+                    return false;
+                }
+            })], {
                 eventService,
                 handlerFactory,
                 handlerService,
@@ -214,10 +204,7 @@ describe("#main() with EventService", () => {
     describe("when there is an explosion at the context factory (everybody was ok though)", () => {
         let error: Error;
         beforeEach(() => {
-            request = new AlexaRequestBuilder()
-                .withSkillId(appId)
-                .isALaunchRequest()
-                .build();
+            request = new LaunchRequestBuilder().build();
             handlerFactory = new HandlerFactory({ handlers: [ConversationHandler] });
             context = { ovai: { appId } };
             callbackSpy = sinon.spy();
@@ -237,7 +224,7 @@ describe("#main() with EventService", () => {
             } as UserStorageService;
         });
         it("reports the error", async () => {
-            await main(request, context, callbackSpy, [Alexa(appId), Dialogflow(true)], {
+            await main(request, context, callbackSpy, [passThroughChannel()], {
                 eventService,
                 handlerFactory,
                 handlerService,
@@ -247,7 +234,7 @@ describe("#main() with EventService", () => {
             expect(callbackSpy).to.have.been.calledWith(error);
             expect(eventStream.events).to.have.length(3);
             const requestEvent = eventStream.events[0];
-            expect(requestEvent.platform).to.equal("alexa");
+            expect(requestEvent.platform).to.equal("MOCK");
             expect(requestEvent.type).to.equal("REQUEST");
             expect(requestEvent.name).to.equal("LAUNCH_REQUEST");
             expect(requestEvent.appId).to.equal(appId);
@@ -255,17 +242,14 @@ describe("#main() with EventService", () => {
             const errorEvent = eventStream.events[1];
             expect(errorEvent.type).to.equal("ERROR");
             expect(errorEvent.appId).to.equal(appId);
-            expect(errorEvent.platform).to.equal("alexa");
+            expect(errorEvent.platform).to.equal("MOCK");
             expect(errorEvent.payload).to.deep.include({ message: "💣💣💣💣💣💣🔥🔥🔥🔥🔥" });
             expect(eventStream.flushed).to.be.true;
         });
     });
     describe("when the handler manager can't take it anymore", () => {
         beforeEach(() => {
-            request = new AlexaRequestBuilder()
-                .withSkillId(appId)
-                .isALaunchRequest()
-                .build();
+            request = new LaunchRequestBuilder().build();
             context = { ovai: { appId } };
             callbackSpy = sinon.spy();
             userStorageService = sinon.createStubInstance(MockUserStorageService, {
@@ -281,7 +265,7 @@ describe("#main() with EventService", () => {
             });
         });
         it("reports the error", async () => {
-            await main(request, context, callbackSpy, [Alexa(appId), Dialogflow(true)], {
+            await main(request, context, callbackSpy, [passThroughChannel()], {
                 eventService,
                 handlerFactory,
                 handlerService,
@@ -289,22 +273,20 @@ describe("#main() with EventService", () => {
             });
             expect(callbackSpy).to.have.been.calledOnce;
             expect(callbackSpy).to.have.been.calledWith(null, {
-                response: {
-                    outputSpeech: {
-                        ssml: "<speak>I'm sorry, I'm having trouble with that request.</speak>",
-                        type: "SSML"
-                    },
-                    shouldEndSession: true
+                name: "I'm having trouble with that request",
+                outputSpeech: {
+                    defaultLocale: "en",
+                    ssml: "<speak>I'm sorry, I'm having trouble with that request.</speak>",
+                    displayText: "I'm sorry, I'm having trouble with that request.",
                 },
-                sessionAttributes: {},
-                version: "1.0"
+                tag: "TROUBLE_WITH_REQUEST"
             });
-            // console.log(eventStream.events);
+
             expect(eventStream.events).to.have.length(3);
             const errorEvent = eventStream.events[0];
             expect(errorEvent.type).to.equal("ERROR");
             expect(errorEvent.appId).to.equal(appId);
-            expect(errorEvent.platform).to.equal("alexa");
+            expect(errorEvent.platform).to.equal("MOCK");
             expect(errorEvent.payload).to.deep.include({
                 message: "Required Global InputUnknown was not found."
             });
@@ -319,10 +301,7 @@ describe("#main() with EventService", () => {
     });
     describe("when the handler has an error", () => {
         beforeEach(() => {
-            request = new AlexaRequestBuilder()
-                .withSkillId(appId)
-                .isALaunchRequest()
-                .build();
+            request = new LaunchRequestBuilder().build();
             context = { ovai: { appId } };
             callbackSpy = sinon.spy();
             userStorageService = sinon.createStubInstance(MockUserStorageService, {
@@ -338,7 +317,7 @@ describe("#main() with EventService", () => {
             });
         });
         it("reports the error", async () => {
-            await main(request, context, callbackSpy, [Alexa(appId), Dialogflow(true)], {
+            await main(request, context, callbackSpy, [passThroughChannel()], {
                 eventService,
                 handlerFactory,
                 handlerService,
@@ -346,15 +325,13 @@ describe("#main() with EventService", () => {
             });
             expect(callbackSpy).to.have.been.calledOnce;
             expect(callbackSpy).to.have.been.calledWith(null, {
-                response: {
-                    outputSpeech: {
-                        ssml: "<speak>I'm sorry, I'm having trouble with that request.</speak>",
-                        type: "SSML"
-                    },
-                    shouldEndSession: true
+                name: "I'm having trouble with that request",
+                outputSpeech: {
+                    defaultLocale: "en",
+                    ssml: "<speak>I'm sorry, I'm having trouble with that request.</speak>",
+                    displayText: "I'm sorry, I'm having trouble with that request.",
                 },
-                sessionAttributes: {},
-                version: "1.0"
+                tag: "TROUBLE_WITH_REQUEST"
             });
             expect(eventStream.events).to.have.length(3);
 
@@ -363,7 +340,7 @@ describe("#main() with EventService", () => {
             expect(errorEvent.currentHandler).to.be.undefined;
             expect(errorEvent.selectedHandler).to.equal("LaunchRequest");
             expect(errorEvent.appId).to.equal(appId);
-            expect(errorEvent.platform).to.equal("alexa");
+            expect(errorEvent.platform).to.equal("MOCK");
             expect(errorEvent.payload).to.deep.include({
                 message: "💣🔥"
             });
@@ -372,10 +349,7 @@ describe("#main() with EventService", () => {
     });
     describe("when the user storage can't update", () => {
         beforeEach(() => {
-            request = new AlexaRequestBuilder()
-                .withSkillId(appId)
-                .isALaunchRequest()
-                .build();
+            request = new LaunchRequestBuilder().build();
             handlerFactory = new HandlerFactory({ handlers: [ConversationHandler] });
             context = { ovai: { appId } };
             callbackSpy = sinon.spy();
@@ -397,7 +371,7 @@ describe("#main() with EventService", () => {
             };
         });
         it("reports the error", async () => {
-            await main(request, context, callbackSpy, [Alexa(appId), Dialogflow(true)], {
+            await main(request, context, callbackSpy, [passThroughChannel()], {
                 eventService,
                 handlerFactory,
                 handlerService,
@@ -405,21 +379,17 @@ describe("#main() with EventService", () => {
             });
             expect(callbackSpy).to.have.been.calledOnce;
             expect(callbackSpy).to.have.been.calledWith(null, {
-                response: {
-                    outputSpeech: {
-                        ssml: "<speak>Hello World!</speak>",
-                        type: "SSML"
-                    },
-                    shouldEndSession: true
-                },
-                sessionAttributes: {},
-                version: "1.0"
+                name: "Name",
+                outputSpeech: {
+                    ssml: "<speak>Hello World!</speak>",
+                    displayText: "Hello World!"
+                }
             });
             expect(eventStream.events).to.have.length(3);
             const errorEvent = eventStream.events[0];
             expect(errorEvent.type).to.equal("ERROR");
             expect(errorEvent.appId).to.equal(appId);
-            expect(errorEvent.platform).to.equal("alexa");
+            expect(errorEvent.platform).to.equal("MOCK");
             expect(errorEvent.payload).to.deep.include({
                 message: "💣"
             });
@@ -429,10 +399,7 @@ describe("#main() with EventService", () => {
     describe("when the response builder explodes", () => {
         let badAlexaChannel: Channel;
         beforeEach(() => {
-            request = new AlexaRequestBuilder()
-                .withSkillId(appId)
-                .isALaunchRequest()
-                .build();
+            request = new LaunchRequestBuilder().build();
             handlerFactory = new HandlerFactory({ handlers: [ConversationHandler] });
             context = { ovai: { appId } };
             callbackSpy = sinon.spy();
@@ -446,7 +413,7 @@ describe("#main() with EventService", () => {
                 get: Promise.resolve({ ...storage })
             });
             // To throw the error, we plant a bomb on the translate method
-            badAlexaChannel = Alexa(appId);
+            badAlexaChannel = passThroughChannel();
             badAlexaChannel.response = {
                 translate() {
                     throw new Error("💥💥💥");
@@ -466,7 +433,7 @@ describe("#main() with EventService", () => {
             const errorEvent = eventStream.events[0];
             expect(errorEvent.type).to.equal("ERROR");
             expect(errorEvent.appId).to.equal(appId);
-            expect(errorEvent.platform).to.equal("alexa");
+            expect(errorEvent.platform).to.equal("MOCK");
             expect(errorEvent.payload).to.deep.include({
                 message: "💥💥💥"
             });

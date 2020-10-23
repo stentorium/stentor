@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.23.57",
+  "version": "1.33.96",
   "description": "Runtime for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -15,38 +15,35 @@
     "node": "10.x"
   },
   "devDependencies": {
-    "@types/chai": "4.2.11",
-    "@types/sinon": "7.5.2",
-    "@types/sinon-chai": "3.2.3",
+    "@types/chai": "4.2.14",
+    "@types/sinon": "9.0.8",
+    "@types/sinon-chai": "3.2.5",
     "@xapp/config": "0.2.3",
-    "@xapp/patterns": "1.18.111",
-    "@xapp/stentor-actions-on-google": "1.18.115",
-    "@xapp/stentor-alexa": "1.18.118",
-    "@xapp/stentor-dialogflow": "1.18.115",
-    "aws-sdk": "2.643.0",
+    "@xapp/patterns": "1.26.60",
+    "aws-sdk": "2.773.0",
     "chai": "4.2.0",
-    "fetch-mock": "9.3.1",
-    "mocha": "7.1.1",
+    "fetch-mock": "9.10.7",
+    "mocha": "8.2.0",
     "rimraf": "3.0.2",
-    "sinon": "9.0.1",
+    "sinon": "9.2.0",
     "sinon-chai": "3.5.0",
-    "stentor-models": "1.23.51",
-    "ts-node": "8.8.1",
-    "typescript": "3.8.3"
+    "stentor-models": "1.33.96",
+    "ts-node": "9.0.0",
+    "typescript": "4.0.3"
   },
   "dependencies": {
-    "stentor-constants": "1.23.51",
-    "stentor-context": "1.23.57",
-    "stentor-handler": "1.23.57",
-    "stentor-handler-factory": "1.23.57",
-    "stentor-handler-manager": "1.23.57",
-    "stentor-history": "1.23.51",
-    "stentor-interaction-model": "1.23.57",
-    "stentor-logger": "1.23.57",
-    "stentor-request": "1.23.57",
-    "stentor-response": "1.23.57",
-    "stentor-service-event": "1.23.57",
-    "stentor-utils": "1.23.57"
+    "stentor-constants": "1.33.96",
+    "stentor-context": "1.33.96",
+    "stentor-handler": "1.33.96",
+    "stentor-handler-factory": "1.33.96",
+    "stentor-handler-manager": "1.33.96",
+    "stentor-history": "1.33.96",
+    "stentor-interaction-model": "1.33.96",
+    "stentor-logger": "1.33.96",
+    "stentor-request": "1.33.96",
+    "stentor-response": "1.33.96",
+    "stentor-service-event": "1.33.96",
+    "stentor-utils": "1.33.96"
   },
   "peerDependencies": {
     "stentor-models": "1.x"
@@ -54,7 +51,7 @@
   "scripts": {
     "build": "tsc -d true -p .",
     "clean": "rimraf './lib/*' './src/**/*.{js,js.map,d.ts}'",
-    "test": "mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
+    "test": "TZ=UTC mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
   },
   "gitHead": "bb8fead16cbd0cff42ea73d73f0da9a5401c4c99"
 }

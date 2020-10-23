@@ -35,6 +35,8 @@ export interface Intent extends Localizable<LocaleSpecificIntent> {
     intentId: string;
     /**
      * Dialogflow keeps track of individual intents by a unique ID.
+     * 
+     * @deprecated This field is being phased out. 
      */
     dialogflowId?: string;
     /**

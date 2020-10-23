@@ -23,7 +23,15 @@ export class ChannelSelector {
             );
         }
 
-        const platform = lambdaContext && lambdaContext.ovai ? lambdaContext.ovai.platform : undefined;
+        let platform: string;
+
+        if (lambdaContext) {
+            platform = lambdaContext.ovai ? lambdaContext.ovai.platform : undefined;
+            if (lambdaContext.studio) {
+                // override the deprecated if it exists
+                platform = lambdaContext.studio ? lambdaContext.studio.platform : platform;
+            }
+        }
 
         let possibleChannels: Channel[] = [];
 

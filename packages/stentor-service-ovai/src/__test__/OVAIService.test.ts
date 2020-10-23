@@ -1,5 +1,4 @@
 /*! Copyright (c) 2019, XAPPmedia */
-// tslint:disable:no-magic-numbers
 import { expect } from "chai";
 
 import { OVAIService } from "../OVAIService";

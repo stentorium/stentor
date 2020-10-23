@@ -1,3 +1,3 @@
 ## stentor-media
 
-Media for :mega: stentor
+Media for 📣 stentor

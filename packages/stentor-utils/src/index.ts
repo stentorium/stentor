@@ -1,6 +1,8 @@
 /*! Copyright (c) 2019, XAPPmedia */
 export * from "./array";
 export * from "./compare";
+export * from "./compilers";
+export * from "./date-time";
 export * from "./dateTime";
 export * from "./dynamo";
 export * from "./email";
@@ -15,6 +17,7 @@ export * from "./matcher";
 export * from "./net";
 export * from "./number";
 export * from "./object";
+export * from "./request";
 export * from "./response";
 export * from "./speech";
 export * from "./ssml";

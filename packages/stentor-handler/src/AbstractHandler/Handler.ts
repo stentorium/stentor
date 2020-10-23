@@ -105,9 +105,10 @@ export abstract class AbstractHandler<
             return true;
         }
         // Then a response
-        if (determineResponse(findValueForKey(key, this.content), request, context)) {
+        if (getResponse(this, request, context)) {
             return true;
         }
+
         // If they ask us to repeat, then yes we can.
         if (key === REPEAT_INTENT) {
             // TODO: But what if we don't have a last response on storage
@@ -170,23 +171,6 @@ export abstract class AbstractHandler<
 
         return canHandleInputUnknown;
     }
-
-    /**
-     * Kicks off the handler, typically called when the intent associated with the
-     * handler is requested.
-     *
-     * @public
-     */
-    public async start(request: Request, context: Context): Promise<void> {
-        const response = getResponse(this.content, request, context);
-        if (response) {
-            context.response.respond(response);
-
-            if (isActionable(response)) {
-                manipulateStorage(context.storage, response.actions);
-            }
-        }
-    }
     /**
      * Repeats the last uttered response.
      *
@@ -205,7 +189,6 @@ export abstract class AbstractHandler<
             context.response.say("Sorry, I'm not sure what you want me to repeat.");
         }
     }
-
     /**
      * Handles the situation where the handler
      *
@@ -269,6 +252,16 @@ export abstract class AbstractHandler<
     }
 
     /**
+     * Kicks off the handler, typically called when the intent associated with the
+     * handler is requested.
+     * 
+     * @deprecated - Use handleRequest(), this is now just a wrapper that calls handleRequest()
+     */
+    public async start(request: Request, context: Context): Promise<void> {
+        return this.handleRequest(request, context);
+    }
+
+    /**
      * Handles the incoming request.  Sets the necessary responses and saves the necessary items
      * to storage.
      *
@@ -278,9 +271,6 @@ export abstract class AbstractHandler<
         const event = keyFromRequest(request);
 
         switch (event) {
-            /* If it is the first request for this intent, fire off start */
-            case this.intentId:
-                return this.start(request, context);
             case REPEAT_INTENT:
                 return this.repeat(request, context);
             case INPUT_UNKNOWN_ID:
@@ -289,7 +279,7 @@ export abstract class AbstractHandler<
                 // NOTE: Any way we can combine this with the start() method?  It does
                 // something similar and can handle any type of request.
                 // Try to find one in the content
-                const response = getResponse(this.content, request, context);
+                const response = getResponse(this, request, context);
                 if (response) {
                     context.response.respond(response);
                     if (isActionable(response)) {

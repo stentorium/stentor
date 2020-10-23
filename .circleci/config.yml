@@ -2,8 +2,7 @@ version: 2
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    # node 10.16.0 is our lambda node version
-    - image: circleci/node:10.19.0
+    - image: circleci/node:10.22.1
 
 jobs:
   checkout:
@@ -35,7 +34,6 @@ jobs:
             - .eslintignore
             - .eslintrc.js
             - .yarnrc
-
   build:
     <<: *defaults
     steps:
@@ -49,7 +47,6 @@ jobs:
           root: ~/repo
           paths:
             - packages/*/lib/*
-
   lint:
     <<: *defaults
     steps:
@@ -58,7 +55,14 @@ jobs:
       - run:
           name: Lint
           command: yarn lint
-
+  version_check:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Version Check
+          command: yarn version-check
   test:
     <<: *defaults
     steps:
@@ -82,7 +86,6 @@ jobs:
       #    paths:
       #      - coverage/
       #      - .nyc_output/*
-
   license_check:
     <<: *defaults
     steps:
@@ -91,12 +94,8 @@ jobs:
       - run:
           name: License Check
           command: yarn license-check
-
   release:
-    working_directory: ~/repo
-    docker:
-      # semantic-release requires node 8.3
-      - image: circleci/node:8.3
+    <<: *defaults
     steps:
       - checkout
       - attach_workspace:
@@ -132,6 +131,9 @@ workflows:
             branches:
               ignore: master
       - lint:
+          requires:
+            - checkout
+      - version_check:
           requires:
             - checkout
       - build:

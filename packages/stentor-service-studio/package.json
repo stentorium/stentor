@@ -1,0 +1,42 @@
+{
+  "name": "stentor-service-studio",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.33.96",
+  "description": "OC Studio service for 📣 stentor",
+  "types": "lib/index",
+  "main": "lib/index",
+  "files": [
+    "lib"
+  ],
+  "engines": {
+    "node": "10.x"
+  },
+  "devDependencies": {
+    "@types/chai": "4.2.14",
+    "@types/fetch-mock": "7.3.3",
+    "@xapp/config": "0.2.3",
+    "chai": "4.2.0",
+    "fetch-mock": "9.10.7",
+    "mocha": "8.2.0",
+    "stentor-models": "1.33.96",
+    "ts-node": "9.0.0",
+    "typescript": "4.0.3"
+  },
+  "dependencies": {
+    "isomorphic-fetch": "3.0.0",
+    "stentor-constants": "1.33.96",
+    "stentor-service-event": "1.33.96",
+    "stentor-utils": "1.33.96"
+  },
+  "peerDependencies": {
+    "stentor-models": "1.x"
+  },
+  "scripts": {
+    "build": "tsc -d true -p .",
+    "clean": "rm -rf ./lib/*",
+    "test": "mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
+  }
+}

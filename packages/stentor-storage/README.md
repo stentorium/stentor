@@ -1,3 +1,3 @@
 ## @xapp/stentor-storage
 
-Storage for :mega: stentor
+Storage for 📣 stentor

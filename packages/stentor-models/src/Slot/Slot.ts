@@ -19,7 +19,13 @@ export interface Slot {
      *
      * For legacy applications, SlotType is used.
      */
-    type: string;
+    type?: string;
+    /**
+     * NLU specific metadata used when translating to the NLU entity.
+     * 
+     * Use to override the type for a specific NLU. 
+     */
+    nlu?: { [nlu: string]: { type: string } };
     /**
      * Is the slot a list of values.
      * 
@@ -32,4 +38,10 @@ export interface Slot {
      * Only one isList slot is supported per utterance pattern.
      */
     isList?: boolean | number;
+    /**
+     * When set, if the slot is not provided by the user the key will be used to 
+     * get the response off of the content for the handler in order to ask the user
+     * to provide the slot.  
+     */
+    slotElicitationContentKey?: string;
 }

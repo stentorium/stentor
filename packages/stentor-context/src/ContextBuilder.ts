@@ -1,6 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { AbstractBuilder } from "@xapp/patterns";
-import { Context, Device, Pii, Storage, UserData } from "stentor-models";
+import { Context, Device, Pii, Storage, UserData, SessionStoreData } from "stentor-models";
 import { ResponseBuilder } from "stentor-response";
 import { createSessionStore } from "stentor-storage";
 
@@ -19,6 +19,7 @@ export class ContextBuilder<S extends Storage = Storage> extends AbstractBuilder
             canSpeak: true,
             canThrowCard: true,
             hasScreen: false,
+            hasWebBrowser: false,
             canTransferCall: false
         };
 
@@ -77,6 +78,20 @@ export class ContextBuilder<S extends Storage = Storage> extends AbstractBuilder
         }
 
         this.context.session = createSessionStore(this.context.storage);
+        return this;
+    }
+
+    /**
+     * Set the session storage with the provided data.
+     * 
+     * @param data 
+     */
+    public withSessionData(data: SessionStoreData): ContextBuilder<S> {
+
+        if (this.context.storage) {
+            this.context.storage.sessionStore = data;
+            this.context.session = createSessionStore(this.context.storage);
+        }
         return this;
     }
 

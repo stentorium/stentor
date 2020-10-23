@@ -173,10 +173,9 @@ export function containsNumbers(word: string): boolean {
 
 /**
  * Does the provided string contain uppercase letters.
- *
- * @export
- * @param {string} word
- * @returns {boolean}
+ * 
+ * @param word - Word to check
+ * @returns True if the word contains uppercase letters, false if not
  */
 export function containsUppercase(word: string): boolean {
     return /[A-Z]/.test(word);

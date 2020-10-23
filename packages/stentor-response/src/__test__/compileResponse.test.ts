@@ -4,7 +4,7 @@ import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
 
 import { ContextBuilder } from "stentor-context";
-import { Context, Request, Response, SimpleResponse, Storage, ResponseOutput } from "stentor-models";
+import { Context, Request, Response, SimpleResponse, Storage, ResponseOutput, RequestSlotMap } from "stentor-models";
 import { IntentRequestBuilder } from "stentor-request";
 import { isList, ResponseBuilder } from "stentor-response";
 import { compileResponse } from "../compileResponse";
@@ -22,10 +22,16 @@ describe("#compileResponse()", () => {
     let response: ResponseBuilder<Response<ResponseOutput>>;
     let context: Context<TestStorage>;
     beforeEach(() => {
-        const slots = {
+        const slots: RequestSlotMap = {
             ["NAME"]: {
                 name: "NAME",
                 value: "Jim"
+            },
+            ["DATE"]: {
+                name: "DATE",
+                value: {
+
+                }
             }
         };
         request = new IntentRequestBuilder()
@@ -42,7 +48,18 @@ describe("#compileResponse()", () => {
                 lastActiveTimestamp: Date.now(),
                 name: "Bob",
                 metBefore: true,
-                score: 3
+                score: 3,
+                sessionStore: {
+                    id: "sessionId",
+                    data: {
+                        slots: {
+                            ["flower_type"]: {
+                                name: "flower_type",
+                                value: "roses"
+                            }
+                        }
+                    }
+                }
             })
             .build() as Context<TestStorage>;
     });
@@ -524,6 +541,95 @@ describe("#compileResponse()", () => {
                 expect(one.title).to.equal("One");
                 expect(one.description).to.equal("One Jim");
             }
+        });
+    });
+    describe("when passed slot names in the template", () => {
+        const displayResponse: SimpleResponse = {
+            outputSpeech: {
+                ssml: "<speak>When do you want your ${flower_type} delivered?</speak>",
+                displayText: "When do you want your ${flower_type} delivered?"
+            },
+            reprompt: {
+                ssml: "<speak>What's the delivery date for the ${ flower_type }?</speak>",
+                displayText: "What's the delivery date for the ${ flower_type }?"
+            },
+            displays: [
+                {
+                    type: "LIST",
+                    title: "Delivery date for the ${flower_type}?",
+                    items: [
+                        {
+                            title: "Tuesday",
+                            description: "Tuesday",
+                            token: "one",
+                            synonyms: ["1"]
+                        },
+                        {
+                            title: "Wednesday",
+                            description: "Wednesday",
+                            token: "two",
+                            synonyms: ["2"]
+                        }
+                    ]
+                }
+            ]
+        };
+        let compiledResponse: Response;
+        beforeEach(() => {
+            compiledResponse = compileResponse(displayResponse, request, context);
+        });
+        it("compiles correctly", () => {
+            expect(compiledResponse).to.exist;
+            expect(typeof compiledResponse.outputSpeech !== "string").to.be.true;
+            expect(compiledResponse.outputSpeech).to.deep.equal({
+                ssml: "<speak>When do you want your roses delivered?</speak>",
+                displayText: "When do you want your roses delivered?"
+            });
+            expect(compiledResponse.reprompt).to.deep.equal({
+                ssml: "<speak>What's the delivery date for the roses?</speak>",
+                displayText: "What's the delivery date for the roses?"
+            });
+
+            // Find the display
+            expect(compiledResponse.displays).to.have.length(1);
+            const display = compiledResponse.displays[0];
+            expect(isList(display)).to.be.true;
+            if (isList(display)) {
+                expect(display.title).to.equal('Delivery date for the roses?');
+            }
+        });
+        describe("that pulls from both session store slots and request slots", () => {
+            const displayResponse: SimpleResponse = {
+                outputSpeech: {
+                    ssml: "<speak>Ok confirming ${date} for the ${flower_type} delivery?</speak>",
+                    displayText: "Ok confirming ${date} for the ${flower_type} delivery"
+                },
+                reprompt: {
+                    ssml: "<speak>${ date } for the ${flower_type} right?</speak>",
+                    displayText: "${ date } for the ${flower_type} right?"
+                }
+            };
+            beforeEach(() => {
+                request = new IntentRequestBuilder().withSlots({
+                    date: {
+                        name: "date",
+                        value: "Tuesday"
+                    }
+                }).build();
+                compiledResponse = compileResponse(displayResponse, request, context);
+            });
+            it("compiles correctly", () => {
+                expect(compiledResponse).to.exist;
+                expect(typeof compiledResponse.outputSpeech !== "string").to.be.true;
+                expect(compiledResponse.outputSpeech).to.deep.equal({
+                    ssml: "<speak>Ok confirming Tuesday for the roses delivery?</speak>",
+                    displayText: "Ok confirming Tuesday for the roses delivery"
+                });
+                expect(compiledResponse.reprompt).to.deep.equal({
+                    ssml: "<speak>Tuesday for the roses right?</speak>",
+                    displayText: "Tuesday for the roses right?"
+                });
+            });
         });
     });
 });

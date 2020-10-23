@@ -1,3 +1,3 @@
 ## stentor-response
 
-Response for :mega: stentor
+Response for 📣 stentor

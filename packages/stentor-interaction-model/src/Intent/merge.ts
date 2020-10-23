@@ -3,7 +3,6 @@ import { Intent } from "stentor-models";
 import { mergeSlots, MergeSlotsResult, mergeSlotTypeMaps } from "../Slot";
 import { UtteranceGenerator } from "./UtteranceGenerator";
 
-
 /**
  * Merge two arrays utterance patterns.
  */

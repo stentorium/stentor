@@ -11,18 +11,22 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "2.25.0",
-    "@typescript-eslint/parser": "2.25.0",
+    "@microsoft/api-documenter": "7.9.15",
+    "@typescript-eslint/eslint-plugin": "2.34.0",
+    "@typescript-eslint/parser": "2.34.0",
     "@xapp/config": "0.2.3",
-    "eslint": "6.8.0",
-    "eslint-plugin-notice": "0.8.9",
-    "lerna": "3.20.2",
+    "eslint": "7.11.0",
+    "eslint-plugin-notice": "0.9.10",
+    "lerna": "3.22.1",
     "license-checker": "25.0.1",
-    "mocha": "7.1.1",
-    "mocha-junit-reporter": "1.23.3",
-    "nyc": "15.0.0"
+    "mocha": "8.2.0",
+    "mocha-junit-reporter": "2.0.0",
+    "nyc": "15.1.0",
+    "syncpack": "5.6.10"
   },
   "scripts": {
+    "api": "lerna run api",
+    "docs": "api-documenter markdown -i ./api/json -o ./api/docs",
     "lerna": "lerna",
     "postinstall": "lerna bootstrap",
     "clean": "lerna run clean",
@@ -31,6 +35,7 @@
     "build": "lerna run build",
     "test": "TZ=UTC lerna run test",
     "release": "lerna version --yes && git push origin --tags && lerna publish from-git --yes",
-    "license-check": "license-checker --production --start './packages/stentor/' --exclude ISC,MIT,Apache-2.0,BSD-3-Clause,BSD-2-Clause --failOn GPL-3.0"
+    "license-check": "license-checker --production --start './packages/stentor/' --exclude ISC,MIT,Apache-2.0,BSD-3-Clause,BSD-2-Clause --failOn GPL-3.0",
+    "version-check": "syncpack list-mismatches --prod --filter 'stentor-'"
   }
 }

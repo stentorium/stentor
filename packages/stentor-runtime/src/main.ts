@@ -1,7 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
-// tslint:disable:cyclomatic-complexity <-- TODO: We want to remove the need for this.
 import { log } from "stentor-logger";
-import { GOODBYE, TROUBLE_WITH_REQUEST } from "stentor-constants";
+import { GOODBYE, TROUBLE_WITH_REQUEST, SESSION_STORAGE_NEW_USER, SESSION_STORAGE_SLOTS_KEY } from "stentor-constants";
 import { ContextFactory } from "stentor-context";
 import { AbstractHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
@@ -25,12 +24,14 @@ import {
     isInputUnknownRequest,
     isIntentRequest,
     isLaunchRequest,
+    isOptionSelectRequest,
+    isPermissionRequest,
     isSessionEndedRequest,
     keyFromRequest
 } from "stentor-request";
 import { canFulfillAll, canFulfillNothing, getResponse } from "stentor-response";
 import { EventService, wrapCallback as eventServiceCallbackWrapper } from "stentor-service-event";
-import { existsAndNotEmpty } from "stentor-utils";
+import { combineRequestSlots, existsAndNotEmpty } from "stentor-utils";
 import { ChannelSelector } from "./ChannelSelector";
 
 /**
@@ -133,7 +134,10 @@ export const main = async (
             platform: channel.name,
             ...channel.request.translate(requestBody)
         };
-        // First hook opportunity, post request translation
+        // Second hook opportunity, post request translation
+        if (channel.hooks && typeof channel.hooks.postRequestTranslation === "function") {
+            request = await channel.hooks.postRequestTranslation(request);
+        }
         if (hooks && typeof hooks.postRequestTranslation === "function") {
             request = await hooks.postRequestTranslation(request);
         }
@@ -174,17 +178,15 @@ export const main = async (
         // A session ended request.
         // For Alexa, you cannot respond to a session ended request, end it
         // see: https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/custom-standard-request-types-reference#valid-response-types-2
-        // tslint:disable:no-null-keyword
         // Right now null is for BST.
         callback(null, {}, request);
-        // tslint:enable:no-null-keyword
         return;
     }
 
     // #.75 Use the NLU service if required by the channel
     if (channel.nlu) {
-        // We don't call if it is a LaunchRequest
-        if (!isLaunchRequest(request)) {
+        // We don't call if it is a LaunchRequest, option, or permission grant
+        if (!isLaunchRequest(request) && !isOptionSelectRequest(request) && !isPermissionRequest(request)) {
             const nluResponse = await channel.nlu.query(request.rawQuery);
             // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
             // @ts-ignore TypeScript be cool
@@ -227,11 +229,26 @@ export const main = async (
         return;
     }
 
+    // See if it doesn't have a lastActiveTimestamp
+    if (typeof context.storage.lastActiveTimestamp !== "number") {
+        // We want to set a session variable so we can keep track of if they are a new user for the entire session
+        context.session.set(SESSION_STORAGE_NEW_USER, true);
+    }
+
     // Update with the currentHandler
     if (eventService && context.storage && context.storage.currentHandler && context.storage.currentHandler.intentId) {
         const currentHandler = context.storage.currentHandler.intentId;
         log().info(`appId:${context.storage.currentHandler.appId}|currentHandler:${currentHandler}`);
         eventService.addPrefix({ currentHandler });
+    }
+
+    // Before we start determining things like handler or responses, we
+    // want to update the slots on the session storage
+    // so they can be used for slot filling logic
+    if (isIntentRequest(request)) {
+        // Update the slots on the user's session storage
+        // This is helpful when slot filling.
+        context.session.set(SESSION_STORAGE_SLOTS_KEY, combineRequestSlots(context.session.get(SESSION_STORAGE_SLOTS_KEY), request.slots));
     }
 
     // #2 Get the request handler
@@ -267,10 +284,8 @@ export const main = async (
 
         const response = context.response.respond(getResponse(TROUBLE_WITH_REQUEST, request, context)).build();
         const translatedTrouble = channel.response.translate({ request, response });
-        // tslint:disable:no-null-keyword
-        // Right now null is for BST.
+
         callback(null, translatedTrouble, request, response);
-        // tslint:enable:no-null-keyword
         return;
     }
 
@@ -307,7 +322,12 @@ export const main = async (
     // #3 Kick off the request - check for canFulfill first
     if (isIntentRequest(request) && request.canFulfill) {
         // Only if the key is a real intent (not unknown input) and the handler is canFulfill "aware" - fulfill all
+        // NOTE: TypeScript is giving an error here saying it will never happen
+        //       which I mostly agree with.  Going to keep it here for now as a just
+        //       in case and backwards compat.  -- Michael
         if (isInputUnknownRequest(request)) {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+            // @ts-ignore
             context.response.withCanFulfill(canFulfillNothing(request.slots));
         } else {
             if (handler.data && handler.data.accessibleThroughDiscovery) {
@@ -321,7 +341,11 @@ export const main = async (
         callback(null, response, request, response);
         return;
     }
-
+    // Majority of the logic will occur in the handleRequest method!
+    // It will take the request and objects on the context
+    // to determine a response.
+    // The response is built using the response builder on the
+    // context.
     try {
         await handler.handleRequest(request, context);
     } catch (error) {
@@ -363,7 +387,7 @@ export const main = async (
         }
     }
 
-    // Pre-translation hook - only real content (leave the errors alone)
+    // preResponseTranslation hook - only real content (leave the errors alone)
     if (typeof hooks === "object" && typeof hooks.preResponseTranslation === "function") {
         const returns = await hooks.preResponseTranslation(request, context.response, context.storage);
         if (returns) {
@@ -406,9 +430,5 @@ export const main = async (
         finalResponse = {};
     }
     // #5 Finish it off by calling the callback
-    // tslint:disable:no-null-keyword
-    // Right now null is for BST.
     callback(null, finalResponse, request, response);
-    // tslint:enable:no-null-keyword
 };
-// tslint:enable:cyclomatic-complexity

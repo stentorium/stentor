@@ -1,6 +1,4 @@
 /*! Copyright (c) 2019, XAPPmedia */
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const _uniq = require("lodash.uniq");
 
 /**
  * Removes any duplicates from an array.
@@ -10,7 +8,7 @@ const _uniq = require("lodash.uniq");
  * @param input
  */
 export function uniq<T>(input: T[]): T[] {
-    return _uniq(input);
+    return [...new Set(input)];
 }
 
 /**

@@ -1,10 +1,10 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { DateTime, DateTimeRange } from "../DateTime";
+import { DateTime, DateTimeRange, Duration } from "../DateTime";
 import { Data } from "../Handler";
 import { BaseRequest } from "./Request";
 import { IntentRequestType } from "./Types";
 
-export type RequestSlotValues = string | number | DateTimeRange | DateTime | (string)[];
+export type RequestSlotValues = string | number | object | DateTimeRange | DateTime | Duration | (string)[];
 
 export interface KnowledgeAnswer {
     /**

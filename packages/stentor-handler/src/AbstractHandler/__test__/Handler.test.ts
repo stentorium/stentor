@@ -80,7 +80,8 @@ describe("AbstractHandler", () => {
         canSpeak: true,
         canThrowCard: true,
         hasScreen: false,
-        canTransferCall: false
+        canTransferCall: false,
+        hasWebBrowser: false
     };
     const intentIdContent = {
         name: "default",
@@ -186,10 +187,9 @@ describe("AbstractHandler", () => {
             });
         });
     });
-    describe("#start()", () => {
+    describe(`#start()`, () => {
         let handler: TestHandler;
         let request: IntentRequest;
-
         beforeEach(async () => {
             handler = new TestHandler({
                 appId,
@@ -543,6 +543,77 @@ describe("AbstractHandler", () => {
                 });
             });
         });
+        describe("when slot filling", () => {
+            beforeEach(() => {
+                handler = new TestHandler({
+                    appId,
+                    organizationId,
+                    intentId,
+                    type: BASE_HANDLER_TYPE,
+                    content: {
+                        ["FillFoo"]: [
+                            {
+                                outputSpeech: "What type of foo?"
+                            }
+                        ]
+                    },
+                    data: {},
+                    slots: [
+                        {
+                            name: "foo",
+                            type: "FOO",
+                            slotElicitationContentKey: "FillFoo"
+                        }
+                    ]
+                });
+            });
+            it("returns the correct value", async () => {
+                // The request will be an intent request but not contain a required slot
+                const request = new IntentRequestBuilder().withIntentId(intentId).build();
+                // Make sure we are getting the right response
+                await handler.handleRequest(request, context);
+                expect(response.respond).to.have.been.calledOnce;
+                expect(response.respond).to.have.been.calledWith({
+                    outputSpeech: "What type of foo?"
+                });
+            });
+        });
+        describe("for it's own request", () => {
+            let request: IntentRequest;
+            beforeEach(async () => {
+                handler = new TestHandler({
+                    appId,
+                    organizationId,
+                    intentId,
+                    type: BASE_HANDLER_TYPE,
+                    content,
+                    data: {}
+                });
+
+                context = new ContextBuilder()
+                    .withDevice(device)
+                    .withResponse(response)
+                    .withStorage({
+                        ...storageProps,
+                        history: {
+                            handler: [
+                                {
+                                    sessionId: "sessionId",
+                                    intentId: "LaunchRequest",
+                                    timestamp: 123123
+                                }
+                            ]
+                        }
+                    })
+                    .build();
+                request = new IntentRequestBuilder().withIntentId(intentId).build();
+                await handler.handleRequest(request, context);
+            });
+            it("it returns the response", async () => {
+                expect(response.respond).to.have.been.called;
+                expect(response.respond).to.have.been.calledWith(intentIdContent);
+            });
+        });
     });
     describe("#isOwnRequest()", () => {
         let handler: TestHandler;
@@ -630,6 +701,43 @@ describe("AbstractHandler", () => {
                     intentId: "someRandomIntent"
                 };
                 expect(handler.canHandleRequest(request, context)).to.be.true;
+            });
+        });
+        describe("for slot filling", () => {
+            beforeEach(() => {
+                handler = new TestHandler({
+                    appId,
+                    organizationId,
+                    intentId,
+                    type: BASE_HANDLER_TYPE,
+                    content: {
+                        ["FillFoo"]: [
+                            {
+                                outputSpeech: "What type of foo?"
+                            }
+                        ]
+                    },
+                    data: {},
+                    slots: [
+                        {
+                            name: "foo",
+                            slotElicitationContentKey: "FillFoo"
+                        }
+                    ]
+                });
+            });
+            it("returns the correct value", async () => {
+                // The request will be an intent request but not contain a required slot
+                const request = new IntentRequestBuilder().withIntentId(intentId).build();
+                expect(handler.canHandleRequest(request, context)).to.be.true;
+                // This one is with the slot filled from the request, should return false
+                const requestFilled = new IntentRequestBuilder().withIntentId(intentId).withSlots({
+                    foo: {
+                        name: "foo",
+                        value: "FOOD"
+                    }
+                }).build();
+                expect(handler.canHandleRequest(requestFilled, context)).to.be.false;
             });
         });
     });

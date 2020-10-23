@@ -1,3 +1,3 @@
 ## stentor-guards
 
-Common type guards for :mega: stentor.
+Common type guards for 📣 stentor.

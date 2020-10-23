@@ -1,5 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { DateTime, DateTimeRange, RelativeDateRangeType, RelativeDateType } from "stentor-models";
+import { DateTime, DateTimeRange, RelativeDateRangeType, RelativeDateType, RequestSlotValues } from "stentor-models";
 import {
     addDays,
     addMonths,
@@ -9,12 +9,15 @@ import {
     endOfMonth,
     endOfWeek,
     endOfYear,
+    format,
     formatISO,
     Interval,
+    parse,
     startOfMonth,
     startOfWeek,
     startOfYear
 } from "date-fns";
+import { wordToNumber } from "./number";
 import { pruneEmpty } from "./json";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -26,34 +29,31 @@ export const ISO_8601_DATE_ONLY = /\d{4}-\d{2}-\d{2}/;
 export const ISO_8601_TIME_ONLY = /(\d{2}:\d{2}:\d{2})(?:-\d{2}:\d{2})?/;
 
 /**
- * Used on a RequestSlot.dateTime to determine if it is just dateTime or a range.
+ * Determine if the request slot value is a DateTime
  *
- * @export
- * @param {(DateTime | DateTimeRange)} item
- * @returns {item is DateTime}
+ * @public
+ * @param slotValue - Slot value to check 
  */
-export function isDateTime(item: DateTime | DateTimeRange): item is DateTime {
-    return !!item && (!!(item as DateTime).date || !!(item as DateTime).time);
+export function isDateTime(slotValue: RequestSlotValues): slotValue is DateTime {
+    return !!slotValue && (!!(slotValue as DateTime).date || !!(slotValue as DateTime).time);
 }
 
 /**
- * Used on a RequestSlot.dateTime to determine if it is just dateTime or a range.
+ * Determine if the request slot value is a DateTimeRange
  *
- * @export
- * @param {(DateTime | DateTimeRange)} item
- * @returns {item is DateTimeRange}
+ * @public
+ * @param slotValue - Slot value to check
  */
-export function isDateTimeRange(item: DateTime | DateTimeRange): item is DateTimeRange {
-    return !!item && (!!(item as DateTimeRange).start || !!(item as DateTimeRange).end);
+export function isDateTimeRange(slotValue: RequestSlotValues): slotValue is DateTimeRange {
+    return !!slotValue && (!!(slotValue as DateTimeRange).start || !!(slotValue as DateTimeRange).end);
 }
-
 
 /**
  * Converts a date time object to a string.
  *
  * Either a single date (2020-07-19T23:59:59) or a range (2019-07-19T00:00:00 --> 2020-07-19T23:59:59).
  *
- * @param dateTime
+ * @param dateTime - Either DateTime or DateTimeRange to convert to a string
  */
 export function dateTimeToString(dateTime: DateTime | DateTimeRange): string {
     if (typeof dateTime !== "object") {
@@ -61,24 +61,24 @@ export function dateTimeToString(dateTime: DateTime | DateTimeRange): string {
     }
 
     if (isDateTime(dateTime)) {
-        const date = (dateTime as DateTime).date;
-        const time = (dateTime as DateTime).time;
+        const date = dateTime.date ? format(parse(dateTime.date, "y-M-d", new Date()), "yyyy-MM-dd") : undefined;
+        const time = dateTime.time;
         return `${date ? date : ""}${date && time ? "T" : ""}${time ? time : ""}`;
     } else {
-        const start = (dateTime as DateTimeRange).start;
-        const end = (dateTime as DateTimeRange).end;
+        const start = dateTime.start;
+        const end = dateTime.end;
         let str = "";
         if (start) {
-            const date = (start as DateTime).date;
-            const time = (start as DateTime).time;
+            const date = start.date ? format(parse(start.date, "y-M-d", new Date()), "yyyy-MM-dd") : undefined;
+            const time = start.time;
             str = `${date ? date : ""}${date && time ? "T" : ""}${time ? time : ""}`;
         }
         if (start && end) {
             str += ` --> `;
         }
         if (end) {
-            const date = (end as DateTime).date;
-            const time = (end as DateTime).time;
+            const date = end.date ? format(parse(end.date, "y-M-d", new Date()), "yyyy-MM-dd") : undefined;
+            const time = end.time;
             str += `${date ? date : ""}${date && time ? "T" : ""}${time ? time : ""}`;
         }
         return str;
@@ -88,14 +88,14 @@ export function dateTimeToString(dateTime: DateTime | DateTimeRange): string {
 /**
  * Determines if the string is an ISO-8601 style string.
  *
+ * @remarks
  * This does not cover the entire 8601 spec, just a version
  * that is commonly used by NLUs to communicate date & time.
+ * For example, durations (like P1Y2M10D) are not supported.
  *
- * For example, durations (like P1Y2M10D) are not supported
- *
- * @export
- * @param {string} potential
- * @returns {boolean}
+ * @public
+ * @param potential - Potential ISO-8601 string
+ * @returns - True if the string is ISO-8601 Date & Time string
  */
 export function isISO8601(potential: string): boolean {
     if (!potential) {
@@ -114,11 +114,11 @@ export function isISO8601(potential: string): boolean {
  * commonly used by NLUs to communicate date & time.
  *
  *
- * @see isISO8601
- * @see https://en.wikipedia.org/wiki/ISO_8601#Time_intervals
- * @export
- * @param {string} potential
- * @returns {boolean}
+ * {@link isISO8601}
+ * {@link https://en.wikipedia.org/wiki/ISO_8601#Time_intervals}
+ * @public
+ * @param potential
+ * @returns True if the string confirms to ISO-8601 range format
  */
 export function isISO8601Range(potential: string): boolean {
     // Ranges have / in between them
@@ -133,8 +133,8 @@ export function isISO8601Range(potential: string): boolean {
  * separated by "-->"
  *
  * @export
- * @param {string} potential
- * @returns {boolean}
+ * @param potential
+ * @returns 
  */
 export function isDateTimeRangeString(potential: string): boolean {
     const regex = new RegExp(/^.+-->.+$/);
@@ -148,9 +148,9 @@ export function isDateTimeRangeString(potential: string): boolean {
  * it pulls out the date and the time.
  *
  * @export
- * @param {(string | Date)} date
- * @param {("time" | "date")} [includeOnly]
- * @returns {(DateTime | undefined)}
+ * @param date
+ * @param includeOnly
+ * @return 
  */
 export function getDateTimeFrom(date: string | Date, includeOnly?: "time" | "date"): DateTime | undefined {
     let slotDateTime: DateTime;
@@ -174,20 +174,18 @@ export function getDateTimeFrom(date: string | Date, includeOnly?: "time" | "dat
             } else if (includeOnly === "time") {
                 slotDateTime = pruneEmpty({
                     time: results[2],
-                    // tslint:disable-next-line:no-magic-numbers
                     tz: results[3]
                 });
             } else {
                 slotDateTime = pruneEmpty({
                     date: results[1],
                     time: results[2],
-                    // tslint:disable-next-line:no-magic-numbers
                     tz: results[3]
                 });
             }
         }
     } else {
-        // Not a typical ISO from dialogflow, going to try to pull out the individual components
+        // Not a typical ISO from Dialogflow, going to try to pull out the individual components
         // First date.
         const dateRegex = new RegExp(ISO_8601_DATE_ONLY);
         const dateResults = dateRegex.exec(dateTime);
@@ -213,8 +211,8 @@ export function getDateTimeFrom(date: string | Date, includeOnly?: "time" | "dat
  * Supports both the ISO-8601 range & "-->" style date range.
  *
  * @export
- * @param {string} date
- * @returns {(DateTimeRange | undefined)}
+ * @param date
+ * @returns
  */
 export function getDateTimeRangeFrom(date: string): DateTimeRange | undefined {
     let delimiter: string;
@@ -266,10 +264,9 @@ export function parseDate(parsable: string, returnOnly?: "date" | "time"): DateT
  * Support is currently limited, see possible RelativeDateType & RelativeDateRangeType for current
  * supported values.
  *
- * @export
- * @param {(RelativeDateType | RelativeDateRangeType)} relative
- * @param {Date} [now=new Date()]
- * @returns {(DateTime | DateTimeRange)}
+ * @param relative - The relative date
+ * @param now - Optional date to use to calculate date off of
+ * @returns - Computed relative data time
  */
 export function parseRelativeDate(
     relative: RelativeDateRangeType | RelativeDateType | string,
@@ -284,40 +281,53 @@ export function parseRelativeDate(
         relative.includes("WEEKEND")
     ) {
         // The delta tells us how much we add depending on the prefix of LAST, THIS, or NEXT
-        let delta = 0;
+        let deltaStart = 0;
+        let deltaEnd = 0;
         if (relative.includes("LAST")) {
-            delta = -1;
+            deltaStart = -1;
+            deltaEnd = -1;
+            // See if we have a number
+            const possibleNumber = wordToNumber(relative.split("_")[1]);
+            if (typeof possibleNumber === "number") {
+                // Make it negative
+                deltaStart = -possibleNumber;
+            }
         } else if (relative.includes("NEXT")) {
-            delta = 1;
+            deltaEnd = 1;
+            deltaStart = 1;
+            // Search for other NUMBER words and change the delta
+            const possibleNumber = wordToNumber(relative.split("_")[1]);
+            if (typeof possibleNumber === "number") {
+                deltaEnd = possibleNumber;
+            }
         } else if (relative.includes("THIS")) {
-            delta = 0;
+            deltaStart = 0
+            deltaEnd = 0;
         }
 
         if (relative.includes("WEEKEND")) {
             // Weekend is different.
             // THIS & NEXT can mean the same thing Monday - Friday
             // If currently in a weekend, THIS is the current one.
-            // tslint:disable-next-line:no-magic-numbers
             let interval: Interval;
-            if (delta === 0) {
+            if (deltaStart === 0) {
                 // This is where we have to account for if
                 // we are in the weekend.
                 // In case we are on Sunday, we go back one
                 // and still go forward a week
                 interval = {
                     start: addDays(now, -1),
-                    // tslint:disable-next-line:no-magic-numbers
                     end: addDays(now, 7)
                 };
-            } else if (delta === -1) {
+            } else if (deltaStart === -1) {
                 interval = {
-                    start: addWeeks(now, delta),
+                    start: addWeeks(now, deltaStart),
                     end: now
                 };
-            } else if (delta === 1) {
+            } else if (deltaEnd === 1) {
                 interval = {
                     start: now,
-                    end: addWeeks(now, delta)
+                    end: addWeeks(now, deltaEnd)
                 };
             }
 
@@ -327,26 +337,29 @@ export function parseRelativeDate(
                 end: getDateTimeFrom(weekends[1], "date")
             };
         } else if (relative.includes("WEEK")) {
-            const updatedDate = addWeeks(now, delta);
-            const start = getDateTimeFrom(startOfWeek(updatedDate), "date");
-            const end = getDateTimeFrom(endOfWeek(updatedDate), "date");
+            const updatedDateStart = addWeeks(now, deltaStart);
+            const start = getDateTimeFrom(startOfWeek(updatedDateStart), "date");
+            const updatedDateEnd = addWeeks(now, deltaEnd);
+            const end = getDateTimeFrom(endOfWeek(updatedDateEnd), "date");
             // FYI: weeks start on Sunday
             dateTime = {
                 start,
                 end
             };
         } else if (relative.includes("MONTH")) {
-            const updatedDate = addMonths(now, delta);
-            const start = getDateTimeFrom(startOfMonth(updatedDate), "date");
-            const end = getDateTimeFrom(endOfMonth(updatedDate), "date");
+            const updatedDateStart = addMonths(now, deltaStart);
+            const start = getDateTimeFrom(startOfMonth(updatedDateStart), "date");
+            const updatedEndDate = addMonths(now, deltaEnd);
+            const end = getDateTimeFrom(endOfMonth(updatedEndDate), "date");
             dateTime = {
                 start,
                 end
             };
         } else if (relative.includes("YEAR")) {
-            const updatedDate = addYears(now, delta);
-            const start = getDateTimeFrom(startOfYear(updatedDate), "date");
-            const end = getDateTimeFrom(endOfYear(updatedDate), "date");
+            const updatedStartDate = addYears(now, deltaStart);
+            const start = getDateTimeFrom(startOfYear(updatedStartDate), "date");
+            const updatedEndDate = addYears(now, deltaEnd);
+            const end = getDateTimeFrom(endOfYear(updatedEndDate), "date");
             dateTime = {
                 start,
                 end

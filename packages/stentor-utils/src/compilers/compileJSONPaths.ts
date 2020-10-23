@@ -6,17 +6,20 @@ import * as jp from "jsonpath";
 type ResponseOutputKeysOnly = Pick<ResponseOutput, "ssml" | "displayText" | "textToSpeech">;
 
 /* private */
-function compileString(value: string, object: object): string {
+function compileString(value: string, object: object, replaceWhenUndefined: boolean): string {
     let compiledValue: string = value;
     let result: RegExpExecArray = TEMPLATE_REGEX.exec(value);
     // Set exit condition to be when the results are null
     while (result !== null) {
         // index 1 is the capture
-        const captured = result[1];
+        const captured = result[1].trim();
         // query the path
         const pathResult = jp.query(object, captured.trim());
+        const replacement = pathResult[0];
         // now replace if we have a result
-        compiledValue = compiledValue.replace(result[0], pathResult[0]);
+        if (replacement || replaceWhenUndefined) {
+            compiledValue = compiledValue.replace(result[0], pathResult[0]);
+        }
         // loop it around again
         result = TEMPLATE_REGEX.exec(value);
     }
@@ -29,14 +32,10 @@ function compileString(value: string, object: object): string {
  *
  * For example, when passed "${greeting} ${foo.name}, how are you?" and
  * { greeting: "Hello", foo: {name: "Bob" }} will be compiled to "Hello Bob, how are you?"
- *
- * @param {string} value
- * @param {object} object
- * @returns {string}
  */
-export function compileJSONPaths(responseOutput: string, object: object): string;
-export function compileJSONPaths(responseOutput: ResponseOutput, object: object): ResponseOutput;
-export function compileJSONPaths(responseOutput: string | ResponseOutput, object: object): string | ResponseOutput {
+export function compileJSONPaths(responseOutput: string, object: object, replaceWhenUndefined?: boolean): string;
+export function compileJSONPaths(responseOutput: ResponseOutput, object: object, replaceWhenUndefined?: boolean): ResponseOutput;
+export function compileJSONPaths(responseOutput: string | ResponseOutput, object: object, replaceWhenUndefined?: boolean): string | ResponseOutput {
     if (!responseOutput || !object) {
         return responseOutput;
     }
@@ -44,7 +43,7 @@ export function compileJSONPaths(responseOutput: string | ResponseOutput, object
     let compiledValue: string | ResponseOutput = responseOutput;
 
     if (typeof compiledValue === "string") {
-        compiledValue = compileString(compiledValue, object);
+        compiledValue = compileString(compiledValue, object, replaceWhenUndefined);
     } else {
         // Response is { ssml, displayText }
         const value: ResponseOutput = compiledValue; // This reassignment is only to make TS happy
@@ -53,7 +52,7 @@ export function compileJSONPaths(responseOutput: string | ResponseOutput, object
         // Iterate through the keys
         keys.forEach(key => {
             if (value[key]) {
-                value[key] = compileString(value[key], object);
+                value[key] = compileString(value[key], object, replaceWhenUndefined);
             }
         });
     }

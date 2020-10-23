@@ -8,6 +8,7 @@ import { Media } from "../Media";
 import { RequestDependable, SystemDependable } from "../Request";
 import { SlotDependable } from "../Slot";
 import { StorageDependable } from "../Storage";
+import { CanFulfillIntentResult } from "./CanFulfillIntentResult";
 import { ResponseOutput } from "./ResponseOutput";
 import { ResponseSegmentsMap } from "./ResponseSegment";
 
@@ -17,16 +18,22 @@ import { ResponseSegmentsMap } from "./ResponseSegment";
 export interface ResponseData {
     /**
      * Provides context to the user for select system responses.
-     * 
+     *
      * Used for SURFACE_CHANGE, ACCOUNT_LINK,
      */
     content?: string;
     /**
      * Provides a title for select system responses.
-     * 
+     *
      * Used for SURFACE_CHANGE
      */
     title?: string;
+    /**
+     * If a request ({@link see IntentRequest.canFulfill}) has canFufill as true,
+     * this provides information about it's ability to fulfill the request.
+     *  
+     */
+    canFulfill?: CanFulfillIntentResult;
     /**
      * During media playback, expected previous token is used
      * as a reference point.  It is used by certain channels
@@ -35,9 +42,8 @@ export interface ResponseData {
      */
     expectedPreviousToken?: string;
     // Additional Keys
-    [key: string]: string | number | boolean | undefined;
+    [key: string]: string | number | boolean | object | undefined;
 }
-
 
 /**
  * A response that expects a user's input.
@@ -92,7 +98,8 @@ export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Act
     | "PERMISSION_LOCATION_PRECISE"
     | "PERMISSION_LOCATION_COARSE"
     | "PERMISSION_NOTIFICATION"
-    | "TRANSFER_CALL";
+    | "TRANSFER_CALL"
+    | "HANDOFF";
     /**
      * Supplemental data to augment the response.
      */

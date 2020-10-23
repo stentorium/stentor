@@ -1,7 +1,7 @@
 {
   "metadata": {
     "toolPackage": "@microsoft/api-extractor",
-    "toolVersion": "7.7.0",
+    "toolVersion": "7.10.4",
     "schemaVersion": 1003,
     "oldestForwardsCompatibleVersion": 1001
   },
@@ -1085,7 +1085,7 @@
             {
               "kind": "Method",
               "canonicalReference": "stentor-models!AbstractResponseBuilder#withCanFulfill:member(1)",
-              "docComment": "/**\n * Build intent pre-fetch results aka \"CanFulfillRequest\"\n *\n * @param  - results\n *\n * @returns The builder instance\n */\n",
+              "docComment": "/**\n * Build intent pre-fetch results aka \"CanFulfillRequest\"\n *\n * @param results - \n *\n * @returns The builder instance\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1387,64 +1387,6 @@
           "implementsTokenRanges": []
         },
         {
-          "kind": "Interface",
-          "canonicalReference": "stentor-models!Accounts:interface",
-          "docComment": "/**\n * A collection of accounts that are linked to the organization. The name is the type of account that is linked. The object linked is unique to the account type, so it's up to the client to know what that is.\n */\n",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "export interface Accounts "
-            }
-          ],
-          "releaseTag": "Public",
-          "name": "Accounts",
-          "members": [
-            {
-              "kind": "IndexSignature",
-              "canonicalReference": "stentor-models!Accounts:index(1)",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "[accountName: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": "]: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "any"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "returnTypeTokenRange": {
-                "startIndex": 3,
-                "endIndex": 4
-              },
-              "releaseTag": "Public",
-              "overloadIndex": 1,
-              "parameters": [
-                {
-                  "parameterName": "accountName",
-                  "parameterTypeTokenRange": {
-                    "startIndex": 1,
-                    "endIndex": 2
-                  }
-                }
-              ]
-            }
-          ],
-          "extendsTokenRanges": []
-        },
-        {
           "kind": "TypeAlias",
           "canonicalReference": "stentor-models!Action:type",
           "docComment": "",
@@ -1600,59 +1542,6 @@
             }
           ],
           "extendsTokenRanges": []
-        },
-        {
-          "kind": "TypeAlias",
-          "canonicalReference": "stentor-models!AlexaCard:type",
-          "docComment": "/**\n * @interface\n */\n",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "type Card = "
-            },
-            {
-              "kind": "Reference",
-              "text": "ui.AskForPermissionsConsentCard",
-              "canonicalReference": "ask-sdk-model!ui.AskForPermissionsConsentCard:interface"
-            },
-            {
-              "kind": "Content",
-              "text": " | "
-            },
-            {
-              "kind": "Reference",
-              "text": "ui.LinkAccountCard",
-              "canonicalReference": "ask-sdk-model!ui.LinkAccountCard:interface"
-            },
-            {
-              "kind": "Content",
-              "text": " | "
-            },
-            {
-              "kind": "Reference",
-              "text": "ui.StandardCard",
-              "canonicalReference": "ask-sdk-model!ui.StandardCard:interface"
-            },
-            {
-              "kind": "Content",
-              "text": " | "
-            },
-            {
-              "kind": "Reference",
-              "text": "ui.SimpleCard",
-              "canonicalReference": "ask-sdk-model!ui.SimpleCard:interface"
-            },
-            {
-              "kind": "Content",
-              "text": ";"
-            }
-          ],
-          "releaseTag": "Public",
-          "name": "AlexaCard",
-          "typeTokenRange": {
-            "startIndex": 1,
-            "endIndex": 8
-          }
         },
         {
           "kind": "Interface",
@@ -2679,31 +2568,6 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!App#internalNotes:member",
-              "docComment": "/**\n * Allows stentor_admins to view and add notes to apps for internal use\n *\n * @deprecated\n *\n * Will be moving to OVAI specific App model\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "internalNotes?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "internalNotes",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
               "canonicalReference": "stentor-models!App#invocationName:member",
               "docComment": "/**\n * The invocation name.\n *\n * This can be overridden for each individual channels.\n */\n",
               "excerptTokens": [
@@ -2722,32 +2586,6 @@
               ],
               "releaseTag": "Public",
               "name": "invocationName",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!App#ipRights:member",
-              "docComment": "/**\n * Allows app-specific overriding of IPRights\n *\n * @deprecated\n *\n * Will be moving to OVAI specific App model\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "ipRights?: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "IPRights",
-                  "canonicalReference": "stentor-models!IPRights:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "ipRights",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -2994,11 +2832,11 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!App#organizationId:member",
-              "docComment": "/**\n * The ID of the organization the app belongs to\n */\n",
+              "docComment": "/**\n * @deprecated\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
-                  "text": "organizationId: "
+                  "text": "organizationId?: "
                 },
                 {
                   "kind": "Content",
@@ -3120,57 +2958,6 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!App#status:member",
-              "docComment": "/**\n * Current status of the app\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "status?: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "FullAppStatus",
-                  "canonicalReference": "stentor-models!FullAppStatus:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "status",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!App#stripeSubscriptionId:member",
-              "docComment": "/**\n * The subscription ID that is linked to this app.\n *\n * @deprecated\n *\n * Will be moving to OVAI specific App model\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "stripeSubscriptionId?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "stripeSubscriptionId",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
               "canonicalReference": "stentor-models!App#summary:member",
               "docComment": "/**\n * The summary of the app.\n *\n * Shorter than the description, maximum 160 characters.\n */\n",
               "excerptTokens": [
@@ -3189,32 +2976,6 @@
               ],
               "releaseTag": "Public",
               "name": "summary",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!App#templateType:member",
-              "docComment": "/**\n * Type of template the app and its intents adhere to.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "templateType?: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "TemplateType",
-                  "canonicalReference": "stentor-models!TemplateType:type"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "templateType",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -4404,8 +4165,33 @@
           }
         },
         {
+          "kind": "TypeAlias",
+          "canonicalReference": "stentor-models!AttachmentRequestID:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare type AttachmentRequestID = "
+            },
+            {
+              "kind": "Content",
+              "text": "\"AttachmentRequest\""
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "AttachmentRequestID",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
           "kind": "Interface",
-          "canonicalReference": "stentor-models!Audio:interface",
+          "canonicalReference": "stentor-models!Audio_2:interface",
           "docComment": "/**\n * Playable media designed for hands-free & eyes-free consumption.\n *\n * This interface cannot be implemented directly.\n *\n * See the following: * {@link https://developers.google.com/actions/assistant/responses#media_responses} * {@link https://developers.google.com/actions/reference/rest/Shared.Types/AppResponse#mediaresponse} * {@link https://developer.amazon.com/docs/custom-skills/audioplayer-interface-reference.html#play-params}\n */\n",
           "excerptTokens": [
             {
@@ -4423,11 +4209,11 @@
             }
           ],
           "releaseTag": "Public",
-          "name": "Audio",
+          "name": "Audio_2",
           "members": [
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Audio#backgroundImage:member",
+              "canonicalReference": "stentor-models!Audio_2#backgroundImage:member",
               "docComment": "/**\n * When applicable (Alexa), the background image for display surfaces.\n *\n * Minimum dimensions are 1024 by 640 pixels\n */\n",
               "excerptTokens": [
                 {
@@ -4452,7 +4238,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Audio#description:member",
+              "canonicalReference": "stentor-models!Audio_2#description:member",
               "docComment": "/**\n * Description of the audio\n *\n * Max length is 160 characters, limited by Google.\n */\n",
               "excerptTokens": [
                 {
@@ -4477,7 +4263,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Audio#image:member",
+              "canonicalReference": "stentor-models!Audio_2#image:member",
               "docComment": "/**\n * Image for the audio, typically the album art.\n *\n * Dimensions must be square, minimum 480 by 480 pixels\n */\n",
               "excerptTokens": [
                 {
@@ -4502,7 +4288,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Audio#subtitle:member",
+              "canonicalReference": "stentor-models!Audio_2#subtitle:member",
               "docComment": "/**\n * Subtitle for the audio.\n *\n * This is typically the category or artist name.\n */\n",
               "excerptTokens": [
                 {
@@ -4527,7 +4313,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Audio#title:member",
+              "canonicalReference": "stentor-models!Audio_2#title:member",
               "docComment": "/**\n * Title (or name) of the audio.\n *\n * This is typically the track title or podcast episode name.\n */\n",
               "excerptTokens": [
                 {
@@ -4552,7 +4338,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Audio#type:member",
+              "canonicalReference": "stentor-models!Audio_2#type:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -4714,97 +4500,6 @@
             "startIndex": 1,
             "endIndex": 2
           }
-        },
-        {
-          "kind": "Interface",
-          "canonicalReference": "stentor-models!AudioPlayer:interface",
-          "docComment": "",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "export interface AudioPlayer "
-            }
-          ],
-          "releaseTag": "Public",
-          "name": "AudioPlayer",
-          "members": [
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!AudioPlayer#offsetInMilliseconds:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "offsetInMilliseconds?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "number"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "offsetInMilliseconds",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!AudioPlayer#status:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "status: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "\"IDLE\" | \"PAUSED\" | \"PLAYING\" | \"STOPPED\" | \"FINISHED\" | \"BUFFER_UNDERRUN\""
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "status",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!AudioPlayer#token:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "token?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "token",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            }
-          ],
-          "extendsTokenRanges": []
         },
         {
           "kind": "TypeAlias",
@@ -5527,6 +5222,31 @@
           "extendsTokenRanges": []
         },
         {
+          "kind": "TypeAlias",
+          "canonicalReference": "stentor-models!BaseHandlerType:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare type BaseHandlerType = "
+            },
+            {
+              "kind": "Content",
+              "text": "\"HandlerIntent\""
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "BaseHandlerType",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
           "kind": "Interface",
           "canonicalReference": "stentor-models!BaseRequest:interface",
           "docComment": "/**\n * Shared parameters for each Request\n */\n",
@@ -5610,6 +5330,31 @@
               ],
               "releaseTag": "Public",
               "name": "apiAccess",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!BaseRequest#deviceId:member",
+              "docComment": "/**\n * Unique identifier provided by the channel for the user's current device.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "deviceId?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "deviceId",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -5844,45 +5589,6 @@
             }
           ],
           "extendsTokenRanges": []
-        },
-        {
-          "kind": "TypeAlias",
-          "canonicalReference": "stentor-models!BasicCardItem:type",
-          "docComment": "",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "export declare type BasicCardItem = "
-            },
-            {
-              "kind": "Reference",
-              "text": "Pick",
-              "canonicalReference": "!Pick:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "GoogleActionsV2RichResponseItem",
-              "canonicalReference": "actions-on-google!GoogleActionsV2RichResponseItem:interface"
-            },
-            {
-              "kind": "Content",
-              "text": ", \"basicCard\">"
-            },
-            {
-              "kind": "Content",
-              "text": ";"
-            }
-          ],
-          "releaseTag": "Public",
-          "name": "BasicCardItem",
-          "typeTokenRange": {
-            "startIndex": 1,
-            "endIndex": 5
-          }
         },
         {
           "kind": "Interface",
@@ -6602,73 +6308,6 @@
         },
         {
           "kind": "Interface",
-          "canonicalReference": "stentor-models!CarouselSelectData:interface",
-          "docComment": "",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "export interface CarouselSelectData "
-            }
-          ],
-          "releaseTag": "Public",
-          "name": "CarouselSelectData",
-          "members": [
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!CarouselSelectData#\"@type\":member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "\"@type\": "
-                },
-                {
-                  "kind": "Content",
-                  "text": "\"type.googleapis.com/google.actions.v2.OptionValueSpec\""
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "\"@type\"",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!CarouselSelectData#carouselSelect:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "carouselSelect: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "GoogleActionsV2UiElementsCarouselSelect",
-                  "canonicalReference": "actions-on-google!GoogleActionsV2UiElementsCarouselSelect:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "carouselSelect",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            }
-          ],
-          "extendsTokenRanges": []
-        },
-        {
-          "kind": "Interface",
           "canonicalReference": "stentor-models!Channel:interface",
           "docComment": "",
           "excerptTokens": [
@@ -6713,7 +6352,7 @@
             {
               "kind": "MethodSignature",
               "canonicalReference": "stentor-models!Channel#capabilities:member(1)",
-              "docComment": "/**\n * Determine the device capabilities for the channel.\n */\n",
+              "docComment": "/**\n * Determine the capabilities and contextual information related to the device the user is accessing the channel on.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -6783,7 +6422,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!Channel#name:member",
-              "docComment": "/**\n * The name of the channel.\n *\n * This must be alphanumeric characters only, dashes instead of spaces.\n *\n * For example: actions-on-google or alexa\n *\n * This is used in analytics and in some cases platform selection if the platform is provided in the URL as a query or path parameter.\n */\n",
+              "docComment": "/**\n * The name of the channel.\n *\n * This must be alphanumeric characters only, dashes instead of spaces.\n *\n * For example: \"actions-on-google\" or \"alexa\"\n *\n * This is used in analytics and in some cases platform selection if the platform is provided in the URL as a query or path parameter.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -7025,7 +6664,7 @@
               "excerptTokens": [
                 {
                   "kind": "Content",
-                  "text": "id?: "
+                  "text": "id: "
                 },
                 {
                   "kind": "Content",
@@ -7147,7 +6786,7 @@
             },
             {
               "kind": "Content",
-              "text": ", \"preExecution\">"
+              "text": ", \"preExecution\" | \"postRequestTranslation\">"
             },
             {
               "kind": "Content",
@@ -7328,6 +6967,300 @@
           }
         },
         {
+          "kind": "TypeAlias",
+          "canonicalReference": "stentor-models!Conditional:type",
+          "docComment": "/**\n * An object that is Conditional implements Conditioned.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare type Conditional<T> = "
+            },
+            {
+              "kind": "Content",
+              "text": "T & "
+            },
+            {
+              "kind": "Reference",
+              "text": "Conditioned",
+              "canonicalReference": "stentor-models!Conditioned:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "Conditional",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 3
+          }
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "stentor-models!ConditionalCheck:interface",
+          "docComment": "/**\n * A conditional check is used to test an object to see if the check applies and also can perform the check.\n *\n * The functions are used to check the condition with evaluating a string conditional.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface ConditionalCheck<T = "
+            },
+            {
+              "kind": "Content",
+              "text": "any"
+            },
+            {
+              "kind": "Content",
+              "text": "> "
+            }
+          ],
+          "releaseTag": "Public",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "name": "ConditionalCheck",
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!ConditionalCheck#check:member",
+              "docComment": "/**\n * Check that is performed on the object to determine if it passes or fails the criteria.\n *\n * The first argument is the object while the subsequent parameters are any additional optional information that is required to make the determination.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "check: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(obj: T, ...args: any) => boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "check",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!ConditionalCheck#functions:member",
+              "docComment": "/**\n * A set of functions that help determination within a string.\n *\n * For example, for a time based conditional check, you can provide a function:\n *\n * shedule(startTime: string, duration: number, timezone: string): boolean\n *\n * which turns true if the current time is within the provided parameters.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "functions: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "((...args: any) => boolean)[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "functions",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!ConditionalCheck#test:member",
+              "docComment": "/**\n * A test for an object, that if returns true, can then be passed to the check function.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "test: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(obj: T | object) => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "obj",
+                  "canonicalReference": "stentor-models!~obj"
+                },
+                {
+                  "kind": "Content",
+                  "text": " is T"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "test",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "stentor-models!Conditioned:interface",
+          "docComment": "/**\n * An object can implement Conditioned if it has a set of conditions.\n *\n * @beta\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface Conditioned "
+            }
+          ],
+          "releaseTag": "Beta",
+          "name": "Conditioned",
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!Conditioned#conditions:member",
+              "docComment": "/**\n * Conditions to be met.\n *\n * Can either be a Conditions object or a string such as \"foo('bar') || false\"\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "conditions: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Conditions",
+                  "canonicalReference": "stentor-models!Conditions:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Beta",
+              "name": "conditions",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "stentor-models!Conditions:interface",
+          "docComment": "/**\n * Definition of conditions.\n *\n * @remarks\n *\n * A couple of notes on the behavior: * If passed musts and shoulds, they are ANDed (or &&) together. All musts must pass and at least one should needs to pass. * If only one shoulds is provided, it must return true for the conditions to be met. * If multiple shoulds are passed\n *\n * @beta\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface Conditions "
+            }
+          ],
+          "releaseTag": "Beta",
+          "name": "Conditions",
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!Conditions#must:member",
+              "docComment": "/**\n * All objects within must return true in order for the conditions to be met.\n *\n * It might be helpful to think of these as ANDs (or &&)\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "must?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Contexts",
+                  "canonicalReference": "stentor-models!Contexts:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | object)[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Beta",
+              "name": "must",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!Conditions#should:member",
+              "docComment": "/**\n * Only one of the objects within the array must pass for the conditions to be met.\n *\n * If only one is provided, it must pass for the condtions to be met.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "should?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "("
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Contexts",
+                  "canonicalReference": "stentor-models!Contexts:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | object)[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Beta",
+              "name": "should",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
           "kind": "Interface",
           "canonicalReference": "stentor-models!Content:interface",
           "docComment": "/**\n * Base content map for the handler.\n *\n * All handlers have contextual help and cancel content\n */\n",
@@ -7453,7 +7386,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "stentor-models!Context:interface",
-          "docComment": "/**\n * Context object that is passed around while formulating the response\n *\n * NOTE: This is really HandlerContext\n */\n",
+          "docComment": "/**\n * Context object that is passed around while formulating the response.\n *\n * It contains contextual information relevant to the user.\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -7500,34 +7433,8 @@
           "members": [
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Context#audioPlayer:member",
-              "docComment": "/**\n * Status of the Audio Player\n *\n * Only exists if the app is playing audio\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "audioPlayer?: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "AudioPlayer",
-                  "canonicalReference": "stentor-models!AudioPlayer:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "audioPlayer",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
               "canonicalReference": "stentor-models!Context#device:member",
-              "docComment": "/**\n * Device Capabilities\n */\n",
+              "docComment": "/**\n * Information about the current device the user is on within the channel.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -7720,8 +7627,8 @@
             },
             {
               "kind": "Reference",
-              "text": "JSONDependent",
-              "canonicalReference": "stentor-models!JSONDependent:interface"
+              "text": "ActiveWithinable",
+              "canonicalReference": "stentor-models!ActiveWithinable:interface"
             },
             {
               "kind": "Content",
@@ -7729,12 +7636,30 @@
             },
             {
               "kind": "Reference",
-              "text": "LastActive",
-              "canonicalReference": "stentor-models!LastActive:type"
+              "text": "FirstTimeable",
+              "canonicalReference": "stentor-models!FirstTimeable:interface"
             },
             {
               "kind": "Content",
-              "text": "<object> | "
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "HaveNotSeenWithinable",
+              "canonicalReference": "stentor-models!HaveNotSeenWithinable:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "JSONDependent",
+              "canonicalReference": "stentor-models!JSONDependent:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
             },
             {
               "kind": "Reference",
@@ -7786,7 +7711,7 @@
           "name": "Contexts",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 14
+            "endIndex": 18
           }
         },
         {
@@ -7841,16 +7766,16 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "stentor-models!CustomType:type",
-          "docComment": "/**\n * Used to communicate the app is custom and does not adhere to a specific predefined template.\n */\n",
+          "canonicalReference": "stentor-models!ConversationHandlerType:type",
+          "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type CustomType = "
+              "text": "export declare type ConversationHandlerType = "
             },
             {
               "kind": "Content",
-              "text": "\"CUSTOM\""
+              "text": "\"InSessionIntent\""
             },
             {
               "kind": "Content",
@@ -7858,7 +7783,7 @@
             }
           ],
           "releaseTag": "Public",
-          "name": "CustomType",
+          "name": "ConversationHandlerType",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -8344,6 +8269,31 @@
           }
         },
         {
+          "kind": "TypeAlias",
+          "canonicalReference": "stentor-models!DelegatingHandlerType:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare type DelegatingHandlerType = "
+            },
+            {
+              "kind": "Content",
+              "text": "\"DelegatingHandlerType\""
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "DelegatingHandlerType",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
           "kind": "Interface",
           "canonicalReference": "stentor-models!Device:interface",
           "docComment": "/**\n * Describes the capability of the device where the request originated.\n *\n * It also provides insight to how you can respond to the current request as it isn't always possible to return speech.\n */\n",
@@ -8577,6 +8527,57 @@
               ],
               "releaseTag": "Public",
               "name": "hasScreen",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!Device#hasWebBrowser:member",
+              "docComment": "/**\n * If the device has web browser capability\n *\n * Google assistant app has it, hub doesn't\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "hasWebBrowser: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "hasWebBrowser",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!Device#mediaPlayerStatus:member",
+              "docComment": "/**\n * Some channels and devices also support media playback\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "mediaPlayerStatus?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "MediaPlayerStatus",
+                  "canonicalReference": "stentor-models!MediaPlayerStatus:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "mediaPlayerStatus",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -8857,24 +8858,6 @@
             },
             {
               "kind": "Reference",
-              "text": "AlexaCard",
-              "canonicalReference": "ask-sdk-model!ui.Card:type"
-            },
-            {
-              "kind": "Content",
-              "text": " | "
-            },
-            {
-              "kind": "Reference",
-              "text": "BasicCardItem",
-              "canonicalReference": "stentor-models!BasicCardItem:type"
-            },
-            {
-              "kind": "Content",
-              "text": " | "
-            },
-            {
-              "kind": "Reference",
               "text": "Card",
               "canonicalReference": "stentor-models!Card:interface"
             },
@@ -8884,44 +8867,8 @@
             },
             {
               "kind": "Reference",
-              "text": "CarouselSelectData",
-              "canonicalReference": "stentor-models!CarouselSelectData:interface"
-            },
-            {
-              "kind": "Content",
-              "text": " | "
-            },
-            {
-              "kind": "Reference",
               "text": "List",
               "canonicalReference": "stentor-models!List:interface"
-            },
-            {
-              "kind": "Content",
-              "text": " | "
-            },
-            {
-              "kind": "Reference",
-              "text": "ListSelectData",
-              "canonicalReference": "stentor-models!ListSelectData:interface"
-            },
-            {
-              "kind": "Content",
-              "text": " | "
-            },
-            {
-              "kind": "Reference",
-              "text": "NativeTemplateDirective",
-              "canonicalReference": "stentor-models!NativeTemplateDirective:interface"
-            },
-            {
-              "kind": "Content",
-              "text": " | "
-            },
-            {
-              "kind": "Reference",
-              "text": "RenderTemplateDirective",
-              "canonicalReference": "ask-sdk-model!interfaces.display.RenderTemplateDirective:interface"
             },
             {
               "kind": "Content",
@@ -8945,7 +8892,7 @@
           "name": "Display",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 19
+            "endIndex": 7
           }
         },
         {
@@ -9456,7 +9403,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!Entity#dialogflowId:member",
-              "docComment": "/**\n * Optional ID if the slot type has a representation in Dialogflow.\n */\n",
+              "docComment": "/**\n * Optional ID if the slot type has a representation in Dialogflow.\n *\n * @deprecated\n *\n * This field is being phased out.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -9523,6 +9470,31 @@
               ],
               "releaseTag": "Public",
               "name": "entityId",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!Entity#nlu:member",
+              "docComment": "/**\n * NLU specific metadata used when translating to the NLU entity.\n *\n * Use it to override the entity type for a specific NLU\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "nlu?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "{\n        [nlu: string]: {\n            type: string;\n        };\n    }"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "nlu",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -9654,7 +9626,7 @@
         },
         {
           "kind": "Interface",
-          "canonicalReference": "stentor-models!ErrorEvent:interface",
+          "canonicalReference": "stentor-models!ErrorEvent_2:interface",
           "docComment": "",
           "excerptTokens": [
             {
@@ -9681,11 +9653,11 @@
             }
           ],
           "releaseTag": "Public",
-          "name": "ErrorEvent",
+          "name": "ErrorEvent_2",
           "members": [
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!ErrorEvent#type:member",
+              "canonicalReference": "stentor-models!ErrorEvent_2#type:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -9956,7 +9928,7 @@
         },
         {
           "kind": "Interface",
-          "canonicalReference": "stentor-models!Event:interface",
+          "canonicalReference": "stentor-models!Event_2:interface",
           "docComment": "/**\n * The base structure for an Event. An event must be serializable to a string so it can be reconstructed on the other side.\n */\n",
           "excerptTokens": [
             {
@@ -9994,11 +9966,11 @@
               }
             }
           ],
-          "name": "Event",
+          "name": "Event_2",
           "members": [
             {
               "kind": "IndexSignature",
-              "canonicalReference": "stentor-models!Event:index(1)",
+              "canonicalReference": "stentor-models!Event_2:index(1)",
               "docComment": "/**\n * Any additional keys with which this event contains.\n */\n",
               "excerptTokens": [
                 {
@@ -10040,7 +10012,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Event#currentHandler:member",
+              "canonicalReference": "stentor-models!Event_2#currentHandler:member",
               "docComment": "/**\n * The current handler the user was in at the time of the request.\n */\n",
               "excerptTokens": [
                 {
@@ -10065,7 +10037,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Event#isHealthCheck:member",
+              "canonicalReference": "stentor-models!Event_2#isHealthCheck:member",
               "docComment": "/**\n * Is the event from a health check\n */\n",
               "excerptTokens": [
                 {
@@ -10090,7 +10062,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Event#isNewSession:member",
+              "canonicalReference": "stentor-models!Event_2#isNewSession:member",
               "docComment": "/**\n * Is the event the start of a session.\n */\n",
               "excerptTokens": [
                 {
@@ -10115,7 +10087,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Event#name:member",
+              "canonicalReference": "stentor-models!Event_2#name:member",
               "docComment": "/**\n * The name of this event.\n */\n",
               "excerptTokens": [
                 {
@@ -10140,7 +10112,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Event#payload:member",
+              "canonicalReference": "stentor-models!Event_2#payload:member",
               "docComment": "/**\n * A serializable payload to associate with the event.\n */\n",
               "excerptTokens": [
                 {
@@ -10165,7 +10137,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Event#selectedHandler:member",
+              "canonicalReference": "stentor-models!Event_2#selectedHandler:member",
               "docComment": "/**\n * The handler that was selected based on the request and the current handler.\n */\n",
               "excerptTokens": [
                 {
@@ -10190,7 +10162,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Event#type:member",
+              "canonicalReference": "stentor-models!Event_2#type:member",
               "docComment": "/**\n * The type of event which is being sent.\n */\n",
               "excerptTokens": [
                 {
@@ -10233,7 +10205,7 @@
             {
               "kind": "MethodSignature",
               "canonicalReference": "stentor-models!EventStream#addEvent:member(1)",
-              "docComment": "/**\n * Add an event to the stream. This will not be sent until the event is flushed.\n *\n * @param  - event The event to send.\n */\n",
+              "docComment": "/**\n * Add an event to the stream. This will not be sent until the event is flushed.\n *\n * @param event - The event to send.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -12334,7 +12306,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "stentor-models!HandlerService:interface",
-          "docComment": "",
+          "docComment": "/**\n * The HandlerService provides the assistant application's dialog management with logic and content in the form of a {@link Handler}.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -12347,7 +12319,7 @@
             {
               "kind": "MethodSignature",
               "canonicalReference": "stentor-models!HandlerService#get:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Returns the handler for the provided ID or undefined if not found.\n *\n * @param id - Either the ID as a string or an object that has the ID under intentId\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -12377,7 +12349,16 @@
                 },
                 {
                   "kind": "Content",
-                  "text": ">"
+                  "text": "> | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<undefined>"
                 },
                 {
                   "kind": "Content",
@@ -12386,7 +12367,7 @@
               ],
               "returnTypeTokenRange": {
                 "startIndex": 3,
-                "endIndex": 7
+                "endIndex": 9
               },
               "releaseTag": "Public",
               "overloadIndex": 1,
@@ -12571,7 +12552,7 @@
         },
         {
           "kind": "Interface",
-          "canonicalReference": "stentor-models!History:interface",
+          "canonicalReference": "stentor-models!History_2:interface",
           "docComment": "/**\n * History is a map to store information about recent activity for the user by some hashed token that links back to the content.\n *\n * For PlayableHistoryData, the token is the token for the track, for HandlerHistoryData the token is the ID of the Handler.\n */\n",
           "excerptTokens": [
             {
@@ -12580,11 +12561,11 @@
             }
           ],
           "releaseTag": "Public",
-          "name": "History",
+          "name": "History_2",
           "members": [
             {
               "kind": "IndexSignature",
-              "canonicalReference": "stentor-models!History:index(1)",
+              "canonicalReference": "stentor-models!History_2:index(1)",
               "docComment": "/**\n * Remaining keys will typically be HistoryData or undefined.\n *\n * lastTrimmed and handler are reserved keys.\n */\n",
               "excerptTokens": [
                 {
@@ -12640,7 +12621,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!History#handler:member",
+              "canonicalReference": "stentor-models!History_2#handler:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -12670,7 +12651,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!History#lastTrimmed:member",
+              "canonicalReference": "stentor-models!History_2#lastTrimmed:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -13008,7 +12989,7 @@
         },
         {
           "kind": "Interface",
-          "canonicalReference": "stentor-models!Image:interface",
+          "canonicalReference": "stentor-models!Image_2:interface",
           "docComment": "",
           "excerptTokens": [
             {
@@ -13017,11 +12998,11 @@
             }
           ],
           "releaseTag": "Public",
-          "name": "Image",
+          "name": "Image_2",
           "members": [
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Image#contentDescription:member",
+              "canonicalReference": "stentor-models!Image_2#contentDescription:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -13046,7 +13027,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Image#sources:member",
+              "canonicalReference": "stentor-models!Image_2#sources:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -13560,7 +13541,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!Intent#dialogflowId:member",
-              "docComment": "/**\n * Dialogflow keeps track of individual intents by a unique ID.\n */\n",
+              "docComment": "/**\n * Dialogflow keeps track of individual intents by a unique ID.\n *\n * @deprecated\n *\n * This field is being phased out.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -13904,8 +13885,38 @@
           "members": [
             {
               "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!IntentRequest#attachments:member",
+              "docComment": "/**\n * Uploads from the request\n *\n * @beta\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "attachments?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "RequestAttachment",
+                  "canonicalReference": "stentor-models!RequestAttachment:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Beta",
+              "name": "attachments",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              }
+            },
+            {
+              "kind": "PropertySignature",
               "canonicalReference": "stentor-models!IntentRequest#canFulfill:member",
-              "docComment": "",
+              "docComment": "/**\n * A meta, preliminary request that is more for understanding if the assistant can provide an answer or not.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -13930,7 +13941,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!IntentRequest#data:member",
-              "docComment": "",
+              "docComment": "/**\n * Optional data that can be added to the request\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -13956,7 +13967,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!IntentRequest#intentId:member",
-              "docComment": "",
+              "docComment": "/**\n * The ID of the matched intent.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -14006,7 +14017,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!IntentRequest#knowledgeAnswer:member",
-              "docComment": "",
+              "docComment": "/**\n * A unique request provided by a question answering system.\n *\n * @beta\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -14022,7 +14033,7 @@
                   "text": ";"
                 }
               ],
-              "releaseTag": "Public",
+              "releaseTag": "Beta",
               "name": "knowledgeAnswer",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
@@ -14031,8 +14042,33 @@
             },
             {
               "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!IntentRequest#matchConfidence:member",
+              "docComment": "/**\n * Confidence level of the intent match. On a scale from 0-1 where 1 is the highest confidence of a match.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "matchConfidence?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "matchConfidence",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
               "canonicalReference": "stentor-models!IntentRequest#sessionId:member",
-              "docComment": "",
+              "docComment": "/**\n * The ID of the user's current session.\n *\n * A session is typically defined by the channel is on but it is typically a set of requests and responses that are linked together.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -14057,7 +14093,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!IntentRequest#slots:member",
-              "docComment": "",
+              "docComment": "/**\n * Slots for the intent.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -14083,7 +14119,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!IntentRequest#type:member",
-              "docComment": "",
+              "docComment": "/**\n * The type of an intent request is always \"INTENT_REQUEST\"\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -14295,47 +14331,6 @@
             "startIndex": 1,
             "endIndex": 2
           }
-        },
-        {
-          "kind": "Interface",
-          "canonicalReference": "stentor-models!IPRights:interface",
-          "docComment": "/**\n * The IP rights documents that exist for the various platforms.\n */\n",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "export interface IPRights "
-            }
-          ],
-          "releaseTag": "Public",
-          "name": "IPRights",
-          "members": [
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!IPRights#alexa:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "alexa?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "alexa",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            }
-          ],
-          "extendsTokenRanges": []
         },
         {
           "kind": "TypeAlias",
@@ -15824,73 +15819,6 @@
           "extendsTokenRanges": []
         },
         {
-          "kind": "Interface",
-          "canonicalReference": "stentor-models!ListSelectData:interface",
-          "docComment": "",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "export interface ListSelectData "
-            }
-          ],
-          "releaseTag": "Public",
-          "name": "ListSelectData",
-          "members": [
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!ListSelectData#\"@type\":member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "\"@type\": "
-                },
-                {
-                  "kind": "Content",
-                  "text": "\"type.googleapis.com/google.actions.v2.OptionValueSpec\""
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "\"@type\"",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!ListSelectData#listSelect:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "listSelect: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "GoogleActionsV2UiElementsListSelect",
-                  "canonicalReference": "actions-on-google!GoogleActionsV2UiElementsListSelect:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "listSelect",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            }
-          ],
-          "extendsTokenRanges": []
-        },
-        {
           "kind": "TypeAlias",
           "canonicalReference": "stentor-models!LiveStreamType:type",
           "docComment": "",
@@ -16252,7 +16180,7 @@
         },
         {
           "kind": "Interface",
-          "canonicalReference": "stentor-models!Location:interface",
+          "canonicalReference": "stentor-models!Location_2:interface",
           "docComment": "/**\n * Description of a physical location\n */\n",
           "excerptTokens": [
             {
@@ -16261,11 +16189,11 @@
             }
           ],
           "releaseTag": "Public",
-          "name": "Location",
+          "name": "Location_2",
           "members": [
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Location#geocode:member",
+              "canonicalReference": "stentor-models!Location_2#geocode:member",
               "docComment": "/**\n * Geocoded form of the location\n */\n",
               "excerptTokens": [
                 {
@@ -16291,7 +16219,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Location#streetAddress:member",
+              "canonicalReference": "stentor-models!Location_2#streetAddress:member",
               "docComment": "/**\n * The free-form street address, in the format used by the national postal service of the concerned country. This field can then be used for geocoding with a third-party API, like the Google Maps Geocoding API, to determine latitude and longitude.\n *\n * For example: Washington, DC or 123 Main St, City, State\n */\n",
               "excerptTokens": [
                 {
@@ -16815,6 +16743,122 @@
           "extendsTokenRanges": []
         },
         {
+          "kind": "Interface",
+          "canonicalReference": "stentor-models!MediaPlayerStatus:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface MediaPlayerStatus "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "MediaPlayerStatus",
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!MediaPlayerStatus#offsetInMilliseconds:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "offsetInMilliseconds?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "offsetInMilliseconds",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!MediaPlayerStatus#status:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "status: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"IDLE\" | \"PAUSED\" | \"PLAYING\" | \"STOPPED\" | \"FINISHED\" | \"BUFFER_UNDERRUN\""
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "status",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!MediaPlayerStatus#token:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "token?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "token",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!MediaPlayerStatus#type:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "type?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"AUDIO\" | \"VIDEO\""
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "type",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
           "kind": "TypeAlias",
           "canonicalReference": "stentor-models!MediaPlaylistType:type",
           "docComment": "",
@@ -16957,7 +17001,7 @@
         },
         {
           "kind": "Interface",
-          "canonicalReference": "stentor-models!MessageEvent:interface",
+          "canonicalReference": "stentor-models!MessageEvent_2:interface",
           "docComment": "",
           "excerptTokens": [
             {
@@ -16984,11 +17028,11 @@
             }
           ],
           "releaseTag": "Public",
-          "name": "MessageEvent",
+          "name": "MessageEvent_2",
           "members": [
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!MessageEvent#type:member",
+              "canonicalReference": "stentor-models!MessageEvent_2#type:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -17112,73 +17156,6 @@
           }
         },
         {
-          "kind": "Interface",
-          "canonicalReference": "stentor-models!NativeTemplateDirective:interface",
-          "docComment": "",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "export interface NativeTemplateDirective "
-            }
-          ],
-          "releaseTag": "Public",
-          "name": "NativeTemplateDirective",
-          "members": [
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!NativeTemplateDirective#template:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "template: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "Template",
-                  "canonicalReference": "ask-sdk-model!interfaces.display.Template:type"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "template",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!NativeTemplateDirective#type:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "type: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "\"NativeTemplate\""
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "type",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            }
-          ],
-          "extendsTokenRanges": []
-        },
-        {
           "kind": "TypeAlias",
           "canonicalReference": "stentor-models!NextIntent:type",
           "docComment": "",
@@ -17223,7 +17200,7 @@
               "excerptTokens": [
                 {
                   "kind": "Content",
-                  "text": "id?: "
+                  "text": "id: "
                 },
                 {
                   "kind": "Content",
@@ -17302,6 +17279,32 @@
               ],
               "releaseTag": "Public",
               "name": "intentId",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!NLUQueryResponse#knowledgeAnswer:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "knowledgeAnswer?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "KnowledgeAnswer",
+                  "canonicalReference": "stentor-models!KnowledgeAnswer:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "knowledgeAnswer",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -17440,6 +17443,129 @@
                 }
               ],
               "name": "query"
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "stentor-models!NLUServiceGetter:interface",
+          "docComment": "/**\n * Tests and gets an NLUService based on ChannelData or NLUData\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface NLUServiceGetter "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "NLUServiceGetter",
+          "members": [
+            {
+              "kind": "MethodSignature",
+              "canonicalReference": "stentor-models!NLUServiceGetter#get:member(1)",
+              "docComment": "/**\n * Based on the provided data it will generate an NLUService for use.\n *\n * @param obj - \n *\n * @returns \n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get(obj: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ChannelData",
+                  "canonicalReference": "stentor-models!ChannelData:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NLUData",
+                  "canonicalReference": "stentor-models!NLUData:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NLUService",
+                  "canonicalReference": "stentor-models!NLUService:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "returnTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "obj",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 4
+                  }
+                }
+              ],
+              "name": "get"
+            },
+            {
+              "kind": "MethodSignature",
+              "canonicalReference": "stentor-models!NLUServiceGetter#test:member(1)",
+              "docComment": "/**\n * Tests the provided data to see if it is the proper type for the NLUService that is returned by the get() method.\n *\n * This can be a guard.\n *\n * @param obj - \n *\n * @returns True if the provided data is for setting up the NLUService\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "test(obj: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ChannelData",
+                  "canonicalReference": "stentor-models!ChannelData:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NLUData",
+                  "canonicalReference": "stentor-models!NLUData:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "returnTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "obj",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 4
+                  }
+                }
+              ],
+              "name": "test"
             }
           ],
           "extendsTokenRanges": []
@@ -17679,31 +17805,6 @@
             }
           ],
           "extendsTokenRanges": []
-        },
-        {
-          "kind": "TypeAlias",
-          "canonicalReference": "stentor-models!OnDemandTemplateType:type",
-          "docComment": "",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "export declare type OnDemandTemplateType = "
-            },
-            {
-              "kind": "Content",
-              "text": "\"PODCAST_TEMPLATE\""
-            },
-            {
-              "kind": "Content",
-              "text": ";"
-            }
-          ],
-          "releaseTag": "Public",
-          "name": "OnDemandTemplateType",
-          "typeTokenRange": {
-            "startIndex": 1,
-            "endIndex": 2
-          }
         },
         {
           "kind": "TypeAlias",
@@ -17989,466 +18090,6 @@
           }
         },
         {
-          "kind": "Interface",
-          "canonicalReference": "stentor-models!Organization:interface",
-          "docComment": "/**\n * An organization is the name of organization contains a collection of groups.\n */\n",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "export interface Organization "
-            }
-          ],
-          "releaseTag": "Public",
-          "name": "Organization",
-          "members": [
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Organization#auth0GroupId:member",
-              "docComment": "/**\n * The group ID as it is in auth0. This can be used to retrieve the permissions, roles, and nested groups that the group may contain.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "auth0GroupId?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "auth0GroupId",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Organization#contact:member",
-              "docComment": "/**\n * Contact email for the organization.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "contact?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "contact",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Organization#contactName:member",
-              "docComment": "/**\n * Contact name for the organization.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "contactName?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "contactName",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Organization#contactPhone:member",
-              "docComment": "/**\n * ContactPhone for the organization\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "contactPhone?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "contactPhone",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Organization#contractDate:member",
-              "docComment": "/**\n * Contract date\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "contractDate?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "contractDate",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Organization#description:member",
-              "docComment": "/**\n * The public facing description of the group.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "description: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "description",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Organization#ipRights:member",
-              "docComment": "/**\n * IP Rights documents that are attached to this organization.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "ipRights?: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "IPRights",
-                  "canonicalReference": "stentor-models!IPRights:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "ipRights",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Organization#logoUrl:member",
-              "docComment": "/**\n * The remote location for the organization's image.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "logoUrl?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "logoUrl",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Organization#name:member",
-              "docComment": "/**\n * The public facing name of this organization.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "name: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "name",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Organization#notes:member",
-              "docComment": "/**\n * Internally maintained notes for the organization\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "notes?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "notes",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Organization#organizationId:member",
-              "docComment": "/**\n * The unique identifier of the organization.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "organizationId: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "organizationId",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Organization#paymentAccounts:member",
-              "docComment": "/**\n * Accounts that are linked to the organization that involve financial transactions.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "paymentAccounts?: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "PaymentAccounts",
-                  "canonicalReference": "stentor-models!PaymentAccounts:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "paymentAccounts",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Organization#publishingAccounts:member",
-              "docComment": "/**\n * The vendorId that is used for publishing. For example, the accounts under \"Smapi\" will have a vendorId or other metadata needed for publishing.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "publishingAccounts?: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "Accounts",
-                  "canonicalReference": "stentor-models!Accounts:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "publishingAccounts",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Organization#website:member",
-              "docComment": "/**\n * The main website that the organization owns.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "website?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "website",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Organization#XAPPLead:member",
-              "docComment": "/**\n * Internal SME/POC\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "XAPPLead?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "XAPPLead",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            }
-          ],
-          "extendsTokenRanges": []
-        },
-        {
-          "kind": "Interface",
-          "canonicalReference": "stentor-models!OVAIContext:interface",
-          "docComment": "/**\n * Context specific to One Voice AI.\n */\n",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "export interface OVAIContext "
-            }
-          ],
-          "releaseTag": "Public",
-          "name": "OVAIContext",
-          "members": [
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!OVAIContext#appId:member",
-              "docComment": "/**\n * The OVAI unique appId\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "appId?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "appId",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!OVAIContext#platform:member",
-              "docComment": "/**\n * Platform / Channel name\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "platform?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "platform",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            }
-          ],
-          "extendsTokenRanges": []
-        },
-        {
           "kind": "TypeAlias",
           "canonicalReference": "stentor-models!Path:type",
           "docComment": "/**\n * A path determines where to redirect or forward an incoming request. They can either be predetermined (ExecutablePath) or determined at runtime (CompilablePath). Additionally, they can have rules associated with them to only apply them at certain situations.\n */\n",
@@ -18579,74 +18220,6 @@
           }
         },
         {
-          "kind": "Interface",
-          "canonicalReference": "stentor-models!PaymentAccounts:interface",
-          "docComment": "/**\n * A collection of accounts associated with the payment on the stentor platform.\n */\n",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "export interface PaymentAccounts "
-            }
-          ],
-          "releaseTag": "Public",
-          "name": "PaymentAccounts",
-          "members": [
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!PaymentAccounts#so:member",
-              "docComment": "/**\n * The Service order account that is linked to this organization.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "so?: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "ServiceOrders",
-                  "canonicalReference": "stentor-models!ServiceOrders:type"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "so",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!PaymentAccounts#stripe:member",
-              "docComment": "/**\n * The stripe account that is linked to this organization.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "stripe?: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "StripeAccount",
-                  "canonicalReference": "stentor-models!StripeAccount:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "stripe",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            }
-          ],
-          "extendsTokenRanges": []
-        },
-        {
           "kind": "TypeAlias",
           "canonicalReference": "stentor-models!PermissionGrantID:type",
           "docComment": "",
@@ -18673,7 +18246,7 @@
         },
         {
           "kind": "Interface",
-          "canonicalReference": "stentor-models!PermissionRequest:interface",
+          "canonicalReference": "stentor-models!PermissionRequest_2:interface",
           "docComment": "",
           "excerptTokens": [
             {
@@ -18691,11 +18264,11 @@
             }
           ],
           "releaseTag": "Public",
-          "name": "PermissionRequest",
+          "name": "PermissionRequest_2",
           "members": [
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!PermissionRequest#granted:member",
+              "canonicalReference": "stentor-models!PermissionRequest_2#granted:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -18720,7 +18293,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!PermissionRequest#intentId:member",
+              "canonicalReference": "stentor-models!PermissionRequest_2#intentId:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -18746,7 +18319,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!PermissionRequest#sessionId:member",
+              "canonicalReference": "stentor-models!PermissionRequest_2#sessionId:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -18771,7 +18344,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!PermissionRequest#type:member",
+              "canonicalReference": "stentor-models!PermissionRequest_2#type:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -18797,7 +18370,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!PermissionRequest#userProfile:member",
+              "canonicalReference": "stentor-models!PermissionRequest_2#userProfile:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -20709,31 +20282,6 @@
           "extendsTokenRanges": []
         },
         {
-          "kind": "TypeAlias",
-          "canonicalReference": "stentor-models!RadioTemplateType:type",
-          "docComment": "",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "export declare type RadioTemplateType = "
-            },
-            {
-              "kind": "Content",
-              "text": "\"RADIO_TEMPLATE\""
-            },
-            {
-              "kind": "Content",
-              "text": ";"
-            }
-          ],
-          "releaseTag": "Public",
-          "name": "RadioTemplateType",
-          "typeTokenRange": {
-            "startIndex": 1,
-            "endIndex": 2
-          }
-        },
-        {
           "kind": "Interface",
           "canonicalReference": "stentor-models!Redirect:interface",
           "docComment": "/**\n * A map of where to redirect intent requests to before the actual handling. Usually a gate.\n */\n",
@@ -20927,73 +20475,6 @@
           }
         },
         {
-          "kind": "Interface",
-          "canonicalReference": "stentor-models!RenderTemplateDirective:interface",
-          "docComment": "/**\n * @interface\n */\n",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "interface RenderTemplateDirective "
-            }
-          ],
-          "releaseTag": "Public",
-          "name": "RenderTemplateDirective",
-          "members": [
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!RenderTemplateDirective#template:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "'template'?: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "interfaces.display.Template",
-                  "canonicalReference": "ask-sdk-model!interfaces.display.Template:type"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "template",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!RenderTemplateDirective#type:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "'type': "
-                },
-                {
-                  "kind": "Content",
-                  "text": "'Display.RenderTemplate'"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "type",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            }
-          ],
-          "extendsTokenRanges": []
-        },
-        {
           "kind": "TypeAlias",
           "canonicalReference": "stentor-models!RepeatIntent:type",
           "docComment": "",
@@ -21159,7 +20640,7 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "stentor-models!Request:type",
+          "canonicalReference": "stentor-models!Request_2:type",
           "docComment": "",
           "excerptTokens": [
             {
@@ -21267,11 +20748,77 @@
             }
           ],
           "releaseTag": "Public",
-          "name": "Request",
+          "name": "Request_2",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 22
           }
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "stentor-models!RequestAttachment:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface RequestAttachment "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "RequestAttachment",
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!RequestAttachment#type:member",
+              "docComment": "/**\n * Optional type if available (media type, like \"image\")\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "type?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "type",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!RequestAttachment#url:member",
+              "docComment": "/**\n * Url to the uploaded file\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "url: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "url",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
         },
         {
           "kind": "TypeAlias",
@@ -22038,7 +21585,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "stentor-models!RequestSlotMap:interface",
-          "docComment": "",
+          "docComment": "/**\n * Map of slots where the key is the name of the slot.\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -22051,7 +21598,7 @@
             {
               "kind": "IndexSignature",
               "canonicalReference": "stentor-models!RequestSlotMap:index(1)",
-              "docComment": "",
+              "docComment": "/**\n * Each key is the slot name and the corresponding value is the slot.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -22105,7 +21652,7 @@
             },
             {
               "kind": "Content",
-              "text": "string | number | "
+              "text": "string | number | object | "
             },
             {
               "kind": "Reference",
@@ -22123,6 +21670,15 @@
             },
             {
               "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Duration",
+              "canonicalReference": "stentor-models!Duration:interface"
+            },
+            {
+              "kind": "Content",
               "text": " | (string)[]"
             },
             {
@@ -22134,7 +21690,7 @@
           "name": "RequestSlotValues",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 6
+            "endIndex": 8
           }
         },
         {
@@ -22396,7 +21952,7 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "stentor-models!Response:type",
+          "canonicalReference": "stentor-models!Response_2:type",
           "docComment": "/**\n * A response is a possible response back to a user; it includes a prompt, reprompt, and visual assets.\n */\n",
           "excerptTokens": [
             {
@@ -22494,7 +22050,7 @@
             }
           ],
           "releaseTag": "Public",
-          "name": "Response",
+          "name": "Response_2",
           "typeParameters": [
             {
               "typeParameterName": "T",
@@ -22655,7 +22211,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "string | number | boolean | undefined"
+                  "text": "string | number | boolean | object | undefined"
                 },
                 {
                   "kind": "Content",
@@ -22677,6 +22233,32 @@
                   }
                 }
               ]
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!ResponseData#canFulfill:member",
+              "docComment": "/**\n * If a request ({@link see IntentRequest.canFulfill}) has canFufill as true, this provides information about it's ability to fulfill the request.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "canFulfill?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "CanFulfillIntentResult",
+                  "canonicalReference": "stentor-models!CanFulfillIntentResult:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "canFulfill",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
             },
             {
               "kind": "PropertySignature",
@@ -23651,7 +23233,7 @@
             {
               "kind": "MethodSignature",
               "canonicalReference": "stentor-models!RuntimeContext#buildResponse:member(1)",
-              "docComment": "/**\n * Builds the response for the specific platform\n *\n * @param  - code\n *\n * @param  - result\n */\n",
+              "docComment": "/**\n * Builds the response for the specific platform\n *\n * @param code - \n *\n * @param result - \n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -23786,7 +23368,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "stentor-models!RuntimeContext#ovai:member",
-              "docComment": "/**\n * Context specific to One Voice AI\n */\n",
+              "docComment": "/**\n * Context specific to One Voice AI\n *\n * @deprecated\n *\n * Deprecated in favor of studio.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -23794,8 +23376,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "OVAIContext",
-                  "canonicalReference": "stentor-models!OVAIContext:interface"
+                  "text": "StudioContext",
+                  "canonicalReference": "stentor-models!StudioContext:interface"
                 },
                 {
                   "kind": "Content",
@@ -23829,6 +23411,32 @@
               ],
               "releaseTag": "Public",
               "name": "rawBody",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!RuntimeContext#studio:member",
+              "docComment": "/**\n * Context specific to the setup within OC Studio\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "studio?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "StudioContext",
+                  "canonicalReference": "stentor-models!StudioContext:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "studio",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -24209,189 +23817,6 @@
             }
           ],
           "extendsTokenRanges": []
-        },
-        {
-          "kind": "Interface",
-          "canonicalReference": "stentor-models!ServiceOrderAccount:interface",
-          "docComment": "",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "export interface ServiceOrderAccount "
-            }
-          ],
-          "releaseTag": "Public",
-          "name": "ServiceOrderAccount",
-          "members": [
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!ServiceOrderAccount#date:member",
-              "docComment": "/**\n * The date with which the service order was created.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "date: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "date",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!ServiceOrderAccount#numberOfApps:member",
-              "docComment": "/**\n * The number of apps that the service order allows.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "numberOfApps?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "number"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "numberOfApps",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!ServiceOrderAccount#paymentType:member",
-              "docComment": "/**\n * The style of payment that the service order is a part of.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "paymentType: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "paymentType",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            }
-          ],
-          "extendsTokenRanges": []
-        },
-        {
-          "kind": "TypeAlias",
-          "canonicalReference": "stentor-models!ServiceOrders:type",
-          "docComment": "/**\n * The type for number of apps in a `ServiceOrderAccount`.\n *\n * The legacy parameter is a ServiceOrderAccount which represents Radio/Live stream templates only.\n *\n * The New Parameter is a ServiceOrderTemplate object in which the key is the service order and the object returned is the service order supplied.\n */\n",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "export declare type ServiceOrders = "
-            },
-            {
-              "kind": "Reference",
-              "text": "ServiceOrderAccount",
-              "canonicalReference": "stentor-models!ServiceOrderAccount:interface"
-            },
-            {
-              "kind": "Content",
-              "text": " | "
-            },
-            {
-              "kind": "Reference",
-              "text": "ServiceOrderTemplate",
-              "canonicalReference": "stentor-models!ServiceOrderTemplate:type"
-            },
-            {
-              "kind": "Content",
-              "text": ";"
-            }
-          ],
-          "releaseTag": "Public",
-          "name": "ServiceOrders",
-          "typeTokenRange": {
-            "startIndex": 1,
-            "endIndex": 4
-          }
-        },
-        {
-          "kind": "TypeAlias",
-          "canonicalReference": "stentor-models!ServiceOrderTemplate:type",
-          "docComment": "/**\n * The new form of `ServiceOrderAccount#numberOfApps`. The key is the type of template which can be found at `templates/Types`.\n */\n",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "export declare type ServiceOrderTemplate = "
-            },
-            {
-              "kind": "Reference",
-              "text": "Partial",
-              "canonicalReference": "!Partial:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "Record",
-              "canonicalReference": "!Record:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "TemplateType",
-              "canonicalReference": "stentor-models!TemplateType:type"
-            },
-            {
-              "kind": "Content",
-              "text": ", "
-            },
-            {
-              "kind": "Reference",
-              "text": "ServiceOrderAccount",
-              "canonicalReference": "stentor-models!ServiceOrderAccount:interface"
-            },
-            {
-              "kind": "Content",
-              "text": ">>"
-            },
-            {
-              "kind": "Content",
-              "text": ";"
-            }
-          ],
-          "releaseTag": "Public",
-          "name": "ServiceOrderTemplate",
-          "typeTokenRange": {
-            "startIndex": 1,
-            "endIndex": 9
-          }
         },
         {
           "kind": "Interface",
@@ -24809,6 +24234,28 @@
             },
             {
               "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "Partial",
+              "canonicalReference": "!Partial:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Conditioned",
+              "canonicalReference": "stentor-models!Conditioned:interface"
+            },
+            {
+              "kind": "Content",
               "text": "> "
             }
           ],
@@ -24870,6 +24317,10 @@
             {
               "startIndex": 1,
               "endIndex": 5
+            },
+            {
+              "startIndex": 6,
+              "endIndex": 10
             }
           ]
         },
@@ -25367,6 +24818,28 @@
             },
             {
               "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ", "
+            },
+            {
+              "kind": "Reference",
+              "text": "Partial",
+              "canonicalReference": "!Partial:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Conditioned",
+              "canonicalReference": "stentor-models!Conditioned:interface"
+            },
+            {
+              "kind": "Content",
               "text": "> "
             }
           ],
@@ -25609,7 +25082,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "\"ACCOUNT_LINK\" | \"MEDIA_ENQUEUE\" | \"MEDIA_STOP\" | \"SURFACE_CHANGE\" | \"PERMISSION_LIST\" | \"PERMISSION_EMAIL\" | \"PERMISSION_PHONE_NUMBER\" | \"PERMISSION_LOCATION_PRECISE\" | \"PERMISSION_LOCATION_COARSE\" | \"PERMISSION_NOTIFICATION\" | \"TRANSFER_CALL\""
+                  "text": "\"ACCOUNT_LINK\" | \"MEDIA_ENQUEUE\" | \"MEDIA_STOP\" | \"SURFACE_CHANGE\" | \"PERMISSION_LIST\" | \"PERMISSION_EMAIL\" | \"PERMISSION_PHONE_NUMBER\" | \"PERMISSION_LOCATION_PRECISE\" | \"PERMISSION_LOCATION_COARSE\" | \"PERMISSION_NOTIFICATION\" | \"TRANSFER_CALL\" | \"HANDOFF\""
                 },
                 {
                   "kind": "Content",
@@ -25653,6 +25126,10 @@
             {
               "startIndex": 4,
               "endIndex": 8
+            },
+            {
+              "startIndex": 9,
+              "endIndex": 13
             }
           ]
         },
@@ -25663,7 +25140,25 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export interface SimpleSegment "
+              "text": "export interface SimpleSegment extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Partial",
+              "canonicalReference": "!Partial:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Conditioned",
+              "canonicalReference": "stentor-models!Conditioned:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "> "
             }
           ],
           "releaseTag": "Public",
@@ -25700,7 +25195,12 @@
               }
             }
           ],
-          "extendsTokenRanges": []
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 5
+            }
+          ]
         },
         {
           "kind": "TypeAlias",
@@ -25792,12 +25292,62 @@
             },
             {
               "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!Slot#nlu:member",
+              "docComment": "/**\n * NLU specific metadata used when translating to the NLU entity.\n *\n * Use to override the type for a specific NLU.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "nlu?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "{\n        [nlu: string]: {\n            type: string;\n        };\n    }"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "nlu",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!Slot#slotElicitationContentKey:member",
+              "docComment": "/**\n * When set, if the slot is not provided by the user the key will be used to get the response off of the content for the handler in order to ask the user to provide the slot.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "slotElicitationContentKey?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "slotElicitationContentKey",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
               "canonicalReference": "stentor-models!Slot#type:member",
               "docComment": "/**\n * The type of entity for the slot.\n *\n * This corresponds to an Entity, specifically the entityId key.\n *\n * For legacy applications, SlotType is used.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
-                  "text": "type: "
+                  "text": "type?: "
                 },
                 {
                   "kind": "Content",
@@ -27122,7 +26672,7 @@
         },
         {
           "kind": "Interface",
-          "canonicalReference": "stentor-models!Storage:interface",
+          "canonicalReference": "stentor-models!Storage_2:interface",
           "docComment": "",
           "excerptTokens": [
             {
@@ -27140,11 +26690,11 @@
             }
           ],
           "releaseTag": "Public",
-          "name": "Storage",
+          "name": "Storage_2",
           "members": [
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Storage#createdTimestamp:member",
+              "canonicalReference": "stentor-models!Storage_2#createdTimestamp:member",
               "docComment": "/**\n * When the storage was created. This can be used to keep track of when we first met the user.\n *\n * Time is stored as number of milliseconds elapsed since the UNIX epoch.\n */\n",
               "excerptTokens": [
                 {
@@ -27169,7 +26719,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Storage#currentAudioHandler:member",
+              "canonicalReference": "stentor-models!Storage_2#currentAudioHandler:member",
               "docComment": "/**\n * The current handler that is playing audio.\n */\n",
               "excerptTokens": [
                 {
@@ -27195,7 +26745,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Storage#currentHandler:member",
+              "canonicalReference": "stentor-models!Storage_2#currentHandler:member",
               "docComment": "/**\n * The current handler of intents & events.\n */\n",
               "excerptTokens": [
                 {
@@ -27221,7 +26771,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Storage#history:member",
+              "canonicalReference": "stentor-models!Storage_2#history:member",
               "docComment": "/**\n * Limited history for the user, used to store media they are in the middle of listening to.\n *\n * Can be used to store other historical data in the future, such as previous responses they have heard.\n *\n * NOTE: We might want to make history required on storage.\n */\n",
               "excerptTokens": [
                 {
@@ -27247,7 +26797,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Storage#lastActiveTimestamp:member",
+              "canonicalReference": "stentor-models!Storage_2#lastActiveTimestamp:member",
               "docComment": "/**\n * When the last time we updated the storage was. This can be used to keep track of when we last saw the user.\n *\n * Time is stored as number of milliseconds elapsed since the UNIX epoch.\n */\n",
               "excerptTokens": [
                 {
@@ -27272,7 +26822,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Storage#piiToken:member",
+              "canonicalReference": "stentor-models!Storage_2#piiToken:member",
               "docComment": "/**\n * The PII information key (pii token)\n */\n",
               "excerptTokens": [
                 {
@@ -27297,7 +26847,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Storage#previousHandler:member",
+              "canonicalReference": "stentor-models!Storage_2#previousHandler:member",
               "docComment": "/**\n * The previous handler before the current\n */\n",
               "excerptTokens": [
                 {
@@ -27323,7 +26873,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Storage#previousIntent:member",
+              "canonicalReference": "stentor-models!Storage_2#previousIntent:member",
               "docComment": "/**\n * The previous intent before the current\n */\n",
               "excerptTokens": [
                 {
@@ -27349,7 +26899,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Storage#previousResponse:member",
+              "canonicalReference": "stentor-models!Storage_2#previousResponse:member",
               "docComment": "/**\n * The previous response given to the user.\n */\n",
               "excerptTokens": [
                 {
@@ -27375,7 +26925,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Storage#sessionStore:member",
+              "canonicalReference": "stentor-models!Storage_2#sessionStore:member",
               "docComment": "/**\n * Session raw data that is used to create the session store\n */\n",
               "excerptTokens": [
                 {
@@ -27401,7 +26951,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Storage#unknownInputs:member",
+              "canonicalReference": "stentor-models!Storage_2#unknownInputs:member",
               "docComment": "/**\n * Number of consecutive InputUnknown requests received from the user\n */\n",
               "excerptTokens": [
                 {
@@ -28034,25 +27584,25 @@
         },
         {
           "kind": "Interface",
-          "canonicalReference": "stentor-models!StripeAccount:interface",
-          "docComment": "/**\n * A Stripe account is a payment account associated with the user.\n */\n",
+          "canonicalReference": "stentor-models!StudioContext:interface",
+          "docComment": "/**\n * Context specific to XAPP AI's Optimal Conversation Studio.\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export interface StripeAccount "
+              "text": "export interface StudioContext "
             }
           ],
           "releaseTag": "Public",
-          "name": "StripeAccount",
+          "name": "StudioContext",
           "members": [
             {
               "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!StripeAccount#customerId:member",
-              "docComment": "/**\n * The ID of the customer in stripe that this organization is linked to.\n */\n",
+              "canonicalReference": "stentor-models!StudioContext#appId:member",
+              "docComment": "/**\n * The OC Studio unique appId\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
-                  "text": "customerId: "
+                  "text": "appId?: "
                 },
                 {
                   "kind": "Content",
@@ -28064,7 +27614,32 @@
                 }
               ],
               "releaseTag": "Public",
-              "name": "customerId",
+              "name": "appId",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "stentor-models!StudioContext#platform:member",
+              "docComment": "/**\n * Platform / Channel name\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "platform?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "releaseTag": "Public",
+              "name": "platform",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -28536,140 +28111,6 @@
           "typeTokenRange": {
             "startIndex": 4,
             "endIndex": 8
-          }
-        },
-        {
-          "kind": "Interface",
-          "canonicalReference": "stentor-models!Template:interface",
-          "docComment": "",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "export interface Template extends "
-            },
-            {
-              "kind": "Reference",
-              "text": "Partial",
-              "canonicalReference": "!Partial:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "App",
-              "canonicalReference": "stentor-models!App:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "> "
-            }
-          ],
-          "releaseTag": "Public",
-          "name": "Template",
-          "members": [
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Template#collaborationAgreementUrl:member",
-              "docComment": "/**\n * The collaboration agreement between the app and XAPP.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "collaborationAgreementUrl?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "collaborationAgreementUrl",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "stentor-models!Template#templateType:member",
-              "docComment": "/**\n * Template type.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "templateType: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "TemplateType",
-                  "canonicalReference": "stentor-models!TemplateType:type"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "releaseTag": "Public",
-              "name": "templateType",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            }
-          ],
-          "extendsTokenRanges": [
-            {
-              "startIndex": 1,
-              "endIndex": 5
-            }
-          ]
-        },
-        {
-          "kind": "TypeAlias",
-          "canonicalReference": "stentor-models!TemplateType:type",
-          "docComment": "",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "export declare type TemplateType = "
-            },
-            {
-              "kind": "Reference",
-              "text": "RadioTemplateType",
-              "canonicalReference": "stentor-models!RadioTemplateType:type"
-            },
-            {
-              "kind": "Content",
-              "text": " | "
-            },
-            {
-              "kind": "Reference",
-              "text": "OnDemandTemplateType",
-              "canonicalReference": "stentor-models!OnDemandTemplateType:type"
-            },
-            {
-              "kind": "Content",
-              "text": " | "
-            },
-            {
-              "kind": "Reference",
-              "text": "CustomType",
-              "canonicalReference": "stentor-models!CustomType:type"
-            },
-            {
-              "kind": "Content",
-              "text": ";"
-            }
-          ],
-          "releaseTag": "Public",
-          "name": "TemplateType",
-          "typeTokenRange": {
-            "startIndex": 1,
-            "endIndex": 6
           }
         },
         {
@@ -29344,7 +28785,7 @@
             {
               "kind": "MethodSignature",
               "canonicalReference": "stentor-models!UserStorageService#create:member(1)",
-              "docComment": "/**\n * Creates the storage for the provided ID\n *\n * @param  - id\n *\n * @param  - storage\n *\n * @returns \n */\n",
+              "docComment": "/**\n * Creates the storage for the provided ID\n *\n * @param id - \n *\n * @param storage - \n *\n * @returns \n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -29417,7 +28858,7 @@
             {
               "kind": "MethodSignature",
               "canonicalReference": "stentor-models!UserStorageService#get:member(1)",
-              "docComment": "/**\n * Get the storage for the provided ID\n *\n * @param  - id\n *\n * @returns \n */\n",
+              "docComment": "/**\n * Get the storage for the provided ID\n *\n * @param id - \n *\n * @returns \n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -29474,7 +28915,7 @@
             {
               "kind": "MethodSignature",
               "canonicalReference": "stentor-models!UserStorageService#update:member(1)",
-              "docComment": "/**\n * Update the storage for the provided ID with provided storage.\n *\n * @param  - id\n *\n * @param  - storage\n *\n * @returns \n */\n",
+              "docComment": "/**\n * Update the storage for the provided ID with provided storage.\n *\n * @param id - \n *\n * @param storage - \n *\n * @returns \n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",

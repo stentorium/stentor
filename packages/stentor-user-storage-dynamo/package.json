@@ -18,7 +18,7 @@
     "@types/chai": "4.2.11",
     "@xapp/config": "0.2.3",
     "chai": "4.2.0",
-    "stentor-models": "1.23.51",
+    "stentor-models": "1.33.96",
     "typescript": "3.8.3"
   },
   "dependencies": {

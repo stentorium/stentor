@@ -1,7 +1,6 @@
 /*! Copyright (c) 2020, XAPPmedia */
 import { TableSchema } from '@xapp/dynamo-service/dist/service/KeySchema';
-import { Storage} from "stentor-models";
-
+import { Storage } from "stentor-models";
 
 export interface UserStorageRow extends Storage {
     userId: string;

@@ -197,8 +197,15 @@ export class Assistant {
         }
 
         if (process.env.OVAI_APP_ID) {
+            // This is the deprecated variable
             this.eventService.addPrefix({
                 appId: process.env.OVAI_APP_ID
+            });
+        }
+
+        if (process.env.STUDIO_APP_ID) {
+            this.eventService.addPrefix({
+                appId: process.env.STUDIO_APP_ID
             });
         }
 
@@ -243,7 +250,6 @@ export class Assistant {
                 if (runtimeContext.buildResponse) {
                     response = runtimeContext.buildResponse(code, result);
                 }
-
             };
 
             await main(

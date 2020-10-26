@@ -108,6 +108,12 @@ export interface Intent extends Localizable<LocaleSpecificIntent> {
      */
     defaultLocale?: Locale;
     /**
+     * NLU specific metadata used when translating the intentId to a NLU specific type.
+     * 
+     * Use to override the type for a specific NLU. 
+     */
+    nlu?: { [nlu: string]: { type: string } };
+    /**
      * This is a series of locales that the apps supports.  These can override the
      * items that are in the original Intent.  The items in the main intent are used as defaults if they
      * are not provided by this locale.

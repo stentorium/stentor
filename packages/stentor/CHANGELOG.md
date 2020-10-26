@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.3](https://github.com/stentorium/stentor/compare/v1.34.2...v1.34.3) (2020-10-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/aws-lambda to v8.10.64 ([#652](https://github.com/stentorium/stentor/issues/652)) ([77a0d84](https://github.com/stentorium/stentor/commit/77a0d84981491df683247d445ccbc94243762e52))
+
+
+
+
+
 ## [1.34.2](https://github.com/stentorium/stentor/compare/v1.34.1...v1.34.2) (2020-10-26)
 
 **Note:** Version bump only for package stentor

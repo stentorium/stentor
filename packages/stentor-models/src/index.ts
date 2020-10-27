@@ -35,3 +35,4 @@ export * from "./Storage";
 export * from "./Suggestion";
 export * from "./UserData";
 export * from "./UserProfile";
+export * from "./UtteranceTest";

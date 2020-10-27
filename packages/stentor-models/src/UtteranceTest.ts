@@ -1,5 +1,6 @@
 /*! Copyright (c) 2020, XAPPmedia */
-import { RelativeDateTime, RequestSlot, RequestSlotValues } from "stentor-models";
+import { RelativeDateTime } from "./DateTime"
+import { RequestSlot, RequestSlotValues } from "./Request";
 
 /**
  * Extends a RequestSlot by adding the RelativeDateTime as a possible value.

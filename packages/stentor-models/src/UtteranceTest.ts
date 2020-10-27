@@ -8,6 +8,9 @@ export interface TestSlot<T = RequestSlotValues | RelativeDateTime> extends Omit
     value: T;
 }
 
+/**
+ * An expected result from the NLU to determine if the test passed or failed.
+ */
 export interface ExpectedResult {
     /**
      * Expected intent ID.
@@ -23,6 +26,12 @@ export interface ExpectedResult {
  * An utterance test consists of the utterance under test and the expected result.
  */
 export interface UtteranceTest {
+    /**
+     * The utterance to be tested
+     */
     utterance: string;
+    /**
+     * The expected result once the utterance is passed in the NLU
+     */
     expected?: ExpectedResult;
 }

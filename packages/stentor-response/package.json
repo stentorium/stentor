@@ -21,7 +21,7 @@
     "@types/sinon-chai": "3.2.5",
     "@xapp/config": "0.2.3",
     "chai": "4.2.0",
-    "mocha": "8.2.0",
+    "mocha": "8.2.1",
     "sinon": "9.2.1",
     "sinon-chai": "3.5.0",
     "stentor-models": "1.35.12",

@@ -25,7 +25,7 @@
     "@types/sinon": "9.0.8",
     "@types/sinon-chai": "3.2.5",
     "@xapp/config": "0.2.3",
-    "aws-sdk": "2.783.0",
+    "aws-sdk": "2.787.0",
     "chai": "4.2.0",
     "mocha": "8.2.1",
     "sinon": "9.2.1",

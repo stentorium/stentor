@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.36.0](https://github.com/stentorium/stentor/compare/v1.35.19...v1.36.0) (2020-11-11)
+
+
+### Features
+
+* Secret Service Update ([#703](https://github.com/stentorium/stentor/issues/703)) ([b8db912](https://github.com/stentorium/stentor/commit/b8db912add9e3538a16350e4509731cecadc1201))
+
+
+
+
+
 ## [1.35.19](https://github.com/stentorium/stentor/compare/v1.35.18...v1.35.19) (2020-11-11)
 
 **Note:** Version bump only for package repo

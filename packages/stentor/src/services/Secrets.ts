@@ -6,40 +6,49 @@ import AWS = require("aws-sdk");
 const dotenv = require("dotenv");
 const secretClient = new AWS.SecretsManager({});
 
-let secretsLoaded = false;
+const SECRETS_TTL_MILLIS = 300 * 1000; // 5 minutes
+const FUTURE = 9999999999999;
+const PAST = 0;
 
-export function setEnv(secretName: string): Promise<void> {
-    if (secretsLoaded) {
-        log().debug("Secrets were loaded ");
+let secretsLoadedMillis = PAST; // Past - age will be ~ 50 years
+
+export function setEnv(): Promise<void> {
+    const secretsAgeMillis = new Date().getTime() - secretsLoadedMillis;
+
+    if (secretsAgeMillis < SECRETS_TTL_MILLIS) {
         return Promise.resolve();
     }
 
-    return new Promise((resolve) => {
-        secretClient.getSecretValue({ SecretId: secretName }, (err, data) => {
+    return new Promise((resolve, reject) => {
+        if (!process.env.STUDIO_SECRET_NAME) {
+            log().debug("process.env.STUDIO_SECRET_NAME is not defined. Trying .env");
+            dotenv.config();
+            secretsLoadedMillis = FUTURE; // Future - age will always be negative
+            resolve();
+            return;
+        }
+
+        secretClient.getSecretValue({ SecretId: process.env.STUDIO_SECRET_NAME }, (err, data) => {
             if (err) {
-                log().debug(`Failed to get secrets from  ${secretName}: ${err.message}`);
-
-                log().debug("No secret environment. Trying .env");
-
-                dotenv.config();
-                secretsLoaded = true;
-                resolve();
-
+                log().debug(`Failed to get secrets from  ${process.env.STUDIO_SECRET_NAME}: ${err.message}`);
+                reject(err);
                 return;
             }
 
-            if (data) {
-                log().debug(`Using secrets from ${secretName}`);
+            if (data && data.SecretString) {
+                log().debug(`Using secrets from ${process.env.STUDIO_SECRET_NAME}`);
 
-                const envConfig = dotenv.parse(data.SecretString);
+                const parsed: { [key: string]: string } = JSON.parse(data.SecretString);
 
-                Object.keys(envConfig).forEach(key => {
-                    process.env[key] = envConfig[key];
+                Object.keys(parsed).forEach((key) => {
+                    process.env[key] = parsed[key];
                 });
 
-                secretsLoaded = true;
+                secretsLoadedMillis = new Date().getTime();
+
+                log().debug(`Secrets were (re-)loaded. Secrets version (STUDIO_SECRET_VERSION): ${process.env.STUDIO_SECRET_VERSION}`);
             } else {
-                log().debug(`There were no environment in ${secretName}`);
+                log().debug(`There were no secrets in ${process.env.STUDIO_SECRET_NAME}`);
             }
 
             resolve();

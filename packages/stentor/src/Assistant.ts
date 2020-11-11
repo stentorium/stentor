@@ -12,6 +12,7 @@ import {
     isHandlersKeyValue
 } from "stentor-handler-factory";
 import { HTTP_200_OK, HTTP_500_INTERNAL_SERVICE_ERROR } from "stentor-constants";
+import { log } from "stentor-logger";
 import {
     AppRuntimeData,
     Channel,
@@ -27,7 +28,12 @@ import { EventPrefix, EventService } from "stentor-service-event";
 import { StudioService } from "stentor-service-studio";
 import { OVAIEventStream, OVAIService } from "stentor-service-ovai";
 import { isLambdaError } from "stentor-utils";
+
 import * as AWSLambda from "aws-lambda";
+import * as bodyParser from "body-parser";
+import * as express from 'express';
+
+import { setEnv } from "./services/Secrets";
 
 /**
  * Omni-channel assistant application builder.
@@ -124,8 +130,7 @@ export class Assistant {
     }
 
     /**
-     * 
-     * 
+     * Set runtime hooks on the Assistant.
      * 
      * @param hooks - Available runtime hooks
      */
@@ -147,7 +152,8 @@ export class Assistant {
     }
 
     /**
-     * 
+     * Add an prefix to your events.  This is a key value pair that is prefixed
+     * to all of your events.
      * 
      * @beta
      * @param prefix - 
@@ -157,14 +163,15 @@ export class Assistant {
         this.eventService.addPrefix(prefix);
         return this;
     }
-
     /**
-     * Build the assistant application to run on AWS Lambda
+     * Returns the handler service
      * 
-     * @public
+     * Checks environment variables to put together the correct configuration.
+     * 
+     * @private
      */
-    public lambda(): AWSLambda.Handler {
-        // Setup the handler service if we don't have one and have the token
+    private getHandlerService(): HandlerService {
+
         let handlerService: HandlerService;
         if (!this.handlerService) {
             if (process.env.STUDIO_TOKEN) {
@@ -188,6 +195,10 @@ export class Assistant {
             handlerService = this.handlerService;
         }
 
+        return handlerService;
+    }
+
+    private getUserStorageService(): UserStorageService {
         // User Storage Service is required
         let userStorageService: UserStorageService;
         if (this.userStorageService) {
@@ -195,6 +206,11 @@ export class Assistant {
         } else {
             throw new TypeError('A user storage service is required.');
         }
+
+        return userStorageService;
+    }
+
+    private setupEventService(): void {
 
         if (process.env.OVAI_APP_ID) {
             // This is the deprecated variable
@@ -213,11 +229,24 @@ export class Assistant {
             this.eventService.addPrefix({
                 environment: process.env.NODE_ENV
             });
+        } else {
+            // Environment is required
+            this.eventService.addPrefix({
+                environment: "development"
+            });
         }
+    }
 
-        const factory = new HandlerFactory(this.factoryProps);
-
+    /**
+     * Build the assistant application to run on AWS Lambda
+     * 
+     * @public
+     */
+    public lambda(): AWSLambda.Handler {
         const handler: AWSLambda.Handler = async (event, context, callback) => {
+            // Setup your environment
+            await setEnv().then().catch((error: Error) => log().warn("Environment failed to load", error));
+
             const translated = translateEventAndContext(event, context);
             const runtimeEvent = translated.event;
             const runtimeContext = translated.context;
@@ -252,6 +281,12 @@ export class Assistant {
                 }
             };
 
+            const userStorageService = this.getUserStorageService();
+            const handlerService = this.getHandlerService();
+            const factory = new HandlerFactory(this.factoryProps);
+
+            this.setupEventService();
+
             await main(
                 runtimeEvent,
                 runtimeContext,
@@ -271,5 +306,32 @@ export class Assistant {
         };
 
         return handler;
+    }
+
+    /**
+     * Returns an express.js application.
+     * 
+     * You must start the server that is passed out with:
+     * ```
+     * app.listen(SERVER_PORT);
+     * ```
+     * @beta
+     * @param app 
+     */
+    public express(app?: express.Application, path?: string): express.Application {
+        if (!app) {
+            app = express();
+        }
+
+        app.use(bodyParser.json());
+
+        app.post(path || "/", async (request, response) => {
+            const handler = this.lambda();
+            await handler(request.body, { request } as any, (whatever: any, stentorResponse: string) => {
+                response.send(stentorResponse);
+            });
+        });
+
+        return app;
     }
 }

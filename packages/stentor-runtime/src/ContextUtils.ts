@@ -167,6 +167,7 @@ export function lambdaAPIGatewayContext(
         // See  https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-output-format
         return {
             statusCode,
+            headers: {"Access-Control-Allow-Origin": "*"},
             body
         };
     };

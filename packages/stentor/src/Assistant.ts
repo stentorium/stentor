@@ -209,7 +209,9 @@ export class Assistant {
 
         return userStorageService;
     }
-
+    /**
+     * Adds prefixes to the event service depending on it's environment
+     */
     private setupEventService(): void {
 
         if (process.env.OVAI_APP_ID) {
@@ -281,8 +283,8 @@ export class Assistant {
                 }
             };
 
-            const userStorageService = this.getUserStorageService();
             const handlerService = this.getHandlerService();
+            const userStorageService = this.getUserStorageService();
             const factory = new HandlerFactory(this.factoryProps);
 
             this.setupEventService();

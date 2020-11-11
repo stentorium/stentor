@@ -20,7 +20,7 @@ export function translateEventAndContext(event: any, context: any): { event: obj
         translated = lambdaContext(event, context);
     } else {
         // Default to a simple pass through
-        translated.context.buildResponse.buildResponse = (code: number, result: object): object => {
+        translated.context.buildResponse = (code: number, result: object): object => {
             return result;
         };
     }

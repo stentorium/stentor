@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.36.1](https://github.com/stentorium/stentor/compare/v1.36.0...v1.36.1) (2020-11-12)
+
+
+### Bug Fixes
+
+* Add CORS Header for API Gateway Response ([#704](https://github.com/stentorium/stentor/issues/704)) ([431f093](https://github.com/stentorium/stentor/commit/431f093736339632ccf20e8102d4f38afb572758))
+
+
+
+
+
 # [1.36.0](https://github.com/stentorium/stentor/compare/v1.35.19...v1.36.0) (2020-11-11)
 
 

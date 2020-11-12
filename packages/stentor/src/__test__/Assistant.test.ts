@@ -166,6 +166,7 @@ describe("Assistant", () => {
                 expect(callback).to.have.been.calledOnce;
                 expect(callback).to.have.been.calledWith(null, {
                     statusCode: 500,
+                    headers: { "Access-Control-Allow-Origin": "*" },
                     body:
                         "Error: Runtime Error"
                 });

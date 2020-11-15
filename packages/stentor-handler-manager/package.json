@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.35.19",
+  "version": "1.36.2",
   "description": "Handler manager for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -25,18 +25,18 @@
     "mocha": "8.2.1",
     "sinon": "9.2.1",
     "sinon-chai": "3.5.0",
-    "stentor-models": "1.35.19",
+    "stentor-models": "1.36.2",
     "ts-node": "9.0.0",
     "typescript": "4.0.5"
   },
   "dependencies": {
-    "stentor-guards": "1.35.19",
-    "stentor-handler": "1.35.19",
-    "stentor-handler-factory": "1.35.19",
-    "stentor-logger": "1.35.19",
-    "stentor-request": "1.35.19",
-    "stentor-response": "1.35.19",
-    "stentor-storage": "1.35.19"
+    "stentor-guards": "1.36.2",
+    "stentor-handler": "1.36.2",
+    "stentor-handler-factory": "1.36.2",
+    "stentor-logger": "1.36.2",
+    "stentor-request": "1.36.2",
+    "stentor-response": "1.36.2",
+    "stentor-storage": "1.36.2"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

@@ -19,7 +19,7 @@
     "@types/fetch-mock": "7.3.3",
     "@xapp/config": "0.2.3",
     "chai": "4.2.0",
-    "fetch-mock": "9.10.7",
+    "fetch-mock": "9.11.0",
     "mocha": "8.2.1",
     "stentor-models": "1.36.9",
     "ts-node": "9.0.0",

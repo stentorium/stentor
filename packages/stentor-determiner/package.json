@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.36.22",
+  "version": "1.36.23",
   "description": "Determination for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -30,15 +30,15 @@
   },
   "dependencies": {
     "jsonpath": "1.0.2",
-    "stentor-conditional": "1.36.22",
+    "stentor-conditional": "1.36.23",
     "stentor-constants": "1.36.21",
     "stentor-guards": "1.36.22",
-    "stentor-interaction-model": "1.36.22",
-    "stentor-logger": "1.36.22",
-    "stentor-request": "1.36.22",
-    "stentor-storage": "1.36.22",
-    "stentor-time": "1.36.22",
-    "stentor-utils": "1.36.22"
+    "stentor-interaction-model": "1.36.23",
+    "stentor-logger": "1.36.23",
+    "stentor-request": "1.36.23",
+    "stentor-storage": "1.36.23",
+    "stentor-time": "1.36.23",
+    "stentor-utils": "1.36.23"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

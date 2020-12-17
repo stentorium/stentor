@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.36.32](https://github.com/stentorium/stentor/compare/v1.36.31...v1.36.32) (2020-12-17)
+
+
+### Bug Fixes
+
+* Send events to studio ([#749](https://github.com/stentorium/stentor/issues/749)) ([7c0d813](https://github.com/stentorium/stentor/commit/7c0d8136119ba13848a75e90687294b3c7cd3bbc))
+
+
+
+
+
 ## [1.36.31](https://github.com/stentorium/stentor/compare/v1.36.30...v1.36.31) (2020-12-15)
 
 **Note:** Version bump only for package stentor

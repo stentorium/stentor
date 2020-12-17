@@ -179,7 +179,7 @@ export class Assistant {
                     token: process.env.STUDIO_TOKEN,
                     appId: process.env.STUDIO_APP_ID
                 });
-                this.eventService.addStream(new new StudioEventStream({service: this.handlerService}))
+                this.eventService.addStream(new StudioEventStream({service: this.handlerService}))
             } else if (process.env.OVAI_TOKEN) {
                 console.warn(`OVAI_TOKEN & OVAIService has been deprecated, please migrate to STUDIO_TOKEN.`);
                 // Create the API based handler service

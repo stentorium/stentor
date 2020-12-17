@@ -11,11 +11,11 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@microsoft/api-documenter": "7.11.0",
+    "@microsoft/api-documenter": "7.12.1",
     "@typescript-eslint/eslint-plugin": "2.34.0",
     "@typescript-eslint/parser": "2.34.0",
     "@xapp/config": "0.2.3",
-    "eslint": "7.14.0",
+    "eslint": "7.15.0",
     "eslint-plugin-notice": "0.9.10",
     "lerna": "3.22.1",
     "license-checker": "25.0.1",

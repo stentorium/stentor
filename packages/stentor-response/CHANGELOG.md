@@ -3,6 +3,164 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.36.31](https://github.com/stentorium/stentor/compare/v1.36.30...v1.36.31) (2020-12-15)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
+## [1.36.30](https://github.com/stentorium/stentor/compare/v1.36.29...v1.36.30) (2020-12-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.29.4 ([b720ff4](https://github.com/stentorium/stentor/commit/b720ff419fc328334047fc66b93d5ac1620fde52))
+
+
+
+
+
+## [1.36.29](https://github.com/stentorium/stentor/compare/v1.36.28...v1.36.29) (2020-12-13)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
+## [1.36.28](https://github.com/stentorium/stentor/compare/v1.36.27...v1.36.28) (2020-12-13)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
+## [1.36.27](https://github.com/stentorium/stentor/compare/v1.36.26...v1.36.27) (2020-12-12)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
+## [1.36.26](https://github.com/stentorium/stentor/compare/v1.36.25...v1.36.26) (2020-12-12)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
+## [1.36.25](https://github.com/stentorium/stentor/compare/v1.36.24...v1.36.25) (2020-12-11)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
+## [1.36.24](https://github.com/stentorium/stentor/compare/v1.36.23...v1.36.24) (2020-12-09)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
+## [1.36.23](https://github.com/stentorium/stentor/compare/v1.36.22...v1.36.23) (2020-12-09)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
+## [1.36.22](https://github.com/stentorium/stentor/compare/v1.36.21...v1.36.22) (2020-12-08)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
+## [1.36.21](https://github.com/stentorium/stentor/compare/v1.36.20...v1.36.21) (2020-12-07)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
+## [1.36.20](https://github.com/stentorium/stentor/compare/v1.36.19...v1.36.20) (2020-12-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.29.1 ([973338a](https://github.com/stentorium/stentor/commit/973338a8bc55787042dd398afc7ec477dc9070ac))
+
+
+
+
+
+## [1.36.19](https://github.com/stentorium/stentor/compare/v1.36.18...v1.36.19) (2020-12-06)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
+## [1.36.18](https://github.com/stentorium/stentor/compare/v1.36.17...v1.36.18) (2020-12-04)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
+## [1.36.17](https://github.com/stentorium/stentor/compare/v1.36.16...v1.36.17) (2020-12-04)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
+## [1.36.16](https://github.com/stentorium/stentor/compare/v1.36.15...v1.36.16) (2020-12-01)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
+## [1.36.15](https://github.com/stentorium/stentor/compare/v1.36.14...v1.36.15) (2020-11-30)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
+## [1.36.14](https://github.com/stentorium/stentor/compare/v1.36.13...v1.36.14) (2020-11-29)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
+## [1.36.13](https://github.com/stentorium/stentor/compare/v1.36.12...v1.36.13) (2020-11-26)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
 ## [1.36.12](https://github.com/stentorium/stentor/compare/v1.36.11...v1.36.12) (2020-11-25)
 
 **Note:** Version bump only for package stentor-response

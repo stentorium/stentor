@@ -3,6 +3,76 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.36.31](https://github.com/stentorium/stentor/compare/v1.36.30...v1.36.31) (2020-12-15)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.36.30](https://github.com/stentorium/stentor/compare/v1.36.29...v1.36.30) (2020-12-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.29.4 ([b720ff4](https://github.com/stentorium/stentor/commit/b720ff419fc328334047fc66b93d5ac1620fde52))
+
+
+
+
+
+## [1.36.27](https://github.com/stentorium/stentor/compare/v1.36.26...v1.36.27) (2020-12-12)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.36.25](https://github.com/stentorium/stentor/compare/v1.36.24...v1.36.25) (2020-12-11)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.36.21](https://github.com/stentorium/stentor/compare/v1.36.20...v1.36.21) (2020-12-07)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.36.20](https://github.com/stentorium/stentor/compare/v1.36.19...v1.36.20) (2020-12-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.29.1 ([973338a](https://github.com/stentorium/stentor/commit/973338a8bc55787042dd398afc7ec477dc9070ac))
+
+
+
+
+
+## [1.36.17](https://github.com/stentorium/stentor/compare/v1.36.16...v1.36.17) (2020-12-04)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.36.15](https://github.com/stentorium/stentor/compare/v1.36.14...v1.36.15) (2020-11-30)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
 ## [1.36.9](https://github.com/stentorium/stentor/compare/v1.36.8...v1.36.9) (2020-11-20)
 
 **Note:** Version bump only for package stentor-models

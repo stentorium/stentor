@@ -3,6 +3,94 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.36.31](https://github.com/stentorium/stentor/compare/v1.36.30...v1.36.31) (2020-12-15)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.36.30](https://github.com/stentorium/stentor/compare/v1.36.29...v1.36.30) (2020-12-14)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.36.27](https://github.com/stentorium/stentor/compare/v1.36.26...v1.36.27) (2020-12-12)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.36.26](https://github.com/stentorium/stentor/compare/v1.36.25...v1.36.26) (2020-12-12)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.36.25](https://github.com/stentorium/stentor/compare/v1.36.24...v1.36.25) (2020-12-11)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.36.22](https://github.com/stentorium/stentor/compare/v1.36.21...v1.36.22) (2020-12-08)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.36.21](https://github.com/stentorium/stentor/compare/v1.36.20...v1.36.21) (2020-12-07)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.36.20](https://github.com/stentorium/stentor/compare/v1.36.19...v1.36.20) (2020-12-07)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.36.18](https://github.com/stentorium/stentor/compare/v1.36.17...v1.36.18) (2020-12-04)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.36.17](https://github.com/stentorium/stentor/compare/v1.36.16...v1.36.17) (2020-12-04)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.36.15](https://github.com/stentorium/stentor/compare/v1.36.14...v1.36.15) (2020-11-30)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
 ## [1.36.12](https://github.com/stentorium/stentor/compare/v1.36.11...v1.36.12) (2020-11-25)
 
 **Note:** Version bump only for package stentor-history

@@ -25,7 +25,7 @@ import {
 } from "stentor-models";
 import { main, translateEventAndContext } from "stentor-runtime";
 import { EventPrefix, EventService } from "stentor-service-event";
-import { StudioService } from "stentor-service-studio";
+import { StudioEventStream, StudioService } from "stentor-service-studio";
 import { OVAIEventStream, OVAIService } from "stentor-service-ovai";
 import { isLambdaError } from "stentor-utils";
 
@@ -175,10 +175,12 @@ export class Assistant {
         let handlerService: HandlerService;
         if (!this.handlerService) {
             if (process.env.STUDIO_TOKEN) {
-                handlerService = new StudioService({
+                const service = new StudioService({
                     token: process.env.STUDIO_TOKEN,
                     appId: process.env.STUDIO_APP_ID
                 });
+                handlerService = service;
+                this.eventService.addStream(new StudioEventStream({ service }));
             } else if (process.env.OVAI_TOKEN) {
                 console.warn(`OVAI_TOKEN & OVAIService has been deprecated, please migrate to STUDIO_TOKEN.`);
                 // Create the API based handler service

@@ -12,7 +12,7 @@
     "lib"
   ],
   "engines": {
-    "node": "10.x"
+    "node": ">=10.x"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "7.12.1",
@@ -37,7 +37,7 @@
   "dependencies": {
     "@types/xmldoc": "1.1.5",
     "blueimp-md5": "2.18.0",
-    "chrono-node": "2.1.9",
+    "chrono-node": "2.1.10",
     "date-fns": "2.16.1",
     "dyno-item-size": "0.3.3",
     "fuse.js": "5.1.0",

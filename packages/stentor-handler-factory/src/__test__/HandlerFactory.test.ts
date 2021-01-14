@@ -33,9 +33,7 @@ const organizationId = "organizationId";
 const intentId = "intentId";
 const content = {};
 
-/* tslint:disable:class-name */
-class t extends AbstractHandler { } // eslint-disable-line @typescript-eslint/class-name-casing
-/* tslint:enable:class-name */
+class t extends AbstractHandler { }
 
 describe("HandlerFactory", () => {
     describe("#constructor()", () => {

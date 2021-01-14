@@ -85,4 +85,4 @@ export function JSONConditionalCheck<T extends object>(request: Request, context
         },
         functions: []
     }
-};
+}

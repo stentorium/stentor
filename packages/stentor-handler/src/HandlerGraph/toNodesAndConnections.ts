@@ -151,7 +151,6 @@ export function toNodesAndConnections(
             // Find the intentId that will lead to the edge (path.intentId)
             const intentId = determineIntentIdToPath(handler, edge);
 
-            // eslint-disable-next-line @typescript-eslint/camelcase
             const to_node = hashCode(edge);
 
             const description = describeKey(edge);
@@ -159,12 +158,10 @@ export function toNodesAndConnections(
             const connection: Connection = {
                 id: `${nid.toString()}_${index}`,
                 description,
-                // eslint-disable-next-line @typescript-eslint/camelcase
                 from_node: nid,
                 // this needs to be within the outs on the node, which is the key on the
                 // forward
                 from: humanReadable(intentId),
-                // eslint-disable-next-line @typescript-eslint/camelcase
                 to_node,
                 to: humanReadable(edge)
             };

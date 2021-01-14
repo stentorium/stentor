@@ -168,8 +168,7 @@ export const main = async (
 
     // Do some logging for debugging if needed
     log().info(
-        `platform:${request.platform}|request-type:${request.type}|request-key:${keyFromRequest(request)}|userId:${
-        request.userId
+        `platform:${request.platform}|request-type:${request.type}|request-key:${keyFromRequest(request)}|userId:${request.userId
         }${request.isHealthCheck ? "|HEALTH_CHECK" : ""}`
     );
 
@@ -188,7 +187,6 @@ export const main = async (
         // We don't call if it is a LaunchRequest, option, or permission grant
         if (!isLaunchRequest(request) && !isOptionSelectRequest(request) && !isPermissionRequest(request)) {
             const nluResponse = await channel.nlu.query(request.rawQuery);
-            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
             // @ts-ignore TypeScript be cool
             request = {
                 ...request,
@@ -326,8 +324,7 @@ export const main = async (
         //       which I mostly agree with.  Going to keep it here for now as a just
         //       in case and backwards compat.  -- Michael
         if (isInputUnknownRequest(request)) {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-            // @ts-ignore
+            // @ts-ignore Keeping this for backwards compat
             context.response.withCanFulfill(canFulfillNothing(request.slots));
         } else {
             if (handler.data && handler.data.accessibleThroughDiscovery) {

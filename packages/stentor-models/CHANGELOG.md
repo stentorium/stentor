@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.37.1](https://github.com/stentorium/stentor/compare/v1.37.0...v1.37.1) (2021-01-14)
+
+
+### Bug Fixes
+
+* Adds missing types to KnowledgeBaseResult ([#774](https://github.com/stentorium/stentor/issues/774)) ([bfe5ab1](https://github.com/stentorium/stentor/commit/bfe5ab1365901c7deadffc303c903b4cde052b70))
+
+
+
+
+
 # [1.37.0](https://github.com/stentorium/stentor/compare/v1.36.48...v1.37.0) (2021-01-14)
 
 

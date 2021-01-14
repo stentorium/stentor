@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.37.0](https://github.com/stentorium/stentor/compare/v1.36.48...v1.37.0) (2021-01-14)
+
+
+### Features
+
+* Update Requests: Adds RawQueryRequest for pre NLU & Updates KnowledgeBase on IntentRequest ([#773](https://github.com/stentorium/stentor/issues/773)) ([717ae75](https://github.com/stentorium/stentor/commit/717ae7591613a9dc82487db4601267d51f70945f))
+
+
+
+
+
 ## [1.36.48](https://github.com/stentorium/stentor/compare/v1.36.47...v1.36.48) (2021-01-13)
 
 **Note:** Version bump only for package stentor-request

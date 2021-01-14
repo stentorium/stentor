@@ -118,15 +118,15 @@ export interface KnowledgeBaseResult {
     /**
      * A ML powered answer
      */
-    suggested?: [];
+    suggested?: KnowledgeBaseSuggested[];
     /**
      * List of FAQs that could match the query.
      */
-    faqs?: [];
+    faqs?: KnowledgeBaseFAQ[];
     /**
      * A list of results based on perceived relevance.  
      */
-    documents?: [];
+    documents?: KnowledgeBaseDocument[];
 }
 
 export interface RequestAttachment {

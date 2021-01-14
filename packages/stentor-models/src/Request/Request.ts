@@ -8,6 +8,7 @@ import { NotificationPermissionRequest } from "./NotificationPermissionRequest";
 import { OptionSelectRequest } from "./OptionSelectRequest";
 import { PermissionRequest } from "./PermissionRequest";
 import { PlaybackControlRequest } from "./PlaybackControlRequest";
+import { RawQueryRequest } from "./RawQueryRequest";
 import { SessionEndedRequest } from "./SessionEndedRequest";
 import { SignInRequest } from "./SignInRequest";
 import { SurfaceChangeRequest } from "./SurfaceChangeRequest";
@@ -44,7 +45,7 @@ export interface BaseRequest {
     /**
      * Is the request a new session.
      */
-    isNewSession: boolean;
+    isNewSession?: boolean;
     /**
      * Access token from account linking
      */
@@ -59,9 +60,16 @@ export interface BaseRequest {
      */
     rawQuery?: string;
     /**
-     * The platform the request came from
+     * The platform the request came from.
+     * 
+     * Example platforms are Google's Dialogflow & Amazon's Lex.  
+     * 
      */
     platform?: string;
+    /**
+     * The specific channel that the platform provides.  
+     */
+    channel?: string;
     /**
      * User's locale, such as us-EN and es-MX.
      *
@@ -99,4 +107,5 @@ export type Request =
     | SurfaceChangeRequest
     | NotificationPermissionRequest
     | SignInRequest
-    | OptionSelectRequest;
+    | OptionSelectRequest
+    | RawQueryRequest;

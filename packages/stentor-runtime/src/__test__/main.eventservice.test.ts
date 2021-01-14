@@ -161,7 +161,6 @@ describe("#main() with EventService", () => {
     });
     describe("when the channel selector crashes", () => {
         beforeEach(() => {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
             // @ts-ignore Bad request to crash the channel selector
             request = { bogus: "request" };
             handlerFactory = new HandlerFactory({ handlers: [ConversationHandler] });
@@ -215,7 +214,6 @@ describe("#main() with EventService", () => {
             eventService.addStream(eventStream);
             error = new Error("💣💣💣💣💣💣🔥🔥🔥🔥🔥");
             // This is where we plant the bomb, it is rigged to explode.
-            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
             // @ts-ignore Trust us on this one.
             userStorageService = {
                 get() {

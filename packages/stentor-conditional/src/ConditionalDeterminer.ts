@@ -89,7 +89,7 @@ export class ConditionalDeterminer {
                             mustsPassed = false;
                             break;
                         }
-                    };
+                    }
                 } else {
                     mustsPassed = true;
                 }

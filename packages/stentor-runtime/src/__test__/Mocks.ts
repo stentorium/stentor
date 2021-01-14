@@ -151,4 +151,4 @@ export function passThroughChannel(options?: PassThroughChannelOptions): Channel
             }
         }
     }
-};
+}

@@ -31,7 +31,6 @@ export function matchUtteranceToSlotTypeValue<T>(
     const fuse = new Fuse(slotTypeValues, options);
     const searchValue = `${utterance}`;
     const result = fuse.search(searchValue); // Literal here is to turn numbers to strings
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
     // @ts-ignore The types from Fuse are not 100%
     return result;
 }

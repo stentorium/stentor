@@ -1,6 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
 require("dotenv").config();
-
 import {
     DelegatingHandlersMap,
     HandlerFactory,
@@ -193,6 +192,9 @@ export class Assistant {
             } else {
                 throw new Error("HandlerService or STUDIO_TOKEN was not provided, unable to create the Assistant.");
             }
+
+            // And set the handler service so we skip this next time
+            this.handlerService = handlerService;
         } else {
             handlerService = this.handlerService;
         }

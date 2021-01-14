@@ -18,7 +18,6 @@ const storage: Storage = {
     sessionStore: {
         id: "foo",
         data: {
-            // eslint-disable-next-line @typescript-eslint/camelcase
             new_user: true,
             foo: 4,
             bar: "ok",

@@ -106,7 +106,6 @@ describe(`#${main.name}() storage`, () => {
             expect(userStorageService.update).to.have.been.calledWithMatch("userId", {
                 sessionStore: {
                     data: {
-                        // eslint-disable-next-line @typescript-eslint/camelcase
                         new_user: true
                     },
                     id: "sessionId"

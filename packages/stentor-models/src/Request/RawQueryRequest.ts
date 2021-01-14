@@ -1,3 +1,4 @@
+/*! Copyright (c) 2021, XAPPmedia */
 import { BaseRequest } from "./Request";
 import { RawQueryRequestType } from "./Types";
 

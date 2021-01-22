@@ -176,6 +176,10 @@ export interface RequestSlot<T = RequestSlotValues> {
      */
     id?: string;
     /**
+     * Confidence on the slot match.  Range is between 0 - 1 where 1 is the highest confidence.
+     */
+    matchConfidence?: number;
+    /**
      * If the entity resolution was successful or not.
      *
      * See {@link https://developer.amazon.com/docs/custom-skills/define-synonyms-and-ids-for-slot-type-values-entity-resolution.html#er-built-in-types}
@@ -220,6 +224,10 @@ export interface IntentRequest extends BaseRequest {
     slots?: RequestSlotMap;
     /**
      * Confidence level of the intent match.  On a scale from 0-1 where 1 is the highest confidence of a match.
+     * 
+     * {@link https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html}
+     * {@link https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-concept-prediction-score}
+     * {@link https://cloud.google.com/dialogflow/es/docs/intents-matching#confidence}
      */
     matchConfidence?: number;
     /**

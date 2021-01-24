@@ -21,7 +21,7 @@
     "@xapp/config": "0.2.3",
     "chai": "4.2.0",
     "mocha": "8.2.1",
-    "sinon": "9.2.3",
+    "sinon": "9.2.4",
     "sinon-chai": "3.5.0",
     "stentor-models": "1.37.12",
     "ts-node": "9.1.1",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.37.15](https://github.com/stentorium/stentor/compare/v1.37.14...v1.37.15) (2021-01-26)
+
+
+### Bug Fixes
+
+* Slot Conditional Checks had conditional check for adding them ([#792](https://github.com/stentorium/stentor/issues/792)) ([e8dcdfa](https://github.com/stentorium/stentor/commit/e8dcdfae8861fe4fc666c9e4522c9e909a0d03b9))
+
+
+
+
+
 ## [1.37.14](https://github.com/stentorium/stentor/compare/v1.37.13...v1.37.14) (2021-01-24)
 
 **Note:** Version bump only for package stentor-determiner

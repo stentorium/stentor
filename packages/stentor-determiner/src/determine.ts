@@ -24,8 +24,7 @@ import {
     isRequestDependable,
     isSystemDependable,
     SystemConditionalCheck,
-    RequestConditionalCheck,
-    hasSlots
+    RequestConditionalCheck
 } from "stentor-request";
 import { findStorageDependentMatch, isStorageDependable } from "stentor-storage";
 import { findTimeContextualMatch, TimeConditionalCheck } from "stentor-time";
@@ -111,18 +110,13 @@ export function determine<P extends object>(potentials: P[], request: Request, c
         const checks: ConditionalCheck[] = [
             JSONConditionalCheck(request, context),
             SystemConditionalCheck(request, context),
-            RequestConditionalCheck(request)
+            RequestConditionalCheck(request),
+            SlotConditionalCheck(request)
         ];
         // If we have a lastActiveTimestamp, which we most always do 
         if (context && context.storage && typeof context.storage.lastActiveTimestamp === "number") {
             const lastActiveTimestamp = context.storage.lastActiveTimestamp;
             checks.push(TimeConditionalCheck({ lastActiveTimestamp }));
-        }
-
-        // If we have slots
-        if (hasSlots(request) && isIntentRequest(request)) {
-            const slots = request.slots;
-            checks.push(SlotConditionalCheck(slots));
         }
 
         // Big show, determine the matches

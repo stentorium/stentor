@@ -1,6 +1,6 @@
 /*! Copyright (c) 2020, XAPPmedia */
 import { log } from "stentor-logger";
-import { ConditionalCheck, RequestSlotMap, SlotDependable } from "stentor-models";
+import { ConditionalCheck, IntentRequest, Request, RequestSlotMap, SlotDependable } from "stentor-models";
 
 import { isSlotDependable } from "./Slot";
 import { findSlotDependentMatch } from "./Slot/findSlotDependentMatch";
@@ -55,6 +55,11 @@ export function slotExists(slots: RequestSlotMap, name: string): boolean {
  * @param name 
  */
 export function slotDoesNotExist(slots: RequestSlotMap, name: string): boolean {
+    // No request slot map, anything they pass doesn't exist
+    if (!slots) {
+        return true;
+    }
+
     return !!findSlotDependentMatch([{
         slotMatch: {
             name,
@@ -94,7 +99,31 @@ export function slotEquals(slots: RequestSlotMap, name: string, value: string | 
     return slotEquals;
 }
 
-export function SlotConditionalCheck<T extends object>(slots: RequestSlotMap): ConditionalCheck {
+/**
+ * Returns all the slot conditional checks for the provided request.
+ * 
+ * @param input 
+ */
+export function SlotConditionalCheck<T extends object>(input: RequestSlotMap | Request): ConditionalCheck {
+
+    function hasSlots(possibleRequest: RequestSlotMap | Request): possibleRequest is IntentRequest {
+        return !!possibleRequest && (possibleRequest as Request).type === "INTENT_REQUEST" && typeof (possibleRequest as IntentRequest).slots === "object";
+    }
+
+    function isRequestSlotmap(possibleRequest: RequestSlotMap | Request): possibleRequest is RequestSlotMap {
+        return !!possibleRequest && typeof possibleRequest === "object" && (possibleRequest as Request).type !== "INTENT_REQUEST";
+    }
+
+    let slots: RequestSlotMap;
+
+    if (hasSlots(input)) {
+        slots = input.slots;
+    }
+
+    if (isRequestSlotmap(input)) {
+        slots = input;
+    }
+
     return {
         test: isSlotDependable,
         check: (obj: SlotDependable<T>): boolean => {

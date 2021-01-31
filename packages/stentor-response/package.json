@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.37.17",
+  "version": "1.37.18",
   "description": "Response for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -31,11 +31,11 @@
   "dependencies": {
     "@xapp/patterns": "1.29.31",
     "lodash.template": "4.5.0",
-    "stentor-determiner": "1.37.17",
-    "stentor-locales": "1.37.17",
-    "stentor-media": "1.37.17",
-    "stentor-request": "1.37.17",
-    "stentor-utils": "1.37.17"
+    "stentor-determiner": "1.37.18",
+    "stentor-locales": "1.37.18",
+    "stentor-media": "1.37.18",
+    "stentor-request": "1.37.18",
+    "stentor-utils": "1.37.18"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

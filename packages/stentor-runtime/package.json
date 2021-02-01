@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.37.18",
+  "version": "1.37.19",
   "description": "Runtime for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -27,23 +27,23 @@
     "rimraf": "3.0.2",
     "sinon": "9.2.4",
     "sinon-chai": "3.5.0",
-    "stentor-models": "1.37.17",
+    "stentor-models": "1.37.19",
     "ts-node": "9.1.1",
     "typescript": "4.1.3"
   },
   "dependencies": {
-    "stentor-constants": "1.37.17",
-    "stentor-context": "1.37.18",
-    "stentor-handler": "1.37.18",
-    "stentor-handler-factory": "1.37.18",
-    "stentor-handler-manager": "1.37.18",
-    "stentor-history": "1.37.17",
-    "stentor-interaction-model": "1.37.18",
-    "stentor-logger": "1.37.18",
-    "stentor-request": "1.37.18",
-    "stentor-response": "1.37.18",
-    "stentor-service-event": "1.37.18",
-    "stentor-utils": "1.37.18"
+    "stentor-constants": "1.37.19",
+    "stentor-context": "1.37.19",
+    "stentor-handler": "1.37.19",
+    "stentor-handler-factory": "1.37.19",
+    "stentor-handler-manager": "1.37.19",
+    "stentor-history": "1.37.19",
+    "stentor-interaction-model": "1.37.19",
+    "stentor-logger": "1.37.19",
+    "stentor-request": "1.37.19",
+    "stentor-response": "1.37.19",
+    "stentor-service-event": "1.37.19",
+    "stentor-utils": "1.37.19"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

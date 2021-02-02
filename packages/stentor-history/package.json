@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.37.20",
+  "version": "1.37.21",
   "description": "History for 📣 stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -21,7 +21,7 @@
     "chai": "4.2.0",
     "mocha": "8.2.1",
     "sinon": "9.2.4",
-    "stentor-models": "1.37.20",
+    "stentor-models": "1.37.21",
     "ts-node": "9.1.1",
     "typescript": "4.1.3"
   },

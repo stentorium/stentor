@@ -20,7 +20,7 @@
     "@xapp/config": "0.2.3",
     "chai": "4.3.0",
     "stentor-models": "1.37.29",
-    "typescript": "4.1.4"
+    "typescript": "4.1.5"
   },
   "dependencies": {
     "jsonpath": "1.1.0",

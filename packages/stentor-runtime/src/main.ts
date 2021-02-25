@@ -154,7 +154,8 @@ export const main = async (
             userId: request.userId,
             isHealthCheck: request.isHealthCheck,
             platform: request.platform,
-            isNewSession: request.isNewSession
+            isNewSession: request.isNewSession,
+            channel: request.channel
         });
         // And sessionId if possible
         if (hasSessionId(request)) {

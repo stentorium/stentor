@@ -188,7 +188,7 @@ export class EventService {
      * @param request 
      * @param response 
      */
-    public requestResponse(request: Request, response: Response): Event {
+    public requestResponse(request: Request, response: Response): Event<{ request: Request, response: Response }> {
         return this.event(ANALYTICS_EVENT_TYPE, "REQUEST_RESPONSE", { request, response })
     }
 

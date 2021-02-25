@@ -3,7 +3,7 @@ import * as Chai from "chai";
 import * as Sinon from "sinon";
 import * as SinonChai from "sinon-chai";
 
-import { Event } from "stentor-models";
+import { Event, Response } from "stentor-models";
 import {
     AudioPlayerRequestBuilder,
     InputUnknownRequestBuilder,
@@ -348,6 +348,26 @@ describe("EventService", () => {
                 const event = eventService.request(request);
                 expect(event.payload).to.deep.equal({ event: request.event });
             });
+        });
+    });
+    describe(`#${EventService.EventService.prototype.requestResponse.name}()`, () => {
+        let eventService: EventService.EventService;
+        beforeEach(() => {
+            eventService = newService();
+
+        });
+        it("creates the correct event", () => {
+            const request = new LaunchRequestBuilder().build();
+            const response: Response = {
+                outputSpeech: "Foo"
+            };
+            const event = eventService.requestResponse(request, response);
+
+            expect(event.type).to.equal("AnalyticsEvent");
+            expect(event.name).to.equal("REQUEST_RESPONSE");
+            expect(event.payload).to.exist;
+            expect(event.payload.request).to.equal(request);
+            expect(event.payload.response).to.equal(response);
         });
     });
     describe("#error()", () => {

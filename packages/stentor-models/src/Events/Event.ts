@@ -15,6 +15,22 @@ export interface Event<P extends string | boolean | object | number | undefined 
      */
     type: EventType;
     /**
+     * Application ID
+     */
+    appId?: string;
+    /**
+     * What environment we are in, for example a production or development environment.
+     */
+    environment?: string;
+    /**
+     * The platform serving the channel
+     */
+    platform?: string;
+    /**
+     * The channel provided by the platform.
+     */
+    channel?: string;
+    /**
      * The current handler the user was in at the time of the request.
      */
     currentHandler?: string;

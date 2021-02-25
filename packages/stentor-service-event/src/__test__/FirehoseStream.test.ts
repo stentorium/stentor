@@ -17,6 +17,9 @@ describe("FirehouseStream", () => {
     const testEvent: Event<any> = {
         type: "REQUEST",
         name: "Test Event",
+        appId: "appId",
+        platform: "platform",
+        channel: "channel",
         payload: {
             message: "An Event thrown in a firehouse stream test."
         }
@@ -48,6 +51,21 @@ describe("FirehouseStream", () => {
                 }
             ]
         });
+    });
+
+    it("throws an error if the required fields are not provided", async () => {
+        const stream = new FirehoseStream("StreamName", testFirehouse);
+        const copyEvent = { ...testEvent };
+        delete copyEvent.channel;
+        stream.addEvent(copyEvent);
+
+        let caughtError: Error;
+        try {
+            await stream.flush();
+        } catch (e) {
+            caughtError = e;
+        }
+        expect(caughtError).to.exist;
     });
 
     it("Tests that an error is thrown if the records can not be stringified.", async () => {

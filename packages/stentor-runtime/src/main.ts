@@ -412,6 +412,10 @@ export const main = async (
         // #4.3 Build and translate the response
         response = context.response.build();
 
+        if (eventService) {
+            eventService.requestResponse(request, response);
+        }
+
         log().debug("Response");
         log().debug(response);
         finalResponse = channel.response.translate({ request, response });

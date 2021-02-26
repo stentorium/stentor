@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.38.0](https://github.com/stentorium/stentor/compare/v1.37.41...v1.38.0) (2021-02-26)
+
+
+### Features
+
+* New Request + Response Event ([#834](https://github.com/stentorium/stentor/issues/834)) ([0a6ac7c](https://github.com/stentorium/stentor/commit/0a6ac7c913330c4d6f9823e83b72625ffddb4736))
+
+
+
+
+
 ## [1.37.41](https://github.com/stentorium/stentor/compare/v1.37.40...v1.37.41) (2021-02-24)
 
 **Note:** Version bump only for package repo

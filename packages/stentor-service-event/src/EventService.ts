@@ -23,6 +23,7 @@ import { parse } from "stacktrace-parser";
 import { AbstractEventStream } from "./AbstractEventStream";
 import { ConsoleStream } from "./ConsoleStream";
 import {
+    ANALYTICS_EVENT_TYPE,
     ERROR_EVENT_TYPE,
     LAMBDA_FAILURE_EVENT_TYPE,
     LAMBDA_SUCCESS_EVENT_TYPE,
@@ -108,6 +109,10 @@ export class EventService {
         this.prefix = { ...this.prefix, ...(stream as EventServiceProps).prefix, ...prefix };
     }
 
+    /**
+     * Add a new stream to send the events to
+     * @param newStream 
+     */
     public addStream(newStream: EventStream): void {
         this.streams.push(newStream);
     }
@@ -176,6 +181,15 @@ export class EventService {
         }
 
         return this.event(REQUEST_EVENT_TYPE, request.type, payload);
+    }
+
+    /**
+     * Logs a request & response event
+     * @param request 
+     * @param response 
+     */
+    public requestResponse(request: Request, response: Response): Event<{ request: Request, response: Response }> {
+        return this.event(ANALYTICS_EVENT_TYPE, "REQUEST_RESPONSE", { request, response })
     }
 
     public error(error: Error): ErrorEvent {

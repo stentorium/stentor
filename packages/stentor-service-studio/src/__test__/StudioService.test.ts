@@ -71,11 +71,23 @@ describe(`${StudioService.name}`, () => {
                 fetchMock.restore();
             });
             it("adds the appId", async () => {
-                await service.putEvents([{ name: "Error", type: "ERROR", payload: { message: "message" } }]);
+                await service.putEvents([{ name: "Error", type: "ERROR", platform: "platform", channel: "channel", payload: { message: "message" } }]);
                 expect(fetchMock.called()).to.be.true;
                 expect(fetchMock.calls()[0][1].body).to.deep.equal(
-                    '{"events":[{"name":"Error","type":"ERROR","payload":{"message":"message"},"appId":"appId"}]}'
+                    '{"events":[{"name":"Error","type":"ERROR","platform":"platform","channel":"channel","payload":{"message":"message"},"appId":"appId"}]}'
                 );
+            });
+            describe("when passed invalid event", () => {
+                it("throws an error", async () => {
+                    let error: Error;
+                    try {
+                        await service.putEvents([{ name: "Error", type: "ERROR", platform: "platform", payload: { message: "message" } }]);
+                    } catch (e) {
+                        error = e;
+                    }
+                    expect(error).to.exist;
+                    expect(error.message).to.contain("channel");
+                });
             });
         });
     });

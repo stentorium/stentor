@@ -23,6 +23,8 @@ export type DisplayShape = "RECTANGLE" | "ROUND";
 export interface Device {
     /**
      * The channel the user is on.
+     * 
+     * @deprecated Use the channel on the request object instead
      */
     channel: string;
     /**

@@ -102,6 +102,26 @@ export class StudioService implements HandlerService {
             }
         });
 
+        // Validate!
+        events.forEach((event) => {
+            // We require appId, platform, channel, type
+            if (!event.appId) {
+                throw new Error(`appId is required to send an event to the Studio Event Stream.`);
+            }
+
+            if (!event.platform) {
+                throw new Error(`platform is required to send an event to the Studio Event Stream.`);
+            }
+
+            if (!event.channel) {
+                throw new Error(`channel is required to send an event to the Studio Event Stream.`);
+            }
+
+            if (!event.type) {
+                throw new Error(`type is required to send an event to the Studio Event Stream.`);
+            }
+        });
+
         const url = `${this.baseURL}/cms/app/events`;
 
         let status: number;
@@ -122,7 +142,7 @@ export class StudioService implements HandlerService {
             })
             .then(json => {
                 if (status !== HTTP_200_OK) {
-                    throw new Error(`OVAIService.putEvents() returned ${status} ${statusText} ${JSON.stringify(json)}`);
+                    throw new Error(`StudioService.putEvents() returned ${status} ${statusText} ${JSON.stringify(json)}`);
                 }
                 return;
             });

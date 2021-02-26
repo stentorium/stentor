@@ -147,8 +147,8 @@ describe("#main() with EventService", () => {
                         ssml: "<speak>Intent Response</speak>"
                     }
                 });
-                expect(eventStream.events).to.have.length(2);
-                const requestEvent = eventStream.events[0];
+                expect(eventStream.events).to.have.length(3);
+                const requestEvent = eventStream.events[1];
                 expect(requestEvent.platform).to.equal("MOCK");
                 expect(requestEvent.type).to.equal("REQUEST");
                 expect(requestEvent.name).to.equal("INTENT_REQUEST");
@@ -383,7 +383,7 @@ describe("#main() with EventService", () => {
                     displayText: "Hello World!"
                 }
             });
-            expect(eventStream.events).to.have.length(3);
+            expect(eventStream.events).to.have.length(4);
             const errorEvent = eventStream.events[0];
             expect(errorEvent.type).to.equal("ERROR");
             expect(errorEvent.appId).to.equal(appId);
@@ -427,8 +427,9 @@ describe("#main() with EventService", () => {
             });
             expect(callbackSpy).to.have.been.calledOnce;
             expect(callbackSpy).to.have.been.calledWith(null, {});
-            expect(eventStream.events).to.have.length(3);
-            const errorEvent = eventStream.events[0];
+            expect(eventStream.events).to.have.length(4);
+
+            const errorEvent = eventStream.events[1];
             expect(errorEvent.type).to.equal("ERROR");
             expect(errorEvent.appId).to.equal(appId);
             expect(errorEvent.platform).to.equal("MOCK");
@@ -436,6 +437,10 @@ describe("#main() with EventService", () => {
                 message: "💥💥💥"
             });
             expect(eventStream.flushed).to.be.true;
+
+            const requestResponseEvent = eventStream.events[0];
+            expect(requestResponseEvent.type).to.equal("AnalyticsEvent");
+            expect(requestResponseEvent.name).to.equal("REQUEST_RESPONSE");
         });
     });
 });

@@ -154,7 +154,8 @@ export const main = async (
             userId: request.userId,
             isHealthCheck: request.isHealthCheck,
             platform: request.platform,
-            isNewSession: request.isNewSession
+            isNewSession: request.isNewSession,
+            channel: request.channel
         });
         // And sessionId if possible
         if (hasSessionId(request)) {
@@ -411,6 +412,10 @@ export const main = async (
     try {
         // #4.3 Build and translate the response
         response = context.response.build();
+
+        if (eventService) {
+            eventService.requestResponse(request, response);
+        }
 
         log().debug("Response");
         log().debug(response);

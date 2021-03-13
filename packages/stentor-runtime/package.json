@@ -21,7 +21,7 @@
     "@xapp/config": "0.2.3",
     "@xapp/patterns": "1.32.10",
     "aws-sdk": "2.858.0",
-    "chai": "4.3.3",
+    "chai": "4.3.4",
     "fetch-mock": "9.11.0",
     "mocha": "8.3.1",
     "rimraf": "3.0.2",

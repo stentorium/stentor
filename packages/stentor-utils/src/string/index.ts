@@ -2,6 +2,7 @@
 export * from "./capitalize";
 export * from "./cleanTags";
 export * from "./randomString";
+export * from "./removePostFix";
 export * from "./StringExpander";
 export * from "./toNumber";
 export * from "./toNumberIfPossible";

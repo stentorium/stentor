@@ -59,7 +59,7 @@ export class DynamoUserStorage implements UserStorageService {
 
         const dynamo = new DocumentClient();
 
-        this.service = new TableService(tableName, new DynamoService(dynamo), UserTableSchema, {
+        this.service = new TableService<UserStorageRow>(tableName, new DynamoService(dynamo), UserTableSchema, {
             trimColumnsInGet: [AWS_COLUMN_REGEX],
             trimConstants: true,
             trimUnknown: false,

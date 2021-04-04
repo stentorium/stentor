@@ -1628,10 +1628,10 @@
     runes "0.4.3"
     slugify "1.3.4"
 
-"@xapp/patterns@1.32.19":
-  version "1.32.19"
-  resolved "https://registry.yarnpkg.com/@xapp/patterns/-/patterns-1.32.19.tgz#324b82d62f9ac0ef868043c0d04388e970a44d37"
-  integrity sha512-if4JGbOSnrhcsj4BPSofkAVgNt/EwQDyNW2MdYO2h9IL8HqDPGdd67vKwukMFFK/fdzfLI8RmF5kdfrOOTodRg==
+"@xapp/patterns@1.32.47":
+  version "1.32.47"
+  resolved "https://registry.yarnpkg.com/@xapp/patterns/-/patterns-1.32.47.tgz#d64e31fb3ed4d940e90bd238b04d35eb965597f6"
+  integrity sha512-Xi4I3JkhIXagf/OIWPwwFiG7O5jg6DElCo7sgHmU8oFDg6ZXwOali554Dgb1k7Z0bsVUVH4gboU4oCs11cX4yg==
 
 "@zkochan/cmd-shim@^3.1.0":
   version "3.1.0"

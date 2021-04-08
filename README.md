@@ -9,3 +9,11 @@ This is currently under construction. We are in the process of migrating the pac
 <p align="center">
 Copyright (c) 2020, <a href="https://xappmedia.com" target="__blank">XAPPmedia</a>
 </p>
+
+## Prerelease
+
+From time to time, you may want a prerelease version.
+
+```bash
+$ yarn release:pre
+```

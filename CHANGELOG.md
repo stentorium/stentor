@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.38.39](https://github.com/stentorium/stentor/compare/v1.38.38...v1.38.39) (2021-04-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency vm2 to v3.9.3 ([#890](https://github.com/stentorium/stentor/issues/890)) ([7661267](https://github.com/stentorium/stentor/commit/766126740e96522067c68b6657242b4e6332a3b5))
+
+
+
+
+
 ## [1.38.38](https://github.com/stentorium/stentor/compare/v1.38.37...v1.38.38) (2021-04-08)
 
 **Note:** Version bump only for package repo

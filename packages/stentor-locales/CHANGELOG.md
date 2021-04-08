@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.38.37](https://github.com/stentorium/stentor/compare/v1.38.36...v1.38.37) (2021-04-08)
+
+**Note:** Version bump only for package stentor-locales
+
+
+
+
+
+## [1.38.36](https://github.com/stentorium/stentor/compare/v1.38.35...v1.38.36) (2021-04-07)
+
+**Note:** Version bump only for package stentor-locales
+
+
+
+
+
+## [1.38.35](https://github.com/stentorium/stentor/compare/v1.38.34...v1.38.35) (2021-04-06)
+
+**Note:** Version bump only for package stentor-locales
+
+
+
+
+
+## [1.38.34](https://github.com/stentorium/stentor/compare/v1.38.33...v1.38.34) (2021-04-05)
+
+**Note:** Version bump only for package stentor-locales
+
+
+
+
+
+## [1.38.33](https://github.com/stentorium/stentor/compare/v1.38.32...v1.38.33) (2021-04-04)
+
+**Note:** Version bump only for package stentor-locales
+
+
+
+
+
+## [1.38.32](https://github.com/stentorium/stentor/compare/v1.38.31...v1.38.32) (2021-04-03)
+
+**Note:** Version bump only for package stentor-locales
+
+
+
+
+
 ## [1.38.31](https://github.com/stentorium/stentor/compare/v1.38.30...v1.38.31) (2021-03-31)
 
 **Note:** Version bump only for package stentor-locales

@@ -4,7 +4,11 @@
   "publishConfig": {
     "access": "public"
   },
+<<<<<<< HEAD
   "version": "1.38.38-alpha.0",
+=======
+  "version": "1.38.38",
+>>>>>>> master
   "description": "Constants for 📣 stentor",
   "types": "lib/index",
   "typings": "lib/index",
@@ -17,7 +21,11 @@
   },
   "devDependencies": {
     "@xapp/config": "0.2.3",
+<<<<<<< HEAD
     "stentor-models": "1.38.38-alpha.0",
+=======
+    "stentor-models": "1.38.38",
+>>>>>>> master
     "typescript": "4.2.4"
   },
   "peerDependencies": {

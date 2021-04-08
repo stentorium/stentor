@@ -4,7 +4,11 @@
   "publishConfig": {
     "access": "public"
   },
+<<<<<<< HEAD
   "version": "1.38.38-alpha.0",
+=======
+  "version": "1.38.38",
+>>>>>>> master
   "description": "Conditionals for 📣 stentor",
   "types": "lib/index",
   "typings": "lib/index",
@@ -20,11 +24,19 @@
     "@xapp/config": "0.2.3",
     "chai": "4.3.4",
     "mocha": "8.3.2",
+<<<<<<< HEAD
     "stentor-models": "1.38.38-alpha.0",
     "typescript": "4.2.4"
   },
   "dependencies": {
     "stentor-logger": "1.38.38-alpha.0",
+=======
+    "stentor-models": "1.38.38",
+    "typescript": "4.2.4"
+  },
+  "dependencies": {
+    "stentor-logger": "1.38.38",
+>>>>>>> master
     "vm2": "3.9.2"
   },
   "peerDependencies": {

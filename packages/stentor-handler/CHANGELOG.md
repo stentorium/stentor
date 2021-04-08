@@ -3,11 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-<<<<<<< HEAD
-## [1.38.38-alpha.0](https://github.com/stentorium/stentor/compare/v1.38.37...v1.38.38-alpha.0) (2021-04-08)
-=======
 ## [1.38.38](https://github.com/stentorium/stentor/compare/v1.38.37...v1.38.38) (2021-04-08)
->>>>>>> master
 
 **Note:** Version bump only for package stentor-handler
 

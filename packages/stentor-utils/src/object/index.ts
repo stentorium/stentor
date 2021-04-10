@@ -1,5 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 export * from "./findValueForKey";
+export * from "./findValuesForKey";
 export * from "./percentComplete";
 
 /**

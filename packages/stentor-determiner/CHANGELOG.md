@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.38.41](https://github.com/stentorium/stentor/compare/v1.38.40...v1.38.41) (2021-04-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency jsonpath to v1.1.1 ([#882](https://github.com/stentorium/stentor/issues/882)) ([1ad839b](https://github.com/stentorium/stentor/commit/1ad839bf8855abde22d66a4455f99aa78a88020e))
+
+
+
+
+
 ## [1.38.40](https://github.com/stentorium/stentor/compare/v1.38.39...v1.38.40) (2021-04-10)
 
 **Note:** Version bump only for package stentor-determiner

@@ -1,7 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
-export interface ObjectWithKeys<V> {
-    [key: string]: V;
-}
+import { existsAndNotEmpty } from "../array";
+import { ObjectWithKeys, findValuesForKey } from "./findValuesForKey";
 
 /**
  * Searches the provided object for the provided key.
@@ -35,29 +34,10 @@ export function findValueForKey<V>(key: string, obj: ObjectWithKeys<V>): V | und
     if (!exactMatch) {
         // only if we don't have an exact already
 
-        let keyAsRegexMatch: V;
-        let objectKeyAsRegexMatch: V;
-
-        const keys = Object.keys(obj);
-        // Iterate through and look for a regex match
-        keys.forEach(objectKey => {
-            // Check the objectKey for a regex match
-            const objectKeyRegex = new RegExp(objectKey);
-            const objectKeyResults = objectKeyRegex.exec(key);
-            if (Array.isArray(objectKeyResults) && objectKeyResults.length > 0 && objectKeyResults[0] === key) {
-                objectKeyAsRegexMatch = obj[objectKey];
-            }
-            // Check the key, see if it is a regex
-            const keyRegex = new RegExp(key);
-            const keyResults = keyRegex.exec(objectKey);
-            if (Array.isArray(keyResults) && keyResults.length > 0 && keyResults[0] === objectKey) {
-                keyAsRegexMatch = obj[objectKey];
-            }
-
-            if (objectKeyAsRegexMatch || keyAsRegexMatch) {
-                regexMatch = objectKeyAsRegexMatch || keyAsRegexMatch;
-            }
-        });
+        const regexMatches = findValuesForKey(key, obj);
+        if (existsAndNotEmpty(regexMatches)) {
+            regexMatch = regexMatches.pop();
+        }
     }
 
     // Return what you find.

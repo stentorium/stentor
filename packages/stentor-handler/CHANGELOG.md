@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.38.46](https://github.com/stentorium/stentor/compare/v1.38.45...v1.38.46) (2021-04-14)
+
+
+### Bug Fixes
+
+* Crash with handler.data is undefined ([#905](https://github.com/stentorium/stentor/issues/905)) ([59122d3](https://github.com/stentorium/stentor/commit/59122d36fa03b360f8561454387085750dc0cce6))
+
+
+
+
+
 ## [1.38.45](https://github.com/stentorium/stentor/compare/v1.38.44...v1.38.45) (2021-04-14)
 
 **Note:** Version bump only for package stentor-handler

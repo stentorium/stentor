@@ -199,7 +199,7 @@ export abstract class AbstractHandler<
      * @memberof Handler
      */
     protected async inputUnknown(request: Request, context: Context): Promise<void> {
-        switch (this.data.inputUnknownStrategy) {
+        switch (this.data?.inputUnknownStrategy) {
             case INPUT_UNKNOWN_STRATEGY_REPROMPT:
                 if (context.storage.previousResponse && context.storage.previousResponse.reprompt) {
                     const reprompt = context.storage.previousResponse.reprompt;

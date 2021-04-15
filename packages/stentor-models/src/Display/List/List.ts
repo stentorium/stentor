@@ -35,9 +35,18 @@ export interface List extends BaseDisplay {
     /**
      * Used when templating the list for automatic generation.
      * 
+     * When using itemsObject, the first item in the list is the template
+     * and all other items in the list will be ignored.
+     * 
      * @beta This is not yet fully supported
      */
     itemsObject?: string;
+    /**
+     * Used with itemsObject, it is then used to reference the current item in the list within the template. 
+     *
+     * @beta This is not yet fully supported 
+     */
+    itemsName?: string;
     /**
      * When itemsObject is provided, this is the amount of list items to display
      * along with the offset within the list.

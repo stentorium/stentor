@@ -1,4 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { BaseDisplay } from "../Types";
+
 /**
  * List style display items.
  *
@@ -10,7 +12,7 @@
  * {@link https://developer.amazon.com/docs/custom-skills/display-template-reference.html#listtemplate1}
  *
  */
-export interface List {
+export interface List extends BaseDisplay {
     /**
      * Type of list.
      *
@@ -30,6 +32,22 @@ export interface List {
      * The list items.
      */
     items: ListItem[];
+    /**
+     * Used when templating the list for automatic generation.
+     * 
+     * @beta This is not yet fully supported
+     */
+    itemsObject?: string;
+    /**
+     * When itemsObject is provided, this is the amount of list items to display
+     * along with the offset within the list.
+     * 
+     * @beta This is not yet fully supported
+     */
+    range?: {
+        length: number;
+        from: number;
+    }
 }
 
 export interface ListItem {
@@ -57,6 +75,10 @@ export interface ListItem {
      * The image for the list item.
      */
     image?: ListImage;
+    /**
+     * Optional list of buttons that will be displayed on the list item.
+     */
+    buttons?: ListButton[];
 }
 
 export interface ListImage {
@@ -80,4 +102,11 @@ export interface ListImage {
      * Describes the image for screen readers, referred to as ContentDescription on Alexa.
      */
     accessibilityText: string;
+}
+
+export interface ListButton {
+    /**
+     * Text to be displayed, also needs to be included in the interaction model
+     */
+    title: string;
 }

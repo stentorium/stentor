@@ -7,6 +7,12 @@ export interface Card extends BaseDisplay {
     content: string;
     smallImageUrl?: string;
     largeImageUrl?: string;
+    /**
+     * When present, if the image is clicked the provided website will open.
+     * 
+     * @beta Not yet fully supported.
+     */
+    imageActionUrl?: string;
     accessibilityText?: string;
     buttons?: CardButton[];
 }

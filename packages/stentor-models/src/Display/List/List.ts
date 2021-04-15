@@ -111,6 +111,12 @@ export interface ListImage {
      * Describes the image for screen readers, referred to as ContentDescription on Alexa.
      */
     accessibilityText: string;
+    /**
+     * When present, if the image is clicked the provided website will open.
+     * 
+     * @beta Not yet fully supported.
+     */
+    imageActionUrl?: string;
 }
 
 export interface ListButton {

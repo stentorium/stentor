@@ -165,6 +165,10 @@ export const main = async (
         if (isIntentRequest(request) && request.canFulfill) {
             eventService.addPrefix({ canFulfill: `${request.canFulfill}` });
         }
+
+        if (isIntentRequest(request) && request.rawQuery) {
+            eventService.addPrefix({ rawQuery: request.rawQuery });
+        }
     }
 
     // Do some logging for debugging if needed

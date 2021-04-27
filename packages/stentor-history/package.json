@@ -15,7 +15,7 @@
     "node": ">=10.x"
   },
   "devDependencies": {
-    "@types/chai": "4.2.16",
+    "@types/chai": "4.2.17",
     "@types/sinon": "9.0.11",
     "@xapp/config": "0.2.3",
     "chai": "4.3.4",

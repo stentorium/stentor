@@ -15,7 +15,7 @@
     "node": ">=10.x"
   },
   "devDependencies": {
-    "@types/chai": "4.2.16",
+    "@types/chai": "4.2.17",
     "@types/jsonpath": "0.2.0",
     "@types/sinon": "9.0.11",
     "@types/sinon-chai": "3.2.5",

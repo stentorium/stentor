@@ -18,11 +18,11 @@
     "@types/chai": "4.2.17",
     "@types/mocha": "8.2.2",
     "@types/node": "13.13.51",
-    "@types/sinon": "9.0.11",
+    "@types/sinon": "10.0.0",
     "@xapp/config": "0.2.3",
     "chai": "4.3.4",
     "mocha": "8.3.2",
-    "sinon": "9.2.4",
+    "sinon": "10.0.0",
     "stentor-models": "1.38.56",
     "typescript": "4.2.4"
   },

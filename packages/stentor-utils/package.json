@@ -21,7 +21,7 @@
     "@types/jsonpath": "0.2.0",
     "@types/mocha": "8.2.2",
     "@types/node": "13.13.51",
-    "@types/numeral": "0.0.30",
+    "@types/numeral": "2.0.1",
     "@types/sinon": "9.0.11",
     "@types/sinon-chai": "3.2.5",
     "@xapp/config": "0.2.3",

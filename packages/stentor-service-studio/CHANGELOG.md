@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.38.62](https://github.com/stentorium/stentor/compare/v1.38.61...v1.38.62) (2021-04-29)
+
+
+### Bug Fixes
+
+* Add ability to use environment variable to set Studio Service baseURL ([#926](https://github.com/stentorium/stentor/issues/926)) ([348b861](https://github.com/stentorium/stentor/commit/348b861e209ad33e4412613a6e98681f96dbd710))
+
+
+
+
+
+## [1.38.61](https://github.com/stentorium/stentor/compare/v1.38.60...v1.38.61) (2021-04-29)
+
+**Note:** Version bump only for package stentor-service-studio
+
+
+
+
+
 ## [1.38.60](https://github.com/stentorium/stentor/compare/v1.38.59...v1.38.60) (2021-04-28)
 
 **Note:** Version bump only for package stentor-service-studio

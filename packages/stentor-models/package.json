@@ -14,7 +14,7 @@
     "dist"
   ],
   "engines": {
-    "node": ">=10.x"
+    "node": "^10 || ^12 || ^14"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "7.14.0",

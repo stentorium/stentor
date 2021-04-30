@@ -14,7 +14,7 @@
     "dist"
   ],
   "engines": {
-    "node": ">=10.x"
+    "node": "^10 || ^12 || ^14"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "7.14.0",
@@ -31,6 +31,6 @@
     "clean": "rm -rf ./lib/* && rm -rf ./dist/*"
   },
   "dependencies": {
-    "@xapp/patterns": "1.32.78"
+    "@xapp/patterns": "1.32.82"
   }
 }

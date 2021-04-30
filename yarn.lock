@@ -1647,10 +1647,10 @@
     runes "0.4.3"
     slugify "1.3.4"
 
-"@xapp/patterns@1.32.78":
-  version "1.32.78"
-  resolved "https://registry.yarnpkg.com/@xapp/patterns/-/patterns-1.32.78.tgz#c6a98c0cfef18a278aaa25457ab39223f8f68d13"
-  integrity sha512-FVk47RDWcx48gtjI3sUxym/AhT0GfEp8fu7LUkpzGkttUoBu1EkDpAfkzNsIlgejcdkoNYXtb0cQTgJh5h4N4Q==
+"@xapp/patterns@1.32.82":
+  version "1.32.82"
+  resolved "https://registry.yarnpkg.com/@xapp/patterns/-/patterns-1.32.82.tgz#03d9f8f38b785749df9c8980b33673eb42f10a01"
+  integrity sha512-h3IN0SVUn+fAazF1BIFcf+3LSKG+rn4BYCHMHRltw/vz1qvxdgXDqa+9u3q1JlYN3Dc2coGUqvdBql3DFP9pgQ==
 
 "@zkochan/cmd-shim@^3.1.0":
   version "3.1.0"

@@ -14,7 +14,7 @@
     "lib"
   ],
   "engines": {
-    "node": ">=10.x"
+    "node": "^10 || ^12 || ^14"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "7.14.0",
@@ -43,7 +43,7 @@
     "@types/aws-lambda": "8.10.73",
     "@types/body-parser": "1.19.0",
     "@types/express": "4.17.11",
-    "@xapp/patterns": "1.32.78",
+    "@xapp/patterns": "1.32.82",
     "body-parser": "1.19.0",
     "dotenv": "8.2.0",
     "express": "4.17.1",

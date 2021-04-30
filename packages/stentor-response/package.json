@@ -12,7 +12,7 @@
     "lib"
   ],
   "engines": {
-    "node": ">=10.x"
+    "node": "^10 || ^12 || ^14"
   },
   "devDependencies": {
     "@types/chai": "4.2.17",
@@ -29,7 +29,7 @@
     "typescript": "4.2.4"
   },
   "dependencies": {
-    "@xapp/patterns": "1.32.78",
+    "@xapp/patterns": "1.32.82",
     "lodash.template": "4.5.0",
     "stentor-determiner": "1.38.65",
     "stentor-locales": "1.38.65",

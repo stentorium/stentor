@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.39.0](https://github.com/stentorium/stentor/compare/v1.38.65...v1.39.0) (2021-04-30)
+
+
+### Features
+
+* Add node 14 ([#925](https://github.com/stentorium/stentor/issues/925)) ([464e302](https://github.com/stentorium/stentor/commit/464e302e23a49b189f5b96ab78921660080e9759))
+
+
+
+
+
 ## [1.38.56](https://github.com/stentorium/stentor/compare/v1.38.55...v1.38.56) (2021-04-26)
 
 

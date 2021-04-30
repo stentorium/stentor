@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.38.63",
+  "version": "1.38.65",
   "description": "Handler factory for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -16,12 +16,12 @@
   },
   "devDependencies": {
     "@types/chai": "4.2.17",
-    "@types/sinon": "9.0.11",
+    "@types/sinon": "10.0.0",
     "@types/sinon-chai": "3.2.5",
     "@xapp/config": "0.2.3",
     "chai": "4.3.4",
     "mocha": "8.3.2",
-    "sinon": "9.2.4",
+    "sinon": "10.0.0",
     "sinon-chai": "3.6.0",
     "stentor-models": "1.38.56",
     "ts-node": "9.1.1",
@@ -29,14 +29,14 @@
   },
   "dependencies": {
     "stentor-constants": "1.38.56",
-    "stentor-context": "1.38.63",
-    "stentor-handler": "1.38.63",
-    "stentor-handler-delegating": "1.38.63",
-    "stentor-interaction-model": "1.38.63",
-    "stentor-logger": "1.38.63",
-    "stentor-request": "1.38.63",
-    "stentor-response": "1.38.63",
-    "stentor-utils": "1.38.61"
+    "stentor-context": "1.38.65",
+    "stentor-handler": "1.38.65",
+    "stentor-handler-delegating": "1.38.65",
+    "stentor-interaction-model": "1.38.65",
+    "stentor-logger": "1.38.65",
+    "stentor-request": "1.38.65",
+    "stentor-response": "1.38.65",
+    "stentor-utils": "1.38.65"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

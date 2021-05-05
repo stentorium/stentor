@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.40.2",
+  "version": "1.40.3",
   "description": "The most basic of channels, one that uses stentor requests & responses as input.",
   "types": "lib/index",
   "main": "lib/index",
@@ -23,7 +23,7 @@
     "mocha": "8.3.2",
     "sinon": "10.0.0",
     "sinon-chai": "3.6.0",
-    "stentor-models": "1.40.2",
+    "stentor-models": "1.40.3",
     "ts-node": "9.1.1",
     "typescript": "4.2.4"
   },

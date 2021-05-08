@@ -20,7 +20,7 @@
     "@types/sinon": "10.0.0",
     "@xapp/config": "0.2.3",
     "chai": "4.3.4",
-    "mocha": "8.3.2",
+    "mocha": "8.4.0",
     "sinon": "10.0.0",
     "stentor-models": "1.40.3",
     "ts-node": "9.1.1",

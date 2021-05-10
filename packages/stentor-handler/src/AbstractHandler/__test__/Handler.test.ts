@@ -22,7 +22,6 @@ import {
     InputUnknownRequestBuilder,
     INTENT_REQUEST_TYPE,
     IntentRequestBuilder,
-
     OptionSelectBuilder
 } from "stentor-request";
 import { ResponseBuilder } from "stentor-response";
@@ -459,6 +458,24 @@ describe("AbstractHandler", () => {
                 expect(response.say).to.have.been.calledWith(previousResponse.reprompt);
                 expect(response.reprompt).to.have.been.called;
                 expect(response.reprompt).to.have.been.calledWith(previousResponse.reprompt);
+            });
+        });
+        describe("with undefined data", () => {
+            beforeEach(() => {
+                newContext = new ContextBuilder().withResponse(response).build();
+                handler = new TestHandler({
+                    appId,
+                    organizationId,
+                    intentId,
+                    type: BASE_HANDLER_TYPE,
+                    content
+                });
+                request = new InputUnknownRequestBuilder().build();
+            });
+            it("returns the first time response", async () => {
+                await handler.handleRequest(request, newContext);
+                expect(response.say).to.have.been.called;
+                expect(response.say).to.have.been.calledWith("Sorry, what was that?");
             });
         });
     });

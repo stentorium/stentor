@@ -3,6 +3,273 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.40.4](https://github.com/stentorium/stentor/compare/v1.40.3...v1.40.4) (2021-05-08)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.40.3](https://github.com/stentorium/stentor/compare/v1.40.2...v1.40.3) (2021-05-05)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.40.2](https://github.com/stentorium/stentor/compare/v1.40.1...v1.40.2) (2021-05-04)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.40.1](https://github.com/stentorium/stentor/compare/v1.40.0...v1.40.1) (2021-05-04)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.39.3](https://github.com/stentorium/stentor/compare/v1.39.2...v1.39.3) (2021-05-02)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.39.2](https://github.com/stentorium/stentor/compare/v1.39.1...v1.39.2) (2021-05-01)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.39.1](https://github.com/stentorium/stentor/compare/v1.39.0...v1.39.1) (2021-04-30)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+# [1.39.0](https://github.com/stentorium/stentor/compare/v1.38.65...v1.39.0) (2021-04-30)
+
+
+### Features
+
+* Add node 14 ([#925](https://github.com/stentorium/stentor/issues/925)) ([464e302](https://github.com/stentorium/stentor/commit/464e302e23a49b189f5b96ab78921660080e9759))
+
+
+
+
+
+## [1.38.65](https://github.com/stentorium/stentor/compare/v1.38.64...v1.38.65) (2021-04-29)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.38.64](https://github.com/stentorium/stentor/compare/v1.38.63...v1.38.64) (2021-04-29)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.38.63](https://github.com/stentorium/stentor/compare/v1.38.62...v1.38.63) (2021-04-29)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.38.61](https://github.com/stentorium/stentor/compare/v1.38.60...v1.38.61) (2021-04-29)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.38.60](https://github.com/stentorium/stentor/compare/v1.38.59...v1.38.60) (2021-04-28)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.38.58](https://github.com/stentorium/stentor/compare/v1.38.57...v1.38.58) (2021-04-27)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.38.57](https://github.com/stentorium/stentor/compare/v1.38.56...v1.38.57) (2021-04-27)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.38.56](https://github.com/stentorium/stentor/compare/v1.38.55...v1.38.56) (2021-04-26)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.38.55](https://github.com/stentorium/stentor/compare/v1.38.54...v1.38.55) (2021-04-25)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.38.54](https://github.com/stentorium/stentor/compare/v1.38.53...v1.38.54) (2021-04-21)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.38.53](https://github.com/stentorium/stentor/compare/v1.38.52...v1.38.53) (2021-04-20)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.38.52](https://github.com/stentorium/stentor/compare/v1.38.51...v1.38.52) (2021-04-20)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.38.51](https://github.com/stentorium/stentor/compare/v1.38.50...v1.38.51) (2021-04-19)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.38.50](https://github.com/stentorium/stentor/compare/v1.38.49...v1.38.50) (2021-04-19)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.38.49](https://github.com/stentorium/stentor/compare/v1.38.48...v1.38.49) (2021-04-16)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.38.48](https://github.com/stentorium/stentor/compare/v1.38.47...v1.38.48) (2021-04-15)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.38.47](https://github.com/stentorium/stentor/compare/v1.38.46...v1.38.47) (2021-04-15)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.38.46](https://github.com/stentorium/stentor/compare/v1.38.45...v1.38.46) (2021-04-14)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.38.45](https://github.com/stentorium/stentor/compare/v1.38.44...v1.38.45) (2021-04-14)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.38.44](https://github.com/stentorium/stentor/compare/v1.38.43...v1.38.44) (2021-04-13)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.38.43](https://github.com/stentorium/stentor/compare/v1.38.42...v1.38.43) (2021-04-11)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.38.42](https://github.com/stentorium/stentor/compare/v1.38.41...v1.38.42) (2021-04-11)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.38.41](https://github.com/stentorium/stentor/compare/v1.38.40...v1.38.41) (2021-04-10)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.38.40](https://github.com/stentorium/stentor/compare/v1.38.39...v1.38.40) (2021-04-10)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
+## [1.38.39](https://github.com/stentorium/stentor/compare/v1.38.38...v1.38.39) (2021-04-08)
+
+**Note:** Version bump only for package stentor-handler-delegating
+
+
+
+
+
 ## [1.38.38](https://github.com/stentorium/stentor/compare/v1.38.37...v1.38.38) (2021-04-08)
 
 **Note:** Version bump only for package stentor-handler-delegating

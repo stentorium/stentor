@@ -385,7 +385,8 @@ describe("EventService", () => {
                 expect(event.payload).to.be.an("object");
                 expect(event.payload.message).to.equal("Standard error");
                 expect(event.payload.stack).to.exist;
-                const EXPECTED_STACK_LENGTH = 13;
+                // Node 14 has 10 while others have 13 long stack length
+                const EXPECTED_STACK_LENGTH = process.version.startsWith("v14") ? 10 : 13;
                 expect(event.payload.stack).to.have.length(EXPECTED_STACK_LENGTH);
             });
         });
@@ -399,7 +400,8 @@ describe("EventService", () => {
                 expect(event.payload).to.be.an("object");
                 expect(event.payload.message).to.equal("Standard error");
                 expect(event.payload.stack).to.exist;
-                const EXPECTED_STACK_LENGTH = 13;
+                // Node 14 has 10 while others have 13 long stack length
+                const EXPECTED_STACK_LENGTH = process.version.startsWith("v14") ? 10 : 13;
                 expect(event.payload.stack).to.have.length(EXPECTED_STACK_LENGTH);
             });
         });

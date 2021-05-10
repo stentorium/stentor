@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.38.39-alpha.0",
+  "version": "1.40.4",
   "description": "Handler manager for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -12,31 +12,31 @@
     "lib"
   ],
   "engines": {
-    "node": ">=10.x"
+    "node": "^10 || ^12 || ^14"
   },
   "devDependencies": {
-    "@types/chai": "4.2.16",
+    "@types/chai": "4.2.17",
     "@types/chai-as-promised": "7.1.3",
-    "@types/sinon": "9.0.11",
+    "@types/sinon": "10.0.0",
     "@types/sinon-chai": "3.2.5",
     "@xapp/config": "0.2.3",
     "chai": "4.3.4",
     "chai-as-promised": "7.1.1",
-    "mocha": "8.3.2",
-    "sinon": "9.2.4",
+    "mocha": "8.4.0",
+    "sinon": "10.0.0",
     "sinon-chai": "3.6.0",
-    "stentor-models": "1.38.39-alpha.0",
+    "stentor-models": "1.40.3",
     "ts-node": "9.1.1",
     "typescript": "4.2.4"
   },
   "dependencies": {
-    "stentor-guards": "1.38.39-alpha.0",
-    "stentor-handler": "1.38.39-alpha.0",
-    "stentor-handler-factory": "1.38.39-alpha.0",
-    "stentor-logger": "1.38.39-alpha.0",
-    "stentor-request": "1.38.39-alpha.0",
-    "stentor-response": "1.38.39-alpha.0",
-    "stentor-storage": "1.38.39-alpha.0"
+    "stentor-guards": "1.40.4",
+    "stentor-handler": "1.40.4",
+    "stentor-handler-factory": "1.40.4",
+    "stentor-logger": "1.40.4",
+    "stentor-request": "1.40.4",
+    "stentor-response": "1.40.4",
+    "stentor-storage": "1.40.4"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

@@ -9,3 +9,19 @@ This is currently under construction. We are in the process of migrating the pac
 <p align="center">
 Copyright (c) 2020, <a href="https://xappmedia.com" target="__blank">XAPPmedia</a>
 </p>
+
+## Prerelease
+
+From time to time, you may want a prerelease version.
+
+To do this, you first need to set the environment variable `CIRCLE_BRANCH` to allow your prerelease.
+
+```bash
+$ export CIRCLE_BRANCH=assistant-with-lambdahandler
+```
+
+Then run the pre-release command:
+
+```bash
+$ yarn release:pre
+```

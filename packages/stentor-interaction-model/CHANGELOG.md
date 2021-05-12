@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.40.8](https://github.com/stentorium/stentor/compare/v1.40.7...v1.40.8) (2021-05-12)
+
+**Note:** Version bump only for package stentor-interaction-model
+
+
+
+
+
 ## [1.40.7](https://github.com/stentorium/stentor/compare/v1.40.6...v1.40.7) (2021-05-12)
 
 **Note:** Version bump only for package stentor-interaction-model

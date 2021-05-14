@@ -318,11 +318,11 @@ export class Assistant {
             // Check if the matching channel has a hook (like Facebook)
             for (const channel of this.channels) {
                 if (channel.handlerHook && channel.test?.(runtimeEvent)) {
-                    return channel.handlerHook(handler, runtimeEvent, runtimeContext, callback, {userStorageService: this.userStorageService});
+                    return channel.handlerHook(handler, runtimeEvent, runtimeContext, callback, { userStorageService: this.userStorageService });
                 }
             }
 
-            return handler(runtimeContext, runtimeContext, callback);
+            return handler(runtimeEvent, runtimeContext, callback);
         }
 
         return lambdaHandler;

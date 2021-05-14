@@ -6,7 +6,8 @@ import { Request } from "../Request";
 import { AbstractResponseBuilder, Response } from "../Response";
 import { Hooks, RuntimeContext } from "../Runtime";
 import { UserStorageService } from "../Services";
-import { Callback } from "aws-lambda";
+
+export type Callback<TResult = any> = (error?: Error | string | null, result?: TResult) => void
 
 export interface RequestResponse {
     request: Request;
@@ -68,7 +69,6 @@ export interface Channel {
      * Runtime hooks used by the channel to make any necessary checks or modifications
      */
     hooks?: ChannelHooks;
-
     /**
      * Lambda event interceptor (right after the event)
      *
@@ -79,6 +79,6 @@ export interface Channel {
      * @param callback lambda callback
      */
     handlerHook?(handler: (event: any, context: RuntimeContext, callback: Callback) => Promise<void>,
-                 event: any, context: RuntimeContext, callback: Callback,
-                 services: { userStorageService?: UserStorageService; appService?: any }): Promise<void>;
+        event: any, context: RuntimeContext, callback: Callback,
+        services: { userStorageService?: UserStorageService; appService?: any }): Promise<void>;
 }

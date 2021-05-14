@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.40.15](https://github.com/stentorium/stentor/compare/v1.40.14...v1.40.15) (2021-05-14)
+
+
+### Bug Fixes
+
+* Adding Test to Assistant().lambda() ([#952](https://github.com/stentorium/stentor/issues/952)) ([de39783](https://github.com/stentorium/stentor/commit/de397835960a1626b9efe85af9e71230f3bd2657))
+
+
+
+
+
 ## [1.40.14](https://github.com/stentorium/stentor/compare/v1.40.13...v1.40.14) (2021-05-14)
 
 **Note:** Version bump only for package stentor

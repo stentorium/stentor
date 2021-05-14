@@ -5,18 +5,38 @@ import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
 
 import * as AWSLambda from "aws-lambda";
-import { HandlerService, UserStorageService } from "stentor-models";
+import { Handler, HandlerService, UserStorageService } from "stentor-models";
 import { Assistant } from "../Assistant";
 
 import { Test } from "./TestChannel";
+import { IntentRequestBuilder } from "stentor-request";
 
 chai.use(sinonChai);
 chai.use(chaiAsPromised);
 const expect = chai.expect;
 
 class MockHandlerService implements HandlerService {
-    public get() {
-        return {} as any;
+    public async get(id: string): Promise<Handler> {
+        return new Promise((resolve) => {
+            const help: Handler = {
+                appId: "appId",
+                organizationId: "organizationId",
+                type: "ConversationHandler",
+                intentId: "HelpIntent",
+                content: {
+                    "HelpIntent": [{
+                        outputSpeech: "Help"
+                    }
+                    ]
+                }
+            }
+
+            if (id === "HelpIntent") {
+                return resolve(help);
+            } else {
+                return resolve({} as any as Handler);
+            }
+        });
     }
 }
 
@@ -80,6 +100,39 @@ const MockLambdaContext: AWSLambda.Context = {
 describe("Assistant", () => {
     let assistant: Assistant;
     describe("#lambda()", () => {
+        describe("when called", () => {
+            let callback: sinon.SinonStub;
+
+            beforeEach(() => {
+
+                assistant = new Assistant()
+                    .withUserStorage(new MockUserStorageService())
+                    .withHandlerService(new MockHandlerService());
+                callback = sinon.stub();
+
+            });
+            it("returns the expected result", async () => {
+                const request = new IntentRequestBuilder().withIntentId("HelpIntent").build();
+                const handler = assistant.withChannels([Test({ passThrough: true, validateRequest: true })]).lambda();
+                await handler(
+                    {
+                        path: "/",
+                        requestContext: {},
+                        body: JSON.stringify(request),
+                        headers: {}
+                    },
+                    MockLambdaContext,
+                    callback
+                );
+
+                expect(callback).to.have.been.calledOnce;
+                expect(callback).to.have.been.calledWith(null, {
+                    statusCode: 200,
+                    headers: { "Access-Control-Allow-Origin": "*" },
+                    body: '{"outputSpeech":{"ssml":"<speak>Help</speak>","displayText":"Help"}}'
+                });
+            });
+        });
         describe("without environment variables", () => {
             describe("with handler service", () => {
                 beforeEach(() => {
@@ -112,7 +165,6 @@ describe("Assistant", () => {
                     await expect(handler(MockLambdaEvent, MockLambdaContext, () => { return; })).to.be.rejectedWith("HandlerService or STUDIO_TOKEN was not provided, unable to create the Assistant.");
                 });
             });
-
         });
         describe("with environment variables", () => {
             beforeEach(() => {

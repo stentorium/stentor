@@ -23,7 +23,7 @@ export interface DialogflowDataStream extends BaseDataStream
 |  Property | Type | Description |
 |  --- | --- | --- |
 |  [authToken](./stentor-models.dialogflowdatastream.authtoken.md) | string |  |
-|  [minimumScore](./stentor-models.dialogflowdatastream.minimumscore.md) | number |  |
+|  [minimumScore?](./stentor-models.dialogflowdatastream.minimumscore.md) | number | <i>(Optional)</i> |
 |  [type](./stentor-models.dialogflowdatastream.type.md) | [DialogflowType](./stentor-models.dialogflowtype.md) |  |
 |  [url](./stentor-models.dialogflowdatastream.url.md) | string |  |
 

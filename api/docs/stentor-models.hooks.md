@@ -16,7 +16,7 @@ export interface Hooks
 
 |  Method | Description |
 |  --- | --- |
-|  [postRequestTranslation(request)](./stentor-models.hooks.postrequesttranslation.md) | This hook is called directly after the request is translated for the channel.<!-- -->This can be an opportunity to modify the request but the request must be returned to continue operation. |
-|  [preExecution(event, context, callback)](./stentor-models.hooks.preexecution.md) | Once the channel is selected and before the request is translated, the preExecution hook is called.<!-- -->This can be used for pre-execution modifications or checks. If an error is thrown, it will be caught and returned. If you return undefined, all execution will halt without throwing an error (feel free to call the callback yourself). |
-|  [preResponseTranslation(request, response, storage)](./stentor-models.hooks.preresponsetranslation.md) | This hook is called before the response is translated for the channel.<!-- -->Last chance to tweak the platform independent response or collect some data from the request/response (transcript). |
+|  [postRequestTranslation(request)?](./stentor-models.hooks.postrequesttranslation.md) | <i>(Optional)</i> This hook is called directly after the request is translated for the channel.<!-- -->This can be an opportunity to modify the request but the request must be returned to continue operation. |
+|  [preExecution(event, context, callback)?](./stentor-models.hooks.preexecution.md) | <i>(Optional)</i> Once the channel is selected and before the request is translated, the preExecution hook is called.<!-- -->This can be used for pre-execution modifications or checks. If an error is thrown, it will be caught and returned. If you return undefined, all execution will halt without throwing an error (feel free to call the callback yourself). |
+|  [preResponseTranslation(request, response, storage)?](./stentor-models.hooks.preresponsetranslation.md) | <i>(Optional)</i> This hook is called before the response is translated for the channel.<!-- -->Last chance to tweak the platform independent response or collect some data from the request/response (transcript). |
 

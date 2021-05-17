@@ -14,6 +14,6 @@ export interface AppPlatformDataMap
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [alexa](./stentor-models.appplatformdatamap.alexa.md) | [AlexaPlatformData](./stentor-models.alexaplatformdata.md) |  |
-|  [google](./stentor-models.appplatformdatamap.google.md) | [GooglePlatformData](./stentor-models.googleplatformdata.md) |  |
+|  [alexa?](./stentor-models.appplatformdatamap.alexa.md) | [AlexaPlatformData](./stentor-models.alexaplatformdata.md) | <i>(Optional)</i> |
+|  [google?](./stentor-models.appplatformdatamap.google.md) | [GooglePlatformData](./stentor-models.googleplatformdata.md) | <i>(Optional)</i> |
 

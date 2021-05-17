@@ -8,7 +8,6 @@ Parses the string and returns a DateTimeRange object.
 
 Supports both the ISO-8601 range &amp; "--<!-- -->&gt;<!-- -->" style date range.
 
-
 <b>Signature:</b>
 
 ```typescript

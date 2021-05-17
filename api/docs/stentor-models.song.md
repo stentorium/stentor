@@ -17,8 +17,8 @@ export interface Song extends Audio
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [album](./stentor-models.song.album.md) | string |  |
-|  [artist](./stentor-models.song.artist.md) | string |  |
+|  [album?](./stentor-models.song.album.md) | string | <i>(Optional)</i> |
+|  [artist?](./stentor-models.song.artist.md) | string | <i>(Optional)</i> |
 |  [title](./stentor-models.song.title.md) | string |  |
 |  [type](./stentor-models.song.type.md) | [SongType](./stentor-models.songtype.md) |  |
 

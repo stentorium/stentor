@@ -14,7 +14,6 @@ export interface TemplatedResponseOutput<T> extends ResponseOutput {
  *
  * This function leverages _.template, see https://lodash.com/docs/#template
  *
- * @template T
  * @param {TemplatedResponseOutput<T>} templatedResponse
  * @returns {Promise<ResponseOutput>}
  */

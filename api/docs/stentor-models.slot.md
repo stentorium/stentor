@@ -16,9 +16,9 @@ export interface Slot
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [isList](./stentor-models.slot.islist.md) | boolean \| number | Is the slot a list of values. |
+|  [isList?](./stentor-models.slot.islist.md) | boolean \| number | <i>(Optional)</i> Is the slot a list of values. |
 |  [name](./stentor-models.slot.name.md) | string | The name of the slot, corresponds to how it is displayed in the sample utterance.<!-- -->For example: "Play {<!-- -->Podcast<!-- -->}<!-- -->" where Podcast is the name. |
-|  [nlu](./stentor-models.slot.nlu.md) | { \[nlu: string\]: { type: string; }; } | NLU specific metadata used when translating to the NLU entity.<!-- -->Use to override the type for a specific NLU. |
-|  [slotElicitationContentKey](./stentor-models.slot.slotelicitationcontentkey.md) | string | When set, if the slot is not provided by the user the key will be used to get the response off of the content for the handler in order to ask the user to provide the slot. |
-|  [type](./stentor-models.slot.type.md) | string | The type of entity for the slot.<!-- -->This corresponds to an Entity, specifically the entityId key.<!-- -->For legacy applications, SlotType is used. |
+|  [nlu?](./stentor-models.slot.nlu.md) | { \[nlu: string\]: { type: string; }; } | <i>(Optional)</i> NLU specific metadata used when translating to the NLU entity.<!-- -->Use to override the type for a specific NLU. |
+|  [slotElicitationContentKey?](./stentor-models.slot.slotelicitationcontentkey.md) | string | <i>(Optional)</i> When set, if the slot is not provided by the user the key will be used to get the response off of the content for the handler in order to ask the user to provide the slot. |
+|  [type?](./stentor-models.slot.type.md) | string | <i>(Optional)</i> The type of entity for the slot.<!-- -->This corresponds to an Entity, specifically the entityId key.<!-- -->For legacy applications, SlotType is used. |
 

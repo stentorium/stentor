@@ -39,6 +39,7 @@
 |  [AudioPlayerRequestPayload](./stentor-models.audioplayerrequestpayload.md) |  |
 |  [BaseData](./stentor-models.basedata.md) | Platform specific information by platform type. |
 |  [BaseDataStream](./stentor-models.basedatastream.md) | Base data stream all data streams extend. |
+|  [BaseDisplay](./stentor-models.basedisplay.md) |  |
 |  [BaseRequest](./stentor-models.baserequest.md) | Shared parameters for each Request |
 |  [BespokenDataStream](./stentor-models.bespokendatastream.md) | Data for Bespoken Tools.<!-- -->See [https://bespoken.io](https://bespoken.io) |
 |  [CanFulfillIntentResult](./stentor-models.canfulfillintentresult.md) |  |
@@ -73,6 +74,7 @@
 |  [Event\_2](./stentor-models.event_2.md) | The base structure for an Event. An event must be serializable to a string so it can be reconstructed on the other side. |
 |  [EventStream](./stentor-models.eventstream.md) | An event stream is a collection of events that eventually get dispatched to a particular endpoint. |
 |  [ExecutablePath](./stentor-models.executablepath.md) | An executable path defines exactly where an incoming request will be routed to. |
+|  [ExpectedResult](./stentor-models.expectedresult.md) | An expected result from the NLU to determine if the test passed or failed. |
 |  [Expirable](./stentor-models.expirable.md) |  |
 |  [ExpirationDate](./stentor-models.expirationdate.md) | A date to expire by. |
 |  [ExpirationDuration](./stentor-models.expirationduration.md) | A duration to expire in. |
@@ -108,10 +110,16 @@
 |  [KeyValue](./stentor-models.keyvalue.md) |  |
 |  [KeyValueStore](./stentor-models.keyvaluestore.md) |  |
 |  [KnowledgeAnswer](./stentor-models.knowledgeanswer.md) |  |
+|  [KnowledgeBaseDocument](./stentor-models.knowledgebasedocument.md) | A single document, typically part of a larger corpus of information that is where the answer to the user's original query may reside. |
+|  [KnowledgeBaseFAQ](./stentor-models.knowledgebasefaq.md) | An FAQ |
+|  [KnowledgeBaseResult](./stentor-models.knowledgebaseresult.md) |  |
+|  [KnowledgeBaseSuggested](./stentor-models.knowledgebasesuggested.md) | A suggested answer with high confidence. |
+|  [KnowlegeBaseHighlight](./stentor-models.knowlegebasehighlight.md) | Description of a highlighted word, which is relevant to the original knowledgebase search. |
 |  [LambdaFinishEvent](./stentor-models.lambdafinishevent.md) |  |
 |  [LaunchRequest](./stentor-models.launchrequest.md) | The Launch Request, when the user says "open {<!-- -->invocation name<!-- -->}<!-- -->" or "talk to {<!-- -->invocation name<!-- -->}<!-- -->"<!-- -->See [https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/handling-requests-sent-by-alexa\#launchrequest](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/handling-requests-sent-by-alexa#launchrequest) |
 |  [LinkOutSuggestion](./stentor-models.linkoutsuggestion.md) | Suggestion chip that links out to an App or Website. Ownership of the URL must be validated in the Actions on Google developer console or the suggestion will not be shown.<!-- -->The title has a limit of 20 characters, note this is different from when it is a normal suggestion<!-- -->Only Google Assistant at the moment. |
 |  [List](./stentor-models.list.md) | List style display items.<!-- -->Can either be vertical style list or a carousel.<!-- -->This translates to a List/Carousel on the Google Assistant and ListTemplate1/ListTemplate2 on Amazon Alexa<!-- -->See [https://developers.google.com/actions/assistant/responses\#list](https://developers.google.com/actions/assistant/responses#list) and [https://developer.amazon.com/docs/custom-skills/display-template-reference.html\#listtemplate1](https://developer.amazon.com/docs/custom-skills/display-template-reference.html#listtemplate1) |
+|  [ListButton](./stentor-models.listbutton.md) |  |
 |  [ListImage](./stentor-models.listimage.md) |  |
 |  [ListItem](./stentor-models.listitem.md) |  |
 |  [Localizable](./stentor-models.localizable.md) | An object that has a default locale and separate localalized versions. |
@@ -191,10 +199,12 @@
 |  [Suggestion](./stentor-models.suggestion.md) | Suggested responses that a user can tap.<!-- -->The title has a limit of 25 characters.<!-- -->Only Google Assistant at the moment. |
 |  [SurfaceChangeRequest](./stentor-models.surfacechangerequest.md) |  |
 |  [SystemDependent](./stentor-models.systemdependent.md) |  |
+|  [TestSlot](./stentor-models.testslot.md) | Extends a RequestSlot by adding the RelativeDateTime as a possible value. |
 |  [TextContent](./stentor-models.textcontent.md) |  |
 |  [UserDataValue](./stentor-models.userdatavalue.md) |  |
 |  [UserProfile](./stentor-models.userprofile.md) |  |
 |  [UserStorageService](./stentor-models.userstorageservice.md) |  |
+|  [UtteranceTest](./stentor-models.utterancetest.md) | An utterance test consists of the utterance under test and the expected result. |
 |  [Video](./stentor-models.video.md) | Video media |
 |  [VideoLiveStream](./stentor-models.videolivestream.md) |  |
 |  [Visuals](./stentor-models.visuals.md) | An object that can be displayed. |
@@ -257,6 +267,7 @@
 |  [BaseHandlerType](./stentor-models.basehandlertype.md) |  |
 |  [BespokenDataStreamType](./stentor-models.bespokendatastreamtype.md) | Analytics |
 |  [BuiltInIntents](./stentor-models.builtinintents.md) |  |
+|  [Callback](./stentor-models.callback.md) |  |
 |  [CancelIntent](./stentor-models.cancelintent.md) |  |
 |  [ChannelHooks](./stentor-models.channelhooks.md) |  |
 |  [ChatbaseDataStreamType](./stentor-models.chatbasedatastreamtype.md) |  |
@@ -272,7 +283,7 @@
 |  [DialogflowType](./stentor-models.dialogflowtype.md) |  |
 |  [Display](./stentor-models.display.md) |  |
 |  [DisplayShape](./stentor-models.displayshape.md) | The hardware type (screen) if we have it |
-|  [DurationFormat](./stentor-models.durationformat.md) |  |
+|  [DurationFormat](./stentor-models.durationformat.md) | Text that describes the format of a duration, for example "years" or "M" for months.<!-- -->This is the same as the moment.js duration format. |
 |  [ErrorEventType](./stentor-models.erroreventtype.md) |  |
 |  [EventType](./stentor-models.eventtype.md) |  |
 |  [Expiration](./stentor-models.expiration.md) |  |
@@ -353,6 +364,7 @@
 |  [PodcastEpisodeType](./stentor-models.podcastepisodetype.md) |  |
 |  [PodcastType](./stentor-models.podcasttype.md) |  |
 |  [PreviousIntent](./stentor-models.previousintent.md) |  |
+|  [RawQueryRequestType](./stentor-models.rawqueryrequesttype.md) |  |
 |  [RelativeDateRangeType](./stentor-models.relativedaterangetype.md) |  |
 |  [RelativeDateType](./stentor-models.relativedatetype.md) |  |
 |  [RepeatIntent](./stentor-models.repeatintent.md) |  |

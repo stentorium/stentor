@@ -14,7 +14,7 @@ export interface HandlerDelegates
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [canHandleRequest](./stentor-models.handlerdelegates.canhandlerequest.md) | [DelegatedRequestMethod](./stentor-models.delegatedrequestmethod.md) |  |
+|  [canHandleRequest?](./stentor-models.handlerdelegates.canhandlerequest.md) | [DelegatedRequestMethod](./stentor-models.delegatedrequestmethod.md) | <i>(Optional)</i> |
 |  [handleRequest](./stentor-models.handlerdelegates.handlerequest.md) | [DelegatedHandlerMethod](./stentor-models.delegatedhandlermethod.md) |  |
-|  [start](./stentor-models.handlerdelegates.start.md) | [DelegatedHandlerMethod](./stentor-models.delegatedhandlermethod.md) |  |
+|  [start?](./stentor-models.handlerdelegates.start.md) | [DelegatedHandlerMethod](./stentor-models.delegatedhandlermethod.md) | <i>(Optional)</i> |
 

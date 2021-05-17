@@ -18,6 +18,6 @@ export interface AudioLiveStream extends Audio
 |  Property | Type | Description |
 |  --- | --- | --- |
 |  [length](./stentor-models.audiolivestream.length.md) | -1 | Length for livestreams is always negative one since it has no length. |
-|  [name](./stentor-models.audiolivestream.name.md) | string | Name of the stream.<!-- -->Use title instead. |
+|  [name?](./stentor-models.audiolivestream.name.md) | string | <i>(Optional)</i> Name of the stream.<!-- -->Use title instead. |
 |  [type](./stentor-models.audiolivestream.type.md) | [AudioLiveStreamType](./stentor-models.audiolivestreamtype.md) |  |
 

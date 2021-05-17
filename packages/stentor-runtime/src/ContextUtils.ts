@@ -108,7 +108,6 @@ export function virtualBstContext(lambdaEvent: any): { event: object; context: R
  * Event for an API Gateway Proxy Integration
  *
  * @see https://docs.aws.amazon.com/en_pv/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-input-format
- * @interface APIGatewayEvent
  */
 export interface APIGatewayEvent {
     resource: string;
@@ -129,7 +128,6 @@ export interface APIGatewayEvent {
  * Lambda Context
  *
  * @see https://docs.aws.amazon.com/en_pv/lambda/latest/dg/nodejs-prog-model-context.html
- * @interface LambdaContext
  */
 export interface LambdaContext {
     getRemainingTimeInMillis(): number;

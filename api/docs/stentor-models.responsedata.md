@@ -16,8 +16,8 @@ export interface ResponseData
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [canFulfill](./stentor-models.responsedata.canfulfill.md) | [CanFulfillIntentResult](./stentor-models.canfulfillintentresult.md) | If a request (<!-- -->) has canFufill as true, this provides information about it's ability to fulfill the request. |
-|  [content](./stentor-models.responsedata.content.md) | string | Provides context to the user for select system responses.<!-- -->Used for SURFACE\_CHANGE, ACCOUNT\_LINK, |
-|  [expectedPreviousToken](./stentor-models.responsedata.expectedprevioustoken.md) | string | During media playback, expected previous token is used as a reference point. It is used by certain channels to prevent race condition requests that can occur when navigating content quickly. |
-|  [title](./stentor-models.responsedata.title.md) | string | Provides a title for select system responses.<!-- -->Used for SURFACE\_CHANGE |
+|  [canFulfill?](./stentor-models.responsedata.canfulfill.md) | [CanFulfillIntentResult](./stentor-models.canfulfillintentresult.md) | <i>(Optional)</i> If a request (<!-- -->) has canFufill as true, this provides information about it's ability to fulfill the request. |
+|  [content?](./stentor-models.responsedata.content.md) | string | <i>(Optional)</i> Provides context to the user for select system responses.<!-- -->Used for SURFACE\_CHANGE, ACCOUNT\_LINK, |
+|  [expectedPreviousToken?](./stentor-models.responsedata.expectedprevioustoken.md) | string | <i>(Optional)</i> During media playback, expected previous token is used as a reference point. It is used by certain channels to prevent race condition requests that can occur when navigating content quickly. |
+|  [title?](./stentor-models.responsedata.title.md) | string | <i>(Optional)</i> Provides a title for select system responses.<!-- -->Used for SURFACE\_CHANGE |
 

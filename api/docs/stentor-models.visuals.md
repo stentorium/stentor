@@ -16,6 +16,6 @@ export interface Visuals
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [largeImageUrl](./stentor-models.visuals.largeimageurl.md) | string |  |
-|  [smallImageUrl](./stentor-models.visuals.smallimageurl.md) | string |  |
+|  [largeImageUrl?](./stentor-models.visuals.largeimageurl.md) | string | <i>(Optional)</i> |
+|  [smallImageUrl?](./stentor-models.visuals.smallimageurl.md) | string | <i>(Optional)</i> |
 

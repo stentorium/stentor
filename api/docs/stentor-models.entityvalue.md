@@ -14,7 +14,7 @@ export interface EntityValue
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [canonicalId](./stentor-models.entityvalue.canonicalid.md) | string | Used by Alexa. This value is returned as a reference, such as "LAX" |
+|  [canonicalId?](./stentor-models.entityvalue.canonicalid.md) | string | <i>(Optional)</i> Used by Alexa. This value is returned as a reference, such as "LAX" |
 |  [name](./stentor-models.entityvalue.name.md) | string | The name of the entity.<!-- -->For example, for an entity called cities, a value would be "Los Angeles". |
-|  [synonyms](./stentor-models.entityvalue.synonyms.md) | string\[\] | List of potential synonyms for the entity.<!-- -->For example, "L.A."" &amp; "City of Angels" |
+|  [synonyms?](./stentor-models.entityvalue.synonyms.md) | string\[\] | <i>(Optional)</i> List of potential synonyms for the entity.<!-- -->For example, "L.A."" &amp; "City of Angels" |
 

@@ -10,7 +10,6 @@ This checks redirect, content, &amp; forward for the ID as a key.
 
 Optionally, you can specify if you only want to check either redirect, content, or forward. The default is to check all three.
 
-
 <b>Signature:</b>
 
 ```typescript

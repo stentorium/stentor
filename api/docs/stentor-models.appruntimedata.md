@@ -14,6 +14,6 @@ export interface AppRuntimeData
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [backgroundImage](./stentor-models.appruntimedata.backgroundimage.md) | [ImageSpecification](./stentor-models.imagespecification.md)<!-- -->\[\] | This is the list of images available to anything where image is appropriate. Builders will pick and choose. |
-|  [title](./stentor-models.appruntimedata.title.md) | string | The title of the app. |
+|  [backgroundImage?](./stentor-models.appruntimedata.backgroundimage.md) | [ImageSpecification](./stentor-models.imagespecification.md)<!-- -->\[\] | <i>(Optional)</i> This is the list of images available to anything where image is appropriate. Builders will pick and choose. |
+|  [title?](./stentor-models.appruntimedata.title.md) | string | <i>(Optional)</i> The title of the app. |
 

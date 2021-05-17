@@ -14,7 +14,7 @@ export interface DateTime
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [date](./stentor-models.datetime.date.md) | string | ISO-8601 for the date, in the format YYYY-MM-dd |
-|  [time](./stentor-models.datetime.time.md) | string | ISO-8601 for time, in the format HH:mm:ss |
-|  [tz](./stentor-models.datetime.tz.md) | string | ISO-8601 timezone offset string in the format -05:00 or Z |
+|  [date?](./stentor-models.datetime.date.md) | string | <i>(Optional)</i> ISO-8601 for the date, in the format YYYY-MM-dd |
+|  [time?](./stentor-models.datetime.time.md) | string | <i>(Optional)</i> ISO-8601 for time, in the format HH:mm:ss |
+|  [tz?](./stentor-models.datetime.tz.md) | string | <i>(Optional)</i> ISO-8601 timezone offset string in the format -05:00 or Z |
 

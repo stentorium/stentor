@@ -21,10 +21,10 @@ export interface Audio extends PlayableMedia
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [backgroundImage](./stentor-models.audio_2.backgroundimage.md) | string | When applicable (Alexa), the background image for display surfaces.<!-- -->Minimum dimensions are 1024 by 640 pixels |
-|  [description](./stentor-models.audio_2.description.md) | string | Description of the audio<!-- -->Max length is 160 characters, limited by Google. |
-|  [image](./stentor-models.audio_2.image.md) | string | Image for the audio, typically the album art.<!-- -->Dimensions must be square, minimum 480 by 480 pixels |
-|  [subtitle](./stentor-models.audio_2.subtitle.md) | string | Subtitle for the audio.<!-- -->This is typically the category or artist name. |
-|  [title](./stentor-models.audio_2.title.md) | string | Title (or name) of the audio.<!-- -->This is typically the track title or podcast episode name. |
+|  [backgroundImage?](./stentor-models.audio_2.backgroundimage.md) | string | <i>(Optional)</i> When applicable (Alexa), the background image for display surfaces.<!-- -->Minimum dimensions are 1024 by 640 pixels |
+|  [description?](./stentor-models.audio_2.description.md) | string | <i>(Optional)</i> Description of the audio<!-- -->Max length is 160 characters, limited by Google. |
+|  [image?](./stentor-models.audio_2.image.md) | string | <i>(Optional)</i> Image for the audio, typically the album art.<!-- -->Dimensions must be square, minimum 480 by 480 pixels |
+|  [subtitle?](./stentor-models.audio_2.subtitle.md) | string | <i>(Optional)</i> Subtitle for the audio.<!-- -->This is typically the category or artist name. |
+|  [title?](./stentor-models.audio_2.title.md) | string | <i>(Optional)</i> Title (or name) of the audio.<!-- -->This is typically the track title or podcast episode name. |
 |  [type](./stentor-models.audio_2.type.md) | [AudioType](./stentor-models.audiotype.md) |  |
 

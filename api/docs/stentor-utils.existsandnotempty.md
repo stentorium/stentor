@@ -8,8 +8,6 @@ Quick function to see if the array exists and has a length greater than 0.
 
 You would use this instead of writing `myArray && myArray.length > 0`<!-- -->, which increases your cyclomatic complexity.
 
-  T
-
 <b>Signature:</b>
 
 ```typescript

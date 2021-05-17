@@ -6,8 +6,6 @@
 
 Reduce multiple spaces to one.
 
- {<!-- -->boolean<!-- -->}  StringExpanderProps
-
 <b>Signature:</b>
 
 ```typescript

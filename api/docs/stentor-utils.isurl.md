@@ -8,7 +8,6 @@ Simple check to see if the string is potentially a URL.
 
 Only looks for a prefix of https://, http:// &amp; file://
 
-
 <b>Signature:</b>
 
 ```typescript

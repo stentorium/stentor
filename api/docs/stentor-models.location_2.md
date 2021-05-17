@@ -16,6 +16,6 @@ export interface Location
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [geocode](./stentor-models.location_2.geocode.md) | [LocationGeocode](./stentor-models.locationgeocode.md) | Geocoded form of the location |
-|  [streetAddress](./stentor-models.location_2.streetaddress.md) | string | The free-form street address, in the format used by the national postal service of the concerned country. This field can then be used for geocoding with a third-party API, like the Google Maps Geocoding API, to determine latitude and longitude.<!-- -->For example: Washington, DC or 123 Main St, City, State |
+|  [geocode?](./stentor-models.location_2.geocode.md) | [LocationGeocode](./stentor-models.locationgeocode.md) | <i>(Optional)</i> Geocoded form of the location |
+|  [streetAddress?](./stentor-models.location_2.streetaddress.md) | string | <i>(Optional)</i> The free-form street address, in the format used by the national postal service of the concerned country. This field can then be used for geocoding with a third-party API, like the Google Maps Geocoding API, to determine latitude and longitude.<!-- -->For example: Washington, DC or 123 Main St, City, State |
 

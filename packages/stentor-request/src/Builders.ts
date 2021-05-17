@@ -322,9 +322,6 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
 
 /**
  * Build an AudioPlayerRequest
- *
- * @class AudioPlayerRequestBuilder
- * @extends {Builder<AudioPlayerRequest>}
  */
 export class AudioPlayerRequestBuilder extends AbstractBuilder<AudioPlayerRequest> {
     private event: AudioPlayerEvent = REQUEST.AUDIO_PLAYER_PLAYBACK_STARTED_EVENT;
@@ -372,9 +369,6 @@ export class AudioPlayerRequestBuilder extends AbstractBuilder<AudioPlayerReques
 
 /**
  * Builds a PlaybackControlRequest
- *
- * @class PlaybackControlRequestBuilder
- * @extends {Builder<PlaybackControlRequest>}
  */
 export class PlaybackControlRequestBuilder extends AbstractBuilder<PlaybackControlRequest> {
     private event: PlaybackControlEvent = REQUEST.PLAYBACK_CONTROL_NEXT_EVENT;
@@ -413,9 +407,6 @@ export class PlaybackControlRequestBuilder extends AbstractBuilder<PlaybackContr
 
 /**
  * Builds a PermissionGrant
- *
- * @class PermissionGrantBuilder
- * @extends {Builder<PermissionRequest>}
  */
 export class PermissionGrantBuilder extends AbstractBuilder<PermissionRequest> {
     public build(): PermissionRequest {
@@ -433,9 +424,6 @@ export class PermissionGrantBuilder extends AbstractBuilder<PermissionRequest> {
 
 /**
  * Builds a SessionEndedRequest
- *
- * @class SessionEndedRequestBuilder
- * @extends {Builder<SessionEndedRequest>}
  */
 export class SessionEndedRequestBuilder extends AbstractBuilder<SessionEndedRequest> {
     public build(): SessionEndedRequest {
@@ -453,9 +441,6 @@ export class SessionEndedRequestBuilder extends AbstractBuilder<SessionEndedRequ
 
 /**
  * Builds a OptionSelect
- *
- * @class PermissionGrantBuilder
- * @extends {Builder<PermissionRequest>}
  */
 export class OptionSelectBuilder extends AbstractBuilder<OptionSelectRequest> {
     private deviceId?: string;

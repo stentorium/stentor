@@ -8,8 +8,6 @@ If it exists, it is an array of possible strings that will be omitted in the cas
 
 Note, this must be used in conjunction with catchAll = true.
 
- {<!-- -->string\[\]<!-- -->}  KeyDescription
-
 <b>Signature:</b>
 
 ```typescript

@@ -4,6 +4,10 @@
 
 ## DurationFormat type
 
+Text that describes the format of a duration, for example "years" or "M" for months.
+
+This is the same as the moment.js duration format.
+
 <b>Signature:</b>
 
 ```typescript

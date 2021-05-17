@@ -14,7 +14,7 @@ export interface ResponseBuilderProps
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [assistantTitle](./stentor-models.responsebuilderprops.assistanttitle.md) | string | Sets the title for some channels with display surfaces. |
-|  [backgroundImage](./stentor-models.responsebuilderprops.backgroundimage.md) | [ImageSpecification](./stentor-models.imagespecification.md)<!-- -->\[\] | Sets the background image for some channels with display surfaces. |
+|  [assistantTitle?](./stentor-models.responsebuilderprops.assistanttitle.md) | string | <i>(Optional)</i> Sets the title for some channels with display surfaces. |
+|  [backgroundImage?](./stentor-models.responsebuilderprops.backgroundimage.md) | [ImageSpecification](./stentor-models.imagespecification.md)<!-- -->\[\] | <i>(Optional)</i> Sets the background image for some channels with display surfaces. |
 |  [device](./stentor-models.responsebuilderprops.device.md) | Readonly&lt;[Device](./stentor-models.device.md)<!-- -->&gt; | Capabilities of the current device. |
 

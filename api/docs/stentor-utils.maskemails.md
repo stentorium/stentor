@@ -6,7 +6,6 @@
 
 Masks emails within a given string.
 
-
 <b>Signature:</b>
 
 ```typescript

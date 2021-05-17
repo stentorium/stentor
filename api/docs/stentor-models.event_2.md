@@ -16,11 +16,15 @@ export interface Event<P extends string | boolean | object | number | undefined 
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [currentHandler](./stentor-models.event_2.currenthandler.md) | string | The current handler the user was in at the time of the request. |
-|  [isHealthCheck](./stentor-models.event_2.ishealthcheck.md) | boolean | Is the event from a health check |
-|  [isNewSession](./stentor-models.event_2.isnewsession.md) | boolean | Is the event the start of a session. |
+|  [appId?](./stentor-models.event_2.appid.md) | string | <i>(Optional)</i> Application ID |
+|  [channel?](./stentor-models.event_2.channel.md) | string | <i>(Optional)</i> The channel provided by the platform. |
+|  [currentHandler?](./stentor-models.event_2.currenthandler.md) | string | <i>(Optional)</i> The current handler the user was in at the time of the request. |
+|  [environment?](./stentor-models.event_2.environment.md) | string | <i>(Optional)</i> What environment we are in, for example a production or development environment. |
+|  [isHealthCheck?](./stentor-models.event_2.ishealthcheck.md) | boolean | <i>(Optional)</i> Is the event from a health check |
+|  [isNewSession?](./stentor-models.event_2.isnewsession.md) | boolean | <i>(Optional)</i> Is the event the start of a session. |
 |  [name](./stentor-models.event_2.name.md) | string | The name of this event. |
-|  [payload](./stentor-models.event_2.payload.md) | P | A serializable payload to associate with the event. |
-|  [selectedHandler](./stentor-models.event_2.selectedhandler.md) | string | The handler that was selected based on the request and the current handler. |
+|  [payload?](./stentor-models.event_2.payload.md) | P | <i>(Optional)</i> A serializable payload to associate with the event. |
+|  [platform?](./stentor-models.event_2.platform.md) | string | <i>(Optional)</i> The platform serving the channel |
+|  [selectedHandler?](./stentor-models.event_2.selectedhandler.md) | string | <i>(Optional)</i> The handler that was selected based on the request and the current handler. |
 |  [type](./stentor-models.event_2.type.md) | [EventType](./stentor-models.eventtype.md) | The type of event which is being sent. |
 

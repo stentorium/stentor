@@ -8,7 +8,6 @@ From the provided sentence you return just the words in an array.
 
 All commas and other punctuation marks will be removed.
 
-
 <b>Signature:</b>
 
 ```typescript

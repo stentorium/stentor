@@ -14,7 +14,7 @@ export interface EmailDescription
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [recipient](./stentor-models.emaildescription.recipient.md) | string |  |
+|  [recipient?](./stentor-models.emaildescription.recipient.md) | string | <i>(Optional)</i> |
 |  [sender](./stentor-models.emaildescription.sender.md) | string |  |
 |  [subject](./stentor-models.emaildescription.subject.md) | string |  |
 |  [templateUrl](./stentor-models.emaildescription.templateurl.md) | string |  |

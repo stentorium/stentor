@@ -15,6 +15,6 @@ export interface IntentRequestPayload
 |  Property | Type | Description |
 |  --- | --- | --- |
 |  [intent](./stentor-models.intentrequestpayload.intent.md) | string |  |
-|  [rawQuery](./stentor-models.intentrequestpayload.rawquery.md) | string |  |
-|  [slots](./stentor-models.intentrequestpayload.slots.md) | [RequestSlotMap](./stentor-models.requestslotmap.md) |  |
+|  [rawQuery?](./stentor-models.intentrequestpayload.rawquery.md) | string | <i>(Optional)</i> |
+|  [slots?](./stentor-models.intentrequestpayload.slots.md) | [RequestSlotMap](./stentor-models.requestslotmap.md) | <i>(Optional)</i> |
 

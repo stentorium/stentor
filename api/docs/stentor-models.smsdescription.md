@@ -14,7 +14,7 @@ export interface SmsDescription
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [imageUrl](./stentor-models.smsdescription.imageurl.md) | string |  |
+|  [imageUrl?](./stentor-models.smsdescription.imageurl.md) | string | <i>(Optional)</i> |
 |  [sender](./stentor-models.smsdescription.sender.md) | string |  |
-|  [text](./stentor-models.smsdescription.text.md) | string |  |
+|  [text?](./stentor-models.smsdescription.text.md) | string | <i>(Optional)</i> |
 

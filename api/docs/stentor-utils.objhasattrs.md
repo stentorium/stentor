@@ -4,7 +4,7 @@
 
 ## objHasAttrs() function
 
-A Utility function to determine if an object has attributes or not.
+A utility function to determine if an object has attributes or not.
 
 <b>Signature:</b>
 
@@ -16,9 +16,11 @@ export declare function objHasAttrs(obj: object): boolean;
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  obj | object | Object to check  True if the object exists and has attributes or false otherwise. |
+|  obj | object | Object to check |
 
 <b>Returns:</b>
 
 boolean
+
+True if the object exists and has attributes or false otherwise.
 

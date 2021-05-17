@@ -16,6 +16,6 @@ export interface GraphCoords
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [x](./stentor-models.graphcoords.x.md) | number |  |
-|  [y](./stentor-models.graphcoords.y.md) | number |  |
+|  [x?](./stentor-models.graphcoords.x.md) | number | <i>(Optional)</i> |
+|  [y?](./stentor-models.graphcoords.y.md) | number | <i>(Optional)</i> |
 

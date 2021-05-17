@@ -8,7 +8,6 @@ Builds a speakable and readable list from a set of items.
 
 For example, \["one", "two", "three", "four"\] will be transformed to "one, two, three or four".
 
-
 <b>Signature:</b>
 
 ```typescript

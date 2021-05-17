@@ -8,7 +8,6 @@ Generates an ID for an Intent.
 
 It follows our Intent ID convention that does not have spaces and ends with `Intent`<!-- -->.
 
-
 <b>Signature:</b>
 
 ```typescript

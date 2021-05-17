@@ -6,7 +6,6 @@
 
 Clean HTML and XML tags from a string
 
-
 <b>Signature:</b>
 
 ```typescript

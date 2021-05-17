@@ -6,7 +6,6 @@
 
 For the given handler, find the intentId that will lead to the provided path.
 
-
 <b>Signature:</b>
 
 ```typescript

@@ -16,6 +16,6 @@ export interface StudioContext
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [appId](./stentor-models.studiocontext.appid.md) | string | The OC Studio unique appId |
-|  [platform](./stentor-models.studiocontext.platform.md) | string | Platform / Channel name |
+|  [appId?](./stentor-models.studiocontext.appid.md) | string | <i>(Optional)</i> The OC Studio unique appId |
+|  [platform?](./stentor-models.studiocontext.platform.md) | string | <i>(Optional)</i> Platform / Channel name |
 

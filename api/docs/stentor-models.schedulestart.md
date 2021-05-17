@@ -14,8 +14,8 @@ export interface ScheduleStart
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [dayOfWeek](./stentor-models.schedulestart.dayofweek.md) | string |  |
-|  [format](./stentor-models.schedulestart.format.md) | string |  |
+|  [dayOfWeek?](./stentor-models.schedulestart.dayofweek.md) | string | <i>(Optional)</i> |
+|  [format?](./stentor-models.schedulestart.format.md) | string | <i>(Optional)</i> |
 |  [time](./stentor-models.schedulestart.time.md) | string |  |
-|  [timeZone](./stentor-models.schedulestart.timezone.md) | string |  |
+|  [timeZone?](./stentor-models.schedulestart.timezone.md) | string | <i>(Optional)</i> |
 

@@ -6,7 +6,6 @@
 
 Generate a key from the provided key description.
 
-
 <b>Signature:</b>
 
 ```typescript

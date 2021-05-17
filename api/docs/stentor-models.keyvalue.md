@@ -15,5 +15,5 @@ export interface KeyValue
 |  Property | Type | Description |
 |  --- | --- | --- |
 |  [key](./stentor-models.keyvalue.key.md) | string | Key on the storage that the action will be taken on. |
-|  [value](./stentor-models.keyvalue.value.md) | [ValueTypes](./stentor-models.valuetypes.md) | The value to be set or appended.<!-- -->Not always required when deleting a key. |
+|  [value?](./stentor-models.keyvalue.value.md) | [ValueTypes](./stentor-models.valuetypes.md) | <i>(Optional)</i> The value to be set or appended.<!-- -->Not always required when deleting a key. |
 

@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type Request = LaunchRequest | SessionEndedRequest | InputUnknownRequest | IntentRequest | AudioPlayerRequest | PlaybackControlRequest | PermissionRequest | SurfaceChangeRequest | NotificationPermissionRequest | SignInRequest | OptionSelectRequest;
+export declare type Request = LaunchRequest | SessionEndedRequest | InputUnknownRequest | IntentRequest | AudioPlayerRequest | PlaybackControlRequest | PermissionRequest | SurfaceChangeRequest | NotificationPermissionRequest | SignInRequest | OptionSelectRequest | RawQueryRequest;
 ```
 <b>References:</b> [LaunchRequest](./stentor-models.launchrequest.md)<!-- -->, [SessionEndedRequest](./stentor-models.sessionendedrequest.md)<!-- -->, [InputUnknownRequest](./stentor-models.inputunknownrequest.md)<!-- -->, [IntentRequest](./stentor-models.intentrequest.md)<!-- -->, [AudioPlayerRequest](./stentor-models.audioplayerrequest.md)<!-- -->, [PlaybackControlRequest](./stentor-models.playbackcontrolrequest.md)<!-- -->, [SurfaceChangeRequest](./stentor-models.surfacechangerequest.md)<!-- -->, [SignInRequest](./stentor-models.signinrequest.md)<!-- -->, [OptionSelectRequest](./stentor-models.optionselectrequest.md)
 

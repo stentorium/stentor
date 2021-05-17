@@ -16,5 +16,5 @@ export interface ExpirationDate
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [date](./stentor-models.expirationdate.date.md) | number |  |
+|  [date?](./stentor-models.expirationdate.date.md) | number | <i>(Optional)</i> |
 

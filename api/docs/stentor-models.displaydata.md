@@ -14,8 +14,8 @@ export interface DisplayData
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [dpi](./stentor-models.displaydata.dpi.md) | number |  |
-|  [pixelHeight](./stentor-models.displaydata.pixelheight.md) | number |  |
-|  [pixelWidth](./stentor-models.displaydata.pixelwidth.md) | number |  |
-|  [shape](./stentor-models.displaydata.shape.md) | [DisplayShape](./stentor-models.displayshape.md) | Display type<!-- -->Used to tell the display type if available to tweak visuals if needed. This is just guessing. |
+|  [dpi?](./stentor-models.displaydata.dpi.md) | number | <i>(Optional)</i> |
+|  [pixelHeight?](./stentor-models.displaydata.pixelheight.md) | number | <i>(Optional)</i> |
+|  [pixelWidth?](./stentor-models.displaydata.pixelwidth.md) | number | <i>(Optional)</i> |
+|  [shape?](./stentor-models.displaydata.shape.md) | [DisplayShape](./stentor-models.displayshape.md) | <i>(Optional)</i> Display type<!-- -->Used to tell the display type if available to tweak visuals if needed. This is just guessing. |
 

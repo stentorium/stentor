@@ -13,8 +13,6 @@ import { getAttributeFromLocale } from "./getAttributeFromLocale";
  * If not found at that dialect, then the overriding language of the dialect will be searched. If found at that language, it will be returned.
  * If not found at that language, then the default will be returned.
  *
- * @template O
- * @template Return
  * @param {keyof O} attribute
  * @param {LocaleObj<O>} localeObj
  * @returns {Return}

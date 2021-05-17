@@ -19,8 +19,8 @@ export interface SessionEndedRequest extends BaseRequest
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [errorMessage](./stentor-models.sessionendedrequest.errormessage.md) | string |  |
-|  [errorType](./stentor-models.sessionendedrequest.errortype.md) | string |  |
+|  [errorMessage?](./stentor-models.sessionendedrequest.errormessage.md) | string | <i>(Optional)</i> |
+|  [errorType?](./stentor-models.sessionendedrequest.errortype.md) | string | <i>(Optional)</i> |
 |  [reason](./stentor-models.sessionendedrequest.reason.md) | string |  |
 |  [sessionId](./stentor-models.sessionendedrequest.sessionid.md) | string |  |
 |  [type](./stentor-models.sessionendedrequest.type.md) | [SessionEndedRequestType](./stentor-models.sessionendedrequesttype.md) |  |

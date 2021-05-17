@@ -6,7 +6,6 @@
 
 Is the word the definite article "the"
 
-
 <b>Signature:</b>
 
 ```typescript

@@ -15,6 +15,6 @@ export interface SocialRadio extends OnDemand
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [channel](./stentor-models.socialradio.channel.md) | string |  |
+|  [channel?](./stentor-models.socialradio.channel.md) | string | <i>(Optional)</i> |
 |  [type](./stentor-models.socialradio.type.md) | [SocialRadioType](./stentor-models.socialradiotype.md) |  |
 

@@ -6,8 +6,6 @@
 
 If it exists, it is an array of possible strings that will match for the key.
 
- {<!-- -->string\[\]<!-- -->}  KeyDescription
-
 <b>Signature:</b>
 
 ```typescript

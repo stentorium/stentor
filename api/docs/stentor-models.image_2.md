@@ -14,6 +14,6 @@ export interface Image
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [contentDescription](./stentor-models.image_2.contentdescription.md) | string |  |
+|  [contentDescription?](./stentor-models.image_2.contentdescription.md) | string | <i>(Optional)</i> |
 |  [sources](./stentor-models.image_2.sources.md) | [ImageSpecification](./stentor-models.imagespecification.md)<!-- -->\[\] |  |
 

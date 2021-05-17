@@ -6,7 +6,6 @@
 
 Is the Error a LambdaError, which has a statusCode.
 
-
 <b>Signature:</b>
 
 ```typescript

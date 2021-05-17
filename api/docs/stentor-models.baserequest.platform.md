@@ -4,7 +4,9 @@
 
 ## BaseRequest.platform property
 
-The platform the request came from
+The platform the request came from.
+
+Example platforms are Google's Dialogflow &amp; Amazon's Lex.
 
 <b>Signature:</b>
 

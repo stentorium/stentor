@@ -148,7 +148,7 @@ export function isDateTimeRangeString(potential: string): boolean {
  *
  * @param date
  * @param includeOnly
- * @return 
+ * @returns A DateTime object based on the provided parameters 
  */
 export function getDateTimeFrom(date: string | Date, includeOnly?: "time" | "date"): DateTime | undefined {
     let slotDateTime: DateTime;

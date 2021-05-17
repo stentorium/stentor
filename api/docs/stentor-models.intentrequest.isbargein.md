@@ -4,6 +4,8 @@
 
 ## IntentRequest.isBargeIn property
 
+Is the request a barge-in, did the user interupt the assistants response.
+
 <b>Signature:</b>
 
 ```typescript

@@ -21,23 +21,14 @@ export enum StringVariableStyle {
 export class StringExpanderProps {
     /**
      * Override the default value of ESTemplateLiteral ${VAR}
-     *
-     * @type {StringVariableStyle}
-     * @memberof StringExpanderProps
      */
     public variableStyle?: StringVariableStyle;
     /**
      * Reduce multiple spaces to one.
-     *
-     * @type {boolean}
-     * @memberof StringExpanderProps
      */
     public reduceToOneSpace?: boolean;
     /**
      * Trim leading and trailing spaces
-     *
-     * @type {boolean}
-     * @memberof StringExpanderProps
      */
     public trim?: boolean;
 }

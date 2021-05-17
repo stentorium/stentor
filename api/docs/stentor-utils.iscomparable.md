@@ -6,7 +6,6 @@
 
 Is the value comparable with the compare function.
 
-
 <b>Signature:</b>
 
 ```typescript

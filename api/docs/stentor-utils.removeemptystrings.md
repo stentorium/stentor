@@ -6,8 +6,6 @@
 
 Creates a copy and removes the empty strings from the object.
 
-  T
-
 <b>Signature:</b>
 
 ```typescript

@@ -14,7 +14,7 @@ export interface TextContent
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [primaryText](./stentor-models.textcontent.primarytext.md) | string |  |
-|  [secondaryText](./stentor-models.textcontent.secondarytext.md) | string |  |
-|  [tertiaryText](./stentor-models.textcontent.tertiarytext.md) | string |  |
+|  [primaryText?](./stentor-models.textcontent.primarytext.md) | string | <i>(Optional)</i> |
+|  [secondaryText?](./stentor-models.textcontent.secondarytext.md) | string | <i>(Optional)</i> |
+|  [tertiaryText?](./stentor-models.textcontent.tertiarytext.md) | string | <i>(Optional)</i> |
 

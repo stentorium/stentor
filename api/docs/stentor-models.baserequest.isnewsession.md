@@ -9,5 +9,5 @@ Is the request a new session.
 <b>Signature:</b>
 
 ```typescript
-isNewSession: boolean;
+isNewSession?: boolean;
 ```

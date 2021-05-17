@@ -149,7 +149,6 @@ export abstract class AbstractHandler<
      *
      * @param {Context} context
      * @returns {boolean}
-     * @memberof Handler
      */
     public canHandleInputUnknown(request: Request, context: Context): boolean {
         let canHandleInputUnknown = false;
@@ -196,7 +195,6 @@ export abstract class AbstractHandler<
      * @param {Request} request
      * @param {Context} context
      * @returns {Promise<void>}
-     * @memberof Handler
      */
     protected async inputUnknown(request: Request, context: Context): Promise<void> {
         switch (this.data?.inputUnknownStrategy) {

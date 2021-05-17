@@ -10,8 +10,6 @@ Smarter than a normal obj\[key\] as key can also be a regex.
 
 In the cases where a regex is broad (".\*") but there is also an exact match, the exact match is preferred.
 
-  V
-
 <b>Signature:</b>
 
 ```typescript

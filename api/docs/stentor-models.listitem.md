@@ -14,9 +14,10 @@ export interface ListItem
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [description](./stentor-models.listitem.description.md) | string | Description text of the list item, referred to as SecondaryText on Alexa. |
-|  [image](./stentor-models.listitem.image.md) | [ListImage](./stentor-models.listimage.md) | The image for the list item. |
-|  [synonyms](./stentor-models.listitem.synonyms.md) | string\[\] | Synonyms can be added so the user can speak the selection instead of touching the screen.<!-- -->Only supported on Google. |
+|  [buttons?](./stentor-models.listitem.buttons.md) | [ListButton](./stentor-models.listbutton.md)<!-- -->\[\] | <i>(Optional)</i> Optional list of buttons that will be displayed on the list item. |
+|  [description?](./stentor-models.listitem.description.md) | string | <i>(Optional)</i> Description text of the list item, referred to as SecondaryText on Alexa. |
+|  [image?](./stentor-models.listitem.image.md) | [ListImage](./stentor-models.listimage.md) | <i>(Optional)</i> The image for the list item. |
+|  [synonyms?](./stentor-models.listitem.synonyms.md) | string\[\] | <i>(Optional)</i> Synonyms can be added so the user can speak the selection instead of touching the screen.<!-- -->Only supported on Google. |
 |  [title](./stentor-models.listitem.title.md) | string | Title of the list item, referred to as PrimaryText on Alexa. |
 |  [token](./stentor-models.listitem.token.md) | string | Used as a reference for when the list item is selected.<!-- -->This is the same as a key on Google. |
 

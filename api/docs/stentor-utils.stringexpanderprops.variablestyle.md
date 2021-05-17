@@ -6,8 +6,6 @@
 
 Override the default value of ESTemplateLiteral $<!-- -->{<!-- -->VAR<!-- -->}
 
- {<!-- -->StringVariableStyle<!-- -->}  StringExpanderProps
-
 <b>Signature:</b>
 
 ```typescript

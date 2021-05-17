@@ -17,6 +17,6 @@ export interface GooglePlatformData extends BaseData
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [additionalInformationQuestions](./stentor-models.googleplatformdata.additionalinformationquestions.md) | [GoogleAdditionalInformationQuestions](./stentor-models.googleadditionalinformationquestions.md) |  |
+|  [additionalInformationQuestions?](./stentor-models.googleplatformdata.additionalinformationquestions.md) | [GoogleAdditionalInformationQuestions](./stentor-models.googleadditionalinformationquestions.md) | <i>(Optional)</i> |
 |  [platform](./stentor-models.googleplatformdata.platform.md) | "google" |  |
 

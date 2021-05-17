@@ -19,8 +19,8 @@ export interface AudioPlayerRequest extends BaseRequest
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [errorMessage](./stentor-models.audioplayerrequest.errormessage.md) | string | Only available when an AudioPlayerPlaybackFailedEvent |
-|  [errorType](./stentor-models.audioplayerrequest.errortype.md) | string | Only available when an AudioPlayerPlaybackFailedEvent |
+|  [errorMessage?](./stentor-models.audioplayerrequest.errormessage.md) | string | <i>(Optional)</i> Only available when an AudioPlayerPlaybackFailedEvent |
+|  [errorType?](./stentor-models.audioplayerrequest.errortype.md) | string | <i>(Optional)</i> Only available when an AudioPlayerPlaybackFailedEvent |
 |  [event](./stentor-models.audioplayerrequest.event.md) | [AudioPlayerEvent](./stentor-models.audioplayerevent.md) |  |
 |  [offsetInMilliseconds](./stentor-models.audioplayerrequest.offsetinmilliseconds.md) | number |  |
 |  [token](./stentor-models.audioplayerrequest.token.md) | string |  |

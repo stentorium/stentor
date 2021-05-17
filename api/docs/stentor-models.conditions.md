@@ -23,6 +23,6 @@ A couple of notes on the behavior: \* If passed musts and shoulds, they are ANDe
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [must](./stentor-models.conditions.must.md) | ([Contexts](./stentor-models.contexts.md) \| object)\[\] | <b><i>(BETA)</i></b> All objects within must return true in order for the conditions to be met.<!-- -->It might be helpful to think of these as ANDs (or &amp;&amp;) |
-|  [should](./stentor-models.conditions.should.md) | ([Contexts](./stentor-models.contexts.md) \| object)\[\] | <b><i>(BETA)</i></b> Only one of the objects within the array must pass for the conditions to be met.<!-- -->If only one is provided, it must pass for the condtions to be met. |
+|  [must?](./stentor-models.conditions.must.md) | ([Contexts](./stentor-models.contexts.md) \| object)\[\] | <b><i>(BETA)</i></b> <i>(Optional)</i> All objects within must return true in order for the conditions to be met.<!-- -->It might be helpful to think of these as ANDs (or &amp;&amp;) |
+|  [should?](./stentor-models.conditions.should.md) | ([Contexts](./stentor-models.contexts.md) \| object)\[\] | <b><i>(BETA)</i></b> <i>(Optional)</i> Only one of the objects within the array must pass for the conditions to be met.<!-- -->If only one is provided, it must pass for the condtions to be met. |
 

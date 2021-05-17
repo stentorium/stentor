@@ -15,5 +15,5 @@ export interface FullAppStatus extends AppStatus
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [statusHistory](./stentor-models.fullappstatus.statushistory.md) | [AppStatus](./stentor-models.appstatus.md)<!-- -->\[\] | History of the app's status |
+|  [statusHistory?](./stentor-models.fullappstatus.statushistory.md) | [AppStatus](./stentor-models.appstatus.md)<!-- -->\[\] | <i>(Optional)</i> History of the app's status |
 

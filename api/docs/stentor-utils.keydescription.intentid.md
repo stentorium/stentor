@@ -6,8 +6,6 @@
 
 If intentId exists, it is the only string that will match the key
 
- {<!-- -->string<!-- -->}  KeyDescription
-
 <b>Signature:</b>
 
 ```typescript

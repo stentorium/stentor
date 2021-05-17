@@ -14,8 +14,8 @@ export interface MediaPlayerStatus
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [offsetInMilliseconds](./stentor-models.mediaplayerstatus.offsetinmilliseconds.md) | number |  |
+|  [offsetInMilliseconds?](./stentor-models.mediaplayerstatus.offsetinmilliseconds.md) | number | <i>(Optional)</i> |
 |  [status](./stentor-models.mediaplayerstatus.status.md) | "IDLE" \| "PAUSED" \| "PLAYING" \| "STOPPED" \| "FINISHED" \| "BUFFER\_UNDERRUN" |  |
-|  [token](./stentor-models.mediaplayerstatus.token.md) | string |  |
-|  [type](./stentor-models.mediaplayerstatus.type.md) | "AUDIO" \| "VIDEO" |  |
+|  [token?](./stentor-models.mediaplayerstatus.token.md) | string | <i>(Optional)</i> |
+|  [type?](./stentor-models.mediaplayerstatus.type.md) | "AUDIO" \| "VIDEO" | <i>(Optional)</i> |
 

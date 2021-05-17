@@ -16,10 +16,10 @@ export interface PrivacyAndCompliance
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [allowsPurchases](./stentor-models.privacyandcompliance.allowspurchases.md) | boolean |  |
-|  [containsAds](./stentor-models.privacyandcompliance.containsads.md) | boolean |  |
-|  [isChildDirected](./stentor-models.privacyandcompliance.ischilddirected.md) | boolean |  |
-|  [isExportCompliant](./stentor-models.privacyandcompliance.isexportcompliant.md) | boolean |  |
-|  [locales](./stentor-models.privacyandcompliance.locales.md) | { \[locale: string\]: { privacyPolicyUrl: string; termsOfUseUrl: string; }; } |  |
-|  [usesPersonalInfo](./stentor-models.privacyandcompliance.usespersonalinfo.md) | boolean |  |
+|  [allowsPurchases?](./stentor-models.privacyandcompliance.allowspurchases.md) | boolean | <i>(Optional)</i> |
+|  [containsAds?](./stentor-models.privacyandcompliance.containsads.md) | boolean | <i>(Optional)</i> |
+|  [isChildDirected?](./stentor-models.privacyandcompliance.ischilddirected.md) | boolean | <i>(Optional)</i> |
+|  [isExportCompliant?](./stentor-models.privacyandcompliance.isexportcompliant.md) | boolean | <i>(Optional)</i> |
+|  [locales?](./stentor-models.privacyandcompliance.locales.md) | { \[locale: string\]: { privacyPolicyUrl: string; termsOfUseUrl: string; }; } | <i>(Optional)</i> |
+|  [usesPersonalInfo?](./stentor-models.privacyandcompliance.usespersonalinfo.md) | boolean | <i>(Optional)</i> |
 

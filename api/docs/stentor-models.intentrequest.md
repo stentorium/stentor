@@ -19,14 +19,15 @@ export interface IntentRequest extends BaseRequest
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [attachments](./stentor-models.intentrequest.attachments.md) | [RequestAttachment](./stentor-models.requestattachment.md)<!-- -->\[\] | <b><i>(BETA)</i></b> Uploads from the request |
-|  [canFulfill](./stentor-models.intentrequest.canfulfill.md) | boolean | A meta, preliminary request that is more for understanding if the assistant can provide an answer or not. |
-|  [data](./stentor-models.intentrequest.data.md) | [Data](./stentor-models.data.md) | Optional data that can be added to the request |
+|  [attachments?](./stentor-models.intentrequest.attachments.md) | [RequestAttachment](./stentor-models.requestattachment.md)<!-- -->\[\] | <b><i>(BETA)</i></b> <i>(Optional)</i> Uploads from the request |
+|  [canFulfill?](./stentor-models.intentrequest.canfulfill.md) | boolean | <i>(Optional)</i> A meta, preliminary request that is more for understanding if the assistant can provide an answer or not. |
+|  [data?](./stentor-models.intentrequest.data.md) | [Data](./stentor-models.data.md) | <i>(Optional)</i> Optional data that can be added to the request |
 |  [intentId](./stentor-models.intentrequest.intentid.md) | string | The ID of the matched intent. |
-|  [isBargeIn](./stentor-models.intentrequest.isbargein.md) | boolean |  |
-|  [knowledgeAnswer](./stentor-models.intentrequest.knowledgeanswer.md) | [KnowledgeAnswer](./stentor-models.knowledgeanswer.md) | <b><i>(BETA)</i></b> A unique request provided by a question answering system. |
-|  [matchConfidence](./stentor-models.intentrequest.matchconfidence.md) | number | Confidence level of the intent match. On a scale from 0-1 where 1 is the highest confidence of a match. |
+|  [isBargeIn?](./stentor-models.intentrequest.isbargein.md) | boolean | <i>(Optional)</i> Is the request a barge-in, did the user interupt the assistants response. |
+|  [knowledgeAnswer?](./stentor-models.intentrequest.knowledgeanswer.md) | [KnowledgeAnswer](./stentor-models.knowledgeanswer.md) | <b><i>(BETA)</i></b> <i>(Optional)</i> A unique request provided by a question answering system. |
+|  [knowledgeBaseResult?](./stentor-models.intentrequest.knowledgebaseresult.md) | [KnowledgeBaseResult](./stentor-models.knowledgebaseresult.md) | <b><i>(BETA)</i></b> <i>(Optional)</i> Results returned from a knowledge base such as AWS Kendra. |
+|  [matchConfidence?](./stentor-models.intentrequest.matchconfidence.md) | number | <i>(Optional)</i> Confidence level of the intent match. On a scale from 0-1 where 1 is the highest confidence of a match.[https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html) [https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-concept-prediction-score](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-concept-prediction-score) [https://cloud.google.com/dialogflow/es/docs/intents-matching\#confidence](https://cloud.google.com/dialogflow/es/docs/intents-matching#confidence) |
 |  [sessionId](./stentor-models.intentrequest.sessionid.md) | string | The ID of the user's current session.<!-- -->A session is typically defined by the channel is on but it is typically a set of requests and responses that are linked together. |
-|  [slots](./stentor-models.intentrequest.slots.md) | [RequestSlotMap](./stentor-models.requestslotmap.md) | Slots for the intent. |
+|  [slots?](./stentor-models.intentrequest.slots.md) | [RequestSlotMap](./stentor-models.requestslotmap.md) | <i>(Optional)</i> Slots for the intent. |
 |  [type](./stentor-models.intentrequest.type.md) | [IntentRequestType](./stentor-models.intentrequesttype.md) | The type of an intent request is always "INTENT\_REQUEST" |
 

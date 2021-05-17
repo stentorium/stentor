@@ -6,7 +6,6 @@
 
 Is the string in the date time range format with two ISO-8601 strings separated by "--<!-- -->&gt;<!-- -->"
 
-
 <b>Signature:</b>
 
 ```typescript

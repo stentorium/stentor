@@ -4,7 +4,7 @@
 
 ## getDurationFrom() function
 
-Parses the string, if in the ISO-8601 duration format, and returns a  object. If the provided string is not a duration string, it returns undefined.
+Parses the string, if in the ISO-8601 duration format, and returns a [Duration](./stentor-models.duration.md) object. If the provided string is not a duration string, it returns undefined.
 
 [https://stackoverflow.com/a/29153059/1349766](https://stackoverflow.com/a/29153059/1349766)
 

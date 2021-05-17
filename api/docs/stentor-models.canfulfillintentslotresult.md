@@ -14,6 +14,6 @@ export interface CanFulfillIntentSlotResult
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [canFulfill](./stentor-models.canfulfillintentslotresult.canfulfill.md) | [ThreeChoices](./stentor-models.threechoices.md) |  |
-|  [canUnderstand](./stentor-models.canfulfillintentslotresult.canunderstand.md) | [ThreeChoices](./stentor-models.threechoices.md) |  |
+|  [canFulfill?](./stentor-models.canfulfillintentslotresult.canfulfill.md) | [ThreeChoices](./stentor-models.threechoices.md) | <i>(Optional)</i> |
+|  [canUnderstand?](./stentor-models.canfulfillintentslotresult.canunderstand.md) | [ThreeChoices](./stentor-models.threechoices.md) | <i>(Optional)</i> |
 

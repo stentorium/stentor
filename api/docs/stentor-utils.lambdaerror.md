@@ -6,10 +6,6 @@
 
 An Error that allows for a status code to be stored. By default the status code is 500.
 
-Note: This was taken from stentor-api https://github.com/XappMedia/stentor-api/blob/eafa58834fb42b5c8b72c2dd615c99d68a774157/src/main/shared/utils/ServerUtils.ts\#L47
-
-  LambdaError  {<!-- -->Error<!-- -->}
-
 <b>Signature:</b>
 
 ```typescript
@@ -27,5 +23,5 @@ export declare class LambdaError extends Error
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [statusCode](./stentor-utils.lambdaerror.statuscode.md) |  | number |  |
+|  [statusCode?](./stentor-utils.lambdaerror.statuscode.md) |  | number | <i>(Optional)</i> |
 

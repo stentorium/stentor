@@ -6,7 +6,6 @@
 
 Partially masks a single email
 
-
 <b>Signature:</b>
 
 ```typescript

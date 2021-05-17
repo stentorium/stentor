@@ -15,15 +15,19 @@ See [https://developers.google.com/actions/assistant/responses\#list](https://de
 <b>Signature:</b>
 
 ```typescript
-export interface List 
+export interface List extends BaseDisplay 
 ```
+<b>Extends:</b> [BaseDisplay](./stentor-models.basedisplay.md)
 
 ## Properties
 
 |  Property | Type | Description |
 |  --- | --- | --- |
 |  [items](./stentor-models.list.items.md) | [ListItem](./stentor-models.listitem.md)<!-- -->\[\] | The list items. |
-|  [title](./stentor-models.list.title.md) | string | Title of the list, not required for Carousels on Google |
-|  [token](./stentor-models.list.token.md) | string | Token is a reference to the list, required by Alexa |
+|  [itemsName?](./stentor-models.list.itemsname.md) | string | <b><i>(BETA)</i></b> <i>(Optional)</i> Used with itemsObject, it is then used to reference the current item in the list within the template.<!-- -->This is not yet fully supported |
+|  [itemsObject?](./stentor-models.list.itemsobject.md) | string | <b><i>(BETA)</i></b> <i>(Optional)</i> Used when templating the list for automatic generation.<!-- -->When using itemsObject, the first item in the list is the template and all other items in the list will be ignored.<!-- -->This is not yet fully supported |
+|  [range?](./stentor-models.list.range.md) | { length: number; from: number; } | <b><i>(BETA)</i></b> <i>(Optional)</i> When itemsObject is provided, this is the amount of list items to display along with the offset within the list.<!-- -->This is not yet fully supported |
+|  [title?](./stentor-models.list.title.md) | string | <i>(Optional)</i> Title of the list, not required for Carousels on Google |
+|  [token?](./stentor-models.list.token.md) | string | <i>(Optional)</i> Token is a reference to the list, required by Alexa |
 |  [type](./stentor-models.list.type.md) | "LIST" \| "CAROUSEL" | Type of list.<!-- -->LIST is vertical, translates to a List on Google and ListTemplate1 on Alexa CAROUSEL is horizontal, translates to a Carousel on Google and ListTemplate2 on Alexa |
 

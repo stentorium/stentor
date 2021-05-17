@@ -23,6 +23,6 @@ export interface Match
 |  Property | Type | Description |
 |  --- | --- | --- |
 |  [name](./stentor-models.match.name.md) | string | The name of the key on the object that the value is going to be compared against.<!-- -->TODO: Could we call this key instead? |
-|  [operation](./stentor-models.match.operation.md) | [MatchOperation](./stentor-models.matchoperation.md) | The comparison operator.<!-- -->If not provided, it defaults to "===" |
+|  [operation?](./stentor-models.match.operation.md) | [MatchOperation](./stentor-models.matchoperation.md) | <i>(Optional)</i> The comparison operator.<!-- -->If not provided, it defaults to "===" |
 |  [value](./stentor-models.match.value.md) | boolean \| string \| number \| (boolean \| string \| number)\[\] | The test value that is compared. |
 

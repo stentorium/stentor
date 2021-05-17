@@ -6,7 +6,6 @@
 
 Describes the key in terms of what type of IDs it accepts.
 
-
 <b>Signature:</b>
 
 ```typescript

@@ -20,5 +20,5 @@ export interface Contextual
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [context](./stentor-models.contextual.context.md) | { and?: [Contexts](./stentor-models.contexts.md)<!-- -->\[\]; } |  |
+|  [context?](./stentor-models.contextual.context.md) | { and?: [Contexts](./stentor-models.contexts.md)<!-- -->\[\]; } | <i>(Optional)</i> |
 

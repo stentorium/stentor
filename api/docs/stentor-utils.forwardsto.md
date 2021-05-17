@@ -6,7 +6,6 @@
 
 Does the provided intent or handler forward to the provided ID.
 
-
 <b>Signature:</b>
 
 ```typescript

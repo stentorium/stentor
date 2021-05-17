@@ -19,15 +19,15 @@ export interface Context<S extends Storage = Storage>
 |  Property | Type | Description |
 |  --- | --- | --- |
 |  [device](./stentor-models.context.device.md) | [Device](./stentor-models.device.md) | Information about the current device the user is on within the channel. |
-|  [pii](./stentor-models.context.pii.md) | [Pii](./stentor-models.pii.md) | The PII record |
-|  [requestUserData](./stentor-models.context.requestuserdata.md) | [UserData](./stentor-models.userdata.md) | A method that servers user profile data (email, location, phone number, etc) |
+|  [pii?](./stentor-models.context.pii.md) | [Pii](./stentor-models.pii.md) | <i>(Optional)</i> The PII record |
+|  [requestUserData?](./stentor-models.context.requestuserdata.md) | [UserData](./stentor-models.userdata.md) | <i>(Optional)</i> A method that servers user profile data (email, location, phone number, etc) |
 |  [response](./stentor-models.context.response.md) | [AbstractResponseBuilder](./stentor-models.abstractresponsebuilder.md) | The response builder. |
-|  [session](./stentor-models.context.session.md) | [SessionStore](./stentor-models.sessionstore.md) | Session data. Gets deleted when session (id) changes) |
+|  [session?](./stentor-models.context.session.md) | [SessionStore](./stentor-models.sessionstore.md) | <i>(Optional)</i> Session data. Gets deleted when session (id) changes) |
 |  [storage](./stentor-models.context.storage.md) | S | Long term storage for the user. |
 
 ## Methods
 
 |  Method | Description |
 |  --- | --- |
-|  [timeLeftInMillis()](./stentor-models.context.timeleftinmillis.md) | Milliseconds left from the execution (NOTE: infinity if not executing in a lambda) |
+|  [timeLeftInMillis()?](./stentor-models.context.timeleftinmillis.md) | <i>(Optional)</i> Milliseconds left from the execution (NOTE: infinity if not executing in a lambda) |
 

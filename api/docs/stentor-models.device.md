@@ -25,9 +25,9 @@ export interface Device
 |  [canThrowCard](./stentor-models.device.canthrowcard.md) | boolean | If the device (and current request) can throw a card |
 |  [canTransferCall](./stentor-models.device.cantransfercall.md) | boolean | If the device is capable to transfer calls (usually to an live agent).<!-- -->Telephony channels typically can perform this. |
 |  [channel](./stentor-models.device.channel.md) | string | The channel the user is on. |
-|  [displayData](./stentor-models.device.displaydata.md) | [DisplayData](./stentor-models.displaydata.md) | Display data<!-- -->Used to tell a little bit more about the display type if data is available |
+|  [displayData?](./stentor-models.device.displaydata.md) | [DisplayData](./stentor-models.displaydata.md) | <i>(Optional)</i> Display data<!-- -->Used to tell a little bit more about the display type if data is available |
 |  [hasScreen](./stentor-models.device.hasscreen.md) | boolean | If the device has a screen.<!-- -->Used to determine if we can link accounts on Google or return display interfaces on Alexa. |
 |  [hasWebBrowser](./stentor-models.device.haswebbrowser.md) | boolean | If the device has web browser capability<!-- -->Google assistant app has it, hub doesn't |
-|  [mediaPlayerStatus](./stentor-models.device.mediaplayerstatus.md) | [MediaPlayerStatus](./stentor-models.mediaplayerstatus.md) | Some channels and devices also support media playback |
+|  [mediaPlayerStatus?](./stentor-models.device.mediaplayerstatus.md) | [MediaPlayerStatus](./stentor-models.mediaplayerstatus.md) | <i>(Optional)</i> Some channels and devices also support media playback |
 |  [videoSupported](./stentor-models.device.videosupported.md) | boolean | If the device is capable of playing video. |
 

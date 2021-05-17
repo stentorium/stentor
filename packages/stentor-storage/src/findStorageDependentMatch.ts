@@ -8,7 +8,6 @@ import { isStorageDependable } from "./Guards";
  * Based on the provided storage, it finds the storage dependent object
  * that is a match.
  *
- * @template T
  * @param {((T | StorageDependable<T>)[])} storageDependents
  * @param {Storage} storage
  * @returns {(T | undefined)}

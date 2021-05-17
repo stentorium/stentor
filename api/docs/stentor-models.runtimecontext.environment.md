@@ -9,5 +9,5 @@ Current environment
 <b>Signature:</b>
 
 ```typescript
-environment?: "dev" | "stage" | "prod" | "production";
+environment?: "dev" | "stage" | "prod" | "production" | string;
 ```

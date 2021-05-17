@@ -16,9 +16,9 @@ export interface Handler<C extends Content = Content, D extends Data = Data, F e
 |  Property | Type | Description |
 |  --- | --- | --- |
 |  [content](./stentor-models.handler.content.md) | C |  |
-|  [data](./stentor-models.handler.data.md) | D |  |
-|  [forward](./stentor-models.handler.forward.md) | F |  |
-|  [permissions](./stentor-models.handler.permissions.md) | [UserDataType](./stentor-models.userdatatype.md)<!-- -->\[\] |  |
-|  [redirect](./stentor-models.handler.redirect.md) | R |  |
+|  [data?](./stentor-models.handler.data.md) | D | <i>(Optional)</i> |
+|  [forward?](./stentor-models.handler.forward.md) | F | <i>(Optional)</i> |
+|  [permissions?](./stentor-models.handler.permissions.md) | [UserDataType](./stentor-models.userdatatype.md)<!-- -->\[\] | <i>(Optional)</i> |
+|  [redirect?](./stentor-models.handler.redirect.md) | R | <i>(Optional)</i> |
 |  [type](./stentor-models.handler.type.md) | string |  |
 

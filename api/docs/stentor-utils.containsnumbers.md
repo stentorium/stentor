@@ -6,7 +6,6 @@
 
 Does the provided string contain numbers.
 
-
 <b>Signature:</b>
 
 ```typescript

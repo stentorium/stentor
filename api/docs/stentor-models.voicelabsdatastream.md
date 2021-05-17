@@ -19,7 +19,7 @@ export interface VoiceLabsDataStream extends BaseDataStream
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [alexaToken](./stentor-models.voicelabsdatastream.alexatoken.md) | string |  |
-|  [googleToken](./stentor-models.voicelabsdatastream.googletoken.md) | string |  |
+|  [alexaToken?](./stentor-models.voicelabsdatastream.alexatoken.md) | string | <i>(Optional)</i> |
+|  [googleToken?](./stentor-models.voicelabsdatastream.googletoken.md) | string | <i>(Optional)</i> |
 |  [type](./stentor-models.voicelabsdatastream.type.md) | [VoiceLabsDataStreamType](./stentor-models.voicelabsdatastreamtype.md) |  |
 

@@ -18,6 +18,6 @@ export interface RelativeDateTime
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [amount](./stentor-models.relativedatetime.amount.md) | number |  |
+|  [amount?](./stentor-models.relativedatetime.amount.md) | number | <i>(Optional)</i> |
 |  [relativity](./stentor-models.relativedatetime.relativity.md) | [RelativeDateType](./stentor-models.relativedatetype.md) \| [RelativeDateRangeType](./stentor-models.relativedaterangetype.md) \| string | The relative date. It can be just "LAST\_WEEKEND" but can also be "$<!-- -->{<!-- -->LAST\_WEEKEND<!-- -->}<!-- -->", "$<!-- -->{<!-- -->LAST\_SUNDAY<!-- -->}<!-- -->T12:00:00", "$<!-- -->{<!-- -->LAST\_FRIDAY<!-- -->}<!-- -->T12:00:00 --<!-- -->&gt; $<!-- -->{<!-- -->LAST\_SATURDAY<!-- -->}<!-- -->T12:00:00" or "$<!-- -->{<!-- -->LAST\_FRIDAY<!-- -->}<!-- -->T12:00:00/$<!-- -->{<!-- -->LAST\_SATURDAY<!-- -->}<!-- -->T12:00:00" |
 

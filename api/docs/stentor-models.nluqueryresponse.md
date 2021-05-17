@@ -15,7 +15,7 @@ export interface NLUQueryResponse
 |  Property | Type | Description |
 |  --- | --- | --- |
 |  [intentId](./stentor-models.nluqueryresponse.intentid.md) | string |  |
-|  [knowledgeAnswer](./stentor-models.nluqueryresponse.knowledgeanswer.md) | [KnowledgeAnswer](./stentor-models.knowledgeanswer.md) |  |
-|  [slots](./stentor-models.nluqueryresponse.slots.md) | [RequestSlotMap](./stentor-models.requestslotmap.md) |  |
+|  [knowledgeAnswer?](./stentor-models.nluqueryresponse.knowledgeanswer.md) | [KnowledgeAnswer](./stentor-models.knowledgeanswer.md) | <i>(Optional)</i> |
+|  [slots?](./stentor-models.nluqueryresponse.slots.md) | [RequestSlotMap](./stentor-models.requestslotmap.md) | <i>(Optional)</i> |
 |  [type](./stentor-models.nluqueryresponse.type.md) | [IntentRequestType](./stentor-models.intentrequesttype.md) \| [InputUnknownRequestType](./stentor-models.inputunknownrequesttype.md) |  |
 

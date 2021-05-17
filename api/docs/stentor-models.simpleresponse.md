@@ -17,14 +17,14 @@ export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Act
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [data](./stentor-models.simpleresponse.data.md) | [ResponseData](./stentor-models.responsedata.md) | Supplemental data to augment the response. |
-|  [displays](./stentor-models.simpleresponse.displays.md) | [Display](./stentor-models.display.md)<!-- -->\[\] | Display elements for surfaces/devices with screens. |
-|  [media](./stentor-models.simpleresponse.media.md) | [Media](./stentor-models.media.md)<!-- -->\[\] | Media for playback |
-|  [name](./stentor-models.simpleresponse.name.md) | string | Name of the response.<!-- -->Used to help differentiate multiple responses. |
-|  [outputSpeech](./stentor-models.simpleresponse.outputspeech.md) | T | What the assistant will say first as part of the response. |
-|  [reprompt](./stentor-models.simpleresponse.reprompt.md) | T | If provided, the output speech was most likely a question and requires a response from the user. The reprompt is given if the user doesn't say anything or the assistant can't recognize the response. |
-|  [segments](./stentor-models.simpleresponse.segments.md) | [ResponseSegmentsMap](./stentor-models.responsesegmentsmap.md) | Segments used for the outputSpeech and reprompt. |
-|  [silencePrompt](./stentor-models.simpleresponse.silenceprompt.md) | T |  |
-|  [system](./stentor-models.simpleresponse.system.md) | "ACCOUNT\_LINK" \| "MEDIA\_ENQUEUE" \| "MEDIA\_STOP" \| "SURFACE\_CHANGE" \| "PERMISSION\_LIST" \| "PERMISSION\_EMAIL" \| "PERMISSION\_PHONE\_NUMBER" \| "PERMISSION\_LOCATION\_PRECISE" \| "PERMISSION\_LOCATION\_COARSE" \| "PERMISSION\_NOTIFICATION" \| "TRANSFER\_CALL" \| "HANDOFF" | System responses to perform account links, control media, surface changes, and permission requests. |
-|  [tag](./stentor-models.simpleresponse.tag.md) | string | Used for tracking the response in third party analytics. |
+|  [data?](./stentor-models.simpleresponse.data.md) | [ResponseData](./stentor-models.responsedata.md) | <i>(Optional)</i> Supplemental data to augment the response. |
+|  [displays?](./stentor-models.simpleresponse.displays.md) | [Display](./stentor-models.display.md)<!-- -->\[\] | <i>(Optional)</i> Display elements for surfaces/devices with screens. |
+|  [media?](./stentor-models.simpleresponse.media.md) | [Media](./stentor-models.media.md)<!-- -->\[\] | <i>(Optional)</i> Media for playback |
+|  [name?](./stentor-models.simpleresponse.name.md) | string | <i>(Optional)</i> Name of the response.<!-- -->Used to help differentiate multiple responses. |
+|  [outputSpeech?](./stentor-models.simpleresponse.outputspeech.md) | T | <i>(Optional)</i> What the assistant will say first as part of the response. |
+|  [reprompt?](./stentor-models.simpleresponse.reprompt.md) | T | <i>(Optional)</i> If provided, the output speech was most likely a question and requires a response from the user. The reprompt is given if the user doesn't say anything or the assistant can't recognize the response. |
+|  [segments?](./stentor-models.simpleresponse.segments.md) | [ResponseSegmentsMap](./stentor-models.responsesegmentsmap.md) | <i>(Optional)</i> Segments used for the outputSpeech and reprompt. |
+|  [silencePrompt?](./stentor-models.simpleresponse.silenceprompt.md) | T | <i>(Optional)</i> |
+|  [system?](./stentor-models.simpleresponse.system.md) | "ACCOUNT\_LINK" \| "MEDIA\_ENQUEUE" \| "MEDIA\_STOP" \| "SURFACE\_CHANGE" \| "PERMISSION\_LIST" \| "PERMISSION\_EMAIL" \| "PERMISSION\_PHONE\_NUMBER" \| "PERMISSION\_LOCATION\_PRECISE" \| "PERMISSION\_LOCATION\_COARSE" \| "PERMISSION\_NOTIFICATION" \| "TRANSFER\_CALL" \| "HANDOFF" | <i>(Optional)</i> System responses to perform account links, control media, surface changes, and permission requests. |
+|  [tag?](./stentor-models.simpleresponse.tag.md) | string | <i>(Optional)</i> Used for tracking the response in third party analytics. |
 

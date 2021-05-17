@@ -17,5 +17,5 @@ constructor(message: string | Error | LambdaError, statusCode?: number);
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  message | string \| Error \| [LambdaError](./stentor-utils.lambdaerror.md) | Error message to pass. |
-|  statusCode | number | The status code linked to the error message. Default is 500.  LambdaError |
+|  statusCode | number | The status code linked to the error message. Default is 500. |
 

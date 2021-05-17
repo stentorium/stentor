@@ -6,7 +6,6 @@
 
 From a Dialogflow style ISO-8601 time string: "2019-06-05T12:00:00-04:00", it pulls out the date and the time.
 
-
 <b>Signature:</b>
 
 ```typescript
@@ -23,4 +22,6 @@ export declare function getDateTimeFrom(date: string | Date, includeOnly?: "time
 <b>Returns:</b>
 
 [DateTime](./stentor-models.datetime.md) \| undefined
+
+A DateTime object based on the provided parameters
 

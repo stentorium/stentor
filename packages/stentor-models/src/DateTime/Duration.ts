@@ -1,5 +1,12 @@
 /*! Copyright (c) 2019, XAPPmedia */
 // format is the moment.DurationConstructor.
+
+
+/**
+ * Text that describes the format of a duration, for example "years" or "M" for months.
+ * 
+ * This is the same as the moment.js duration format.
+ */
 export type DurationFormat =
     | "year"
     | "years"

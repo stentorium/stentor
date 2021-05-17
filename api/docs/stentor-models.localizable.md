@@ -16,6 +16,6 @@ export interface Localizable<O extends LocaleObject>
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [defaultLocale](./stentor-models.localizable.defaultlocale.md) | [Locale](./stentor-models.locale.md) |  |
-|  [locales](./stentor-models.localizable.locales.md) | Partial&lt;Record&lt;[Locale](./stentor-models.locale.md)<!-- -->, Partial&lt;O&gt;&gt;&gt; |  |
+|  [defaultLocale?](./stentor-models.localizable.defaultlocale.md) | [Locale](./stentor-models.locale.md) | <i>(Optional)</i> |
+|  [locales?](./stentor-models.localizable.locales.md) | Partial&lt;Record&lt;[Locale](./stentor-models.locale.md)<!-- -->, Partial&lt;O&gt;&gt;&gt; | <i>(Optional)</i> |
 

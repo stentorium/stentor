@@ -18,6 +18,6 @@ export interface ExecutablePath extends SharedPath
 |  Property | Type | Description |
 |  --- | --- | --- |
 |  [intentId](./stentor-models.executablepath.intentid.md) | string | The ID of the handler to forward or redirect the request to |
-|  [slots](./stentor-models.executablepath.slots.md) | [RequestSlotMap](./stentor-models.requestslotmap.md) | Optional, if redirecting or forwarding to a handler that is expecting slots, set these to pre-populate them on the request. |
-|  [type](./stentor-models.executablepath.type.md) | [PathType](./stentor-models.pathtype.md) | Type of path.<!-- -->Setting type to START changes the request so that handler.start() is called.<!-- -->Not setting the type passes the request straight through, requiring the new handler to handle the request as is. |
+|  [slots?](./stentor-models.executablepath.slots.md) | [RequestSlotMap](./stentor-models.requestslotmap.md) | <i>(Optional)</i> Optional, if redirecting or forwarding to a handler that is expecting slots, set these to pre-populate them on the request. |
+|  [type?](./stentor-models.executablepath.type.md) | [PathType](./stentor-models.pathtype.md) | <i>(Optional)</i> Type of path.<!-- -->Setting type to START changes the request so that handler.start() is called.<!-- -->Not setting the type passes the request straight through, requiring the new handler to handle the request as is. |
 

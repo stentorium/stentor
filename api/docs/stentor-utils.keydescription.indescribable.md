@@ -6,8 +6,6 @@
 
 The key cannot be described with the current methods of description.
 
- {<!-- -->boolean<!-- -->}  KeyDescription
-
 <b>Signature:</b>
 
 ```typescript

@@ -9,19 +9,20 @@ The base Display structure
 <b>Signature:</b>
 
 ```typescript
-export interface SimpleDisplay 
+export interface SimpleDisplay extends BaseDisplay 
 ```
+<b>Extends:</b> [BaseDisplay](./stentor-models.basedisplay.md)
 
 ## Properties
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [backButtonVisible](./stentor-models.simpledisplay.backbuttonvisible.md) | boolean |  |
-|  [backgroundImage](./stentor-models.simpledisplay.backgroundimage.md) | Image |  |
-|  [image](./stentor-models.simpledisplay.image.md) | Image |  |
-|  [listItems](./stentor-models.simpledisplay.listitems.md) | [DisplayListItem](./stentor-models.displaylistitem.md)<!-- -->\[\] |  |
-|  [textContent](./stentor-models.simpledisplay.textcontent.md) | [TextContent](./stentor-models.textcontent.md) |  |
-|  [title](./stentor-models.simpledisplay.title.md) | string |  |
+|  [backButtonVisible?](./stentor-models.simpledisplay.backbuttonvisible.md) | boolean | <i>(Optional)</i> |
+|  [backgroundImage?](./stentor-models.simpledisplay.backgroundimage.md) | Image | <i>(Optional)</i> |
+|  [image?](./stentor-models.simpledisplay.image.md) | Image | <i>(Optional)</i> |
+|  [listItems?](./stentor-models.simpledisplay.listitems.md) | [DisplayListItem](./stentor-models.displaylistitem.md)<!-- -->\[\] | <i>(Optional)</i> |
+|  [textContent?](./stentor-models.simpledisplay.textcontent.md) | [TextContent](./stentor-models.textcontent.md) | <i>(Optional)</i> |
+|  [title?](./stentor-models.simpledisplay.title.md) | string | <i>(Optional)</i> |
 |  [token](./stentor-models.simpledisplay.token.md) | string |  |
 |  [type](./stentor-models.simpledisplay.type.md) | "ImageDisplay" \| "ShortText" \| "LongText" \| "ImageRightDetail" \| "ImageLeftDetail" \| "ImageForwardList" \| "TextForwardList" |  |
 

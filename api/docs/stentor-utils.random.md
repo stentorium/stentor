@@ -6,8 +6,6 @@
 
 Returns a random item from the given array.
 
-  T
-
 <b>Signature:</b>
 
 ```typescript

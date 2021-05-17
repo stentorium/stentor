@@ -4,7 +4,6 @@ import { Actionable } from "stentor-models";
 /**
  * Guard to check if the object is actionable.
  *
- * @template T
  * @param {(T | Actionable<T>)} potential
  * @returns {potential is Actionable<T>}
  */

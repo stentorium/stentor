@@ -15,5 +15,5 @@ export interface ContainsInvalidResponseResult
 |  Property | Type | Description |
 |  --- | --- | --- |
 |  [error](./stentor-utils.containsinvalidresponseresult.error.md) | boolean |  |
-|  [response](./stentor-utils.containsinvalidresponseresult.response.md) | string |  |
+|  [response?](./stentor-utils.containsinvalidresponseresult.response.md) | string | <i>(Optional)</i> |
 

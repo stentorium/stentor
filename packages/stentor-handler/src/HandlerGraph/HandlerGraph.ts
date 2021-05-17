@@ -9,9 +9,6 @@ import { filterOutIntents, HandlerMap, toMap } from "stentor-utils";
  *
  * A handler is a vertex and the edges are the connections between the handlers
  * based on the forwards.
- *
- * @class HandlerGraph
- * @extends {AbstractGraph}
  */
 export class HandlerGraph extends AbstractGraph {
     private handlers: Handler[];
@@ -52,7 +49,6 @@ export class HandlerGraph extends AbstractGraph {
      *
      * @param {string} id
      * @returns {(Handler | undefined)}
-     * @memberof HandlerGraph
      */
     public getHandler(id: string): Handler | undefined {
         return this.map[id];

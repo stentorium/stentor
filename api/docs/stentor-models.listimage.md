@@ -15,8 +15,9 @@ export interface ListImage
 |  Property | Type | Description |
 |  --- | --- | --- |
 |  [accessibilityText](./stentor-models.listimage.accessibilitytext.md) | string | Describes the image for screen readers, referred to as ContentDescription on Alexa. |
-|  [height](./stentor-models.listimage.height.md) | number | The optional height of the image |
+|  [height?](./stentor-models.listimage.height.md) | number | <i>(Optional)</i> The optional height of the image |
+|  [imageActionUrl?](./stentor-models.listimage.imageactionurl.md) | string | <b><i>(BETA)</i></b> <i>(Optional)</i> When present, if the image is clicked the provided website will open.<!-- -->Not yet fully supported. |
 |  [url](./stentor-models.listimage.url.md) | string | The location of the image, publicly accessible. |
-|  [urlIcon](./stentor-models.listimage.urlicon.md) | string | The optional location of the smaller version of the image (icon?), publicly accessible. |
-|  [width](./stentor-models.listimage.width.md) | number | The optional width of the image |
+|  [urlIcon?](./stentor-models.listimage.urlicon.md) | string | <i>(Optional)</i> The optional location of the smaller version of the image (icon?), publicly accessible. |
+|  [width?](./stentor-models.listimage.width.md) | number | <i>(Optional)</i> The optional width of the image |
 

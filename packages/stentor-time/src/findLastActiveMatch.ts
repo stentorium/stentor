@@ -10,7 +10,6 @@ const moment = extendMoment(Moment);
 /**
  * Finds the most relevant contextual match.
  *
- * @template T
  * @param {((T | LastActive<T>)[])} responses
  * @param {{ lastActiveTimestamp?: number }} context
  * @returns {(LastActive<T> | undefined)}

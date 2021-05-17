@@ -15,10 +15,10 @@ export interface OptionSelectRequest extends BaseRequest
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [index](./stentor-models.optionselectrequest.index.md) | number | For the selection of an item in a list, this is the index of the item.<!-- -->This is not always available. |
+|  [index?](./stentor-models.optionselectrequest.index.md) | number | <i>(Optional)</i> For the selection of an item in a list, this is the index of the item.<!-- -->This is not always available. |
 |  [intentId](./stentor-models.optionselectrequest.intentid.md) | [OptionSelectID](./stentor-models.optionselectid.md) | OptionSelect has a constant ID. |
 |  [sessionId](./stentor-models.optionselectrequest.sessionid.md) | string | The current session ID |
-|  [title](./stentor-models.optionselectrequest.title.md) | string | The textual representation of the selected option.<!-- -->This is not always available. |
+|  [title?](./stentor-models.optionselectrequest.title.md) | string | <i>(Optional)</i> The textual representation of the selected option.<!-- -->This is not always available. |
 |  [token](./stentor-models.optionselectrequest.token.md) | string | The select option's unique id |
 |  [type](./stentor-models.optionselectrequest.type.md) | [OptionSelectRequestType](./stentor-models.optionselectrequesttype.md) |  |
 

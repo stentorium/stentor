@@ -8,7 +8,6 @@ Is the word an english preposition.
 
 NOTE: The list it checks against is not exhaustive.
 
-
 <b>Signature:</b>
 
 ```typescript

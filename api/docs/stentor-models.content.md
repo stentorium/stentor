@@ -18,6 +18,6 @@ export interface Content
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [CancelIntent](./stentor-models.content.cancelintent.md) | Response\[\] | Used when the user says "cancel" or "exit" |
-|  [HelpIntent](./stentor-models.content.helpintent.md) | Response\[\] | Used when the user asks for help, opportunity to provide contextual help based on the current handler. |
+|  [CancelIntent?](./stentor-models.content.cancelintent.md) | Response\[\] | <i>(Optional)</i> Used when the user says "cancel" or "exit" |
+|  [HelpIntent?](./stentor-models.content.helpintent.md) | Response\[\] | <i>(Optional)</i> Used when the user asks for help, opportunity to provide contextual help based on the current handler. |
 

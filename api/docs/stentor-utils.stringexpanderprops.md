@@ -14,7 +14,7 @@ export declare class StringExpanderProps
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [reduceToOneSpace](./stentor-utils.stringexpanderprops.reducetoonespace.md) |  | boolean | Reduce multiple spaces to one. {<!-- -->boolean<!-- -->}  StringExpanderProps |
-|  [trim](./stentor-utils.stringexpanderprops.trim.md) |  | boolean | Trim leading and trailing spaces {<!-- -->boolean<!-- -->}  StringExpanderProps |
-|  [variableStyle](./stentor-utils.stringexpanderprops.variablestyle.md) |  | [StringVariableStyle](./stentor-utils.stringvariablestyle.md) | Override the default value of ESTemplateLiteral $<!-- -->{<!-- -->VAR<!-- -->} {<!-- -->StringVariableStyle<!-- -->}  StringExpanderProps |
+|  [reduceToOneSpace?](./stentor-utils.stringexpanderprops.reducetoonespace.md) |  | boolean | <i>(Optional)</i> Reduce multiple spaces to one. |
+|  [trim?](./stentor-utils.stringexpanderprops.trim.md) |  | boolean | <i>(Optional)</i> Trim leading and trailing spaces |
+|  [variableStyle?](./stentor-utils.stringexpanderprops.variablestyle.md) |  | [StringVariableStyle](./stentor-utils.stringvariablestyle.md) | <i>(Optional)</i> Override the default value of ESTemplateLiteral $<!-- -->{<!-- -->VAR<!-- -->} |
 

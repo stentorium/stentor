@@ -17,6 +17,6 @@ export interface SharedPath extends Partial<Actionable>, Partial<Conditioned>
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [data](./stentor-models.sharedpath.data.md) | object |  |
-|  [platform](./stentor-models.sharedpath.platform.md) | string | Optional platform filter for the path.<!-- -->If set, the path will only apply to the specified platform. |
+|  [data?](./stentor-models.sharedpath.data.md) | object | <i>(Optional)</i> |
+|  [platform?](./stentor-models.sharedpath.platform.md) | string | <i>(Optional)</i> Optional platform filter for the path.<!-- -->If set, the path will only apply to the specified platform. |
 

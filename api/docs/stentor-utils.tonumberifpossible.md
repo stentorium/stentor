@@ -8,8 +8,6 @@ Converts to a number if possible otherwise it passes it through.
 
 This preserves Dates and booleans. If true is passed in, true is passed out. Additionally, if an empty string is passed, it passes it through instead of turning it into a number.
 
-  T
-
 <b>Signature:</b>
 
 ```typescript

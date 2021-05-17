@@ -6,7 +6,6 @@ import { isRequestDependable } from "./Guards";
 /**
  * Based on the provided request, it finds a request dependent match or undefined if no match is found.
  *
- * @template T
  * @param {((T | RequestDependable<T>)[])} potentials
  * @param {Request} request
  * @returns {(RequestDependable<T> | undefined)}

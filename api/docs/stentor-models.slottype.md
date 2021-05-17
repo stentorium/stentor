@@ -21,8 +21,8 @@ export interface SlotType<T = string | number | object | boolean>
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [dialogflowId](./stentor-models.slottype.dialogflowid.md) | string | Optional ID if the slot type has a representation in Dialogflow. |
-|  [id](./stentor-models.slottype.id.md) | string | Optional ID for the slot type |
+|  [dialogflowId?](./stentor-models.slottype.dialogflowid.md) | string | <i>(Optional)</i> Optional ID if the slot type has a representation in Dialogflow. |
+|  [id?](./stentor-models.slottype.id.md) | string | <i>(Optional)</i> Optional ID for the slot type |
 |  [name](./stentor-models.slottype.name.md) | string | The name of the slot type.<!-- -->This is also the key used in the SlotTypeMap. |
-|  [values](./stentor-models.slottype.values.md) | [SlotTypeValue](./stentor-models.slottypevalue.md)<!-- -->&lt;T&gt;\[\] | The values for the slot type. |
+|  [values?](./stentor-models.slottype.values.md) | [SlotTypeValue](./stentor-models.slottypevalue.md)<!-- -->&lt;T&gt;\[\] | <i>(Optional)</i> The values for the slot type. |
 

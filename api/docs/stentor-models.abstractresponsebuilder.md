@@ -20,8 +20,8 @@ export declare abstract class AbstractResponseBuilder<R = any>
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [assistantTitle](./stentor-models.abstractresponsebuilder.assistanttitle.md) |  | string | Do not use. |
-|  [backgroundImage](./stentor-models.abstractresponsebuilder.backgroundimage.md) |  | [ImageSpecification](./stentor-models.imagespecification.md)<!-- -->\[\] | Do not use. |
+|  [assistantTitle?](./stentor-models.abstractresponsebuilder.assistanttitle.md) |  | string | <i>(Optional)</i> Do not use. |
+|  [backgroundImage?](./stentor-models.abstractresponsebuilder.backgroundimage.md) |  | [ImageSpecification](./stentor-models.imagespecification.md)<!-- -->\[\] | <i>(Optional)</i> Do not use. |
 |  [device](./stentor-models.abstractresponsebuilder.device.md) |  | Readonly&lt;[Device](./stentor-models.device.md)<!-- -->&gt; | Information about the device capabilities. Use to determine if you can present display information or play media. |
 |  [response](./stentor-models.abstractresponsebuilder.response.md) |  | Readonly&lt;Response&lt;[ResponseOutput](./stentor-models.responseoutput.md)<!-- -->&gt;&gt; \| undefined | The response that will be communicated to the user |
 |  [tag](./stentor-models.abstractresponsebuilder.tag.md) |  | string \| undefined | Tag used by supported 3rd party analytics to track the response. |

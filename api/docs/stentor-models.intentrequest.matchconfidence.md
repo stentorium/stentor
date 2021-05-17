@@ -6,6 +6,8 @@
 
 Confidence level of the intent match. On a scale from 0-1 where 1 is the highest confidence of a match.
 
+[https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html) [https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-concept-prediction-score](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-concept-prediction-score) [https://cloud.google.com/dialogflow/es/docs/intents-matching\#confidence](https://cloud.google.com/dialogflow/es/docs/intents-matching#confidence)
+
 <b>Signature:</b>
 
 ```typescript

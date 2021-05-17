@@ -4,7 +4,7 @@
 
 ## durationFormatGreaterThan() function
 
-Compare two duration formats  is greater than the other.
+Compare two duration formats [DurationFormat](./stentor-models.durationformat.md) is greater than the other.
 
 For example, a year is greater than a month.
 

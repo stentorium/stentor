@@ -16,10 +16,10 @@ export interface ChannelData
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [directoryListing](./stentor-models.channeldata.directorylisting.md) | string | URL for the directory listing |
-|  [endPoint](./stentor-models.channeldata.endpoint.md) | string | URI where the channel can be accessed. |
+|  [directoryListing?](./stentor-models.channeldata.directorylisting.md) | string | <i>(Optional)</i> URL for the directory listing |
+|  [endPoint?](./stentor-models.channeldata.endpoint.md) | string | <i>(Optional)</i> URI where the channel can be accessed. |
 |  [id](./stentor-models.channeldata.id.md) | string | Unique ID of the channel. |
-|  [status](./stentor-models.channeldata.status.md) | [FullAppStatus](./stentor-models.fullappstatus.md) | The status of the app with respect to this current channel.<!-- -->An example may be that an app is currently live on Alexa but being built on Google Home. |
+|  [status?](./stentor-models.channeldata.status.md) | [FullAppStatus](./stentor-models.fullappstatus.md) | <i>(Optional)</i> The status of the app with respect to this current channel.<!-- -->An example may be that an app is currently live on Alexa but being built on Google Home. |
 |  [type](./stentor-models.channeldata.type.md) | string | The channel type |
-|  [useNLU](./stentor-models.channeldata.usenlu.md) | string | ID of the NLU to use within app.nlu\[\].<!-- -->If it exists, the channel will use the provided NLU at runtime to convert the raw text to an Intent.<!-- -->If the value is "\*", then it will pick the first available NLU within app.nlu\[\] |
+|  [useNLU?](./stentor-models.channeldata.usenlu.md) | string | <i>(Optional)</i> ID of the NLU to use within app.nlu\[\].<!-- -->If it exists, the channel will use the provided NLU at runtime to convert the raw text to an Intent.<!-- -->If the value is "\*", then it will pick the first available NLU within app.nlu\[\] |
 

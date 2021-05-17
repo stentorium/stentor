@@ -17,5 +17,5 @@ export interface Reportable extends Playable
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [playedId](./stentor-models.reportable.playedid.md) | string | An ID representing a playback of the playable. |
+|  [playedId?](./stentor-models.reportable.playedid.md) | string | <i>(Optional)</i> An ID representing a playback of the playable. |
 

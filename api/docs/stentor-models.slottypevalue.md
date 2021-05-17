@@ -16,7 +16,7 @@ export interface SlotTypeValue<T = string | number | object | boolean>
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [data](./stentor-models.slottypevalue.data.md) | T | The data associated with the slot value, used when the slot value is selected. |
+|  [data?](./stentor-models.slottypevalue.data.md) | T | <i>(Optional)</i> The data associated with the slot value, used when the slot value is selected. |
 |  [name](./stentor-models.slottypevalue.name.md) | string | The name of the slot, what is spoken by the user. |
-|  [synonyms](./stentor-models.slottypevalue.synonyms.md) | string\[\] | List of potential synonyms for the slot. |
+|  [synonyms?](./stentor-models.slottypevalue.synonyms.md) | string\[\] | <i>(Optional)</i> List of potential synonyms for the slot. |
 

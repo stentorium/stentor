@@ -16,9 +16,9 @@ export interface Playable
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [id](./stentor-models.playable.id.md) | string | An ID for the playable object. |
-|  [length](./stentor-models.playable.length.md) | number | The length of the playable object in milliseconds.<!-- -->A length of -1 denotes the playable has no end. |
-|  [token](./stentor-models.playable.token.md) | string | A token for the playable object that represents a unique playback of the track. |
+|  [id?](./stentor-models.playable.id.md) | string | <i>(Optional)</i> An ID for the playable object. |
+|  [length?](./stentor-models.playable.length.md) | number | <i>(Optional)</i> The length of the playable object in milliseconds.<!-- -->A length of -1 denotes the playable has no end. |
+|  [token?](./stentor-models.playable.token.md) | string | <i>(Optional)</i> A token for the playable object that represents a unique playback of the track. |
 |  [url](./stentor-models.playable.url.md) | string | The URL for the playable object. |
-|  [visuals](./stentor-models.playable.visuals.md) | [Visuals](./stentor-models.visuals.md) | Things to show on screens if the device is capable of showing.<!-- -->This is used primarily on Google for media cards. |
+|  [visuals?](./stentor-models.playable.visuals.md) | [Visuals](./stentor-models.visuals.md) | <i>(Optional)</i> Things to show on screens if the device is capable of showing.<!-- -->This is used primarily on Google for media cards. |
 

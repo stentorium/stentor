@@ -22,9 +22,6 @@ const expect = Chai.expect;
 
 /**
  * Mocks the flush events so they do not get sent to the service
- *
- * @class MockEventStream
- * @extends {EventStream}
  */
 class MockEventStream extends AbstractEventStream {
     public async flushEvents(): Promise<void> {

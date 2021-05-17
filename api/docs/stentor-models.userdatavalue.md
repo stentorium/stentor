@@ -15,5 +15,5 @@ export interface UserDataValue
 |  Property | Type | Description |
 |  --- | --- | --- |
 |  [requestStatus](./stentor-models.userdatavalue.requeststatus.md) | [UserDataRequestStatus](./stentor-models.userdatarequeststatus.md) |  |
-|  [userProfile](./stentor-models.userdatavalue.userprofile.md) | [UserProfile](./stentor-models.userprofile.md) |  |
+|  [userProfile?](./stentor-models.userdatavalue.userprofile.md) | [UserProfile](./stentor-models.userprofile.md) | <i>(Optional)</i> |
 

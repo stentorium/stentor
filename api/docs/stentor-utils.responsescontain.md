@@ -6,7 +6,6 @@
 
 Does the provided intent or handler have a response that contains the provided character.
 
-
 <b>Signature:</b>
 
 ```typescript

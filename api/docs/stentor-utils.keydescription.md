@@ -6,8 +6,6 @@
 
 A description of a key for either Content, Forwards, or Redirects
 
-  KeyDescription
-
 <b>Signature:</b>
 
 ```typescript
@@ -18,9 +16,9 @@ export interface KeyDescription
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [catchAll](./stentor-utils.keydescription.catchall.md) | boolean | If true, the key will match for every string {<!-- -->boolean<!-- -->}  KeyDescription |
-|  [excludedIntentIds](./stentor-utils.keydescription.excludedintentids.md) | string\[\] | If it exists, it is an array of possible strings that will be omitted in the case of a catch all key.<!-- -->Note, this must be used in conjunction with catchAll = true. {<!-- -->string\[\]<!-- -->}  KeyDescription |
-|  [includedIntentIds](./stentor-utils.keydescription.includedintentids.md) | string\[\] | If it exists, it is an array of possible strings that will match for the key. {<!-- -->string\[\]<!-- -->}  KeyDescription |
-|  [indescribable](./stentor-utils.keydescription.indescribable.md) | boolean | The key cannot be described with the current methods of description. {<!-- -->boolean<!-- -->}  KeyDescription |
-|  [intentId](./stentor-utils.keydescription.intentid.md) | string | If intentId exists, it is the only string that will match the key {<!-- -->string<!-- -->}  KeyDescription |
+|  [catchAll?](./stentor-utils.keydescription.catchall.md) | boolean | <i>(Optional)</i> If true, the key will match for every string |
+|  [excludedIntentIds?](./stentor-utils.keydescription.excludedintentids.md) | string\[\] | <i>(Optional)</i> If it exists, it is an array of possible strings that will be omitted in the case of a catch all key.<!-- -->Note, this must be used in conjunction with catchAll = true. |
+|  [includedIntentIds?](./stentor-utils.keydescription.includedintentids.md) | string\[\] | <i>(Optional)</i> If it exists, it is an array of possible strings that will match for the key. |
+|  [indescribable?](./stentor-utils.keydescription.indescribable.md) | boolean | <i>(Optional)</i> The key cannot be described with the current methods of description. |
+|  [intentId?](./stentor-utils.keydescription.intentid.md) | string | <i>(Optional)</i> If intentId exists, it is the only string that will match the key |
 

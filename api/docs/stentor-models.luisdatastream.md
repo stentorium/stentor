@@ -22,7 +22,7 @@ export interface LuisDataStream extends BaseDataStream
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [minimumScore](./stentor-models.luisdatastream.minimumscore.md) | number |  |
+|  [minimumScore?](./stentor-models.luisdatastream.minimumscore.md) | number | <i>(Optional)</i> |
 |  [type](./stentor-models.luisdatastream.type.md) | [LuisType](./stentor-models.luistype.md) |  |
 |  [url](./stentor-models.luisdatastream.url.md) | string |  |
 

@@ -6,7 +6,6 @@
 
 Is the word the indefinite article "a" or "an"
 
-
 <b>Signature:</b>
 
 ```typescript

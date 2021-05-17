@@ -14,6 +14,6 @@ export interface RequestAttachment
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [type](./stentor-models.requestattachment.type.md) | string | Optional type if available (media type, like "image") |
+|  [type?](./stentor-models.requestattachment.type.md) | string | <i>(Optional)</i> Optional type if available (media type, like "image") |
 |  [url](./stentor-models.requestattachment.url.md) | string | Url to the uploaded file |
 

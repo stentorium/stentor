@@ -18,6 +18,6 @@ export interface History
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [handler](./stentor-models.history_2.handler.md) | [HandlerHistoryData](./stentor-models.handlerhistorydata.md)<!-- -->\[\] |  |
-|  [lastTrimmed](./stentor-models.history_2.lasttrimmed.md) | number |  |
+|  [handler?](./stentor-models.history_2.handler.md) | [HandlerHistoryData](./stentor-models.handlerhistorydata.md)<!-- -->\[\] | <i>(Optional)</i> |
+|  [lastTrimmed?](./stentor-models.history_2.lasttrimmed.md) | number | <i>(Optional)</i> |
 

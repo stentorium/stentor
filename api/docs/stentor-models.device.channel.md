@@ -4,6 +4,11 @@
 
 ## Device.channel property
 
+> Warning: This API is now obsolete.
+> 
+> Use the channel on the request object instead
+> 
+
 The channel the user is on.
 
 <b>Signature:</b>

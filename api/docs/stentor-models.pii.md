@@ -14,17 +14,17 @@ export interface Pii
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [appId](./stentor-models.pii.appid.md) | string |  |
-|  [coarseLocation](./stentor-models.pii.coarselocation.md) | string |  |
-|  [customData](./stentor-models.pii.customdata.md) | any\[\] |  |
-|  [customDataStatus](./stentor-models.pii.customdatastatus.md) | [OptStatus](./stentor-models.optstatus.md) |  |
-|  [emailAddress](./stentor-models.pii.emailaddress.md) | string |  |
-|  [emailAddressStatus](./stentor-models.pii.emailaddressstatus.md) | [OptStatus](./stentor-models.optstatus.md) |  |
-|  [name](./stentor-models.pii.name.md) | string |  |
-|  [pendingEmailJobs](./stentor-models.pii.pendingemailjobs.md) | [EmailDescription](./stentor-models.emaildescription.md)<!-- -->\[\] |  |
-|  [pendingSmsJobs](./stentor-models.pii.pendingsmsjobs.md) | [SmsDescription](./stentor-models.smsdescription.md)<!-- -->\[\] |  |
-|  [phoneNumber](./stentor-models.pii.phonenumber.md) | string |  |
-|  [phoneNumberStatus](./stentor-models.pii.phonenumberstatus.md) | [OptStatus](./stentor-models.optstatus.md) |  |
-|  [preciseLocation](./stentor-models.pii.preciselocation.md) | string |  |
-|  [token](./stentor-models.pii.token.md) | string |  |
+|  [appId?](./stentor-models.pii.appid.md) | string | <i>(Optional)</i> |
+|  [coarseLocation?](./stentor-models.pii.coarselocation.md) | string | <i>(Optional)</i> |
+|  [customData?](./stentor-models.pii.customdata.md) | any\[\] | <i>(Optional)</i> |
+|  [customDataStatus?](./stentor-models.pii.customdatastatus.md) | [OptStatus](./stentor-models.optstatus.md) | <i>(Optional)</i> |
+|  [emailAddress?](./stentor-models.pii.emailaddress.md) | string | <i>(Optional)</i> |
+|  [emailAddressStatus?](./stentor-models.pii.emailaddressstatus.md) | [OptStatus](./stentor-models.optstatus.md) | <i>(Optional)</i> |
+|  [name?](./stentor-models.pii.name.md) | string | <i>(Optional)</i> |
+|  [pendingEmailJobs?](./stentor-models.pii.pendingemailjobs.md) | [EmailDescription](./stentor-models.emaildescription.md)<!-- -->\[\] | <i>(Optional)</i> |
+|  [pendingSmsJobs?](./stentor-models.pii.pendingsmsjobs.md) | [SmsDescription](./stentor-models.smsdescription.md)<!-- -->\[\] | <i>(Optional)</i> |
+|  [phoneNumber?](./stentor-models.pii.phonenumber.md) | string | <i>(Optional)</i> |
+|  [phoneNumberStatus?](./stentor-models.pii.phonenumberstatus.md) | [OptStatus](./stentor-models.optstatus.md) | <i>(Optional)</i> |
+|  [preciseLocation?](./stentor-models.pii.preciselocation.md) | string | <i>(Optional)</i> |
+|  [token?](./stentor-models.pii.token.md) | string | <i>(Optional)</i> |
 

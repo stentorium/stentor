@@ -8,7 +8,7 @@
 
 |  Class | Description |
 |  --- | --- |
-|  [LambdaError](./stentor-utils.lambdaerror.md) | An Error that allows for a status code to be stored. By default the status code is 500.<!-- -->Note: This was taken from stentor-api https://github.com/XappMedia/stentor-api/blob/eafa58834fb42b5c8b72c2dd615c99d68a774157/src/main/shared/utils/ServerUtils.ts\#L47  LambdaError  {<!-- -->Error<!-- -->} |
+|  [LambdaError](./stentor-utils.lambdaerror.md) | An Error that allows for a status code to be stored. By default the status code is 500. |
 |  [StringExpander](./stentor-utils.stringexpander.md) | Expands strings when the pattern {<!-- -->option0\|option1<!-- -->} is found within the string.<!-- -->If either $<!-- -->{<!-- -->VAR<!-- -->} or the alexa-utterances {<!-- -->-\|VAR<!-- -->} is within the string, it preserved and converted to $<!-- -->{<!-- -->} by default. |
 |  [StringExpanderProps](./stentor-utils.stringexpanderprops.md) |  |
 
@@ -48,20 +48,21 @@
 |  [describeKey(key)](./stentor-utils.describekey.md) | Describes the key in terms of what type of IDs it accepts. |
 |  [dessmlify(str)](./stentor-utils.dessmlify.md) | Removes tags <speak> &amp; </speak> from SSML |
 |  [determineIntentIdToPath(handler, pathId)](./stentor-utils.determineintentidtopath.md) | For the given handler, find the intentId that will lead to the provided path. |
-|  [durationFormatGreaterThan(one, two)](./stentor-utils.durationformatgreaterthan.md) | Compare two duration formats  is greater than the other.<!-- -->For example, a year is greater than a month. |
+|  [durationFormatGreaterThan(one, two)](./stentor-utils.durationformatgreaterthan.md) | Compare two duration formats [DurationFormat](./stentor-models.durationformat.md) is greater than the other.<!-- -->For example, a year is greater than a month. |
 |  [durationToSpeech(duration, type)](./stentor-utils.durationtospeech.md) | Converts a duration to speech with appropriate pluralization. |
 |  [estimateSize(json)](./stentor-utils.estimatesize.md) | Estimate the size of the object for DynamoDB |
-|  [existsAndNotEmpty(items)](./stentor-utils.existsandnotempty.md) | Quick function to see if the array exists and has a length greater than 0.<!-- -->You would use this instead of writing <code>myArray &amp;&amp; myArray.length &gt; 0</code>, which increases your cyclomatic complexity.  T |
+|  [existsAndNotEmpty(items)](./stentor-utils.existsandnotempty.md) | Quick function to see if the array exists and has a length greater than 0.<!-- -->You would use this instead of writing <code>myArray &amp;&amp; myArray.length &gt; 0</code>, which increases your cyclomatic complexity. |
 |  [fetchUrl(url)](./stentor-utils.fetchurl.md) | Fetch content from url (network or file) |
 |  [filterOutIntents(handlersAndIntents)](./stentor-utils.filteroutintents.md) | Filters out the intents from an array of intents and handlers. |
-|  [findValueForKey(key, obj)](./stentor-utils.findvalueforkey.md) | Searches the provided object for the provided key.<!-- -->Smarter than a normal obj\[key\] as key can also be a regex.<!-- -->In the cases where a regex is broad (".\*") but there is also an exact match, the exact match is preferred.  V |
+|  [findValueForKey(key, obj)](./stentor-utils.findvalueforkey.md) | Searches the provided object for the provided key.<!-- -->Smarter than a normal obj\[key\] as key can also be a regex.<!-- -->In the cases where a regex is broad (".\*") but there is also an exact match, the exact match is preferred. |
+|  [findValuesForKey(key, obj)](./stentor-utils.findvaluesforkey.md) | Finds all values that match for the provided key.<!-- -->Smarter than a normal obj\[key\] as key can also be a regex. |
 |  [formatNumberForDisplay(number, format)](./stentor-utils.formatnumberfordisplay.md) | Format numbers for display. This is a thin wrapper around http://numeraljs.com/<!-- -->Default format is "0,0" which turns 1000 to 1,000. More formats can be found [http://numeraljs.com/\#format](http://numeraljs.com/#format) |
 |  [forwardsTo(intent, intentId)](./stentor-utils.forwardsto.md) | Does the provided intent or handler forward to the provided ID. |
 |  [generateIntentId(name)](./stentor-utils.generateintentid.md) | Generates an ID for an Intent.<!-- -->It follows our Intent ID convention that does not have spaces and ends with <code>Intent</code>. |
 |  [generateKey(description)](./stentor-utils.generatekey.md) | Generate a key from the provided key description. |
 |  [getDateTimeFrom(date, includeOnly)](./stentor-utils.getdatetimefrom.md) | From a Dialogflow style ISO-8601 time string: "2019-06-05T12:00:00-04:00", it pulls out the date and the time. |
 |  [getDateTimeRangeFrom(date)](./stentor-utils.getdatetimerangefrom.md) | Parses the string and returns a DateTimeRange object.<!-- -->Supports both the ISO-8601 range &amp; "--<!-- -->&gt;<!-- -->" style date range. |
-|  [getDurationFrom(iso8601Duration, groupBy)](./stentor-utils.getdurationfrom.md) | Parses the string, if in the ISO-8601 duration format, and returns a  object. If the provided string is not a duration string, it returns undefined.[https://stackoverflow.com/a/29153059/1349766](https://stackoverflow.com/a/29153059/1349766) |
+|  [getDurationFrom(iso8601Duration, groupBy)](./stentor-utils.getdurationfrom.md) | Parses the string, if in the ISO-8601 duration format, and returns a [Duration](./stentor-models.duration.md) object. If the provided string is not a duration string, it returns undefined.[https://stackoverflow.com/a/29153059/1349766](https://stackoverflow.com/a/29153059/1349766) |
 |  [handles(intent, id, how)](./stentor-utils.handles.md) | Does the provided Intent / Handler handle the provided ID in some way or another.<!-- -->This checks redirect, content, &amp; forward for the ID as a key.<!-- -->Optionally, you can specify if you only want to check either redirect, content, or forward. The default is to check all three. |
 |  [hasContent(intent)](./stentor-utils.hascontent.md) | Does the provided intent or handler have content. |
 |  [hasForwards(intent)](./stentor-utils.hasforwards.md) | Does the provided intent or handler have any forward paths setup. |
@@ -91,18 +92,19 @@
 |  [maskPhoneNumbers(str, partial)](./stentor-utils.maskphonenumbers.md) | Detects the phone numbers within a string and masks the numbers with \#s, preserving the formatting. |
 |  [matchRequestSlotToSlotTypeValue(slot, slotTypeValues)](./stentor-utils.matchrequestslottoslottypevalue.md) | Match the request slot to the provided slot type values.<!-- -->Both synonym and value are used, whichever has the highest score is returned. |
 |  [matchUtteranceToSlotTypeValue(utterance, slotTypeValues)](./stentor-utils.matchutterancetoslottypevalue.md) | Matches the utterance to the slot type. |
-|  [md5(input)](./stentor-utils.md5.md) | Returns an md5 hash for the provided string.<!-- -->Leverages the blueimp-md5 package |
+|  [md5\_2(input)](./stentor-utils.md5_2.md) | Returns an md5 hash for the provided string.<!-- -->Leverages the blueimp-md5 package |
 |  [numberToWord(num)](./stentor-utils.numbertoword.md) | Converts number to their word (en) equivalent. For example, 1 is converted to one and 55 if converted to fifty-five |
-|  [objHasAttrs(obj)](./stentor-utils.objhasattrs.md) | A Utility function to determine if an object has attributes or not. |
+|  [objHasAttrs(obj)](./stentor-utils.objhasattrs.md) | A utility function to determine if an object has attributes or not. |
 |  [parseDate(parsable, returnOnly)](./stentor-utils.parsedate.md) | Parses the date within the string. Returns undefined if it cannot parse one.<!-- -->It does not handle date periods such as "last week" or "last month".<!-- -->Note: This is a wrapper around chrono-node parseDate. See https://github.com/wanasit/chrono for more information. |
 |  [parseRelativeDate(relative, now)](./stentor-utils.parserelativedate.md) | Parses the relative date string and returns a date time.<!-- -->Support is currently limited, see possible RelativeDateType &amp; RelativeDateRangeType for current supported values. |
-|  [percentComplete(template, required)](./stentor-utils.percentcomplete.md) | Calculates the percentage complete of the required parameters for the given template.  T |
+|  [percentComplete(template, required)](./stentor-utils.percentcomplete.md) | Calculates the percentage complete of the required parameters for the given template. |
 |  [percentComplete(template, required, returnRemaining)](./stentor-utils.percentcomplete_1.md) |  |
 |  [pruneEmpty(obj)](./stentor-utils.pruneempty.md) | Prune an object. Removes all empty strings, NaNs, undefineds, and nulls. |
-|  [random(items)](./stentor-utils.random.md) | Returns a random item from the given array.  T |
+|  [random(items)](./stentor-utils.random.md) | Returns a random item from the given array. |
 |  [randomString(size)](./stentor-utils.randomstring.md) | Generates a random string of characters both upper and lowercase with numbers. |
-|  [removeEmptyStrings(obj)](./stentor-utils.removeemptystrings.md) | Creates a copy and removes the empty strings from the object.  T |
+|  [removeEmptyStrings(obj)](./stentor-utils.removeemptystrings.md) | Creates a copy and removes the empty strings from the object. |
 |  [removeItems(obj, attrs)](./stentor-utils.removeitems.md) | A function that's the opposite of "subset" in which it will remove the attributes that are given in the function.<!-- -->The original object is not affected. |
+|  [removePostFix(original, postFix)](./stentor-utils.removepostfix.md) | Removes a postfix from a string if it exists. If the postfix does not exist then the string is passed through unedited.<!-- -->For example, when passed "foo" and post fix "\_bar", "foo" will be returned. If you pass "foo\_bar" and "\_bar" then "\_bar" will be removed and "foo" will be returned. |
 |  [removeTagsWithContent(speech, tags)](./stentor-utils.removetagswithcontent.md) | Removes the provided XML tags from the provided speech. |
 |  [requestSlotValueToString(value)](./stentor-utils.requestslotvaluetostring.md) | Convert a request slot value to a string, helpful for display or debugging. |
 |  [responsesContain(intent, character)](./stentor-utils.responsescontain.md) | Does the provided intent or handler have a response that contains the provided character. |
@@ -116,7 +118,7 @@
 |  [throwIfDoesNotContain(obj, requiredAttrs, undefinedPermitted, onError)](./stentor-utils.throwifdoesnotcontain.md) | A validation function that can check if an object contains the required attributes and throws an error if they are not part of it. |
 |  [toMap(intents)](./stentor-utils.tomap.md) | Quickly turn an array of Intents and Handlers to a map with the intentIds as the keys. |
 |  [toNumber(stringOrNumber)](./stentor-utils.tonumber.md) | Converts the string to a number, if applicable. |
-|  [toNumberIfPossible(potentialNumber)](./stentor-utils.tonumberifpossible.md) | Converts to a number if possible otherwise it passes it through.<!-- -->This preserves Dates and booleans. If true is passed in, true is passed out. Additionally, if an empty string is passed, it passes it through instead of turning it into a number.  T |
+|  [toNumberIfPossible(potentialNumber)](./stentor-utils.tonumberifpossible.md) | Converts to a number if possible otherwise it passes it through.<!-- -->This preserves Dates and booleans. If true is passed in, true is passed out. Additionally, if an empty string is passed, it passes it through instead of turning it into a number. |
 |  [toResponseOutput(input)](./stentor-utils.toresponseoutput.md) | Ensures that an outputSpeech or reprompt, either string or ResponseOutput, is a ResponseOutput. |
 |  [toWords(sentence)](./stentor-utils.towords.md) | From the provided sentence you return just the words in an array.<!-- -->All commas and other punctuation marks will be removed. |
 |  [trim(strings, filter)](./stentor-utils.trim.md) | Trims all the strings in a string array. |
@@ -132,7 +134,7 @@
 |  [ContainsInvalidResponseResult](./stentor-utils.containsinvalidresponseresult.md) |  |
 |  [HandlerMap](./stentor-utils.handlermap.md) |  |
 |  [IntentMap](./stentor-utils.intentmap.md) |  |
-|  [KeyDescription](./stentor-utils.keydescription.md) | A description of a key for either Content, Forwards, or Redirects  KeyDescription |
+|  [KeyDescription](./stentor-utils.keydescription.md) | A description of a key for either Content, Forwards, or Redirects |
 |  [MatchResult](./stentor-utils.matchresult.md) | Results returned by the fuzzy string matcher. |
 |  [ObjectWithKeys](./stentor-utils.objectwithkeys.md) |  |
 |  [PercentCompleteAndRemaining](./stentor-utils.percentcompleteandremaining.md) |  |

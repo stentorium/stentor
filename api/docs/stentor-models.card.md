@@ -7,18 +7,20 @@
 <b>Signature:</b>
 
 ```typescript
-export interface Card 
+export interface Card extends BaseDisplay 
 ```
+<b>Extends:</b> [BaseDisplay](./stentor-models.basedisplay.md)
 
 ## Properties
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [accessibilityText](./stentor-models.card.accessibilitytext.md) | string |  |
-|  [buttons](./stentor-models.card.buttons.md) | [CardButton](./stentor-models.cardbutton.md)<!-- -->\[\] |  |
+|  [accessibilityText?](./stentor-models.card.accessibilitytext.md) | string | <i>(Optional)</i> |
+|  [buttons?](./stentor-models.card.buttons.md) | [CardButton](./stentor-models.cardbutton.md)<!-- -->\[\] | <i>(Optional)</i> |
 |  [content](./stentor-models.card.content.md) | string |  |
-|  [largeImageUrl](./stentor-models.card.largeimageurl.md) | string |  |
-|  [smallImageUrl](./stentor-models.card.smallimageurl.md) | string |  |
+|  [imageActionUrl?](./stentor-models.card.imageactionurl.md) | string | <b><i>(BETA)</i></b> <i>(Optional)</i> When present, if the image is clicked the provided website will open.<!-- -->Not yet fully supported. |
+|  [largeImageUrl?](./stentor-models.card.largeimageurl.md) | string | <i>(Optional)</i> |
+|  [smallImageUrl?](./stentor-models.card.smallimageurl.md) | string | <i>(Optional)</i> |
 |  [title](./stentor-models.card.title.md) | string |  |
 |  [type](./stentor-models.card.type.md) | "CARD" |  |
 

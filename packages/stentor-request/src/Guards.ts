@@ -193,7 +193,6 @@ export function hasSessionId(
 /**
  * Guard to check if an object is RequestDependable
  *
- * @template T
  * @param {object} item
  * @returns {item is RequestDependable<T>}
  */
@@ -203,7 +202,6 @@ export function isRequestDependable<T extends object>(item: object): item is Req
 /**
  * Guard to check if an object is SystemDependable
  *
- * @template T
  * @param {object} item
  * @returns {item is SystemDependable<T>}
  */

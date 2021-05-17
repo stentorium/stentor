@@ -19,10 +19,10 @@ export interface ResponseOutput extends Localizable<LocaleSpecificResponseOutput
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [defaultLocale](./stentor-models.responseoutput.defaultlocale.md) | [Locale](./stentor-models.locale.md) | The locale for the response, defaults to "en" |
-|  [displayText](./stentor-models.responseoutput.displaytext.md) | string | Used only display/chat capable surfaces |
-|  [locales](./stentor-models.responseoutput.locales.md) | Partial&lt;Record&lt;[Locale](./stentor-models.locale.md)<!-- -->, [LocaleSpecificResponseOutput](./stentor-models.localespecificresponseoutput.md)<!-- -->&gt;&gt; | The language code for the response output. |
-|  [ssml](./stentor-models.responseoutput.ssml.md) | string | The SSML |
-|  [suggestions](./stentor-models.responseoutput.suggestions.md) | [SuggestionTypes](./stentor-models.suggestiontypes.md)<!-- -->\[\] | Used where suggestions can be displayed to the user.<!-- -->Note: These only apply to prompts, not reprompts. |
-|  [textToSpeech](./stentor-models.responseoutput.texttospeech.md) | string | Text to speech |
+|  [defaultLocale?](./stentor-models.responseoutput.defaultlocale.md) | [Locale](./stentor-models.locale.md) | <i>(Optional)</i> The locale for the response, defaults to "en" |
+|  [displayText?](./stentor-models.responseoutput.displaytext.md) | string | <i>(Optional)</i> Used only display/chat capable surfaces |
+|  [locales?](./stentor-models.responseoutput.locales.md) | Partial&lt;Record&lt;[Locale](./stentor-models.locale.md)<!-- -->, [LocaleSpecificResponseOutput](./stentor-models.localespecificresponseoutput.md)<!-- -->&gt;&gt; | <i>(Optional)</i> The language code for the response output. |
+|  [ssml?](./stentor-models.responseoutput.ssml.md) | string | <i>(Optional)</i> The SSML |
+|  [suggestions?](./stentor-models.responseoutput.suggestions.md) | [SuggestionTypes](./stentor-models.suggestiontypes.md)<!-- -->\[\] | <i>(Optional)</i> Used where suggestions can be displayed to the user.<!-- -->Note: These only apply to prompts, not reprompts. |
+|  [textToSpeech?](./stentor-models.responseoutput.texttospeech.md) | string | <i>(Optional)</i> Text to speech |
 

@@ -4,6 +4,8 @@
 
 ## Assistant.withEventPrefix() method
 
+Add an prefix to your events. This is a key value pair that is prefixed to all of your events.
+
 <b>Signature:</b>
 
 ```typescript

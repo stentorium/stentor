@@ -16,6 +16,6 @@ export interface BaseData
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [directoryListing](./stentor-models.basedata.directorylisting.md) | string | URL for the directory listing |
+|  [directoryListing?](./stentor-models.basedata.directorylisting.md) | string | <i>(Optional)</i> URL for the directory listing |
 |  [platform](./stentor-models.basedata.platform.md) | string | The platform |
 

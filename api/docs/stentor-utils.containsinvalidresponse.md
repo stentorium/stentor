@@ -6,7 +6,6 @@
 
 Checks to see if any of the responses within the handler has invalid XML within the SSML fields.
 
-
 <b>Signature:</b>
 
 ```typescript

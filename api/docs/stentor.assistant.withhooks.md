@@ -4,6 +4,8 @@
 
 ## Assistant.withHooks() method
 
+Set runtime hooks on the Assistant.
+
 <b>Signature:</b>
 
 ```typescript

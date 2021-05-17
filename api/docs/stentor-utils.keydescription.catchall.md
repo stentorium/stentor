@@ -6,8 +6,6 @@
 
 If true, the key will match for every string
 
- {<!-- -->boolean<!-- -->}  KeyDescription
-
 <b>Signature:</b>
 
 ```typescript

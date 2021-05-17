@@ -6,8 +6,6 @@
 
 Trim leading and trailing spaces
 
- {<!-- -->boolean<!-- -->}  StringExpanderProps
-
 <b>Signature:</b>
 
 ```typescript

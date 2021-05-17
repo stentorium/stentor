@@ -17,5 +17,5 @@ export interface Logic
 |  Property | Type | Description |
 |  --- | --- | --- |
 |  [compiled](./stentor-models.logic.compiled.md) | string | The compiled JavaScript |
-|  [version](./stentor-models.logic.version.md) | number | Version of the LogicEvaluator the compiled code will be executed within. |
+|  [version?](./stentor-models.logic.version.md) | number | <i>(Optional)</i> Version of the LogicEvaluator the compiled code will be executed within. |
 

@@ -8,7 +8,6 @@ Compare the first value to the second using the provided operator.
 
 If no operator is provided it defaults to "==="
 
-
 <b>Signature:</b>
 
 ```typescript

@@ -16,5 +16,5 @@ export interface ExpirationDuration
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [duration](./stentor-models.expirationduration.duration.md) | [Duration](./stentor-models.duration.md) |  |
+|  [duration?](./stentor-models.expirationduration.duration.md) | [Duration](./stentor-models.duration.md) | <i>(Optional)</i> |
 

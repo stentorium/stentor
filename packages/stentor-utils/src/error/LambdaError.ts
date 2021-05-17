@@ -6,7 +6,6 @@ import { HTTP_500_INTERNAL_SERVICE_ERROR } from "stentor-constants";
  *
  * Note: This was taken from stentor-api https://github.com/XappMedia/stentor-api/blob/eafa58834fb42b5c8b72c2dd615c99d68a774157/src/main/shared/utils/ServerUtils.ts#L47
  *
- * @export
  * @class LambdaError
  * @extends {Error}
  */

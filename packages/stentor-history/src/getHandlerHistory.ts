@@ -5,7 +5,6 @@ import { HandlerHistoryData, History } from "stentor-models";
  * Take in the history, filters out all other history types and then returns
  * sorted in reverse chronological order (latest is index 0).
  *
- * @export
  * @param {History} history
  * @returns {HandlerHistoryData[]}
  */

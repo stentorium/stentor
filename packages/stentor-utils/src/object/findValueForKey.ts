@@ -10,7 +10,6 @@ import { ObjectWithKeys, findValuesForKey } from "./findValuesForKey";
  * In the cases where a regex is broad (".*") but there is also an exact match,
  * the exact match is preferred.
  *
- * @export
  * @template V
  * @param {string} key
  * @param {ObjectWithKeys<V>} obj

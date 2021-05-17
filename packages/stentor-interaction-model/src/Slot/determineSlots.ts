@@ -9,7 +9,6 @@ interface SlotMap {
  * Parses an array of strings for Utterance Patterns
  * and turns them into an array of Slots
  *
- * @export
  * @param {string[]} utterancePatterns
  * @param {Slot[]} slots
  * @returns {Slot[]}

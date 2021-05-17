@@ -60,7 +60,6 @@ export function fetchUrl(url: string): Promise<string> {
  *
  * Only looks for a prefix of https://, http:// & file://
  *
- * @export
  * @param {string} s
  * @returns {boolean}
  */

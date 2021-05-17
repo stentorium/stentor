@@ -132,7 +132,6 @@ export function isISO8601Range(potential: string): boolean {
  * Is the string in the date time range format with two ISO-8601 strings
  * separated by "-->"
  *
- * @export
  * @param potential
  * @returns 
  */
@@ -147,7 +146,6 @@ export function isDateTimeRangeString(potential: string): boolean {
  * From a Dialogflow style ISO-8601 time string: "2019-06-05T12:00:00-04:00",
  * it pulls out the date and the time.
  *
- * @export
  * @param date
  * @param includeOnly
  * @return 
@@ -210,7 +208,6 @@ export function getDateTimeFrom(date: string | Date, includeOnly?: "time" | "dat
  *
  * Supports both the ISO-8601 range & "-->" style date range.
  *
- * @export
  * @param date
  * @returns
  */

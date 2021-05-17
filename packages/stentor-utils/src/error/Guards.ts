@@ -4,7 +4,6 @@ import { LambdaError } from "./LambdaError";
 /**
  * Is the Error a LambdaError, which has a statusCode.
  *
- * @export
  * @param {(LambdaError | Error)} error
  * @returns {error is LambdaError}
  */

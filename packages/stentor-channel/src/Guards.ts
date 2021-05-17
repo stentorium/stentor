@@ -6,7 +6,6 @@ import { Deviceable } from "./Types";
 /**
  * Determine if the request is for this channel
  *
- * @export
  * @returns {requestBody is Request}
  * @param request
  */

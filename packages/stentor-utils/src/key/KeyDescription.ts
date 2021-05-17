@@ -2,7 +2,6 @@
 /**
  * A description of a key for either Content, Forwards, or Redirects
  *
- * @export
  * @interface KeyDescription
  */
 export interface KeyDescription {

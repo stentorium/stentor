@@ -121,7 +121,6 @@ export interface MergeModelsResults extends MergeIntentsResults {
  *
  * It looks for opportunities to merge based on a common intentId.
  *
- * @export
  * @param {Intent[]} primary
  * @param {Intent[]} secondary
  * @param {MergeModelsResults} [results={}]

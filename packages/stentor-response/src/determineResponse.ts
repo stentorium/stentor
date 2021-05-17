@@ -4,7 +4,6 @@ import { determine } from "stentor-determiner";
 /**
  * Determines which response is best based on the provided list of possible responses.
  *
- * @export
  * @param responses
  * @returns {(Response | undefined)}
  */

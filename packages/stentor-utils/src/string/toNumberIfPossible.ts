@@ -6,7 +6,6 @@
  * Additionally, if an empty string is passed, it passes it through instead of
  * turning it into a number.
  *
- * @export
  * @template T
  * @param {T} potentialNumber
  * @returns {(T | number)}

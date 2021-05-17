@@ -13,7 +13,6 @@ import {
  * From the provided request it pulls out the event that is used
  * to then get the content, forwards, and logic.
  *
- * @export
  * @param {Request} request
  * @returns {string}
  */

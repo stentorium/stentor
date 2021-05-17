@@ -8,7 +8,6 @@ export type Comparable = boolean | string | number | undefined;
  *
  * If no operator is provided it defaults to "==="
  *
- * @export
  * @param {(string | number)} value1
  * @param {(string | number)} value2
  * @param {SlotMatchOperation} [operator="==="]
@@ -71,7 +70,6 @@ export function compare(value1: Comparable, value2: Comparable, operator: MatchO
 /**
  * Is the value comparable with the compare function.
  *
- * @export
  * @param {*} potential
  * @returns {potential is Comparable}
  */

@@ -102,7 +102,6 @@ export function filterOutIntents(handlersAndIntents: (Intent | Handler)[]): Hand
 /**
  * Does the provided intent or handler forward to the provided ID.
  *
- * @export
  * @param {((Intent | Handler))} intent
  * @param {string} intentId
  * @returns {boolean}
@@ -142,7 +141,6 @@ export enum HandledIn {
  * Optionally, you can specify if you only want to check either redirect, content, or forward.  The
  * default is to check all three.
  *
- * @export
  * @param {((Intent | Handler))} intent
  * @param {string} id
  * @param {HandledIn} [how=HandledIn.Any]
@@ -177,7 +175,6 @@ export function handles(intent: Intent | Handler, id: string, how: HandledIn = H
 /**
  * For the given handler, find the intentId that will lead to the provided path.
  *
- * @export
  * @param {Handler} handler
  * @param {string} pathId
  * @returns {(string | undefined)}
@@ -213,7 +210,6 @@ export function determineIntentIdToPath(handler: Handler, pathId: string): strin
  * Does the provided intent or handler have a response that contains the provided
  * character.
  *
- * @export
  * @param {((Intent | Handler))} intent
  * @param {string} character
  * @returns {boolean}
@@ -240,7 +236,6 @@ export interface ContainsInvalidResponseResult {
  * Checks to see if any of the responses within the handler
  * has invalid XML within the SSML fields.
  *
- * @export
  * @param {((Intent | Handler))} intent
  * @returns {ContainsInvalidResponseResult}
  */

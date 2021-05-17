@@ -7,7 +7,6 @@ const dynamoItemSize = require("dyno-item-size");
  *
  * @see http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/CapacityUnitCalculations.html
  *
- * @export
  * @param {object} json
  */
 export function estimateSize(json: object): number {

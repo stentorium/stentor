@@ -76,7 +76,6 @@ function findSegments(
 /**
  * Compile the response output with provided segments.
  *
- * @export
  * @param {string} responseOutput
  * @param {ResponseSegmentsMap} segments
  * @param {Request} request

@@ -203,7 +203,6 @@ export type ValidateKeyCallback = (key: string | number, value: any) => boolean;
 /**
  * Creates a copy and removes the empty strings from the object.
  *
- * @export
  * @template T
  * @param {T} obj
  * @returns {T}

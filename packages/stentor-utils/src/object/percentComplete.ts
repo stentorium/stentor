@@ -22,7 +22,6 @@ function isAllowed(val: any): boolean {
  * Calculates the percentage complete of the required parameters
  * for the given template.
  *
- * @export
  * @template T
  * @param {Partial<T>} template
  * @param {(keyof T)[]} required

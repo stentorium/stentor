@@ -420,6 +420,7 @@ export const main = async (
 
         log().debug("Response");
         log().debug(response);
+
         finalResponse = channel.response.translate({ request, response });
         log().debug("Final Response");
         log().debug(finalResponse);

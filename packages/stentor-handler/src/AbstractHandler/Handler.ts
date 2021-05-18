@@ -285,6 +285,7 @@ export abstract class AbstractHandler<
                     }
                     return;
                 } else {
+
                     log().info(
                         `Could not determine response on ${this.intentId} for event ${event}, falling back to input unknown workflow`
                     );

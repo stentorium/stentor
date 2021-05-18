@@ -9,13 +9,21 @@ jobs:
     <<: *defaults
     steps:
       - checkout
+      # Download and cache dependencies
+      # https://circleci.com/docs/2.0/caching/#yarn-node
+      - restore_cache:
+          keys:
+            # when lock file changes, use increasingly general patterns to restore cache
+            - yarn-packages-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - yarn-packages-v1-{{ .Branch }}-
+            - yarn-packages-v1-
       - run:
-          name: Install Dependencies
-          command: yarn install
+          run: Install Dependencies
+          command: yarn --frozen-lockfile --cache-folder ~/.cache/yarn
       - save_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
           paths:
-            - node_modules
+            - ~/.cache/yarn
+          key: yarn-packages-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - persist_to_workspace:
           root: ~/repo
           paths:

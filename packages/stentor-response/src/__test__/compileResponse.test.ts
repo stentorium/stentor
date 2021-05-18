@@ -207,38 +207,36 @@ describe("#compileResponse()", () => {
                     }
                 });
                 describe("with multiple segments", () => {
-                    const fullResponse: SimpleResponse = {
-                        outputSpeech: {
-                            ssml: "${GREETING}, ${QUESTION} SSML",
-                            displayText: "${GREETING}, ${QUESTION} displayText"
-                        },
-                        segments: {
-                            ["GREETING"]: [
-                                // Adding <a /> to all the ssml to simulate some XML
-                                {
-                                    segment: {
-                                        ssml: "<a/>,Hello ${$.context.storage.name}",
-                                        displayText: "Hello ${$.context.storage.name}"
-                                    }
-                                },
-                                { segment: { ssml: "<a/>,Howdy", displayText: "Howdy" } },
-                                { segment: { ssml: "<a/>,Why hello", displayText: "Why hello" } },
-                                {
-                                    segment: {
-                                        ssml: "<a/>,${$.context.storage.name} hello",
-                                        displayText: "${$.context.storage.name} hello"
-                                    }
-                                },
-                                { segment: { ssml: "<a/>,Nice to see you", displayText: "Nice to see you" } }
-                            ],
-                            [
-                                "QUESTION"
-                            ]: [
+                    it("compiles the same for the SSML and displayText", () => {
+                        const fullResponse: SimpleResponse = {
+                            outputSpeech: {
+                                ssml: "${GREETING}, ${QUESTION} SSML",
+                                displayText: "${GREETING}, ${QUESTION} displayText"
+                            },
+                            segments: {
+                                ["GREETING"]: [
+                                    // Adding <a /> to all the ssml to simulate some XML
+                                    {
+                                        segment: {
+                                            ssml: "<a/>,Hello ${$.context.storage.name}",
+                                            displayText: "Hello ${$.context.storage.name}"
+                                        }
+                                    },
+                                    { segment: { ssml: "<a/>,Howdy", displayText: "Howdy" } },
+                                    { segment: { ssml: "<a/>,Why hello", displayText: "Why hello" } },
+                                    {
+                                        segment: {
+                                            ssml: "<a/>,${$.context.storage.name} hello",
+                                            displayText: "${$.context.storage.name} hello"
+                                        }
+                                    },
+                                    { segment: { ssml: "<a/>,Nice to see you", displayText: "Nice to see you" } }
+                                ],
+                                ["QUESTION"]: [
                                     { segment: { ssml: "<br/>,How are you?", displayText: "How *are* you?" } }
                                 ]
-                        }
-                    };
-                    it("compiles the same for the SSML and displayText", () => {
+                            }
+                        };
                         const compiledResponse = compileResponse(fullResponse, request, context);
                         const outputSpeech = compiledResponse.outputSpeech;
                         expect(outputSpeech).to.be.a("object");

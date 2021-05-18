@@ -36,9 +36,6 @@ import { ChannelSelector } from "./ChannelSelector";
 
 /**
  * Runtime dependencies
- *
- * @export
- * @interface Dependencies
  */
 export interface Dependencies {
     eventService?: EventService;

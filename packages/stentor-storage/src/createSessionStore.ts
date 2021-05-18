@@ -4,7 +4,6 @@ import { SessionStore, Storage } from "stentor-models";
 /**
  * Returns a session store for the provided storage
  *
- * @export
  * @param {Storage} storage
  * @returns {SessionStore}
  */

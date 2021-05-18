@@ -11,7 +11,6 @@ export class StorageActionExecutorFactory {
      *
      * @param {StorageAction} action
      * @returns {StorageActionExecutor}
-     * @memberof StorageActionExecutorFactory
      */
     public executorForAction(action: StorageAction): StorageActionExecutor {
         if (!action) {

@@ -12,7 +12,7 @@ export enum GetDurationGroupBy {
 
 /**
  * Parses the string, if in the ISO-8601 duration format, and returns
- * a {@link Duration} object.  If the provided string is not a duration 
+ * a {@link stentor-models#Duration} object.  If the provided string is not a duration 
  * string, it returns undefined.
  * 
  * {@link https://stackoverflow.com/a/29153059/1349766}

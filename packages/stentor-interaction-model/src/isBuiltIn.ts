@@ -4,7 +4,6 @@ import { BUILT_IN } from "./Entity";
 /**
  * Is the Entity type for a built-in entity.
  *
- * @export
  * @param {string} type
  * @returns {boolean}
  */

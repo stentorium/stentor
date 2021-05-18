@@ -35,8 +35,6 @@ import { isJSONDependable, isConditional } from "./Guards";
 /**
  * Determine which of the provided objects is best based on provided request and context.
  *
- * @export
- * @template P extends object
  * @param potentials
  * @param request
  * @param context

@@ -6,7 +6,6 @@ import { Multimedia, PlaybackCapabilities } from "./Multimedia";
 /**
  * From an array of multimedia and current device capabilities, determine the best playable media.
  *
- * @export
  * @param {Multimedia[]} potentialMultimedia
  * @param {PlaybackCapabilities} capabilities
  * @returns {MediaSource}

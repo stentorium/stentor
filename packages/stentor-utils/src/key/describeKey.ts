@@ -10,7 +10,6 @@ import { KeyDescription } from "./KeyDescription";
 /**
  * Describes the key in terms of what type of IDs it accepts.
  *
- * @export
  * @param {string} key
  * @returns {KeyDescription}
  */

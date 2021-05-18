@@ -5,7 +5,6 @@ import { isIntentRequest } from "./Guards";
 /**
  * Helper method to determine if the request has slots.
  *
- * @export
  * @param {Request} request
  * @returns {boolean}
  */

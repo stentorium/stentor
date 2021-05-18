@@ -5,7 +5,6 @@
  * It turns "zero" to "Zero"
  *
  * @see https://stackoverflow.com/a/33704783/1349766
- * @export
  * @param {string} s
  * @returns
  */

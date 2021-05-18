@@ -24,8 +24,6 @@ export function dedupe<T>(input: T[]): T[] {
 /**
  * Returns a random item from the given array.
  *
- * @export
- * @template T
  * @param {T[]} items
  * @returns {T}
  */
@@ -37,8 +35,6 @@ export function random<T>(items: T[]): T {
  * Shuffles the contents of an array, returning a new array.
  *
  * @see https://bost.ocks.org/mike/shuffle/
- * @export
- * @template T
  * @param {T[]} array
  * @returns {T[]}
  */
@@ -68,8 +64,6 @@ export function shuffle<T>(array: T[]): T[] {
  * You would use this instead of writing `myArray && myArray.length > 0`,
  * which increases your cyclomatic complexity.
  *
- * @export
- * @template T
  * @param {T[]} items
  * @returns {boolean}
  */

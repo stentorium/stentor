@@ -5,7 +5,6 @@ import { isScheduled } from "./isScheduled";
 /**
  * Type guard to determine if the Response is a SchedulableResponse
  *
- * @export
  * @param {Response} response
  * @returns {response is SchedulableResponse}
  */

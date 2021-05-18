@@ -102,16 +102,10 @@ export function mergeIntents(primary: Intent, secondary: Intent, results?: Merge
 export interface MergeModelsResults extends MergeIntentsResults {
     /**
      * The number of intents that were merged
-     *
-     * @type {number}
-     * @memberof MergeModelsResults
      */
     mergedIntents?: number;
     /**
      * The number of new intents added from the primary to the secondary
-     *
-     * @type {number}
-     * @memberof MergeModelsResults
      */
     addedIntents?: number;
 }
@@ -121,7 +115,6 @@ export interface MergeModelsResults extends MergeIntentsResults {
  *
  * It looks for opportunities to merge based on a common intentId.
  *
- * @export
  * @param {Intent[]} primary
  * @param {Intent[]} secondary
  * @param {MergeModelsResults} [results={}]
@@ -177,23 +170,14 @@ export interface MergeIntentsResults extends MergePatternsResults, MergeSlotsRes
 export interface MergePatternsResults {
     /**
      * Number of patterns added to the primary from the seconday
-     *
-     * @type {number}
-     * @memberof MergePatternsResults
      */
     totalAddedPatterns?: number;
     /**
      * List of of added patterns.
-     *
-     * @type {string[]}
-     * @memberof MergePatternsResults
      */
     addedPatterns?: string[];
     /**
      * Number of patterns that overlapped and were ignored
-     *
-     * @type {number}
-     * @memberof MergePatternsResults
      */
     totalOverlappedPatterns?: number;
 }

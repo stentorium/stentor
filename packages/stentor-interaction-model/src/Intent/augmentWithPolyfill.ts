@@ -43,7 +43,6 @@ import {
 /**
  * Polyfills the built-in intents with missing utterance patterns.
  *
- * @export
  * @param {Intent} intent
  * @returns {Intent | undefined}
  */

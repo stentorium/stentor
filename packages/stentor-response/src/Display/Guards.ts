@@ -4,7 +4,6 @@ import { Card, Display, List, SimpleDisplay } from "stentor-models";
 /**
  * Check if the display is a simple display
  *
- * @export
  * @param {Display} display
  * @returns {display is SimpleDisplay}
  */
@@ -36,7 +35,6 @@ export function isSimpleDisplay(display: Display): display is SimpleDisplay {
 /**
  * Checks if the display is a card
  *
- * @export
  * @param {Display} display
  * @returns {display is Card}
  */
@@ -46,7 +44,6 @@ export function isCard(display: Display): display is Card {
 /**
  * Checks if the display is a List
  *
- * @export
  * @param {Display} display
  * @returns {display is List}
  */
@@ -57,7 +54,6 @@ export function isList(display: Display): display is List {
 // /**
 //  * Checks if the display is a list for Google
 //  *
-//  * @export
 //  * @param {Display} display
 //  * @returns {display is ListSelectData}
 //  */
@@ -68,7 +64,6 @@ export function isList(display: Display): display is List {
 // /**
 //  * Checks if the display is a carousel for Google
 //  *
-//  * @export
 //  * @param {Display} display
 //  * @returns {display is CarouselSelectData}
 //  */
@@ -79,7 +74,6 @@ export function isList(display: Display): display is List {
 // /**
 //  * Checks if the display is a card for Google
 //  *
-//  * @export
 //  * @param {Display} display
 //  * @returns {display is BasicCardItem}
 //  */

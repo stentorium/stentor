@@ -14,7 +14,6 @@ import {
  *
  * NOTE: This modifies the request that is passed in.
  *
- * @export
  * @param {Request} request
  * @param {ExecutablePath} path
  * @returns {Request}

@@ -6,7 +6,6 @@ import { KeyDescription } from "./KeyDescription";
 /**
  * Generate a key from the provided key description.
  *
- * @export
  * @param {KeyDescription} description
  * @returns {string}
  */

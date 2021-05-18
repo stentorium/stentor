@@ -29,6 +29,7 @@ import { estimateSize } from 'stentor-utils';
 import { EventPrefix } from 'stentor-service-event';
 import { EventStream } from 'stentor-models';
 import { existsAndNotEmpty } from 'stentor-utils';
+import * as express from 'express';
 import { findValueForKey } from 'stentor-utils';
 import { formatNumberForDisplay } from 'stentor-utils';
 import { Forward } from 'stentor-models';
@@ -87,15 +88,15 @@ export { AbstractHandler }
 
 // @public
 export class Assistant {
+    // @beta
+    express(app?: express.Application, path?: string): express.Application;
     lambda(): AWSLambda_2.Handler;
     withChannels(channels: Channel[]): Assistant;
-    // (undocumented)
     withEventPrefix(prefix: EventPrefix): Assistant;
     // (undocumented)
     withEventStream(stream: EventStream): Assistant;
     withHandlers(handlers: HandlersArray | HandlersKeyValue | DelegatingHandlersMap): Assistant;
     withHandlerService(handlerService: HandlerService): Assistant;
-    // (undocumented)
     withHooks(hooks: Hooks): Assistant;
     withPiiService(piiService: PIIService): Assistant;
     withRuntimeData(runtime: AppRuntimeData): Assistant;

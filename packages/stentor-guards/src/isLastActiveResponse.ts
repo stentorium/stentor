@@ -5,7 +5,6 @@ import { isLastActive } from "./isLastActive";
 /**
  * Type guard to determine if the Response is a LastActiveResponse.
  *
- * @export
  * @param {Response} response
  * @returns {response is LastActiveResponse}
  */

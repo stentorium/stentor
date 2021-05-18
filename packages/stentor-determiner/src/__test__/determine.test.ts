@@ -195,4 +195,46 @@ describe(`#${determine.name}()`, () => {
             });
         });
     });
+    describe("with slots on the session data", () => {
+        beforeEach(() => {
+            request = new IntentRequestBuilder()
+                .withSlots({
+                    ["f_name"]: { name: "f_name", value: "foo", rawValue: "fu" }
+                })
+                .build();
+            context = new ContextBuilder()
+                .withSessionData({
+                    id: "sessionId",
+                    data: {
+                        slots: {
+                            ["l_name"]: {
+                                name: "l_name",
+                                value: "bar",
+                                rawValue: "bar"
+                            }
+                        }
+                    }
+                }).build()
+        });
+        it("returns the correct match", () => {
+            const responses = [
+                {
+                    name: "Hello",
+                    outputSpeech: "Hello ${f_name}",
+                    conditions: `slotExists("f_name") && slotDoesNotExist("l_name")`
+                },
+                {
+                    name: "Bye",
+                    outputSpeech: "Bye ${f_name}"
+                },
+                {
+                    name: "Hello F & L Name",
+                    outputSpeech: "Hello ${f_name} ${l_name}",
+                    conditions: `slotExists("f_name") && slotExists("l_name")`
+                },
+            ];
+
+            expect(determine(responses, request, context)).to.deep.equal(responses[2]);
+        });
+    });
 });

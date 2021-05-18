@@ -110,6 +110,22 @@ describe("AbstractHandler", () => {
                     outputSpeech: "This is the second response"
                 }
             ],
+            names: [
+                {
+                    name: "Hello",
+                    outputSpeech: "Hello ${f_name}",
+                    conditions: `slotExists("f_name") && slotDoesNotExist("l_name")`
+                },
+                {
+                    name: "Bye",
+                    outputSpeech: "Bye ${f_name}"
+                },
+                {
+                    name: "Hello F & L Name",
+                    outputSpeech: "Hello ${f_name} ${l_name}",
+                    conditions: `slotExists("f_name") && slotExists("l_name")`
+                },
+            ],
             HelpIntent: [
                 {
                     name: "help",
@@ -127,7 +143,7 @@ describe("AbstractHandler", () => {
         };
         // @ts-ignore The stubbed instance types can't see the private properties, which cause TS errors
         response = sinon.createStubInstance(ResponseBuilder);
-        (response.say as any).restore();
+        (response.say as sinon.SinonStub).restore();
         sinon.stub(response, "say").returns(response);
 
         context = new ContextBuilder()
@@ -169,7 +185,8 @@ describe("AbstractHandler", () => {
         describe("when called with a string as props", () => {
             it("throws an error", () => {
                 const constructor = () => {
-                    new TestHandler("foo" as any);
+                    // @ts-expect-error For testing
+                    new TestHandler("foo");
                 };
                 expect(constructor).to.throw;
                 expect(constructor).to.throw(TypeError, "Invalid props");
@@ -178,7 +195,8 @@ describe("AbstractHandler", () => {
         describe("when called with a number as props", () => {
             it("throws an error", () => {
                 const constructor = () => {
-                    new TestHandler(1 as any);
+                    // @ts-expect-error For testing
+                    new TestHandler(1);
                 };
                 expect(constructor).to.throw;
                 expect(constructor).to.throw(TypeError, "Invalid props");
@@ -556,6 +574,39 @@ describe("AbstractHandler", () => {
                             }
                         });
                     });
+                });
+            });
+            describe("with slots on the session storage", () => {
+                it("returns the expected response", async () => {
+                    request = new IntentRequestBuilder()
+                        .withIntentId("names")
+                        .withSlots({
+                            ["f_name"]: { name: "f_name", value: "foo", rawValue: "fu" }
+                        })
+                        .build();
+                    await handler.handleRequest(request,
+                        new ContextBuilder()
+                            .withResponse(response)
+                            .withSessionData({
+                                id: "sessionId",
+                                data: {
+                                    slots: {
+                                        ["l_name"]: {
+                                            name: "l_name",
+                                            value: "bar",
+                                            rawValue: "bar"
+                                        }
+                                    }
+                                }
+                            }).build());
+
+                    expect(response.respond).to.have.been.called;
+                    expect(response.respond).to.have.been.calledWith({
+                        name: "Hello F & L Name",
+                        outputSpeech: "Hello foo bar",
+                        conditions: 'slotExists("f_name") && slotExists("l_name")'
+                    });
+                    expect(response.reprompt).to.have.not.been.called;
                 });
             });
         });

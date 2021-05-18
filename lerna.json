@@ -1,7 +1,5 @@
 {
-  "packages": [
-    "packages/**"
-  ],
+  "packages": ["packages/**"],
   "npmClient": "yarn",
   "version": "1.40.18",
   "useWorkspaces": true,
@@ -10,12 +8,10 @@
       "exact": true
     },
     "version": {
-      "allowBranch": [
-        "master"
-      ],
+      "allowBranch": ["master"],
       "exact": true,
       "conventionalCommits": true,
-      "message": "chore(release): 📣⚡ publish release [skip ci]"
+      "message": "chore(release): 📣⚡ publish release %v [skip ci]"
     },
     "publish": {
       "conventionalCommits": true

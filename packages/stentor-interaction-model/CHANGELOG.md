@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.40.20](https://github.com/stentorium/stentor/compare/v1.40.19...v1.40.20) (2021-05-18)
+
+
+### Bug Fixes
+
+* Slot based macros not working when attempting to access earlier slots ([#958](https://github.com/stentorium/stentor/issues/958)) ([2357a24](https://github.com/stentorium/stentor/commit/2357a24156afea2c125f2bba437cc3065d706de5))
+
+
+
+
+
 ## [1.40.19](https://github.com/stentorium/stentor/compare/v1.40.18...v1.40.19) (2021-05-18)
 
 **Note:** Version bump only for package stentor-interaction-model

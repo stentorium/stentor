@@ -11,6 +11,8 @@ import { linkify } from "./net";
  * 
  * It also decodes HTML entities and cleans dirty dangerous tags.
  * 
+ * All <a> hyperlink tags have `target="_blank"` added to open the URLs in a new window.
+ * 
  * @param input String with markdown
  * @returns String with HTML, wrapped with <p></p> tags.
  */

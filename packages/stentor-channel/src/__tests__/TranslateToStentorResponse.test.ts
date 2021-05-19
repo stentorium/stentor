@@ -52,7 +52,7 @@ describe(`${TranslateStentorResponse.name}`, () => {
                     if (typeof response.reprompt === "object") {
                         expect(response.reprompt.displayText).to.equal("[Bye](https://google.com)");
                         expect(response.reprompt.html).to.exist;
-                        expect(response.reprompt.html).to.equal("<p><a href=\"https://google.com\">Bye</a></p>\n");
+                        expect(response.reprompt.html).to.equal("<p><a target=\"_blank\" href=\"https://google.com\">Bye</a></p>\n");
                     }
                 });
             });

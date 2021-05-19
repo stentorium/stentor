@@ -11,6 +11,8 @@ export interface DisplayListItem {
 }
 /**
  * The base Display structure
+ * 
+ * @beta Not widely used
  */
 export interface SimpleDisplay extends BaseDisplay {
     type:

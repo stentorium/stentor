@@ -29,6 +29,14 @@ export interface ResponseOutput extends Localizable<LocaleSpecificResponseOutput
      */
     displayText?: string;
     /**
+     * Sanitized HTML, suitable for displaying within a web environment.
+     * 
+     * This is typically generated from the displayText based on markdown found within.  
+     * 
+     * @beta
+     */
+    html?: string;
+    /**
      * Used where suggestions can be displayed to the user.
      *
      * Note: These only apply to prompts, not reprompts.

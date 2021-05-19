@@ -10,7 +10,7 @@ import { isDuration, DURATION_FORMAT_TO_MS_MULTIPLIER } from "./date-time";
  * Ensures that an outputSpeech or reprompt, either string or ResponseOutput,
  * is a ResponseOutput.
  *
- * @param input
+ * @param input Either a string or ResponseOutput to convert to a ResponseOutput
  */
 export function toResponseOutput(input: string | ResponseOutput): ResponseOutput {
     if (typeof input === "undefined") {

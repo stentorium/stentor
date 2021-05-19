@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.41.0](https://github.com/stentorium/stentor/compare/v1.40.20...v1.41.0) (2021-05-19)
+
+
+### Features
+
+* Optional html on response output ([#961](https://github.com/stentorium/stentor/issues/961)) ([30c86c1](https://github.com/stentorium/stentor/commit/30c86c16f4cc1cc2cd7485e0c5467cb5fe2505d6))
+
+
+
+
+
 ## [1.40.20](https://github.com/stentorium/stentor/compare/v1.40.19...v1.40.20) (2021-05-18)
 
 

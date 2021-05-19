@@ -106,7 +106,7 @@ export function linkify(text: string, format: "markdown" | "html" = "markdown"):
             return url;
         }
 
-        const url2 = (d == 'www.') ? 'https://' + url : url;
+        const url2 = (d === 'www.') ? 'https://' + url : url;
         if (format === "html") {
             return `<a target="_blank" href="${url2}">${url}</a>`;
         } else {

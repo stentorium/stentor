@@ -1,9 +1,29 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { Translator } from "@xapp/patterns";
 import { RequestResponse, Response } from "stentor-models";
+import { toHTML, toResponseOutput } from "stentor-utils";
 
 export class TranslateStentorResponse extends Translator<RequestResponse, Response> {
     public translate(requestResponse: RequestResponse): Response {
-        return requestResponse.response;
+
+        const { request, response } = requestResponse;
+
+        const channel = request.channel;
+
+        // Ensure we are passing out the right markdown in the displayText!
+        if (channel && channel.toLowerCase() === "widget") {
+            response.outputSpeech = toResponseOutput(response.outputSpeech);
+            if (response.outputSpeech.displayText) {
+                response.outputSpeech.html = toHTML(response.outputSpeech.displayText);
+            }
+            if (response.reprompt) {
+                response.reprompt = toResponseOutput(response.reprompt);
+                if (response.reprompt.displayText) {
+                    response.reprompt.html = toHTML(response.reprompt.displayText);
+                }
+            }
+        }
+
+        return response;
     }
 }

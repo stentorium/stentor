@@ -7075,6 +7075,19 @@ sanitize-html@2.3.3:
     parse-srcset "^1.0.2"
     postcss "^8.0.2"
 
+sanitize-html@2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/sanitize-html/-/sanitize-html-2.4.0.tgz#8da7524332eb210d968971621b068b53f17ab5a3"
+  integrity sha512-Y1OgkUiTPMqwZNRLPERSEi39iOebn2XJLbeiGOBhaJD/yLqtLGu6GE5w7evx177LeGgSE+4p4e107LMiydOf6A==
+  dependencies:
+    deepmerge "^4.2.2"
+    escape-string-regexp "^4.0.0"
+    htmlparser2 "^6.0.0"
+    is-plain-object "^5.0.0"
+    klona "^2.0.3"
+    parse-srcset "^1.0.2"
+    postcss "^8.0.2"
+
 sax@1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.1.tgz#7b8e656190b228e81a66aea748480d828cd2d37a"
@@ -7489,6 +7502,55 @@ static-extend@^0.1.1:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=
+
+stentor-constants@1.41.4:
+  version "1.41.4"
+  resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.41.4.tgz#c2fc5da5e3b4b1aad9217f10d8b48cfa466e1478"
+  integrity sha512-FhXGP9UHgmsAQ3EdSLYwlpwi/HxVesghL8826lQmbrdobi1OdODIVJF3s29Iu9Xv+VcVY2pRqx031SNJYOILaQ==
+
+stentor-guards@1.41.4:
+  version "1.41.4"
+  resolved "https://registry.yarnpkg.com/stentor-guards/-/stentor-guards-1.41.4.tgz#dde8050496c7dc5ef65e86a4a2966252109b381b"
+  integrity sha512-O/KoO9AOXaYgJaCPaxt2lBYpnamRvPyfVjNsisLVao6Vtt8CI8w5uvAmUqsPY0bxHoH2nGqT0P5TXUYHn5k2aA==
+  dependencies:
+    stentor-constants "1.41.4"
+
+stentor-models@1.41.4:
+  version "1.41.4"
+  resolved "https://registry.yarnpkg.com/stentor-models/-/stentor-models-1.41.4.tgz#766a0dcd5a99341a719301790be616a381c4a876"
+  integrity sha512-xtZEbEnRPFSylajUdmGtMv6o3nm24mIP/R/pNgRHmth4aAyqHCRCEHG1HL3jyCGGeIu6+xK/yHl+fZxQxp9jOg==
+  dependencies:
+    "@xapp/patterns" "1.32.99"
+
+stentor-utils@1.41.3:
+  version "1.41.3"
+  resolved "https://registry.yarnpkg.com/stentor-utils/-/stentor-utils-1.41.3.tgz#52488dc6a7ab90f6bce0687331bc41e71e2bc620"
+  integrity sha512-XBGIhAQkuk/0dvQVZ9wcajzdPqVCJ/AK6JPiKbiQunfGHqskLTcVtoOLfZTr3LHq5bqd3wdf+2WNQqxlYKuMkw==
+  dependencies:
+    "@types/xmldoc" "1.1.5"
+    blueimp-md5 "2.18.0"
+    chrono-node "2.2.6"
+    date-fns "2.21.3"
+    dyno-item-size "0.3.3"
+    fuse.js "5.1.0"
+    html-entities "2.3.2"
+    jsonpath "1.1.1"
+    lodash.clonedeep "4.5.0"
+    lodash.forown "4.4.0"
+    lodash.isempty "4.4.0"
+    lodash.isobject "3.0.2"
+    lodash.isstring "4.0.1"
+    lodash.pull "4.1.0"
+    marked "2.0.5"
+    number-to-words "1.2.4"
+    numeral "2.0.6"
+    sanitize-html "2.3.3"
+    slugify "1.5.3"
+    stentor-constants "1.41.2"
+    stentor-guards "1.41.2"
+    winston "3.3.3"
+    words-to-numbers "1.5.1"
+    xmldoc "1.1.2"
 
 stream-each@^1.1.0:
   version "1.2.3"

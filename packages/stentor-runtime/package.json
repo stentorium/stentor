@@ -28,7 +28,7 @@
     "sinon": "10.0.0",
     "sinon-chai": "3.6.0",
     "stentor-models": "1.41.4",
-    "ts-node": "9.1.1",
+    "ts-node": "10.0.0",
     "typescript": "4.2.4"
   },
   "dependencies": {

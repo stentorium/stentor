@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.41.6](https://github.com/stentorium/stentor/compare/v1.41.5...v1.41.6) (2021-05-25)
+
+
+### Bug Fixes
+
+* Adds URL to Display List Item ([#973](https://github.com/stentorium/stentor/issues/973)) ([488c2e6](https://github.com/stentorium/stentor/commit/488c2e6a6142bd7bed77fd77134552d8871c2076))
+
+
+
+
+
 ## [1.41.4](https://github.com/stentorium/stentor/compare/v1.41.3...v1.41.4) (2021-05-24)
 
 **Note:** Version bump only for package stentor-models

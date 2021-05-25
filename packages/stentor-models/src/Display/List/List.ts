@@ -85,6 +85,12 @@ export interface ListItem {
      */
     image?: ListImage;
     /**
+     * URL to open when the list item is selected.
+     * 
+     * Not applicable to list type CAROUSEL or available on channels without a web browser available.   
+     */
+    url?: string;
+    /**
      * Optional list of buttons that will be displayed on the list item.
      */
     buttons?: ListButton[];

@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { ConditionalCheck, Context, JSONDependable, Request } from "stentor-models";
 import { compare, random } from "stentor-utils";
-import * as jp from "jsonpath";
+import { JSONPath } from "jsonpath-plus";
 import { isJSONDependable } from "./Guards";
 
 /**
@@ -41,7 +41,7 @@ export function findJSONDependentMatch<T extends object>(
         // allows us to do $.request & $.context
         const object = { request, context };
         // query the path
-        const result = jp.query(object, name.trim());
+        const result = JSONPath({ json: object, path: name.trim() });
 
         if (result.length > 0) {
             // check if it is an array or not

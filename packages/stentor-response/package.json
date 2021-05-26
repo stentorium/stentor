@@ -17,7 +17,7 @@
   "devDependencies": {
     "@types/chai": "4.2.18",
     "@types/lodash.template": "4.5.0",
-    "@types/sinon": "10.0.0",
+    "@types/sinon": "10.0.1",
     "@types/sinon-chai": "3.2.5",
     "@xapp/config": "0.2.3",
     "chai": "4.3.4",

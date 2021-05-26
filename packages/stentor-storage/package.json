@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.41.6",
+  "version": "1.41.7",
   "description": "Storage for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "jsonpath-plus": "5.0.7",
-    "stentor-utils": "1.41.6"
+    "stentor-utils": "1.41.7"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

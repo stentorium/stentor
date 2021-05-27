@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.41.10](https://github.com/stentorium/stentor/compare/v1.41.9...v1.41.10) (2021-05-27)
+
+**Note:** Version bump only for package stentor-service-event
+
+
+
+
+
 ## [1.41.9](https://github.com/stentorium/stentor/compare/v1.41.8...v1.41.9) (2021-05-26)
 
 **Note:** Version bump only for package stentor-service-event

@@ -5,7 +5,6 @@ import {
     maskPhoneNumbers,
     numberToWord,
     sanitizePhoneNumber,
-    wordToNumber,
     isNumeric
 } from "../number";
 
@@ -109,24 +108,6 @@ describe("#formatNumberForDisplay()", () => {
         it("returns the correct formatting", () => {
             expect(formatNumberForDisplay(10000, "$0,0.00")).to.equal("$10,000.00");
             expect(formatNumberForDisplay("1", "0%")).to.equal("100%");
-        });
-    });
-});
-
-describe("#wordToNumber()", () => {
-    describe("when passed undefined", () => {
-        it("returns undefined", () => {
-            expect(wordToNumber(undefined)).to.be.undefined;
-        });
-    });
-    describe("when passed a normal word", () => {
-        it("passes it through", () => {
-            expect(wordToNumber("foo")).to.equal("foo");
-        });
-    });
-    describe("when passed a word that is a number", () => {
-        it("passes it through", () => {
-            expect(wordToNumber("fifty-five")).to.equal(55);
         });
     });
 });

@@ -2,7 +2,6 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const converter = require("number-to-words");
 import * as numeral from "numeral";
-import wordsToNumbers from "words-to-numbers";
 
 const US_PHONE_NUMBER_LENGTH = 10;
 
@@ -156,23 +155,6 @@ export function numberToWord(num: number): string | undefined {
  */
 export function formatNumberForDisplay(number: number | string, format = "0,0"): string {
     return numeral(number).format(format);
-}
-
-/**
- * Converts a word like "one hundred" to the number 100.
- *
- * Words that are not numbers are passed through.
- *
- * @public
- * @param word - Word to convert to a number
- * @returns Returns either the original value or the number that was converted.
- */
-export function wordToNumber(word: string): number | string {
-    if (typeof word === "undefined") {
-        return word;
-    }
-
-    return wordsToNumbers(word);
 }
 
 /**

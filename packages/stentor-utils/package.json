@@ -58,7 +58,6 @@
     "stentor-constants": "1.41.9",
     "stentor-guards": "1.41.9",
     "winston": "3.3.3",
-    "words-to-numbers": "1.5.1",
     "xmldoc": "1.1.2"
   },
   "peerDependencies": {

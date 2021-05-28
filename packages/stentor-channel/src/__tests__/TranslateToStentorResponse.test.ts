@@ -46,7 +46,7 @@ describe(`${TranslateStentorResponse.name}`, () => {
                     if (typeof response.outputSpeech === "object") {
                         expect(response.outputSpeech.displayText).to.equal(displayText);
                         expect(response.outputSpeech.html).to.exist;
-                        expect(response.outputSpeech.html).to.equal("<p><strong>Hi</strong>\n    How are you? <em>Bye</em></p>\n");
+                        expect(response.outputSpeech.html).to.equal("<p><strong>Hi</strong><br />    How are you? <em>Bye</em></p>\n");
                     }
                     expect(response.reprompt).to.be.an("object");
                     if (typeof response.reprompt === "object") {

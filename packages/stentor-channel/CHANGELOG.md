@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.41.12](https://github.com/stentorium/stentor/compare/v1.41.11...v1.41.12) (2021-05-28)
+
+
+### Bug Fixes
+
+* Convert \n to <br /> tags in markdown ([#984](https://github.com/stentorium/stentor/issues/984)) ([fe40b4a](https://github.com/stentorium/stentor/commit/fe40b4a81377efcea63c9e7b52265c297286c16b))
+
+
+
+
+
 ## [1.41.11](https://github.com/stentorium/stentor/compare/v1.41.10...v1.41.11) (2021-05-27)
 
 **Note:** Version bump only for package stentor-channel

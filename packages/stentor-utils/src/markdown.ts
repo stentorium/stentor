@@ -31,11 +31,10 @@ export function toHTML(input: string): string {
     const linkRenderer = renderer.link;
     renderer.link = (href, title, text): string => {
         const html = linkRenderer.call(renderer, href, title, text);
-        return html.replace(/^<a /, '<a target="_blank" rel="nofollow" ');
+        return html.replace(/^<a /, `<a target="_blank" rel="nofollow" `);
     };
-    const dirty = marked(linked, { renderer });
+    const dirty = marked(linked, { renderer, breaks: true, xhtml: true });
 
     const clean = sanitize(dirty);
-
     return clean;
 }

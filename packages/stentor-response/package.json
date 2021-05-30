@@ -29,7 +29,7 @@
     "typescript": "4.3.2"
   },
   "dependencies": {
-    "@xapp/patterns": "1.32.99",
+    "@xapp/patterns": "1.32.116",
     "lodash.template": "4.5.0",
     "stentor-determiner": "1.41.12",
     "stentor-locales": "1.41.12",

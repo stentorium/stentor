@@ -28,7 +28,7 @@
     "typescript": "4.3.2"
   },
   "dependencies": {
-    "@xapp/patterns": "1.32.99",
+    "@xapp/patterns": "1.32.116",
     "stentor-request": "1.41.12",
     "stentor-response": "1.41.12",
     "stentor-storage": "1.41.12"

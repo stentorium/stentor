@@ -109,7 +109,7 @@ export class Assistant {
     /**
      * Add a Knowledge Base Service that is called on particular requests and the results are appended to the request.
      * 
-     * @param knowledgeBaseService 
+     * @param knowledgeBaseService - Service that impelements KnowledgeBaseService 
      * @param key - A regex to match the incoming request with to determine if the knowledge base should be queried 
      * @returns 
      */

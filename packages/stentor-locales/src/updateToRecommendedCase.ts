@@ -8,7 +8,6 @@ import { Language, LanguageTag, Locale } from "stentor-models";
  *
  * @see https://tools.ietf.org/html/rfc1766
  *
- * @export
  * @param {string} dirty
  * @returns {StentorLocale}
  */

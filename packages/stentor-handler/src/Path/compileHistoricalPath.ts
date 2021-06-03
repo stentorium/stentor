@@ -7,7 +7,6 @@ import { Context, ExecutablePath, HistoricalPath } from "stentor-models";
  * Compiles a HistoricalPath to a ExecutablePath based on the provided
  * context.
  *
- * @export
  * @param {HistoricalPath} historicalPath
  * @param {Context} context
  * @returns {(ExecutablePath | undefined)}

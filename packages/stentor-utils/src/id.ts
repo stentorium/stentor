@@ -8,7 +8,6 @@ const slugify = require("slugify");
  * It follows our Intent ID convention that
  * does not have spaces and ends with `Intent`.
  *
- * @export
  * @param {string} name
  * @returns {string | undefined}
  */

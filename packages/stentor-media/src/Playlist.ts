@@ -21,9 +21,6 @@ export interface PlaylistProps<P extends Playable = Playable> {
 export class Playlist<P extends Playable = Playable> extends Array<P> {
     /**
      * Name of the playlist
-     *
-     * @type {string}
-     * @memberof Playlist
      */
     public name?: string;
 

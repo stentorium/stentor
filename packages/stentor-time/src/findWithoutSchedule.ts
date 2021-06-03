@@ -7,8 +7,6 @@ import { isScheduled } from "stentor-guards";
  * Within a list of objects, some potentially Scheduled, return a random object
  * that does not have a schedule.
  *
- * @export
- * @template T
  * @param {((T | Scheduled<T>)[] | undefined)} items
  * @returns {(T | undefined)}
  */

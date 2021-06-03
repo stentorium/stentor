@@ -50,7 +50,6 @@ function humanReadable(intentId: string): string {
  *
  * This format is required by https://github.com/lightsinthesky/react-node-graph
  *
- * @export
  * @param {HandlerGraph} graph
  * @returns {{ nodes: Node[], connections: Connection[] }}
  */

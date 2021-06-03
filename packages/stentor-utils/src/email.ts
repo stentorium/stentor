@@ -6,7 +6,6 @@ const EMAIL_REGEX = /([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\
 /**
  * Partially masks a single email
  *
- * @export
  * @param {string} email
  * @returns {string}
  */
@@ -36,7 +35,6 @@ export function maskEmail(email: string): string {
 /**
  * Masks emails within a given string.
  *
- * @export
  * @param {string} s
  * @param {boolean} [partial=false] When true, some of the email remains
  * @returns {string}

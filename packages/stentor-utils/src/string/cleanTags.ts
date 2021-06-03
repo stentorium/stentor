@@ -2,7 +2,6 @@
 /**
  * Clean HTML and XML tags from a string
  *
- * @export
  * @param {string} str
  * @returns {string}
  */

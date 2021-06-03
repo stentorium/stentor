@@ -5,7 +5,6 @@ import { DelegatingHandlersMap, HandlersArray, HandlersKeyValue } from "./Handle
 /**
  * Guard to determine if any of the possible HandlerFactory prop values are for Delegating Handlers
  *
- * @export
  * @param {(DelegatingHandlersMap | HandlersArray | HandlersKeyValue)} props
  * @returns {props is DelegatingHandlersMap}
  */
@@ -30,7 +29,6 @@ export function isDelegatingHandlersMap(
 /**
  * Guard to determine if any of the possible HandlerFactory prop values are an array of Handlers
  *
- * @export
  * @param {(DelegatingHandlersMap | HandlersArray | HandlersKeyValue)} props
  * @returns {props is HandlersArray}
  */
@@ -43,7 +41,6 @@ export function isHandlersArray(
 /**
  * Guard to determine if any of the possible HandlerFactory prop values are a key value object of Handlers
  *
- * @export
  * @param {(DelegatingHandlersMap | HandlersArray | HandlersKeyValue)} props
  * @returns {props is HandlersKeyValue}
  */

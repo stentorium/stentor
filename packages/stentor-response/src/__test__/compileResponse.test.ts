@@ -206,6 +206,53 @@ describe("#compileResponse()", () => {
                         expect(displayText.split(",")[0]).to.equal(ssml.split(",")[1]);
                     }
                 });
+                describe("with multiple segments", () => {
+                    it("compiles the same for the SSML and displayText", () => {
+                        const fullResponse: SimpleResponse = {
+                            outputSpeech: {
+                                ssml: "${GREETING}, ${QUESTION} SSML",
+                                displayText: "${GREETING}, ${QUESTION} displayText"
+                            },
+                            segments: {
+                                ["GREETING"]: [
+                                    // Adding <a /> to all the ssml to simulate some XML
+                                    {
+                                        segment: {
+                                            ssml: "<a/>,Hello ${$.context.storage.name}",
+                                            displayText: "Hello ${$.context.storage.name}"
+                                        }
+                                    },
+                                    { segment: { ssml: "<a/>,Howdy", displayText: "Howdy" } },
+                                    { segment: { ssml: "<a/>,Why hello", displayText: "Why hello" } },
+                                    {
+                                        segment: {
+                                            ssml: "<a/>,${$.context.storage.name} hello",
+                                            displayText: "${$.context.storage.name} hello"
+                                        }
+                                    },
+                                    { segment: { ssml: "<a/>,Nice to see you", displayText: "Nice to see you" } }
+                                ],
+                                ["QUESTION"]: [
+                                    { segment: { ssml: "<br/>,How are you?", displayText: "How *are* you?" } }
+                                ]
+                            }
+                        };
+                        const compiledResponse = compileResponse(fullResponse, request, context);
+                        const outputSpeech = compiledResponse.outputSpeech;
+                        expect(outputSpeech).to.be.a("object");
+                        if (typeof outputSpeech === "object") {
+                            const displayText = outputSpeech.displayText;
+                            const ssml = outputSpeech.ssml;
+                            expect(displayText).to.contain("displayText");
+                            expect(displayText).to.contain("How *are* you?");
+                            expect(ssml).to.contain("SSML");
+                            expect(ssml).to.contain("<a/>");
+                            expect(ssml).to.contain("<br/>");
+                            // when we split them by commas, they should be the same
+                            expect(displayText.split(",")[0]).to.equal(ssml.split(",")[1]);
+                        }
+                    });
+                });
             });
         });
         describe("with segments with templates", () => {

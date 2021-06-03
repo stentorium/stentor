@@ -4,16 +4,10 @@ import { concatSSML, concatText } from "stentor-utils";
 
 /**
  * Options used when concatenating two ResponseOutputs
- *
- * @export
- * @interface ConcatResponseOutputOptions
  */
 export interface ConcatResponseOutputOptions {
     /**
      * Delimiter for combining text and SSML
-     *
-     * @type {string}
-     * @memberof ConcatResponseOutputOptions
      */
     delimiter?: string;
 }
@@ -23,7 +17,6 @@ export interface ConcatResponseOutputOptions {
  *
  * Note if neither parameters are passed then it returns undefined.
  *
- * @export
  * @param {ResponseOutput} first
  * @param {ResponseOutput} second
  * @param {ConcatOptions} [options]

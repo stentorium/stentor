@@ -34,7 +34,6 @@ import {
 /**
  * Check if the request is a LaunchRequest
  *
- * @export
  * @param {Request} request
  * @returns {boolean}
  */
@@ -45,7 +44,6 @@ export function isLaunchRequest(request: Request): request is LaunchRequest {
 /**
  * Check if the request is an InputUnknownRequest
  *
- * @export
  * @param {Request} request
  * @returns {request is InputUnknownRequest}
  */
@@ -55,7 +53,6 @@ export function isInputUnknownRequest(request: Request): request is InputUnknown
 /**
  * Check if the request is a SessionEndedRequest
  *
- * @export
  * @param {Request} request
  * @returns {boolean}
  */
@@ -65,7 +62,6 @@ export function isSessionEndedRequest(request: Request): request is SessionEnded
 /**
  * Check if the request is a IntentRequest
  *
- * @export
  * @param {Request} request
  * @returns {boolean}
  */
@@ -75,7 +71,6 @@ export function isIntentRequest(request: Request): request is IntentRequest {
 /**
  * Check if it is a PermissionGrant
  *
- * @export
  * @param {Request} request
  * @returns {request is PermissionGrant}
  */
@@ -85,7 +80,6 @@ export function isPermissionRequest(request: Request): request is PermissionRequ
 /**
  * Check if it is a NotificationPermissionGrant
  *
- * @export
  * @param {Request} request
  * @returns {request is PermissionGrant}
  */
@@ -122,7 +116,6 @@ export function isOptionSelectRequest(request: Request): request is OptionSelect
 /**
  * Check if the request is a AudioPlayerRequest
  *
- * @export
  * @param {Request} request
  * @returns {boolean}
  */
@@ -132,7 +125,6 @@ export function isAudioPlayerRequest(request: Request): request is AudioPlayerRe
 /**
  * Check if the request is a PlaybackControlRequest
  *
- * @export
  * @param {Request} request
  * @returns {request is PlaybackControlRequest}
  */
@@ -148,7 +140,6 @@ const EPOCH_LENGTH = 13;
  *
  * Google will make a user anonymous if they don't recognize the voice.
  *
- * @export
  * @param {Request} request
  * @returns {boolean}
  */
@@ -185,7 +176,6 @@ export function isNewSession(request: Request): boolean {
 /**
  * Helper function to determine if the request has a sessionID.
  *
- * @export
  * @param {Request} request
  * @returns {(request is IntentRequest | LaunchRequest | SessionEndedRequest | PermissionGrant)}
  */
@@ -203,8 +193,6 @@ export function hasSessionId(
 /**
  * Guard to check if an object is RequestDependable
  *
- * @export
- * @template T
  * @param {object} item
  * @returns {item is RequestDependable<T>}
  */
@@ -214,8 +202,6 @@ export function isRequestDependable<T extends object>(item: object): item is Req
 /**
  * Guard to check if an object is SystemDependable
  *
- * @export
- * @template T
  * @param {object} item
  * @returns {item is SystemDependable<T>}
  */

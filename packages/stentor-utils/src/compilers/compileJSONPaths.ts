@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { TEMPLATE_REGEX } from "stentor-constants";
 import { ResponseOutput } from "stentor-models";
-import * as jp from "jsonpath";
+import { JSONPath } from "jsonpath-plus";
 
 type ResponseOutputKeysOnly = Pick<ResponseOutput, "ssml" | "displayText" | "textToSpeech">;
 
@@ -14,7 +14,7 @@ function compileString(value: string, object: object, replaceWhenUndefined: bool
         // index 1 is the capture
         const captured = result[1].trim();
         // query the path
-        const pathResult = jp.query(object, captured.trim());
+        const pathResult = JSONPath({ path: captured.trim(), json: object });
         const replacement = pathResult[0];
         // now replace if we have a result
         if (replacement || replaceWhenUndefined) {

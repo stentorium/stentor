@@ -214,6 +214,11 @@ export function filterOutIntents(handlersAndIntents: (Intent | Handler)[]): Hand
 // @public
 export function findValueForKey<V>(key: string, obj: ObjectWithKeys<V>): V | undefined;
 
+// Warning: (ae-missing-release-tag) "findValuesForKey" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function findValuesForKey<V>(key: string, obj: ObjectWithKeys<V>): V[];
+
 // @public
 export function formatNumberForDisplay(number: number | string, format?: string): string;
 
@@ -476,7 +481,9 @@ export function matchUtteranceToSlotTypeValue<T>(utterance: string | number, slo
 // Warning: (ae-missing-release-tag) "md5" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
-export function md5(input: string): string;
+function md5_2(input: string): string;
+
+export { md5_2 as md5 }
 
 // @public
 export function numberToWord(num: number): string | undefined;
@@ -555,6 +562,11 @@ export function removeEmptyStrings<T extends object>(obj: T): T;
 //
 // @public
 export function removeItems(obj: any, attrs: (string | number)[] | ValidateKeyCallback): any;
+
+// Warning: (ae-missing-release-tag) "removePostFix" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function removePostFix(original: string, postFix: string): string;
 
 // Warning: (ae-missing-release-tag) "removeTagsWithContent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //

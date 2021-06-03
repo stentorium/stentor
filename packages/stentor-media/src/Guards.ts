@@ -29,7 +29,6 @@ import { RSSFeed, RSSFeedProps } from "./RSSFeed";
 /**
  * Check if the playable is reportable.
  *
- * @export
  * @param {Playable} playable
  * @returns {playable is Reportable}
  */
@@ -40,7 +39,6 @@ export function isReportable(playable: Playable): playable is Reportable {
 /**
  * Type guard to see if the Audio is a song.
  *
- * @export
  * @param {Media} media
  * @returns {media is Song}
  */
@@ -51,7 +49,6 @@ export function isSong(media: Media): media is Song {
 /**
  * Type guard to check if media is GenericAudio.
  *
- * @export
  * @param {Media} media
  * @returns {media is GenericAudio}
  */
@@ -62,7 +59,6 @@ export function isGenericAudio(media: Media): media is GenericAudio {
 /**
  * Type guard to check if media is a AudioLiveStream
  *
- * @export
  * @param {Media} media
  * @returns {media is AudioLiveStream}
  */
@@ -73,7 +69,6 @@ export function isAudioLiveStream(media: Media): media is AudioLiveStream {
 /**
  * Type guard to determine if media is a PodcastEpisode
  *
- * @export
  * @param {Media} media
  * @returns {media is PodcastEpisode}
  */
@@ -84,7 +79,6 @@ export function isPodcastEpisode(media: Media): media is PodcastEpisode {
 /**
  * Type guard to determine if the Media is Audio
  *
- * @export
  * @param {Media} media
  * @returns {media is Audio}
  */
@@ -101,7 +95,6 @@ export function isAudio(media: Media): media is Audio {
 /**
  * Type guard to determine if the Media is Video
  *
- * @export
  * @param {Media} media
  * @returns {media is Video}
  */
@@ -112,7 +105,6 @@ export function isVideo(media: Media): media is Video {
 /**
  * Type guard to determine if Media is a Video
  *
- * @export
  * @param {Media} media
  * @returns {media is VideoLiveStream}
  */

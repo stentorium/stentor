@@ -27,9 +27,9 @@ export interface KnowledgeAnswer {
 
 /**
  * Description of a highlighted word, which is relevant to
- * the original knowledgebase search.
+ * the original knowledge base search.
  */
-export interface KnowlegeBaseHighlight {
+export interface KnowledgeBaseHighlight {
     /**
      * Starting offset within the document
      */
@@ -71,7 +71,7 @@ export interface KnowledgeBaseDocument {
     /**
      * Notable highlights within the document that can help the user scan and find their answer.
      */
-    highlights?: KnowlegeBaseHighlight[];
+    highlights?: KnowledgeBaseHighlight[];
     /**
      * Additional attribute for the document.  Keys and values are dependent on the underlying knowledgebase.
      */
@@ -105,11 +105,11 @@ export interface KnowledgeBaseFAQ {
      */
     document: string;
     /**
-     * Highlights within the FAQ document that are relevent to the user's original search.
+     * Highlights within the FAQ document that are relevant to the user's original search.
      */
-    highlights?: KnowlegeBaseHighlight[];
+    highlights?: KnowledgeBaseHighlight[];
     /**
-     * Additional attribute for the document.  Keys and values are dependent on the underlying knowledgebase.
+     * Additional attribute for the document.  Keys and values are dependent on the underlying knowledge base.
      */
     attributes?: { [key: string]: any }
 }

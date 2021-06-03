@@ -21,7 +21,6 @@ export function md5(input: string): string {
  *
  * @see https://stackoverflow.com/a/7616484/1349766
  *
- * @export
  * @param {string} str
  * @returns {number}
  */

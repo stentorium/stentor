@@ -5,7 +5,6 @@ import { DIALECT_REGEX, LANGUAGE_REGEX } from "./Constants";
 /**
  * Type guard to determine if the locale is a language.
  *
- * @export
  * @param {Locale} locale
  * @returns {locale is Language}
  */
@@ -16,7 +15,6 @@ export function isLanguage(locale: Locale): locale is Language {
 /**
  * Type guard to determine if the locale is a language.
  *
- * @export
  * @param {Locale} locale
  * @returns {locale is Dialect}
  */

@@ -5,7 +5,6 @@ import { isIntentRequest } from "./Guards";
 /**
  * Helper method to get the slots from the request.
  *
- * @export
  * @param {Request} request
  * @returns {(RequestSlotMap | undefined)}
  */

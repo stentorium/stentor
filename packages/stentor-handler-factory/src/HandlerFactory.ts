@@ -74,7 +74,6 @@ export class HandlerFactory {
      * @static
      * @param {Handler} props
      * @returns {AbstractHandler}
-     * @memberof HandlerFactory
      */
     public fromProps(props: Handler): AbstractHandler | undefined {
         if (typeof props !== "object") {
@@ -132,8 +131,7 @@ export class HandlerFactory {
 
             if (currentAudioHandler.canHandleRequest(request, context)) {
                 log().debug(
-                    `Selecting audio handler ${currentAudioHandler.intentId} to handle the request ${
-                    request.type
+                    `Selecting audio handler ${currentAudioHandler.intentId} to handle the request ${request.type
                     }-${keyFromRequest(request)}${handler ? ` over current handler ${handler.intentId}` : ""}`
                 );
                 handler = currentAudioHandler;

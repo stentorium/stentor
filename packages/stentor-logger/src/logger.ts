@@ -73,7 +73,6 @@ export function redact(info: TransformableInfo): TransformableInfo {
 /**
  * Get an instance of the shared logger.
  *
- * @export
  * @returns {Logger}
  */
 export function log(): Logger {
@@ -128,7 +127,6 @@ export function log(): Logger {
  * If you pass in undefined, it will create a new default
  * logger the next time log() is called.
  *
- * @export
  * @param {Logger} logger
  */
 export function set(logger: Logger): void {

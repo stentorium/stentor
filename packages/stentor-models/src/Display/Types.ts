@@ -3,8 +3,14 @@ import { Card } from "./Card";
 import { List } from "./List";
 import { SimpleDisplay } from "./SimpleDisplay";
 
+export interface BaseDisplay {
+    type: string;
+    token?: string;
+    title?: string;
+}
+
 export type Display =
     | Card
-    | List // TODO: This isn't needed. The "ImageForwardList" and the "TextForwardList" covers the list and the carousel
+    | List
     | SimpleDisplay
     | object;

@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.38.37",
+  "version": "1.41.16",
   "description": "SDK for building omni-channel conversational assistants",
   "types": "lib/index",
   "typings": "lib/index",
@@ -14,24 +14,24 @@
     "lib"
   ],
   "engines": {
-    "node": ">=10.x"
+    "node": "^10 || ^12 || ^14"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "7.13.3",
-    "@types/chai": "4.2.16",
+    "@microsoft/api-extractor": "7.15.2",
+    "@types/chai": "4.2.18",
     "@types/mocha": "8.2.2",
-    "@types/node": "13.13.48",
-    "@types/sinon": "9.0.11",
+    "@types/node": "13.13.52",
+    "@types/sinon": "10.0.1",
     "@types/sinon-chai": "3.2.5",
     "@xapp/config": "0.2.3",
-    "aws-sdk": "2.879.0",
+    "aws-sdk": "2.918.0",
     "chai": "4.3.4",
     "chai-as-promised": "7.1.1",
-    "mocha": "8.3.2",
-    "sinon": "9.2.4",
-    "sinon-chai": "3.6.0",
+    "mocha": "8.4.0",
+    "sinon": "10.0.0",
+    "sinon-chai": "3.7.0",
     "ts-node": "9.1.1",
-    "typescript": "4.2.4"
+    "typescript": "4.3.2"
   },
   "scripts": {
     "api": "api-extractor run --local",
@@ -40,27 +40,27 @@
     "test": "mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
   },
   "dependencies": {
-    "@types/aws-lambda": "8.10.73",
+    "@types/aws-lambda": "8.10.76",
     "@types/body-parser": "1.19.0",
-    "@types/express": "4.17.9",
-    "@xapp/patterns": "1.32.47",
+    "@types/express": "4.17.12",
+    "@xapp/patterns": "1.32.116",
     "body-parser": "1.19.0",
-    "dotenv": "8.2.0",
+    "dotenv": "9.0.2",
     "express": "4.17.1",
-    "stentor-constants": "1.38.37",
-    "stentor-context": "1.38.37",
-    "stentor-determiner": "1.38.37",
-    "stentor-handler": "1.38.37",
-    "stentor-handler-factory": "1.38.37",
-    "stentor-logger": "1.38.37",
-    "stentor-models": "1.38.37",
-    "stentor-request": "1.38.37",
-    "stentor-response": "1.38.37",
-    "stentor-runtime": "1.38.37",
-    "stentor-service-event": "1.38.37",
-    "stentor-service-ovai": "1.38.37",
-    "stentor-service-studio": "1.38.37",
-    "stentor-utils": "1.38.37"
+    "stentor-constants": "1.41.15",
+    "stentor-context": "1.41.16",
+    "stentor-determiner": "1.41.16",
+    "stentor-handler": "1.41.16",
+    "stentor-handler-factory": "1.41.16",
+    "stentor-logger": "1.41.16",
+    "stentor-models": "1.41.15",
+    "stentor-request": "1.41.16",
+    "stentor-response": "1.41.16",
+    "stentor-runtime": "1.41.16",
+    "stentor-service-event": "1.41.16",
+    "stentor-service-ovai": "1.41.16",
+    "stentor-service-studio": "1.41.16",
+    "stentor-utils": "1.41.16"
   },
   "peerDependencies": {
     "aws-sdk": "2.X"

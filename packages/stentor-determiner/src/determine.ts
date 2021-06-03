@@ -35,8 +35,6 @@ import { isJSONDependable, isConditional } from "./Guards";
 /**
  * Determine which of the provided objects is best based on provided request and context.
  *
- * @export
- * @template P extends object
  * @param potentials
  * @param request
  * @param context
@@ -86,11 +84,12 @@ export function determine<P extends object>(potentials: P[], request: Request, c
         const originals: { [compiled: string]: Conditional<P> } = {};
         const compiledConditionals: Conditional<P>[] = [];
 
+        const requestSlots: RequestSlotMap = isIntentRequest(request) && context.session ? combineRequestSlots(context.session.get(SESSION_STORAGE_SLOTS_KEY), request.slots) : context.session ? context.session.get(SESSION_STORAGE_SLOTS_KEY) : {};
+
         conditionals.forEach((conditional) => {
             if (typeof conditional.conditions === "string") {
                 // Compile it
                 let compiled: string = conditional.conditions;
-                const requestSlots: RequestSlotMap = isIntentRequest(request) && context.session ? combineRequestSlots(context.session.get(SESSION_STORAGE_SLOTS_KEY), request.slots) : context.session ? context.session.get(SESSION_STORAGE_SLOTS_KEY) : {};
                 compiled = compileSlotValues(compiled, requestSlots);
                 compiled = compileJSONPaths(compiled, { request, context });
                 // Keep hold of the original
@@ -111,7 +110,7 @@ export function determine<P extends object>(potentials: P[], request: Request, c
             JSONConditionalCheck(request, context),
             SystemConditionalCheck(request, context),
             RequestConditionalCheck(request),
-            SlotConditionalCheck(request)
+            SlotConditionalCheck(requestSlots)
         ];
         // If we have a lastActiveTimestamp, which we most always do 
         if (context && context.storage && typeof context.storage.lastActiveTimestamp === "number") {

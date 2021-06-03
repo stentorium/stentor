@@ -149,7 +149,6 @@ export abstract class AbstractHandler<
      *
      * @param {Context} context
      * @returns {boolean}
-     * @memberof Handler
      */
     public canHandleInputUnknown(request: Request, context: Context): boolean {
         let canHandleInputUnknown = false;
@@ -196,10 +195,9 @@ export abstract class AbstractHandler<
      * @param {Request} request
      * @param {Context} context
      * @returns {Promise<void>}
-     * @memberof Handler
      */
     protected async inputUnknown(request: Request, context: Context): Promise<void> {
-        switch (this.data.inputUnknownStrategy) {
+        switch (this.data?.inputUnknownStrategy) {
             case INPUT_UNKNOWN_STRATEGY_REPROMPT:
                 if (context.storage.previousResponse && context.storage.previousResponse.reprompt) {
                     const reprompt = context.storage.previousResponse.reprompt;
@@ -287,6 +285,7 @@ export abstract class AbstractHandler<
                     }
                     return;
                 } else {
+
                     log().info(
                         `Could not determine response on ${this.intentId} for event ${event}, falling back to input unknown workflow`
                     );

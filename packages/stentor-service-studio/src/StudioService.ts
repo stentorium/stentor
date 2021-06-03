@@ -26,6 +26,10 @@ export class StudioService implements HandlerService {
             this.appId = process.env.STUDIO_APP_ID;
         }
 
+        if (process.env.STUDIO_BASE_URL) {
+            this.baseURL = process.env.STUDIO_BASE_URL;
+        }
+
         if (props) {
             this.baseURL = props.baseURL ? props.baseURL : this.baseURL;
             this.token = props.token ? props.token : this.token;

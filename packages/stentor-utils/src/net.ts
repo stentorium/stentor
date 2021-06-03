@@ -60,7 +60,6 @@ export function fetchUrl(url: string): Promise<string> {
  *
  * Only looks for a prefix of https://, http:// & file://
  *
- * @export
  * @param {string} s
  * @returns {boolean}
  */
@@ -81,6 +80,39 @@ export function baseUrl(s: string): string {
     }
 
     return undefined;
+}
+
+/**
+ * Searches for URLs in a text and converts them to hyperlinks, either for HTML or markdown (default)
+ * 
+ * Based on {@link https://stackoverflow.com/a/25821576/1349766}
+ * 
+ * @param text 
+ * @param format 
+ * @returns 
+ */
+export function linkify(text: string, format: "markdown" | "html" = "markdown"): string {
+
+    if (!text) {
+        return text;
+    }
+    // This regex URL is not great but it is ok.
+    // Negative look behind would make this a little easier but
+    // they are not supported on Safari
+    const urlRegex = /(\(|=["'])?(((https?:\/\/)|(www\.))[^\s\)"]+)/g;
+
+    return text.replace(urlRegex, (url, b, c, d) => {
+        if (url.startsWith("(") || url.startsWith("=")) {
+            return url;
+        }
+
+        const url2 = (d === 'www.') ? 'https://' + url : url;
+        if (format === "html") {
+            return `<a target="_blank" href="${url2}">${url}</a>`;
+        } else {
+            return `[${url}](${url2})`;
+        }
+    });
 }
 
 

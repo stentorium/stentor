@@ -37,9 +37,6 @@ import { ChannelSelector } from "./ChannelSelector";
 
 /**
  * Runtime dependencies
- *
- * @export
- * @interface Dependencies
  */
 export interface Dependencies {
     eventService?: EventService;
@@ -167,6 +164,10 @@ export const main = async (
         // And canFulfill...
         if (isIntentRequest(request) && request.canFulfill) {
             eventService.addPrefix({ canFulfill: `${request.canFulfill}` });
+        }
+
+        if (isIntentRequest(request) && request.rawQuery) {
+            eventService.addPrefix({ rawQuery: request.rawQuery });
         }
     }
 
@@ -435,6 +436,7 @@ export const main = async (
 
         log().debug("Response");
         log().debug(response);
+
         finalResponse = channel.response.translate({ request, response });
         log().debug("Final Response");
         log().debug(finalResponse);

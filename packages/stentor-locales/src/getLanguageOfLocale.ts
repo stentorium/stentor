@@ -5,7 +5,6 @@ import { LOCALE_REGEX } from "./Constants";
 /**
  * Returns the language (primary tag) for a specific locale (language) code.
  *
- * @export
  * @param {Locale} locale
  */
 export function getLanguageOfLocale(locale: Locale): Language {

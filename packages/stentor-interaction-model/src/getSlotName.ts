@@ -6,7 +6,6 @@ import { SLOT_REGEX } from "./Slot";
  *
  * It will take fields such as ${foo}, {foo}, or {-|foo} and return foo.
  *
- * @export
  * @param {string} slot
  * @returns {(string | undefined)}
  */

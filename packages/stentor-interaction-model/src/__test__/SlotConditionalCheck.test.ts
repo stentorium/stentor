@@ -98,7 +98,11 @@ describe(`${SlotConditionalCheck.name}`, () => {
             // Slot exists
             const slotExists = SlotConditionalCheck(slotsWithFooAsBar).functions[3];
             expect(slotExists("foo")).to.be.true;
+            expect(slotExists("bar")).to.be.false;
+            expect(slotExists("baz")).to.be.false;
 
+            // Combo
+            expect(slotExists("foo") && slotExists("bar")).to.be.false;
         });
     });
     describe('when passed a request', () => {

@@ -4,7 +4,10 @@ import { Device } from "../Device";
 import { NLUService } from "../NLU";
 import { Request } from "../Request";
 import { AbstractResponseBuilder, Response } from "../Response";
-import { Hooks } from "../Runtime";
+import { Hooks, RuntimeContext } from "../Runtime";
+import { UserStorageService } from "../Services";
+
+export type Callback<TResult = any> = (error?: Error | string | null, result?: TResult) => void
 
 export interface RequestResponse {
     request: Request;
@@ -66,4 +69,16 @@ export interface Channel {
      * Runtime hooks used by the channel to make any necessary checks or modifications
      */
     hooks?: ChannelHooks;
+    /**
+     * Lambda event interceptor (right after the event)
+     *
+     * @param handler Stentor handler function
+     * @param services
+     * @param event raw lambda event
+     * @param context lambda context
+     * @param callback lambda callback
+     */
+    handlerHook?(handler: (event: any, context: RuntimeContext, callback: Callback) => Promise<void>,
+        event: any, context: RuntimeContext, callback: Callback,
+        services: { userStorageService?: UserStorageService; appService?: any }): Promise<void>;
 }

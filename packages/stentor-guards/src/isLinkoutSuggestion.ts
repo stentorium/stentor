@@ -4,7 +4,6 @@ import { LinkOutSuggestion, SuggestionTypes } from "stentor-models";
 /**
  * Determines if the suggestion is a LinkOutSuggestion
  *
- * @export
  * @param {(LinkOutSuggestion | Suggestion)} suggestion
  * @returns {suggestion is LinkOutSuggestion}
  */

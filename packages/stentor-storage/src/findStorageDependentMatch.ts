@@ -1,15 +1,13 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { Storage, StorageDependable } from "stentor-models";
 import { compare, random } from "stentor-utils";
-import * as jp from "jsonpath";
+import { JSONPath } from "jsonpath-plus";
 import { isStorageDependable } from "./Guards";
 
 /**
  * Based on the provided storage, it finds the storage dependent object
  * that is a match.
  *
- * @export
- * @template T
  * @param {((T | StorageDependable<T>)[])} storageDependents
  * @param {Storage} storage
  * @returns {(T | undefined)}
@@ -37,7 +35,7 @@ export function findStorageDependentMatch<T extends object>(
         const test = path.storageMatch;
         const operation = test.operation;
         const name = test.name;
-        const storageValueResults = jp.query(storage, name.trim());
+        const storageValueResults = JSONPath({ json: storage, path: name.trim() });
         const storageValue = storageValueResults[0];
 
         if (typeof storageValue === "number" || typeof storageValue === "string" || typeof storageValue === "boolean") {

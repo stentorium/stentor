@@ -1,6 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { Image } from "./Image";
 import { TextContent } from "./TextContent";
+import { BaseDisplay } from "./Types";
 
 export interface DisplayListItem {
     token: string;
@@ -10,16 +11,18 @@ export interface DisplayListItem {
 }
 /**
  * The base Display structure
+ * 
+ * @beta Not widely used
  */
-export interface SimpleDisplay {
+export interface SimpleDisplay extends BaseDisplay {
     type:
-        | "ImageDisplay"
-        | "ShortText"
-        | "LongText"
-        | "ImageRightDetail"
-        | "ImageLeftDetail"
-        | "ImageForwardList"
-        | "TextForwardList";
+    | "ImageDisplay"
+    | "ShortText"
+    | "LongText"
+    | "ImageRightDetail"
+    | "ImageLeftDetail"
+    | "ImageForwardList"
+    | "TextForwardList";
     token: string;
     backgroundImage?: Image;
     image?: Image;

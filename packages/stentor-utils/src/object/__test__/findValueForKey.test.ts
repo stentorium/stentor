@@ -2,7 +2,7 @@
 import { expect } from "chai";
 import { findValueForKey } from "../findValueForKey";
 
-describe("#findValueForKey()", () => {
+describe(`#${findValueForKey.name}()`, () => {
     describe("when passed undefined object", () => {
         it("returns undefined", () => {
             expect(findValueForKey("key", undefined)).to.be.undefined;

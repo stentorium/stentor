@@ -21,6 +21,7 @@ import {
     KnowledgeBaseService,
     PIIService,
     RuntimeCallback,
+    RuntimeContext,
     UserStorageService
 } from "stentor-models";
 import { main, translateEventAndContext } from "stentor-runtime";
@@ -28,6 +29,8 @@ import { EventPrefix, EventService } from "stentor-service-event";
 import { StudioEventStream, StudioService } from "stentor-service-studio";
 import { OVAIEventStream, OVAIService } from "stentor-service-ovai";
 import { isLambdaError } from "stentor-utils";
+
+import { Callback } from "aws-lambda";
 
 import * as AWSLambda from "aws-lambda";
 import * as bodyParser from "body-parser";
@@ -259,21 +262,11 @@ export class Assistant {
 
     /**
      * Build the assistant application to run on AWS Lambda
-     * 
+     *
      * @public
      */
     public lambda(): AWSLambda.Handler {
-        const handler: AWSLambda.Handler = async (event, context, callback) => {
-            // Setup your environment
-            await setEnv().then().catch((error: Error) => log().warn("Environment failed to load", error));
-
-            const translated = translateEventAndContext(event, context);
-            const runtimeEvent = translated.event;
-            const runtimeContext = translated.context;
-            if (this.runtimeData) {
-                runtimeContext.appData = this.runtimeData;
-            }
-
+        const handler = async (runtimeEvent: any, runtimeContext: RuntimeContext, callback: Callback): Promise<void> => {
             // Wrap the response according to the lambda call flavor (BST or API GW proxy)
             let response: object | undefined;
 
@@ -326,7 +319,28 @@ export class Assistant {
             callback(null, response);
         };
 
-        return handler;
+        const lambdaHandler: AWSLambda.Handler = async (event, context, callback) => {
+            // Setup your environment
+            await setEnv().then().catch((error: Error) => log().warn("Environment failed to load", error));
+
+            const translated = translateEventAndContext(event, context);
+            const runtimeEvent = translated.event;
+            const runtimeContext = translated.context;
+            if (this.runtimeData) {
+                runtimeContext.appData = this.runtimeData;
+            }
+
+            // Check if the matching channel has a hook (like Facebook)
+            for (const channel of this.channels) {
+                if (channel.handlerHook && channel.test?.(runtimeEvent)) {
+                    return channel.handlerHook(handler, runtimeEvent, runtimeContext, callback, { userStorageService: this.userStorageService });
+                }
+            }
+
+            return handler(runtimeEvent, runtimeContext, callback);
+        }
+
+        return lambdaHandler;
     }
 
     /**

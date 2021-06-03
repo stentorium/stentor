@@ -3,6 +3,267 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.41.15](https://github.com/stentorium/stentor/compare/v1.41.14...v1.41.15) (2021-06-01)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.41.13](https://github.com/stentorium/stentor/compare/v1.41.12...v1.41.13) (2021-05-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.32.116 ([599b876](https://github.com/stentorium/stentor/commit/599b876b562d4080cd9dd77cae09c398ae3b7484))
+
+
+
+
+
+## [1.41.10](https://github.com/stentorium/stentor/compare/v1.41.9...v1.41.10) (2021-05-27)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.41.9](https://github.com/stentorium/stentor/compare/v1.41.8...v1.41.9) (2021-05-26)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.41.8](https://github.com/stentorium/stentor/compare/v1.41.7...v1.41.8) (2021-05-26)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.41.6](https://github.com/stentorium/stentor/compare/v1.41.5...v1.41.6) (2021-05-25)
+
+
+### Bug Fixes
+
+* Adds URL to Display List Item ([#973](https://github.com/stentorium/stentor/issues/973)) ([488c2e6](https://github.com/stentorium/stentor/commit/488c2e6a6142bd7bed77fd77134552d8871c2076))
+
+
+
+
+
+## [1.41.4](https://github.com/stentorium/stentor/compare/v1.41.3...v1.41.4) (2021-05-24)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.41.2](https://github.com/stentorium/stentor/compare/v1.41.1...v1.41.2) (2021-05-24)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.41.1](https://github.com/stentorium/stentor/compare/v1.41.0...v1.41.1) (2021-05-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.32.99 ([d11ab4b](https://github.com/stentorium/stentor/commit/d11ab4b0d143870af41dc67e0fdb432ff26c0834))
+
+
+
+
+
+# [1.41.0](https://github.com/stentorium/stentor/compare/v1.40.20...v1.41.0) (2021-05-19)
+
+
+### Features
+
+* Optional html on response output ([#961](https://github.com/stentorium/stentor/issues/961)) ([30c86c1](https://github.com/stentorium/stentor/commit/30c86c16f4cc1cc2cd7485e0c5467cb5fe2505d6))
+
+
+
+
+
+## [1.40.19](https://github.com/stentorium/stentor/compare/v1.40.18...v1.40.19) (2021-05-18)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.40.17](https://github.com/stentorium/stentor/compare/v1.40.16...v1.40.17) (2021-05-16)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.40.16](https://github.com/stentorium/stentor/compare/v1.40.15...v1.40.16) (2021-05-14)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.40.8](https://github.com/stentorium/stentor/compare/v1.40.7...v1.40.8) (2021-05-12)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.40.5](https://github.com/stentorium/stentor/compare/v1.40.4...v1.40.5) (2021-05-10)
+
+
+
+## [1.38.39-alpha.0](https://github.com/stentorium/stentor/compare/v1.38.38-alpha.0...v1.38.39-alpha.0) (2021-04-08)
+
+
+
+## [1.38.38-alpha.0](https://github.com/stentorium/stentor/compare/v1.38.38...v1.38.38-alpha.0) (2021-04-08)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.40.3](https://github.com/stentorium/stentor/compare/v1.40.2...v1.40.3) (2021-05-05)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.40.2](https://github.com/stentorium/stentor/compare/v1.40.1...v1.40.2) (2021-05-04)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.39.2](https://github.com/stentorium/stentor/compare/v1.39.1...v1.39.2) (2021-05-01)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.39.1](https://github.com/stentorium/stentor/compare/v1.39.0...v1.39.1) (2021-04-30)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+# [1.39.0](https://github.com/stentorium/stentor/compare/v1.38.65...v1.39.0) (2021-04-30)
+
+
+### Features
+
+* Add node 14 ([#925](https://github.com/stentorium/stentor/issues/925)) ([464e302](https://github.com/stentorium/stentor/commit/464e302e23a49b189f5b96ab78921660080e9759))
+
+
+
+
+
+## [1.38.56](https://github.com/stentorium/stentor/compare/v1.38.55...v1.38.56) (2021-04-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.32.78 ([9b93958](https://github.com/stentorium/stentor/commit/9b939582995e93d8f45688ccde92c33c0831df10))
+
+
+
+
+
+## [1.38.54](https://github.com/stentorium/stentor/compare/v1.38.53...v1.38.54) (2021-04-21)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.38.51](https://github.com/stentorium/stentor/compare/v1.38.50...v1.38.51) (2021-04-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.32.75 ([0447b7f](https://github.com/stentorium/stentor/commit/0447b7f082790ece2890752cd1bb1783bf1b0f50))
+
+
+
+
+
+## [1.38.48](https://github.com/stentorium/stentor/compare/v1.38.47...v1.38.48) (2021-04-15)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.38.45](https://github.com/stentorium/stentor/compare/v1.38.44...v1.38.45) (2021-04-14)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.38.44](https://github.com/stentorium/stentor/compare/v1.38.43...v1.38.44) (2021-04-13)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.38.42](https://github.com/stentorium/stentor/compare/v1.38.41...v1.38.42) (2021-04-11)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.38.40](https://github.com/stentorium/stentor/compare/v1.38.39...v1.38.40) (2021-04-10)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.38.38](https://github.com/stentorium/stentor/compare/v1.38.37...v1.38.38) (2021-04-08)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
 ## [1.38.37](https://github.com/stentorium/stentor/compare/v1.38.36...v1.38.37) (2021-04-08)
 
 **Note:** Version bump only for package stentor-models

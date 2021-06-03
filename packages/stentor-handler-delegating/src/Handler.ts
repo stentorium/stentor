@@ -15,10 +15,6 @@ import { DelegatingData } from "./Data";
 
 /**
  * This handler can call registered methods outside Stentor.
- *
- * @export
- * @class DelegatingHandler
- * @extends {AbstractHandler<Content, DelegatingData>}
  */
 export class DelegatingHandler extends AbstractHandler<Content, DelegatingData> {
     public type: DelegatingHandlerType;

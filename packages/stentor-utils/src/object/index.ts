@@ -1,5 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 export * from "./findValueForKey";
+export * from "./findValuesForKey";
 export * from "./percentComplete";
 
 /**
@@ -80,11 +81,10 @@ export function subset(obj: object, attrs: string[]): object {
 }
 
 /**
- * A Utility function to determine if an object has attributes or not.
- *
+ * A utility function to determine if an object has attributes or not.
  *
  * @param obj Object to check
- * @return True if the object exists and has attributes or false otherwise.
+ * @returns True if the object exists and has attributes or false otherwise.
  */
 export function objHasAttrs(obj: object): boolean {
     const testObj = obj || {};
@@ -202,8 +202,6 @@ export type ValidateKeyCallback = (key: string | number, value: any) => boolean;
 /**
  * Creates a copy and removes the empty strings from the object.
  *
- * @export
- * @template T
  * @param {T} obj
  * @returns {T}
  */

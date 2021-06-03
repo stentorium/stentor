@@ -29,7 +29,7 @@ module.exports = {
         "ts-nocheck": "allow-with-description",
         "ts-check": "allow-with-description",
         minimumDescriptionLength: 3,
-      },
+      }
     ],
     "@typescript-eslint/consistent-type-assertions": 2,
     "@typescript-eslint/explicit-function-return-type": 2,

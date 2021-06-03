@@ -7,7 +7,6 @@ import { isHandler } from "./isHandler";
  * Global handlers have utterances and can be accessed
  * at any time.
  *
- * @export
  * @param handler
  * @returns {boolean}
  */

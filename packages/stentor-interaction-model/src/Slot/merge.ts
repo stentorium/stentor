@@ -14,7 +14,6 @@ export interface MergeSlotsResult {
  * A slot in the secondary array is ignored if one in the primary
  * with the same name is found.
  *
- * @export
  * @param {Slot[]} primary
  * @param {Slot[]} secondary
  * @returns {Slot[]}
@@ -70,7 +69,6 @@ export interface MergeSlotTypeMapsResult {
  *
  * This will combine slot type values of slot types with the same name.
  *
- * @export
  * @param {SlotTypeMap} primary
  * @param {SlotTypeMap} secondary
  * @returns {SlotTypeMap}

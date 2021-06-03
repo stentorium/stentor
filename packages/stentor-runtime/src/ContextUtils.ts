@@ -108,8 +108,6 @@ export function virtualBstContext(lambdaEvent: any): { event: object; context: R
  * Event for an API Gateway Proxy Integration
  *
  * @see https://docs.aws.amazon.com/en_pv/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-input-format
- * @export
- * @interface APIGatewayEvent
  */
 export interface APIGatewayEvent {
     resource: string;
@@ -130,8 +128,6 @@ export interface APIGatewayEvent {
  * Lambda Context
  *
  * @see https://docs.aws.amazon.com/en_pv/lambda/latest/dg/nodejs-prog-model-context.html
- * @export
- * @interface LambdaContext
  */
 export interface LambdaContext {
     getRemainingTimeInMillis(): number;
@@ -167,7 +163,7 @@ export function lambdaAPIGatewayContext(
         // See  https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-output-format
         return {
             statusCode,
-            headers: {"Access-Control-Allow-Origin": "*"},
+            headers: { "Access-Control-Allow-Origin": "*" },
             body
         };
     };

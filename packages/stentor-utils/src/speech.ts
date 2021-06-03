@@ -10,7 +10,6 @@ export enum ListDelimiter {
  * For example, ["one", "two", "three", "four"] will be transformed
  * to "one, two, three or four".
  *
- * @export
  * @param {string[]} items
  * @param {ListisizeDelimiter} [delimiter]
  */
@@ -42,7 +41,6 @@ export function listisize(items: string[], preferredDelimiter: ListDelimiter = L
  *
  * All commas and other punctuation marks will be removed.
  *
- * @export
  * @param {string} sentence
  * @returns {string[]}
  */
@@ -67,7 +65,6 @@ export function toWords(sentence: string): string[] {
 /**
  * Is the word the definite article "the"
  *
- * @export
  * @param {string} word
  * @returns
  */
@@ -78,7 +75,6 @@ export function isDefiniteArticle(word: string): boolean {
 /**
  * Is the word the indefinite article "a" or "an"
  *
- * @export
  * @param {string} word
  * @returns
  */
@@ -145,7 +141,6 @@ export const PREPOSITIONS: string[] = [
  * NOTE: The list it checks against is not
  * exhaustive.
  *
- * @export
  * @param {string} word
  * @returns {boolean}
  */
@@ -162,7 +157,6 @@ export function isPreposition(word: string): boolean {
 /**
  * Does the provided string contain numbers.
  *
- * @export
  * @param {string} word
  * @returns {boolean}
  */

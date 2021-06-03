@@ -47,7 +47,7 @@ export const DURATION_FORMAT_TO_MS_MULTIPLIER: DurationFormatToMSMultiplier = {
 };
 
 /**
- * Compare two duration formats {@link DurationFormat} is greater than the other.
+ * Compare two duration formats {@link stentor-models#DurationFormat} is greater than the other.
  * 
  * For example, a year is greater than a month. 
  * 

@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.38.37",
+  "version": "1.41.15",
   "description": "Models for 📣 stentor",
   "types": "lib/index",
   "typings": "lib/index",
@@ -14,15 +14,15 @@
     "dist"
   ],
   "engines": {
-    "node": ">=10.x"
+    "node": "^10 || ^12 || ^14"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "7.13.3",
+    "@microsoft/api-extractor": "7.15.2",
     "@rollup/plugin-typescript": "8.2.1",
     "@xapp/config": "0.2.3",
-    "rollup": "2.44.0",
+    "rollup": "2.50.5",
     "tslib": "2.2.0",
-    "typescript": "4.2.4"
+    "typescript": "4.3.2"
   },
   "scripts": {
     "api": "api-extractor run --local",
@@ -31,6 +31,6 @@
     "clean": "rm -rf ./lib/* && rm -rf ./dist/*"
   },
   "dependencies": {
-    "@xapp/patterns": "1.32.47"
+    "@xapp/patterns": "1.32.116"
   }
 }

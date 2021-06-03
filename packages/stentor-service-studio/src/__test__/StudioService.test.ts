@@ -12,16 +12,51 @@ describe(`${StudioService.name}`, () => {
             beforeEach(() => {
                 process.env.STUDIO_TOKEN = "token";
                 process.env.STUDIO_APP_ID = "appId";
+                process.env.STUDIO_BASE_URL = "https://base-url";
             });
             afterEach(() => {
                 delete process.env.STUDIO_TOKEN;
                 delete process.env.STUDIO_APP_ID;
+                delete process.env.STUDIO_BASE_URL;
             });
             describe("and no props", () => {
                 it("doesn't throw an error", () => {
                     expect(() => {
                         new StudioService();
                     }).to.not.throw();
+                });
+
+                describe("when sending events", () => {
+                    let service: StudioService;
+                    beforeEach(() => {
+                        fetchMock.put(
+                            "https://base-url/cms/app/events",
+                            {},
+                            {
+                                name: "EVENTS",
+                                method: "PUT",
+                                overwriteRoutes: true,
+                                response: {}
+                            }
+                        );
+                        service = new StudioService({
+                            appId: "appId",
+                            token: "token"
+                        });
+                    });
+                    afterEach(() => {
+                        fetchMock.reset();
+                    });
+                    after(() => {
+                        fetchMock.restore();
+                    });
+                    it("uses the environment variable base url", async () => {
+                        await service.putEvents([{ name: "Error", type: "ERROR", platform: "platform", channel: "channel", payload: { message: "message" } }]);
+                        expect(fetchMock.called()).to.be.true;
+                        expect(fetchMock.calls()[0][1].body).to.deep.equal(
+                            '{"events":[{"name":"Error","type":"ERROR","platform":"platform","channel":"channel","payload":{"message":"message"},"appId":"appId"}]}'
+                        );
+                    });
                 });
             });
         });

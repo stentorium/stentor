@@ -4,7 +4,6 @@ import { determine } from "stentor-determiner";
 /**
  * Determine which segment is the best based on the provided list of segments and context.
  *
- * @export
  * @param {ResponseSegment[]} segments
  * @param {Request} request
  * @param {Context} context

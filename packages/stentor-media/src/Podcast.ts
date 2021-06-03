@@ -12,8 +12,6 @@ export interface PodcastProps extends RSSFeedProps<PodcastEpisode> {
  * <p>
  * Note: Potential refactor - should this extend Playlist?
  * </p>
- * @export
- * @class Podcast
  * @implements {PodcastProps}
  */
 export class Podcast extends RSSFeed<PodcastEpisode> {

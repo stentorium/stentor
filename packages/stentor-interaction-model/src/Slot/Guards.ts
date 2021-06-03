@@ -4,8 +4,6 @@ import { SlotDependable, SlotDependent } from "stentor-models";
 /**
  * Guard to check if an object is SlotDependable
  *
- * @export
- * @template T
  * @param {object} item
  * @returns {item is SlotDependable<T>}
  */

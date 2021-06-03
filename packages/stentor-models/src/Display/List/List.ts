@@ -1,4 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { BaseDisplay } from "../Types";
+
 /**
  * List style display items.
  *
@@ -10,7 +12,7 @@
  * {@link https://developer.amazon.com/docs/custom-skills/display-template-reference.html#listtemplate1}
  *
  */
-export interface List {
+export interface List extends BaseDisplay {
     /**
      * Type of list.
      *
@@ -30,6 +32,31 @@ export interface List {
      * The list items.
      */
     items: ListItem[];
+    /**
+     * Used when templating the list for automatic generation.
+     * 
+     * When using itemsObject, the first item in the list is the template
+     * and all other items in the list will be ignored.
+     * 
+     * @beta This is not yet fully supported
+     */
+    itemsObject?: string;
+    /**
+     * Used with itemsObject, it is then used to reference the current item in the list within the template. 
+     *
+     * @beta This is not yet fully supported 
+     */
+    itemsName?: string;
+    /**
+     * When itemsObject is provided, this is the amount of list items to display
+     * along with the offset within the list.
+     * 
+     * @beta This is not yet fully supported
+     */
+    range?: {
+        length: number;
+        from: number;
+    }
 }
 
 export interface ListItem {
@@ -57,6 +84,16 @@ export interface ListItem {
      * The image for the list item.
      */
     image?: ListImage;
+    /**
+     * URL to open when the list item is selected.
+     * 
+     * Not applicable to list type CAROUSEL or available on channels without a web browser available.   
+     */
+    url?: string;
+    /**
+     * Optional list of buttons that will be displayed on the list item.
+     */
+    buttons?: ListButton[];
 }
 
 export interface ListImage {
@@ -80,4 +117,17 @@ export interface ListImage {
      * Describes the image for screen readers, referred to as ContentDescription on Alexa.
      */
     accessibilityText: string;
+    /**
+     * When present, if the image is clicked the provided website will open.
+     * 
+     * @beta Not yet fully supported.
+     */
+    imageActionUrl?: string;
+}
+
+export interface ListButton {
+    /**
+     * Text to be displayed, also needs to be included in the interaction model
+     */
+    title: string;
 }

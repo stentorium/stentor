@@ -5,14 +5,29 @@ import {
     Device,
     Channel,
     HandlerService,
+    KnowledgeBaseService,
     Pii,
     PIIService,
     Response,
     Request,
     RequestResponse,
     UserDataValue,
-    UserStorageService
+    UserStorageService,
+    KnowledgeBaseResult
 } from "stentor-models";
+
+export class MockKnowledgeBaseService implements KnowledgeBaseService {
+    public query(): KnowledgeBaseResult {
+        return {
+            faqs: [
+                {
+                    question: "What is your favorite scary movie?",
+                    document: "Scream 2"
+                }
+            ]
+        };
+    }
+}
 
 export class MockHandlerService implements HandlerService {
     public get(): any {

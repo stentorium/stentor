@@ -2,7 +2,6 @@
 export * from "./isActionable";
 export * from "./isActiveWithin";
 export * from "./isCompilablePath";
-export * from "./isContextual";
 export * from "./isExecutablePath";
 export * from "./isFirstTime";
 export * from "./isGlobalHandler";

@@ -18,6 +18,7 @@ import {
     EventStream,
     HandlerService,
     Hooks,
+    KnowledgeBaseService,
     PIIService,
     RuntimeCallback,
     UserStorageService
@@ -45,6 +46,7 @@ export class Assistant {
     private factoryProps: HandlerFactoryProps = {};
     private handlerService: HandlerService | undefined = undefined;
     private hooks: Hooks = {};
+    private knowledgeBaseServices: { [key: string]: KnowledgeBaseService } = {};
     private piiService: PIIService | undefined = undefined;
     private runtimeData: AppRuntimeData = {};
     private userStorageService: UserStorageService | undefined = undefined;
@@ -101,6 +103,20 @@ export class Assistant {
      */
     public withHandlerService(handlerService: HandlerService): Assistant {
         this.handlerService = handlerService;
+        return this;
+    }
+
+    /**
+     * Add a Knowledge Base Service that is called on particular requests and the results are appended to the request.
+     * 
+     * @param knowledgeBaseService 
+     * @param key - A regex to match the incoming request with to determine if the knowledge base should be queried 
+     * @returns 
+     */
+    public withKnowledgeBaseService(knowledgeBaseService: KnowledgeBaseService, key: string): Assistant {
+        if (knowledgeBaseService && key) {
+            this.knowledgeBaseServices[key] = knowledgeBaseService;
+        }
         return this;
     }
 
@@ -170,7 +186,6 @@ export class Assistant {
      * @private
      */
     private getHandlerService(): HandlerService {
-
         let handlerService: HandlerService;
         if (!this.handlerService) {
             if (process.env.STUDIO_TOKEN) {
@@ -217,7 +232,6 @@ export class Assistant {
      * Adds prefixes to the event service depending on it's environment
      */
     private setupEventService(): void {
-
         if (process.env.OVAI_APP_ID) {
             // This is the deprecated variable
             this.eventService.addPrefix({
@@ -303,7 +317,8 @@ export class Assistant {
                     handlerFactory: factory,
                     handlerService,
                     eventService: this.eventService,
-                    piiService: this.piiService
+                    piiService: this.piiService,
+                    knowledgeBaseServices: this.knowledgeBaseServices
                 },
                 this.hooks
             );

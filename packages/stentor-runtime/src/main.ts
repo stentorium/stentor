@@ -12,6 +12,7 @@ import {
     Context,
     HandlerService,
     Hooks,
+    KnowledgeBaseService,
     PIIService,
     Request,
     Response, ResponseOutput,
@@ -31,7 +32,7 @@ import {
 } from "stentor-request";
 import { canFulfillAll, canFulfillNothing, getResponse } from "stentor-response";
 import { EventService, wrapCallback as eventServiceCallbackWrapper } from "stentor-service-event";
-import { combineRequestSlots, existsAndNotEmpty } from "stentor-utils";
+import { combineRequestSlots, existsAndNotEmpty, findValueForKey } from "stentor-utils";
 import { ChannelSelector } from "./ChannelSelector";
 
 /**
@@ -46,6 +47,7 @@ export interface Dependencies {
     handlerService: HandlerService;
     piiService?: PIIService;
     userStorageService: UserStorageService;
+    knowledgeBaseServices?: { [key: string]: KnowledgeBaseService }
 }
 
 /**
@@ -82,7 +84,7 @@ export const main = async (
         throw new TypeError("Channels passed to main() was either undefined or empty.");
     }
 
-    const { eventService, userStorageService, handlerService, piiService, handlerFactory } = dependencies;
+    const { eventService, userStorageService, handlerService, piiService, handlerFactory, knowledgeBaseServices } = dependencies;
 
     // Wrap the callback
     //  if the eventService exists
@@ -155,7 +157,8 @@ export const main = async (
             isHealthCheck: request.isHealthCheck,
             platform: request.platform,
             isNewSession: request.isNewSession,
-            channel: request.channel
+            channel: request.channel,
+            rawQuery: request.rawQuery
         });
         // And sessionId if possible
         if (hasSessionId(request)) {
@@ -194,6 +197,19 @@ export const main = async (
                 ...nluResponse
             };
         }
+    }
+
+    if (knowledgeBaseServices) {
+        const key = keyFromRequest(request);
+        const kbService = findValueForKey(key, knowledgeBaseServices);
+        if (kbService) {
+            const kbResult = await kbService.query(request.rawQuery);
+
+            if (isIntentRequest(request)) {
+                request.knowledgeBaseResult = kbResult;
+            }
+        }
+
     }
 
     // #1 Build the context from the request

@@ -15,7 +15,7 @@
     "node": "^10 || ^12 || ^14"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "7.15.2",
+    "@microsoft/api-extractor": "7.16.1",
     "@types/blueimp-md5": "2.18.0",
     "@types/chai": "4.2.18",
     "@types/marked": "2.0.3",

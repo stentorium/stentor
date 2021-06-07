@@ -62,7 +62,7 @@ describe("#main() with KnowledgeBase Service", () => {
 
     describe("when knowledge base service matches the request", () => {
         beforeEach(() => {
-            request = new IntentRequestBuilder().withIntentId(intentId).build();
+            request = new IntentRequestBuilder().withRawQuery("what is your favorite scary movie").withIntentId(intentId).build();
             handlerFactory = new HandlerFactory({ handlers: [ConversationHandler] });
             context = { ovai: { appId } };
             callbackSpy = sinon.spy();
@@ -81,7 +81,7 @@ describe("#main() with KnowledgeBase Service", () => {
                 handlerService,
                 userStorageService,
                 knowledgeBaseServices: {
-                    ["Foo.*"]: knowledgeBaseService
+                    ["Foo.*"]: { matchIntentId: "Foo.*", service: knowledgeBaseService }
                 }
             });
 
@@ -121,7 +121,10 @@ describe("#main() with KnowledgeBase Service", () => {
                 handlerService,
                 userStorageService,
                 knowledgeBaseServices: {
-                    ["Foo.*"]: knowledgeBaseService
+                    ["Foo.*"]: {
+                        matchIntentId: "Foo.*",
+                        service: knowledgeBaseService
+                    }
                 }
             });
 

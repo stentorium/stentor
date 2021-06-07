@@ -47,7 +47,7 @@ let callbackSpy: sinon.SinonSpy;
 let handlerService: HandlerService;
 let userStorageService: UserStorageService;
 
-describe("#main()", () => {
+describe("#main() with LaunchRequest", () => {
     beforeEach(() => {
         handlerFactory = new HandlerFactory({ handlers: [ConversationHandler] });
         context = {};

@@ -24,7 +24,7 @@ import {
     RuntimeContext,
     UserStorageService
 } from "stentor-models";
-import { main, translateEventAndContext } from "stentor-runtime";
+import { KnowledgeBaseConfig, KnowledgeBaseDependency, main, translateEventAndContext } from "stentor-runtime";
 import { EventPrefix, EventService } from "stentor-service-event";
 import { StudioEventStream, StudioService } from "stentor-service-studio";
 import { OVAIEventStream, OVAIService } from "stentor-service-ovai";
@@ -49,7 +49,7 @@ export class Assistant {
     private factoryProps: HandlerFactoryProps = {};
     private handlerService: HandlerService | undefined = undefined;
     private hooks: Hooks = {};
-    private knowledgeBaseServices: { [key: string]: KnowledgeBaseService } = {};
+    private knowledgeBaseServices: { [matchIntentId: string]: KnowledgeBaseDependency } = {};
     private piiService: PIIService | undefined = undefined;
     private runtimeData: AppRuntimeData = {};
     private userStorageService: UserStorageService | undefined = undefined;
@@ -112,13 +112,15 @@ export class Assistant {
     /**
      * Add a Knowledge Base Service that is called on particular requests and the results are appended to the request.
      * 
-     * @param knowledgeBaseService - Service that impelements KnowledgeBaseService 
-     * @param key - A regex to match the incoming request with to determine if the knowledge base should be queried 
+     * @param service - Service that impelements KnowledgeBaseService 
+     * @param config - Configuration for when to call the service and how the results should be used.
      * @returns 
      */
-    public withKnowledgeBaseService(knowledgeBaseService: KnowledgeBaseService, key: string): Assistant {
-        if (knowledgeBaseService && key) {
-            this.knowledgeBaseServices[key] = knowledgeBaseService;
+    public withKnowledgeBaseService(service: KnowledgeBaseService, config: KnowledgeBaseConfig): Assistant {
+        if (service && config) {
+            // If they do not provide one, default is to be called on every request.
+            const key = config.matchIntentId || "^.*$";
+            this.knowledgeBaseServices[key] = { service, ...config };
         }
         return this;
     }

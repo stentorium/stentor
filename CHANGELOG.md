@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.42.0](https://github.com/stentorium/stentor/compare/v1.41.17...v1.42.0) (2021-06-07)
+
+
+### Features
+
+* Ability to inject a KnowledgeBaseService that is called on user defined requests ([#995](https://github.com/stentorium/stentor/issues/995)) ([ee6f45b](https://github.com/stentorium/stentor/commit/ee6f45bb1400c533f858626d918f3edd7f41c95d))
+
+
+
+
+
 ## [1.41.17](https://github.com/stentorium/stentor/compare/v1.41.16...v1.41.17) (2021-06-06)
 
 **Note:** Version bump only for package repo

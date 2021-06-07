@@ -2,10 +2,12 @@
 import { AbstractBuilder } from "@xapp/patterns";
 import { LAUNCH_REQUEST_ID, INPUT_UNKNOWN_ID, PERMISSION_GRANT_ID, SIGN_IN_ID, OPTION_SELECT_ID } from "stentor-constants";
 import {
+    ApiAccessData,
     AudioPlayerEvent,
     AudioPlayerRequest,
     InputUnknownRequest,
     IntentRequest,
+    KnowledgeBaseResult,
     LanguageTag,
     LaunchRequest,
     OptionSelectRequest,
@@ -15,7 +17,6 @@ import {
     RequestSlotMap,
     SessionEndedRequest,
     SignInRequest,
-    ApiAccessData
 } from "stentor-models";
 
 import * as INTENT from "stentor-interaction-model/lib/Intent/Constants";
@@ -134,6 +135,7 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
     private slots: RequestSlotMap;
     private userId = "userId";
     private canFulFill: boolean;
+    private knowledgeBaseResult: KnowledgeBaseResult;
 
     /**
      * Turns the request into a canfulfill intent request.
@@ -281,10 +283,21 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
     }
 
     /**
+     * Add a knowledge base result.
+     * 
+     * @param result 
+     * @returns 
+     */
+    public withKnowledgeBaseResult(result: KnowledgeBaseResult): IntentRequestBuilder {
+        this.knowledgeBaseResult = result;
+        return this;
+    }
+
+    /**
      * Build the intent request.
      */
     public build(): IntentRequest {
-        const { apiAccess, canFulFill, deviceId, intentId, locale, platform, slots, userId, isNewSession, rawQuery } = this;
+        const { apiAccess, canFulFill, deviceId, knowledgeBaseResult, intentId, locale, platform, slots, userId, isNewSession, rawQuery } = this;
 
         const request: IntentRequest = {
             type: REQUEST.INTENT_REQUEST_TYPE,
@@ -314,6 +327,10 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
 
         if (typeof slots === "object") {
             request.slots = slots;
+        }
+
+        if (typeof knowledgeBaseResult === "object") {
+            request.knowledgeBaseResult = knowledgeBaseResult;
         }
 
         return request;

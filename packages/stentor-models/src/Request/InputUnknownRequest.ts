@@ -1,4 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { KnowledgeBaseResult } from "./KnowledgeBase";
 import { BaseRequest } from "./Request";
 import { InputUnknownID, InputUnknownRequestType } from "./Types";
 /**
@@ -14,4 +15,10 @@ export interface InputUnknownRequest extends BaseRequest {
      * The session ID.
      */
     sessionId: string;
+    /**
+     * Results returned from a knowledge base such as AWS Kendra.
+     * 
+     * @beta
+     */
+    knowledgeBaseResult?: KnowledgeBaseResult;
 }

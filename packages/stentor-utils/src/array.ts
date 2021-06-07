@@ -72,3 +72,17 @@ export function existsAndNotEmpty<T>(items: T[] | undefined): boolean {
     // since strings are also have .length
     return Array.isArray(items) && items.length > 0;
 }
+
+/**
+ * Combines two arrays, either of which can be undefined.  It always returns an array.
+ * 
+ * @param one 
+ * @param two 
+ */
+export function combine<T>(one: T[] | undefined, two: T[] | undefined): T[] {
+
+    one = one || [];
+    two = two || [];
+
+    return [...one, ...two];
+}

@@ -12,6 +12,7 @@ import {
     Context,
     HandlerService,
     Hooks,
+    KnowledgeBaseService,
     PIIService,
     Request,
     Response, ResponseOutput,
@@ -31,8 +32,38 @@ import {
 } from "stentor-request";
 import { canFulfillAll, canFulfillNothing, getResponse } from "stentor-response";
 import { EventService, wrapCallback as eventServiceCallbackWrapper } from "stentor-service-event";
-import { combineRequestSlots, existsAndNotEmpty } from "stentor-utils";
+import { combineRequestSlots, existsAndNotEmpty, findValueForKey } from "stentor-utils";
 import { ChannelSelector } from "./ChannelSelector";
+import { mergeKnowledgeBaseResult } from "./mergeKnowledgeBaseResult";
+
+export interface KnowledgeBaseConfig {
+    /**
+     * Either the intentId or regex to determine which requests to call the KnowledgeBaseService.  If not provided it defaults to "^.*$", which is a regex
+     * that will match on all requests.
+     */
+    matchIntentId?: string;
+    /**
+     * If provided, it will override the intentId on the original request if the knowledgebase results are preferred.
+     * 
+     * It will also update the request type to be that of an Intent Request.
+     */
+    setIntentId?: string;
+    /**
+     * If set to true then when knowledge base results already exist, they will be merged instead of the default behavior of
+     * being overwritten.
+     *  
+     * @beta - This field and behavior of the field is subject to change.
+     */
+    mergeResults?: boolean;
+    // For future consideration
+    // If set, it will be used to establish a minimum threshold that must be passed in order to use the knowledge base results.
+    // If below the threshold, then the existing intent will be used and not augmented.
+    // confidenceThreshold?: number;
+}
+
+export interface KnowledgeBaseDependency extends KnowledgeBaseConfig {
+    service: KnowledgeBaseService;
+}
 
 /**
  * Runtime dependencies
@@ -43,6 +74,7 @@ export interface Dependencies {
     handlerService: HandlerService;
     piiService?: PIIService;
     userStorageService: UserStorageService;
+    knowledgeBaseServices?: { [matchIntentId: string]: KnowledgeBaseDependency };
 }
 
 /**
@@ -79,7 +111,7 @@ export const main = async (
         throw new TypeError("Channels passed to main() was either undefined or empty.");
     }
 
-    const { eventService, userStorageService, handlerService, piiService, handlerFactory } = dependencies;
+    const { eventService, userStorageService, handlerService, piiService, handlerFactory, knowledgeBaseServices } = dependencies;
 
     // Wrap the callback
     //  if the eventService exists
@@ -152,7 +184,8 @@ export const main = async (
             isHealthCheck: request.isHealthCheck,
             platform: request.platform,
             isNewSession: request.isNewSession,
-            channel: request.channel
+            channel: request.channel,
+            rawQuery: request.rawQuery
         });
         // And sessionId if possible
         if (hasSessionId(request)) {
@@ -194,6 +227,17 @@ export const main = async (
                 ...request,
                 ...nluResponse
             };
+        }
+    }
+
+    if (knowledgeBaseServices && Object.keys(knowledgeBaseServices).length > 0) {
+        const key = keyFromRequest(request);
+        const kbConfig = findValueForKey(key, knowledgeBaseServices);
+        const kbService = kbConfig?.service;
+        if (kbService && request.rawQuery) {
+            const kbResult = await kbService.query(request.rawQuery);
+
+            request = mergeKnowledgeBaseResult(request, kbResult, kbConfig);
         }
     }
 

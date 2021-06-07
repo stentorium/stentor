@@ -1,6 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { expect } from "chai";
-import { existsAndNotEmpty, random, shuffle } from "../array";
+import { combine, existsAndNotEmpty, random, shuffle } from "../array";
 
 describe("Array", () => {
     describe("#random()", () => {
@@ -56,5 +56,17 @@ describe(`#${shuffle.name}`, () => {
             expect(shuffled).to.contain(3);
             expect(shuffled).to.contain(4);
         });
+    });
+});
+
+describe(`#${combine.name}()`, () => {
+    it('returns the expected result', () => {
+        expect(combine(undefined, undefined)).to.deep.equal([]);
+        expect(combine([], [])).to.deep.equal([]);
+        expect(combine([1], undefined)).to.deep.equal([1]);
+        expect(combine([1], [])).to.deep.equal([1]);
+        expect(combine(undefined, [1])).to.deep.equal([1]);
+        expect(combine([], [1])).to.deep.equal([1]);
+        expect(combine([1, 2], [3])).to.deep.equal([1, 2, 3]);
     });
 });

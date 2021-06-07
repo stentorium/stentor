@@ -18,12 +18,13 @@ import {
     EventStream,
     HandlerService,
     Hooks,
+    KnowledgeBaseService,
     PIIService,
     RuntimeCallback,
     RuntimeContext,
     UserStorageService
 } from "stentor-models";
-import { main, translateEventAndContext } from "stentor-runtime";
+import { KnowledgeBaseConfig, KnowledgeBaseDependency, main, translateEventAndContext } from "stentor-runtime";
 import { EventPrefix, EventService } from "stentor-service-event";
 import { StudioEventStream, StudioService } from "stentor-service-studio";
 import { OVAIEventStream, OVAIService } from "stentor-service-ovai";
@@ -48,6 +49,7 @@ export class Assistant {
     private factoryProps: HandlerFactoryProps = {};
     private handlerService: HandlerService | undefined = undefined;
     private hooks: Hooks = {};
+    private knowledgeBaseServices: { [matchIntentId: string]: KnowledgeBaseDependency } = {};
     private piiService: PIIService | undefined = undefined;
     private runtimeData: AppRuntimeData = {};
     private userStorageService: UserStorageService | undefined = undefined;
@@ -104,6 +106,22 @@ export class Assistant {
      */
     public withHandlerService(handlerService: HandlerService): Assistant {
         this.handlerService = handlerService;
+        return this;
+    }
+
+    /**
+     * Add a Knowledge Base Service that is called on particular requests and the results are appended to the request.
+     * 
+     * @param service - Service that impelements KnowledgeBaseService 
+     * @param config - Configuration for when to call the service and how the results should be used.
+     * @returns 
+     */
+    public withKnowledgeBaseService(service: KnowledgeBaseService, config: KnowledgeBaseConfig): Assistant {
+        if (service && config) {
+            // If they do not provide one, default is to be called on every request.
+            const key = config.matchIntentId || "^.*$";
+            this.knowledgeBaseServices[key] = { service, ...config };
+        }
         return this;
     }
 
@@ -173,7 +191,6 @@ export class Assistant {
      * @private
      */
     private getHandlerService(): HandlerService {
-
         let handlerService: HandlerService;
         if (!this.handlerService) {
             if (process.env.STUDIO_TOKEN) {
@@ -220,7 +237,6 @@ export class Assistant {
      * Adds prefixes to the event service depending on it's environment
      */
     private setupEventService(): void {
-
         if (process.env.OVAI_APP_ID) {
             // This is the deprecated variable
             this.eventService.addPrefix({
@@ -296,7 +312,8 @@ export class Assistant {
                     handlerFactory: factory,
                     handlerService,
                     eventService: this.eventService,
-                    piiService: this.piiService
+                    piiService: this.piiService,
+                    knowledgeBaseServices: this.knowledgeBaseServices
                 },
                 this.hooks
             );

@@ -29,7 +29,7 @@ export interface Entity {
     /**
      * Optional ID if the slot type has a representation in Dialogflow.
      * 
-     * @deprecated This field is being phased out.
+     * @deprecated This field is being phased out.  It will be removed in the next major release
      */
     dialogflowId?: string;
     /**

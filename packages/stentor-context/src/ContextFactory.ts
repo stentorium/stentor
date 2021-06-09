@@ -27,6 +27,13 @@ export interface ContextFactoryServices {
 export class ContextFactory {
     /**
      * Build context from the provided request.
+     *
+     * @param request 
+     * @param requestBody 
+     * @param services 
+     * @param channel - This field will disappear in the next major release.  It is only used to set the device field on the context.
+     * @param appData 
+     * @returns 
      */
     public static async fromRequest(
         request: Request,

@@ -6,7 +6,7 @@ export interface RuntimeContext {
     /**
      * Context specific to One Voice AI
      * 
-     * @deprecated Deprecated in favor of studio.
+     * @deprecated Deprecated in favor of studio key.
      */
     ovai?: StudioContext;
     /**

@@ -49,7 +49,7 @@ export interface Channel {
     /**
      * Response builder, this is now deprecated in favor of providing a response translator.
      *
-     * @deprecated Provide a response translator instead of a customer builder.
+     * @deprecated Provide a response translator instead of a customer builder.  This will be removed in the next major release.
      */
     builder?: new (props: object) => AbstractResponseBuilder;
     /**

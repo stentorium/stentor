@@ -37,6 +37,10 @@ export interface BaseRequest {
      */
     deviceId?: string;
     /**
+     * Optional unique identifier for the request provided by the channel.
+     */
+    requestId?: string;
+    /**
      * The user is anonymous, or a guest.
      *
      * The user either does not yet have a verified identity or have

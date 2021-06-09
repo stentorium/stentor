@@ -48,6 +48,12 @@ export class ContextBuilder<S extends Storage = Storage> extends AbstractBuilder
         };
     }
 
+    /**
+     * 
+     * @deprecated - Device will be removed from the context in the next major release.  Use device on request.
+     * @param device 
+     * @returns 
+     */
     public withDevice(device: Device): ContextBuilder<S> {
         this.context.device = device;
         return this;

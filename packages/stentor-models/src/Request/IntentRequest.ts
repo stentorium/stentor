@@ -7,7 +7,6 @@ import { KnowledgeAnswer, KnowledgeBaseResult } from "./KnowledgeBase";
 
 export type RequestSlotValues = string | number | object | DateTimeRange | DateTime | Duration | (string)[];
 
-
 export interface RequestAttachment {
     /**
      * Url to the uploaded file

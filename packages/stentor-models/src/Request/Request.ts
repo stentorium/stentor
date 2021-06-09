@@ -1,4 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { Device } from "../Device";
 import { Locale } from "../Locale";
 import { AudioPlayerRequest } from "./AudioPlayerRequest";
 import { InputUnknownRequest } from "./InputUnknownRequest";
@@ -70,6 +71,10 @@ export interface BaseRequest {
      * The specific channel that the platform provides.  
      */
     channel?: string;
+    /**
+     * Information about the device as far as capabilities such as screen or web browser available.
+     */
+    device?: Device;
     /**
      * User's locale, such as us-EN and es-MX.
      *

@@ -73,6 +73,9 @@ export interface BaseRequest {
     channel?: string;
     /**
      * Information about the device as far as capabilities such as screen or web browser available.
+     * 
+     * This information is available in two places, also on the context object, until it is removed from the context
+     * in the next major release.
      */
     device?: Device;
     /**

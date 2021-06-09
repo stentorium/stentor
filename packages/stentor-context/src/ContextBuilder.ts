@@ -49,6 +49,7 @@ export class ContextBuilder<S extends Storage = Storage> extends AbstractBuilder
     }
 
     /**
+     * Add device information to the context.
      * 
      * @deprecated - Device will be removed from the context in the next major release.  Use device on request.
      * @param device 

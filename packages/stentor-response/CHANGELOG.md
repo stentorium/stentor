@@ -3,6 +3,70 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.42.6](https://github.com/stentorium/stentor/compare/v1.42.5...v1.42.6) (2021-06-10)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
+## [1.42.5](https://github.com/stentorium/stentor/compare/v1.42.4...v1.42.5) (2021-06-10)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
+## [1.42.4](https://github.com/stentorium/stentor/compare/v1.42.3...v1.42.4) (2021-06-10)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
+## [1.42.3](https://github.com/stentorium/stentor/compare/v1.42.2...v1.42.3) (2021-06-09)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
+## [1.42.2](https://github.com/stentorium/stentor/compare/v1.42.1...v1.42.2) (2021-06-09)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
+## [1.42.1](https://github.com/stentorium/stentor/compare/v1.42.0...v1.42.1) (2021-06-08)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
+# [1.42.0](https://github.com/stentorium/stentor/compare/v1.41.17...v1.42.0) (2021-06-07)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
+## [1.41.17](https://github.com/stentorium/stentor/compare/v1.41.16...v1.41.17) (2021-06-06)
+
+**Note:** Version bump only for package stentor-response
+
+
+
+
+
 ## [1.41.16](https://github.com/stentorium/stentor/compare/v1.41.15...v1.41.16) (2021-06-01)
 
 **Note:** Version bump only for package stentor-response

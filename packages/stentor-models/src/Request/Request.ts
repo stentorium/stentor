@@ -1,4 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { Device } from "../Device";
 import { Locale } from "../Locale";
 import { AudioPlayerRequest } from "./AudioPlayerRequest";
 import { InputUnknownRequest } from "./InputUnknownRequest";
@@ -36,6 +37,10 @@ export interface BaseRequest {
      */
     deviceId?: string;
     /**
+     * Optional unique identifier for the request provided by the channel.
+     */
+    requestId?: string;
+    /**
      * The user is anonymous, or a guest.
      *
      * The user either does not yet have a verified identity or have
@@ -70,6 +75,13 @@ export interface BaseRequest {
      * The specific channel that the platform provides.  
      */
     channel?: string;
+    /**
+     * Information about the device as far as capabilities such as screen or web browser available.
+     * 
+     * This information is available in two places, also on the context object, until it is removed from the context
+     * in the next major release.
+     */
+    device?: Device;
     /**
      * User's locale, such as us-EN and es-MX.
      *

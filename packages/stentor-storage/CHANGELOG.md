@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.42.21](https://github.com/stentorium/stentor/compare/v1.42.20...v1.42.21) (2021-06-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency jsonpath-plus to v5.1.0 ([#1030](https://github.com/stentorium/stentor/issues/1030)) ([eab6113](https://github.com/stentorium/stentor/commit/eab6113cdd435464142c9fc235bab2d9523157c9))
+
+
+
+
+
 ## [1.42.20](https://github.com/stentorium/stentor/compare/v1.42.19...v1.42.20) (2021-06-25)
 
 **Note:** Version bump only for package stentor-storage

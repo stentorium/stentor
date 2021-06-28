@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.42.25](https://github.com/stentorium/stentor/compare/v1.42.24...v1.42.25) (2021-06-28)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
 ## [1.42.24](https://github.com/stentorium/stentor/compare/v1.42.23...v1.42.24) (2021-06-27)
 
 

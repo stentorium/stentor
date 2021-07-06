@@ -113,13 +113,6 @@ export const main = async (
 
     const { eventService, userStorageService, handlerService, piiService, handlerFactory, knowledgeBaseServices } = dependencies;
 
-    // Wrap the callback
-    //  if the eventService exists
-    if (eventService) {
-        // Wrap the callback so it flushes when we're done.
-        callback = eventServiceCallbackWrapper(eventService, callback);
-    }
-
     // Step #0
     // Get the Channel
     let channel: Channel;
@@ -155,6 +148,13 @@ export const main = async (
         console.error(error.stack);
         callback(error);
         return;
+    }
+
+    // Wrap the callback
+    //  if the eventService exists
+    if (eventService) {
+        // Wrap the callback so it flushes when we're done.
+        callback = eventServiceCallbackWrapper(eventService, callback);
     }
 
     let request: Request;

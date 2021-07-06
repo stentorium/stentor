@@ -64,5 +64,6 @@
   },
   "peerDependencies": {
     "aws-sdk": "2.X"
-  }
+  },
+  "gitHead": "3a975779368329a0ebf8e16c7a661414f1192053"
 }

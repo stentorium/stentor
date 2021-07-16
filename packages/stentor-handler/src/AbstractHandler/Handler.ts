@@ -274,8 +274,6 @@ export abstract class AbstractHandler<
             case INPUT_UNKNOWN_ID:
                 return this.inputUnknown(request, context);
             default:
-                // NOTE: Any way we can combine this with the start() method?  It does
-                // something similar and can handle any type of request.
                 // Try to find one in the content
                 const response = getResponse(this, request, context);
                 if (response) {

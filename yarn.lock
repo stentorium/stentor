@@ -2371,10 +2371,10 @@ chownr@^1.1.1, chownr@^1.1.2:
   resolved "https://registry.yarnpkg.com/chownr/-/chownr-1.1.4.tgz#6fc9d7b42d32a583596337666e7d08084da2cc6b"
   integrity sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==
 
-chrono-node@2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/chrono-node/-/chrono-node-2.3.0.tgz#bf21f5bf27abb94b98c68042463dea7341231093"
-  integrity sha512-70DhMEY3RiwB/9+Fstpu9cbI+ycO/WNHxCOI1Lvo+LLiVdhMVOJ8B3jzXgZHCiGbZc7SKHFsP7apeeuP/EAw+Q==
+chrono-node@2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/chrono-node/-/chrono-node-2.3.1.tgz#b47f1f6496ee8de676a2153e693856a5c53fe5ea"
+  integrity sha512-zx/o58qoIKNhZT3eFZyi7wAK4Yn+y7EVrWnYiPXbYWXnZdX1HzoU1u9pTfhHymNV1Rdk/IGjOVgQul54dR8Z0Q==
   dependencies:
     dayjs "^1.10.0"
 

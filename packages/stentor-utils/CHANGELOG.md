@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.42.37](https://github.com/stentorium/stentor/compare/v1.42.36...v1.42.37) (2021-07-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.3.1 ([#1070](https://github.com/stentorium/stentor/issues/1070)) ([5ff1918](https://github.com/stentorium/stentor/commit/5ff1918a900e90c8a2b5a9b224a0b0c3c7135018))
+* **deps:** update dependency slugify to v1.6.0 ([#1066](https://github.com/stentorium/stentor/issues/1066)) ([049596c](https://github.com/stentorium/stentor/commit/049596c202fc8daa5440d84394cd2ed813523eb4))
+
+
+
+
+
 ## [1.42.36](https://github.com/stentorium/stentor/compare/v1.42.35...v1.42.36) (2021-07-19)
 
 **Note:** Version bump only for package stentor-utils

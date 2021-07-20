@@ -24,6 +24,15 @@ describe(`#${toHTML.name}()`, () => {
             expect(toHTML("**Bold** www.xapp.ai _Italic_")).to.equal("<p><strong>Bold</strong> <a target=\"_blank\" href=\"https://www.xapp.ai\">www.xapp.ai</a> <em>Italic</em></p>\n");
         });
     });
+    describe("when passed props", () => {
+        describe("with allowedTags", () => {
+            it("keeps allowed tags", () => {
+                const allowedTags = ["br", "strong", "b", "em", "i", "strike", "u", "tt", "code", "sup", "sub", "nobr"];
+                expect(toHTML("one  \ntwo", { allowedTags })).to.equal("one<br />two\n");
+                expect(toHTML("_Italic_\n**Bold**\n[Google](https://google.com)", { allowedTags })).to.equal("<em>Italic</em><br /><strong>Bold</strong><br />Google\n");
+            });
+        });
+    });
     describe("with dangerous dirty code", () => {
         it("returns the correct result", () => {
             expect(toHTML("_Italic_ <script>alert('hello world')</script>")).to.equal("<p><em>Italic</em> </p>\n");

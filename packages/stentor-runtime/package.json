@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.42.11",
+  "version": "1.42.44",
   "description": "Runtime for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -15,35 +15,35 @@
     "node": "^10 || ^12 || ^14"
   },
   "devDependencies": {
-    "@types/chai": "4.2.18",
+    "@types/chai": "4.2.19",
     "@types/sinon": "10.0.2",
     "@types/sinon-chai": "3.2.5",
     "@xapp/config": "0.2.3",
-    "@xapp/patterns": "1.32.130",
-    "aws-sdk": "2.927.0",
+    "@xapp/patterns": "1.33.27",
+    "aws-sdk": "2.953.0",
     "chai": "4.3.4",
     "fetch-mock": "9.11.0",
-    "mocha": "9.0.0",
+    "mocha": "9.0.3",
     "rimraf": "3.0.2",
     "sinon": "10.0.0",
     "sinon-chai": "3.7.0",
-    "stentor-models": "1.42.11",
+    "stentor-models": "1.42.43",
     "ts-node": "9.1.1",
-    "typescript": "4.3.3"
+    "typescript": "4.3.5"
   },
   "dependencies": {
-    "stentor-constants": "1.42.11",
-    "stentor-context": "1.42.11",
-    "stentor-handler": "1.42.11",
-    "stentor-handler-factory": "1.42.11",
-    "stentor-handler-manager": "1.42.11",
-    "stentor-history": "1.42.11",
-    "stentor-interaction-model": "1.42.11",
-    "stentor-logger": "1.42.11",
-    "stentor-request": "1.42.11",
-    "stentor-response": "1.42.11",
-    "stentor-service-event": "1.42.11",
-    "stentor-utils": "1.42.11"
+    "stentor-constants": "1.42.43",
+    "stentor-context": "1.42.44",
+    "stentor-handler": "1.42.44",
+    "stentor-handler-factory": "1.42.44",
+    "stentor-handler-manager": "1.42.44",
+    "stentor-history": "1.42.44",
+    "stentor-interaction-model": "1.42.44",
+    "stentor-logger": "1.42.44",
+    "stentor-request": "1.42.44",
+    "stentor-response": "1.42.44",
+    "stentor-service-event": "1.42.44",
+    "stentor-utils": "1.42.44"
   },
   "peerDependencies": {
     "stentor-models": "1.x"
@@ -53,5 +53,5 @@
     "clean": "rimraf './lib/*' './src/**/*.{js,js.map,d.ts}'",
     "test": "TZ=UTC mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
   },
-  "gitHead": "bb8fead16cbd0cff42ea73d73f0da9a5401c4c99"
+  "gitHead": "3a975779368329a0ebf8e16c7a661414f1192053"
 }

@@ -14,9 +14,10 @@ import { linkify } from "./net";
  * All <a> hyperlink tags have `target="_blank"` added to open the URLs in a new window.
  * 
  * @param input String with markdown
+ * @param props Optional props to pass that influence the behavior.  
  * @returns String with HTML, wrapped with <p></p> tags.
  */
-export function toHTML(input: string): string {
+export function toHTML(input: string, props?: { allowedTags?: string[] }): string {
 
     if (!input) {
         return input;
@@ -35,6 +36,6 @@ export function toHTML(input: string): string {
     };
     const dirty = marked(linked, { renderer, breaks: true, xhtml: true });
 
-    const clean = sanitize(dirty);
+    const clean = sanitize(dirty, props);
     return clean;
 }

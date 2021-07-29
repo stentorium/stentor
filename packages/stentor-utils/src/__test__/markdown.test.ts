@@ -27,6 +27,15 @@ describe(`#${toHTML.name}()`, () => {
             expect(toHTML("| Foo | Bar | \n  | --  | -- | \n  | one | two |")).to.equal("<table>\n<thead>\n<tr>\n<th>Foo</th>\n<th>Bar</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>one</td>\n<td>two</td>\n</tr>\n</tbody></table>\n");
         });
     });
+    describe("when passed props", () => {
+        describe("with allowedTags", () => {
+            it("keeps allowed tags", () => {
+                const allowedTags = ["br", "strong", "b", "em", "i", "strike", "u", "tt", "code", "sup", "sub", "nobr"];
+                expect(toHTML("one  \ntwo", { allowedTags })).to.equal("one<br />two\n");
+                expect(toHTML("_Italic_\n**Bold**\n[Google](https://google.com)", { allowedTags })).to.equal("<em>Italic</em><br /><strong>Bold</strong><br />Google\n");
+            });
+        });
+    });
     describe("with dangerous dirty code", () => {
         it("returns the correct result", () => {
             expect(toHTML("_Italic_ <script>alert('hello world')</script>")).to.equal("<p><em>Italic</em> </p>\n");

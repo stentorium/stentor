@@ -150,7 +150,6 @@ describe("ContextFactory", () => {
                 expect(storage).to.exist;
                 expect(storage.createdTimestamp).to.be.a("number");
                 expect(storage.history).to.exist;
-                expect(storage.unknownInputs).to.be.a("number");
                 expect(storage.sessionStore).to.exist;
             });
         });

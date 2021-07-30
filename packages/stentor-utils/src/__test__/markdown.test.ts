@@ -22,6 +22,9 @@ describe(`#${toHTML.name}()`, () => {
             expect(toHTML("_Italic_\t")).to.equal("<p><em>Italic</em>    </p>\n");
             expect(toHTML("_Italic_ <a href=&quot;http://www.google.com&quot;>Google</a>")).to.equal("<p><em>Italic</em> <a href=\"http://www.google.com\">Google</a></p>\n");
             expect(toHTML("**Bold** www.xapp.ai _Italic_")).to.equal("<p><strong>Bold</strong> <a target=\"_blank\" href=\"https://www.xapp.ai\">www.xapp.ai</a> <em>Italic</em></p>\n");
+            // Table support
+            expect(toHTML("| Foo | Bar | \n  | --  | -- | \n  | one | two |")).to.equal("<table>\n<thead>\n<tr>\n<th>Foo</th>\n<th>Bar</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>one</td>\n<td>two</td>\n</tr>\n</tbody></table>\n");
+            expect(toHTML("| Foo | Bar | \n  | --  | -- | \n  | one | two |")).to.equal("<table>\n<thead>\n<tr>\n<th>Foo</th>\n<th>Bar</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>one</td>\n<td>two</td>\n</tr>\n</tbody></table>\n");
         });
     });
     describe("when passed props", () => {

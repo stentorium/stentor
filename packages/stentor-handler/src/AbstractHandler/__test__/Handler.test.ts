@@ -680,6 +680,51 @@ describe("AbstractHandler", () => {
                 expect(response.respond).to.have.been.called;
                 expect(response.respond).to.have.been.calledWith(intentIdContent);
             });
+            describe("for an input unknown", () => {
+
+                let request: InputUnknownRequest;
+                beforeEach(async () => {
+                    handler = new TestHandler({
+                        appId,
+                        organizationId,
+                        intentId: "InputUnknown",
+                        type: BASE_HANDLER_TYPE,
+                        content: {
+                            ["InputUnknown|Foo"]: [
+                                {
+                                    outputSpeech: "The input unknown content"
+                                }
+                            ]
+                        },
+                        data: {}
+                    });
+
+                    context = new ContextBuilder()
+                        .withDevice(device)
+                        .withResponse(response)
+                        .withStorage({
+                            ...storageProps,
+                            history: {
+                                handler: [
+                                    {
+                                        sessionId: "sessionId",
+                                        intentId: "LaunchRequest",
+                                        timestamp: 123123
+                                    }
+                                ]
+                            }
+                        })
+                        .build();
+                    request = new InputUnknownRequestBuilder().build();
+                    await handler.handleRequest(request, context);
+                });
+                it("it returns the response", () => {
+                    expect(response.respond).to.have.been.called;
+                    expect(response.respond).to.have.been.calledWith({
+                        outputSpeech: "The input unknown content"
+                    });
+                });
+            });
         });
     });
     describe("#isOwnRequest()", () => {

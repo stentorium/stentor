@@ -144,6 +144,12 @@ export const main = async (
             }
         }
     } catch (error) {
+
+        // If we had an error, we need to wrap the callback real quick before calling it.
+        if (eventService) {
+            // Wrap the callback so it flushes when we're done.
+            callback = eventServiceCallbackWrapper(eventService, callback);
+        }
         console.error(JSON.stringify(requestBody, undefined, 2));
         console.error(error.stack);
         callback(error);
@@ -255,6 +261,13 @@ export const main = async (
             channel,
             mainContext.appData
         );
+
+        // Adjust the inputUnknown count if the next request is not 
+        // for input unknown
+        if (!isInputUnknownRequest(request)) {
+            context.session.set("unknownInputs", 0);
+        }
+
         // How much time we left
         if (mainContext.getRemainingTimeInMillis) {
             context.timeLeftInMillis = mainContext.getRemainingTimeInMillis;

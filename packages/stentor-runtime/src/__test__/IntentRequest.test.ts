@@ -105,7 +105,10 @@ describe("#main()", () => {
                 const sessionStorage = updatedStorage.sessionStore;
                 expect(sessionStorage).to.exist;
                 expect(sessionStorage.id).to.equal("sessionId");
-                expect(sessionStorage.data).to.deep.equal({ slots: { f_name: { name: 'f_name', value: 'foo', rawValue: 'fu' } } });
+                expect(sessionStorage.data).to.deep.equal({
+                    slots: { f_name: { name: 'f_name', value: 'foo', rawValue: 'fu' } },
+                    unknownInputs: 0
+                });
             });
             it("returns the proper response", () => {
                 expect(callbackSpy).to.have.been.calledOnce;
@@ -169,7 +172,8 @@ describe("#main()", () => {
                     slots: {
                         f_name: { name: 'f_name', value: 'foo', rawValue: 'fu' },
                         l_name: { name: 'l_name', value: 'bar', rawValue: 'bar' }
-                    }
+                    },
+                    unknownInputs: 0
                 });
             });
             it("returns the proper response", () => {

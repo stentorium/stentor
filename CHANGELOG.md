@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.42.45](https://github.com/stentorium/stentor/compare/v1.42.44...v1.42.45) (2021-07-30)
+
+
+### Bug Fixes
+
+* Input Unknown: Calling Global Content & Resetting Counter ([#1081](https://github.com/stentorium/stentor/issues/1081)) ([d80d198](https://github.com/stentorium/stentor/commit/d80d19802e9bf8d97b5bf9b763b1ea62211d2e30))
+
+
+
+
+
 ## [1.42.44](https://github.com/stentorium/stentor/compare/v1.42.43...v1.42.44) (2021-07-29)
 
 **Note:** Version bump only for package repo

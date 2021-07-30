@@ -32,6 +32,23 @@ const handler: Handler = {
     data: {}
 };
 
+const inputUnknown: Handler = {
+    organizationId: "organizationId",
+    appId: "AppId",
+    intentId: "InputUnknown",
+    name: "Input Unknown",
+    type: "ConversationHandler",
+    data: {},
+    content: {
+        ["InputUnknown"]: [
+            {
+                name: "Input Unknown",
+                outputSpeech: "This is the input unknown content"
+            }
+        ]
+    }
+};
+
 const createdDate = new Date();
 createdDate.setDate(createdDate.getDate() - 1);
 
@@ -80,7 +97,6 @@ describe.only(`#main() with InputUnknown`, () => {
             const userId = args[0];
             expect(userId).to.equal(request.userId);
             const updatedStorage = args[1] as Storage;
-            console.log(updatedStorage);
             expect(updatedStorage.sessionStore.data.unknownInputs).to.equal(1);
         });
     });
@@ -94,12 +110,38 @@ describe.only(`#main() with InputUnknown`, () => {
                 userStorageService
             });
         });
-        it("increases the count on another input unknown", () => {
+        it("increases the count on another input unknown");
 
-        });
-        describe("")
-        it("resets the count on handled request", () => {
-
-        });
+        it("resets the count on handled request");
     });
+    describe("with global input unknown", () => {
+        beforeEach(async () => {
+            request = new InputUnknownRequestBuilder().build();
+
+            context = {};
+            callbackSpy = sinon.spy();
+            handlerService = sinon.createStubInstance(MockHandlerService, {
+                get: inputUnknown
+            });
+            userStorageService = sinon.createStubInstance(MockUserStorageService, {
+                get: Promise.resolve({ ...storage })
+            });
+
+            await main(request, context, callbackSpy, [passThroughChannel()], {
+                handlerFactory,
+                handlerService,
+                userStorageService
+            });
+        });
+        it("returns the primary input unknown content", () => {
+            expect(callbackSpy).to.have.been.calledOnce;
+            expect(callbackSpy).to.have.been.calledWith(null, {
+                name: "Input Unknown",
+                outputSpeech: {
+                    ssml: '<speak>This is the input unknown content</speak>',
+                    displayText: 'This is the input unknown content'
+                }
+            });
+        });
+    })
 });

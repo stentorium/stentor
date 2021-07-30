@@ -272,7 +272,9 @@ export abstract class AbstractHandler<
             case REPEAT_INTENT:
                 return this.repeat(request, context);
             case INPUT_UNKNOWN_ID:
-                return this.inputUnknown(request, context);
+                if (this.intentId !== INPUT_UNKNOWN_ID) {
+                    return this.inputUnknown(request, context);
+                }
             default:
                 // Try to find one in the content
                 const response = getResponse(this, request, context);

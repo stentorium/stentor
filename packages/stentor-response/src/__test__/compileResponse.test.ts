@@ -207,7 +207,7 @@ describe("#compileResponse()", () => {
                     }
                 });
                 describe("with multiple segments", () => {
-                    it.only("compiles the same for the SSML and displayText", () => {
+                    it("compiles the same for the SSML and displayText", () => {
                         const fullResponse: SimpleResponse = {
                             outputSpeech: {
                                 ssml: "${GREETING}, ${QUESTION} SSML",

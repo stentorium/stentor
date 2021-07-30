@@ -184,7 +184,7 @@ export abstract class AbstractHandler<
                 context.response.reprompt(previousResponse.reprompt);
             }
         } else {
-            console.info("Could not fulfill request to repeat, previous response was not set");
+            log().info("Could not fulfill request to repeat, previous response was not set");
             context.response.say("Sorry, I'm not sure what you want me to repeat.");
         }
     }
@@ -197,6 +197,14 @@ export abstract class AbstractHandler<
      * @returns {Promise<void>}
      */
     protected async inputUnknown(request: Request, context: Context): Promise<void> {
+
+        // It is possible we go into the input unknown flow when we say we can't handle it
+        const canHandleInputUnknown = this.canHandleInputUnknown(request, context);
+        // Let's print out a message here for debugging in case this scenario happens
+        if (!canHandleInputUnknown) {
+            log().warn(`Within AbstractHandler#inputUnknown() when AbstractHandler#canHandleInputUnknown() returns false.  This may be an error in your logic.`)
+        }
+
         switch (this.data?.inputUnknownStrategy) {
             case INPUT_UNKNOWN_STRATEGY_REPROMPT:
                 if (context.storage.previousResponse && context.storage.previousResponse.reprompt) {

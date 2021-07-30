@@ -15,7 +15,7 @@ import {
     UserProfile,
     UserStorageService
 } from "stentor-models";
-import { hasSessionId, isInputUnknownRequest, PERMISSION_REQUEST_TYPE } from "stentor-request";
+import { hasSessionId, PERMISSION_REQUEST_TYPE } from "stentor-request";
 import { ResponseBuilder } from "stentor-response";
 import { createSessionStore } from "stentor-storage";
 
@@ -52,6 +52,7 @@ export class ContextFactory {
 
         // Get the storage
         let storage: Storage = await userStorageService.get(request.userId);
+
         // Create it if it doesn't exist.
         if (!storage) {
             storage = await userStorageService.create(request.userId, {
@@ -62,14 +63,6 @@ export class ContextFactory {
             });
         }
 
-        // Quick maintenance on the storage
-        if (!isInputUnknownRequest(request)) {
-            // make sure it is reset
-            // TODO: This kind of session related stuff will need to be moved to a storage
-            // that only exists as long as the session does.
-            // Wait on: https://xappmedia.myjetbrains.com/youtrack/issue/STENTOR-335
-            storage.unknownInputs = 0;
-        }
         // First time users might not have history on storage yet,
         // make sure it exists
         if (!storage.history) {

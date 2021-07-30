@@ -36,7 +36,7 @@ const faqAndDocumentResult: KnowledgeBaseResult = {
     ]
 }
 
-describe.only(`#${mergeKnowledgeBaseResult.name}()`, () => {
+describe(`#${mergeKnowledgeBaseResult.name}()`, () => {
     describe("with a config", () => {
         describe("with setIntentId", () => {
             it("modifies the intentId", () => {

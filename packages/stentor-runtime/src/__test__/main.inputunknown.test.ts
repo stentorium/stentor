@@ -6,7 +6,7 @@ import * as sinonChai from "sinon-chai";
 import { ConversationHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
 import { Content, Handler, HandlerService, Request, Storage, UserStorageService } from "stentor-models";
-import { InputUnknownRequestBuilder } from "stentor-request";
+import { InputUnknownRequestBuilder, LaunchRequestBuilder } from "stentor-request";
 import { main } from "../main";
 import { MockHandlerService, MockUserStorageService, passThroughChannel } from "./Mocks";
 
@@ -64,7 +64,7 @@ let callbackSpy: sinon.SinonSpy;
 let handlerService: HandlerService;
 let userStorageService: UserStorageService;
 
-describe.only(`#main() with InputUnknown`, () => {
+describe(`#main() with InputUnknown`, () => {
     beforeEach(() => {
         handlerFactory = new HandlerFactory({ handlers: [ConversationHandler] });
         context = {};
@@ -76,7 +76,6 @@ describe.only(`#main() with InputUnknown`, () => {
             get: Promise.resolve({ ...storage })
         });
     });
-
     describe("on the first input unknown", () => {
         beforeEach(async () => {
             request = new InputUnknownRequestBuilder().build();
@@ -101,18 +100,68 @@ describe.only(`#main() with InputUnknown`, () => {
         });
     });
     describe("with one earlier input unknown requests", () => {
-        beforeEach(async () => {
-            request = new InputUnknownRequestBuilder().build();
+        describe("that receives another input unknown", () => {
+            beforeEach(async () => {
+                request = new InputUnknownRequestBuilder().build();
 
-            await main(request, context, callbackSpy, [passThroughChannel()], {
-                handlerFactory,
-                handlerService,
-                userStorageService
+                const storageWithPreviousInputUnknown: Storage = {
+                    createdTimestamp: createdDate.getTime(),
+                    lastActiveTimestamp: createdDate.getTime(),
+                    unknownInputs: 1,
+                    sessionStore: {
+                        id: "sessionId",
+                        data: {
+                            unknownInputs: 1
+                        }
+                    }
+                };
+
+                userStorageService = sinon.createStubInstance(MockUserStorageService, {
+                    get: Promise.resolve({ ...storageWithPreviousInputUnknown })
+                });
+
+                await main(request, context, callbackSpy, [passThroughChannel()], {
+                    handlerFactory,
+                    handlerService,
+                    userStorageService
+                });
+            });
+            it("gets the storage for the user", async () => {
+                expect(userStorageService.get).to.have.been.calledOnce;
+                expect(userStorageService.get).to.have.been.calledWith(request.userId);
+            });
+            it("increases the count", () => {
+                expect(userStorageService.update).to.have.been.calledOnce;
+                const args = (userStorageService.update as sinon.SinonStub).getCall(0).args;
+                const userId = args[0];
+                expect(userId).to.equal(request.userId);
+                const updatedStorage = args[1] as Storage;
+                expect(updatedStorage.sessionStore.data.unknownInputs).to.equal(2);
             });
         });
-        it("increases the count on another input unknown");
+        describe("that receives a handled request", () => {
+            beforeEach(async () => {
+                request = new LaunchRequestBuilder().build();
 
-        it("resets the count on handled request");
+                await main(request, context, callbackSpy, [passThroughChannel()], {
+                    handlerFactory,
+                    handlerService,
+                    userStorageService
+                });
+            });
+            it("gets the storage for the user", async () => {
+                expect(userStorageService.get).to.have.been.calledOnce;
+                expect(userStorageService.get).to.have.been.calledWith(request.userId);
+            });
+            it("resets the count", () => {
+                expect(userStorageService.update).to.have.been.calledOnce;
+                const args = (userStorageService.update as sinon.SinonStub).getCall(0).args;
+                const userId = args[0];
+                expect(userId).to.equal(request.userId);
+                const updatedStorage = args[1] as Storage;
+                expect(updatedStorage.sessionStore.data.unknownInputs).to.equal(0);
+            });
+        });
     });
     describe("with global input unknown", () => {
         beforeEach(async () => {
@@ -143,5 +192,5 @@ describe.only(`#main() with InputUnknown`, () => {
                 }
             });
         });
-    })
+    });
 });

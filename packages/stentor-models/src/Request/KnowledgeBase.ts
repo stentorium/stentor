@@ -114,6 +114,10 @@ export interface KnowledgeBaseFAQ {
      * Confidence of the match, number between 0-1 where the higher the number has a higher confidence.
      */
     matchConfidence?: number;
+    /**
+     * If provided, this references a handler
+     */
+    handlerId?: string;
 }
 
 export interface KnowledgeBaseResult {

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.43.0](https://github.com/stentorium/stentor/compare/v1.42.47...v1.43.0) (2021-08-04)
+
+
+### Features
+
+* handlerId on KnowledgeBase FAQ ([#1091](https://github.com/stentorium/stentor/issues/1091)) ([3a63984](https://github.com/stentorium/stentor/commit/3a639841fba167a795b2b9b450a741778ae3fe19))
+
+
+
+
+
 ## [1.42.45](https://github.com/stentorium/stentor/compare/v1.42.44...v1.42.45) (2021-07-30)
 
 **Note:** Version bump only for package stentor-models

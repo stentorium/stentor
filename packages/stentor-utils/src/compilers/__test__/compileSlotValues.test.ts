@@ -49,7 +49,7 @@ describe(`#${compileSlotValues.name}()`, () => {
             });
         });
     });
-    describe("with a macro", () => {
+    describe("with a simple macro", () => {
         it("compiles the value", () => {
 
             // Simple macro that 
@@ -65,16 +65,45 @@ describe(`#${compileSlotValues.name}()`, () => {
                 ssml: "<speak><say-as interpret-as=\"date\" format=\"ymd\">2019-09-11</say-as> foo sound good?</speak>",
                 displayText: "9-11-2019 sound good?"
             });
-            /*
-            const compiled = compileSlotValues({
-                ssml: "<speak>${date('${date}')} sound good?</speak>",
-                displayText: "${date} sound good?"
-            }, slots, false, );
-            expect(compiled).to.deep.equal({
-                ssml: "<speak>September 11, 2019 sound good?",
-                displayText: "2019-09-11 sound good?"
+        });
+        describe('when the macro doesn\'t exist', () => {
+            it("leaves the macro untouched", () => {
+                const compiled = compileSlotValues({
+                    ssml: "<speak>${foo('${date}')} sound good?</speak>",
+                    displayText: "${date} sound good?"
+                }, slots, false, {});
+                expect(compiled).to.deep.equal({
+                    ssml: "<speak>${foo('${date}')} sound good?</speak>",
+                    displayText: "9-11-2019 sound good?"
+                });
             });
-            */
+        });
+    });
+    describe("with a response with multiple macros", () => {
+        it("compiles the value", () => {
+
+            // Simple macro that 
+            const foo: (input: string) => string = (input: string) => {
+                return `${input} foo`;
+            }
+
+            const bar: (input: string, length: number, capitalize: boolean) => string = (input: string, length: number, capitalize: boolean) => {
+
+                const trimmed = input.substr(0, length);
+                if (capitalize) {
+                    return trimmed.toUpperCase();
+                } else {
+                    return trimmed.toLowerCase();
+                }
+            }
+            const compiled = compileSlotValues({
+                ssml: "<speak>${foo('${date}')} sound good ${ bar( `${name}`, 2, true) }?</speak>",
+                displayText: "${date} sound good ${ name} ?"
+            }, slots, false, { foo: foo, bar: bar });
+            expect(compiled).to.deep.equal({
+                ssml: "<speak><say-as interpret-as=\"date\" format=\"ymd\">2019-09-11</say-as> foo sound good BO?</speak>",
+                displayText: "9-11-2019 sound good bob ?"
+            });
         });
     });
     describe("when the slot value doesn't exist", () => {

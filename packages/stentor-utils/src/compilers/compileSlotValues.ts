@@ -14,13 +14,13 @@ export interface MacroMap {
 /* private */
 function compileString(value: string, slots: RequestSlotMap, key: "ssml" | "displayText", replaceWhenUndefined: boolean, macros?: MacroMap): string {
 
-
     let compiledValue: string = value;
 
     // First look for macros
 
-    // This one does not match 
-    const MACRO_REGEX = /\$\{([a-zA-Z]*)\(((?:'\$\{.*\}'|[^$]\w*)+)\)\}/g;
+    // See this regex in action: https://regex101.com/r/MihX7l/1 
+    // It is complicated.
+    const MACRO_REGEX = /\$\{\s*([a-zA-Z]*)\(\s*((?:["`']\$\{[\s\w]*\}["`']|[^$]\w*)+)\s*\)\s*\}/g;
 
     let macroResult: RegExpExecArray = MACRO_REGEX.exec(value);
 
@@ -52,10 +52,13 @@ function compileString(value: string, slots: RequestSlotMap, key: "ssml" | "disp
 
         const macro = macros[macroName];
 
-        const executedMacro = macro.call(undefined, ...macroArgs);
+        if (macro && typeof macro === "function") {
 
-        if (executedMacro && typeof executedMacro === "string") {
-            compiledValue = compiledValue.replace(macroResult[0], executedMacro);
+            const executedMacro = macro.call(undefined, ...macroArgs);
+
+            if (executedMacro && typeof executedMacro === "string") {
+                compiledValue = compiledValue.replace(macroResult[0], executedMacro);
+            }
         }
 
         macroResult = MACRO_REGEX.exec(value);
@@ -89,8 +92,6 @@ function compileString(value: string, slots: RequestSlotMap, key: "ssml" | "disp
     }
     return compiledValue;
 }
-
-
 
 /**
  * Compiles a templated response with slot values from the

@@ -22,7 +22,7 @@
     "mocha": "9.0.3",
     "mocha-junit-reporter": "2.0.0",
     "nyc": "15.1.0",
-    "syncpack": "5.8.14"
+    "syncpack": "5.8.15"
   },
   "scripts": {
     "api": "lerna run api",

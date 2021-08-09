@@ -677,4 +677,34 @@ describe("#compileResponse()", () => {
             });
         });
     });
+    describe.only("with macros", () => {
+        let compiledResponse: Response;
+        beforeEach(() => {
+
+            const macroResponse: SimpleResponse = {
+                outputSpeech: {
+                    ssml: "<speak>Delivery on the ${date('${date}')}, is that ok?</speak>",
+                    displayText: "Delivery on the ${date('${date}')}, is that ok?"
+                },
+                reprompt: {
+                    ssml: "<speak>${date('${date}')}, is that ok for delivery?</speak>",
+                    displayText: "${date('${date}')}, is that ok for delivery?"
+                }
+            };
+
+            request = new IntentRequestBuilder().withSlots({
+                date: {
+                    name: "date",
+                    value: "2021-09-11"
+                }
+            }).build();
+            compiledResponse = compileResponse(macroResponse, request, context);
+        });
+        it("leverages the macro", () => {
+
+            expect(compiledResponse).to.exist;
+
+            console.log(compiledResponse);
+        });
+    });
 });

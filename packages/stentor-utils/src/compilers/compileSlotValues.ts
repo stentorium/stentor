@@ -5,9 +5,62 @@ import { slotValueToSpeech } from "../response";
 
 type ResponseOutputKeysOnly = Pick<ResponseOutput, "ssml" | "displayText">;
 
+export type ResponseMacro = (...args: any[]) => string;
+
+export interface MacroMap {
+    [key: string]: ResponseMacro
+}
+
 /* private */
-function compileString(value: string, slots: RequestSlotMap, key: "ssml" | "displayText", replaceWhenUndefined: boolean): string {
+function compileString(value: string, slots: RequestSlotMap, key: "ssml" | "displayText", replaceWhenUndefined: boolean, macros?: MacroMap): string {
+
+
     let compiledValue: string = value;
+
+    // First look for macros
+
+    // This one does not match 
+    const MACRO_REGEX = /\$\{([a-zA-Z]*)\(((?:'\$\{.*\}'|[^$]\w*)+)\)\}/g;
+
+    let macroResult: RegExpExecArray = MACRO_REGEX.exec(value);
+
+    while (macroResult !== null) {
+
+        const macroName = macroResult[1];
+
+        const macroArgsString = compileString(macroResult[2], slots, key, replaceWhenUndefined);
+
+        // Split them and parse them.
+        const macroArgs = macroArgsString.split(",").map((arg) => {
+
+            let parsedArg: string | boolean | number;
+            try {
+                parsedArg = JSON.parse(arg);
+            } catch (e) {
+                // We just leave them as is, a string.
+                parsedArg = arg;
+            }
+
+            // If it is a string, it is probably wrapped in some quote
+            // so we want to strip those out
+            if (typeof parsedArg === "string") {
+                parsedArg = parsedArg.replace(/^['"`](.*)['"`]$/, '$1');
+            }
+
+            return parsedArg;
+        });
+
+        const macro = macros[macroName];
+
+        const executedMacro = macro.call(undefined, ...macroArgs);
+
+        if (executedMacro && typeof executedMacro === "string") {
+            compiledValue = compiledValue.replace(macroResult[0], executedMacro);
+        }
+
+        macroResult = MACRO_REGEX.exec(value);
+    }
+
     let result: RegExpExecArray = TEMPLATE_REGEX.exec(value);
 
     // Set exit condition to be when the results are null
@@ -37,6 +90,8 @@ function compileString(value: string, slots: RequestSlotMap, key: "ssml" | "disp
     return compiledValue;
 }
 
+
+
 /**
  * Compiles a templated response with slot values from the
  * provided slot map.
@@ -48,13 +103,15 @@ function compileString(value: string, slots: RequestSlotMap, key: "ssml" | "disp
  * It will handle the different potential value types for slots such as
  * strings, numbers, dates and durations.
  * 
+ * By default, if the slot value does not exist, the template value is left untouched.
+ * 
  * @param responseOutput 
  * @param slots 
- * @param replaceWhenUndefined 
+ * @param replaceWhenUndefined - When set to true, it will replace the value with 'undefined' if it doesn't exist, default behavior is to leave the template as is.
  */
-export function compileSlotValues(responseOutput: string, slots: RequestSlotMap, replaceWhenUndefined?: boolean): string;
-export function compileSlotValues(responseOutput: ResponseOutput, slots: RequestSlotMap, replaceWhenUndefined?: boolean): ResponseOutput;
-export function compileSlotValues(responseOutput: string | ResponseOutput, slots: RequestSlotMap, replaceWhenUndefined?: boolean): string | ResponseOutput {
+export function compileSlotValues(responseOutput: string, slots: RequestSlotMap, replaceWhenUndefined?: boolean, macros?: MacroMap): string;
+export function compileSlotValues(responseOutput: ResponseOutput, slots: RequestSlotMap, replaceWhenUndefined?: boolean, macros?: MacroMap): ResponseOutput;
+export function compileSlotValues(responseOutput: string | ResponseOutput, slots: RequestSlotMap, replaceWhenUndefined?: boolean, macros?: MacroMap): string | ResponseOutput {
 
     if (!responseOutput || !slots) {
         return responseOutput;
@@ -75,7 +132,7 @@ export function compileSlotValues(responseOutput: string | ResponseOutput, slots
         // Iterate through the keys
         keys.forEach(key => {
             if (value[key]) {
-                value[key] = compileString(value[key], slots, key, replaceWhenUndefined);
+                value[key] = compileString(value[key], slots, key, replaceWhenUndefined, macros);
             }
         });
     }

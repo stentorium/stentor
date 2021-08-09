@@ -49,6 +49,34 @@ describe(`#${compileSlotValues.name}()`, () => {
             });
         });
     });
+    describe("with a macro", () => {
+        it("compiles the value", () => {
+
+            // Simple macro that 
+            const foo: (input: string) => string = (input: string) => {
+                return `${input} foo`;
+            }
+
+            const compiled = compileSlotValues({
+                ssml: "<speak>${foo('${date}')} sound good?</speak>",
+                displayText: "${date} sound good?"
+            }, slots, false, { foo: foo });
+            expect(compiled).to.deep.equal({
+                ssml: "<speak><say-as interpret-as=\"date\" format=\"ymd\">2019-09-11</say-as> foo sound good?</speak>",
+                displayText: "9-11-2019 sound good?"
+            });
+            /*
+            const compiled = compileSlotValues({
+                ssml: "<speak>${date('${date}')} sound good?</speak>",
+                displayText: "${date} sound good?"
+            }, slots, false, );
+            expect(compiled).to.deep.equal({
+                ssml: "<speak>September 11, 2019 sound good?",
+                displayText: "2019-09-11 sound good?"
+            });
+            */
+        });
+    });
     describe("when the slot value doesn't exist", () => {
         describe("when replaceWhenUndefined is true", () => {
             it("compiles the value", () => {

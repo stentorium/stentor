@@ -681,6 +681,10 @@ describe("#compileResponse()", () => {
         let compiledResponse: Response;
         beforeEach(() => {
 
+            const date: (input: string) => string = (input: string) => {
+                return input.replace("-", "/")
+            }
+
             const macroResponse: SimpleResponse = {
                 outputSpeech: {
                     ssml: "<speak>Delivery on the ${date('${date}')}, is that ok?</speak>",
@@ -698,7 +702,7 @@ describe("#compileResponse()", () => {
                     value: "2021-09-11"
                 }
             }).build();
-            compiledResponse = compileResponse(macroResponse, request, context);
+            compiledResponse = compileResponse(macroResponse, request, context, { date });
         });
         it("leverages the macro", () => {
 

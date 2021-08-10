@@ -54,10 +54,13 @@ function compileString(value: string, slots: RequestSlotMap, key: "ssml" | "disp
 
         if (macro && typeof macro === "function") {
 
-            const executedMacro = macro.call(undefined, ...macroArgs);
+            let executedMacroResult: string;
+            try {
+                executedMacroResult = macro.call(undefined, ...macroArgs);
+            } catch (e) { /* If macro fails, what do we do here? */ }
 
-            if (executedMacro && typeof executedMacro === "string") {
-                compiledValue = compiledValue.replace(macroResult[0], executedMacro);
+            if (executedMacroResult && typeof executedMacroResult === "string") {
+                compiledValue = compiledValue.replace(macroResult[0], executedMacroResult);
             }
         }
 

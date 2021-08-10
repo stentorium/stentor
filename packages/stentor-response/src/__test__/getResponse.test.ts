@@ -412,4 +412,80 @@ describe("#getResponse()", () => {
             }
         });
     });
+    describe("when passed macros", () => {
+        beforeEach(() => {
+
+            handler = {
+                appId: "app",
+                organizationId: "org",
+                type: "InSessionIntent",
+                intentId: "intentId",
+                content: {
+                    ["intentId"]: [{
+                        outputSpeech: {
+                            ssml: "${answer} ${PROMPT}",
+                            displayText: "${answer} ${PROMPT}"
+                        },
+                        reprompt: {
+                            ssml: "${PROMPT}",
+                            displayText: "${PROMPT}"
+                        },
+                        segments: {
+                            ["PROMPT"]: [
+                                {
+                                    segment: {
+                                        ssml: "Prompt?",
+                                        displayText: "Prompt?"
+                                    }
+                                }]
+                        }
+                    }]
+                },
+
+            };
+            request = new IntentRequestBuilder().withIntentId("intentId").build();
+            // @ts-ignore The stubbed instance types can't see the private properties, which cause TS errors
+            response = sinon.createStubInstance(ResponseBuilder);
+            context = new ContextBuilder()
+                .withResponse(response)
+                .withStorage({
+                    createdTimestamp: Date.now(),
+                    lastActiveTimestamp: Date.now(),
+                    name: "Bob",
+                    metBefore: true,
+                    score: 3,
+                    sessionStore: {
+                        id: "sessionId",
+                        data: {
+                            slots: {
+                                foo: {
+                                    name: "foo",
+                                    value: "F000D"
+                                }
+                            }
+                        }
+                    }
+                })
+                .build();
+        });
+        it("determines and compiles the response", () => {
+            const response = getResponse(content, request, context, {
+                PROMPT: "Which would you like?"
+            });
+            expect(response).to.exist;
+            expect(response).to.be.a("object");
+            expect(response.outputSpeech).to.be.a("object");
+            if (typeof response.outputSpeech === "object") {
+                expect(response.outputSpeech.ssml).to.equal(
+                    "<speak>Here <break /> is the help content. <break /> Which would you like?</speak>"
+                );
+                expect(response.outputSpeech.displayText).to.equal("Here is the help content, Which would you like?");
+            }
+            expect(response.reprompt).to.be.a("object");
+            if (typeof response.reprompt === "object") {
+                expect(response.reprompt.ssml).to.equal("<speak>Which would you like?</speak>");
+                expect(response.reprompt.displayText).to.equal("Which would you like?");
+            }
+        });
+    });
 });

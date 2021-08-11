@@ -132,13 +132,7 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
             return this;
         }
 
-        let active: ActiveContext[] = this._response?.context?.active || [];
-
-        if (Array.isArray(context)) {
-            active = active.concat(context);
-        } else {
-            active.push(context);
-        }
+        const active: ActiveContext[] = (this._response?.context?.active || []).concat(context);
 
         this._response.context = {
             ...this._response.context,

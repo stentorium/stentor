@@ -13,6 +13,31 @@ import { ResponseOutput } from "./ResponseOutput";
 import { ResponseSegmentsMap } from "./ResponseSegment";
 
 /**
+ * Active Context Object
+ * 
+ */
+export interface ActiveContext {
+    /**
+     * Name of the context
+     */
+    name: string;
+    /**
+     * Parameters passed around with the context
+     */
+    parameters?: {
+        [key: string]: string;
+    }
+    timeToLive: {
+        /**
+         * Not supported on Dialogflow
+         */
+        timeToLiveInSeconds?: number;
+        turnsToLive?: number;
+    }
+}
+
+
+/**
  * Additional response metadata.
  */
 export interface ResponseData {
@@ -104,6 +129,19 @@ export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Act
      * Supplemental data to augment the response.
      */
     data?: ResponseData;
+    /**
+     * Optional active contexts which help influence the NLU.
+     * 
+     * - {@link https://cloud.google.com/dialogflow/es/docs/contexts-input-output}
+     * - {@link https://docs.aws.amazon.com/lex/latest/dg/context-mgmt-active-context.html}
+     */
+    context?: {
+        /**
+         * 
+         * Matches to outputContexts on Dialogflow & activeContexts
+         */
+        active?: ActiveContext[];
+    };
 }
 /**
  * A response that can be scheduled.

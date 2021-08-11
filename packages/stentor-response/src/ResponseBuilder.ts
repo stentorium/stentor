@@ -2,6 +2,7 @@
 import { Playlist } from "stentor-media";
 import {
     AbstractResponseBuilder,
+    ActiveContext,
     CanFulfillIntentResult,
     Card,
     ListItem,
@@ -24,7 +25,11 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
     public constructor(props: ResponseBuilderProps) {
         super(props);
     }
-
+    /**
+     * Provide a fully formed response object
+     * 
+     * Note: This will overwrite any existing response that has been set previously with the builder.
+     */
     public respond(response: Response): ResponseBuilder<T> {
         if (!response) {
             return this;
@@ -42,6 +47,12 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         return this;
     }
 
+    /**
+     * Communicate to the provided text user.  Depending on the channel, this will be displayed in a chat message style bubble
+     * or spoken with text to speech.  You can provide both at the same time, text for display (displayText) or spoken (ssml).
+     * 
+     * If you use this without also providing a reprompt, the conversation will end on channels with voice input.
+     */
     public say(say: string | ResponseOutput, append?: boolean): ResponseBuilder<T> {
         if (!say) {
             return this;
@@ -57,6 +68,9 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         return this;
     }
 
+    /**
+     * Used on voice input channels, the reprompt is used when the user does not provide an input within a timely manner.
+     */
     public reprompt(reprompt: string | ResponseOutput, append?: boolean): ResponseBuilder<T> {
         if (!this._response.outputSpeech) {
             throw new Error("Cannot call #reprompt() without first calling #say()");
@@ -78,6 +92,9 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         return this;
     }
 
+    /**
+     * Provide suggestion chips to the response.
+     */
     public withSuggestions(suggestion: SuggestionTypes | SuggestionTypes[], append?: boolean): ResponseBuilder<T> {
         if (!this._response.outputSpeech) {
             throw new Error("Cannot call #withSuggestions() without first calling #say()");
@@ -106,10 +123,32 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         return this;
     }
 
+    /**
+     * Provides active context that the NLU can use to help select the next intent.
+     */
+    public withActiveContext(context: ActiveContext | ActiveContext[]): ResponseBuilder<T> {
+
+        if (!context) {
+            return this;
+        }
+
+        const active: ActiveContext[] = (this._response?.context?.active || []).concat(context);
+
+        this._response.context = {
+            ...this._response.context,
+            active
+        }
+
+        return this;
+    }
+
     /*
      * Display
      */
 
+    /**
+     * Add a display card element to the response.
+     */
     public withCard(card: Card): ResponseBuilder<T> {
         if (!card) {
             return this;
@@ -122,6 +161,9 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         return this;
     }
 
+    /**
+     * Add a vertical list to the response
+     */
     public withList(items: ListItem[], title?: string): ResponseBuilder<T> {
         if (Array.isArray(items)) {
             if (!Array.isArray(this._response.displays)) {
@@ -137,6 +179,9 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         return this;
     }
 
+    /**
+     * Add a horizontal list to the response.
+     */
     public withCarousel(items: ListItem[]): ResponseBuilder<T> {
         if (Array.isArray(items)) {
             if (!Array.isArray(this._response.displays)) {
@@ -236,6 +281,10 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
 
     /*
      * Media
+     */
+
+    /**
+     * Play the provided media.
      */
     public play(playable: PlayableMedia): ResponseBuilder<T> {
         if (!playable) {

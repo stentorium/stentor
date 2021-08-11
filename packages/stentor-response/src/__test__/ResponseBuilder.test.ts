@@ -394,6 +394,58 @@ describe("ResponseBuilder", () => {
             });
         });
     });
+    describe.only(`#${ResponseBuilder.prototype.withActiveContext.name}()`, () => {
+        describe("when passed a single context", () => {
+            it("sets the active contexts", () => {
+                const response = new ResponseBuilder({ device })
+                    .say("foo")
+                    .withActiveContext({ name: "bar", timeToLive: { turnsToLive: 2 } })
+                    .build();
+
+                expect(response).to.exist;
+                expect(response.context).to.deep.equal({
+                    active: [{ name: "bar", timeToLive: { turnsToLive: 2 } }]
+                });
+            });
+        });
+        describe("when passed an array of contexts", () => {
+            it("sets the active contexts", () => {
+                const response = new ResponseBuilder({ device })
+                    .say("foo")
+                    .withActiveContext([{ name: "bar", timeToLive: { turnsToLive: 2 } }])
+                    .build();
+
+                expect(response).to.exist;
+                expect(response.context).to.deep.equal({
+                    active: [{ name: "bar", timeToLive: { turnsToLive: 2 } }]
+                });
+            });
+        });
+        describe("when called more than once", () => {
+            it("adds all the contexts", () => {
+                const response = new ResponseBuilder({ device })
+                    .say("foo")
+                    .withActiveContext({ name: "bar", timeToLive: { turnsToLive: 2 } })
+                    .withActiveContext([{ name: "baz", timeToLive: { turnsToLive: 4 } }])
+                    .build();
+
+                expect(response).to.exist;
+                expect(response.context).to.deep.equal({
+                    active: [
+                        { name: "bar", timeToLive: { turnsToLive: 2 } },
+                        { name: "baz", timeToLive: { turnsToLive: 4 } }
+                    ]
+                });
+            });
+        });
+        describe("when passed undefined", () => {
+            it("does nothing", () => {
+                const response = new ResponseBuilder({ device }).say("foo").withActiveContext(undefined).build();
+                expect(response).to.exist;
+                expect(response.context).to.be.undefined;
+            });
+        });
+    });
     describe("#withCard()", () => {
         describe("when passed undefined", () => {
             it("it doesn't set displays", () => {

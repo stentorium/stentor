@@ -108,6 +108,19 @@ export interface Intent extends Localizable<LocaleSpecificIntent> {
      */
     defaultLocale?: Locale;
     /**
+     * Contexts the must be active to have this intent be weighted more heavily or selected.
+     * 
+     * For Amazon Lex, the contexts are required to be selected.  
+     * 
+     * {@link https://docs.aws.amazon.com/lex/latest/dg/API_PutIntent.html#lex-PutIntent-request-inputContexts}
+     * 
+     * For Dialogflow ES, these are more heavily weighted towards matching.
+     * 
+     * {@link https://cloud.google.com/dialogflow/es/docs/contexts-input-output#input_contexts}
+     * {@link https://cloud.google.com/dialogflow/es/docs/reference/rest/v2/projects.agent.intents#Intent}
+     */
+    contexts?: { name: string }[];
+    /**
      * NLU specific metadata used when translating the intentId to a NLU specific type.
      * 
      * Use to override the type for a specific NLU. 

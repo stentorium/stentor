@@ -48,10 +48,10 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
     }
 
     /**
+     * Communicate to the provided text user.  Depending on the channel, this will be displayed in a chat message style bubble
+     * or spoken with text to speech.  You can provide both at the same time, text for display (displayText) or spoken (ssml).
      * 
-     * @param say 
-     * @param append 
-     * @returns 
+     * If you use this without also providing a reprompt, the conversation will end on channels with voice input.
      */
     public say(say: string | ResponseOutput, append?: boolean): ResponseBuilder<T> {
         if (!say) {
@@ -68,6 +68,9 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         return this;
     }
 
+    /**
+     * Used on voice input channels, the reprompt is used when the user does not provide an input within a timely manner.
+     */
     public reprompt(reprompt: string | ResponseOutput, append?: boolean): ResponseBuilder<T> {
         if (!this._response.outputSpeech) {
             throw new Error("Cannot call #reprompt() without first calling #say()");

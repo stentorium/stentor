@@ -394,7 +394,7 @@ describe("ResponseBuilder", () => {
             });
         });
     });
-    describe.only(`#${ResponseBuilder.prototype.withActiveContext.name}()`, () => {
+    describe(`#${ResponseBuilder.prototype.withActiveContext.name}()`, () => {
         describe("when passed a single context", () => {
             it("sets the active contexts", () => {
                 const response = new ResponseBuilder({ device })

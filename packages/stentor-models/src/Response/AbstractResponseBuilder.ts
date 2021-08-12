@@ -4,7 +4,7 @@ import { Device } from "../Device";
 import { Card, ImageSpecification, ListItem } from "../Display";
 import { PlayableMedia } from "../Media";
 import { ApiAccessData } from "../Request";
-import { CanFulfillIntentResult } from "../Response";
+import { ActiveContext, CanFulfillIntentResult } from "../Response";
 import { SuggestionTypes } from "../Suggestion";
 import { UserDataType } from "../UserData";
 import { Response, SimpleResponse } from "./Response";
@@ -132,6 +132,13 @@ export abstract class AbstractResponseBuilder<R = any> {
         append?: boolean
     ): AbstractResponseBuilder<R>;
     /**
+     * Active contexts provide guidance to the NLU to help it better select the next intent from the user's utterance.
+     * 
+     * @param context - Either a single context or array of contexts.
+     * @returns The builder instance
+     */
+    abstract withActiveContext(context: ActiveContext | ActiveContext[]): AbstractResponseBuilder<R>;
+    /**
      * Build intent pre-fetch results aka "CanFulfillRequest"
      *
      * @param results
@@ -229,12 +236,12 @@ export abstract class AbstractResponseBuilder<R = any> {
      * @returns The builder instance
      */
     abstract askForCallTransfer(phoneNumber: string): AbstractResponseBuilder<R>;
-     /**
-     *
-     * @alpha - The feature is under active development
-     * @param handoffTargetId - The id that represents the handoff target (app id/name, queue id/name, etc)
-     */
-     abstract askForHandoff(handoffTargetId: string): AbstractResponseBuilder<R>;
+    /**
+    *
+    * @alpha - The feature is under active development
+    * @param handoffTargetId - The id that represents the handoff target (app id/name, queue id/name, etc)
+    */
+    abstract askForHandoff(handoffTargetId: string): AbstractResponseBuilder<R>;
     /**
      * Build the response
      *

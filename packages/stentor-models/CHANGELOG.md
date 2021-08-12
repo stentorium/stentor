@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.44.0](https://github.com/stentorium/stentor/compare/v1.43.2...v1.44.0) (2021-08-12)
+
+
+### Features
+
+* Support for Input Contexts ([#1099](https://github.com/stentorium/stentor/issues/1099)) ([0d195ac](https://github.com/stentorium/stentor/commit/0d195acf5ed3912252fef1fa4ed996e07bc2774c))
+
+
+
+
+
 ## [1.43.2](https://github.com/stentorium/stentor/compare/v1.43.1...v1.43.2) (2021-08-10)
 
 **Note:** Version bump only for package stentor-models

@@ -1,15 +1,12 @@
 /*! Copyright (c) 2020, XAPPmedia */
 import { TEMPLATE_REGEX } from "stentor-constants";
 import { RequestSlotMap, ResponseOutput } from "stentor-models";
+
+import { MacroMap } from "./macro";
 import { slotValueToSpeech } from "../response";
 
 type ResponseOutputKeysOnly = Pick<ResponseOutput, "ssml" | "displayText">;
 
-export type ResponseMacro = (...args: any[]) => string;
-
-export interface MacroMap {
-    [key: string]: ResponseMacro
-}
 
 /* private */
 function compileString(value: string, slots: RequestSlotMap, key: "ssml" | "displayText", replaceWhenUndefined: boolean, macros?: MacroMap): string {
@@ -18,9 +15,9 @@ function compileString(value: string, slots: RequestSlotMap, key: "ssml" | "disp
 
     // First look for macros
 
-    // See this regex in action: https://regex101.com/r/MihX7l/1 
+    // See this regex in action: https://regex101.com/r/MihX7l/2 
     // It is complicated.
-    const MACRO_REGEX = /\$\{\s*([a-zA-Z]*)\(\s*((?:["`']\$\{[\s\w]*\}["`']|[^$]\w*)+)\s*\)\s*\}/g;
+    const MACRO_REGEX = /\$\{\s*([a-zA-Z]*)\(\s*((?:["`']\$\{(?:\s*\$\.)?[\s\w\.]*\}["`']|[^$]\w*)+)\s*\)\s*\}/g;
 
     let macroResult: RegExpExecArray = MACRO_REGEX.exec(value);
 
@@ -109,6 +106,7 @@ function compileString(value: string, slots: RequestSlotMap, key: "ssml" | "disp
  * 
  * By default, if the slot value does not exist, the template value is left untouched.
  * 
+ * @deprecated Use class Compiler, which handles both JSONPaths & Slots
  * @param responseOutput 
  * @param slots 
  * @param replaceWhenUndefined - When set to true, it will replace the value with 'undefined' if it doesn't exist, default behavior is to leave the template as is.

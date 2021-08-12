@@ -1,9 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { SESSION_STORAGE_SLOTS_KEY } from "stentor-constants";
 import { localize } from "stentor-locales";
-import { Context, Request, Response, RequestSlotMap } from "stentor-models";
-import { isIntentRequest } from "stentor-request";
-import { combineRequestSlots, compileJSONPaths, compileSlotValues, MacroMap } from "stentor-utils";
+import { Context, Request, Response } from "stentor-models";
+import { Compiler, MacroMap } from "stentor-utils";
 
 import { compileSegments } from "./compileSegments";
 
@@ -35,9 +33,6 @@ export function compileResponse(
         return response;
     }
 
-    // simple object to pass in for JSON path compilation
-    // allows us to do $.request & $.context
-    const object = { ...additionalContext, request, context };
     // Make a copy for manipulation
     const compiledResponse: Response = { ...response };
     // Make some type safe keys
@@ -48,27 +43,35 @@ export function compileResponse(
         const responseOutput = compiledResponse[key];
         if (responseOutput) {
             if (typeof responseOutput === "string") {
-                let valueCompiled = compileSegments(
+                const valueCompiled = compileSegments(
                     responseOutput,
                     compiledResponse.segments,
                     request,
                     context
                 );
-                const requestSlots: RequestSlotMap = isIntentRequest(request) && context.session ? combineRequestSlots(context.session.get(SESSION_STORAGE_SLOTS_KEY), request.slots) : context.session ? context.session.get(SESSION_STORAGE_SLOTS_KEY) : {};
-                valueCompiled = compileSlotValues(valueCompiled, requestSlots, false, macros);
-                compiledResponse[key] = compileJSONPaths(valueCompiled, object, true);
+
+                compiledResponse[key] = new Compiler(
+                    {
+                        macros,
+                        additionalContext: additionalContext as Record<string, unknown>
+                    }
+                ).compile(valueCompiled, request, context);
+
             } else {
                 // Flatten for locales
                 const localizedResponseOutput = localize(responseOutput, request.locale);
-                let valueCompiled = compileSegments(
+                const valueCompiled = compileSegments(
                     localizedResponseOutput,
                     compiledResponse.segments,
                     request,
                     context
                 );
-                const requestSlots: RequestSlotMap = isIntentRequest(request) && context.session ? combineRequestSlots(context.session.get(SESSION_STORAGE_SLOTS_KEY), request.slots) : context.session ? context.session.get(SESSION_STORAGE_SLOTS_KEY) : {};
-                valueCompiled = compileSlotValues(valueCompiled, requestSlots, false, macros);
-                compiledResponse[key] = compileJSONPaths(valueCompiled, object, true);
+                compiledResponse[key] = new Compiler(
+                    {
+                        macros,
+                        additionalContext: additionalContext as Record<string, unknown>
+                    }
+                ).compile(valueCompiled, request, context);
             }
         }
     });
@@ -79,9 +82,13 @@ export function compileResponse(
         const displaysString = JSON.stringify(compiledResponse.displays, undefined, 2);
         // Compile the segments
         let compiledDisplayString = compileSegments(displaysString, compiledResponse.segments, request, context);
-        const requestSlots: RequestSlotMap = isIntentRequest(request) && context.session ? combineRequestSlots(context.session.get(SESSION_STORAGE_SLOTS_KEY), request.slots) : context.session ? context.session.get(SESSION_STORAGE_SLOTS_KEY) : {};
-        compiledDisplayString = compileSlotValues(compiledDisplayString, requestSlots, false, macros);
-        compiledDisplayString = compileJSONPaths(compiledDisplayString, object);
+        compiledDisplayString = new Compiler(
+            {
+                macros,
+                additionalContext: additionalContext as Record<string, unknown>
+            }
+        ).compile(compiledDisplayString, request, context);
+
         // Set it back
         try {
             const compiledDisplays = JSON.parse(compiledDisplayString);

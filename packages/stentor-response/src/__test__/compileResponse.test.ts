@@ -17,7 +17,7 @@ interface TestStorage extends Storage {
     metBefore: boolean;
 }
 
-describe("#compileResponse()", () => {
+describe(`#${compileResponse.name}()`, () => {
     let request: Request;
     let response: ResponseBuilder<Response<ResponseOutput>>;
     let context: Context<TestStorage>;
@@ -69,7 +69,7 @@ describe("#compileResponse()", () => {
     });
     describe("when passed a full mixed templated responses", () => {
         const simpleResponse: SimpleResponse = {
-            outputSpeech: "Your name is ${ $.request.slots.NAME.value }",
+            outputSpeech: "Your name is ${ $.request.slots.NAME.value } (${NAME})",
             reprompt: {
                 ssml: "<speak> Hi ${$.context.storage.name} </speak>",
                 displayText: "Hi ${$.context.storage.name}"
@@ -81,7 +81,7 @@ describe("#compileResponse()", () => {
             const outputSpeech = compiledResponse.outputSpeech;
             expect(outputSpeech).to.be.a("string");
             if (typeof outputSpeech === "string") {
-                expect(outputSpeech).to.equal("Your name is Jim");
+                expect(outputSpeech).to.equal("Your name is Jim (Jim)");
             }
         });
         it("compiles the reprompt", () => {
@@ -677,18 +677,18 @@ describe("#compileResponse()", () => {
             });
         });
     });
-    describe.only("with macros", () => {
+    describe("with macros", () => {
         let compiledResponse: Response;
         beforeEach(() => {
 
             const date: (input: string) => string = (input: string) => {
-                return input.replace("-", "/")
+                return input.replace(/-/g, "/")
             }
 
             const macroResponse: SimpleResponse = {
                 outputSpeech: {
-                    ssml: "<speak>Delivery on the ${date('${date}')}, is that ok?</speak>",
-                    displayText: "Delivery on the ${date('${date}')}, is that ok?"
+                    ssml: "<speak>Delivery on the ${date('${date}')}, is that ok ${capitalize('bob')}?</speak>",
+                    displayText: "Delivery on the ${date('${date}')}, is that ok ${capitalize('bob')}?"
                 },
                 reprompt: {
                     ssml: "<speak>${date('${date}')}, is that ok for delivery?</speak>",
@@ -702,13 +702,22 @@ describe("#compileResponse()", () => {
                     value: "2021-09-11"
                 }
             }).build();
-            compiledResponse = compileResponse(macroResponse, request, context, { date });
+            compiledResponse = compileResponse(macroResponse, request, context, {}, { date });
         });
         it("leverages the macro", () => {
-
             expect(compiledResponse).to.exist;
-
-            console.log(compiledResponse);
+            const outputSpeech = compiledResponse.outputSpeech;
+            expect(outputSpeech).to.exist;
+            expect(outputSpeech).to.deep.equal({
+                ssml: "<speak>Delivery on the 2021/09/11, is that ok Bob?</speak>",
+                displayText: "Delivery on the 2021/09/11, is that ok Bob?"
+            });
+            const reprompt = compiledResponse.reprompt;
+            expect(reprompt).to.exist;
+            expect(reprompt).to.deep.equal({
+                ssml: '<speak>2021/09/11, is that ok for delivery?</speak>',
+                displayText: '2021/09/11, is that ok for delivery?'
+            });
         });
     });
 });

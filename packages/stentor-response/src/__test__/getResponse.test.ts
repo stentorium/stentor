@@ -421,25 +421,27 @@ describe("#getResponse()", () => {
                 type: "InSessionIntent",
                 intentId: "intentId",
                 content: {
-                    ["intentId"]: [{
-                        outputSpeech: {
-                            ssml: "${answer} ${PROMPT}",
-                            displayText: "${answer} ${PROMPT}"
-                        },
-                        reprompt: {
-                            ssml: "${PROMPT}",
-                            displayText: "${PROMPT}"
-                        },
-                        segments: {
-                            ["PROMPT"]: [
-                                {
-                                    segment: {
-                                        ssml: "Prompt?",
-                                        displayText: "Prompt?"
-                                    }
-                                }]
+                    ["intentId"]: [
+                        {
+                            outputSpeech: {
+                                ssml: "<speak>${answer} ${PROMPT}</speak>",
+                                displayText: "${answer} ${PROMPT}"
+                            },
+                            reprompt: {
+                                ssml: "<speak>${PROMPT}</speak>",
+                                displayText: "${PROMPT}"
+                            },
+                            segments: {
+                                ["PROMPT"]: [
+                                    {
+                                        segment: {
+                                            ssml: "Which would you like?",
+                                            displayText: "Which would you like?"
+                                        }
+                                    }]
+                            }
                         }
-                    }]
+                    ]
                 },
 
             };
@@ -469,8 +471,11 @@ describe("#getResponse()", () => {
                 .build();
         });
         it("determines and compiles the response", () => {
-            const response = getResponse(content, request, context, {
-                PROMPT: "Which would you like?"
+            const response = getResponse(handler, request, context, {
+                answer: {
+                    ssml: "Here <break /> is the help content. <break />",
+                    displayText: "Here __is the help content.__"
+                }
             });
             expect(response).to.exist;
             expect(response).to.be.a("object");
@@ -479,7 +484,7 @@ describe("#getResponse()", () => {
                 expect(response.outputSpeech.ssml).to.equal(
                     "<speak>Here <break /> is the help content. <break /> Which would you like?</speak>"
                 );
-                expect(response.outputSpeech.displayText).to.equal("Here is the help content, Which would you like?");
+                expect(response.outputSpeech.displayText).to.equal("Here __is the help content.__ Which would you like?");
             }
             expect(response.reprompt).to.be.a("object");
             if (typeof response.reprompt === "object") {

@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { localize } from "stentor-locales";
 import { Context, Request, Response } from "stentor-models";
-import { Compiler, MacroMap } from "stentor-utils";
+import { Compiler, DEFAULT_MARCOS, MacroMap } from "stentor-utils";
 
 import { compileSegments } from "./compileSegments";
 
@@ -33,6 +33,14 @@ export function compileResponse(
         return response;
     }
 
+    const compiler = new Compiler(
+        {
+            macros: { ...DEFAULT_MARCOS, ...macros },
+            additionalContext: additionalContext as Record<string, unknown>,
+            replaceWhenUndefined: true
+        }
+    );
+
     // Make a copy for manipulation
     const compiledResponse: Response = { ...response };
     // Make some type safe keys
@@ -50,12 +58,7 @@ export function compileResponse(
                     context
                 );
 
-                compiledResponse[key] = new Compiler(
-                    {
-                        macros,
-                        additionalContext: additionalContext as Record<string, unknown>
-                    }
-                ).compile(valueCompiled, request, context);
+                compiledResponse[key] = compiler.compile(valueCompiled, request, context);
 
             } else {
                 // Flatten for locales
@@ -66,12 +69,8 @@ export function compileResponse(
                     request,
                     context
                 );
-                compiledResponse[key] = new Compiler(
-                    {
-                        macros,
-                        additionalContext: additionalContext as Record<string, unknown>
-                    }
-                ).compile(valueCompiled, request, context);
+
+                compiledResponse[key] = compiler.compile(valueCompiled, request, context);
             }
         }
     });
@@ -82,12 +81,8 @@ export function compileResponse(
         const displaysString = JSON.stringify(compiledResponse.displays, undefined, 2);
         // Compile the segments
         let compiledDisplayString = compileSegments(displaysString, compiledResponse.segments, request, context);
-        compiledDisplayString = new Compiler(
-            {
-                macros,
-                additionalContext: additionalContext as Record<string, unknown>
-            }
-        ).compile(compiledDisplayString, request, context);
+
+        compiledDisplayString = compiler.compile(compiledDisplayString, request, context);
 
         // Set it back
         try {

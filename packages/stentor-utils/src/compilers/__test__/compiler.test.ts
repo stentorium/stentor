@@ -132,6 +132,28 @@ describe(`${Compiler.name}`, () => {
                     displayText: "Hi bob!"
                 });
             });
+            describe("with a response output object on the context", () => {
+                it("compiles the value", () => {
+                    const compiled = new Compiler({
+                        additionalContext: {
+                            foo: {
+                                bar: "bob"
+                            },
+                            answer: {
+                                displayText: "Display Text",
+                                ssml: "Speech"
+                            }
+                        }
+                    }).compile({
+                        ssml: "<speak>Hi ${$.answer}!</speak>",
+                        displayText: "Hi ${$.answer}!"
+                    }, request, context);
+                    expect(compiled).to.deep.equal({
+                        ssml: "<speak>Hi Speech!</speak>",
+                        displayText: "Hi Display Text!"
+                    });
+                });
+            });
         });
         describe("with custom macro set", () => {
             it("compiles the value", () => {
@@ -171,6 +193,20 @@ describe(`${Compiler.name}`, () => {
                 expect(compiled).to.deep.equal({
                     ssml: "<speak>Hi undefined!",
                     displayText: "Hi undefined!"
+                });
+            });
+            describe("and defined values", () => {
+                it("compiles the value", () => {
+                    const compiled = new Compiler({
+                        replaceWhenUndefined: true
+                    }).compile({
+                        ssml: "<speak>Your name is ${ $.request.slots.name.value } (${name})</speak>",
+                        displayText: "Your name is ${ $.request.slots.name.value } (${name})!"
+                    }, request, context);
+                    expect(compiled).to.deep.equal({
+                        ssml: "<speak>Your name is bob (bob)</speak>",
+                        displayText: "Your name is bob (bob)!"
+                    });
                 });
             });
         });

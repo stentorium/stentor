@@ -8,7 +8,7 @@ import { slotValueToSpeech } from "../response";
 import { capitalize, truncate } from "../string";
 import { combineRequestSlots } from "../request";
 
-type ResponseOutputKeysOnly = Pick<ResponseOutput, "ssml" | "displayText">;
+type ResponseOutputKeysOnly = Pick<ResponseOutput, "ssml" | "displayText" | "html">;
 
 // We are redefining this here so we don't have to import the entire stentor-request package
 // as a depdenency, which we can't because it would then be circular
@@ -24,11 +24,36 @@ export const DEFAULT_MARCOS: MacroMap = {
 }
 
 export interface CompilerProps {
+    /**
+     * When true, it will replace the ${foo} with undefined.  Default behavior will leave ${foo} if it does not have a value.
+     */
     readonly replaceWhenUndefined?: boolean;
+    /**
+     * When provided it overrides the DEFAULT_MACROS and are used when compiling the templates.
+     * 
+     * You can include the DEFAULT_MACROS if you include them:
+     * 
+     * ```ts
+     * macros: {
+     *    ...DEFAULT_MACROS,
+     *    ...myMacros
+     * }
+     * ```
+     */
     readonly macros?: MacroMap;
+    /**
+     * When provided, the additional context will be used when compiling the templates.  This is an opportunity to inject
+     * more information beyond the provided request and context objects.
+     */
     readonly additionalContext?: Record<string, unknown>;
 }
 
+/**
+ * Compiles the templated response based on the provided request and context with some configurability.
+ * 
+ * You can provide custom macros that can be used to modify the templated response and also additional context
+ * that will be used as possible replacements.
+ */
 export class Compiler implements CompilerProps {
 
     public readonly replaceWhenUndefined?: boolean;
@@ -52,12 +77,11 @@ export class Compiler implements CompilerProps {
         }
     }
 
-    private compileString(value: string, request: Request, context: Context, key: "ssml" | "displayText"): string {
+    private compileString(value: string, request: Request, context: Context, key: "displayText" | "ssml" | "html"): string {
 
         let compiledValue: string = value;
 
         // First look for macros
-
         // See this regex in action: https://regex101.com/r/MihX7l/2 
         // It is complicated.
         const MACRO_REGEX = /\$\{\s*([a-zA-Z]*)\(\s*((?:["`']\$\{(?:\s*\$\.)?[\s\w\.]*\}["`']|[^$]\w*)+)\s*\)\s*\}/g;
@@ -125,22 +149,43 @@ export class Compiler implements CompilerProps {
                 // Find the slot
                 const slot = slots[captured];
                 // Based on the type, replace it in the string
-                if (slot) {
+                if (slot && key !== "html") {
                     speakableSlotValue = slotValueToSpeech(slot.value, key);
                 }
 
-                // if it exists OR replaceWhenUndefined
-                if (speakableSlotValue || this.replaceWhenUndefined) {
-                    // replace it
-                    compiledValue = compiledValue.replace(result[0], speakableSlotValue);
-                }
             }
 
             const pathResult = JSONPath({ path: captured.trim(), json: { ...this.additionalContext, request, context } });
-            const replacement = pathResult[0];
-            // now replace if we have a result
-            if (replacement || this.replaceWhenUndefined) {
-                compiledValue = compiledValue.replace(result[0], pathResult[0]);
+            const pathReplacement = pathResult[0];
+
+            // if it exists OR replaceWhenUndefined
+            if (speakableSlotValue || pathReplacement || this.replaceWhenUndefined) {
+
+                let replacement: string = speakableSlotValue;
+
+                if (!replacement) {
+                    // pathReplacement can be anything so do some 
+                    if (typeof pathReplacement === "string") {
+                        replacement = pathReplacement;
+                    } else if (typeof pathReplacement === "number") {
+                        replacement = `${pathReplacement}`;
+                    } else if (typeof pathReplacement === "object") {
+                        // Try the key, it might be a ResponseOutput
+                        if (pathReplacement[key]) {
+                            replacement = pathReplacement[key];
+                        } else {
+                            // Otherwise it will just look like [Object object], which isn't
+                            // helpful so we stringify it
+                            replacement = JSON.stringify(pathReplacement);
+                        }
+                    } else {
+                        // No idea, good luck
+                        replacement = pathReplacement;
+                    }
+                }
+
+                // replace it
+                compiledValue = compiledValue.replace(result[0], replacement);
             }
 
             // loop it around again
@@ -151,7 +196,13 @@ export class Compiler implements CompilerProps {
 
     }
 
-
+    /**
+     * Compiles the provided response output or string based on the provided request and context.
+     * 
+     * @param responseOutput 
+     * @param request 
+     * @param context 
+     */
     public compile(responseOutput: string, request: Request, context: Context): string;
     public compile(responseOutput: ResponseOutput, request: Request, context: Context): ResponseOutput;
     public compile(responseOutput: string | ResponseOutput, request: Request, context: Context): string | ResponseOutput {
@@ -170,7 +221,7 @@ export class Compiler implements CompilerProps {
             // Response is { ssml, displayText }
             const value: ResponseOutput = compiledValue; // This reassignment is only to make TS happy
             // Make some type safe keys
-            const keys: (keyof ResponseOutputKeysOnly)[] = ["ssml", "displayText"];
+            const keys: (keyof ResponseOutputKeysOnly)[] = ["ssml", "displayText", "html"];
 
             // Iterate through the keys
             keys.forEach(key => {

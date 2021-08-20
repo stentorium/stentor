@@ -1,4 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { isActionable } from "stentor-guards";
 import { log } from "stentor-logger";
 import { GOODBYE, TROUBLE_WITH_REQUEST, SESSION_STORAGE_NEW_USER, SESSION_STORAGE_SLOTS_KEY } from "stentor-constants";
 import { ContextFactory } from "stentor-context";
@@ -32,6 +33,7 @@ import {
 } from "stentor-request";
 import { canFulfillAll, canFulfillNothing, getResponse } from "stentor-response";
 import { EventService, wrapCallback as eventServiceCallbackWrapper } from "stentor-service-event";
+import { manipulateStorage } from "stentor-storage";
 import { combineRequestSlots, existsAndNotEmpty, findValueForKey } from "stentor-utils";
 import { ChannelSelector } from "./ChannelSelector";
 import { mergeKnowledgeBaseResult } from "./mergeKnowledgeBaseResult";
@@ -453,22 +455,11 @@ export const main = async (
         }
     }
 
-    // #4.2 Save the user storage
-    try {
-        await userStorageService.update(request.userId, context.storage);
-    } catch (error) {
-        // report the error
-        console.error(error.stack);
-        // Add the error to the event service
-        if (eventService) {
-            eventService.error(error);
-        }
-    }
-
+    // #4.2 Build and translate the response
     let response: Response<ResponseOutput>;
     let finalResponse: object;
     try {
-        // #4.3 Build and translate the response
+
         response = context.response.build();
 
         if (eventService) {
@@ -490,6 +481,23 @@ export const main = async (
         }
         finalResponse = {};
     }
+
+    if (isActionable(response)) {
+        manipulateStorage(context.storage, response.actions);
+    }
+
+    // #4.3 Save the user storage
+    try {
+        await userStorageService.update(request.userId, context.storage);
+    } catch (error) {
+        // report the error
+        console.error(error.stack);
+        // Add the error to the event service
+        if (eventService) {
+            eventService.error(error);
+        }
+    }
+
     // #5 Finish it off by calling the callback
     callback(null, finalResponse, request, response);
 };

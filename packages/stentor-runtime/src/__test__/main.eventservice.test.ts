@@ -427,7 +427,7 @@ describe("#main() with EventService", () => {
                 }
             });
             expect(eventStream.events).to.have.length(4);
-            const errorEvent = eventStream.events[0];
+            const errorEvent = eventStream.events[1];
             expect(errorEvent.type).to.equal("ERROR");
             expect(errorEvent.appId).to.equal(appId);
             expect(errorEvent.platform).to.equal("MOCK");

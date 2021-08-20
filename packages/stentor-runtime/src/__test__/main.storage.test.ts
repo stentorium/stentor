@@ -36,6 +36,23 @@ const content: Content = {
     ]
 };
 
+const contentWithStorageAction: Content = {
+    [intentId]: [
+        {
+            name: "Name",
+            outputSpeech: "Hello World!",
+            actions: [
+                {
+                    type: "SET",
+                    store: "SESSION",
+                    key: "NEEDS_AGENT",
+                    value: true
+                }
+            ]
+        }
+    ]
+};
+
 const handler: Handler = {
     organizationId,
     appId,
@@ -43,6 +60,16 @@ const handler: Handler = {
     name: "Order",
     type: "ConversationHandler",
     content,
+    data: {}
+};
+
+const handlerWithStorageAction: Handler = {
+    organizationId,
+    appId,
+    intentId,
+    name: "Order",
+    type: "ConversationHandler",
+    content: contentWithStorageAction,
     data: {}
 };
 
@@ -239,6 +266,76 @@ describe(`#${main.name}() storage`, () => {
                         id: "sessionId"
                     }
                 });
+            });
+        });
+    });
+    describe('with a storage action', () => {
+        beforeEach(() => {
+
+            const storage: Storage = {
+                createdTimestamp: createdDate.getTime(),
+                lastActiveTimestamp: createdDate.getTime(),
+                sessionStore: {
+                    id: sessionId,
+                    data: {
+                        slots: {
+                            bar: {
+                                name: "bar",
+                                value: "barre"
+                            },
+                            foo: {
+                                name: "foo",
+                                value: "fu"
+                            }
+                        }
+                    }
+                }
+            };
+
+            request = new IntentRequestBuilder().withSlots({
+                foo: {
+                    name: "foo",
+                    value: "phew"
+                }
+            }).build();
+            handlerFactory = new HandlerFactory({ handlers: [ConversationHandler] });
+            context = { ovai: { appId } };
+            callbackSpy = sinon.spy();
+            handlerService = sinon.createStubInstance(MockHandlerService, {
+                get: handlerWithStorageAction
+            });
+            userStorageService = sinon.createStubInstance(MockUserStorageService, {
+                get: Promise.resolve({ ...storage })
+            });
+        });
+        it("adds the action", async () => {
+            await main(
+                request,
+                context,
+                callbackSpy,
+                [passThroughChannel()],
+                {
+                    eventService,
+                    handlerFactory,
+                    handlerService,
+                    userStorageService
+                }
+            )
+            expect(callbackSpy).to.have.been.calledOnce;
+            expect(userStorageService.update).to.have.been.calledOnce;
+            expect(userStorageService.update).to.have.been.calledWithMatch("userId", {
+                sessionStore: {
+                    data: {
+                        slots: {
+                            foo: {
+                                name: "foo",
+                                value: "phew"
+                            }
+                        },
+                        NEEDS_AGENT: true
+                    },
+                    id: "sessionId"
+                }
             });
         });
     });

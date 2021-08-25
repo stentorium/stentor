@@ -62,6 +62,22 @@ const CONDITIONAL_SCHEDULE_SLOTS: Conditioned = {
     conditions: 'fitsSchedule("2019-09-11T00:00", "YYYY-MM-DDTmm:ss", 5, "days") && (slotEquals("foo", "bar") || slotEquals("foo", "baz"))'
 };
 
+const CONDITIONAL_SESSION_STORE: Conditioned = {
+    conditions: 'session("baz").startsWith("t")'
+}
+
+const CONDITIONAL_STORAGE: Conditioned = {
+    conditions: 'storage("foo").startsWith("ba")'
+}
+
+const CONDITIONAL_SLOT_CONTAINS: Conditioned = {
+    conditions: 'slot("foo").includes("b")'
+}
+
+const CONDITIONAL_SLOT_COMPARE: Conditioned = {
+    conditions: 'slot("foo") === "${$.context.storage.foo}"'
+}
+
 describe(`#${determine.name}()`, () => {
     let request: Request;
     let context: Context;
@@ -192,6 +208,60 @@ describe(`#${determine.name}()`, () => {
                     expect(determine([CONDITIONAL_2, {}], request, context)).to.exist;
                     expect(determine([CONDITIONAL_2, {}], request, context)).to.deep.equal(CONDITIONAL_2);
                 });
+            });
+        });
+        describe('with JS dependent on the returned macro result', () => {
+            beforeEach(() => {
+                request = new IntentRequestBuilder().withSlots({
+                    foo: {
+                        name: "foo",
+                        value: "bar"
+                    }
+                }).build();
+
+                context = new ContextBuilder()
+                    .withStorage({
+                        lastActiveTimestamp: 1234,
+                        createdTimestamp: 1234,
+                        foo: "bar"
+                    })
+                    .withSessionData({
+                        id: "sessionId",
+                        data: {
+                            slots: {
+                                ["slot_foo"]: {
+                                    name: "slot_foo",
+                                    value: "bar"
+                                }
+                            },
+                            baz: true
+                        }
+                    })
+                    .build();
+            });
+            it("returns the correct result", () => {
+                expect(determine([CONDITIONAL_SLOT_CONTAINS], request, context)).to.exist;
+                expect(determine([CONDITIONAL_SLOT_CONTAINS], request, context)).to.deep.equal(CONDITIONAL_SLOT_CONTAINS);
+
+                expect(determine([CONDITIONAL_STORAGE], request, context)).to.exist;
+                expect(determine([CONDITIONAL_STORAGE], request, context)).to.deep.equal(CONDITIONAL_STORAGE);
+
+                expect(determine([CONDITIONAL_SESSION_STORE], request, context)).to.exist;
+                expect(determine([CONDITIONAL_SESSION_STORE], request, context)).to.deep.equal(CONDITIONAL_SESSION_STORE);
+            });
+        });
+        describe('with a mix of templating and marcos', () => {
+            beforeEach(() => {
+                request = new IntentRequestBuilder().withSlots({
+                    foo: {
+                        name: "foo",
+                        value: "bar"
+                    }
+                }).build();
+            });
+            it("returns the correct result", () => {
+                expect(determine([CONDITIONAL_SLOT_COMPARE], request, context)).to.exist;
+                expect(determine([CONDITIONAL_SLOT_COMPARE], request, context)).to.deep.equal(CONDITIONAL_SLOT_COMPARE);
             });
         });
     });

@@ -1,6 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { INPUT_UNKNOWN_ID } from "stentor-constants";
-import { isActionable } from "stentor-guards";
 import { REPEAT_INTENT } from "stentor-interaction-model";
 import { log } from "stentor-logger";
 import {
@@ -19,7 +18,6 @@ import {
 } from "stentor-models";
 import { keyFromRequest } from "stentor-request";
 import { determineResponse, getResponse } from "stentor-response";
-import { manipulateStorage } from "stentor-storage";
 import { concatText, dessmlify, findValueForKey } from "stentor-utils";
 
 import { determinePath } from "../Path";
@@ -288,9 +286,6 @@ export abstract class AbstractHandler<
                 const response = getResponse(this, request, context);
                 if (response) {
                     context.response.respond(response);
-                    if (isActionable(response)) {
-                        manipulateStorage(context.storage, response.actions);
-                    }
                     return;
                 } else {
 

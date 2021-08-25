@@ -3,7 +3,7 @@ import { SESSION_STORAGE_SLOTS_KEY } from "stentor-constants";
 import { isHandler } from "stentor-guards";
 import { Content, Context, Handler, Request, Response, Slot, RequestSlotMap } from "stentor-models";
 import { keyFromRequest, isIntentRequest } from "stentor-request";
-import { combineRequestSlots, findValueForKey, existsAndNotEmpty, random } from "stentor-utils";
+import { combineRequestSlots, findValueForKey, existsAndNotEmpty, MacroMap, random } from "stentor-utils";
 import { compileResponse } from "./compileResponse";
 import { determineResponse } from "./determineResponse";
 
@@ -12,12 +12,20 @@ import { determineResponse } from "./determineResponse";
  * content, request and context.
  * 
  * In order to leverage slot filling, you must pass in a Handler for content.
+ * 
+ * @param content 
+ * @param request 
+ * @param context 
+ * @param additionalContext 
+ * @param macros 
+ * @returns 
  */
 export function getResponse(
     content: Handler | Content | Response[],
     request: Request,
     context: Context,
-    additionalContext?: object
+    additionalContext?: object,
+    macros?: MacroMap,
 ): Response {
     let responses: Response[];
 
@@ -82,7 +90,7 @@ export function getResponse(
     // Determine the best one
     let response: Response = determineResponse(responses, request, context);
     // And compile
-    response = compileResponse(response, request, context, additionalContext);
+    response = compileResponse(response, request, context, additionalContext, macros);
     // Check for actions and apply them?
 
     return response;

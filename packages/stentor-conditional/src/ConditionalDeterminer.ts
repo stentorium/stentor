@@ -41,7 +41,7 @@ export class ConditionalDeterminer {
         conditionals.forEach((conditional) => {
             if (typeof conditional.conditions === "string") {
                 // Get all the function and add them to the sandbox.
-                const sandboxFunctions: { [name: string]: ((input: any) => boolean) } = {};
+                const sandboxFunctions: { [name: string]: ((input: any) => boolean | string | number) } = {};
 
                 if (Array.isArray(this.checks)) {
                     this.checks.forEach((check) => {
@@ -58,6 +58,7 @@ export class ConditionalDeterminer {
                         }
                     });
                 }
+
                 const vm = new VM({
                     timeout: this.timeout,
                     sandbox: {

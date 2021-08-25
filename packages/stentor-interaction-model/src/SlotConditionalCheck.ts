@@ -1,6 +1,7 @@
 /*! Copyright (c) 2020, XAPPmedia */
 import { log } from "stentor-logger";
 import { ConditionalCheck, IntentRequest, Request, RequestSlotMap, SlotDependable } from "stentor-models";
+import { slot } from "stentor-utils";
 
 import { isSlotDependable } from "./Slot";
 import { findSlotDependentMatch } from "./Slot/findSlotDependentMatch";
@@ -131,6 +132,7 @@ export function SlotConditionalCheck<T extends object>(input: RequestSlotMap | R
         },
         functions: [
             hasSlot.bind(null, slots),
+            slot.bind(null, slots),
             slotDoesNotExist.bind(null, slots),
             slotEquals.bind(null, slots),
             slotExists.bind(null, slots),

@@ -32,6 +32,8 @@ function compileString(value: string, object: object, replaceWhenUndefined: bool
  *
  * For example, when passed "${greeting} ${foo.name}, how are you?" and
  * { greeting: "Hello", foo: {name: "Bob" }} will be compiled to "Hello Bob, how are you?"
+ * 
+ * @deprecated Use class Compiler, which handles both JSONPaths & Slots
  */
 export function compileJSONPaths(responseOutput: string, object: object, replaceWhenUndefined?: boolean): string;
 export function compileJSONPaths(responseOutput: ResponseOutput, object: object, replaceWhenUndefined?: boolean): ResponseOutput;

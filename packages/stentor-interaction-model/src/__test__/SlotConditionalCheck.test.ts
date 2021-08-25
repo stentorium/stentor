@@ -85,18 +85,22 @@ describe(`${SlotConditionalCheck.name}`, () => {
             expect(hasSlot("foo")).to.be.true;
             expect(hasSlot("bar")).to.be.false;
             expect(hasSlot("baz")).to.be.false;
-            // 1th is slotDoesNotExist
-            const slotDoesNotExist = SlotConditionalCheck(slotsWithFooAsBar).functions[1];
+            // slot
+            const slot = SlotConditionalCheck(slotsWithFooAsBar).functions[1];
+            expect(slot("foo")).to.equal("bar");
+            expect(slot("bar")).to.equal("");
+            // slotDoesNotExist
+            const slotDoesNotExist = SlotConditionalCheck(slotsWithFooAsBar).functions[2];
             expect(slotDoesNotExist("foo")).to.be.false;
             expect(slotDoesNotExist("bar")).to.be.true;
             expect(slotDoesNotExist("baz")).to.be.true;
             // Slot Equals
-            const slotEquals = SlotConditionalCheck(slotsWithFooAsBar).functions[2];
+            const slotEquals = SlotConditionalCheck(slotsWithFooAsBar).functions[3];
             expect(slotEquals("foo", "bar")).to.be.true;
             expect(slotEquals("baz", "")).to.be.true;
             expect(slotEquals("bar", "bar")).to.be.false;
             // Slot exists
-            const slotExists = SlotConditionalCheck(slotsWithFooAsBar).functions[3];
+            const slotExists = SlotConditionalCheck(slotsWithFooAsBar).functions[4];
             expect(slotExists("foo")).to.be.true;
             expect(slotExists("bar")).to.be.false;
             expect(slotExists("baz")).to.be.false;

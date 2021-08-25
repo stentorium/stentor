@@ -26,9 +26,9 @@ import {
     SystemConditionalCheck,
     RequestConditionalCheck
 } from "stentor-request";
-import { findStorageDependentMatch, isStorageDependable } from "stentor-storage";
+import { findStorageDependentMatch, isStorageDependable, StorageDependentCheck } from "stentor-storage";
 import { findTimeContextualMatch, TimeConditionalCheck } from "stentor-time";
-import { combineRequestSlots, compileJSONPaths, random, existsAndNotEmpty, compileSlotValues } from "stentor-utils";
+import { combineRequestSlots, random, existsAndNotEmpty, Compiler } from "stentor-utils";
 import { findJSONDependentMatch, JSONConditionalCheck } from "./findJSONDependentMatch";
 import { isJSONDependable, isConditional } from "./Guards";
 
@@ -89,9 +89,8 @@ export function determine<P extends object>(potentials: P[], request: Request, c
         conditionals.forEach((conditional) => {
             if (typeof conditional.conditions === "string") {
                 // Compile it
-                let compiled: string = conditional.conditions;
-                compiled = compileSlotValues(compiled, requestSlots);
-                compiled = compileJSONPaths(compiled, { request, context });
+                const compiled: string = new Compiler().compile(conditional.conditions, request, context);
+
                 // Keep hold of the original
                 originals[compiled] = conditional;
                 // Push a compiled version
@@ -110,7 +109,8 @@ export function determine<P extends object>(potentials: P[], request: Request, c
             JSONConditionalCheck(request, context),
             SystemConditionalCheck(request, context),
             RequestConditionalCheck(request),
-            SlotConditionalCheck(requestSlots)
+            SlotConditionalCheck(requestSlots),
+            StorageDependentCheck(request, context)
         ];
         // If we have a lastActiveTimestamp, which we most always do 
         if (context && context.storage && typeof context.storage.lastActiveTimestamp === "number") {

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.45.0](https://github.com/stentorium/stentor/compare/v1.44.7...v1.45.0) (2021-08-25)
+
+
+### Features
+
+* Macros in Responses ([#1104](https://github.com/stentorium/stentor/issues/1104)) ([9a3c8b4](https://github.com/stentorium/stentor/commit/9a3c8b4561f654608c21c3fcb6b39cf5730f57e3))
+
+
+
+
+
 ## [1.44.7](https://github.com/stentorium/stentor/compare/v1.44.6...v1.44.7) (2021-08-25)
 
 **Note:** Version bump only for package stentor-response

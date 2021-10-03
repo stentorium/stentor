@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.45.16](https://github.com/stentorium/stentor/compare/v1.45.15...v1.45.16) (2021-10-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency blueimp-md5 to v2.19.0 ([#1154](https://github.com/stentorium/stentor/issues/1154)) ([203ecc5](https://github.com/stentorium/stentor/commit/203ecc50534046b9c686cf0bcc74d4e283a76aec))
+* **deps:** update dependency chrono-node to v2.3.2 ([#1153](https://github.com/stentorium/stentor/issues/1153)) ([dd7ef75](https://github.com/stentorium/stentor/commit/dd7ef7530ed7d7362b0b7b3725c3cda6cb71ede7))
+* **deps:** update dependency date-fns to v2.24.0 ([#1138](https://github.com/stentorium/stentor/issues/1138)) ([a567adf](https://github.com/stentorium/stentor/commit/a567adfa0a9078f4c2f7240c3a01f2acf703dda0))
+
+
+
+
+
 ## [1.45.15](https://github.com/stentorium/stentor/compare/v1.45.14...v1.45.15) (2021-09-29)
 
 

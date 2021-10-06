@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.45.19](https://github.com/stentorium/stentor/compare/v1.45.18...v1.45.19) (2021-10-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.25.0 ([#1163](https://github.com/stentorium/stentor/issues/1163)) ([a18e564](https://github.com/stentorium/stentor/commit/a18e56479b5e14163b559831680a00dc5ad63ce4))
+* **deps:** update dependency slugify to v1.6.1 ([#1162](https://github.com/stentorium/stentor/issues/1162)) ([c984dcc](https://github.com/stentorium/stentor/commit/c984dcc8feac7591c519c346325cd1aeb3bf6edd))
+
+
+
+
+
 ## [1.45.18](https://github.com/stentorium/stentor/compare/v1.45.17...v1.45.18) (2021-10-05)
 
 **Note:** Version bump only for package repo

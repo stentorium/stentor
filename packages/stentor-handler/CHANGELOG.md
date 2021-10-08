@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.45.20](https://github.com/stentorium/stentor/compare/v1.45.19...v1.45.20) (2021-10-08)
+
+**Note:** Version bump only for package stentor-handler
+
+
+
+
+
 ## [1.45.19](https://github.com/stentorium/stentor/compare/v1.45.18...v1.45.19) (2021-10-06)
 
 **Note:** Version bump only for package stentor-handler

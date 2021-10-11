@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { isActionable } from "stentor-guards";
 import { log } from "stentor-logger";
-import { GOODBYE, TROUBLE_WITH_REQUEST, SESSION_STORAGE_NEW_USER, SESSION_STORAGE_SLOTS_KEY } from "stentor-constants";
+import { GOODBYE, TROUBLE_WITH_REQUEST, SESSION_STORAGE_NEW_USER, SESSION_STORAGE_SLOTS_KEY, SESSION_STORAGE_KNOWLEDGE_BASE_RESULT } from "stentor-constants";
 import { ContextFactory } from "stentor-context";
 import { AbstractHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
@@ -36,7 +36,7 @@ import { EventService, wrapCallback as eventServiceCallbackWrapper } from "stent
 import { manipulateStorage } from "stentor-storage";
 import { combineRequestSlots, existsAndNotEmpty, findValueForKey } from "stentor-utils";
 import { ChannelSelector } from "./ChannelSelector";
-import { mergeKnowledgeBaseResult } from "./mergeKnowledgeBaseResult";
+import { combineKnowledgeBaseResults, mergeInKnowledgeBaseResults } from "./combineKnowledgeBaseResults";
 
 export interface KnowledgeBaseConfig {
     /**
@@ -245,7 +245,7 @@ export const main = async (
         if (kbService && request.rawQuery) {
             const kbResult = await kbService.query(request.rawQuery);
 
-            request = mergeKnowledgeBaseResult(request, kbResult, kbConfig);
+            request = mergeInKnowledgeBaseResults(request, kbResult, kbConfig);
         }
     }
 
@@ -308,7 +308,10 @@ export const main = async (
         // Update the slots on the user's session storage
         // This is helpful when slot filling.
         context.session.set(SESSION_STORAGE_SLOTS_KEY, combineRequestSlots(context.session.get(SESSION_STORAGE_SLOTS_KEY), request.slots));
+        // We also keep track of the most recent KB result if it exists.
+        context.session.set(SESSION_STORAGE_KNOWLEDGE_BASE_RESULT, combineKnowledgeBaseResults(context.session.get(SESSION_STORAGE_KNOWLEDGE_BASE_RESULT), request.knowledgeBaseResult));
     }
+
 
     // #2 Get the request handler
     let handler: AbstractHandler;

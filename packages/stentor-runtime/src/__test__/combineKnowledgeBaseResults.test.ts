@@ -4,7 +4,7 @@ import { expect } from "chai";
 import { KnowledgeBaseResult } from "stentor-models";
 import { InputUnknownRequestBuilder, IntentRequestBuilder, isIntentRequest } from "stentor-request";
 
-import { mergeKnowledgeBaseResult } from "../mergeKnowledgeBaseResult";
+import { combineKnowledgeBaseResults, mergeInKnowledgeBaseResults } from "../combineKnowledgeBaseResults";
 
 const emptyResult: KnowledgeBaseResult = {
     faqs: [],
@@ -36,12 +36,22 @@ const faqAndDocumentResult: KnowledgeBaseResult = {
     ]
 }
 
-describe(`#${mergeKnowledgeBaseResult.name}()`, () => {
+describe(`#${combineKnowledgeBaseResults.name}()`, () => {
+    describe("when an existing is defined", () => {
+        describe("and incoming is not defined", () => {
+            it("returns the existing", () => {
+                expect(combineKnowledgeBaseResults(faqAndDocumentResult, undefined)).to.deep.equal(faqAndDocumentResult);
+            });
+        })
+    });
+});
+
+describe(`#${mergeInKnowledgeBaseResults.name}()`, () => {
     describe("with a config", () => {
         describe("with setIntentId", () => {
             it("modifies the intentId", () => {
                 const intentRequest = new IntentRequestBuilder().withIntentId("first").build();
-                const request = mergeKnowledgeBaseResult(intentRequest, emptyResult, { setIntentId: "second" });
+                const request = mergeInKnowledgeBaseResults(intentRequest, emptyResult, { setIntentId: "second" });
                 expect(isIntentRequest(request)).to.be.true;
                 if (isIntentRequest(request)) {
                     expect(request.intentId).to.equal("second");
@@ -50,7 +60,7 @@ describe(`#${mergeKnowledgeBaseResult.name}()`, () => {
             describe("with InputUnknown request", () => {
                 it("modifies the intentId and type", () => {
                     const intentRequest = new InputUnknownRequestBuilder().build();
-                    const request = mergeKnowledgeBaseResult(intentRequest, emptyResult, { setIntentId: "second" });
+                    const request = mergeInKnowledgeBaseResults(intentRequest, emptyResult, { setIntentId: "second" });
                     expect(isIntentRequest(request)).to.be.true;
                     if (isIntentRequest(request)) {
                         expect(request.intentId).to.equal("second");
@@ -61,7 +71,7 @@ describe(`#${mergeKnowledgeBaseResult.name}()`, () => {
         describe("without setIntentId", () => {
             it("maintains the intentId", () => {
                 const intentRequest = new IntentRequestBuilder().withIntentId("first").build();
-                const request = mergeKnowledgeBaseResult(intentRequest, emptyResult);
+                const request = mergeInKnowledgeBaseResults(intentRequest, emptyResult);
                 expect(isIntentRequest(request)).to.be.true;
                 if (isIntentRequest(request)) {
                     expect(request.intentId).to.equal("first");
@@ -71,7 +81,7 @@ describe(`#${mergeKnowledgeBaseResult.name}()`, () => {
         describe("with merge results", () => {
             it("merges both knowledgebase results", () => {
                 const intentRequest = new IntentRequestBuilder().withIntentId("first").withKnowledgeBaseResult(faqResult).build();
-                const request = mergeKnowledgeBaseResult(intentRequest, faqAndDocumentResult, { mergeResults: true });
+                const request = mergeInKnowledgeBaseResults(intentRequest, faqAndDocumentResult, { mergeResults: true });
                 expect(isIntentRequest(request)).to.be.true;
                 expect(isIntentRequest(request)).to.be.true;
                 if (isIntentRequest(request)) {
@@ -86,7 +96,7 @@ describe(`#${mergeKnowledgeBaseResult.name}()`, () => {
     describe("without a config", () => {
         it("sets the results on the request", () => {
             const intentRequest = new IntentRequestBuilder().withIntentId("first").build();
-            const request = mergeKnowledgeBaseResult(intentRequest, faqResult, {});
+            const request = mergeInKnowledgeBaseResults(intentRequest, faqResult, {});
             expect(isIntentRequest(request)).to.be.true;
             if (isIntentRequest(request)) {
                 expect(request.intentId).to.equal("first");

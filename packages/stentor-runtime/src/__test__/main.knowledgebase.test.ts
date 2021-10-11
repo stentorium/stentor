@@ -96,6 +96,19 @@ describe("#main() with KnowledgeBase Service", () => {
                     ssml: "<speak>Scream 2</speak>"
                 }
             });
+            // it sets the knowledge base result on the session
+            expect(userStorageService.update).to.have.been.calledOnce;
+            // @ts-ignore Sinon types seem to be incorrect.
+            const storage = userStorageService.update.getCall(0).args[1];
+            const result = storage.sessionStore.data.knowledge_base_result;
+            expect(result).to.deep.equal({
+                faqs: [
+                    {
+                        question: "What is your favorite scary movie?",
+                        document: "Scream 2"
+                    }
+                ]
+            });
         });
     });
     describe("when knowledge base service does not match the request", () => {

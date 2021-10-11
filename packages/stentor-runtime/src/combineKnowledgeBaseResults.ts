@@ -5,7 +5,8 @@ import { combine } from "stentor-utils";
 import { KnowledgeBaseConfig } from "./main";
 
 /**
- * From the two provided knowledge base results
+ * From the two provided knowledge base results, it will return the result or combines them.  
+ * 
  * @param existing 
  * @param incoming 
  * @param merge 

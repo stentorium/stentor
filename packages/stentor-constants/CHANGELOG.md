@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.46.0](https://github.com/stentorium/stentor/compare/v1.45.21...v1.46.0) (2021-10-11)
+
+
+### Features
+
+* Adds KnowledgeBaseResult automatically to the session storage ([#1172](https://github.com/stentorium/stentor/issues/1172)) ([f883d80](https://github.com/stentorium/stentor/commit/f883d80548d189c1cc11e23c7da9640e32eea5d8))
+
+
+
+
+
 ## [1.45.20](https://github.com/stentorium/stentor/compare/v1.45.19...v1.45.20) (2021-10-08)
 
 **Note:** Version bump only for package stentor-constants

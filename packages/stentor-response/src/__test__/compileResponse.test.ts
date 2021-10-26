@@ -556,7 +556,7 @@ describe(`#${compileResponse.name}()`, () => {
             }
         });
     });
-    describe.only("when passed a response with suggestion chips", () => {
+    describe("when passed a response with suggestion chips", () => {
         const chippedResponse: SimpleResponse = {
             outputSpeech: {
                 ssml: "Your name is ${ $.request.slots.NAME.value }",

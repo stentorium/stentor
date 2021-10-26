@@ -378,9 +378,10 @@ describe("#getResponse()", () => {
                     },
                     {
                         outputSpeech: {
-                            ssml: "${CONDITION}"
+                            ssml: "<speak>${CONDITION}</speak>",
+                            displayText: "${CONDITION}"
                         },
-                        conditions: "'${CONDITION}'"
+                        conditions: "!!`${CONDITION}`"
                     }
                 ]
             };
@@ -435,7 +436,6 @@ describe("#getResponse()", () => {
     });
     describe("when passed macros", () => {
         beforeEach(() => {
-
             handler = {
                 appId: "app",
                 organizationId: "org",

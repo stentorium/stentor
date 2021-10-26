@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.46.7](https://github.com/stentorium/stentor/compare/v1.46.6...v1.46.7) (2021-10-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v3.0.8 ([#1187](https://github.com/stentorium/stentor/issues/1187)) ([f26e6c5](https://github.com/stentorium/stentor/commit/f26e6c51e36f61abcee6d1c173f97ef018f81270))
+
+
+
+
+
+## [1.46.6](https://github.com/stentorium/stentor/compare/v1.46.5...v1.46.6) (2021-10-25)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.46.5](https://github.com/stentorium/stentor/compare/v1.46.4...v1.46.5) (2021-10-21)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.46.3](https://github.com/stentorium/stentor/compare/v1.46.2...v1.46.3) (2021-10-20)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.46.2](https://github.com/stentorium/stentor/compare/v1.46.1...v1.46.2) (2021-10-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency sanitize-html to v2.5.2 ([#1179](https://github.com/stentorium/stentor/issues/1179)) ([e436da6](https://github.com/stentorium/stentor/commit/e436da63e13893679059a5632801795e2d2ce6e3))
+
+
+
+
+
 # [1.46.0](https://github.com/stentorium/stentor/compare/v1.45.21...v1.46.0) (2021-10-11)
 
 **Note:** Version bump only for package stentor-utils

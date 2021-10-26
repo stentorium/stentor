@@ -4,7 +4,16 @@ import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
 
 import { ContextBuilder } from "stentor-context";
-import { Context, Request, Response, SimpleResponse, Storage, ResponseOutput, RequestSlotMap } from "stentor-models";
+import {
+    Context,
+    Request,
+    Response,
+    SimpleResponse,
+    Storage,
+    ResponseOutput,
+    RequestSlotMap,
+    LinkOutSuggestion
+} from "stentor-models";
 import { IntentRequestBuilder } from "stentor-request";
 import { isList, ResponseBuilder } from "stentor-response";
 import { compileResponse } from "../compileResponse";
@@ -56,6 +65,11 @@ describe(`#${compileResponse.name}()`, () => {
                                 name: "flower_type",
                                 value: "roses"
                             }
+                        },
+                        SUGGESTION: {
+                            document: "This is the suggested document",
+                            url: "https://documentation.xapp.ai",
+                            title: "Suggested Doc"
                         }
                     }
                 }
@@ -540,6 +554,50 @@ describe(`#${compileResponse.name}()`, () => {
             if (typeof response.reprompt === "object") {
                 expect(response.reprompt.ssml).to.equal("<speak>Hola Bob. Cómo puedo ayudar?</speak>");
             }
+        });
+    });
+    describe.only("when passed a response with suggestion chips", () => {
+        const chippedResponse: SimpleResponse = {
+            outputSpeech: {
+                ssml: "Your name is ${ $.request.slots.NAME.value }",
+                displayText: "Your name is ${ $.request.slots.NAME.value }",
+                suggestions: [
+                    {
+                        title: "Read More",
+                        url: "${SUGGESTION.url}"
+                    },
+                    {
+                        title: "${flower_type}",
+                        url: "${SUGGESTION.url}"
+                    }
+                ]
+            },
+            reprompt: {
+                ssml: "<speak> Hi ${$.context.storage.name} </speak>",
+                displayText: "Hi ${$.context.storage.name}"
+            }
+        }
+        let compiledResponse: Response;
+        beforeEach(() => {
+            compiledResponse = compileResponse(chippedResponse, request, context);
+        });
+        it("compiles the chips", () => {
+            expect(compileResponse).to.exist;
+
+            console.log(compiledResponse);
+
+            const suggestions = typeof compiledResponse.outputSpeech !== "string" ? compiledResponse.outputSpeech.suggestions : undefined;
+            expect(suggestions).to.have.length(2);
+
+            const first = suggestions[0];
+            const url = typeof first !== "string" ? (first as LinkOutSuggestion).url : undefined;
+            expect(url).to.equal("https://documentation.xapp.ai");
+
+            const second = suggestions[1];
+            const title = typeof second !== "string" ? second.title : undefined;
+            expect(title).to.equal("roses");
+
+
         });
     });
     describe("when passed a response with displays", () => {

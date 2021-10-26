@@ -7,6 +7,6 @@ import { determine } from "stentor-determiner";
  * @param responses
  * @returns {(Response | undefined)}
  */
-export function determineResponse(responses: Response[], request: Request, context: Context): Response | undefined {
-    return determine(responses, request, context);
+export function determineResponse(responses: Response[], request: Request, context: Context, additionalContext?: Record<string, unknown>): Response | undefined {
+    return determine(responses, request, context, additionalContext);
 }

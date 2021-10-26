@@ -24,7 +24,7 @@ export function getResponse(
     content: Handler | Content | Response[],
     request: Request,
     context: Context,
-    additionalContext?: object,
+    additionalContext?: Record<string, unknown>,
     macros?: MacroMap,
 ): Response {
     let responses: Response[];
@@ -88,7 +88,7 @@ export function getResponse(
         responses = findValueForKey(key, content);
     }
     // Determine the best one
-    let response: Response = determineResponse(responses, request, context);
+    let response: Response = determineResponse(responses, request, context, additionalContext);
     // And compile
     response = compileResponse(response, request, context, additionalContext, macros);
     // Check for actions and apply them?

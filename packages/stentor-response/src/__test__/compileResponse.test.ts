@@ -584,8 +584,6 @@ describe(`#${compileResponse.name}()`, () => {
         it("compiles the chips", () => {
             expect(compileResponse).to.exist;
 
-            console.log(compiledResponse);
-
             const suggestions = typeof compiledResponse.outputSpeech !== "string" ? compiledResponse.outputSpeech.suggestions : undefined;
             expect(suggestions).to.have.length(2);
 
@@ -596,8 +594,6 @@ describe(`#${compileResponse.name}()`, () => {
             const second = suggestions[1];
             const title = typeof second !== "string" ? second.title : undefined;
             expect(title).to.equal("roses");
-
-
         });
     });
     describe("when passed a response with displays", () => {

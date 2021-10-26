@@ -25,6 +25,7 @@ const request: IntentRequest = {
     userId: "userId",
     slots
 }
+
 const context: Context = {
     device: {
         channel: "test",
@@ -41,13 +42,35 @@ const context: Context = {
     storage: {
         createdTimestamp: Date.now(),
         sessionStore: {
-            data: {},
+            data: {
+                suggestion: {
+                    title: "title",
+                    url: "url"
+                }
+            },
             id: "foo"
         }
     },
-    // we won't use this
+    session: {
+        get(key: string): any {
+            const data: { [v: string]: any } = {
+                suggestion: {
+                    title: "title",
+                    url: "url"
+                }
+            };
+            return data[key];
+        },
+        set() {
+            // no op, not used
+        },
+        getStore() {
+            // no op, not used
+        }
+    },
+    // not used
     response: undefined
-};
+}
 
 describe(`${Compiler.name}`, () => {
     describe(`#${Compiler.prototype.compile.name}()`, () => {
@@ -112,6 +135,25 @@ describe(`${Compiler.name}`, () => {
                 expect(compiled).to.deep.equal({
                     ssml: "<speak>Hi bob!</speak>",
                     displayText: "Hi bob!"
+                });
+            });
+            describe("with suggestion chips", () => {
+                it("compiles the values", () => {
+                    const compiled = new Compiler().compile({
+                        ssml: "<speak>Hi ${name}!</speak>",
+                        displayText: "Hi ${name}!",
+                        suggestions: [
+                            {
+                                title: "${suggestion.title}",
+                                url: "${suggestion.url}"
+                            }
+                        ]
+                    }, request, context);
+                    expect(compiled).to.deep.equal({
+                        ssml: "<speak>Hi bob!</speak>",
+                        displayText: "Hi bob!",
+                        suggestions: [{ title: "title", url: "url" }]
+                    });
                 });
             });
         });

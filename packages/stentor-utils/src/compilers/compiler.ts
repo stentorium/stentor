@@ -1,12 +1,14 @@
 /*! Copyright (c) 2030, XAPPmedia */
 import { SESSION_STORAGE_SLOTS_KEY, TEMPLATE_REGEX } from "stentor-constants";
-import { Context, IntentRequest, Request, RequestSlotMap, ResponseOutput } from "stentor-models";
+import { Context, IntentRequest, Request, RequestSlotMap, ResponseOutput, SuggestionTypes } from "stentor-models";
 import { JSONPath } from "jsonpath-plus";
 
 import { MacroMap } from "./macro";
 import { slotValueToSpeech } from "../response";
 import { capitalize, truncate } from "../string";
 import { combineRequestSlots } from "../request";
+import { existsAndNotEmpty } from "../array";
+import { isLinkoutSuggestion } from "stentor-guards";
 
 type ResponseOutputKeysOnly = Pick<ResponseOutput, "ssml" | "displayText" | "html">;
 
@@ -20,7 +22,7 @@ function isIntentRequest(request: Request): request is IntentRequest {
 export const DEFAULT_MARCOS: MacroMap = {
     capitalize: capitalize,
     slotValueToSpeech: slotValueToSpeech,
-    truncate: truncate,
+    truncate: truncate
 }
 
 export interface CompilerProps {
@@ -76,7 +78,14 @@ export class Compiler implements CompilerProps {
             }
         }
     }
-
+    /**
+     * 
+     * @param value 
+     * @param request 
+     * @param context 
+     * @param key 
+     * @returns 
+     */
     private compileString(value: string, request: Request, context: Context, key: "displayText" | "ssml" | "html"): string {
 
         let compiledValue: string = value;
@@ -141,27 +150,37 @@ export class Compiler implements CompilerProps {
             // trim it so we can support ${ name }
             const captured = result[1].trim();
 
+            // 1st special case, users can just do ${slot_name} and we convert the value for them
             let speakableSlotValue: string;
 
+            let slots: RequestSlotMap = context?.session?.get(SESSION_STORAGE_SLOTS_KEY) || {};
+
             if (isIntentRequest(request)) {
-
-                const slots: RequestSlotMap = isIntentRequest(request) && context.session ? combineRequestSlots(context.session.get(SESSION_STORAGE_SLOTS_KEY), request.slots) : context.session ? context.session.get(SESSION_STORAGE_SLOTS_KEY) : request.slots || {};
-                // Find the slot
-                const slot = slots[captured];
-                // Based on the type, replace it in the string
-                if (slot && key !== "html") {
-                    speakableSlotValue = slotValueToSpeech(slot.value, key);
-                }
-
+                slots = combineRequestSlots(context?.session?.get(SESSION_STORAGE_SLOTS_KEY), request.slots);
             }
 
+            // Find the slot
+            const slot = slots[captured];
+            // Based on the type, replace it in the string
+            if (slot && key !== "html") {
+                speakableSlotValue = slotValueToSpeech(slot.value, key);
+            }
+
+            // 2nd special case, session value, which allows you to do ${session_value.key}
+            let sessionValue: string;
+            const sessionPathResult = JSONPath({ path: captured, json: context?.storage?.sessionStore?.data });
+            if (existsAndNotEmpty(sessionPathResult) && sessionPathResult[0]) {
+                sessionValue = sessionPathResult[0];
+            }
+
+            // Last, we just 
             const pathResult = JSONPath({ path: captured.trim(), json: { ...this.additionalContext, request, context } });
             const pathReplacement = pathResult[0];
 
             // if it exists OR replaceWhenUndefined
-            if (speakableSlotValue || pathReplacement || this.replaceWhenUndefined) {
+            if (speakableSlotValue || sessionValue || pathReplacement || this.replaceWhenUndefined) {
 
-                let replacement: string = speakableSlotValue;
+                let replacement: string = speakableSlotValue || sessionValue;
 
                 if (!replacement) {
                     // pathReplacement can be anything so do some 
@@ -199,19 +218,21 @@ export class Compiler implements CompilerProps {
     /**
      * Compiles the provided response output or string based on the provided request and context.
      * 
-     * @param responseOutput 
-     * @param request 
-     * @param context 
+     * It is used for compiling conditions on a response or injecting variables into responses.
+     * 
+     * @param input - Either a string or a set of responses.  
+     * @param request - The request
+     * @param context - Context object
      */
-    public compile(responseOutput: string, request: Request, context: Context): string;
-    public compile(responseOutput: ResponseOutput, request: Request, context: Context): ResponseOutput;
-    public compile(responseOutput: string | ResponseOutput, request: Request, context: Context): string | ResponseOutput {
+    public compile(input: string, request: Request, context: Context): string;
+    public compile(input: ResponseOutput, request: Request, context: Context): ResponseOutput;
+    public compile(input: string | ResponseOutput, request: Request, context: Context): string | ResponseOutput {
 
-        if (!responseOutput) {
-            return responseOutput;
+        if (!input) {
+            return input;
         }
 
-        let compiledValue: string | ResponseOutput = responseOutput;
+        let compiledValue: string | ResponseOutput = input;
 
         if (typeof compiledValue === "string") {
             // Default it to displayText because it is the safest and works 
@@ -229,9 +250,29 @@ export class Compiler implements CompilerProps {
                     value[key] = this.compileString(value[key], request, context, key);
                 }
             });
+
+            // Last, lets do suggestion chips!
+            if (existsAndNotEmpty(value.suggestions)) {
+                // Make a copy
+                const compiledSuggestions: SuggestionTypes[] = [];
+                value.suggestions.forEach((suggestion, index) => {
+
+                    if (typeof suggestion === "string") {
+                        compiledSuggestions[index] = this.compileString(suggestion, request, context, "displayText");
+                    } else {
+                        // Run through each key
+                        suggestion.title = this.compileString(suggestion.title, request, context, "displayText");
+                        if (isLinkoutSuggestion(suggestion)) {
+                            suggestion.url = this.compileString(suggestion.url, request, context, "displayText");
+                        }
+                        compiledSuggestions[index] = suggestion;
+                    }
+                });
+
+                value.suggestions = compiledSuggestions;
+            }
         }
 
         return compiledValue;
-
     }
 }

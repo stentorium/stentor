@@ -40,7 +40,7 @@ import { isJSONDependable, isConditional } from "./Guards";
  * @param context
  * @returns The best match from the provided potential matches, undefined if now match could be determined.
  */
-export function determine<P extends object>(potentials: P[], request: Request, context: Context): P | undefined {
+export function determine<P extends object>(potentials: P[], request: Request, context: Context, additionalContext?: Record<string, unknown>): P | undefined {
     if (!Array.isArray(potentials) || potentials.length === 0) {
         return undefined;
     }
@@ -86,10 +86,11 @@ export function determine<P extends object>(potentials: P[], request: Request, c
 
         const requestSlots: RequestSlotMap = isIntentRequest(request) && context.session ? combineRequestSlots(context.session.get(SESSION_STORAGE_SLOTS_KEY), request.slots) : context.session ? context.session.get(SESSION_STORAGE_SLOTS_KEY) : {};
 
+        // We want to compile the conditions first 
         conditionals.forEach((conditional) => {
             if (typeof conditional.conditions === "string") {
                 // Compile it
-                const compiled: string = new Compiler().compile(conditional.conditions, request, context);
+                const compiled: string = new Compiler({ additionalContext }).compile(conditional.conditions, request, context);
 
                 // Keep hold of the original
                 originals[compiled] = conditional;

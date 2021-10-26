@@ -25,7 +25,7 @@ export function compileResponse(
     response: Response,
     request: Request,
     context: Context,
-    additionalContext?: object,
+    additionalContext?: Record<string, unknown>,
     macros?: MacroMap
 ): Response {
     // fast fail
@@ -36,7 +36,7 @@ export function compileResponse(
     const compiler = new Compiler(
         {
             macros: { ...DEFAULT_MARCOS, ...macros },
-            additionalContext: additionalContext as Record<string, unknown>,
+            additionalContext,
             replaceWhenUndefined: true
         }
     );

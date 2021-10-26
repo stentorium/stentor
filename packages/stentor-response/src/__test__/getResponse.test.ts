@@ -375,6 +375,13 @@ describe("#getResponse()", () => {
                                 }
                             ]
                         }
+                    },
+                    {
+                        outputSpeech: {
+                            ssml: "<speak>${CONDITION}</speak>",
+                            displayText: "${CONDITION}"
+                        },
+                        conditions: "!!`${CONDITION}`"
                     }
                 ]
             };
@@ -411,10 +418,24 @@ describe("#getResponse()", () => {
                 expect(response.reprompt.displayText).to.equal("Which would you like?");
             }
         });
+        it("it selects based on of condition from additionalContext", () => {
+            const response = getResponse(content, request, context, {
+                PROMPT: "Which would you like?",
+                CONDITION: "Correct"
+            });
+            expect(response).to.exist;
+            expect(response).to.be.a("object");
+            expect(response.outputSpeech).to.be.a("object");
+            if (typeof response.outputSpeech === "object") {
+                expect(response.outputSpeech.ssml).to.equal(
+                    "<speak>Correct</speak>"
+                );
+                expect(response.outputSpeech.displayText).to.equal("Correct");
+            }
+        });
     });
     describe("when passed macros", () => {
         beforeEach(() => {
-
             handler = {
                 appId: "app",
                 organizationId: "org",

@@ -1,7 +1,6 @@
 /*! Copyright (c) 2020, XAPPmedia */
 import { expect } from "chai";
 
-import { ContextBuilder } from "stentor-context";
 import { Context, IntentRequest, RequestSlotMap } from "stentor-models";
 
 import { Compiler, DEFAULT_MARCOS } from '../compiler';
@@ -26,8 +25,9 @@ const request: IntentRequest = {
     userId: "userId",
     slots
 }
-const context: Context = new ContextBuilder()
-    .withDevice({
+
+const context: Context = {
+    device: {
         channel: "test",
         audioSupported: true,
         canPlayAudio: true,
@@ -38,7 +38,8 @@ const context: Context = new ContextBuilder()
         hasScreen: false,
         hasWebBrowser: false,
         canTransferCall: false
-    }).withStorage({
+    },
+    storage: {
         createdTimestamp: Date.now(),
         sessionStore: {
             data: {
@@ -49,8 +50,27 @@ const context: Context = new ContextBuilder()
             },
             id: "foo"
         }
-    }).build();
-
+    },
+    session: {
+        get(key: string): any {
+            const data: { [v: string]: any } = {
+                suggestion: {
+                    title: "title",
+                    url: "url"
+                }
+            };
+            return data[key];
+        },
+        set() {
+            // no op, not used
+        },
+        getStore() {
+            // no op, not used
+        }
+    },
+    // not used
+    response: undefined
+}
 
 describe(`${Compiler.name}`, () => {
     describe(`#${Compiler.prototype.compile.name}()`, () => {

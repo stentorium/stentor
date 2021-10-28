@@ -79,6 +79,7 @@ export class Compiler implements CompilerProps {
         }
     }
     /**
+     * Private method that focuses on an individual string.
      * 
      * @param value 
      * @param request 
@@ -95,9 +96,10 @@ export class Compiler implements CompilerProps {
         // It is complicated.
         const MACRO_REGEX = /\$\{\s*([a-zA-Z]*)\(\s*((?:["`']\$\{(?:\s*\$\.)?[\s\w\.]*\}["`']|[^$]\w*)+)\s*\)\s*\}/g;
 
-        let macroResult: RegExpExecArray = MACRO_REGEX.exec(value);
+        let macroResult: RegExpExecArray;
+        const macroReg = new RegExp(MACRO_REGEX);
 
-        while (macroResult !== null) {
+        while ((macroResult = macroReg.exec(value)) !== null) {
 
             const macroName = macroResult[1];
 
@@ -136,20 +138,17 @@ export class Compiler implements CompilerProps {
                     compiledValue = compiledValue.replace(macroResult[0], executedMacroResult);
                 }
             }
-
-            macroResult = MACRO_REGEX.exec(value);
         }
 
         // Next, looks for slots names & JSONpaths
+        let result: RegExpExecArray;
 
-        let result: RegExpExecArray = TEMPLATE_REGEX.exec(value);
-
+        const reg = new RegExp(TEMPLATE_REGEX);
         // Set exit condition to be when the results are null
-        while (result !== null) {
+        while ((result = reg.exec(value)) !== null) {
             // index 1 is the capture
             // trim it so we can support ${ name }
             const captured = result[1].trim();
-
             // 1st special case, users can just do ${slot_name} and we convert the value for them
             let speakableSlotValue: string;
 
@@ -172,9 +171,16 @@ export class Compiler implements CompilerProps {
             if (existsAndNotEmpty(sessionPathResult) && sessionPathResult[0]) {
                 sessionValue = sessionPathResult[0];
             }
-
-            // Last, we just 
-            const pathResult = JSONPath({ path: captured.trim(), json: { ...this.additionalContext, request, context } });
+            // Last, we just try a JSON path
+            const pathResult = JSONPath({
+                path: captured.trim(), json: {
+                    ...this.additionalContext,
+                    request,
+                    context,
+                    storage: context.storage,
+                    session: context.session
+                }
+            });
             const pathReplacement = pathResult[0];
 
             // if it exists OR replaceWhenUndefined
@@ -202,17 +208,12 @@ export class Compiler implements CompilerProps {
                         replacement = pathReplacement;
                     }
                 }
-
                 // replace it
                 compiledValue = compiledValue.replace(result[0], replacement);
             }
-
-            // loop it around again
-            result = TEMPLATE_REGEX.exec(value);
         }
 
         return compiledValue;
-
     }
 
     /**

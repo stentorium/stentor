@@ -15,4 +15,5 @@ export * from "./isLinkoutSuggestion";
 export * from "./isPreviousHandlerPath";
 export * from "./isSchedulableResponse";
 export * from "./isScheduled";
+export * from "./isTemplatedList";
 export * from "./isTimeContextual";

@@ -19,9 +19,10 @@ function compileString(value: string, slots: RequestSlotMap, key: "ssml" | "disp
     // It is complicated.
     const MACRO_REGEX = /\$\{\s*([a-zA-Z]*)\(\s*((?:["`']\$\{(?:\s*\$\.)?[\s\w\.]*\}["`']|[^$]\w*)+)\s*\)\s*\}/g;
 
-    let macroResult: RegExpExecArray = MACRO_REGEX.exec(value);
+    let macroResult: RegExpExecArray;
+    const macroReg = new RegExp(MACRO_REGEX);
 
-    while (macroResult !== null) {
+    while ((macroResult = macroReg.exec(value)) !== null) {
 
         const macroName = macroResult[1];
 
@@ -60,14 +61,13 @@ function compileString(value: string, slots: RequestSlotMap, key: "ssml" | "disp
                 compiledValue = compiledValue.replace(macroResult[0], executedMacroResult);
             }
         }
-
-        macroResult = MACRO_REGEX.exec(value);
     }
 
-    let result: RegExpExecArray = TEMPLATE_REGEX.exec(value);
+    let result: RegExpExecArray;
+    const reg = new RegExp(TEMPLATE_REGEX);
 
     // Set exit condition to be when the results are null
-    while (result !== null) {
+    while ((result = reg.exec(value)) !== null) {
         // index 1 is the capture
         // trim it so we can support ${ name }
         const captured = result[1].trim();
@@ -86,9 +86,6 @@ function compileString(value: string, slots: RequestSlotMap, key: "ssml" | "disp
             // replace it
             compiledValue = compiledValue.replace(result[0], speakableSlotValue);
         }
-
-        // loop it around again
-        result = TEMPLATE_REGEX.exec(value);
     }
     return compiledValue;
 }

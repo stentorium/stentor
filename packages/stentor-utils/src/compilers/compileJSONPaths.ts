@@ -8,9 +8,10 @@ type ResponseOutputKeysOnly = Pick<ResponseOutput, "ssml" | "displayText" | "tex
 /* private */
 function compileString(value: string, object: object, replaceWhenUndefined: boolean): string {
     let compiledValue: string = value;
-    let result: RegExpExecArray = TEMPLATE_REGEX.exec(value);
+    let result: RegExpExecArray;
+    const reg = new RegExp(TEMPLATE_REGEX);
     // Set exit condition to be when the results are null
-    while (result !== null) {
+    while ((result = reg.exec(value)) !== null) {
         // index 1 is the capture
         const captured = result[1].trim();
         // query the path
@@ -20,8 +21,6 @@ function compileString(value: string, object: object, replaceWhenUndefined: bool
         if (replacement || replaceWhenUndefined) {
             compiledValue = compiledValue.replace(result[0], pathResult[0]);
         }
-        // loop it around again
-        result = TEMPLATE_REGEX.exec(value);
     }
     return compiledValue;
 }

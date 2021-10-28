@@ -70,7 +70,29 @@ describe(`#${compileResponse.name}()`, () => {
                             document: "This is the suggested document",
                             url: "https://documentation.xapp.ai",
                             title: "Suggested Doc"
-                        }
+                        },
+                        SEARCH_RESULTS: [
+                            {
+                                title: "First Result",
+                                document: "Foo foo foo foo foo foo",
+                                source: "https://foo.com"
+                            },
+                            {
+                                title: "Second Result",
+                                document: "Bar bar bar bar",
+                                source: "https://bar.com"
+                            },
+                            {
+                                title: "Third Result",
+                                document: "Baz baz baz baz",
+                                source: "https://baz.com"
+                            },
+                            {
+                                title: "Fourth Result",
+                                document: "Four four four four",
+                                source: "https://four.com"
+                            }
+                        ]
                     }
                 }
             })
@@ -597,36 +619,38 @@ describe(`#${compileResponse.name}()`, () => {
         });
     });
     describe("when passed a response with displays", () => {
-        const displayResponse: SimpleResponse = {
-            outputSpeech: "Your name is ${ $.request.slots.NAME.value }",
-            reprompt: {
-                ssml: "<speak> Hi ${$.context.storage.name} </speak>",
-                displayText: "Hi ${$.context.storage.name}"
-            },
-            silencePrompt: "NO TEMPLATE",
-            displays: [
-                {
-                    type: "LIST",
-                    title: "Hello ${$.context.storage.name}",
-                    items: [
-                        {
-                            title: "One",
-                            description: "One ${$.request.slots.NAME.value }",
-                            token: "one",
-                            synonyms: ["1"]
-                        },
-                        {
-                            title: "Two",
-                            description: "Two ${$.request.slots.FOOBAR.value }",
-                            token: "two",
-                            synonyms: ["2"]
-                        }
-                    ]
-                }
-            ]
-        };
+
         let compiledResponse: Response;
         beforeEach(() => {
+            const displayResponse: SimpleResponse = {
+                outputSpeech: "Your name is ${ $.request.slots.NAME.value }",
+                reprompt: {
+                    ssml: "<speak> Hi ${$.context.storage.name} </speak>",
+                    displayText: "Hi ${$.context.storage.name}"
+                },
+                silencePrompt: "NO TEMPLATE",
+                displays: [
+                    {
+                        type: "LIST",
+                        title: "Hello ${$.context.storage.name}",
+                        items: [
+                            {
+                                title: "One",
+                                description: "One ${$.request.slots.NAME.value }",
+                                token: "one",
+                                synonyms: ["1"]
+                            },
+                            {
+                                title: "Two",
+                                description: "Two ${$.request.slots.FOOBAR.value }",
+                                token: "two",
+                                synonyms: ["2"]
+                            }
+                        ]
+                    }
+                ]
+            };
+
             compiledResponse = compileResponse(displayResponse, request, context);
         });
         it("compiles the displays", () => {
@@ -640,6 +664,59 @@ describe(`#${compileResponse.name}()`, () => {
                 expect(one.title).to.equal("One");
                 expect(one.description).to.equal("One Jim");
             }
+        });
+        describe("leveraging the itemObject field", () => {
+            beforeEach(() => {
+                const displayResponse: SimpleResponse = {
+                    outputSpeech: "Your name is ${ $.request.slots.NAME.value }",
+                    reprompt: {
+                        ssml: "<speak> Hi ${$.context.storage.name} </speak>",
+                        displayText: "Hi ${$.context.storage.name}"
+                    },
+                    silencePrompt: "NO TEMPLATE",
+                    displays: [
+                        {
+                            type: "LIST",
+                            itemsName: "currentResult",
+                            itemsObject: "${SEARCH_RESULTS}",
+                            range: {
+                                length: 3,
+                                from: 0
+                            },
+                            title: "Hello ${$.context.storage.name}",
+                            items: [
+                                {
+                                    title: "${currentResult.title}",
+                                    description: "Snippet: ${currentResult.document}",
+                                    token: "result-${index}",
+                                    url: "${currentResult.source}",
+                                    synonyms: []
+                                }
+                            ]
+                        }
+                    ]
+                };
+
+                compiledResponse = compileResponse(displayResponse, request, context);
+            });
+            it("compiles the displays", () => {
+                expect(compileResponse).to.exist;
+                expect(compiledResponse.displays).to.have.length(1);
+                const display = compiledResponse.displays[0];
+                expect(isList(display)).to.be.true;
+                if (isList(display)) {
+                    expect(display.title).to.equal("Hello Bob");
+                    expect(display.items).to.have.length(3);
+
+                    const one = display.items[0];
+                    expect(one.title).to.equal("First Result");
+                    expect(one.description).to.equal("Snippet: Foo foo foo foo foo foo");
+
+                    const three = display.items[2];
+                    expect(three.title).to.equal("Third Result");
+                    expect(three.description).to.equal("Snippet: Baz baz baz baz");
+                }
+            });
         });
     });
     describe("when passed slot names in the template", () => {

@@ -1,12 +1,16 @@
 /*! Copyright (c) 2019, XAPPmedia */
 /* eslint-disable @typescript-eslint/no-var-requires */
 
+// We are making the jsonpath-plus available externally
+import { JSONPath } from "jsonpath-plus";
+
 const cloneDeep = require("lodash.clonedeep");
 const forOwn = require("lodash.forown");
 const isEmpty = require("lodash.isempty");
 const isObject = require("lodash.isobject");
 const isString = require("lodash.isstring");
 const pull = require("lodash.pull");
+
 
 /**
  * Prune an object.  Removes all empty strings, NaNs,
@@ -40,4 +44,15 @@ export function pruneEmpty<T>(obj: T): T {
 
         return current;
     })(cloneDeep(obj)); // Do not modify the original object, create a clone instead
+}
+
+/**
+ * Simple wrapper around JSONPath Plus
+ * 
+ * @param path 
+ * @param data 
+ * @returns 
+ */
+export function getJSONPath(path: string, json: null | boolean | number | string | object | any[]): any[] {
+    return JSONPath({ path, json });
 }

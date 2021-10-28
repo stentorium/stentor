@@ -2,36 +2,11 @@
 import { BaseDisplay } from "../Types";
 
 /**
- * List style display items.
- *
- * Can either be vertical style list or a carousel.
- *
- * This translates to a List/Carousel on the Google Assistant and ListTemplate1/ListTemplate2 on Amazon Alexa
- *
- * See {@link https://developers.google.com/actions/assistant/responses#list} and
- * {@link https://developer.amazon.com/docs/custom-skills/display-template-reference.html#listtemplate1}
- *
+ * Add to a display that has a list of items to give it the ability to be compiled with variables.
+ * 
+ * @beta This is a new feature and may not work 100% as expected or may change.
  */
-export interface List extends BaseDisplay {
-    /**
-     * Type of list.
-     *
-     * LIST is vertical, translates to a List on Google and ListTemplate1 on Alexa
-     * CAROUSEL is horizontal, translates to a Carousel on Google and ListTemplate2 on Alexa
-     */
-    type: "LIST" | "CAROUSEL";
-    /**
-     * Token is a reference to the list, required by Alexa
-     */
-    token?: string;
-    /**
-     * Title of the list, not required for Carousels on Google
-     */
-    title?: string;
-    /**
-     * The list items.
-     */
-    items: ListItem[];
+export interface TemplatedList {
     /**
      * Used when templating the list for automatic generation.
      * 
@@ -57,6 +32,42 @@ export interface List extends BaseDisplay {
         length: number;
         from: number;
     }
+
+    items?: any[];
+}
+
+
+/**
+ * List style display items.
+ *
+ * Can either be vertical style list or a carousel.
+ *
+ * This translates to a List/Carousel on the Google Assistant and ListTemplate1/ListTemplate2 on Amazon Alexa
+ *
+ * See {@link https://developers.google.com/actions/assistant/responses#list} and
+ * {@link https://developer.amazon.com/docs/custom-skills/display-template-reference.html#listtemplate1}
+ *
+ */
+export interface List extends BaseDisplay, TemplatedList {
+    /**
+     * Type of list.
+     *
+     * LIST is vertical, translates to a List on Google and ListTemplate1 on Alexa
+     * CAROUSEL is horizontal, translates to a Carousel on Google and ListTemplate2 on Alexa
+     */
+    type: "LIST" | "CAROUSEL";
+    /**
+     * Token is a reference to the list, required by Alexa
+     */
+    token?: string;
+    /**
+     * Title of the list, not required for Carousels on Google
+     */
+    title?: string;
+    /**
+     * The list items.
+     */
+    items: ListItem[];
 }
 
 export interface ListItem {

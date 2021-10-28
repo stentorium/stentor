@@ -1,7 +1,9 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { TEMPLATE_REGEX } from "stentor-constants";
+import { isTemplatedList } from "stentor-guards";
 import { localize } from "stentor-locales";
 import { Context, Request, Response } from "stentor-models";
-import { Compiler, DEFAULT_MARCOS, MacroMap } from "stentor-utils";
+import { Compiler, DEFAULT_MARCOS, existsAndNotEmpty, getJSONPath, MacroMap } from "stentor-utils";
 
 import { compileSegments } from "./compileSegments";
 
@@ -57,9 +59,7 @@ export function compileResponse(
                     request,
                     context
                 );
-
                 compiledResponse[key] = compiler.compile(valueCompiled, request, context);
-
             } else {
                 // Flatten for locales
                 const localizedResponseOutput = localize(responseOutput, request.locale);
@@ -69,7 +69,6 @@ export function compileResponse(
                     request,
                     context
                 );
-
                 compiledResponse[key] = compiler.compile(valueCompiled, request, context);
             }
         }
@@ -77,7 +76,97 @@ export function compileResponse(
 
     // Displays!
     if (Array.isArray(compiledResponse.displays) && compiledResponse.displays.length > 0) {
-        // First convert it to a string
+        // We want to first check to see if they have the itemObject feature
+        // Note, just care about the first one here.
+        const firstDisplay = compiledResponse.displays[0];
+
+        if (isTemplatedList(firstDisplay)) {
+            // This is what we will replace the items on firstDisplay with
+            const compiledItems: any[] = [];
+            // Defaults to "items"
+            const itemsName = firstDisplay.itemsName || "items";
+            // The collection variable. The regex is just for the syntactical similarity. ex  "${ $.session.storeList }"
+            const itemsObject = firstDisplay.itemsObject;
+
+            // If dynamic no reason to give more
+            if (firstDisplay.items.length !== 1) {
+                throw new Error("Templated Lists must only have 1 item");
+            }
+
+            const itemTemplate = firstDisplay.items[0];
+
+            const itemsObjectResult = new RegExp(TEMPLATE_REGEX).exec(itemsObject);
+
+            if (!itemsObjectResult) {
+                throw new Error(`Unable to determine JSON path for ${itemsObject}, which is required for compilation.`);
+            }
+
+            const itemsObjectResultPath = itemsObjectResult[1].trim();
+
+            // Now, find the object.
+            // try just the session variables first
+            let sessionValue: any[];
+            const sessionPathResult = getJSONPath(itemsObjectResultPath, context?.storage?.sessionStore?.data);
+            if (existsAndNotEmpty(sessionPathResult) && sessionPathResult[0]) {
+                sessionValue = sessionPathResult[0];
+            }
+
+            // Last, we just try a JSON path
+            let pathValue: any[];
+            const pathResult = getJSONPath(itemsObjectResultPath, {
+                ...additionalContext,
+                request,
+                context,
+                storage: context.storage,
+                session: context.session
+            });
+            if (existsAndNotEmpty(pathResult) && pathResult[0]) {
+                pathValue = pathResult[0];
+            }
+
+            // Prefer the session over the path one
+            let itemsObjectArray: any[] = sessionValue || pathValue;
+
+            if (!Array.isArray(itemsObjectArray)) {
+                throw new Error(`Item found at JSONPath for itemsObject was not an array.`);
+            }
+
+            // if a range exists, trim to the range
+            itemsObjectArray = firstDisplay.range ? itemsObjectArray.slice(firstDisplay.range.from, firstDisplay.range.length) : itemsObjectArray;
+            // Time to iterate and do replacements
+            itemsObjectArray.forEach((item, index) => {
+                // Stringify
+                const itemString = JSON.stringify(itemTemplate, undefined, 2);
+                let compiledItemString = compileSegments(itemString, compiledResponse.segments, request, context);
+
+                // New compiler
+                const itemCompiler = new Compiler(
+                    {
+                        macros: { ...DEFAULT_MARCOS, ...macros },
+                        additionalContext: {
+                            ...additionalContext,
+                            [`${itemsName}`]: item,
+                            index
+                        },
+                        replaceWhenUndefined: true
+                    }
+                );
+                compiledItemString = itemCompiler.compile(compiledItemString, request, context);
+
+                try {
+                    const compiledItem = JSON.parse(compiledItemString);
+                    // Only update if it doesn't explode
+                    compiledItems.push(compiledItem);
+                } catch (e) {
+                    console.info("Could not parse compiled displays");
+                }
+
+                // ok, time to update the items.
+                firstDisplay.items = compiledItems;
+            });
+        }
+
+        // Then pass it through as a string convert it to a string
         const displaysString = JSON.stringify(compiledResponse.displays, undefined, 2);
         // Compile the segments
         let compiledDisplayString = compileSegments(displaysString, compiledResponse.segments, request, context);

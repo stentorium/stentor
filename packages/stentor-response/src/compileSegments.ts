@@ -21,8 +21,9 @@ function compileString(
 ): string {
     let compiledValue: string = value;
 
-    let result: RegExpExecArray = TEMPLATE_REGEX.exec(compiledValue);
-    while (result !== null) {
+    let result: RegExpExecArray;
+    const reg = new RegExp(TEMPLATE_REGEX);
+    while ((result = reg.exec(value)) !== null) {
         // Pull the first key out
         const key = result[1] ? result[1].trim() : undefined;
         const foundSegment = segmentsMap[key];
@@ -45,8 +46,6 @@ function compileString(
                 compiledValue = compiledValue.replace(result[0], cleanSegment);
             }
         }
-        // Run the value back through until we have replaced all the templates
-        result = TEMPLATE_REGEX.exec(compiledValue);
     }
 
     return compiledValue;
@@ -61,13 +60,13 @@ function findSegments(
 ): FoundSegments {
     const foundSegments: FoundSegments = {};
 
-    let result: RegExpExecArray = TEMPLATE_REGEX.exec(value);
-    while (result !== null) {
+    let result: RegExpExecArray;
+    const reg = new RegExp(TEMPLATE_REGEX);
+    while ((result = reg.exec(value)) !== null) {
         const key = result[1] ? result[1].trim() : undefined;
         const segments = segmentsMap[key] || [];
         const matchedSegment = determineSegment(segments, request, context);
         foundSegments[key] = matchedSegment;
-        result = TEMPLATE_REGEX.exec(value);
     }
 
     return foundSegments;

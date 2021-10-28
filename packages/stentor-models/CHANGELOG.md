@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.48.0](https://github.com/stentorium/stentor/compare/v1.47.0...v1.48.0) (2021-10-28)
+
+
+### Features
+
+* List Template ([#1200](https://github.com/stentorium/stentor/issues/1200)) ([6dc854a](https://github.com/stentorium/stentor/commit/6dc854ae810be1f752eea31160759427e768715e))
+
+
+
+
+
 ## [1.46.7](https://github.com/stentorium/stentor/compare/v1.46.6...v1.46.7) (2021-10-25)
 
 **Note:** Version bump only for package stentor-models

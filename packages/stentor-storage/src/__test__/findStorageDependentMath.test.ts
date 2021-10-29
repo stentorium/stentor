@@ -1,8 +1,9 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { expect } from "chai";
 
-import { Storage, StorageDependent } from "stentor-models";
-import { findStorageDependentMatch } from "../findStorageDependentMatch";
+import { SessionStore, Storage, StorageDependent } from "stentor-models";
+import { createSessionStore } from "../createSessionStore";
+import { findStorageDependentMatch, session, storage } from "../findStorageDependentMatch";
 
 const storage1: Storage = {
     createdTimestamp: 123456
@@ -98,6 +99,48 @@ describe("#findStorageDependentMatch()", () => {
         it("returns the match", () => {
             expect(findStorageDependentMatch([path4WithJSONPath], storage4)).to.equal(path4WithJSONPath);
             expect(findStorageDependentMatch([path4WithJSONPath, path1, path2], storage4)).to.equal(path4WithJSONPath);
+        });
+    });
+});
+
+describe(`#${storage.name}()`, () => {
+    it('returns the correct result', () => {
+        expect(storage(storage2, "key2")).to.equal("value2");
+    });
+    describe('when value is undefined', () => {
+        it('returns the correct result', () => {
+            expect(storage(storage1, "foo")).to.equal("");
+            expect(!!storage(storage1, "foo")).to.be.false;
+        });
+    });
+});
+
+const emptySessionStore: SessionStore = createSessionStore({
+    ...storage1,
+    sessionStore: {
+        id: "foo",
+        data: {}
+    }
+});
+
+const sampleSessionStore: SessionStore = createSessionStore({
+    ...storage1,
+    sessionStore: {
+        id: "foo",
+        data: {
+            foo: "bar"
+        }
+    }
+});
+
+describe(`#${session.name}()`, () => {
+    it('returns the correct result', () => {
+        expect(session(sampleSessionStore, "foo")).to.equal("bar");
+    });
+    describe('when value is undefined', () => {
+        it('returns the correct result', () => {
+            expect(session(emptySessionStore, "foo")).to.equal("");
+            expect(!!session(emptySessionStore, "foo")).to.be.false;
         });
     });
 });

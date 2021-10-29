@@ -30,6 +30,7 @@
   },
   "scripts": {
     "build": "tsc -d true -p .",
-    "clean": "rm -rf ./lib/*"
+    "clean": "rm -rf ./lib/*",
+    "test": "mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
   }
 }

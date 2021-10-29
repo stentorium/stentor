@@ -92,7 +92,12 @@ export function session(sessionStorage: SessionStore, key: string): string {
         return "";
     }
     const value = sessionStorage.get(key);
-    return `${value}`;
+
+    if (value) {
+        return `${value}`;
+    }
+
+    return "";
 }
 
 /**
@@ -111,7 +116,13 @@ export function storage(storage: Storage, key: string): string {
         return "";
     }
     const value = storage[key];
-    return `${value}`;
+
+    if (value) {
+        return `${value}`;
+    }
+
+    return "";
+
 }
 
 export function StorageDependentCheck<T extends object>(request: Request, context: Context): ConditionalCheck {

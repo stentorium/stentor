@@ -12,7 +12,7 @@
     "lib"
   ],
   "engines": {
-    "node": "^10 || ^12 || ^14"
+    "node": "^10 || ^12 || ^14 || ^16.0.0"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "7.18.16",
@@ -20,7 +20,7 @@
     "@types/chai": "4.2.22",
     "@types/marked": "3.0.2",
     "@types/mocha": "9.0.0",
-    "@types/node": "14.17.32",
+    "@types/node": "16.11.6",
     "@types/numeral": "2.0.2",
     "@types/sanitize-html": "2.5.0",
     "@types/sinon": "10.0.6",

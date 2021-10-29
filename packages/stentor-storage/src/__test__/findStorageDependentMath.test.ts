@@ -2,7 +2,7 @@
 import { expect } from "chai";
 
 import { SessionStore, Storage, StorageDependent } from "stentor-models";
-import { createSessionStore } from "../../lib";
+import { createSessionStore } from "../createSessionStore";
 import { findStorageDependentMatch, session, storage } from "../findStorageDependentMatch";
 
 const storage1: Storage = {

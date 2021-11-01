@@ -168,8 +168,24 @@ export class Compiler implements CompilerProps {
             // 2nd special case, session value, which allows you to do ${session_value.key}
             let sessionValue: string;
             const sessionPathResult = JSONPath({ path: captured, json: context?.storage?.sessionStore?.data });
-            if (existsAndNotEmpty(sessionPathResult) && sessionPathResult[0]) {
-                sessionValue = sessionPathResult[0];
+            if (existsAndNotEmpty(sessionPathResult) && `${sessionPathResult[0]}`) {
+                sessionValue = `${sessionPathResult[0]}`;
+
+                const typeOfReplacement = typeof sessionPathResult[0];
+
+                if (typeOfReplacement === "object") {
+                    // Try the key, it might be a ResponseOutput
+                    if (sessionPathResult[0][key]) {
+                        sessionValue = `${sessionPathResult[0][key]}`;
+                    } else {
+                        // Otherwise it will just look like [Object object], which isn't
+                        // helpful so we stringify it
+                        sessionValue = JSON.stringify(sessionPathResult);
+                    }
+                } else {
+                    sessionValue = `${sessionPathResult[0]}`;
+                }
+
             }
             // Last, we just try a JSON path
             const pathResult = JSONPath({
@@ -181,33 +197,28 @@ export class Compiler implements CompilerProps {
                     session: context.session
                 }
             });
-            const pathReplacement = pathResult[0];
+            let pathReplacement: string;
+            if (existsAndNotEmpty(pathResult) && `${pathResult[0]}`) {
 
-            // if it exists OR replaceWhenUndefined
-            if (speakableSlotValue || sessionValue || pathReplacement || this.replaceWhenUndefined) {
+                const replacement = pathResult[0];
+                const typeOfReplacement = typeof replacement;
 
-                let replacement: string = speakableSlotValue || sessionValue;
-
-                if (!replacement) {
-                    // pathReplacement can be anything so do some 
-                    if (typeof pathReplacement === "string") {
-                        replacement = pathReplacement;
-                    } else if (typeof pathReplacement === "number") {
-                        replacement = `${pathReplacement}`;
-                    } else if (typeof pathReplacement === "object") {
-                        // Try the key, it might be a ResponseOutput
-                        if (pathReplacement[key]) {
-                            replacement = pathReplacement[key];
-                        } else {
-                            // Otherwise it will just look like [Object object], which isn't
-                            // helpful so we stringify it
-                            replacement = JSON.stringify(pathReplacement);
-                        }
+                if (typeOfReplacement === "object") {
+                    // Try the key, it might be a ResponseOutput
+                    if (replacement[key]) {
+                        pathReplacement = `${replacement[key]}`;
                     } else {
-                        // No idea, good luck
-                        replacement = pathReplacement;
+                        // Otherwise it will just look like [Object object], which isn't
+                        // helpful so we stringify it
+                        pathReplacement = JSON.stringify(replacement);
                     }
+                } else {
+                    pathReplacement = `${replacement}`;
                 }
+            }
+
+            if (speakableSlotValue || sessionValue || pathReplacement || this.replaceWhenUndefined) {
+                const replacement: string = speakableSlotValue || sessionValue || pathReplacement;
                 // replace it
                 compiledValue = compiledValue.replace(result[0], replacement);
             }

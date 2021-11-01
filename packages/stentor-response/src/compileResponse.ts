@@ -2,6 +2,7 @@
 import { TEMPLATE_REGEX } from "stentor-constants";
 import { isTemplatedList } from "stentor-guards";
 import { localize } from "stentor-locales";
+import { log } from "stentor-logger";
 import { Context, Request, Response } from "stentor-models";
 import { Compiler, DEFAULT_MARCOS, existsAndNotEmpty, getJSONPath, MacroMap } from "stentor-utils";
 
@@ -87,6 +88,9 @@ export function compileResponse(
             const itemsName = firstDisplay.itemsName || "items";
             // The collection variable. The regex is just for the syntactical similarity. ex  "${ $.session.storeList }"
             const itemsObject = firstDisplay.itemsObject;
+            // then delete these since they may cause problems later in compilation
+            delete firstDisplay.itemsObject;
+            delete firstDisplay.itemsName;
 
             // If dynamic no reason to give more
             if (firstDisplay.items.length !== 1) {
@@ -158,7 +162,7 @@ export function compileResponse(
                     // Only update if it doesn't explode
                     compiledItems.push(compiledItem);
                 } catch (e) {
-                    console.info("Could not parse compiled displays");
+                    log().error(`Could not compile display:`, e);
                 }
 
                 // ok, time to update the items.
@@ -179,7 +183,7 @@ export function compileResponse(
             // Only update if it doesn't explode
             compiledResponse.displays = compiledDisplays;
         } catch (e) {
-            console.info("Could not parse compiled displays");
+            log().error(`Could not compile display:`, e);
         }
     }
 

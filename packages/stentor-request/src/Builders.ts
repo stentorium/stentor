@@ -5,6 +5,7 @@ import {
     ApiAccessData,
     AudioPlayerEvent,
     AudioPlayerRequest,
+    Device,
     InputUnknownRequest,
     IntentRequest,
     KnowledgeBaseResult,
@@ -136,6 +137,18 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
     private userId = "userId";
     private canFulFill: boolean;
     private knowledgeBaseResult: KnowledgeBaseResult;
+    private device: Device = {
+        channel: "test",
+        audioSupported: true,
+        canPlayAudio: true,
+        videoSupported: false,
+        canPlayVideo: false,
+        canSpeak: true,
+        canThrowCard: true,
+        canTransferCall: false,
+        hasScreen: false,
+        hasWebBrowser: false,
+    }
 
     /**
      * Turns the request into a canfulfill intent request.
@@ -294,10 +307,25 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
     }
 
     /**
+     * Update any or all of the fields on request's device information.
+     * 
+     * @param device 
+     * @returns 
+     */
+    public updateDevice(device: Partial<Device>): IntentRequestBuilder {
+        this.device = {
+            ...this.device,
+            ...device
+        };
+
+        return this;
+    }
+
+    /**
      * Build the intent request.
      */
     public build(): IntentRequest {
-        const { apiAccess, canFulFill, deviceId, knowledgeBaseResult, intentId, locale, platform, slots, userId, isNewSession, rawQuery } = this;
+        const { apiAccess, canFulFill, device, deviceId, knowledgeBaseResult, intentId, locale, platform, slots, userId, isNewSession, rawQuery } = this;
 
         const request: IntentRequest = {
             type: REQUEST.INTENT_REQUEST_TYPE,
@@ -306,6 +334,7 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
             isNewSession,
             intentId,
             locale,
+            device,
             deviceId
         };
 

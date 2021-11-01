@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.48.5](https://github.com/stentorium/stentor/compare/v1.48.4...v1.48.5) (2021-11-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency dotenv to v10 ([#1205](https://github.com/stentorium/stentor/issues/1205)) ([bfef25d](https://github.com/stentorium/stentor/commit/bfef25d112aa25d1fe93b5fc2894b5b63fae0fd1))
+
+
+
+
+
 ## [1.48.4](https://github.com/stentorium/stentor/compare/v1.48.3...v1.48.4) (2021-11-01)
 
 **Note:** Version bump only for package repo

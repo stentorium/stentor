@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.48.6](https://github.com/stentorium/stentor/compare/v1.48.5...v1.48.6) (2021-11-01)
+
+
+### Bug Fixes
+
+* Ability to now compile boolean false values in responses ([#1207](https://github.com/stentorium/stentor/issues/1207)) ([9ae0298](https://github.com/stentorium/stentor/commit/9ae0298e4570ff6d142cbd1542867fcb01dd4b71))
+
+
+
+
+
 ## [1.48.5](https://github.com/stentorium/stentor/compare/v1.48.4...v1.48.5) (2021-11-01)
 
 

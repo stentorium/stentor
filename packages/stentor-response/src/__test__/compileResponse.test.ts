@@ -699,7 +699,7 @@ describe(`#${compileResponse.name}()`, () => {
 
                 compiledResponse = compileResponse(displayResponse, request, context);
             });
-            it.only("compiles the displays", () => {
+            it("compiles the displays", () => {
                 expect(compileResponse).to.exist;
                 expect(compiledResponse.displays).to.have.length(1);
                 const display = compiledResponse.displays[0];

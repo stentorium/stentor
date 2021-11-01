@@ -23,8 +23,33 @@ const request: IntentRequest = {
     intentId: "intentId",
     sessionId: "sessionId",
     userId: "userId",
-    slots
+    slots,
+    device: {
+        channel: "test",
+        audioSupported: true,
+        canPlayVideo: false,
+        canPlayAudio: true,
+        canSpeak: false,
+        videoSupported: false,
+        canThrowCard: false,
+        canTransferCall: false,
+        hasScreen: true,
+        hasWebBrowser: true
+    }
 }
+
+const sessionData = {
+    suggestion: {
+        title: "title",
+        url: "url"
+    },
+    negative: false,
+    output: {
+        displayText: "session display text",
+        ssml: "session ssml"
+    }
+}
+
 
 const context: Context = {
     device: {
@@ -43,10 +68,7 @@ const context: Context = {
         createdTimestamp: Date.now(),
         sessionStore: {
             data: {
-                suggestion: {
-                    title: "title",
-                    url: "url"
-                }
+                ...sessionData
             },
             id: "foo"
         }
@@ -54,10 +76,7 @@ const context: Context = {
     session: {
         get(key: string): any {
             const data: { [v: string]: any } = {
-                suggestion: {
-                    title: "title",
-                    url: "url"
-                }
+                ...sessionData
             };
             return data[key];
         },
@@ -85,6 +104,32 @@ describe(`${Compiler.name}`, () => {
                     expect(compiled).to.equal("Hi bob!");
                 });
             });
+            describe("with session value", () => {
+                it("compiles the value", () => {
+                    const compiled = new Compiler().compile(
+                        "${negative}",
+                        request,
+                        context
+                    );
+                    expect(compiled).to.equal("false");
+                });
+                describe('that is an object', () => {
+                    it("compiles the value", () => {
+                        const compiled = new Compiler().compile(
+                            {
+                                ssml: "${output}!",
+                                displayText: "${output}"
+                            },
+                            request,
+                            context
+                        );
+                        expect(compiled).to.deep.equal({
+                            displayText: "session display text",
+                            ssml: "session ssml!"
+                        });
+                    });
+                });
+            });
             describe("with a JSONPath", () => {
                 it("compiles the value", () => {
                     const compiled = new Compiler().compile(
@@ -93,6 +138,16 @@ describe(`${Compiler.name}`, () => {
                         context
                     );
                     expect(compiled).to.equal("Hi bob!");
+                });
+                describe("pulling data off the request", () => {
+                    it("compiles the value", () => {
+                        const compiled = new Compiler().compile(
+                            "${$.request.device.canSpeak} && true",
+                            request,
+                            context
+                        );
+                        expect(compiled).to.equal("false && true");
+                    });
                 });
             });
             describe("with a macro", () => {

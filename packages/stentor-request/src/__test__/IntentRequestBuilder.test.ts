@@ -14,7 +14,19 @@ describe(`${IntentRequestBuilder.name}`, () => {
                     userId: "userId",
                     sessionId: "sessionId",
                     locale: "en-US",
-                    isNewSession: false
+                    isNewSession: false,
+                    device: {
+                        "audioSupported": true,
+                        "canPlayAudio": true,
+                        "canPlayVideo": false,
+                        "canSpeak": true,
+                        "canThrowCard": true,
+                        "canTransferCall": false,
+                        "channel": "test",
+                        "hasScreen": false,
+                        "hasWebBrowser": false,
+                        "videoSupported": false
+                    }
                 });
             });
         });
@@ -27,6 +39,17 @@ describe(`${IntentRequestBuilder.name}`, () => {
     describe(`#${IntentRequestBuilder.prototype.onPlatform.name}()`, () => {
         it('sets the deviceId', () => {
             expect(new IntentRequestBuilder().onPlatform('foo').build()).to.contain({ platform: "foo" });
+        });
+    });
+    describe(`#${IntentRequestBuilder.prototype.updateDevice.name}()`, () => {
+        it('it updates the device', () => {
+            const updatedDeviceRequest = new IntentRequestBuilder().onPlatform('foo').updateDevice({ canSpeak: false, channel: "new" }).build();
+            expect(updatedDeviceRequest).to.contain({
+                platform: "foo"
+            });
+            expect(updatedDeviceRequest.device.canSpeak).to.be.false;
+            expect(updatedDeviceRequest.device.channel).to.equal("new");
+            expect(updatedDeviceRequest.device.audioSupported).to.be.true;
         });
     });
     describe(`#${IntentRequestBuilder.prototype.withAPIAccess.name}()`, () => {

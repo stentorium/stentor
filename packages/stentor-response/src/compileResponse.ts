@@ -13,7 +13,7 @@ import { compileSegments } from "./compileSegments";
  * @param json 
  * @returns 
  */
-function jsonEscape(json: string): string {
+export function jsonEscape(json: string): string {
     return json.replace(/\n/g, "\\n").replace(/\r/g, "\\r").replace(/\t/g, "\\t");
 }
 
@@ -143,13 +143,12 @@ export function compileResponse(
             if (!Array.isArray(itemsObjectArray)) {
                 throw new Error(`Item found at JSONPath for itemsObject was not an array.`);
             }
-
             // if a range exists, trim to the range
             itemsObjectArray = firstDisplay.range ? itemsObjectArray.slice(firstDisplay.range.from, firstDisplay.range.length) : itemsObjectArray;
             // Time to iterate and do replacements
             itemsObjectArray.forEach((item, index) => {
                 // Stringify
-                const itemString = JSON.stringify(itemTemplate, undefined, 2);
+                const itemString = JSON.stringify(itemTemplate);
                 let compiledItemString = compileSegments(itemString, compiledResponse.segments, request, context);
 
                 // New compiler
@@ -165,34 +164,32 @@ export function compileResponse(
                     }
                 );
                 compiledItemString = itemCompiler.compile(compiledItemString, request, context);
-                console.log(compiledItemString);
+
                 try {
-                    const compiledItem = JSON.parse(compiledItemString);
+                    const compiledItem = JSON.parse(jsonEscape(compiledItemString));
                     // Only update if it doesn't explode
                     compiledItems.push(compiledItem);
                 } catch (e) {
-                    log().error(`Could not compile display:`, e);
+                    log().error(`Could not compile display item:`, e);
                 }
-
-                // ok, time to update the items.
-                firstDisplay.items = compiledItems;
-                console.log(firstDisplay);
-                // update on the compiled response
-                compiledResponse.displays[0] = firstDisplay;
             });
+
+            // ok, time to update the items.
+            firstDisplay.items = compiledItems;
+            // update on the compiled response
+            compiledResponse.displays[0] = firstDisplay;
         }
 
         // Then pass it through as a string convert it to a string
-        const displaysString = JSON.stringify(compiledResponse.displays, undefined, 2);
+        const displaysString = JSON.stringify(compiledResponse.displays);
         // Compile the segments
         let compiledDisplayString = compileSegments(displaysString, compiledResponse.segments, request, context);
 
         compiledDisplayString = compiler.compile(compiledDisplayString, request, context);
-        console.log(compiledDisplayString);
-        console.log(jsonEscape(compiledDisplayString));
+
         // Set it back
         try {
-            const compiledDisplays = JSON.parse(compiledDisplayString);
+            const compiledDisplays = JSON.parse(jsonEscape(compiledDisplayString));
             // Only update if it doesn't explode
             compiledResponse.displays = compiledDisplays;
         } catch (e) {

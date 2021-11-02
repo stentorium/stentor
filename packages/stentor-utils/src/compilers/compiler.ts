@@ -169,21 +169,22 @@ export class Compiler implements CompilerProps {
             let sessionValue: string;
             const sessionPathResult = JSONPath({ path: captured, json: context?.storage?.sessionStore?.data });
             if (existsAndNotEmpty(sessionPathResult) && `${sessionPathResult[0]}`) {
-                sessionValue = `${sessionPathResult[0]}`;
 
-                const typeOfReplacement = typeof sessionPathResult[0];
+                const sessionReplacement = sessionPathResult[0];
 
-                if (typeOfReplacement === "object") {
+                if (typeof sessionReplacement === "object") {
                     // Try the key, it might be a ResponseOutput
                     if (sessionPathResult[0][key]) {
-                        sessionValue = `${sessionPathResult[0][key]}`;
+                        sessionValue = `${sessionReplacement[key]}`;
                     } else {
                         // Otherwise it will just look like [Object object], which isn't
                         // helpful so we stringify it
-                        sessionValue = JSON.stringify(sessionPathResult);
+                        sessionValue = JSON.stringify(sessionReplacement);
                     }
+                } else if (typeof sessionReplacement === "string") {
+                    sessionValue = sessionReplacement
                 } else {
-                    sessionValue = `${sessionPathResult[0]}`;
+                    sessionValue = `${sessionReplacement}`;
                 }
 
             }
@@ -201,9 +202,8 @@ export class Compiler implements CompilerProps {
             if (existsAndNotEmpty(pathResult) && `${pathResult[0]}`) {
 
                 const replacement = pathResult[0];
-                const typeOfReplacement = typeof replacement;
 
-                if (typeOfReplacement === "object") {
+                if (typeof replacement === "object") {
                     // Try the key, it might be a ResponseOutput
                     if (replacement[key]) {
                         pathReplacement = `${replacement[key]}`;
@@ -212,6 +212,8 @@ export class Compiler implements CompilerProps {
                         // helpful so we stringify it
                         pathReplacement = JSON.stringify(replacement);
                     }
+                } else if (typeof replacement === "string") {
+                    pathReplacement = replacement;
                 } else {
                     pathReplacement = `${replacement}`;
                 }

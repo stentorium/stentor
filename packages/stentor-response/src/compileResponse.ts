@@ -9,6 +9,15 @@ import { Compiler, DEFAULT_MARCOS, existsAndNotEmpty, getJSONPath, MacroMap } fr
 import { compileSegments } from "./compileSegments";
 
 /**
+ * Necessary to JSON.parse strings with newlines that need escaping.  Otherwise JSON.parse fails.
+ * @param json 
+ * @returns 
+ */
+function jsonEscape(json: string): string {
+    return json.replace(/\n/g, "\\n").replace(/\r/g, "\\r").replace(/\t/g, "\\t");
+}
+
+/**
  * Compiles a templated response with provided request and context.
  *
  * In order for the template to compile, it must contain ${} with
@@ -79,7 +88,7 @@ export function compileResponse(
     if (Array.isArray(compiledResponse.displays) && compiledResponse.displays.length > 0) {
         // We want to first check to see if they have the itemObject feature
         // Note, just care about the first one here.
-        const firstDisplay = compiledResponse.displays[0];
+        const firstDisplay = { ...compiledResponse.displays[0] };
 
         if (isTemplatedList(firstDisplay)) {
             // This is what we will replace the items on firstDisplay with
@@ -156,7 +165,7 @@ export function compileResponse(
                     }
                 );
                 compiledItemString = itemCompiler.compile(compiledItemString, request, context);
-
+                console.log(compiledItemString);
                 try {
                     const compiledItem = JSON.parse(compiledItemString);
                     // Only update if it doesn't explode
@@ -167,6 +176,9 @@ export function compileResponse(
 
                 // ok, time to update the items.
                 firstDisplay.items = compiledItems;
+                console.log(firstDisplay);
+                // update on the compiled response
+                compiledResponse.displays[0] = firstDisplay;
             });
         }
 
@@ -176,7 +188,8 @@ export function compileResponse(
         let compiledDisplayString = compileSegments(displaysString, compiledResponse.segments, request, context);
 
         compiledDisplayString = compiler.compile(compiledDisplayString, request, context);
-
+        console.log(compiledDisplayString);
+        console.log(jsonEscape(compiledDisplayString));
         // Set it back
         try {
             const compiledDisplays = JSON.parse(compiledDisplayString);

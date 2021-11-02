@@ -16,7 +16,7 @@ import {
 } from "stentor-models";
 import { IntentRequestBuilder } from "stentor-request";
 import { isList, ResponseBuilder } from "stentor-response";
-import { compileResponse } from "../compileResponse";
+import { compileResponse, jsonEscape } from "../compileResponse";
 
 chai.use(sinonChai);
 const expect = chai.expect;
@@ -25,6 +25,20 @@ interface TestStorage extends Storage {
     name: string;
     metBefore: boolean;
 }
+
+describe(`#${jsonEscape.name}()`, () => {
+    it('escapes correctly', () => {
+        const test0 = jsonEscape('{"hallo":"line1\r\nline2","a":[5.5,5.6,5.7]}');
+        const json0 = JSON.parse(test0);
+        expect(json0).to.exist;
+        expect(test0).to.equal('{"hallo":"line1\\r\\nline2","a":[5.5,5.6,5.7]}');
+
+        const test1 = jsonEscape('{"hallo":"line1\\r\\nline2","a":[5.5,5.6,5.7]}');
+        const json1 = JSON.parse(test0);
+        expect(json1).to.exist;
+        expect(test1).to.equal('{"hallo":"line1\\r\\nline2","a":[5.5,5.6,5.7]}');
+    });
+});
 
 describe(`#${compileResponse.name}()`, () => {
     let request: Request;
@@ -621,7 +635,9 @@ describe(`#${compileResponse.name}()`, () => {
     describe("when passed a response with displays", () => {
 
         let compiledResponse: Response;
-        beforeEach(() => {
+
+        it("compiles the displays", () => {
+
             const displayResponse: SimpleResponse = {
                 outputSpeech: "Your name is ${ $.request.slots.NAME.value }",
                 reprompt: {
@@ -652,8 +668,7 @@ describe(`#${compileResponse.name}()`, () => {
             };
 
             compiledResponse = compileResponse(displayResponse, request, context);
-        });
-        it("compiles the displays", () => {
+
             expect(compileResponse).to.exist;
             expect(compiledResponse.displays).to.have.length(1);
             const display = compiledResponse.displays[0];
@@ -666,7 +681,8 @@ describe(`#${compileResponse.name}()`, () => {
             }
         });
         describe("leveraging the itemObject field", () => {
-            beforeEach(() => {
+            it("compiles the displays", () => {
+
                 const displayResponse: SimpleResponse = {
                     outputSpeech: "Your name is ${ $.request.slots.NAME.value }",
                     reprompt: {
@@ -698,8 +714,7 @@ describe(`#${compileResponse.name}()`, () => {
                 };
 
                 compiledResponse = compileResponse(displayResponse, request, context);
-            });
-            it("compiles the displays", () => {
+
                 expect(compileResponse).to.exist;
                 expect(compiledResponse.displays).to.have.length(1);
                 const display = compiledResponse.displays[0];
@@ -716,6 +731,155 @@ describe(`#${compileResponse.name}()`, () => {
                     expect(three.title).to.equal("Third Result");
                     expect(three.description).to.equal("Snippet: Baz baz baz baz");
                 }
+            });
+            describe("with new lines", () => {
+                it("compiles the display", () => {
+
+                    const newLineResponse: Response = {
+                        outputSpeech: {
+                            displayText: "Here is what I found...",
+                            ssml: "<speak>Here is what I found...</speak>"
+                        },
+                        reprompt: {
+                            displayText: "Any other questions?",
+                            ssml: "<speak>Any other questions?</speak>"
+                        },
+                        displays: [
+                            {
+                                type: "LIST",
+                                itemsName: "currentResult",
+                                itemsObject: "${SEARCH_RESULTS}",
+                                range: {
+                                    length: 3,
+                                    from: 0
+                                },
+                                title: "${$.request.rawQuery}",
+                                items: [
+                                    {
+                                        title: "${currentResult.title}",
+                                        description: "${currentResult.document}",
+                                        token: "result-${index}",
+                                        url: "${currentResult.source}",
+                                        synonyms: []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+
+                    request = new IntentRequestBuilder()
+                        .withIntentId("intentId")
+                        .withRawQuery("hot dog")
+                        .build();
+                    // @ts-ignore The stubbed instance types can't see the private properties, which cause TS errors
+                    response = sinon.createStubInstance(ResponseBuilder);
+
+                    context = new ContextBuilder()
+                        .withResponse(response)
+                        .withStorage({
+                            createdTimestamp: Date.now(),
+                            lastActiveTimestamp: Date.now(),
+                            name: "Bob",
+                            metBefore: true,
+                            score: 3,
+                            sessionStore: {
+                                id: "sessionId",
+                                data: {
+                                    SEARCH_RESULTS: [
+                                        {
+                                            title: 'Moving from an Apartment to a House Checklist | Travelers Insurance',
+                                            document: '...7 Tips for Moving With a Pet\n' +
+                                                '\n' +
+                                                'Get tips on how to ease moving stress and anxiety for dogs and cats.\n' +
+                                                '\n' +
+                                                'Learn more\n' +
+                                                '\n' +
+                                                'Related...',
+                                            source: 'https://www.travelers.com/resources/home/moving/moving-from-an-apartment-to-a-house-checklist'
+                                        },
+                                        {
+                                            title: 'Moving from an Apartment to a House Checklist | Travelers Insurance',
+                                            document: '...7 Tips for Moving With a Pet\n' +
+                                                '\n' +
+                                                'Get tips on how to ease moving stress and anxiety for dogs and cats.\n' +
+                                                '\n' +
+                                                'Learn more\n' +
+                                                '\n' +
+                                                'Related...',
+                                            source: 'https://www.travelers.com/tools-resources/home/moving/moving-from-an-apartment-to-a-house-checklist'
+                                        },
+                                        {
+                                            title: 'Grilling Safety Tips | Travelers Insurance',
+                                            document: '...was leaving or placing an object that could burn too close to the grill, according to the NFPA study.\n' +
+                                                '\n' +
+                                                '\tCharcoal grills can continue to remain hot for many hours after the flames extinguish. Avoid placing any burnable objects near the grill or moving the grill while the coals are hot. Keep...',
+                                            source: 'https://www.travelers.com/resources/home/safety/grilling-safety-tips'
+                                        },
+                                        {
+                                            title: 'Wood Stove Safety Tips | Travelers Insurance',
+                                            document: '...Because a wood stove generates very hot combustion gases, its chimney must be either masonry (with flue tiles intact and in good condition) or manufactured specifically for burning wood...',
+                                            source: 'https://www.travelers.com/resources/home/fire-safety/wood-stove-safety-tips'
+                                        },
+                                        {
+                                            title: 'Cooking Fire Safety | Travelers Insurance',
+                                            document: '...an extinguisher nearby is important, but you also need to have the correct type of extinguisher and know how to properly use it.\n' +
+                                                '\tNever throw hot grease in the garbage as it can ignite combustible materials. Be sure to let grease cool and consider disposing it in an old can, such as a metal...',
+                                            source: 'https://www.travelers.com/resources/home/fire-safety/cooking-fire-safety'
+                                        },
+                                        {
+                                            title: 'Electrical Safety in the Home | Travelers Insurance',
+                                            document: '...built before 1965 typically have ungrounded two-pronged outlets, while newer construction will usually have three-pronged outlets, which include a hot, neutral and ground wire. Homeowners may want to consider upgrading their wiring to accept three-pronged outlets, particularly if you are replacing...',
+                                            source: 'https://www.travelers.com/resources/home/fire-safety/electrical-safety-in-the-home'
+                                        },
+                                        {
+                                            title: '5 Tips for Childproofing Your Home | Travelers Insurance',
+                                            document: '...covers on outlets.\n' +
+                                                '\tChildproof window guards and safety nettings on windows to help prevent falls from windows.\n' +
+                                                '\tProtective material on radiator, hot pipes and other burn hazards.\n' +
+                                                '\tShields on light fixtures.\n' +
+                                                '\n' +
+                                                '2. Gear up...',
+                                            source: 'https://www.travelers.com/resources/home/renovation/5-tips-for-childproofing-your-home'
+                                        },
+                                        {
+                                            title: 'Generator Safety | Travelers Insurance',
+                                            document: '...extension cords with the proper amperage rating for the intended use.\n' +
+                                                '\tBe aware that portable generators become hot while running and remain hot for a significant amount of time after they are shut down, creating a potential fire hazard...',
+                                            source: 'https://www.travelers.com/resources/home/safety/generator-safety'
+                                        },
+                                        {
+                                            title: 'How to Make Your Home More Energy Efficient | Travelers Insurance',
+                                            document: '...a detailed work proposal following the evaluation. The contractor may have other recommendations, such as installing solar panels or a solar hot water system. Homeowners can expect to save 20 percent or more on the annual utility bill, depending on the type of improvements. For more details...',
+                                            source: 'https://www.travelers.com/resources/home/renovation/how-to-make-your-home-more-energy-efficient'
+                                        },
+                                        {
+                                            title: '7 Tips for Moving With a Pet | Travelers Insurance',
+                                            document: '...the idea of new trees to sniff and fire hydrants to investigate. Just as moving can be stressful for you, it can also create stress and anxiety for dogs and cats.\n' +
+                                                '\n' +
+                                                'For Spencer, a six-year-old Lhasa Apso, the clues had been there for weeks. The boxes, the packing, the unfamiliar visitors coming to...',
+                                            source: 'https://www.travelers.com/tools-resources/home/moving/7-tips-for-moving-with-a-pet'
+                                        }
+                                    ]
+                                }
+                            }
+                        })
+                        .build() as Context<TestStorage>;
+
+                    compiledResponse = compileResponse(newLineResponse, request, context);
+
+                    expect(compiledResponse).to.exist;
+                    const displays = compiledResponse.displays;
+                    expect(displays).to.have.length(1);
+                    const list = displays[0];
+                    expect(isList(list)).to.be.true;
+                    if (isList(list)) {
+                        expect(list.title).to.equal("hot dog");
+                        expect(list.items).to.have.length(3);
+                        const item = list.items[0];
+                        expect(item.token).to.equal("result-0");
+                        expect(item.title).to.equal("Moving from an Apartment to a House Checklist | Travelers Insurance");
+                    }
+                });
             });
         });
     });

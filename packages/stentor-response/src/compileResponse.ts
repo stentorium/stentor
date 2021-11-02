@@ -9,6 +9,15 @@ import { Compiler, DEFAULT_MARCOS, existsAndNotEmpty, getJSONPath, MacroMap } fr
 import { compileSegments } from "./compileSegments";
 
 /**
+ * Necessary to JSON.parse strings with newlines that need escaping.  Otherwise JSON.parse fails.
+ * @param json 
+ * @returns 
+ */
+export function jsonEscape(json: string): string {
+    return json.replace(/\n/g, "\\n").replace(/\r/g, "\\r").replace(/\t/g, "\\t");
+}
+
+/**
  * Compiles a templated response with provided request and context.
  *
  * In order for the template to compile, it must contain ${} with
@@ -79,7 +88,7 @@ export function compileResponse(
     if (Array.isArray(compiledResponse.displays) && compiledResponse.displays.length > 0) {
         // We want to first check to see if they have the itemObject feature
         // Note, just care about the first one here.
-        const firstDisplay = compiledResponse.displays[0];
+        const firstDisplay = { ...compiledResponse.displays[0] };
 
         if (isTemplatedList(firstDisplay)) {
             // This is what we will replace the items on firstDisplay with
@@ -134,13 +143,12 @@ export function compileResponse(
             if (!Array.isArray(itemsObjectArray)) {
                 throw new Error(`Item found at JSONPath for itemsObject was not an array.`);
             }
-
             // if a range exists, trim to the range
             itemsObjectArray = firstDisplay.range ? itemsObjectArray.slice(firstDisplay.range.from, firstDisplay.range.length) : itemsObjectArray;
             // Time to iterate and do replacements
             itemsObjectArray.forEach((item, index) => {
                 // Stringify
-                const itemString = JSON.stringify(itemTemplate, undefined, 2);
+                const itemString = JSON.stringify(itemTemplate);
                 let compiledItemString = compileSegments(itemString, compiledResponse.segments, request, context);
 
                 // New compiler
@@ -158,20 +166,22 @@ export function compileResponse(
                 compiledItemString = itemCompiler.compile(compiledItemString, request, context);
 
                 try {
-                    const compiledItem = JSON.parse(compiledItemString);
+                    const compiledItem = JSON.parse(jsonEscape(compiledItemString));
                     // Only update if it doesn't explode
                     compiledItems.push(compiledItem);
                 } catch (e) {
-                    log().error(`Could not compile display:`, e);
+                    log().error(`Could not compile display item:`, e);
                 }
-
-                // ok, time to update the items.
-                firstDisplay.items = compiledItems;
             });
+
+            // ok, time to update the items.
+            firstDisplay.items = compiledItems;
+            // update on the compiled response
+            compiledResponse.displays[0] = firstDisplay;
         }
 
         // Then pass it through as a string convert it to a string
-        const displaysString = JSON.stringify(compiledResponse.displays, undefined, 2);
+        const displaysString = JSON.stringify(compiledResponse.displays);
         // Compile the segments
         let compiledDisplayString = compileSegments(displaysString, compiledResponse.segments, request, context);
 
@@ -179,7 +189,7 @@ export function compileResponse(
 
         // Set it back
         try {
-            const compiledDisplays = JSON.parse(compiledDisplayString);
+            const compiledDisplays = JSON.parse(jsonEscape(compiledDisplayString));
             // Only update if it doesn't explode
             compiledResponse.displays = compiledDisplays;
         } catch (e) {

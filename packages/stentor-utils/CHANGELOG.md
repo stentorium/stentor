@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.48.9](https://github.com/stentorium/stentor/compare/v1.48.8...v1.48.9) (2021-11-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/xmldoc to v1.1.6 ([#1213](https://github.com/stentorium/stentor/issues/1213)) ([afd9073](https://github.com/stentorium/stentor/commit/afd9073999d5cd0b95f8caf789d416f7641b3218))
+
+
+
+
+
 ## [1.48.8](https://github.com/stentorium/stentor/compare/v1.48.7...v1.48.8) (2021-11-02)
 
 **Note:** Version bump only for package stentor-utils

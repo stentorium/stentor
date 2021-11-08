@@ -19,7 +19,12 @@ export interface Pii {
     customDataStatus?: OptStatus;
 
     name?: string;
-    preciseLocation?: string;
+    preciseLocation?: {
+        coordinates?: {
+            latitude: number;
+            longitude: number;
+        };
+    };
     coarseLocation?: string;
 
     pendingSmsJobs?: SmsDescription[];

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.48.12](https://github.com/stentorium/stentor/compare/v1.48.11...v1.48.12) (2021-11-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency sanitize-html to v2.5.3 ([#1215](https://github.com/stentorium/stentor/issues/1215)) ([d7ec469](https://github.com/stentorium/stentor/commit/d7ec4695328dc87e0e6a5f72008cc937de02df05))
+
+
+
+
+
 ## [1.48.11](https://github.com/stentorium/stentor/compare/v1.48.10...v1.48.11) (2021-11-09)
 
 

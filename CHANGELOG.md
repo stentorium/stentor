@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.48.11](https://github.com/stentorium/stentor/compare/v1.48.10...v1.48.11) (2021-11-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency slugify to v1.6.2 ([#1222](https://github.com/stentorium/stentor/issues/1222)) ([b363419](https://github.com/stentorium/stentor/commit/b363419a5f68297458e6ffc26b090a074a773b24))
+* Update preciseLocation to use coordinates instead of string. ([#1224](https://github.com/stentorium/stentor/issues/1224)) ([f802e9b](https://github.com/stentorium/stentor/commit/f802e9b4f728a5d77d0c5faafe86f12e30513925))
+
+
+
+
+
 ## [1.48.10](https://github.com/stentorium/stentor/compare/v1.48.9...v1.48.10) (2021-11-07)
 
 **Note:** Version bump only for package repo

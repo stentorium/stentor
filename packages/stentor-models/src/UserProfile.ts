@@ -17,7 +17,12 @@ export interface UserProfile {
     // NONE OF THEM PROVIDES it YET
     phone?: string;
     // NOT USED YET
-    preciseLocation?: string;
+    preciseLocation?: {
+        coordinates?: {
+            latitude: number;
+            longitude: number;
+        }
+    };
     // NOT USED YET
     coarseLocation?: string;
 }

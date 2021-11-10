@@ -17,7 +17,7 @@ import {
 } from "stentor-models";
 
 export class MockKnowledgeBaseService implements KnowledgeBaseService {
-    public query(): KnowledgeBaseResult {
+    public async query(): Promise<KnowledgeBaseResult> {
         return {
             faqs: [
                 {

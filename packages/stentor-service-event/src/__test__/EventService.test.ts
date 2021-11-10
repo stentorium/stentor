@@ -382,8 +382,18 @@ describe("EventService", () => {
                 expect(event.payload).to.be.an("object");
                 expect(event.payload.message).to.equal("Standard error");
                 expect(event.payload.stack).to.exist;
-                // Node 14 has 10 while others have 13 long stack length
-                const EXPECTED_STACK_LENGTH = process.version.startsWith("v14") ? 10 : 13;
+                // This wildly varies by node version. sigh.)
+                let EXPECTED_STACK_LENGTH: number;
+                switch (process.version.substr(0,3)) {
+                    case "v14":
+                        EXPECTED_STACK_LENGTH = 10;
+                        break;
+                    case "v12":
+                        EXPECTED_STACK_LENGTH = 11;
+                        break;
+                    default:
+                        EXPECTED_STACK_LENGTH = 13;
+                }
                 expect(event.payload.stack).to.have.length(EXPECTED_STACK_LENGTH);
             });
         });

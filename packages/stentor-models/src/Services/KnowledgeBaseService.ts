@@ -11,5 +11,5 @@ export interface KnowledgeBaseService {
      * @param query - Query to search within the knowledge base, typically a user's question.
      * @return Knowledge Base result with either FAQs, suggested, or documents.   
      */
-    query(query: string): KnowledgeBaseResult;
+    query(query: string): Promise<KnowledgeBaseResult>;
 }

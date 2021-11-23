@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.48.25](https://github.com/stentorium/stentor/compare/v1.48.24...v1.48.25) (2021-11-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency slugify to v1.6.3 ([#1253](https://github.com/stentorium/stentor/issues/1253)) ([e44028b](https://github.com/stentorium/stentor/commit/e44028b3f93784c235c79a000e44abcf7b5426ab))
+
+
+
+
+
 ## [1.48.24](https://github.com/stentorium/stentor/compare/v1.48.23...v1.48.24) (2021-11-22)
 
 **Note:** Version bump only for package repo

@@ -13,6 +13,7 @@ let today: Schedulable;
 let tomorrow: Schedulable;
 let nowForFiveSeconds: Schedulable;
 let nowWithinHour: Schedulable;
+let nowWithinHourAndAHalf: Schedulable;
 const badData = {} as Schedulable;
 let centralNow: Schedulable;
 let keithIntro: Schedulable;
@@ -68,6 +69,18 @@ describe("#findSchedulableMatch()", () => {
                 },
                 duration: {
                     amount: 1,
+                    format: "h"
+                }
+            }
+        };
+        nowWithinHourAndAHalf = {
+            schedule: {
+                start: {
+                    time: moment(now).format("HH:mm"),
+                    format: "HH:mm"
+                },
+                duration: {
+                    amount: 1.5,
                     format: "h"
                 }
             }
@@ -365,6 +378,11 @@ describe("#findSchedulableMatch()", () => {
     describe("with multiple matching", () => {
         it("it picks the most specific", () => {
             expect(findSchedulableMatch([nowForFiveSeconds, nowWithinHour])).to.equal(nowForFiveSeconds);
+        });
+    });
+    describe("with a decimal duration", () => {
+        it("it picks the most specific", () => {
+            expect(findSchedulableMatch([nowWithinHourAndAHalf])).to.equal(nowWithinHourAndAHalf);
         });
     });
 });

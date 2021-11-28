@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.48.27](https://github.com/stentorium/stentor/compare/v1.48.26...v1.48.27) (2021-11-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.3.4 ([#1256](https://github.com/stentorium/stentor/issues/1256)) ([8d1fb1e](https://github.com/stentorium/stentor/commit/8d1fb1e0838acd9048c7d6290f3a16f2492cd0f4))
+* **deps:** update dependency sanitize-html to v2.6.0 ([#1255](https://github.com/stentorium/stentor/issues/1255)) ([34ce182](https://github.com/stentorium/stentor/commit/34ce18294d67077412fb5549884607a07c6ab282))
+
+
+
+
+
 ## [1.48.25](https://github.com/stentorium/stentor/compare/v1.48.24...v1.48.25) (2021-11-23)
 
 

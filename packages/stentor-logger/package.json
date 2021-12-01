@@ -28,7 +28,7 @@
     "typescript": "4.5.2"
   },
   "dependencies": {
-    "chalk": "4.1.1",
+    "chalk": "5.0.0",
     "stentor-utils": "1.48.28",
     "winston": "3.3.3"
   },

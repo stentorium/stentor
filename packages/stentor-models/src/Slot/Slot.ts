@@ -44,4 +44,19 @@ export interface Slot {
      * to provide the slot.  
      */
     slotElicitationContentKey?: string;
+
+    /**
+     * Human readable description of what kind of information
+     * the slot is expecting.  The text should be very brief.  For example:
+     * 
+     * "zip"
+     * "zip code"
+     * "city"
+     * "state"
+     * "street"
+     *
+     * @type {string}
+     * @memberof Slot
+     */
+    inputText?: string;
 }

@@ -631,6 +631,44 @@ describe(`#${compileResponse.name}()`, () => {
             const title = typeof second !== "string" ? second.title : undefined;
             expect(title).to.equal("roses");
         });
+        describe("when suggestion chip URL doesn't exist", () => {
+
+            const unChippedResponse: SimpleResponse = {
+                outputSpeech: {
+                    ssml: "Your name is ${ $.request.slots.NAME.value }",
+                    displayText: "Your name is ${ $.request.slots.NAME.value }",
+                    suggestions: [
+                        {
+                            title: "Read More",
+                            url: "${DNE}"
+                        },
+                        {
+                            title: "${flower_type}",
+                            url: "${SUGGESTION.url}"
+                        }
+                    ]
+                },
+                reprompt: {
+                    ssml: "<speak> Hi ${$.context.storage.name} </speak>",
+                    displayText: "Hi ${$.context.storage.name}"
+                }
+            }
+            beforeEach(() => {
+                compiledResponse = compileResponse(unChippedResponse, request, context);
+            });
+            it("doesn't include them", () => {
+                expect(compileResponse).to.exist;
+
+                const suggestions = typeof compiledResponse.outputSpeech !== "string" ? compiledResponse.outputSpeech.suggestions : undefined;
+                expect(suggestions).to.have.length(1);
+
+                const first = suggestions[0];
+                const url = typeof first !== "string" ? (first as LinkOutSuggestion).url : undefined;
+                const title = typeof first !== "string" ? (first as LinkOutSuggestion).title : undefined;
+                expect(title).to.equal("roses");
+                expect(url).to.equal("https://documentation.xapp.ai");
+            });
+        });
     });
     describe("when passed a response with displays", () => {
 

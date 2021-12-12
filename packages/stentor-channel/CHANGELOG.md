@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.48.40](https://github.com/stentorium/stentor/compare/v1.48.39...v1.48.40) (2021-12-12)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
 ## [1.48.39](https://github.com/stentorium/stentor/compare/v1.48.38...v1.48.39) (2021-12-12)
 
 **Note:** Version bump only for package stentor-channel

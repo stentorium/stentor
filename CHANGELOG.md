@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.48.40](https://github.com/stentorium/stentor/compare/v1.48.39...v1.48.40) (2021-12-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/aws-lambda to v8.10.87 ([#1286](https://github.com/stentorium/stentor/issues/1286)) ([8b3c487](https://github.com/stentorium/stentor/commit/8b3c487e597b2663a09b015c0d5d4563ac087eec))
+* **deps:** update dependency body-parser to v1.19.1 ([#1285](https://github.com/stentorium/stentor/issues/1285)) ([c5b90df](https://github.com/stentorium/stentor/commit/c5b90dfc1328add46c9d180619b14caf74422648))
+
+
+
+
+
 ## [1.48.39](https://github.com/stentorium/stentor/compare/v1.48.38...v1.48.39) (2021-12-12)
 
 **Note:** Version bump only for package repo

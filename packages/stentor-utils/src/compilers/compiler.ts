@@ -269,17 +269,36 @@ export class Compiler implements CompilerProps {
             if (existsAndNotEmpty(value.suggestions)) {
                 // Make a copy
                 const compiledSuggestions: SuggestionTypes[] = [];
-                value.suggestions.forEach((suggestion, index) => {
+
+
+                value.suggestions.forEach((suggestion) => {
 
                     if (typeof suggestion === "string") {
-                        compiledSuggestions[index] = this.compileString(suggestion, request, context, "displayText");
+                        compiledSuggestions.push(this.compileString(suggestion, request, context, "displayText"))
                     } else {
+                        let skip = false;
                         // Run through each key
                         suggestion.title = this.compileString(suggestion.title, request, context, "displayText");
                         if (isLinkoutSuggestion(suggestion)) {
+
+
+                            const originalUrl = suggestion.url;
+                            const originalHasRegex = !!originalUrl.match(new RegExp(TEMPLATE_REGEX))
+
                             suggestion.url = this.compileString(suggestion.url, request, context, "displayText");
+
+                            if (this.replaceWhenUndefined && suggestion.url === "undefined") {
+                                // First skip condition, it was replaced to be undefined
+                                skip = true;
+                            } else if (originalHasRegex && originalUrl === suggestion.url) {
+                                // Second skip condition, original has regex and it was not updated
+                                skip = true
+                            }
                         }
-                        compiledSuggestions[index] = suggestion;
+
+                        if (!skip) {
+                            compiledSuggestions.push(suggestion);
+                        }
                     }
                 });
 

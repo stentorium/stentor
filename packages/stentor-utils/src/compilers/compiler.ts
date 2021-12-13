@@ -271,12 +271,12 @@ export class Compiler implements CompilerProps {
                 const compiledSuggestions: SuggestionTypes[] = [];
 
 
-                value.suggestions.forEach((suggestion, index) => {
+                value.suggestions.forEach((suggestion) => {
 
                     if (typeof suggestion === "string") {
                         compiledSuggestions.push(this.compileString(suggestion, request, context, "displayText"))
                     } else {
-                        let skip: boolean = false;
+                        let skip = false;
                         // Run through each key
                         suggestion.title = this.compileString(suggestion.title, request, context, "displayText");
                         if (isLinkoutSuggestion(suggestion)) {

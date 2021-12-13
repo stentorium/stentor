@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.48.43](https://github.com/stentorium/stentor/compare/v1.48.42...v1.48.43) (2021-12-13)
+
+
+### Bug Fixes
+
+* Do not include suggestion chips from a template if the URL is undefined ([#1291](https://github.com/stentorium/stentor/issues/1291)) ([3434494](https://github.com/stentorium/stentor/commit/3434494f60f99bf134d4b5803b2c76687b01f6a4))
+
+
+
+
+
 ## [1.48.42](https://github.com/stentorium/stentor/compare/v1.48.41...v1.48.42) (2021-12-13)
 
 **Note:** Version bump only for package stentor-utils

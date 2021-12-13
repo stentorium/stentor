@@ -210,6 +210,25 @@ describe(`${Compiler.name}`, () => {
                         suggestions: [{ title: "title", url: "url" }]
                     });
                 });
+                describe("when the URL comes back as undefined", () => {
+                    it("compiles the values", () => {
+                        const compiled = new Compiler().compile({
+                            ssml: "<speak>Hi ${name}!</speak>",
+                            displayText: "Hi ${name}!",
+                            suggestions: [
+                                {
+                                    title: "${suggestion.title}",
+                                    url: "${undefined.url}"
+                                }
+                            ]
+                        }, request, context);
+                        expect(compiled).to.deep.equal({
+                            ssml: "<speak>Hi bob!</speak>",
+                            displayText: "Hi bob!",
+                            suggestions: []
+                        });
+                    });
+                });
             });
         });
         describe("with additional context set", () => {

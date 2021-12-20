@@ -80,7 +80,7 @@ export abstract class AbstractResponseBuilder<R = any> {
      * @param response - The entire response
      * @returns The builder instance
      */
-    abstract respond(response: Response): AbstractResponseBuilder<R>;
+    public abstract respond(response: Response): AbstractResponseBuilder<R>;
     /**
      * Say something to the user.
      *
@@ -88,7 +88,7 @@ export abstract class AbstractResponseBuilder<R = any> {
      * @param append - Append the response to the existing, if available
      * @returns The builder instance
      */
-    abstract say(ssml: string | ResponseOutput, append?: boolean): AbstractResponseBuilder<R>;
+    public abstract say(ssml: string | ResponseOutput, append?: boolean): AbstractResponseBuilder<R>;
     /**
      * Provide a reprompt, necessary if you want to "ask" something
      *
@@ -96,14 +96,14 @@ export abstract class AbstractResponseBuilder<R = any> {
      * @param append - Append the response to the existing, if available
      * @returns The builder instance
      */
-    abstract reprompt(ssml: string | ResponseOutput, append?: boolean): AbstractResponseBuilder<R>;
+    public abstract reprompt(ssml: string | ResponseOutput, append?: boolean): AbstractResponseBuilder<R>;
     /**
      * Provide a card
      *
      * @param card - Card to be displayed to the user
      * @returns The builder instance
      */
-    abstract withCard(card: Card): AbstractResponseBuilder<R>;
+    public abstract withCard(card: Card): AbstractResponseBuilder<R>;
     /**
      * Provide a list (vertical selection)
      *
@@ -111,14 +111,21 @@ export abstract class AbstractResponseBuilder<R = any> {
      * @param title - The title for the list
      * @returns The builder instance
      */
-    abstract withList(items: ListItem[], title?: string): AbstractResponseBuilder<R>;
+    public abstract withList(items: ListItem[], title?: string): AbstractResponseBuilder<R>;
     /**
      * Provide a carousel (horizontal selection)
-     *
+     * 
      * @param items - List items to display in the carousel
      * @returns The builder instance
      */
-    abstract withCarousel(items: ListItem[]): AbstractResponseBuilder<R>;
+    public abstract withCarousel(items: ListItem[]): AbstractResponseBuilder<R>;
+    /**
+     * Add a custom display object to the response
+     * 
+     * @param display - A custom display object
+     * @returns The builder instance
+     */
+    public abstract withDisplay(display: object): AbstractResponseBuilder<R>;
     /**
      * Provide suggestions for the user.
      *
@@ -127,7 +134,7 @@ export abstract class AbstractResponseBuilder<R = any> {
      * @param suggestion - Either a single suggestion chip or an array
      * @returns The builder instance
      */
-    abstract withSuggestions(
+    public abstract withSuggestions(
         suggestion: SuggestionTypes | SuggestionTypes[],
         append?: boolean
     ): AbstractResponseBuilder<R>;
@@ -137,14 +144,14 @@ export abstract class AbstractResponseBuilder<R = any> {
      * @param context - Either a single context or array of contexts.
      * @returns The builder instance
      */
-    abstract withActiveContext(context: ActiveContext | ActiveContext[]): AbstractResponseBuilder<R>;
+    public abstract withActiveContext(context: ActiveContext | ActiveContext[]): AbstractResponseBuilder<R>;
     /**
      * Build intent pre-fetch results aka "CanFulfillRequest"
      *
      * @param results
      * @returns The builder instance
      */
-    abstract withCanFulfill(results: CanFulfillIntentResult): AbstractResponseBuilder<R>;
+    public abstract withCanFulfill(results: CanFulfillIntentResult): AbstractResponseBuilder<R>;
 
     /******************************
      * Audio Specific Responses   *
@@ -156,7 +163,7 @@ export abstract class AbstractResponseBuilder<R = any> {
      * @param playable - Media to play
      * @returns The builder instance
      */
-    abstract play(playable: PlayableMedia, offset?: number): AbstractResponseBuilder<R>;
+    public abstract play(playable: PlayableMedia, offset?: number): AbstractResponseBuilder<R>;
     /**
      * Play a playlist
      *
@@ -166,13 +173,13 @@ export abstract class AbstractResponseBuilder<R = any> {
      * @param playlist - The playlist to be played
      * @returns The builder instance
      */
-    abstract playPlaylist(playlist: Array<PlayableMedia> | PlayableMedia[]): AbstractResponseBuilder<R>;
+    public abstract playPlaylist(playlist: Array<PlayableMedia> | PlayableMedia[]): AbstractResponseBuilder<R>;
     /**
      * Stop the current audio
      *
      * @returns The builder instance
      */
-    abstract stop(): AbstractResponseBuilder<R>;
+    public abstract stop(): AbstractResponseBuilder<R>;
     /**
      * Enqueue the next audio
      *
@@ -180,7 +187,7 @@ export abstract class AbstractResponseBuilder<R = any> {
      * @param current - The current track playing
      * @returns The builder instance
      */
-    abstract enqueue(next: PlayableMedia, current: PlayableMedia): AbstractResponseBuilder<R>;
+    public abstract enqueue(next: PlayableMedia, current: PlayableMedia): AbstractResponseBuilder<R>;
     /**
      * The number of playables that can be sent at once. Override it if the platform handles more.
      */
@@ -197,7 +204,7 @@ export abstract class AbstractResponseBuilder<R = any> {
      *
      * @returns The builder instance
      */
-    abstract askForAccountLinking(response?: string | SimpleResponse): AbstractResponseBuilder<R>;
+    public abstract askForAccountLinking(response?: string | SimpleResponse): AbstractResponseBuilder<R>;
     /**
      * Request notification to intent
      *
@@ -205,7 +212,7 @@ export abstract class AbstractResponseBuilder<R = any> {
      * @param intentId -
      * @returns The builder instance
      */
-    abstract askForNotification(intentId?: string): AbstractResponseBuilder<R>;
+    public abstract askForNotification(intentId?: string): AbstractResponseBuilder<R>;
     /**
      * Ask the user to change surfaces, for example from a smart speaker to a mobile phone.
      *
@@ -213,7 +220,7 @@ export abstract class AbstractResponseBuilder<R = any> {
      * @param notificationLabel - The label for the notification on the new surface
      * @returns The builder instance
      */
-    abstract askForSurfaceChange(
+    public abstract askForSurfaceChange(
         response?: string | SimpleResponse,
         notificationLabel?: string
     ): AbstractResponseBuilder<R>;
@@ -222,30 +229,30 @@ export abstract class AbstractResponseBuilder<R = any> {
      *
      * @returns The builder instance
      */
-    abstract askForListAccess(response?: string | SimpleResponse): AbstractResponseBuilder<R>;
+    public abstract askForListAccess(response?: string | SimpleResponse): AbstractResponseBuilder<R>;
     /**
      * Chase down the user profile data
      *
      * @returns The builder instance
      */
-    abstract askForUserData(userDataType: UserDataType, accessData?: ApiAccessData): Promise<UserDataValue>;
+    public abstract askForUserData(userDataType: UserDataType, accessData?: ApiAccessData): Promise<UserDataValue>;
     /**
      * Ask for call transfer (on telephony capable channels)
      *
      * @param phoneNumber - The phone number to transfer the call to
      * @returns The builder instance
      */
-    abstract askForCallTransfer(phoneNumber: string): AbstractResponseBuilder<R>;
+    public abstract askForCallTransfer(phoneNumber: string): AbstractResponseBuilder<R>;
     /**
     *
     * @alpha - The feature is under active development
     * @param handoffTargetId - The id that represents the handoff target (app id/name, queue id/name, etc)
     */
-    abstract askForHandoff(handoffTargetId: string): AbstractResponseBuilder<R>;
+    public abstract askForHandoff(handoffTargetId: string): AbstractResponseBuilder<R>;
     /**
      * Build the response
      *
      * @returns The built response
      */
-    abstract build(): R;
+    public abstract build(): R;
 }

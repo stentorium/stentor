@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.48.47](https://github.com/stentorium/stentor/compare/v1.48.46...v1.48.47) (2021-12-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency express to v4.17.2 ([#1299](https://github.com/stentorium/stentor/issues/1299)) ([a6e808b](https://github.com/stentorium/stentor/commit/a6e808bec64668890ab55b57c163cad91e06e35f))
+
+
+
+
+
 ## [1.48.46](https://github.com/stentorium/stentor/compare/v1.48.45...v1.48.46) (2021-12-19)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.48.48](https://github.com/stentorium/stentor/compare/v1.48.47...v1.48.48) (2021-12-21)
+
+
+### Bug Fixes
+
+* Adds withDisplay to the response builder ([#1302](https://github.com/stentorium/stentor/issues/1302)) ([92aacdc](https://github.com/stentorium/stentor/commit/92aacdcc3317086a64dd50daad00ae58f9b2ae61))
+
+
+
+
+
 ## [1.48.46](https://github.com/stentorium/stentor/compare/v1.48.45...v1.48.46) (2021-12-19)
 
 

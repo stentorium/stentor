@@ -551,6 +551,36 @@ describe("ResponseBuilder", () => {
             });
         });
     });
+    describe(`#${ResponseBuilder.prototype.withDisplay.name}`, () => {
+        describe("when passed undefined", () => {
+            it("returns the correct response", () => {
+                expect(builder.withDisplay(undefined).build()).to.deep.equal({});
+            });
+        });
+        describe("when passed a custom object", () => {
+            it("returns the correct response", () => {
+                expect(
+                    builder
+                        .withDisplay(
+                            {
+                                type: "CUSTOM",
+                                title: "Title",
+                                token: "TOKEN"
+                            }
+                        )
+                        .build()
+                ).to.deep.equal({
+                    displays: [
+                        {
+                            type: "CUSTOM",
+                            title: "Title",
+                            token: "TOKEN"
+                        }
+                    ]
+                });
+            });
+        });
+    });
     describe("#askForAccountLinking()", () => {
         describe("when passed undefined", () => {
             it("sets the system response", () => {

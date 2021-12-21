@@ -194,6 +194,19 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         }
         return this;
     }
+    /**
+     * Add a custom display object to the response. 
+     */
+    public withDisplay(display: object): ResponseBuilder<T> {
+        if (display) {
+            if (!Array.isArray(this._response.displays)) {
+                this._response.displays = [];
+            }
+            this._response.displays.push(display);
+        }
+
+        return this;
+    }
 
     /*
      * System

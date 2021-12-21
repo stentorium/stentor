@@ -1,5 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { InputUnknownRequestType, IntentRequestType, KnowledgeAnswer, RequestSlotMap } from "../Request";
+import { ActiveContext } from "../Response";
 
 export interface NLUQueryResponse {
     type: IntentRequestType | InputUnknownRequestType;
@@ -8,9 +9,15 @@ export interface NLUQueryResponse {
     knowledgeAnswer?: KnowledgeAnswer;
 }
 
+export interface NLURequestProps {
+    userId?: string;
+    sessionId?: string;
+    activeContext?: ActiveContext[];
+}
+
 /**
  * Service which can turn raw text into an intent and slots (optional).
  */
 export interface NLUService {
-    query(q: string): Promise<NLUQueryResponse>;
+    query(q: string, props?: NLURequestProps): Promise<NLUQueryResponse>;
 }

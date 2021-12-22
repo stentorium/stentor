@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.49.0](https://github.com/stentorium/stentor/compare/v1.48.48...v1.49.0) (2021-12-22)
+
+
+### Features
+
+* Add config props to the NLU service ([#1305](https://github.com/stentorium/stentor/issues/1305)) ([8d67e00](https://github.com/stentorium/stentor/commit/8d67e009ee485d22ba0b965d4a61e93b9b867a8d))
+
+
+
+
+
 ## [1.48.48](https://github.com/stentorium/stentor/compare/v1.48.47...v1.48.48) (2021-12-21)
 
 

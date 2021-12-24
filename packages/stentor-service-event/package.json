@@ -18,7 +18,7 @@
     "@types/chai": "4.3.0",
     "@types/mocha": "9.0.0",
     "@types/sinon": "10.0.6",
-    "@types/sinon-chai": "3.2.6",
+    "@types/sinon-chai": "3.2.7",
     "@xapp/config": "0.2.3",
     "aws-sdk": "2.1046.0",
     "chai": "4.3.4",

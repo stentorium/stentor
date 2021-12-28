@@ -13,6 +13,7 @@ export interface NLURequestProps {
     userId?: string;
     sessionId?: string;
     activeContext?: ActiveContext[];
+    requestAttributes?: { [key: string]: string };
 }
 
 /**

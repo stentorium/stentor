@@ -21,5 +21,5 @@ export interface NLURequestProps {
  */
 export interface NLUService {
     query(q: string, props?: NLURequestProps): Promise<NLUQueryResponse>;
-    setContext(props?: NLURequestProps): Promise<void>;
+    setContext?(props: NLURequestProps): Promise<void>;
 }

@@ -13,6 +13,7 @@ export interface NLURequestProps {
     userId?: string;
     sessionId?: string;
     activeContext?: ActiveContext[];
+    requestAttributes?: { [key: string]: string };
 }
 
 /**
@@ -20,4 +21,5 @@ export interface NLURequestProps {
  */
 export interface NLUService {
     query(q: string, props?: NLURequestProps): Promise<NLUQueryResponse>;
+    setContext(props?: NLURequestProps): Promise<void>;
 }

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.50.0](https://github.com/stentorium/stentor/compare/v1.49.2...v1.50.0) (2021-12-29)
+
+
+### Features
+
+* Add optional context set method to the NLU service IF ([#1313](https://github.com/stentorium/stentor/issues/1313)) ([c02c032](https://github.com/stentorium/stentor/commit/c02c0326e2b70134d4b68b3db9b65c5439f204a6))
+
+
+
+
+
 ## [1.49.1](https://github.com/stentorium/stentor/compare/v1.49.0...v1.49.1) (2021-12-25)
 
 **Note:** Version bump only for package stentor-models

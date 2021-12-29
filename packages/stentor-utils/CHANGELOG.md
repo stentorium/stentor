@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.50.0](https://github.com/stentorium/stentor/compare/v1.49.2...v1.50.0) (2021-12-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.28.0 ([#1317](https://github.com/stentorium/stentor/issues/1317)) ([6bbc2dc](https://github.com/stentorium/stentor/commit/6bbc2dcfd4a7217bb28a1c654c4a4f2e20942d3d))
+
+
+
+
+
 ## [1.49.2](https://github.com/stentorium/stentor/compare/v1.49.1...v1.49.2) (2021-12-27)
 
 **Note:** Version bump only for package stentor-utils

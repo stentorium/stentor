@@ -200,6 +200,8 @@ export interface App extends Localizable<LocaleSpecificApp> {
     /**
      * Channels for the app.
      *
+     * Channels may have their own NLU and or Knowledgebase 
+     * 
      * Upgrade from platformData as it allows to publish the same
      * assistant app multiple times to the same channel.
      *
@@ -210,6 +212,10 @@ export interface App extends Localizable<LocaleSpecificApp> {
      *
      */
     nlu?: NLUData[];
+    /**
+     * Knowledgebase available to the assistant application.
+     */
+    knowledgebase: KnowledgebaseData[];
     /**
      * Data streams for the app.
      *

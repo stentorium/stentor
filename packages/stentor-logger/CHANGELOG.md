@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.50.12](https://github.com/stentorium/stentor/compare/v1.50.11...v1.50.12) (2022-01-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chalk to v4.1.2 ([#1334](https://github.com/stentorium/stentor/issues/1334)) ([bb75556](https://github.com/stentorium/stentor/commit/bb755562cb33228afb43142751aa97aff3d55206))
+* **deps:** update dependency winston to v3.4.0 ([#1336](https://github.com/stentorium/stentor/issues/1336)) ([3791149](https://github.com/stentorium/stentor/commit/37911492965fc453c79452ad19f8be70eaecb6a0))
+
+
+
+
+
 ## [1.50.11](https://github.com/stentorium/stentor/compare/v1.50.10...v1.50.11) (2022-01-10)
 
 **Note:** Version bump only for package stentor-logger

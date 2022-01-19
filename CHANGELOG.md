@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.50.18](https://github.com/stentorium/stentor/compare/v1.50.17...v1.50.18) (2022-01-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/aws-lambda to v8.10.90 ([#1350](https://github.com/stentorium/stentor/issues/1350)) ([546b390](https://github.com/stentorium/stentor/commit/546b390f809b4e76e145cfb9cf38aa7bb8281a0e))
+* **deps:** update dependency dotenv to v14 ([#1349](https://github.com/stentorium/stentor/issues/1349)) ([965c4e0](https://github.com/stentorium/stentor/commit/965c4e093729a4ea89db54bcbd5f8f42fe93c229))
+
+
+
+
+
 ## [1.50.17](https://github.com/stentorium/stentor/compare/v1.50.16...v1.50.17) (2022-01-17)
 
 

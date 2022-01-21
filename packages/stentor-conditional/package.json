@@ -21,7 +21,7 @@
     "chai": "4.3.4",
     "mocha": "9.1.4",
     "stentor-models": "1.50.15",
-    "typescript": "4.5.4"
+    "typescript": "4.5.5"
   },
   "dependencies": {
     "stentor-logger": "1.50.20",

@@ -27,7 +27,7 @@
     "sinon-chai": "3.7.0",
     "stentor-models": "1.50.15",
     "ts-node": "10.4.0",
-    "typescript": "4.5.4"
+    "typescript": "4.5.5"
   },
   "dependencies": {
     "stentor-guards": "1.50.20",

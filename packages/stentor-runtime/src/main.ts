@@ -10,13 +10,15 @@ import { trimHistory } from "stentor-history";
 import { CANCEL_INTENT, STOP_INTENT } from "stentor-interaction-model";
 import {
     Channel,
-    Context, CrmService,
+    Context,
+    CrmService,
     HandlerService,
     Hooks,
     KnowledgeBaseService,
     PIIService,
     Request,
-    Response, ResponseOutput,
+    Response,
+    ResponseOutput,
     RuntimeCallback,
     RuntimeContext,
     UserStorageService

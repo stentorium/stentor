@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.51.0](https://github.com/stentorium/stentor/compare/v1.50.27...v1.51.0) (2022-01-25)
+
+
+### Features
+
+* CRM service added to model and Assistant dependencies ([#1363](https://github.com/stentorium/stentor/issues/1363)) ([746ee27](https://github.com/stentorium/stentor/commit/746ee27005fb7d066b553d1f0c5cb1106796dd0f))
+
+
+
+
+
 ## [1.50.25](https://github.com/stentorium/stentor/compare/v1.50.24...v1.50.25) (2022-01-24)
 
 **Note:** Version bump only for package stentor-context

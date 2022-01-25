@@ -5,6 +5,7 @@ export * from "./Channel";
 export * from "./Conditional";
 export * from "./Context";
 export * from "./Contextual";
+export * from "./Crm";
 export * from "./DateTime";
 export * from "./DelegatingHandler";
 export * from "./Device";

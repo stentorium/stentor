@@ -11,12 +11,14 @@ import { CANCEL_INTENT, STOP_INTENT } from "stentor-interaction-model";
 import {
     Channel,
     Context,
+    CrmService,
     HandlerService,
     Hooks,
     KnowledgeBaseService,
     PIIService,
     Request,
-    Response, ResponseOutput,
+    Response,
+    ResponseOutput,
     RuntimeCallback,
     RuntimeContext,
     UserStorageService
@@ -72,6 +74,7 @@ export interface KnowledgeBaseDependency extends KnowledgeBaseConfig {
  */
 export interface Dependencies {
     eventService?: EventService;
+    crmService?: CrmService;
     handlerFactory: HandlerFactory;
     handlerService: HandlerService;
     piiService?: PIIService;
@@ -113,7 +116,15 @@ export const main = async (
         throw new TypeError("Channels passed to main() was either undefined or empty.");
     }
 
-    const { eventService, userStorageService, handlerService, piiService, handlerFactory, knowledgeBaseServices } = dependencies;
+    const {
+        eventService,
+        userStorageService,
+        handlerService,
+        piiService,
+        crmService,
+        handlerFactory,
+        knowledgeBaseServices
+    } = dependencies;
 
     // Step #0
     // Get the Channel
@@ -258,7 +269,8 @@ export const main = async (
             requestBody,
             {
                 userStorageService,
-                piiService
+                piiService,
+                crmService
             },
             channel,
             mainContext.appData

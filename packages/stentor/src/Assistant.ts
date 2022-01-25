@@ -15,6 +15,7 @@ import { log } from "stentor-logger";
 import {
     AppRuntimeData,
     Channel,
+    CrmService,
     EventStream,
     HandlerService,
     Hooks,
@@ -51,6 +52,7 @@ export class Assistant {
     private hooks: Hooks = {};
     private knowledgeBaseServices: { [matchIntentId: string]: KnowledgeBaseDependency } = {};
     private piiService: PIIService | undefined = undefined;
+    private crmService: CrmService | undefined = undefined;
     private runtimeData: AppRuntimeData = {};
     private userStorageService: UserStorageService | undefined = undefined;
 
@@ -135,6 +137,18 @@ export class Assistant {
      */
     public withPiiService(piiService: PIIService): Assistant {
         this.piiService = piiService;
+        return this;
+    }
+
+    /**
+     * The CRM service send the collected sales leads to a CRM server.
+     *
+     * @beta
+     * @param crmService
+     * @public
+     */
+    public withCrmService(crmService: CrmService): Assistant {
+        this.crmService = crmService;
         return this;
     }
 
@@ -313,6 +327,7 @@ export class Assistant {
                     handlerService,
                     eventService: this.eventService,
                     piiService: this.piiService,
+                    crmService: this.crmService,
                     knowledgeBaseServices: this.knowledgeBaseServices
                 },
                 this.hooks

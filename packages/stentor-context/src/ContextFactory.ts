@@ -4,6 +4,7 @@ import {
     AppRuntimeData,
     Channel,
     Context,
+    CrmService,
     Device,
     Pii,
     PIIService,
@@ -22,6 +23,7 @@ import { createSessionStore } from "stentor-storage";
 export interface ContextFactoryServices {
     userStorageService: UserStorageService;
     piiService: PIIService;
+    crmService: CrmService;
 }
 
 export class ContextFactory {

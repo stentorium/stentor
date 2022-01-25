@@ -23,7 +23,7 @@ import { createSessionStore } from "stentor-storage";
 export interface ContextFactoryServices {
     userStorageService: UserStorageService;
     piiService: PIIService;
-    crmService: CrmService;
+    crmService?: CrmService;
 }
 
 export class ContextFactory {

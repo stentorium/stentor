@@ -88,7 +88,8 @@ const context: Context = {
         }
     },
     // not used
-    response: undefined
+    response: undefined,
+    services: {}
 }
 
 describe(`${Compiler.name}`, () => {

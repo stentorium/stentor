@@ -41,7 +41,8 @@ const context: Context = {
         hasWebBrowser: false,
         canTransferCall: false
     },
-    response: {} as ResponseBuilder // this won't be called for these tests
+    response: {} as ResponseBuilder, // this won't be called for these tests
+    services: {}
 };
 
 const obj: SystemDependent = {

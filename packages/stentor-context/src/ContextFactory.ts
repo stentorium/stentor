@@ -9,7 +9,7 @@ import {
     Pii,
     PIIService,
     Request,
-    SessionStore,
+    SessionStore, SMSService,
     Storage,
     UserDataRequestStatus,
     UserDataType,
@@ -24,6 +24,7 @@ export interface ContextFactoryServices {
     userStorageService: UserStorageService;
     piiService: PIIService;
     crmService?: CrmService;
+    smsService?: SMSService;
 }
 
 export class ContextFactory {
@@ -44,7 +45,7 @@ export class ContextFactory {
         channel: Channel,
         appData?: AppRuntimeData
     ): Promise<Readonly<Context>> {
-        const { userStorageService, piiService } = services;
+        const { userStorageService, piiService, crmService, smsService } = services;
 
         const device: Device = channel.capabilities(requestBody);
 
@@ -159,7 +160,11 @@ export class ContextFactory {
             storage,
             session,
             requestUserData,
-            pii
+            pii,
+            services: {
+                crmService,
+                smsService
+            }
         };
     }
 

@@ -5,6 +5,7 @@ import { AbstractResponseBuilder } from "./Response";
 import { SessionStore, Storage } from "./Storage";
 import { UserDataType } from "./UserData";
 import { UserProfile } from "./UserProfile";
+import { CrmService, SMSService } from "./Services";
 
 export enum UserDataRequestStatus {
     DEFERRED,
@@ -19,6 +20,14 @@ export interface UserDataValue {
 }
 
 export type UserData = (userDataType: UserDataType) => Promise<UserDataRequestStatus>;
+
+/**
+ * These we want to make available for custom handlers
+ */
+export interface ContextServices {
+    crmService?: CrmService;
+    smsService?: SMSService;
+}
 
 /**
  * Context object that is passed around while formulating the response.
@@ -45,7 +54,7 @@ export interface Context<S extends Storage = Storage> {
      */
     response: AbstractResponseBuilder;
     /**
-     * A method that servers user profile data (email, location, phone number, etc)
+     * A method that serves user profile data (email, location, phone number, etc)
      */
     requestUserData?: UserData;
     /**
@@ -56,4 +65,8 @@ export interface Context<S extends Storage = Storage> {
      * Milliseconds left from the execution (NOTE: infinity if not executing in a lambda)
      */
     timeLeftInMillis?(): number;
+    /**
+     * Services available for the handlers
+     */
+    services: ContextServices;
 }

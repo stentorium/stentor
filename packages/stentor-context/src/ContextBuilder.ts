@@ -44,7 +44,8 @@ export class ContextBuilder<S extends Storage = Storage> extends AbstractBuilder
             storage,
             response: new ResponseBuilder({ device }),
             session: createSessionStore(storage),
-            pii
+            pii,
+            services: {}
         };
     }
 

@@ -16,6 +16,7 @@ import {
     AppRuntimeData,
     Channel,
     CrmService,
+    SMSService,
     EventStream,
     HandlerService,
     Hooks,
@@ -53,6 +54,7 @@ export class Assistant {
     private knowledgeBaseServices: { [matchIntentId: string]: KnowledgeBaseDependency } = {};
     private piiService: PIIService | undefined = undefined;
     private crmService: CrmService | undefined = undefined;
+    private smsService: SMSService | undefined = undefined;
     private runtimeData: AppRuntimeData = {};
     private userStorageService: UserStorageService | undefined = undefined;
 
@@ -149,6 +151,18 @@ export class Assistant {
      */
     public withCrmService(crmService: CrmService): Assistant {
         this.crmService = crmService;
+        return this;
+    }
+
+    /**
+     * The SMS service sends text messages
+     *
+     * @beta
+     * @param smsService
+     * @public
+     */
+    public withSmsService(smsService: SMSService): Assistant {
+        this.smsService = smsService;
         return this;
     }
 
@@ -328,6 +342,7 @@ export class Assistant {
                     eventService: this.eventService,
                     piiService: this.piiService,
                     crmService: this.crmService,
+                    smsService: this.smsService,
                     knowledgeBaseServices: this.knowledgeBaseServices
                 },
                 this.hooks

@@ -21,6 +21,7 @@ import {
     ResponseOutput,
     RuntimeCallback,
     RuntimeContext,
+    SMSService,
     UserStorageService
 } from "stentor-models";
 import {
@@ -75,6 +76,7 @@ export interface KnowledgeBaseDependency extends KnowledgeBaseConfig {
 export interface Dependencies {
     eventService?: EventService;
     crmService?: CrmService;
+    smsService?: SMSService;
     handlerFactory: HandlerFactory;
     handlerService: HandlerService;
     piiService?: PIIService;
@@ -122,6 +124,7 @@ export const main = async (
         handlerService,
         piiService,
         crmService,
+        smsService,
         handlerFactory,
         knowledgeBaseServices
     } = dependencies;
@@ -270,7 +273,8 @@ export const main = async (
             {
                 userStorageService,
                 piiService,
-                crmService
+                crmService,
+                smsService
             },
             channel,
             mainContext.appData

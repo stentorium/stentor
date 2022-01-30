@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.51.6](https://github.com/stentorium/stentor/compare/v1.51.5...v1.51.6) (2022-01-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency winston to v3.5.0 ([#1374](https://github.com/stentorium/stentor/issues/1374)) ([e3656e0](https://github.com/stentorium/stentor/commit/e3656e0c29c503d526f273b47d8175c75d7e82cd))
+
+
+
+
+
 ## [1.51.5](https://github.com/stentorium/stentor/compare/v1.51.4...v1.51.5) (2022-01-29)
 
 **Note:** Version bump only for package repo

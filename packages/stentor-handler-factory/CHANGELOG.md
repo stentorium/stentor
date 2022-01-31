@@ -3,6 +3,238 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.51.8](https://github.com/stentorium/stentor/compare/v1.51.7...v1.51.8) (2022-01-31)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.51.7](https://github.com/stentorium/stentor/compare/v1.51.6...v1.51.7) (2022-01-30)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.51.6](https://github.com/stentorium/stentor/compare/v1.51.5...v1.51.6) (2022-01-30)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.51.5](https://github.com/stentorium/stentor/compare/v1.51.4...v1.51.5) (2022-01-29)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.51.4](https://github.com/stentorium/stentor/compare/v1.51.3...v1.51.4) (2022-01-28)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.51.3](https://github.com/stentorium/stentor/compare/v1.51.2...v1.51.3) (2022-01-28)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.51.2](https://github.com/stentorium/stentor/compare/v1.51.1...v1.51.2) (2022-01-27)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.51.1](https://github.com/stentorium/stentor/compare/v1.51.0...v1.51.1) (2022-01-26)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+# [1.51.0](https://github.com/stentorium/stentor/compare/v1.50.27...v1.51.0) (2022-01-25)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.50.25](https://github.com/stentorium/stentor/compare/v1.50.24...v1.50.25) (2022-01-24)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.50.24](https://github.com/stentorium/stentor/compare/v1.50.23...v1.50.24) (2022-01-23)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.50.23](https://github.com/stentorium/stentor/compare/v1.50.22...v1.50.23) (2022-01-23)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.50.22](https://github.com/stentorium/stentor/compare/v1.50.21...v1.50.22) (2022-01-22)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.50.21](https://github.com/stentorium/stentor/compare/v1.50.20...v1.50.21) (2022-01-21)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.50.20](https://github.com/stentorium/stentor/compare/v1.50.19...v1.50.20) (2022-01-20)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.50.19](https://github.com/stentorium/stentor/compare/v1.50.18...v1.50.19) (2022-01-20)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.50.18](https://github.com/stentorium/stentor/compare/v1.50.17...v1.50.18) (2022-01-19)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.50.17](https://github.com/stentorium/stentor/compare/v1.50.16...v1.50.17) (2022-01-17)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.50.16](https://github.com/stentorium/stentor/compare/v1.50.15...v1.50.16) (2022-01-17)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.50.15](https://github.com/stentorium/stentor/compare/v1.50.14...v1.50.15) (2022-01-16)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.50.13](https://github.com/stentorium/stentor/compare/v1.50.12...v1.50.13) (2022-01-12)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.50.12](https://github.com/stentorium/stentor/compare/v1.50.11...v1.50.12) (2022-01-12)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.50.11](https://github.com/stentorium/stentor/compare/v1.50.10...v1.50.11) (2022-01-10)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.50.10](https://github.com/stentorium/stentor/compare/v1.50.9...v1.50.10) (2022-01-09)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.50.9](https://github.com/stentorium/stentor/compare/v1.50.8...v1.50.9) (2022-01-07)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.50.8](https://github.com/stentorium/stentor/compare/v1.50.7...v1.50.8) (2022-01-06)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.50.7](https://github.com/stentorium/stentor/compare/v1.50.6...v1.50.7) (2022-01-04)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.50.6](https://github.com/stentorium/stentor/compare/v1.50.5...v1.50.6) (2022-01-03)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
+## [1.50.5](https://github.com/stentorium/stentor/compare/v1.50.4...v1.50.5) (2021-12-30)
+
+**Note:** Version bump only for package stentor-handler-factory
+
+
+
+
+
 ## [1.50.4](https://github.com/stentorium/stentor/compare/v1.50.3...v1.50.4) (2021-12-29)
 
 **Note:** Version bump only for package stentor-handler-factory

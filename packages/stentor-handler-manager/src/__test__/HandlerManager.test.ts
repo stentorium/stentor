@@ -144,7 +144,8 @@ describe("HandlerManager", () => {
             baseContext = {
                 device,
                 storage,
-                response: new ResponseBuilder({ device })
+                response: new ResponseBuilder({ device }),
+                services: {}
             };
         });
         describe("when passed bad parameters", () => {

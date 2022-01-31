@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.51.9](https://github.com/stentorium/stentor/compare/v1.51.8...v1.51.9) (2022-01-31)
+
+
+### Bug Fixes
+
+* **deps:** update dependency dotenv to v14.3.2 ([#1373](https://github.com/stentorium/stentor/issues/1373)) ([fab2237](https://github.com/stentorium/stentor/commit/fab2237769b5ca083bb70e8ef50743bbafc7a229))
+
+
+
+
+
 ## [1.51.8](https://github.com/stentorium/stentor/compare/v1.51.7...v1.51.8) (2022-01-31)
 
 **Note:** Version bump only for package stentor

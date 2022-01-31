@@ -1,6 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { ChannelData } from "../Channel";
 import { ImageSpecification } from "../Display";
+import { KnowledgebaseData } from "../Knowledgebase";
 import { Locale, Localizable } from "../Locale";
 import { Location } from "../Location";
 import { NLUData } from "../NLU";
@@ -209,13 +210,15 @@ export interface App extends Localizable<LocaleSpecificApp> {
     channels?: ChannelData[];
     /**
      * The NLU available to the assistant application.
-     *
+     * 
      */
     nlu?: NLUData[];
     /**
      * Knowledgebase available to the assistant application.
+     * 
+     * @alpha This feature is currently under development
      */
-    knowledgebase: KnowledgebaseData[];
+    knowledgebase?: KnowledgebaseData[];
     /**
      * Data streams for the app.
      *

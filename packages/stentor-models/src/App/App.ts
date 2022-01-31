@@ -1,6 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { ChannelData } from "../Channel";
 import { ImageSpecification } from "../Display";
+import { KnowledgebaseData } from "../Knowledgebase";
 import { Locale, Localizable } from "../Locale";
 import { Location } from "../Location";
 import { NLUData } from "../NLU";
@@ -200,6 +201,8 @@ export interface App extends Localizable<LocaleSpecificApp> {
     /**
      * Channels for the app.
      *
+     * Channels may have their own NLU and or Knowledgebase 
+     * 
      * Upgrade from platformData as it allows to publish the same
      * assistant app multiple times to the same channel.
      *
@@ -207,9 +210,15 @@ export interface App extends Localizable<LocaleSpecificApp> {
     channels?: ChannelData[];
     /**
      * The NLU available to the assistant application.
-     *
+     * 
      */
     nlu?: NLUData[];
+    /**
+     * Knowledgebase available to the assistant application.
+     * 
+     * @alpha This feature is currently under development
+     */
+    knowledgebase?: KnowledgebaseData[];
     /**
      * Data streams for the app.
      *

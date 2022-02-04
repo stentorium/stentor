@@ -39,6 +39,29 @@ const testEvent: Event = {
     payload: undefined
 };
 
+function getSubstackLength(): number {
+
+    let EXPECTED_STACK_LENGTH = 13;
+
+    switch (process.version.substr(0, 3)) {
+        case "v16":
+        case "v14":
+            EXPECTED_STACK_LENGTH = 10;
+            break;
+        case "v12":
+            if (process.version === "v12.22.0") {
+                EXPECTED_STACK_LENGTH = 10;
+            } else {
+                EXPECTED_STACK_LENGTH = 11;
+            }
+            break;
+        default:
+            EXPECTED_STACK_LENGTH = 13;
+    }
+
+    return EXPECTED_STACK_LENGTH;
+}
+
 describe("#wrapCallback()", () => {
     it("Tests that the callback calls the flush.", () => {
         const callback = Sinon.stub();
@@ -383,21 +406,7 @@ describe("EventService", () => {
                 expect(event.payload.message).to.equal("Standard error");
                 expect(event.payload.stack).to.exist;
                 // This wildly varies by node version. sigh.)
-                let EXPECTED_STACK_LENGTH: number;
-                switch (process.version.substr(0,3)) {
-                    case "v14":
-                        EXPECTED_STACK_LENGTH = 10;
-                        break;
-                    case "v12":
-                        if (process.version === "v12.22.0") {
-                            EXPECTED_STACK_LENGTH = 10;
-                        } else {
-                            EXPECTED_STACK_LENGTH = 11;
-                        }
-                        break;
-                    default:
-                        EXPECTED_STACK_LENGTH = 13;
-                }
+                const EXPECTED_STACK_LENGTH: number = getSubstackLength();
                 expect(event.payload.stack).to.have.length(EXPECTED_STACK_LENGTH);
             });
         });
@@ -412,21 +421,7 @@ describe("EventService", () => {
                 expect(event.payload.message).to.equal("Standard error");
                 expect(event.payload.stack).to.exist;
                 // This wildly varies by node version. sigh.)
-                let EXPECTED_STACK_LENGTH: number;
-                switch (process.version.substr(0,3)) {
-                    case "v14":
-                        EXPECTED_STACK_LENGTH = 10;
-                        break;
-                    case "v12":
-                        if (process.version === "v12.22.0") {
-                            EXPECTED_STACK_LENGTH = 10;
-                        } else {
-                            EXPECTED_STACK_LENGTH = 11;
-                        }
-                        break;
-                    default:
-                        EXPECTED_STACK_LENGTH = 13;
-                }
+                const EXPECTED_STACK_LENGTH: number = getSubstackLength();
                 expect(event.payload.stack).to.have.length(EXPECTED_STACK_LENGTH);
             });
         });

@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.52.5",
+  "version": "1.52.6",
   "description": "The most basic of channels, one that uses stentor requests & responses as input.",
   "types": "lib/index",
   "main": "lib/index",
@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@xapp/patterns": "1.40.21",
-    "stentor-utils": "1.52.5"
+    "stentor-utils": "1.52.6"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

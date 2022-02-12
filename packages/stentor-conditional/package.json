@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.52.12",
+  "version": "1.52.13",
   "description": "Conditionals for 📣 stentor",
   "types": "lib/index",
   "typings": "lib/index",

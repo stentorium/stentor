@@ -1622,10 +1622,10 @@
     runes "0.4.3"
     slugify "1.3.4"
 
-"@xapp/patterns@1.40.24":
-  version "1.40.24"
-  resolved "https://registry.yarnpkg.com/@xapp/patterns/-/patterns-1.40.24.tgz#de7af118d2dd0532f8379ad681188a97546bdee9"
-  integrity sha512-RbmOxs2FIXi6AGiKDkzxsWJ/JdFF987JArW2u6rGTPnAsvtwfQbTQ+SX4EFbH6PB6gLTfPWnrc5sOgb9EJoj1Q==
+"@xapp/patterns@1.40.34":
+  version "1.40.34"
+  resolved "https://registry.yarnpkg.com/@xapp/patterns/-/patterns-1.40.34.tgz#113f955943bef6b8d5d275bc0a895e00d69b2032"
+  integrity sha512-9eit2Dvo8IyzqadWbs75QyDJDU/e9FnjUrzQcRAbkU73dD4V3GmpdTI+vZ+ctz5J/orGFAwiusp5OR86kTVUZA==
 
 JSONStream@^1.0.4:
   version "1.3.5"

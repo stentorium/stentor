@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.52.18](https://github.com/stentorium/stentor/compare/v1.52.17...v1.52.18) (2022-02-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency body-parser to v1.19.2 ([#1408](https://github.com/stentorium/stentor/issues/1408)) ([fa331ac](https://github.com/stentorium/stentor/commit/fa331ac00f7aef46f643c85a57f6c632addeb0d5))
+* **deps:** update dependency express to v4.17.3 ([#1410](https://github.com/stentorium/stentor/issues/1410)) ([cd43a3b](https://github.com/stentorium/stentor/commit/cd43a3b2980d8ae93b11217a66d1719203fbc716))
+* **deps:** update dependency vm2 to v3.9.8 ([#1409](https://github.com/stentorium/stentor/issues/1409)) ([958321f](https://github.com/stentorium/stentor/commit/958321f44150f16803801273506e02c13f5845b1))
+
+
+
+
+
 ## [1.52.17](https://github.com/stentorium/stentor/compare/v1.52.16...v1.52.17) (2022-02-16)
 
 

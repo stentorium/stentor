@@ -33,6 +33,7 @@
     "clean:modules": "lerna clean",
     "lint": "eslint 'packages/**/src/**/*.{ts,tsx}'",
     "build": "lerna run build",
+    "lcheck": "license-checker --failOn Apache-2.0",
     "test": "TZ=UTC lerna run test",
     "release": "lerna version --yes && git push origin --tags && lerna publish from-git --yes",
     "release:pre": "lerna version prerelease --yes --allow-branch $CIRCLE_BRANCH --no-changelog && git push origin --tags && lerna publish from-git --yes",

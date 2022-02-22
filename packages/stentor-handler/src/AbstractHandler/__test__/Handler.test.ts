@@ -93,8 +93,8 @@ describe("AbstractHandler", () => {
         outputSpeech: "optionPrompt",
         reprompt: "optionReprompt"
     };
-
     beforeEach(() => {
+        console.log('beforeEach');
         content = {
             [intentId]: [intentIdContent],
             [OPTION_SELECT_ID]: [optionSelectContent],
@@ -132,7 +132,13 @@ describe("AbstractHandler", () => {
                     outputSpeech: "You can say X or Y"
                 }
             ],
-            CancelIntent: []
+            CancelIntent: [],
+            ["OCSearch"]: [
+                {
+                    name: "Search Results",
+                    outputSpeech: "This is the search response"
+                }
+            ]
         };
         forward = {
             intentThree: [
@@ -533,7 +539,7 @@ describe("AbstractHandler", () => {
                 it("returns the help for a help intent", async () => {
                     request = new IntentRequestBuilder().help().build();
                     await handler.handleRequest(request, context);
-                    expect(response.respond).to.have.been.called;
+                    expect(response.respond).to.have.been.calledOnce;
                     expect(response.respond).to.have.been.calledWith({
                         name: "help",
                         outputSpeech: "You can say X or Y"
@@ -576,6 +582,39 @@ describe("AbstractHandler", () => {
                     });
                 });
             });
+            describe("for an OCSearch intent", () => {
+                beforeEach(() => {
+
+                });
+                it("returns the input unknown response", async () => {
+                    request = new IntentRequestBuilder().withIntentId("OCSearch").build();
+                    await handler.handleRequest(request, context);
+                    expect(response.respond).to.have.not.been.called;
+                    expect(response.say).to.have.been.calledOnce;
+                    expect(response.say).to.have.been.calledWith("Sorry, what was that?");
+                });
+                describe("when it is the OCSearch Handler", () => {
+                    it("provides the default response", async () => {
+                        request = new IntentRequestBuilder().withIntentId("OCSearch").build();
+
+                        handler = new TestHandler({
+                            appId,
+                            organizationId,
+                            intentId: "OCSearch",
+                            type: BASE_HANDLER_TYPE,
+                            content,
+                            data: {}
+                        });
+
+                        await handler.handleRequest(request, context);
+                        expect(response.respond).to.have.been.called;
+                        expect(response.respond).to.have.been.calledWith({
+                            name: "Search Results",
+                            outputSpeech: "This is the search response"
+                        });
+                    });
+                });
+            });
             describe("with slots on the session storage", () => {
                 it("returns the expected response", async () => {
                     request = new IntentRequestBuilder()
@@ -608,6 +647,14 @@ describe("AbstractHandler", () => {
                     });
                     expect(response.reprompt).to.have.not.been.called;
                 });
+            });
+        });
+        describe("for input unknown request", () => {
+            it("returns the input unknown response", async () => {
+                request = new InputUnknownRequestBuilder().build();
+                await handler.handleRequest(request, context);
+                expect(response.say).to.have.been.called;
+                expect(response.say).to.have.been.calledWith("Sorry, what was that?");
             });
         });
         describe("when slot filling", () => {

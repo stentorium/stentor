@@ -195,7 +195,7 @@ export abstract class AbstractHandler<
      * @returns {Promise<void>}
      */
     protected async inputUnknown(request: Request, context: Context): Promise<void> {
-
+        console.log('inside inputunknown');
         // It is possible we go into the input unknown flow when we say we can't handle it
         const canHandleInputUnknown = this.canHandleInputUnknown(request, context);
         // Let's print out a message here for debugging in case this scenario happens
@@ -277,13 +277,19 @@ export abstract class AbstractHandler<
         switch (event) {
             case REPEAT_INTENT:
                 return this.repeat(request, context);
+            case "OCSearch":
             case INPUT_UNKNOWN_ID:
-                if (this.intentId !== INPUT_UNKNOWN_ID) {
+                // This just insures we aren't the actual InputUnknown handler
+                // and we are instead in another flow's handler.
+                if (this.intentId !== INPUT_UNKNOWN_ID && this.intentId !== "OCSearch") {
                     return this.inputUnknown(request, context);
                 }
+            // else here is to let it fall through to the default below
+            // order on this matters
             default:
                 // Try to find one in the content
                 const response = getResponse(this, request, context);
+
                 if (response) {
                     context.response.respond(response);
                     return;

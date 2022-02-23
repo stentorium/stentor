@@ -11,7 +11,7 @@ export class TranslateStentorResponse extends Translator<RequestResponse, Respon
         const channel = request.channel;
 
         // Ensure we are passing out the right markdown in the displayText!
-        if (channel && channel.toLowerCase() === "widget") {
+        if (channel && channel.toLowerCase() === "widget" || channel.toLowerCase() === "intelligent-search") {
             response.outputSpeech = toResponseOutput(response.outputSpeech);
             if (response.outputSpeech.displayText) {
                 response.outputSpeech.html = toHTML(response.outputSpeech.displayText);

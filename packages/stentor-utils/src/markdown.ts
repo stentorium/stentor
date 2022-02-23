@@ -1,6 +1,6 @@
 /*! Copyright (c) 2021, XAPPmedia */
 import { decode } from "html-entities";
-import * as marked from "marked";
+import { marked } from "marked";
 import sanitize = require('sanitize-html');
 import { linkify } from "./net";
 

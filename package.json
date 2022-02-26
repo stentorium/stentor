@@ -15,7 +15,7 @@
     "@typescript-eslint/eslint-plugin": "5.12.1",
     "@typescript-eslint/parser": "5.12.1",
     "@xapp/config": "0.2.3",
-    "eslint": "8.9.0",
+    "eslint": "8.10.0",
     "eslint-plugin-notice": "0.9.10",
     "lerna": "4.0.0",
     "license-checker": "25.0.1",

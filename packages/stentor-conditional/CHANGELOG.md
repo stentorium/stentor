@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.52.26](https://github.com/stentorium/stentor/compare/v1.52.25...v1.52.26) (2022-02-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency vm2 to v3.9.9 ([#1418](https://github.com/stentorium/stentor/issues/1418)) ([ae770f5](https://github.com/stentorium/stentor/commit/ae770f56d9f5ac2cbe90c4bb2410c13aa635df1d))
+
+
+
+
+
 ## [1.52.25](https://github.com/stentorium/stentor/compare/v1.52.24...v1.52.25) (2022-02-28)
 
 **Note:** Version bump only for package stentor-conditional

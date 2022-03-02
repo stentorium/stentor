@@ -22,7 +22,7 @@
     "mocha": "9.2.1",
     "sinon": "13.0.1",
     "stentor-models": "1.52.28",
-    "ts-node": "10.5.0",
+    "ts-node": "10.6.0",
     "typescript": "4.6.2"
   },
   "peerDependencies": {

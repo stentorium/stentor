@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.52.29",
+  "version": "1.52.30",
   "description": "Event service for 📣 stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -25,14 +25,14 @@
     "mocha": "9.2.1",
     "sinon": "13.0.1",
     "sinon-chai": "3.7.0",
-    "stentor-models": "1.52.28",
+    "stentor-models": "1.52.30",
     "ts-node": "10.6.0",
     "typescript": "4.6.2"
   },
   "dependencies": {
     "stacktrace-parser": "0.1.10",
-    "stentor-request": "1.52.29",
-    "stentor-utils": "1.52.29"
+    "stentor-request": "1.52.30",
+    "stentor-utils": "1.52.30"
   },
   "peerDependencies": {
     "aws-sdk": "2.x",

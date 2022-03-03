@@ -63,8 +63,7 @@ export class HandlerManager {
         const handlerFromStorage: AbstractHandler = this.factory.from(request, context);
         if (isHandler(handlerFromStorage) && handlerFromStorage.canHandleRequest(request, context)) {
             log().info(
-                `Using handler from storage with id: ${handlerFromStorage.intentId} which can handle the request ${
-                request.type
+                `Using handler from storage with id: ${handlerFromStorage.intentId} which can handle the request ${request.type
                 }-${keyFromRequest(request)}`
             );
             handler = handlerFromStorage;
@@ -72,8 +71,7 @@ export class HandlerManager {
         // STEP #0.1 Another check, see if it is an InputUnknown request and it can handle it
         if (isHandler(handlerFromStorage) && isInputUnknownRequest(request) && handlerFromStorage.canHandleInputUnknown(request, context)) {
             log().info(
-                `Using handler from storage with id: ${handlerFromStorage.intentId} which can handle the request ${
-                request.type
+                `Using handler from storage with id: ${handlerFromStorage.intentId} which can handle the request ${request.type
                 }-${keyFromRequest(request)}`
             );
             handler = handlerFromStorage;
@@ -86,7 +84,7 @@ export class HandlerManager {
         // NOTE: if a path is found, it sets requestHandler = undefined;
         if (handler) {
             if (isHandler(handler)) {
-                const path = handler.forwardingPathForRequest(request, context);
+                const path = await handler.forwardingPathForRequest(request, context);
                 // if we do have a path
                 if (path) {
                     // make a new
@@ -190,7 +188,7 @@ export class HandlerManager {
         // See if we have a redirecting path for the request
         if (handler) {
             if (isHandler(handler)) {
-                const path = handler.redirectingPathForRequest(request, context);
+                const path = await handler.redirectingPathForRequest(request, context);
                 // if we do have a path
                 if (path) {
                     // make a new

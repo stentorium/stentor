@@ -123,7 +123,8 @@ export abstract class AbstractHandler<
      *
      * @public
      */
-    public forwardingPathForRequest(request: Request, context: Context): ExecutablePath | undefined {
+
+    public async forwardingPathForRequest(request: Request, context: Context): Promise<ExecutablePath> | undefined {
         const key = keyFromRequest(request);
         const paths = findValueForKey(key, this.forward);
         return determinePath(paths, request, context);
@@ -136,7 +137,7 @@ export abstract class AbstractHandler<
      *
      * @public
      */
-    public redirectingPathForRequest(request: Request, context: Context): ExecutablePath | undefined {
+    public async redirectingPathForRequest(request: Request, context: Context): Promise<ExecutablePath> | undefined {
         const key = keyFromRequest(request);
         const paths = findValueForKey(key, this.redirect);
         return determinePath(paths, request, context);

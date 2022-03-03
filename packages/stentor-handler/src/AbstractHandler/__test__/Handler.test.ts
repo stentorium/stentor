@@ -866,7 +866,7 @@ describe("AbstractHandler", () => {
             });
         });
         describe("without forward set", () => {
-            it("returns undefined", () => {
+            it("returns undefined", async () => {
                 const request = {
                     ...intentRequest,
                     intentId: "someRandomIntent"
@@ -878,7 +878,8 @@ describe("AbstractHandler", () => {
                         ...storageProps
                     })
                     .build();
-                expect(handler.forwardingPathForRequest(request, context)).to.be.undefined;
+                const path = await handler.forwardingPathForRequest(request, context)
+                expect(path).to.be.undefined;
             });
         });
         describe("with forwards", () => {
@@ -897,7 +898,7 @@ describe("AbstractHandler", () => {
                     }
                 });
             });
-            it("matches to the correct one on an exact match", () => {
+            it("matches to the correct one on an exact match", async () => {
                 const request = {
                     ...intentRequest,
                     intentId: STOP_INTENT
@@ -909,10 +910,11 @@ describe("AbstractHandler", () => {
                         ...storageProps
                     })
                     .build();
-                expect(handler.forwardingPathForRequest(request, context)).to.exist;
-                expect(handler.forwardingPathForRequest(request, context).intentId).to.equal("ForwardedStop");
+                const path = await handler.forwardingPathForRequest(request, context)
+                expect(path).to.exist;
+                expect(path.intentId).to.equal("ForwardedStop");
             });
-            it("matches to the fallback regex", () => {
+            it("matches to the fallback regex", async () => {
                 const request = {
                     ...intentRequest,
                     intentId: "random"
@@ -924,10 +926,11 @@ describe("AbstractHandler", () => {
                         ...storageProps
                     })
                     .build();
-                expect(handler.forwardingPathForRequest(request, context)).to.exist;
-                expect(handler.forwardingPathForRequest(request, context).intentId).to.equal("Fallback");
+                const path = await handler.forwardingPathForRequest(request, context);
+                expect(path).to.exist;
+                expect(path.intentId).to.equal("Fallback");
             });
-            it("returns undefined for unmatched", () => {
+            it("returns undefined for unmatched", async () => {
                 const request = {
                     ...intentRequest,
                     intentId: HELP_INTENT
@@ -939,7 +942,8 @@ describe("AbstractHandler", () => {
                         ...storageProps
                     })
                     .build();
-                expect(handler.forwardingPathForRequest(request, context)).to.be.undefined;
+                const path = await handler.forwardingPathForRequest(request, context)
+                expect(path).to.be.undefined;
             });
         });
     });

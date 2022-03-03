@@ -25,7 +25,13 @@ export type UserData = (userDataType: UserDataType) => Promise<UserDataRequestSt
  * These we want to make available for custom handlers
  */
 export interface ContextServices {
+    /**
+     * Service for sending information to a CRM
+     */
     crmService?: CrmService;
+    /**
+     * Service for sending text messages
+     */
     smsService?: SMSService;
 }
 

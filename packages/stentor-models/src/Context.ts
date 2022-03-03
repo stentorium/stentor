@@ -5,7 +5,7 @@ import { AbstractResponseBuilder } from "./Response";
 import { SessionStore, Storage } from "./Storage";
 import { UserDataType } from "./UserData";
 import { UserProfile } from "./UserProfile";
-import { CrmService, KnowledgeBaseService, SMSService } from "./Services";
+import { CrmService, SMSService } from "./Services";
 
 export enum UserDataRequestStatus {
     DEFERRED,
@@ -33,10 +33,6 @@ export interface ContextServices {
      * Service for sending text messages
      */
     smsService?: SMSService;
-    /**
-     * Service for calling a knowledgebase.
-     */
-    knowledgeBaseService?: KnowledgeBaseService;
 }
 
 /**

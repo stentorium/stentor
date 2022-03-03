@@ -5,7 +5,7 @@ import { AbstractResponseBuilder } from "./Response";
 import { SessionStore, Storage } from "./Storage";
 import { UserDataType } from "./UserData";
 import { UserProfile } from "./UserProfile";
-import { CrmService, SMSService } from "./Services";
+import { CrmService, KnowledgeBaseService, SMSService } from "./Services";
 
 export enum UserDataRequestStatus {
     DEFERRED,
@@ -25,8 +25,18 @@ export type UserData = (userDataType: UserDataType) => Promise<UserDataRequestSt
  * These we want to make available for custom handlers
  */
 export interface ContextServices {
+    /**
+     * Service for sending information to a CRM
+     */
     crmService?: CrmService;
+    /**
+     * Service for sending text messages
+     */
     smsService?: SMSService;
+    /**
+     * Service for calling a knowledgebase.
+     */
+    knowledgeBaseService?: KnowledgeBaseService;
 }
 
 /**

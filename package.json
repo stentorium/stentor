@@ -8,7 +8,8 @@
     "url": "https://github.com/stentorium/stentor"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "website"
   ],
   "devDependencies": {
     "@microsoft/api-documenter": "7.15.3",
@@ -26,13 +27,14 @@
   },
   "scripts": {
     "api": "lerna run api",
-    "docs": "api-documenter markdown -i ./api/json -o ./api/docs",
+    "docs": "api-documenter markdown -i ./api/json -o ./website/api/",
     "lerna": "lerna",
     "postinstall": "lerna bootstrap",
     "clean": "lerna run clean",
     "clean:modules": "lerna clean",
     "lint": "eslint 'packages/**/src/**/*.{ts,tsx}'",
     "build": "lerna run build",
+    "website": "yarn workspace website start",
     "test": "TZ=UTC lerna run test",
     "release": "lerna version --yes && git push origin --tags && lerna publish from-git --yes",
     "release:pre": "lerna version prerelease --yes --allow-branch $CIRCLE_BRANCH --no-changelog && git push origin --tags && lerna publish from-git --yes",

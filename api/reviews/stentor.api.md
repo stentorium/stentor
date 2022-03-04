@@ -15,6 +15,7 @@ import { Context } from 'stentor-models';
 import { ContextBuilder } from 'stentor-context';
 import { ContextFactory } from 'stentor-context';
 import { ConversationHandler } from 'stentor-handler';
+import { CrmService } from 'stentor-models';
 import { Data } from 'stentor-models';
 import { DateTime } from 'stentor-models';
 import { DateTimeRange } from 'stentor-models';
@@ -61,8 +62,15 @@ import { isSessionEndedRequest } from 'stentor-request';
 import { isSignInRequest } from 'stentor-request';
 import { isSurfaceRequest } from 'stentor-request';
 import { keyFromRequest } from 'stentor-request';
+import { KnowledgeBaseConfig } from 'stentor-runtime';
+import { KnowledgeBaseDocument } from 'stentor-models';
+import { KnowledgeBaseFAQ } from 'stentor-models';
+import { KnowledgeBaseResult } from 'stentor-models';
+import { KnowledgeBaseService } from 'stentor-models';
+import { KnowledgeBaseSuggested } from 'stentor-models';
 import { LaunchRequestBuilder } from 'stentor-request';
 import { List } from 'stentor-models';
+import { ListButton } from 'stentor-models';
 import { listisize } from 'stentor-utils';
 import { ListItem } from 'stentor-models';
 import { numberToWord } from 'stentor-utils';
@@ -80,6 +88,7 @@ import { ResponseOutput } from 'stentor-models';
 import { RuntimeCallback } from 'stentor-models';
 import { RuntimeContext } from 'stentor-models';
 import { SessionEndedRequestBuilder } from 'stentor-request';
+import { SMSService } from 'stentor-models';
 import { ssmlify } from 'stentor-utils';
 import { Storage as Storage_2 } from 'stentor-models';
 import { UserStorageService } from 'stentor-models';
@@ -92,14 +101,17 @@ export class Assistant {
     express(app?: express.Application, path?: string): express.Application;
     lambda(): AWSLambda_2.Handler;
     withChannels(channels: Channel[]): Assistant;
+    withCrmService(crmService: CrmService): Assistant;
     withEventPrefix(prefix: EventPrefix): Assistant;
     // (undocumented)
     withEventStream(stream: EventStream): Assistant;
     withHandlers(handlers: HandlersArray | HandlersKeyValue | DelegatingHandlersMap): Assistant;
     withHandlerService(handlerService: HandlerService): Assistant;
     withHooks(hooks: Hooks): Assistant;
+    withKnowledgeBaseService(service: KnowledgeBaseService, config: KnowledgeBaseConfig): Assistant;
     withPiiService(piiService: PIIService): Assistant;
     withRuntimeData(runtime: AppRuntimeData): Assistant;
+    withSmsService(smsService: SMSService): Assistant;
     withUserStorage(userStorage: UserStorageService): Assistant;
 }
 
@@ -199,9 +211,19 @@ export { isSurfaceRequest }
 
 export { keyFromRequest }
 
+export { KnowledgeBaseDocument }
+
+export { KnowledgeBaseFAQ }
+
+export { KnowledgeBaseResult }
+
+export { KnowledgeBaseSuggested }
+
 export { LaunchRequestBuilder }
 
 export { List }
+
+export { ListButton }
 
 export { listisize }
 
@@ -240,7 +262,6 @@ export { ssmlify }
 export { Storage_2 as Storage }
 
 export { UserStorageService }
-
 
 // (No @packageDocumentation comment for this package)
 

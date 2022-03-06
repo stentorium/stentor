@@ -28,7 +28,7 @@
     "typescript": "4.6.2"
   },
   "dependencies": {
-    "@xapp/patterns": "1.40.34",
+    "@xapp/patterns": "1.40.63",
     "stentor-utils": "1.52.32"
   },
   "peerDependencies": {

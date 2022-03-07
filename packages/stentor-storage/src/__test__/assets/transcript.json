@@ -1,0 +1,28 @@
+{
+  "transcript": [
+    {
+      "createdTime": "2022-03-07T16:57:19Z",
+      "from": {
+        "id": "1234"
+      },
+      "to": [
+        {
+          "id": "ABCD"
+        }
+      ],
+      "message": "hello"
+    },
+    {
+      "createdTime": "2022-03-07T16:57:29Z",
+      "from": {
+        "id": "ABCD"
+      },
+      "to": [
+        {
+          "id": "1234"
+        }
+      ],
+      "message": "Hi, how can I help?"
+    }
+  ]
+}

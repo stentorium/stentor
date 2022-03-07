@@ -11,7 +11,8 @@ export function createSessionStore(storage: Storage): SessionStore {
     if (storage.sessionStore === undefined) {
         storage.sessionStore = {
             id: "temp",
-            data: {}
+            data: {},
+            transcript: []
         };
     }
 

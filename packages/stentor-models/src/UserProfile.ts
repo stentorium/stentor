@@ -1,6 +1,10 @@
 /*! Copyright (c) 2019, XAPPmedia */
 export interface UserProfile {
     /**
+     * Unique userId
+     */
+    id: string;
+    /**
      * The first name, or given name, of the user.
      */
     name?: string;
@@ -13,7 +17,6 @@ export interface UserProfile {
      * Note: This isn't a piece of data we want to know, but Google uses the permissioning mechanism to grant it.
      */
     notificationGranted?: boolean;
-
     // NONE OF THEM PROVIDES it YET
     phone?: string;
     // NOT USED YET

@@ -22,8 +22,12 @@ const config = {
       "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
+        api: {
+          path: "../api/docs",
+        },
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
+          path: "../docs",
           // Please change this to your repo.
           editUrl:
             "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
@@ -45,17 +49,13 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "My Site",
-        logo: {
-          alt: "My Site Logo",
-          src: "img/logo.svg",
-        },
+        title: "📣stentor",
         items: [
           {
             type: "doc",
-            docId: "intro",
+            docId: "getting-started",
             position: "left",
-            label: "Tutorial",
+            label: "Getting Started",
           },
           {
             to: "/api",

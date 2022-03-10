@@ -22,7 +22,7 @@ import { EventService } from "stentor-service-event";
 import { main } from "../main";
 import { passThroughChannel, MockHandlerService, MockUserStorageService } from "./Mocks";
 
-const appId = "appId1";
+const appId = "appId";
 const organizationId = "organizationId";
 const intentId = "intentId";
 const sessionId = "sessionId";

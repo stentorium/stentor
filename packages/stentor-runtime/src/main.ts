@@ -39,7 +39,7 @@ import {
 import { canFulfillAll, canFulfillNothing, getResponse } from "stentor-response";
 import { EventService, wrapCallback as eventServiceCallbackWrapper } from "stentor-service-event";
 import { manipulateStorage } from "stentor-storage";
-import { combineRequestSlots, existsAndNotEmpty, findValueForKey, requestSlotValueToString } from "stentor-utils";
+import { combineRequestSlots, existsAndNotEmpty, findValueForKey, requestSlotsToString } from "stentor-utils";
 import { ChannelSelector } from "./ChannelSelector";
 import { combineKnowledgeBaseResults, mergeInKnowledgeBaseResults } from "./combineKnowledgeBaseResults";
 
@@ -346,7 +346,7 @@ export const main = async (
             if (request.rawQuery) {
                 message = request.rawQuery;
             } else if (hasSlots(request)) {
-                message = requestSlotValueToString(request.slots)
+                message = requestSlotsToString(request.slots)
             } else {
                 message = `Request ${request.intentId}`;
             }

@@ -56,33 +56,41 @@ export function isDateTimeRange(slotValue: RequestSlotValues): slotValue is Date
  * @param dateTime - Either DateTime or DateTimeRange to convert to a string
  */
 export function dateTimeToString(dateTime: DateTime | DateTimeRange): string {
+
     if (typeof dateTime !== "object") {
         return "";
     }
 
-    if (isDateTime(dateTime)) {
-        const date = dateTime.date ? format(parse(dateTime.date, "y-M-d", new Date()), "yyyy-MM-dd") : undefined;
-        const time = dateTime.time;
-        return `${date ? date : ""}${date && time ? "T" : ""}${time ? time : ""}`;
-    } else {
-        const start = dateTime.start;
-        const end = dateTime.end;
-        let str = "";
-        if (start) {
-            const date = start.date ? format(parse(start.date, "y-M-d", new Date()), "yyyy-MM-dd") : undefined;
-            const time = start.time;
+    let str = "";
+
+    try {
+        if (isDateTime(dateTime)) {
+            const date = dateTime.date ? format(parse(dateTime.date, "y-M-d", new Date()), "yyyy-MM-dd") : undefined;
+            const time = dateTime.time;
             str = `${date ? date : ""}${date && time ? "T" : ""}${time ? time : ""}`;
+        } else {
+            const start = dateTime.start;
+            const end = dateTime.end;
+
+            if (start) {
+                const date = start.date ? format(parse(start.date, "y-M-d", new Date()), "yyyy-MM-dd") : undefined;
+                const time = start.time;
+                str = `${date ? date : ""}${date && time ? "T" : ""}${time ? time : ""}`;
+            }
+            if (start && end) {
+                str += ` --> `;
+            }
+            if (end) {
+                const date = end.date ? format(parse(end.date, "y-M-d", new Date()), "yyyy-MM-dd") : undefined;
+                const time = end.time;
+                str += `${date ? date : ""}${date && time ? "T" : ""}${time ? time : ""}`;
+            }
         }
-        if (start && end) {
-            str += ` --> `;
-        }
-        if (end) {
-            const date = end.date ? format(parse(end.date, "y-M-d", new Date()), "yyyy-MM-dd") : undefined;
-            const time = end.time;
-            str += `${date ? date : ""}${date && time ? "T" : ""}${time ? time : ""}`;
-        }
-        return str;
+    } catch (e) {
+        console.error(e);
     }
+
+    return str;
 }
 
 /**

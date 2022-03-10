@@ -22,6 +22,7 @@ export * from "./Location";
 export * from "./Logic";
 export * from "./Match";
 export * from "./Media";
+export * from "./Message";
 export * from "./NLU";
 export * from "./Path";
 export * from "./Pii";

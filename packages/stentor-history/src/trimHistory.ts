@@ -9,9 +9,9 @@ export const DEFAULT_LAST_PLAYED_FORGET_SECONDS = 31536000; // 1 year (seconds i
 const MS_IN_SECONDS = 1000;
 
 export interface TrimOptions {
-    tttSeconds: number;
-    historySize: number;
-    lastPlayedForgetSeconds: number;
+    tttSeconds?: number;
+    historySize?: number;
+    lastPlayedForgetSeconds?: number;
 }
 
 

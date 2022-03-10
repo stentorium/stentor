@@ -29,6 +29,10 @@ export interface BaseRequest {
      */
     overrideKey?: string;
     /**
+     * When the message was created, an ISO-8601 compatible date time string
+     */
+    createdTime?: string;
+    /**
      * ID for the user making the request.
      */
     userId: string;

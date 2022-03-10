@@ -463,7 +463,9 @@ export class PermissionGrantBuilder extends AbstractBuilder<PermissionRequest> {
             granted: true,
             userId: "userId",
             isNewSession: false,
-            userProfile: {}
+            userProfile: {
+                id: "userId"
+            }
         };
     }
 }

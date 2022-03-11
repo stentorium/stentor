@@ -6,10 +6,6 @@ export interface LeadFormField {
     value: string;
 }
 
-export interface CrmTranscriptAttributes {
-    [attribute: string]: unknown;
-}
-
 export interface ExternalLead {
     fields: LeadFormField[];
     source?: string;

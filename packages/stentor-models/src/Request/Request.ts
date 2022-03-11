@@ -105,6 +105,12 @@ export interface BaseRequest {
      * Currently only Google and Dialogflow perform health checks.
      */
     isHealthCheck?: boolean;
+    /**
+     * Optional request attributes to be passed through on the request.
+     * 
+     * If the channel supports it, it will be populated.
+     */
+    attributes?: object;
 }
 
 export interface ApiAccessData {

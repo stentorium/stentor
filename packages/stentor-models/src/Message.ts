@@ -25,4 +25,10 @@ export interface Message {
      * Optional, more detailed information about the message
      */
     response?: ResponseOutput;
+    /**
+     * Optional, additional attributes that can exist on the message.
+     * 
+     * Useful to pass additional context.
+     */
+    attributes?: object;
 }

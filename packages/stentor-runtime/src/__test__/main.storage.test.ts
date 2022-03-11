@@ -462,25 +462,25 @@ describe(`#${main.name}() storage`, () => {
                             {
                                 to: [{ id: "bot-id" }],
                                 from: { id: "real-person" },
-                                createdTime: "1",
+                                createdTime: "2022-03-11T22:44:16.979Z",
                                 message: "hi"
                             },
                             {
                                 to: [{ id: "real-person" }],
                                 from: { id: "bot" },
-                                createdTime: "2",
+                                createdTime: "2022-03-11T22:44:33.636Z",
                                 message: "hi, how are you"
                             },
                             {
                                 to: [{ id: "bot-id" }],
                                 from: { id: "real-person" },
-                                createdTime: "3",
+                                createdTime: "2022-03-11T22:44:49.995Z",
                                 message: "fine thanks, you?"
                             },
                             {
                                 to: [{ id: "real-person" }],
                                 from: { id: "bot-id" },
-                                createdTime: "4",
+                                createdTime: "2022-03-11T22:45:03.387Z",
                                 message: "i'm well, how can i help"
                             }
                         ]
@@ -515,7 +515,7 @@ describe(`#${main.name}() storage`, () => {
                         handlerService,
                         userStorageService
                     }
-                )
+                );
 
                 expect(callbackSpy).to.have.been.calledOnce;
                 expect(userStorageService.update).to.have.been.calledOnce;

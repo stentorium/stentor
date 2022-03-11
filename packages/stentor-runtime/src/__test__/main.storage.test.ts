@@ -503,7 +503,7 @@ describe(`#${main.name}() storage`, () => {
                 process.env.STUDIO_APP_ID = previousAppId;
                 process.env.STUDIO_MAX_HISTORY = previousMaxHistory;
             });
-            it.only('keeps the length to 20', async () => {
+            it('keeps the length to 20', async () => {
                 await main(
                     request,
                     context,

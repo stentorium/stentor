@@ -15,6 +15,7 @@ import {
     HandlerService,
     Hooks,
     KnowledgeBaseService,
+    Message,
     PIIService,
     Request,
     Response,
@@ -26,6 +27,7 @@ import {
 } from "stentor-models";
 import {
     hasSessionId,
+    hasSlots,
     isInputUnknownRequest,
     isIntentRequest,
     isLaunchRequest,
@@ -37,9 +39,11 @@ import {
 import { canFulfillAll, canFulfillNothing, getResponse } from "stentor-response";
 import { EventService, wrapCallback as eventServiceCallbackWrapper } from "stentor-service-event";
 import { manipulateStorage } from "stentor-storage";
-import { combineRequestSlots, existsAndNotEmpty, findValueForKey } from "stentor-utils";
+import { combineRequestSlots, existsAndNotEmpty, findValueForKey, requestSlotsToString } from "stentor-utils";
 import { ChannelSelector } from "./ChannelSelector";
 import { combineKnowledgeBaseResults, mergeInKnowledgeBaseResults } from "./combineKnowledgeBaseResults";
+
+export const DEFAULT_MAX_HISTORY = 20;
 
 export interface KnowledgeBaseConfig {
     /**
@@ -117,6 +121,11 @@ export const main = async (
     if (!existsAndNotEmpty(channels)) {
         throw new TypeError("Channels passed to main() was either undefined or empty.");
     }
+
+    // Define some variables that will be used throughout
+
+    const APP_ID: string = process.env["STUDIO_APP_ID"];
+    const HISTORY_SIZE: number = Number(process.env["STUDIO_MAX_HISTORY"]) || DEFAULT_MAX_HISTORY;
 
     const {
         eventService,
@@ -304,10 +313,59 @@ export const main = async (
         return;
     }
 
+    //
+    // Context Modifications!
+    //
+
     // See if it doesn't have a lastActiveTimestamp
     if (typeof context.storage.lastActiveTimestamp !== "number") {
         // We want to set a session variable so we can keep track of if they are a new user for the entire session
         context.session.set(SESSION_STORAGE_NEW_USER, true);
+    }
+
+    // Add the user's query to the transcripts!
+    if (request.rawQuery || isIntentRequest(request) || isOptionSelectRequest(request) || isLaunchRequest(request) || isInputUnknownRequest(request)) {
+
+        if (!Array.isArray(context.storage.sessionStore.transcript)) {
+            context.storage.sessionStore.transcript = [];
+        }
+
+        // ID of the bot is determined by the environment variable
+        const id: string = APP_ID || "bot";
+
+        let message: string;
+
+        if (isOptionSelectRequest(request)) {
+            message = `Selected item with token ${request.token}`
+        } else if (isLaunchRequest(request)) {
+            message = `Launch`
+        } else if (isInputUnknownRequest(request)) {
+            message = request.rawQuery ? request.rawQuery : `Unknown Input`;
+        } else if (isIntentRequest(request)) {
+            // Raw query if available
+            if (request.rawQuery) {
+                message = request.rawQuery;
+            } else if (hasSlots(request)) {
+                message = requestSlotsToString(request.slots)
+            } else {
+                message = `Request ${request.intentId}`;
+            }
+        } else {
+            message = request.rawQuery;
+        }
+
+        const userMessage: Message = {
+            from: {
+                id: request.userId
+            },
+            to: [
+                { id }
+            ],
+            message,
+            createdTime: request.createdTime || new Date().toISOString()
+        }
+
+        context.storage.sessionStore.transcript.push(userMessage);
     }
 
     // Update with the currentHandler
@@ -328,6 +386,9 @@ export const main = async (
         context.session.set(SESSION_STORAGE_KNOWLEDGE_BASE_RESULT, combineKnowledgeBaseResults(context.session.get(SESSION_STORAGE_KNOWLEDGE_BASE_RESULT), request.knowledgeBaseResult));
     }
 
+    //
+    // End Context Modifications!
+    //
 
     // #2 Get the request handler
     let handler: AbstractHandler;
@@ -446,7 +507,7 @@ export const main = async (
     // Save the response we are about to output as the previous response
     context.storage.previousResponse = context.response.response;
     // Trim history
-    context.storage.history = trimHistory(context.storage.history);
+    context.storage.history = trimHistory(context.storage.history, { historySize: HISTORY_SIZE });
 
     // #4.1 Save the PII storage
     if (piiService) {
@@ -487,7 +548,6 @@ export const main = async (
 
         log().debug("Response");
         log().debug(response);
-
         finalResponse = channel.response.translate({ request, response });
         log().debug("Final Response");
         log().debug(finalResponse);
@@ -499,6 +559,35 @@ export const main = async (
             eventService.error(error);
         }
         finalResponse = {};
+    }
+
+    // Add the response to the transcript!
+    if (response) {
+
+        const id: string = APP_ID || "bot";
+
+        // Try display text if it exists
+        const message: string = response.outputSpeech.displayText || response.outputSpeech.ssml;
+
+        const botMessage: Message = {
+            from: {
+                id: id
+            },
+            to: [
+                { id: request.userId }
+            ],
+            message,
+            createdTime: new Date().toISOString(),
+            response: response.outputSpeech
+        };
+
+        context.storage.sessionStore.transcript.push(botMessage);
+    }
+
+    // Trim transcript before saving to keep it somewhat managable
+    if (Array.isArray(context.storage.sessionStore?.transcript)) {
+        const transcriptLength = context.storage.sessionStore.transcript.length
+        context.storage.sessionStore.transcript.splice(0, transcriptLength - HISTORY_SIZE);
     }
 
     if (isActionable(response)) {

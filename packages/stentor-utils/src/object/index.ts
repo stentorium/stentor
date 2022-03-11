@@ -25,11 +25,11 @@ export function removeItems(obj: any, attrs: (string | number)[] | ValidateKeyCa
     }
 
     const objIsArray: boolean = Array.isArray(obj);
-    const returnObj: any = objIsArray ? (obj as Array<any>).slice() : { ...obj };
+    const returnObj: any = objIsArray ? (obj as any[]).slice() : { ...obj };
 
     const deleteItem = (key: string | number): void => {
         if (objIsArray) {
-            (returnObj as Array<any>).splice(key as number, 1);
+            (returnObj as any[]).splice(key as number, 1);
         } else {
             delete returnObj[key];
         }

@@ -129,6 +129,17 @@ describe(`#main() templated response`, () => {
                 }
             });
             expect(userStorageService.update).to.have.been.calledOnce;
+
+            const argTwo = (userStorageService.update as any).getCall(0).args[1];
+            const transcripts = argTwo.sessionStore.transcript;
+            expect(transcripts).to.have.length(2);
+
+            const tOne = transcripts[0];
+            expect(tOne.message).to.equal("date:2019-09-11");
+
+            const tTwo = transcripts[1];
+            expect(tTwo.message).to.equal("bob 9-11-2019");
+
             expect(userStorageService.update).to.have.been.calledWithMatch("userId", {
                 sessionStore: {
                     data: {

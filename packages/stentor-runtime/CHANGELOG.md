@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.53.1](https://github.com/stentorium/stentor/compare/v1.53.0...v1.53.1) (2022-03-11)
+
+
+### Bug Fixes
+
+* Add request attributes and update CRM Transcript ([#1435](https://github.com/stentorium/stentor/issues/1435)) ([1743a46](https://github.com/stentorium/stentor/commit/1743a468520e890c570263dbb75b478332287b95))
+
+
+
+
+
 # [1.53.0](https://github.com/stentorium/stentor/compare/v1.52.37...v1.53.0) (2022-03-11)
 
 

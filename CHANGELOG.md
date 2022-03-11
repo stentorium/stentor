@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.53.0](https://github.com/stentorium/stentor/compare/v1.52.37...v1.53.0) (2022-03-11)
+
+
+### Features
+
+* Automatic Transcripts on Session Store ([#1432](https://github.com/stentorium/stentor/issues/1432)) ([c8c7075](https://github.com/stentorium/stentor/commit/c8c7075beb83bfe739f10a7c160543dfd2688d75))
+
+
+
+
+
 ## [1.52.37](https://github.com/stentorium/stentor/compare/v1.52.36...v1.52.37) (2022-03-09)
 
 

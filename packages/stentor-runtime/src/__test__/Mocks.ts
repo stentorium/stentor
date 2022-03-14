@@ -117,6 +117,7 @@ export const MOCK_CHANNEL: Channel = {
 
 export interface PassThroughChannelOptions {
     device?: Device;
+    response?: Translator<RequestResponse, Response>;
     test?(body: object): boolean;
 }
 
@@ -157,7 +158,7 @@ export function passThroughChannel(options?: PassThroughChannelOptions): Channel
             }
         },
         request: new PassThroughRequestTranslator(),
-        response: new PassThroughResponseTranslator(),
+        response: options?.response || new PassThroughResponseTranslator(),
         capabilities: (): Device => {
             if (options && options.device) {
                 return options.device;

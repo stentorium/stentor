@@ -562,7 +562,7 @@ export const main = async (
     }
 
     // Add the response to the transcript!
-    if (response) {
+    if (response && response.outputSpeech) {
 
         const id: string = APP_ID || "bot";
 

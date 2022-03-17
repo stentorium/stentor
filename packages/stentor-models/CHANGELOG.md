@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.53.7](https://github.com/stentorium/stentor/compare/v1.53.6...v1.53.7) (2022-03-17)
+
+
+### Bug Fixes
+
+* Add slot obfuscations setting ([#1444](https://github.com/stentorium/stentor/issues/1444)) ([287f8c6](https://github.com/stentorium/stentor/commit/287f8c6c32ca56462dd2cb46e4b37d8dcddb2d33))
+
+
+
+
+
 ## [1.53.6](https://github.com/stentorium/stentor/compare/v1.53.5...v1.53.6) (2022-03-17)
 
 **Note:** Version bump only for package stentor-models

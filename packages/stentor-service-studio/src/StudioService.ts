@@ -1,9 +1,9 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { HTTP_200_OK } from "stentor-constants";
-import { Event, Handler, HandlerService } from "stentor-models";
+import { Event, Handler, HandlerService, KnowledgeBaseResult, KnowledgeBaseService } from "stentor-models";
 import { existsAndNotEmpty } from "stentor-utils";
 import "isomorphic-fetch";
-import { StudioHandlerResponse, StudioHandlersResponse } from "./Response";
+import { StudioHandlerResponse, StudioHandlersResponse, StudioQueryResponse } from "./Response";
 
 const BASE_URL = "https://api.xapp.ai";
 
@@ -11,7 +11,7 @@ function getIntentId(id: string | { intentId: string }): string {
     return typeof id === "string" ? id : id.intentId;
 }
 
-export class StudioService implements HandlerService {
+export class StudioService implements HandlerService, KnowledgeBaseService {
     private readonly baseURL: string = BASE_URL;
     private readonly token: string;
     private readonly appId: string;
@@ -90,6 +90,34 @@ export class StudioService implements HandlerService {
                 }
 
                 return undefined;
+            });
+    }
+
+    public query(query: string): Promise<KnowledgeBaseResult> {
+        const url = `${this.baseURL}/cms/search?query="${query}"`;
+
+        const result: KnowledgeBaseResult = {
+            faqs: [],
+            suggested: [],
+            documents: []
+        };
+
+        return fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${this.token}`
+            }
+        })
+            .then<StudioQueryResponse>(response => response.json())
+            .then<KnowledgeBaseResult>(json => {
+                if (json) {
+
+                    // Go through them
+
+                } else {
+                    return result;
+                }
             });
     }
 

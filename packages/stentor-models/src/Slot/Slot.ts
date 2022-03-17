@@ -59,4 +59,14 @@ export interface Slot {
      * @memberof Slot
      */
     inputText?: string;
+    /**
+     * The slot will be obfuscated either fully or partially.  
+     * 
+     * * Full obfuscation, the slot is replaced with the slot name.  "my name is ${first_name}"
+     * * Partial obfuscation will only display a subset of characters, enough to protect the full value but enough for someone that is debugging to recognize the value.
+     * 
+     * For some NLU, such as Amazon Lex, any setting on this value will be interpretted as obfuscated, for more information see [Amazon Lex Slot Obfuscation](https://docs.aws.amazon.com/lex/latest/dg/how-obfuscate.html)
+     */
+    obfuscateValue?: "FULL" | "PARTIAL";
+
 }

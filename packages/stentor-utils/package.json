@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.53.5",
+  "version": "1.53.6",
   "description": "Utilities for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -15,7 +15,7 @@
     "node": "^10 || ^12 || ^14 || ^16.0.0"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "7.19.4",
+    "@microsoft/api-extractor": "7.19.5",
     "@types/blueimp-md5": "2.18.0",
     "@types/chai": "4.3.0",
     "@types/marked": "4.0.2",
@@ -31,7 +31,7 @@
     "mocha": "9.2.2",
     "sinon": "13.0.1",
     "sinon-chai": "3.7.0",
-    "stentor-models": "1.53.5",
+    "stentor-models": "1.53.6",
     "ts-node": "10.7.0",
     "typescript": "4.6.2"
   },
@@ -55,8 +55,8 @@
     "numeral": "2.0.6",
     "sanitize-html": "2.7.0",
     "slugify": "1.6.5",
-    "stentor-constants": "1.53.5",
-    "stentor-guards": "1.53.5",
+    "stentor-constants": "1.53.6",
+    "stentor-guards": "1.53.6",
     "winston": "3.6.0",
     "words-to-numbers": "1.5.1",
     "xmldoc": "1.1.2"

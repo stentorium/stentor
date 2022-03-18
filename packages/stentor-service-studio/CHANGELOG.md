@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.54.0](https://github.com/stentorium/stentor/compare/v1.53.7...v1.54.0) (2022-03-18)
+
+
+### Features
+
+* Adds new /cms/question endpoint to the StudioService for KnowledgeBase Queries ([#1446](https://github.com/stentorium/stentor/issues/1446)) ([6a9b7e7](https://github.com/stentorium/stentor/commit/6a9b7e7b57346f24deff313be8401498780fbea4))
+
+
+
+
+
 ## [1.53.7](https://github.com/stentorium/stentor/compare/v1.53.6...v1.53.7) (2022-03-17)
 
 **Note:** Version bump only for package stentor-service-studio

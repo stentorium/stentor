@@ -12,12 +12,21 @@ function getIntentId(id: string | { intentId: string }): string {
 }
 
 export interface StudioServiceProps {
+    /**
+     * Defaults to https://api.xapp.ai, update this if you have a single tenant instance of OC Studio.
+     */
     baseURL?: string;
+    /**
+     * Machine to machine token associated with the appId, used for authentication
+     */
     token?: string;
     /**
-     * 
+     * Optional, organization level token that has access to all applications within the organization.
      */
     orgToken?: string;
+    /**
+     * The appId for the application you are requesting information for.
+     */
     appId?: string;
 }
 

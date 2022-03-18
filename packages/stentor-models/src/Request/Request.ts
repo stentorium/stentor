@@ -110,7 +110,7 @@ export interface BaseRequest {
      * 
      * If the channel supports it, it will be populated.
      */
-    attributes?: object;
+    attributes?: Record<string, unknown>;
 }
 
 export interface ApiAccessData {

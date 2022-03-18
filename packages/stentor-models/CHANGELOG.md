@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.54.2](https://github.com/stentorium/stentor/compare/v1.54.1...v1.54.2) (2022-03-18)
+
+
+### Bug Fixes
+
+* Changes object to record<string,unknown> on Request Attributes  ([#1447](https://github.com/stentorium/stentor/issues/1447)) ([bcbb5f8](https://github.com/stentorium/stentor/commit/bcbb5f861422140c4bb54d4b6942520ecca7bc3d))
+
+
+
+
+
 ## [1.54.1](https://github.com/stentorium/stentor/compare/v1.54.0...v1.54.1) (2022-03-18)
 
 **Note:** Version bump only for package stentor-models

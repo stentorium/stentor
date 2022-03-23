@@ -7,6 +7,7 @@ import { isCard, isSimpleDisplay } from "../Guards";
 const card: Card = {
     type: "CARD",
     title: "Title",
+    subTitle: "Sub-title",
     content: "Content",
     smallImageUrl: "https://some.icon"
 };

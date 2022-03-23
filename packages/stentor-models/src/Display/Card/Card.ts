@@ -10,7 +10,7 @@ export interface Card extends BaseDisplay {
     /**
      * Card secondary title, if available it is smaller font below title
      */
-    subTitle: string;
+    subTitle?: string;
     /**
      * Description, typically used in the body of the card
      */

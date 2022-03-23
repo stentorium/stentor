@@ -470,6 +470,7 @@ describe("ResponseBuilder", () => {
                         .withCard({
                             type: "CARD",
                             title: "Card",
+                            subTitle: "Card sub-title",
                             content: "content",
                             smallImageUrl: "https://image"
                         })
@@ -482,6 +483,7 @@ describe("ResponseBuilder", () => {
                     displays: [
                         {
                             type: "CARD",
+                            subTitle: "Card sub-title",
                             title: "Card",
                             content: "content",
                             smallImageUrl: "https://image"

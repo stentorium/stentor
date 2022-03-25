@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.54.7](https://github.com/stentorium/stentor/compare/v1.54.6...v1.54.7) (2022-03-25)
+
+**Note:** Version bump only for package stentor-media
+
+
+
+
+
 ## [1.54.6](https://github.com/stentorium/stentor/compare/v1.54.5...v1.54.6) (2022-03-23)
 
 **Note:** Version bump only for package stentor-media

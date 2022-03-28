@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.54.10](https://github.com/stentorium/stentor/compare/v1.54.9...v1.54.10) (2022-03-28)
+
+
+### Bug Fixes
+
+* Add confidence scores to events when available ([#1460](https://github.com/stentorium/stentor/issues/1460)) ([acdaccf](https://github.com/stentorium/stentor/commit/acdaccf3e3ee2593125264f7a639160c2500bfe3))
+
+
+
+
+
 ## [1.54.9](https://github.com/stentorium/stentor/compare/v1.54.8...v1.54.9) (2022-03-28)
 
 

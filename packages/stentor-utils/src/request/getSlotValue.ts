@@ -34,5 +34,3 @@ export function slot(slots: RequestSlotMap, name: string): string {
     return value ? requestSlotValueToString(value) : "";
 }
 
-
-

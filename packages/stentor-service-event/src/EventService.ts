@@ -32,7 +32,7 @@ import {
 } from "./Constants";
 import { isPrefixFunction } from "./Guards";
 
-export type PrefixType = string | boolean | object;
+export type PrefixType = string | boolean | number | object;
 export type PrefixFunction = () => PrefixType;
 export type Prefix = PrefixType | PrefixFunction;
 

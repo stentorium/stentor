@@ -261,6 +261,13 @@ export const main = async (
         }
     }
 
+    // Some updates after NLU is called
+    if (eventService) {
+        if (isIntentRequest(request) && typeof request.matchConfidence === "number") {
+            eventService.addPrefix({ confidence: request.matchConfidence });
+        }
+    }
+
     if (knowledgeBaseServices && Object.keys(knowledgeBaseServices).length > 0) {
         const key = keyFromRequest(request);
         const kbConfig = findValueForKey(key, knowledgeBaseServices);

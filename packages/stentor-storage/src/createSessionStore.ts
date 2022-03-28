@@ -1,5 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { SessionStore, Storage } from "stentor-models";
+import { Message, SessionStore, Storage } from "stentor-models";
 
 /**
  * Returns a session store for the provided storage
@@ -37,6 +37,13 @@ export function createSessionStore(storage: Storage): SessionStore {
             }
 
             return storage.sessionStore.data;
+        },
+        transcript: (): Message[] => {
+            if (!storage.sessionStore) {
+                throw new Error("Session Store is not defined!");
+            }
+
+            return storage.sessionStore.transcript;
         }
     };
 }

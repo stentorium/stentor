@@ -4,8 +4,18 @@ import { ActiveContext } from "../Response";
 
 export interface NLUQueryResponse {
     type: IntentRequestType | InputUnknownRequestType;
+    /**
+     * ID for the matched intent.
+     */
     intentId: string;
+    /**
+     * Optional slots for the matched intent.
+     */
     slots?: RequestSlotMap;
+    /**
+     * Confidence level of the intent match.  On a scale from 0-1 where 1 is the highest confidence of a match.
+     */
+    matchConfidence?: number;
     knowledgeAnswer?: KnowledgeAnswer;
 }
 

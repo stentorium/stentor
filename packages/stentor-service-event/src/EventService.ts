@@ -18,7 +18,7 @@ import {
     isIntentRequest,
     isPlaybackControlRequest,
     isSessionEndedRequest
-} from "stentor-request";
+} from "stentor-guards";
 import { parse } from "stacktrace-parser";
 import { AbstractEventStream } from "./AbstractEventStream";
 import { ConsoleStream } from "./ConsoleStream";

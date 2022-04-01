@@ -7,7 +7,7 @@ import {
     LaunchRequestBuilder,
     OptionSelectBuilder,
     SignInRequestBuilder
-} from "../Builders";
+} from "stentor-request";
 import { keyFromRequest } from "../keyFromRequest";
 
 describe("#keyFromRequest()", () => {

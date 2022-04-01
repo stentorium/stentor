@@ -7,7 +7,7 @@ import {
     isOptionSelectRequest,
     isPermissionRequest,
     isSignInRequest
-} from "./Guards";
+} from "stentor-guards";
 
 /**
  * From the provided request it pulls out the event that is used

@@ -1,8 +1,9 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { expect } from "chai";
 
+import { isIntentRequest } from "stentor-guards";
 import { ExecutablePath, Request } from "stentor-models";
-import { IntentRequestBuilder, isIntentRequest, LaunchRequestBuilder } from "stentor-request";
+import { IntentRequestBuilder, LaunchRequestBuilder } from "stentor-request";
 import { requestForPath } from "../requestForPath";
 
 const launchRequest: Request = new LaunchRequestBuilder().build();

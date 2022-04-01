@@ -1,7 +1,7 @@
 /*! Copyright (c) 2020, XAPPmedia */
 import { Request, RequestSlot, Slot, SlotTypeMap } from "stentor-models";
-import { hasSlots, isIntentRequest } from "stentor-request";
-import { matchRequestSlotToSlotTypeValue } from "stentor-utils";
+import { isIntentRequest } from "stentor-guards";
+import { hasSlots, matchRequestSlotToSlotTypeValue } from "stentor-utils";
 
 /**
  * Returns the slot type for the given slot name.

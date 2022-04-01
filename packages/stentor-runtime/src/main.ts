@@ -2,6 +2,15 @@
 import { isActionable } from "stentor-guards";
 import { log } from "stentor-logger";
 import { GOODBYE, TROUBLE_WITH_REQUEST, SESSION_STORAGE_NEW_USER, SESSION_STORAGE_SLOTS_KEY, SESSION_STORAGE_KNOWLEDGE_BASE_RESULT } from "stentor-constants";
+import {
+    hasSessionId,
+    isInputUnknownRequest,
+    isIntentRequest,
+    isLaunchRequest,
+    isOptionSelectRequest,
+    isPermissionRequest,
+    isSessionEndedRequest,
+} from "stentor-guards";
 import { ContextFactory } from "stentor-context";
 import { AbstractHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
@@ -14,8 +23,7 @@ import {
     CrmService,
     HandlerService,
     Hooks,
-    KnowledgeBaseService,
-    Message,
+    KnowledgeBaseDependency,
     PIIService,
     Request,
     Response,
@@ -25,54 +33,15 @@ import {
     SMSService,
     UserStorageService
 } from "stentor-models";
-import {
-    hasSessionId,
-    hasSlots,
-    isInputUnknownRequest,
-    isIntentRequest,
-    isLaunchRequest,
-    isOptionSelectRequest,
-    isPermissionRequest,
-    isSessionEndedRequest,
-    keyFromRequest
-} from "stentor-request";
 import { canFulfillAll, canFulfillNothing, getResponse } from "stentor-response";
 import { EventService, wrapCallback as eventServiceCallbackWrapper } from "stentor-service-event";
 import { manipulateStorage } from "stentor-storage";
-import { combineRequestSlots, existsAndNotEmpty, findValueForKey, requestSlotsToString } from "stentor-utils";
+import { combineRequestSlots, requestToMessage, responseToMessage, existsAndNotEmpty, findValueForKey, keyFromRequest } from "stentor-utils";
+
 import { ChannelSelector } from "./ChannelSelector";
 import { combineKnowledgeBaseResults, mergeInKnowledgeBaseResults } from "./combineKnowledgeBaseResults";
 
 export const DEFAULT_MAX_HISTORY = 20;
-
-export interface KnowledgeBaseConfig {
-    /**
-     * Either the intentId or regex to determine which requests to call the KnowledgeBaseService.  If not provided it defaults to "^.*$", which is a regex
-     * that will match on all requests.
-     */
-    matchIntentId?: string;
-    /**
-     * If provided, it will override the intentId on the original request if the knowledgebase results are preferred.
-     * 
-     * It will also update the request type to be that of an Intent Request.
-     */
-    setIntentId?: string;
-    /**
-     * If set to true then when knowledge base results already exist, they will be merged instead of the default behavior of
-     * being overwritten.
-     *  
-     * @beta - This field and behavior of the field is subject to change.
-     */
-    mergeResults?: boolean;
-    // For future consideration
-    // If set, it will be used to establish a minimum threshold that must be passed in order to use the knowledge base results.
-    // If below the threshold, then the existing intent will be used and not augmented.
-    // confidenceThreshold?: number;
-}
-
-export interface KnowledgeBaseDependency extends KnowledgeBaseConfig {
-    service: KnowledgeBaseService;
-}
 
 /**
  * Runtime dependencies
@@ -226,10 +195,6 @@ export const main = async (
         if (isIntentRequest(request) && request.canFulfill) {
             eventService.addPrefix({ canFulfill: `${request.canFulfill}` });
         }
-
-        if (isIntentRequest(request) && request.rawQuery) {
-            eventService.addPrefix({ rawQuery: request.rawQuery });
-        }
     }
 
     // Do some logging for debugging if needed
@@ -330,49 +295,13 @@ export const main = async (
         context.session.set(SESSION_STORAGE_NEW_USER, true);
     }
 
-    // Add the user's query to the transcripts!
-    if (request.rawQuery || isIntentRequest(request) || isOptionSelectRequest(request) || isLaunchRequest(request) || isInputUnknownRequest(request)) {
-
+    // If we get a message from the request, add it to the transcript
+    const requestMessage = requestToMessage(request, APP_ID)
+    if (requestMessage) {
         if (!Array.isArray(context.storage.sessionStore.transcript)) {
             context.storage.sessionStore.transcript = [];
         }
-
-        // ID of the bot is determined by the environment variable
-        const id: string = APP_ID || "bot";
-
-        let message: string;
-
-        if (isOptionSelectRequest(request)) {
-            message = `Selected item with token ${request.token}`
-        } else if (isLaunchRequest(request)) {
-            message = `Launch`
-        } else if (isInputUnknownRequest(request)) {
-            message = request.rawQuery ? request.rawQuery : `Unknown Input`;
-        } else if (isIntentRequest(request)) {
-            // Raw query if available
-            if (request.rawQuery) {
-                message = request.rawQuery;
-            } else if (hasSlots(request)) {
-                message = requestSlotsToString(request.slots)
-            } else {
-                message = `Request ${request.intentId}`;
-            }
-        } else {
-            message = request.rawQuery;
-        }
-
-        const userMessage: Message = {
-            from: {
-                id: request.userId
-            },
-            to: [
-                { id }
-            ],
-            message,
-            createdTime: request.createdTime || new Date().toISOString()
-        }
-
-        context.storage.sessionStore.transcript.push(userMessage);
+        context.storage.sessionStore.transcript.push(requestMessage);
     }
 
     // Update with the currentHandler
@@ -568,33 +497,16 @@ export const main = async (
         finalResponse = {};
     }
 
-    // Add the response to the transcript!
-    if (response && response.outputSpeech) {
-
-        const id: string = APP_ID || "bot";
-
-        // Try display text if it exists
-        const message: string = response.outputSpeech.displayText || response.outputSpeech.ssml;
-
-        const botMessage: Message = {
-            from: {
-                id: id
-            },
-            to: [
-                { id: request.userId }
-            ],
-            message,
-            createdTime: new Date().toISOString(),
-            response: response.outputSpeech
-        };
-
-        context.storage.sessionStore.transcript.push(botMessage);
+    const responseMessage = responseToMessage(response, request, APP_ID);
+    if (responseMessage) {
+        context.storage.sessionStore.transcript.push(responseMessage);
     }
 
     // Trim transcript before saving to keep it somewhat managable
     if (Array.isArray(context.storage.sessionStore?.transcript)) {
-        const transcriptLength = context.storage.sessionStore.transcript.length
-        context.storage.sessionStore.transcript.splice(0, transcriptLength - HISTORY_SIZE);
+        const transcriptLength = context.storage.sessionStore.transcript.length;
+        const trimmed = context.storage.sessionStore.transcript.slice(Math.max(transcriptLength - HISTORY_SIZE, 0))
+        context.storage.sessionStore.transcript = trimmed;
     }
 
     if (isActionable(response)) {

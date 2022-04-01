@@ -31,7 +31,8 @@
   },
   "dependencies": {
     "stacktrace-parser": "0.1.10",
-    "stentor-request": "1.54.11",
+    "stentor-guards": "1.54.11",
+    "stentor-logger": "1.54.11",
     "stentor-utils": "1.54.11"
   },
   "peerDependencies": {

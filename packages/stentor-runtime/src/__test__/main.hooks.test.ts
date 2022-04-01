@@ -9,6 +9,7 @@ const expect = chai.expect;
 
 import { ConversationHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
+import { isLaunchRequest } from "stentor-guards";
 import {
     AbstractResponseBuilder,
     Channel,
@@ -21,7 +22,7 @@ import {
     Storage,
     UserStorageService
 } from "stentor-models";
-import { isLaunchRequest, LaunchRequestBuilder } from "stentor-request";
+import { LaunchRequestBuilder } from "stentor-request";
 import { EventService } from "stentor-service-event";
 import { dessmlify, LambdaError } from "stentor-utils";
 

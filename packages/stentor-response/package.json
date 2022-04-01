@@ -34,7 +34,6 @@
     "stentor-determiner": "1.54.11",
     "stentor-locales": "1.54.11",
     "stentor-media": "1.54.11",
-    "stentor-request": "1.54.11",
     "stentor-utils": "1.54.11"
   },
   "peerDependencies": {

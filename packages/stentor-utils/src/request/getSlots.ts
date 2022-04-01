@@ -1,12 +1,12 @@
-/*! Copyright (c) 2019, XAPPmedia */
+/*! Copyright (c) 2022, XAPPmedia */
 import { Request, RequestSlotMap } from "stentor-models";
-import { isIntentRequest } from "./Guards";
+import { isIntentRequest } from "stentor-guards";
 
 /**
- * Helper method to get the slots from the request.
+ * Helper method to get the slots from the request, regardless of the type of request
  *
- * @param {Request} request
- * @returns {(RequestSlotMap | undefined)}
+ * @param request
+ * @returns 
  */
 export function getSlots(request: Request): RequestSlotMap | undefined {
     let slots: RequestSlotMap;

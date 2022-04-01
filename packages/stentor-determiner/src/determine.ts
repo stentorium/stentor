@@ -1,7 +1,12 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { ConditionalDeterminer } from "stentor-conditional";
 import { SESSION_STORAGE_SLOTS_KEY } from "stentor-constants";
-import { isTimeContextual } from "stentor-guards";
+import {
+    isTimeContextual,
+    isIntentRequest,
+    isRequestDependable,
+    isSystemDependable,
+} from "stentor-guards";
 import { findSlotDependentMatch, isSlotDependable, SlotConditionalCheck } from "stentor-interaction-model";
 import { log } from "stentor-logger";
 import {
@@ -20,9 +25,6 @@ import {
 import {
     findRequestDependentMatch,
     findSystemDependentMatch,
-    isIntentRequest,
-    isRequestDependable,
-    isSystemDependable,
     SystemConditionalCheck,
     RequestConditionalCheck
 } from "stentor-request";

@@ -1,6 +1,7 @@
 /*! Copyright (c) 2030, XAPPmedia */
 import { SESSION_STORAGE_SLOTS_KEY, TEMPLATE_REGEX } from "stentor-constants";
-import { Context, IntentRequest, Request, RequestSlotMap, ResponseOutput, SuggestionTypes } from "stentor-models";
+import { isIntentRequest } from "stentor-guards";
+import { Context, Request, RequestSlotMap, ResponseOutput, SuggestionTypes } from "stentor-models";
 import { JSONPath } from "jsonpath-plus";
 
 import { MacroMap } from "./macro";
@@ -11,13 +12,6 @@ import { existsAndNotEmpty } from "../array";
 import { isLinkoutSuggestion } from "stentor-guards";
 
 type ResponseOutputKeysOnly = Pick<ResponseOutput, "ssml" | "displayText" | "html">;
-
-// We are redefining this here so we don't have to import the entire stentor-request package
-// as a depdenency, which we can't because it would then be circular
-// Idealing we have isIntentRequest in the stentor-guards package
-function isIntentRequest(request: Request): request is IntentRequest {
-    return !!request && request.type === "INTENT_REQUEST";
-}
 
 export const DEFAULT_MARCOS: MacroMap = {
     capitalize: capitalize,
@@ -94,7 +88,7 @@ export class Compiler implements CompilerProps {
         // First look for macros
         // See this regex in action: https://regex101.com/r/MihX7l/2 
         // It is complicated.
-        const MACRO_REGEX = /\$\{\s*([a-zA-Z]*)\(\s*((?:["`']\$\{(?:\s*\$\.)?[\s\w\.]*\}["`']|[^$]\w*)+)\s*\)\s*\}/g;
+        const MACRO_REGEX = /\$\{\s*([a-zA-Z]*)\(\s*((?:["`']\$\{(?:\s*\$\.)?[\s\w\.]*\}["`']|[^$]\w*){0,5})\s*\)\s*\}/g;
 
         let macroResult: RegExpExecArray;
         const macroReg = new RegExp(MACRO_REGEX);

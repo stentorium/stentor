@@ -17,6 +17,7 @@ export * from "./Handler";
 export * from "./History";
 export * from "./Intent";
 export * from "./JSONDependent";
+export * from "./Knowledgebase";
 export * from "./Locale";
 export * from "./Location";
 export * from "./Logic";

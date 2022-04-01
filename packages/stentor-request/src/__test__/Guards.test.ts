@@ -2,6 +2,7 @@
 import { expect } from "chai";
 import * as sinon from "sinon";
 
+import { hasSessionId, isAnonymousUser, isRequestDependable } from "stentor-guards";
 import { RequestDependent } from "stentor-models";
 import {
     AudioPlayerRequestBuilder,
@@ -11,7 +12,6 @@ import {
     PlaybackControlRequestBuilder,
     SessionEndedRequestBuilder
 } from "../Builders";
-import { hasSessionId, isAnonymousUser, isRequestDependable } from "../Guards";
 
 describe("#hasSessionId()", () => {
     describe("with IntentRequest", () => {

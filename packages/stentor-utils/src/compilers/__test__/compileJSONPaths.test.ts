@@ -2,7 +2,7 @@
 import { expect } from "chai";
 import { compileJSONPaths } from "../compileJSONPaths";
 
-describe(`#${compileJSONPaths}()`, () => {
+describe(`#${compileJSONPaths.name}()`, () => {
     describe("when passed undefined", () => {
         it("returns undefined", () => {
             expect(compileJSONPaths(undefined, undefined)).to.be.undefined;

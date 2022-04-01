@@ -94,7 +94,7 @@ export class Compiler implements CompilerProps {
         // First look for macros
         // See this regex in action: https://regex101.com/r/MihX7l/2 
         // It is complicated.
-        const MACRO_REGEX = /\$\{\s*([a-zA-Z]*)\(\s*((?:["`']\$\{(?:\s*\$\.)?[\s\w\.]*\}["`']|[^$]\w*)+)\s*\)\s*\}/g;
+        const MACRO_REGEX = /\$\{\s*([a-zA-Z]*)\(\s*((?:["`']\$\{(?:\s*\$\.)?[\s\w\.]*\}["`']|[^$]\w*){0,5})\s*\)\s*\}/g;
 
         let macroResult: RegExpExecArray;
         const macroReg = new RegExp(MACRO_REGEX);

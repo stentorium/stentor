@@ -15,6 +15,10 @@ const slots: RequestSlotMap = {
     ["name"]: {
         name: "name",
         value: "bob"
+    },
+    ["first_name"]: {
+        name: "first_name",
+        value: "joe"
     }
 }
 
@@ -170,6 +174,26 @@ describe(`${Compiler.name}`, () => {
                         expect(compiled).to.equal("Hi Bob Bob!");
                     });
                 });
+                describe("with single quote", () => {
+                    it("compiles the value", () => {
+                        const compiled = new Compiler().compile(
+                            "<speak>Thank you, ${capitalize('${first_name}')}. Lastly, can you provide your address in case we need to look up information about your house?</speak>",
+                            request,
+                            context
+                        );
+                        expect(compiled).to.equal("<speak>Thank you, Joe. Lastly, can you provide your address in case we need to look up information about your house?</speak>");
+                    });
+                });
+                describe("with escaped quotes", () => {
+                    it("compiles the value", () => {
+                        const compiled = new Compiler().compile(
+                            "<speak>Thank you, ${capitalize(\"${first_name}\")}. Lastly, can you provide your address in case we need to look up information about your house?</speak>",
+                            request,
+                            context
+                        );
+                        expect(compiled).to.equal("<speak>Thank you, Joe. Lastly, can you provide your address in case we need to look up information about your house?</speak>");
+                    });
+                });
             });
             describe("without any replacements", () => {
                 it("passes it through", () => {
@@ -304,8 +328,8 @@ describe(`${Compiler.name}`, () => {
                 const compiled = new Compiler({
                     replaceWhenUndefined: true
                 }).compile({
-                    ssml: "<speak>Hi ${first_name}!",
-                    displayText: "Hi ${first_name}!"
+                    ssml: "<speak>Hi ${f_name}!",
+                    displayText: "Hi ${f_name}!"
                 }, request, context);
                 expect(compiled).to.deep.equal({
                     ssml: "<speak>Hi undefined!",

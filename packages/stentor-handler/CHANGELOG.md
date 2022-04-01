@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.54.12](https://github.com/stentorium/stentor/compare/v1.54.11...v1.54.12) (2022-04-01)
+
+
+### Bug Fixes
+
+* Catastrphic Backticking on Macro Regex & Guards Shuffle ([#1463](https://github.com/stentorium/stentor/issues/1463)) ([d882b35](https://github.com/stentorium/stentor/commit/d882b35e642e0e232de99ed6ab12df4d4e64a4a5))
+
+
+
+
+
 ## [1.54.11](https://github.com/stentorium/stentor/compare/v1.54.10...v1.54.11) (2022-03-31)
 
 **Note:** Version bump only for package stentor-handler

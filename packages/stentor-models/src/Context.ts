@@ -6,6 +6,8 @@ import { SessionStore, Storage } from "./Storage";
 import { UserDataType } from "./UserData";
 import { UserProfile } from "./UserProfile";
 import { CrmService, SMSService } from "./Services";
+import { KnowledgeBaseDependency } from "./Knowledgebase";
+
 
 export enum UserDataRequestStatus {
     DEFERRED,
@@ -33,6 +35,10 @@ export interface ContextServices {
      * Service for sending text messages
      */
     smsService?: SMSService;
+    /**
+     * Service for calling a knowledgebase 
+     */
+    kbService?: { [matchIntentId: string]: KnowledgeBaseDependency }
 }
 
 /**

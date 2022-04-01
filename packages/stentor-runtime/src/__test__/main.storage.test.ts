@@ -503,7 +503,7 @@ describe(`#${main.name}() storage`, () => {
                 process.env.STUDIO_APP_ID = previousAppId;
                 process.env.STUDIO_MAX_HISTORY = previousMaxHistory;
             });
-            it('keeps the length to 20', async () => {
+            it('keeps the length to 4', async () => {
                 await main(
                     request,
                     context,
@@ -527,6 +527,8 @@ describe(`#${main.name}() storage`, () => {
                 const argTwo = (userStorageService.update as any).getCall(0).args[1];
 
                 const transcripts = argTwo.sessionStore.transcript;
+
+                console.log(transcripts);
                 expect(transcripts).to.have.length(4);
 
                 const first = transcripts[0];
@@ -562,7 +564,6 @@ describe(`#${main.name}() storage`, () => {
                     displayText: "What can we quote for you?",
                     ssml: "<speak>What can we quote for you today?</speak>"
                 });
-
             });
         });
     });

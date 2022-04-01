@@ -1,6 +1,5 @@
 /*! Copyright (c) 2020, XAPPmedia */
 import { ConditionalCheck, Request, RequestDependable } from "stentor-models";
-
 import {
     isRequestDependable,
     isNewSession,
@@ -16,7 +15,8 @@ import {
     isSessionEndedRequest,
     isInputUnknownRequest,
     isLaunchRequest
-} from "./Guards";
+} from "stentor-guards";
+
 import { findRequestDependentMatch } from "./findRequestDependentMatch";
 
 /**

@@ -29,7 +29,8 @@
   },
   "dependencies": {
     "@xapp/patterns": "1.40.83",
-    "stentor-request": "1.54.11",
+    "stentor-constants": "1.54.11",
+    "stentor-guards": "1.54.11",
     "stentor-response": "1.54.11",
     "stentor-storage": "1.54.11"
   },

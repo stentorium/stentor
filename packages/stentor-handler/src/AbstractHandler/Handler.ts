@@ -16,9 +16,8 @@ import {
     SlotTypeMap,
     UserDataType
 } from "stentor-models";
-import { keyFromRequest } from "stentor-request";
 import { determineResponse, getResponse } from "stentor-response";
-import { concatText, dessmlify, findValueForKey } from "stentor-utils";
+import { concatText, dessmlify, keyFromRequest, findValueForKey } from "stentor-utils";
 
 import { determinePath } from "../Path";
 import { INPUT_UNKNOWN_STRATEGY_GOOGLE, INPUT_UNKNOWN_STRATEGY_REPROMPT } from "./Constants";

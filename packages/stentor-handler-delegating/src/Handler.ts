@@ -9,7 +9,7 @@ import {
     HandlerDelegates,
     Request
 } from "stentor-models";
-import { keyFromRequest } from "stentor-request";
+import { keyFromRequest } from "stentor-utils";
 
 import { DelegatingData } from "./Data";
 

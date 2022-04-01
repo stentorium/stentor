@@ -1,9 +1,9 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { expect } from "chai";
 
+import { AUDIO_PLAYER_PLAYBACK_FINISHED_EVENT, AUDIO_PLAYER_PLAYBACK_STARTED_EVENT } from "stentor-constants";
 import { AudioPlayerRequest } from "stentor-models";
 import { AudioPlayerRequestBuilder } from "../Builders";
-import { AUDIO_PLAYER_PLAYBACK_FINISHED_EVENT, AUDIO_PLAYER_PLAYBACK_STARTED_EVENT } from "../Constants";
 
 describe("AudioPlayerRequestBuilder", () => {
     describe("build", () => {

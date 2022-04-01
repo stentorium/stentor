@@ -1,8 +1,7 @@
 /*! Copyright (c) 2021, XAPPmedia */
-import { KnowledgeBaseResult, Request } from "stentor-models";
-import { isInputUnknownRequest, isIntentRequest } from "stentor-request";
+import { KnowledgeBaseConfig, KnowledgeBaseResult, Request } from "stentor-models";
+import { isInputUnknownRequest, isIntentRequest } from "stentor-guards";
 import { combine } from "stentor-utils";
-import { KnowledgeBaseConfig } from "./main";
 
 /**
  * From the two provided knowledge base results, it will return the result or combines them.  

@@ -2,7 +2,7 @@
 import { expect } from "chai";
 
 import { IntentRequest, LaunchRequest, RequestSlotMap } from "stentor-models";
-import { IntentRequestBuilder, LaunchRequestBuilder } from "../Builders";
+import { IntentRequestBuilder, LaunchRequestBuilder } from "stentor-request";
 import { hasSlots } from "../hasSlots";
 
 describe("#hasSlots()", () => {

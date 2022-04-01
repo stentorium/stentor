@@ -1,9 +1,8 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { SESSION_STORAGE_SLOTS_KEY } from "stentor-constants";
-import { isHandler } from "stentor-guards";
+import { isHandler, isIntentRequest } from "stentor-guards";
 import { Content, Context, Handler, Request, Response, Slot, RequestSlotMap } from "stentor-models";
-import { keyFromRequest, isIntentRequest } from "stentor-request";
-import { combineRequestSlots, findValueForKey, existsAndNotEmpty, MacroMap, random } from "stentor-utils";
+import { combineRequestSlots, findValueForKey, existsAndNotEmpty, MacroMap, random, keyFromRequest } from "stentor-utils";
 import { compileResponse } from "./compileResponse";
 import { determineResponse } from "./determineResponse";
 

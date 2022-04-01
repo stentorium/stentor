@@ -6,6 +6,31 @@ import { determine } from "stentor-determiner";
 export { determine };
 
 import {
+    isAnonymousUser,
+    isInputUnknownRequest,
+    isIntentRequest,
+    isLaunchRequest,
+    isNotificationPermissionRequest,
+    isOptionSelectRequest,
+    isPermissionRequest,
+    isSessionEndedRequest,
+    isSignInRequest,
+    isSurfaceRequest,
+} from "stentor-guards";
+export {
+    isAnonymousUser,
+    isInputUnknownRequest,
+    isIntentRequest,
+    isLaunchRequest,
+    isNotificationPermissionRequest,
+    isOptionSelectRequest,
+    isPermissionRequest,
+    isSessionEndedRequest,
+    isSignInRequest,
+    isSurfaceRequest,
+};
+
+import {
     AbstractHandler,
     ConversationHandler,
     determinePath,
@@ -97,38 +122,14 @@ export {
 };
 
 import {
-    getSlots,
     InputUnknownRequestBuilder,
     IntentRequestBuilder,
-    isAnonymousUser,
-    isInputUnknownRequest,
-    isIntentRequest,
-    isLaunchRequest,
-    isNotificationPermissionRequest,
-    isOptionSelectRequest,
-    isPermissionRequest,
-    isSessionEndedRequest,
-    isSignInRequest,
-    isSurfaceRequest,
-    keyFromRequest,
     LaunchRequestBuilder,
     SessionEndedRequestBuilder
 } from "stentor-request";
 export {
-    getSlots,
     InputUnknownRequestBuilder,
     IntentRequestBuilder,
-    isAnonymousUser,
-    isInputUnknownRequest,
-    isIntentRequest,
-    isLaunchRequest,
-    isNotificationPermissionRequest,
-    isOptionSelectRequest,
-    isPermissionRequest,
-    isSessionEndedRequest,
-    isSignInRequest,
-    isSurfaceRequest,
-    keyFromRequest,
     LaunchRequestBuilder,
     SessionEndedRequestBuilder
 };
@@ -156,6 +157,8 @@ import {
     existsAndNotEmpty,
     findValueForKey,
     formatNumberForDisplay,
+    getSlots,
+    keyFromRequest,
     isDateTime,
     isDateTimeRange,
     listisize,
@@ -170,13 +173,15 @@ export {
     existsAndNotEmpty,
     findValueForKey,
     formatNumberForDisplay,
+    getSlots,
+    keyFromRequest,
     isDateTime,
     isDateTimeRange,
     listisize,
     numberToWord,
     pruneEmpty,
     random,
-    ssmlify
+    ssmlify,
 };
 
 export * from "./Assistant";

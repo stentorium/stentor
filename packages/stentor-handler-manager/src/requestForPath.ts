@@ -1,13 +1,13 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { INTENT_REQUEST_TYPE } from "stentor-constants";
 import { log } from "stentor-logger";
 import { ExecutablePath, Request } from "stentor-models";
 import {
-    INTENT_REQUEST_TYPE,
     isInputUnknownRequest,
     isIntentRequest,
     isLaunchRequest,
     isOptionSelectRequest
-} from "stentor-request";
+} from "stentor-guards";
 
 /**
  * For the provided path, it updates the request.

@@ -4,8 +4,9 @@ import { AbstractHandler } from "stentor-handler";
 import { HandlerFactory, NoHandlerClassError } from "stentor-handler-factory";
 import { log } from "stentor-logger";
 import { Context, HandlerService, Request } from "stentor-models";
-import { isIntentRequest, isLaunchRequest, keyFromRequest, isInputUnknownRequest } from "stentor-request";
+import { isIntentRequest, isLaunchRequest, isInputUnknownRequest } from "stentor-guards";
 import { manipulateStorage } from "stentor-storage";
+import { keyFromRequest } from "stentor-utils";
 import { requestForPath } from "./requestForPath";
 
 export class HandlerManager {

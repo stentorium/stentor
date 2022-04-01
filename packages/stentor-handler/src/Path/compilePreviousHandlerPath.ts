@@ -1,8 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { isPreviousHandlerPath } from "stentor-guards";
 import { Context, ExecutablePath, PreviousHandlerPath, Request } from "stentor-models";
-import { keyFromRequest } from "stentor-request";
-import { findValueForKey } from "stentor-utils";
+import { findValueForKey, keyFromRequest } from "stentor-utils";
 import { determinePath } from "./determinePath";
 
 export function compilePreviousHandlerPath(

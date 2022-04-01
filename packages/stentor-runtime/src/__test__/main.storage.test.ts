@@ -528,7 +528,6 @@ describe(`#${main.name}() storage`, () => {
 
                 const transcripts = argTwo.sessionStore.transcript;
 
-                console.log(transcripts);
                 expect(transcripts).to.have.length(4);
 
                 const first = transcripts[0];

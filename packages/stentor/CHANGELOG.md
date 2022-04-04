@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.54.14](https://github.com/stentorium/stentor/compare/v1.54.13...v1.54.14) (2022-04-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency body-parser to v1.20.0 ([#1466](https://github.com/stentorium/stentor/issues/1466)) ([fef345d](https://github.com/stentorium/stentor/commit/fef345dc761e3b3200ba70284adb2fa8723d113f))
+
+
+
+
+
 ## [1.54.13](https://github.com/stentorium/stentor/compare/v1.54.12...v1.54.13) (2022-04-02)
 
 **Note:** Version bump only for package stentor

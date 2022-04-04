@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.54.17](https://github.com/stentorium/stentor/compare/v1.54.16...v1.54.17) (2022-04-04)
+
+
+### Bug Fixes
+
+* Check for null values in the compiler ([#1470](https://github.com/stentorium/stentor/issues/1470)) ([8f6e26c](https://github.com/stentorium/stentor/commit/8f6e26cdc3ebf03830e7c9cd87810a1514bec24e))
+
+
+
+
+
 ## [1.54.16](https://github.com/stentorium/stentor/compare/v1.54.15...v1.54.16) (2022-04-04)
 
 **Note:** Version bump only for package repo

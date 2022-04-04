@@ -51,6 +51,10 @@ const sessionData = {
     output: {
         displayText: "session display text",
         ssml: "session ssml"
+    },
+    nullValue: {
+        // @ts-expect-error We are testing null values here
+        foo: null
     }
 }
 
@@ -376,6 +380,17 @@ describe(`${Compiler.name}`, () => {
                     ssml: "<speak>Hi bob vance!</speak>",
                     displayText: "Hi bob Vance!"
                 });
+            });
+        });
+        describe("when a resolved path value is null", () => {
+
+            it.only("compiles the values", () => {
+                const json = '{"description":"${currentResult.document}","title":"${nullValue.foo}","url":"${currentResult.source}","synonyms":[],"token":"result-${index}"}';
+
+                const compiled = new Compiler().compile(json, request, context);
+                console.log(compiled);
+                expect(compiled).to.exist;
+
             });
         });
     });

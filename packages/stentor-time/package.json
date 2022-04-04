@@ -27,7 +27,7 @@
     "typescript": "4.6.3"
   },
   "dependencies": {
-    "moment": "2.29.1",
+    "moment": "2.29.2",
     "moment-range": "4.0.2",
     "moment-timezone": "0.5.34",
     "stentor-guards": "1.54.13",

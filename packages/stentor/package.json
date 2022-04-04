@@ -43,7 +43,7 @@
     "@types/aws-lambda": "8.10.93",
     "@types/body-parser": "1.19.2",
     "@types/express": "4.17.13",
-    "@xapp/patterns": "1.40.83",
+    "@xapp/patterns": "1.40.101",
     "body-parser": "1.20.0",
     "dotenv": "16.0.0",
     "express": "4.17.3",

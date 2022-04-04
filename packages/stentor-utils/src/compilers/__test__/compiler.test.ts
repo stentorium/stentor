@@ -383,13 +383,11 @@ describe(`${Compiler.name}`, () => {
             });
         });
         describe("when a resolved path value is null", () => {
-
-            it.only("compiles the values", () => {
+            it("compiles the values", () => {
                 const json = '{"description":"${currentResult.document}","title":"${nullValue.foo}","url":"${currentResult.source}","synonyms":[],"token":"result-${index}"}';
-
                 const compiled = new Compiler().compile(json, request, context);
-                console.log(compiled);
                 expect(compiled).to.exist;
+                expect(compiled).to.equal(json);
 
             });
         });

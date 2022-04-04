@@ -21,7 +21,7 @@ export const DEFAULT_MARCOS: MacroMap = {
 
 export interface CompilerProps {
     /**
-     * When true, it will replace the ${foo} with undefined.  Default behavior will leave ${foo} if it does not have a value.
+     * When true, it will replace the ${foo} with undefined or null if the value for `foo` cannot be found.  Default behavior will leave ${foo} if it does not have a value.
      */
     readonly replaceWhenUndefined?: boolean;
     /**
@@ -166,7 +166,7 @@ export class Compiler implements CompilerProps {
 
                 const sessionReplacement = sessionPathResult[0];
 
-                if (typeof sessionReplacement === "object") {
+                if (sessionReplacement && typeof sessionReplacement === "object") {
                     // Try the key, it might be a ResponseOutput
                     if (sessionPathResult[0][key]) {
                         sessionValue = `${sessionReplacement[key]}`;
@@ -177,10 +177,9 @@ export class Compiler implements CompilerProps {
                     }
                 } else if (typeof sessionReplacement === "string") {
                     sessionValue = sessionReplacement
-                } else {
+                } else if (sessionReplacement !== null) {
                     sessionValue = `${sessionReplacement}`;
                 }
-
             }
             // Last, we just try a JSON path
             const pathResult = JSONPath({
@@ -197,7 +196,7 @@ export class Compiler implements CompilerProps {
 
                 const replacement = pathResult[0];
 
-                if (typeof replacement === "object") {
+                if (replacement && typeof replacement === "object") {
                     // Try the key, it might be a ResponseOutput
                     if (replacement[key]) {
                         pathReplacement = `${replacement[key]}`;
@@ -208,7 +207,7 @@ export class Compiler implements CompilerProps {
                     }
                 } else if (typeof replacement === "string") {
                     pathReplacement = replacement;
-                } else {
+                } else if (replacement !== null) {
                     pathReplacement = `${replacement}`;
                 }
             }

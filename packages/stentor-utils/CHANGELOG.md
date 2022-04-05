@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.54.19](https://github.com/stentorium/stentor/compare/v1.54.18...v1.54.19) (2022-04-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency winston to v3.7.2 ([#1472](https://github.com/stentorium/stentor/issues/1472)) ([28d1502](https://github.com/stentorium/stentor/commit/28d15028bc1426602baaf6669a21635a04a8f1a6))
+
+
+
+
+
 ## [1.54.17](https://github.com/stentorium/stentor/compare/v1.54.16...v1.54.17) (2022-04-04)
 
 

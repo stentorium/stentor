@@ -16,6 +16,9 @@ export interface NLUQueryResponse {
      * Confidence level of the intent match.  On a scale from 0-1 where 1 is the highest confidence of a match.
      */
     matchConfidence?: number;
+    /**
+     * Some NLUs will also return knowledgebase results.
+     */
     knowledgeAnswer?: KnowledgeAnswer;
 }
 
@@ -37,13 +40,29 @@ export interface NLURequestProps {
      * certain intents.
      */
     activeContext?: ActiveContext[];
-    requestAttributes?: { [key: string]: string };
+    /**
+     * Optional request attributes.
+     */
+    requestAttributes?: Record<string, string>;
 }
 
 /**
  * Service which can turn raw text into an intent and slots (optional).
  */
 export interface NLUService {
+    /**
+     * Query the NLU with the user's natural language input.  A resolved intent will be returned from the NLU
+     * 
+     * @param q Natural language query from the user
+     * @param props 
+     */
     query(q: string, props?: NLURequestProps): Promise<NLUQueryResponse>;
+    /**
+     * Used to set context that will be used for the next query of the NLU.
+     * 
+     * This is used to set active contexts for example, which help prefer certain intents on the next query call.
+     * 
+     * @param props 
+     */
     setContext?(props: NLURequestProps): Promise<void>;
 }

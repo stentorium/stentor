@@ -2,19 +2,27 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Translator } from "@xapp/patterns";
 import {
-    Device,
     Channel,
+    Device,
     HandlerService,
+    KnowledgeBaseResult,
     KnowledgeBaseService,
+    NLUQueryResponse,
+    NLUService,
     Pii,
     PIIService,
-    Response,
     Request,
     RequestResponse,
+    Response,
     UserDataValue,
     UserStorageService,
-    KnowledgeBaseResult
 } from "stentor-models";
+
+export class MockNLUService implements NLUService {
+    public async query(): Promise<NLUQueryResponse> {
+        return {} as any;
+    }
+}
 
 export class MockKnowledgeBaseService implements KnowledgeBaseService {
     public async query(): Promise<KnowledgeBaseResult> {
@@ -118,6 +126,7 @@ export const MOCK_CHANNEL: Channel = {
 export interface PassThroughChannelOptions {
     device?: Device;
     response?: Translator<RequestResponse, Response>;
+    nlu?: NLUService;
     test?(body: object): boolean;
 }
 
@@ -148,8 +157,11 @@ export function passThroughChannel(options?: PassThroughChannelOptions): Channel
         hasWebBrowser: false
     };
 
+    const nlu: NLUService = options ? options.nlu : undefined;
+
     return {
         name: "MOCK",
+        nlu,
         test: (request: object): boolean => {
             if (options && typeof options.test === "function") {
                 return options.test(request);

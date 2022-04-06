@@ -217,7 +217,12 @@ export const main = async (
     if (channel.nlu) {
         // We don't call if it is a LaunchRequest, option, or permission grant
         if (!isLaunchRequest(request) && !isOptionSelectRequest(request) && !isPermissionRequest(request)) {
-            const nluResponse = await channel.nlu.query(request.rawQuery);
+
+            const userId: string = request.userId;
+            const sessionId: string = hasSessionId(request) ? request.sessionId : undefined;
+            const locale = request.locale;
+
+            const nluResponse = await channel.nlu.query(request.rawQuery, { userId, sessionId, locale });
             // @ts-ignore TypeScript be cool
             request = {
                 ...request,

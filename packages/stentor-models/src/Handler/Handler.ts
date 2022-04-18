@@ -8,14 +8,17 @@ import { Redirect } from "./Redirect";
 
 // TODO: remove this extending from Intents & instead make a GlobalHandler that combines the two
 
+/**
+ * A handler defines the necessary information to handle incoming requests and return a response.
+ */
 export interface Handler<
     C extends Content = Content,
     D extends Data = Data,
     F extends Forward = Forward,
     R extends Redirect = Redirect
-> extends Intent {
+    > extends Intent {
     type: string;
-    content: C;
+    content?: C;
     data?: D;
     forward?: F;
     redirect?: R;

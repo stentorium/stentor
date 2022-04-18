@@ -10,6 +10,7 @@ describe(`${StudioService.name}`, () => {
             it("returns results", async () => {
                 const studio = new StudioService();
                 const results = await studio.query("size of the smallest park");
+                console.log(results);
                 expect(results).to.exist;
                 expect(results.documents).to.have.length.greaterThan(1);
             });

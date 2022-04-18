@@ -1,9 +1,9 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { HTTP_200_OK } from "stentor-constants";
 import { Event, Handler, HandlerService, KnowledgeBaseResult, KnowledgeBaseService } from "stentor-models";
-import { existsAndNotEmpty } from "stentor-utils";
+import { existsAndNotEmpty, findFuzzyMatch } from "stentor-utils";
 import "isomorphic-fetch";
-import { StudioHandlerResponse, StudioHandlersResponse } from "./Response";
+import { StudioFAQResponse, StudioHandlerResponse, StudioHandlersResponse } from "./Response";
 
 const BASE_URL = "https://api.xapp.ai";
 
@@ -125,14 +125,60 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
             });
     }
 
+    /**
+     * 
+     * @param query 
+     */
     public query(query: string): Promise<KnowledgeBaseResult> {
 
+        // Call search
+        const search = this.search(query);
+        const faqs = this.faq(query);
+
+        return Promise.all([search, faqs]).then((results) => {
+
+            const result: KnowledgeBaseResult = {
+                faqs: [],
+                documents: [],
+                suggested: []
+            };
+
+            const searchResults: Pick<KnowledgeBaseResult, "documents" | "suggested"> = results[0];
+            const faqResults: StudioFAQResponse = results[1];
+
+            result.documents = searchResults.documents;
+            result.suggested = searchResults.suggested;
+
+            result.faqs = faqResults.faq.map((faq) => {
+
+                // Find the closest question
+                const question = findFuzzyMatch(query, faq.questions);
+
+                return {
+                    uri: faq.url,
+                    question: question[0],
+                    document: faq.answer
+                }
+            });
+            // For FAQs, we do a quick string closeness match
+            return result;
+        });
+    }
+
+    /**
+     * Search a knowledge base.
+     * 
+     * Calls /cms/search endpoint.
+     * 
+     * @param query - The query to search  
+     * @returns 
+     */
+    public search(query: string): Promise<Pick<KnowledgeBaseResult, "documents" | "suggested">> {
         let url = `${this.baseURL}/cms/search`
 
         const encodedQuery = encodeURIComponent(query);
 
         url += `?question=${encodedQuery}`;
-
 
         let token: string = this.token;
 
@@ -160,7 +206,46 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
                 if (status === 200) {
                     return results;
                 } else {
-                    throw new Error(`StudioService.query() returned ${status} ${statusText} ${JSON.stringify(results)}`);
+                    throw new Error(`StudioService.search() returned ${status} ${statusText} ${JSON.stringify(results)}`);
+                }
+            })
+    }
+
+    public faq(query: string): Promise<StudioFAQResponse> {
+
+        let url = `${this.baseURL}/cms/faq/query`
+
+        const encodedQuery = encodeURIComponent(query);
+
+        url += `?question=${encodedQuery}`;
+
+        let token: string = this.token;
+
+        if (this.orgToken) {
+            token = this.orgToken;
+            url += `&appId=${this.appId}`;
+        }
+
+        let status: number;
+        let statusText: string;
+
+        return fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        })
+            .then<StudioFAQResponse>((response) => {
+                status = response.status;
+                statusText = response.statusText;
+
+                return response.json();
+            }).then<StudioFAQResponse>((results) => {
+                if (status === 200) {
+                    return results;
+                } else {
+                    throw new Error(`StudioService.faq() returned ${status} ${statusText} ${JSON.stringify(results)}`);
                 }
             })
     }

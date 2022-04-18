@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.55.0](https://github.com/stentorium/stentor/compare/v1.54.25...v1.55.0) (2022-04-18)
+
+
+### Features
+
+* Studio Service query with FAQs ([#1492](https://github.com/stentorium/stentor/issues/1492)) ([2d283db](https://github.com/stentorium/stentor/commit/2d283db45cfe3221a85f17e303e5ca1290d6c989))
+
+
+
+
+
 ## [1.54.25](https://github.com/stentorium/stentor/compare/v1.54.24...v1.54.25) (2022-04-18)
 
 **Note:** Version bump only for package stentor-service-studio

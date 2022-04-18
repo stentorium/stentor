@@ -1,9 +1,9 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { HTTP_200_OK } from "stentor-constants";
 import { Event, Handler, HandlerService, KnowledgeBaseResult, KnowledgeBaseService } from "stentor-models";
-import { existsAndNotEmpty } from "stentor-utils";
+import { existsAndNotEmpty, findFuzzyMatch } from "stentor-utils";
 import "isomorphic-fetch";
-import { StudioHandlerResponse, StudioHandlersResponse } from "./Response";
+import { StudioFAQResponse, StudioHandlerResponse, StudioHandlersResponse } from "./Response";
 
 const BASE_URL = "https://api.xapp.ai";
 
@@ -93,6 +93,12 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
             });
     }
 
+    /**
+     * Get the handler by ID.
+     * 
+     * @param id 
+     * @returns 
+     */
     public get(id: string | { intentId: string }): Promise<Handler> | Promise<undefined> {
         const intentId = getIntentId(id);
 
@@ -125,14 +131,62 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
             });
     }
 
+    /**
+     * Queries both /cms/search & /cms/faq/query to return KnowledgeBaseResult.
+     * 
+     * @param query 
+     */
     public query(query: string): Promise<KnowledgeBaseResult> {
 
+        // Call search
+        const search = this.search(query);
+        const faqs = this.faq(query);
+
+        return Promise.all([search, faqs]).then((results) => {
+
+            const result: KnowledgeBaseResult = {
+                faqs: [],
+                documents: [],
+                suggested: []
+            };
+
+            const searchResults: Pick<KnowledgeBaseResult, "documents" | "suggested"> = results[0];
+            const faqResults: StudioFAQResponse = results[1];
+
+            result.documents = searchResults.documents;
+            result.suggested = searchResults.suggested;
+            faqResults.faq.forEach((faq) => {
+
+                // Find the closest question
+                const questions = findFuzzyMatch(query, faq.questions);
+                // Only if we find a decent match, do we return it
+                if (existsAndNotEmpty(questions)) {
+                    result.faqs.push({
+                        uri: faq.url,
+                        question: questions[0],
+                        document: faq.answer
+                    });
+                }
+            });
+            // For FAQs, we do a quick string closeness match
+            return result;
+        });
+    }
+
+    /**
+     * Search a knowledge base.
+     * 
+     * Calls /cms/search endpoint.
+     * 
+     * @param query - The query to search  
+     * @returns 
+     */
+    public search(query: string): Promise<Pick<KnowledgeBaseResult, "documents" | "suggested">> {
         let url = `${this.baseURL}/cms/search`
 
         const encodedQuery = encodeURIComponent(query);
 
         url += `?question=${encodedQuery}`;
-
 
         let token: string = this.token;
 
@@ -160,7 +214,54 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
                 if (status === 200) {
                     return results;
                 } else {
-                    throw new Error(`StudioService.query() returned ${status} ${statusText} ${JSON.stringify(results)}`);
+                    throw new Error(`StudioService.search() returned ${status} ${statusText} ${JSON.stringify(results)}`);
+                }
+            })
+    }
+
+    /**
+     * Find a FAQ match based on the query.
+     * 
+     * The results are already sorted by relevancy.
+     * 
+     * @param query 
+     * @returns 
+     */
+    public faq(query: string): Promise<StudioFAQResponse> {
+
+        let url = `${this.baseURL}/cms/faq/query`
+
+        const encodedQuery = encodeURIComponent(query);
+
+        url += `?question=${encodedQuery}`;
+
+        let token: string = this.token;
+
+        if (this.orgToken) {
+            token = this.orgToken;
+            url += `&appId=${this.appId}`;
+        }
+
+        let status: number;
+        let statusText: string;
+
+        return fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        })
+            .then<StudioFAQResponse>((response) => {
+                status = response.status;
+                statusText = response.statusText;
+
+                return response.json();
+            }).then<StudioFAQResponse>((results) => {
+                if (status === 200) {
+                    return results;
+                } else {
+                    throw new Error(`StudioService.faq() returned ${status} ${statusText} ${JSON.stringify(results)}`);
                 }
             })
     }

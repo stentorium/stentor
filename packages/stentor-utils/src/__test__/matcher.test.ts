@@ -2,7 +2,7 @@
 import { expect } from "chai";
 
 import { RequestSlot } from "stentor-models";
-import { matchRequestSlotToSlotTypeValue, matchUtteranceToSlotTypeValue } from "../matcher";
+import { findFuzzyMatch, matchRequestSlotToSlotTypeValue, matchUtteranceToSlotTypeValue } from "../matcher";
 
 const universitySlots = require("./assets/university-slots.json").values;
 
@@ -14,6 +14,25 @@ const request: RequestSlot = {
     id: "STBV",
     rawValue: "Saint Bonaventure"
 };
+
+describe(`#${findFuzzyMatch.name}()`, () => {
+    it("finds the closest fuzzy match", () => {
+        const matches = findFuzzyMatch("mayor of pawnee", ["Who is the mayor of Pawnee?", "When was Pawnee founded?"]);
+        expect(matches[0]).to.equal("Who is the mayor of Pawnee?");
+    });
+    describe("when there is an exact match", () => {
+        it("returns the expected match", () => {
+            const matches = findFuzzyMatch("When was Pawnee founded?", ["Who is the mayor of Pawnee?", "When was Pawnee founded?"]);
+            expect(matches[0]).to.equal("When was Pawnee founded?");
+        });
+    });
+    describe("without any good matches", () => {
+        it("returns an empty array", () => {
+            const matches = findFuzzyMatch("copay", ["Who is the mayor of Pawnee?", "When was Pawnee founded?"]);
+            expect(matches).to.have.length(0);
+        });
+    })
+});
 
 describe("#matchRequestSlotToSlotTypeValue()", () => {
     describe("when passed undefined request slot", () => {

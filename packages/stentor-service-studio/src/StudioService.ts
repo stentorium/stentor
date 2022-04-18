@@ -93,6 +93,12 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
             });
     }
 
+    /**
+     * Get the handler by ID.
+     * 
+     * @param id 
+     * @returns 
+     */
     public get(id: string | { intentId: string }): Promise<Handler> | Promise<undefined> {
         const intentId = getIntentId(id);
 
@@ -126,6 +132,7 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
     }
 
     /**
+     * Queries both /cms/search & /cms/faq/query to return KnowledgeBaseResult.
      * 
      * @param query 
      */
@@ -148,16 +155,17 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
 
             result.documents = searchResults.documents;
             result.suggested = searchResults.suggested;
-
-            result.faqs = faqResults.faq.map((faq) => {
+            faqResults.faq.forEach((faq) => {
 
                 // Find the closest question
-                const question = findFuzzyMatch(query, faq.questions);
-
-                return {
-                    uri: faq.url,
-                    question: question[0],
-                    document: faq.answer
+                const questions = findFuzzyMatch(query, faq.questions);
+                // Only if we find a decent match, do we return it
+                if (existsAndNotEmpty(questions)) {
+                    result.faqs.push({
+                        uri: faq.url,
+                        question: questions[0],
+                        document: faq.answer
+                    });
                 }
             });
             // For FAQs, we do a quick string closeness match
@@ -211,6 +219,14 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
             })
     }
 
+    /**
+     * Find a FAQ match based on the query.
+     * 
+     * The results are already sorted by relevancy.
+     * 
+     * @param query 
+     * @returns 
+     */
     public faq(query: string): Promise<StudioFAQResponse> {
 
         let url = `${this.baseURL}/cms/faq/query`

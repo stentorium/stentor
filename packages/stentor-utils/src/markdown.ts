@@ -29,11 +29,17 @@ export function toHTML(input: string, props?: { allowedTags?: string[] }): strin
 
     // From https://github.com/markedjs/marked/issues/655#issuecomment-383226346
     const renderer = new marked.Renderer();
+    // copy the existing link renderer for use later
     const linkRenderer = renderer.link;
+    // override it by calling the original then changing it out to use target _blank
     renderer.link = (href, title, text): string => {
         const html = linkRenderer.call(renderer, href, title, text);
         return html.replace(/^<a /, `<a target="_blank" rel="nofollow" `);
     };
+    // Just disable it by passing it through.  It messes with the formatting too much
+    renderer.code = (code): string => {
+        return code;
+    }
     const dirty = marked(linked, { renderer, breaks: true, xhtml: true });
 
     const clean = sanitize(dirty, props);

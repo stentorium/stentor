@@ -25,6 +25,11 @@ describe(`#${toHTML.name}()`, () => {
             // Table support
             expect(toHTML("| Foo | Bar | \n  | --  | -- | \n  | one | two |")).to.equal("<table>\n<thead>\n<tr>\n<th>Foo</th>\n<th>Bar</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>one</td>\n<td>two</td>\n</tr>\n</tbody></table>\n");
             expect(toHTML("| Foo | Bar | \n  | --  | -- | \n  | one | two |")).to.equal("<table>\n<thead>\n<tr>\n<th>Foo</th>\n<th>Bar</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>one</td>\n<td>two</td>\n</tr>\n</tbody></table>\n");
+            // With potential codeblocks
+            const noBlocks = toHTML("Our **gutter** protection systems include:\n\n\tGutterglove Pro\n\tGutterglove Ultra\n\tLeaf Blaster\n\tGutterglove Icebreaker\n\nEach of these systems come");
+            expect(noBlocks).to.not.contain("<code>")
+            const noBlocks0 = toHTML("Here is what I found...\n\"\nGutterglove **Gutter** **Guards**\n\nGutterglove offers superior **gutter** protection with their patented Ultimate **Gutter** Protection System. Gutterglove offers a variety of **gutter** **guards** to fit your home and climate’s specific needs. Our **gutter** protection systems include:\n\n\tGutterglove Pro\n\tGutterglove Ultra\n\tLeaf Blaster\n\tGutterglove Icebreaker\n\nEach of these systems come in different sizes and styles to ensure a perfect match for your home.\n\nKey Benefits of Gutterglove **Gutter** **Guards**:\n\n\tEliminates **gutter** cleaning forever\n\tFilters out all debris from your **gutter**\n\tFirst Stage filter in rain harvesting systems\n\tBarely visible from the ground\n\tNo rain **gutter** clogs ever\" May I have your address where you need the service?");
+            expect(noBlocks0).to.not.contain("<code>");
         });
     });
     describe("when passed props", () => {

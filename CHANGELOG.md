@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.55.3](https://github.com/stentorium/stentor/compare/v1.55.2...v1.55.3) (2022-04-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency moment to v2.29.3 ([#1496](https://github.com/stentorium/stentor/issues/1496)) ([38e52df](https://github.com/stentorium/stentor/commit/38e52df8ccce4074701f6f8e788d17d7f402a46b))
+
+
+
+
+
 ## [1.55.2](https://github.com/stentorium/stentor/compare/v1.55.1...v1.55.2) (2022-04-21)
 
 

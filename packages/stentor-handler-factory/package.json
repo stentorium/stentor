@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.55.5",
+  "version": "1.55.6",
   "description": "Handler factory for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -24,19 +24,19 @@
     "sinon": "13.0.2",
     "sinon-chai": "3.7.0",
     "stentor-models": "1.55.4",
-    "stentor-request": "1.55.5",
+    "stentor-request": "1.55.6",
     "ts-node": "10.7.0",
     "typescript": "4.6.3"
   },
   "dependencies": {
     "stentor-constants": "1.55.4",
-    "stentor-context": "1.55.5",
-    "stentor-handler": "1.55.5",
-    "stentor-handler-delegating": "1.55.5",
-    "stentor-interaction-model": "1.55.5",
-    "stentor-logger": "1.55.5",
-    "stentor-response": "1.55.5",
-    "stentor-utils": "1.55.5"
+    "stentor-context": "1.55.6",
+    "stentor-handler": "1.55.6",
+    "stentor-handler-delegating": "1.55.6",
+    "stentor-interaction-model": "1.55.6",
+    "stentor-logger": "1.55.6",
+    "stentor-response": "1.55.6",
+    "stentor-utils": "1.55.6"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

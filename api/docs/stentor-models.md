@@ -22,6 +22,7 @@
 |  Interface | Description |
 |  --- | --- |
 |  [Actionable](./stentor-models.actionable.md) | Interface that has actions |
+|  [ActiveContext](./stentor-models.activecontext.md) | Active Context Object |
 |  [ActiveWithinable](./stentor-models.activewithinable.md) |  |
 |  [AlexaPlatformData](./stentor-models.alexaplatformdata.md) | Alexa specific data required for publication |
 |  [ApiAccessData](./stentor-models.apiaccessdata.md) |  |
@@ -54,7 +55,13 @@
 |  [Conditions](./stentor-models.conditions.md) | <b><i>(BETA)</i></b> Definition of conditions. |
 |  [Content](./stentor-models.content.md) | Base content map for the handler.<!-- -->All handlers have contextual help and cancel content |
 |  [Context](./stentor-models.context.md) | Context object that is passed around while formulating the response.<!-- -->It contains contextual information relevant to the user. |
+|  [ContextServices](./stentor-models.contextservices.md) | These we want to make available for custom handlers |
 |  [Contextual](./stentor-models.contextual.md) | Currently not in use, for discussion.<!-- -->The idea is this would allow us to add an array of contexts and we can <code>or</code> or <code>and</code> the contexts. <code>or</code> would require one of them to match and <code>and</code> would require all to match.<!-- -->TODO: Remove if never used |
+|  [CrmResponse](./stentor-models.crmresponse.md) |  |
+|  [CrmService](./stentor-models.crmservice.md) |  |
+|  [CrmTranscript](./stentor-models.crmtranscript.md) |  |
+|  [CrmTranscriptAttributes](./stentor-models.crmtranscriptattributes.md) |  |
+|  [CrmTranscriptExchange](./stentor-models.crmtranscriptexchange.md) | Transcript representation of the session. The input/output is an easily readable, simplified representation of the visitor/bot "chat". This is usually emailed or sent to a CRM system or customer service for a quick overview. That is why input an output are strings. |
 |  [DashbotDataStream](./stentor-models.dashbotdatastream.md) | Data for Dashbot integration<!-- -->See [https://www.dashbot.io/voicelabs](https://www.dashbot.io/voicelabs) |
 |  [Data](./stentor-models.data.md) | Base data object for all the handlers |
 |  [DateTime](./stentor-models.datetime.md) |  |
@@ -78,6 +85,7 @@
 |  [Expirable](./stentor-models.expirable.md) |  |
 |  [ExpirationDate](./stentor-models.expirationdate.md) | A date to expire by. |
 |  [ExpirationDuration](./stentor-models.expirationduration.md) | A duration to expire in. |
+|  [ExternalLead](./stentor-models.externallead.md) |  |
 |  [FirstTimeable](./stentor-models.firsttimeable.md) |  |
 |  [Forward](./stentor-models.forward.md) | A map of where to forward intent requests to. |
 |  [FullAppStatus](./stentor-models.fullappstatus.md) |  |
@@ -112,11 +120,13 @@
 |  [KnowledgeAnswer](./stentor-models.knowledgeanswer.md) |  |
 |  [KnowledgeBaseDocument](./stentor-models.knowledgebasedocument.md) | A single document, typically part of a larger corpus of information that is where the answer to the user's original query may reside. |
 |  [KnowledgeBaseFAQ](./stentor-models.knowledgebasefaq.md) | An FAQ |
+|  [KnowledgeBaseHighlight](./stentor-models.knowledgebasehighlight.md) | Description of a highlighted word, which is relevant to the original knowledge base search. |
 |  [KnowledgeBaseResult](./stentor-models.knowledgebaseresult.md) |  |
+|  [KnowledgeBaseService](./stentor-models.knowledgebaseservice.md) | A knowledge base that can be queried |
 |  [KnowledgeBaseSuggested](./stentor-models.knowledgebasesuggested.md) | A suggested answer with high confidence. |
-|  [KnowlegeBaseHighlight](./stentor-models.knowlegebasehighlight.md) | Description of a highlighted word, which is relevant to the original knowledgebase search. |
 |  [LambdaFinishEvent](./stentor-models.lambdafinishevent.md) |  |
 |  [LaunchRequest](./stentor-models.launchrequest.md) | The Launch Request, when the user says "open {<!-- -->invocation name<!-- -->}<!-- -->" or "talk to {<!-- -->invocation name<!-- -->}<!-- -->"<!-- -->See [https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/handling-requests-sent-by-alexa\#launchrequest](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/handling-requests-sent-by-alexa#launchrequest) |
+|  [LeadFormField](./stentor-models.leadformfield.md) |  |
 |  [LinkOutSuggestion](./stentor-models.linkoutsuggestion.md) | Suggestion chip that links out to an App or Website. Ownership of the URL must be validated in the Actions on Google developer console or the suggestion will not be shown.<!-- -->The title has a limit of 20 characters, note this is different from when it is a normal suggestion<!-- -->Only Google Assistant at the moment. |
 |  [List](./stentor-models.list.md) | List style display items.<!-- -->Can either be vertical style list or a carousel.<!-- -->This translates to a List/Carousel on the Google Assistant and ListTemplate1/ListTemplate2 on Amazon Alexa<!-- -->See [https://developers.google.com/actions/assistant/responses\#list](https://developers.google.com/actions/assistant/responses#list) and [https://developer.amazon.com/docs/custom-skills/display-template-reference.html\#listtemplate1](https://developer.amazon.com/docs/custom-skills/display-template-reference.html#listtemplate1) |
 |  [ListButton](./stentor-models.listbutton.md) |  |
@@ -134,12 +144,13 @@
 |  [MessagePayload](./stentor-models.messagepayload.md) | A simple payload meant for message events. |
 |  [NLUData](./stentor-models.nludata.md) |  |
 |  [NLUQueryResponse](./stentor-models.nluqueryresponse.md) |  |
+|  [NLURequestProps](./stentor-models.nlurequestprops.md) |  |
 |  [NLUService](./stentor-models.nluservice.md) | Service which can turn raw text into an intent and slots (optional). |
 |  [NLUServiceGetter](./stentor-models.nluservicegetter.md) | Tests and gets an NLUService based on ChannelData or NLUData |
 |  [OnDemand](./stentor-models.ondemand.md) |  |
 |  [OnDemandChannel](./stentor-models.ondemandchannel.md) | A group of playable media.<!-- -->NOTE: This is a work in progress interface. It would make sense to have this either have a playlist or extend playlist. |
 |  [OptionSelectRequest](./stentor-models.optionselectrequest.md) |  |
-|  [PermissionRequest\_2](./stentor-models.permissionrequest_2.md) |  |
+|  [PermissionRequest](./stentor-models.permissionrequest.md) |  |
 |  [Pii](./stentor-models.pii.md) |  |
 |  [PIIService](./stentor-models.piiservice.md) |  |
 |  [Playable](./stentor-models.playable.md) | An object that can be played. |
@@ -177,7 +188,7 @@
 |  [SessionStoreData](./stentor-models.sessionstoredata.md) | Lets make it simple and versatile |
 |  [SharedPath](./stentor-models.sharedpath.md) | Shared parameters on a path. |
 |  [SignInRequest](./stentor-models.signinrequest.md) |  |
-|  [SimpleDisplay](./stentor-models.simpledisplay.md) | The base Display structure |
+|  [SimpleDisplay](./stentor-models.simpledisplay.md) | <b><i>(BETA)</i></b> The base Display structure<!-- -->Not widely used |
 |  [SimpleResponse](./stentor-models.simpleresponse.md) | A response that expects a user's input. |
 |  [SimpleSegment](./stentor-models.simplesegment.md) | Simple segment, just the segment that will replace the template. |
 |  [Slot](./stentor-models.slot.md) | Slots available to the intent. |
@@ -199,6 +210,7 @@
 |  [Suggestion](./stentor-models.suggestion.md) | Suggested responses that a user can tap.<!-- -->The title has a limit of 25 characters.<!-- -->Only Google Assistant at the moment. |
 |  [SurfaceChangeRequest](./stentor-models.surfacechangerequest.md) |  |
 |  [SystemDependent](./stentor-models.systemdependent.md) |  |
+|  [TemplatedList](./stentor-models.templatedlist.md) | <b><i>(BETA)</i></b> Add to a display that has a list of items to give it the ability to be compiled with variables.<!-- -->This is a new feature and may not work 100% as expected or may change. |
 |  [TestSlot](./stentor-models.testslot.md) | Extends a RequestSlot by adding the RelativeDateTime as a possible value. |
 |  [TextContent](./stentor-models.textcontent.md) |  |
 |  [UserDataValue](./stentor-models.userdatavalue.md) |  |

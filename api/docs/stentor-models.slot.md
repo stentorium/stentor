@@ -16,6 +16,7 @@ export interface Slot
 
 |  Property | Type | Description |
 |  --- | --- | --- |
+|  [inputText?](./stentor-models.slot.inputtext.md) | string | <i>(Optional)</i> Human readable description of what kind of information the slot is expecting. The text should be very brief. For example:<!-- -->"zip" "zip code" "city" "state" "street" {<!-- -->string<!-- -->}  Slot |
 |  [isList?](./stentor-models.slot.islist.md) | boolean \| number | <i>(Optional)</i> Is the slot a list of values. |
 |  [name](./stentor-models.slot.name.md) | string | The name of the slot, corresponds to how it is displayed in the sample utterance.<!-- -->For example: "Play {<!-- -->Podcast<!-- -->}<!-- -->" where Podcast is the name. |
 |  [nlu?](./stentor-models.slot.nlu.md) | { \[nlu: string\]: { type: string; }; } | <i>(Optional)</i> NLU specific metadata used when translating to the NLU entity.<!-- -->Use to override the type for a specific NLU. |

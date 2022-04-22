@@ -4,6 +4,8 @@
 
 ## Card.largeImageUrl property
 
+Large image, used on larger form factors
+
 <b>Signature:</b>
 
 ```typescript

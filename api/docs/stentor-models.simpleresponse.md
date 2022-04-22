@@ -17,6 +17,7 @@ export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Act
 
 |  Property | Type | Description |
 |  --- | --- | --- |
+|  [context?](./stentor-models.simpleresponse.context.md) | { active?: [ActiveContext](./stentor-models.activecontext.md)<!-- -->\[\]; } | <i>(Optional)</i> Optional active contexts which help influence the NLU.<!-- -->- [https://cloud.google.com/dialogflow/es/docs/contexts-input-output](https://cloud.google.com/dialogflow/es/docs/contexts-input-output) - [https://docs.aws.amazon.com/lex/latest/dg/context-mgmt-active-context.html](https://docs.aws.amazon.com/lex/latest/dg/context-mgmt-active-context.html) |
 |  [data?](./stentor-models.simpleresponse.data.md) | [ResponseData](./stentor-models.responsedata.md) | <i>(Optional)</i> Supplemental data to augment the response. |
 |  [displays?](./stentor-models.simpleresponse.displays.md) | [Display](./stentor-models.display.md)<!-- -->\[\] | <i>(Optional)</i> Display elements for surfaces/devices with screens. |
 |  [media?](./stentor-models.simpleresponse.media.md) | [Media](./stentor-models.media.md)<!-- -->\[\] | <i>(Optional)</i> Media for playback |

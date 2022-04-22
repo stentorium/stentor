@@ -7,5 +7,10 @@
 <b>Signature:</b>
 
 ```typescript
-preciseLocation?: string;
+preciseLocation?: {
+        coordinates?: {
+            latitude: number;
+            longitude: number;
+        };
+    };
 ```

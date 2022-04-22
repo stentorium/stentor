@@ -6,7 +6,7 @@
 
 > Warning: This API is now obsolete.
 > 
-> Deprecated in favor of studio.
+> Deprecated in favor of studio key.
 > 
 
 Context specific to One Voice AI

@@ -4,7 +4,7 @@
 
 ## Context.requestUserData property
 
-A method that servers user profile data (email, location, phone number, etc)
+A method that serves user profile data (email, location, phone number, etc)
 
 <b>Signature:</b>
 

@@ -18,7 +18,7 @@ export interface KnowledgeBaseDocument
 |  --- | --- | --- |
 |  [attributes?](./stentor-models.knowledgebasedocument.attributes.md) | { \[key: string\]: any; } | <i>(Optional)</i> Additional attribute for the document. Keys and values are dependent on the underlying knowledgebase. |
 |  [document](./stentor-models.knowledgebasedocument.document.md) | string | The document text. This isn't necessarily the entire source document found at the optional URI, it typically is more focused within where the answer may be. |
-|  [highlights?](./stentor-models.knowledgebasedocument.highlights.md) | [KnowlegeBaseHighlight](./stentor-models.knowlegebasehighlight.md)<!-- -->\[\] | <i>(Optional)</i> Notable highlights within the document that can help the user scan and find their answer. |
+|  [highlights?](./stentor-models.knowledgebasedocument.highlights.md) | [KnowledgeBaseHighlight](./stentor-models.knowledgebasehighlight.md)<!-- -->\[\] | <i>(Optional)</i> Notable highlights within the document that can help the user scan and find their answer. |
 |  [title?](./stentor-models.knowledgebasedocument.title.md) | string | <i>(Optional)</i> The title of the document |
 |  [uri?](./stentor-models.knowledgebasedocument.uri.md) | string | <i>(Optional)</i> Optional URI that is the source of the document. It can be a URI for a website or a URI within an internal system (like AWS S3 for example). |
 

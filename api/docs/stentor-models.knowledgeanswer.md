@@ -16,6 +16,6 @@ export interface KnowledgeAnswer
 |  --- | --- | --- |
 |  [answer](./stentor-models.knowledgeanswer.answer.md) | string | Raw answer |
 |  [faqQuestion](./stentor-models.knowledgeanswer.faqquestion.md) | string | Raw question |
-|  [matchConfidence](./stentor-models.knowledgeanswer.matchconfidence.md) | number | Confidence 0-1 |
+|  [matchConfidence?](./stentor-models.knowledgeanswer.matchconfidence.md) | number | <i>(Optional)</i> Confidence 0-1 |
 |  [source?](./stentor-models.knowledgeanswer.source.md) | string | <i>(Optional)</i> Which knowledge base (optional) |
 

@@ -4,6 +4,7 @@
 
 ```ts
 
+import { Context } from 'stentor-models';
 import { DateTime } from 'stentor-models';
 import { DateTimeRange } from 'stentor-models';
 import { Duration } from 'stentor-models';
@@ -14,6 +15,7 @@ import { Intent } from 'stentor-models';
 import { MatchOperation } from 'stentor-models';
 import { RelativeDateRangeType } from 'stentor-models';
 import { RelativeDateType } from 'stentor-models';
+import { Request as Request_2 } from 'stentor-models';
 import { RequestSlot } from 'stentor-models';
 import { RequestSlotMap } from 'stentor-models';
 import { RequestSlotValues } from 'stentor-models';
@@ -50,6 +52,11 @@ export function cleanInvalid(outputSpeech: string): string;
 // @public
 export function cleanTags(str: string): string;
 
+// Warning: (ae-missing-release-tag) "combine" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function combine<T>(one: T[] | undefined, two: T[] | undefined): T[];
+
 // Warning: (ae-missing-release-tag) "combineRequestSlots" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
@@ -68,20 +75,45 @@ export function compare(value1: Comparable, value2: Comparable, operator?: Match
 // Warning: (ae-missing-release-tag) "compileJSONPaths" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 // Warning: (ae-missing-release-tag) "compileJSONPaths" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
-// @public
+// @public @deprecated
 export function compileJSONPaths(responseOutput: string, object: object, replaceWhenUndefined?: boolean): string;
 
 // @public (undocumented)
 export function compileJSONPaths(responseOutput: ResponseOutput, object: object, replaceWhenUndefined?: boolean): ResponseOutput;
 
+// Warning: (ae-missing-release-tag) "Compiler" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export class Compiler implements CompilerProps {
+    constructor(props?: CompilerProps);
+    // (undocumented)
+    readonly additionalContext?: Record<string, unknown>;
+    compile(input: string, request: Request_2, context: Context): string;
+    // (undocumented)
+    compile(input: ResponseOutput, request: Request_2, context: Context): ResponseOutput;
+    // (undocumented)
+    readonly macros?: MacroMap;
+    // (undocumented)
+    readonly replaceWhenUndefined?: boolean;
+}
+
+// Warning: (ae-missing-release-tag) "CompilerProps" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface CompilerProps {
+    readonly additionalContext?: Record<string, unknown>;
+    readonly macros?: MacroMap;
+    readonly replaceWhenUndefined?: boolean;
+}
+
 // Warning: (ae-missing-release-tag) "compileSlotValues" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 // Warning: (ae-missing-release-tag) "compileSlotValues" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
-// @public
-export function compileSlotValues(responseOutput: string, slots: RequestSlotMap, replaceWhenUndefined?: boolean): string;
+// @public @deprecated
+export function compileSlotValues(responseOutput: string, slots: RequestSlotMap, replaceWhenUndefined?: boolean, macros?: MacroMap): string;
 
 // @public (undocumented)
-export function compileSlotValues(responseOutput: ResponseOutput, slots: RequestSlotMap, replaceWhenUndefined?: boolean): ResponseOutput;
+export function compileSlotValues(responseOutput: ResponseOutput, slots: RequestSlotMap, replaceWhenUndefined?: boolean, macros?: MacroMap): ResponseOutput;
 
 // Warning: (ae-missing-release-tag) "concatSSML" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -135,6 +167,11 @@ export function dateTimeToString(dateTime: DateTime | DateTimeRange): string;
 //
 // @public
 export function dedupe<T>(input: T[]): T[];
+
+// Warning: (ae-missing-release-tag) "DEFAULT_MARCOS" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export const DEFAULT_MARCOS: MacroMap;
 
 // Warning: (ae-missing-release-tag) "describeKey" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -261,6 +298,16 @@ export enum GetDurationGroupBy {
     // (undocumented)
     Smallest = 1
 }
+
+// Warning: (ae-missing-release-tag) "getJSONPath" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function getJSONPath(path: string, json: null | boolean | number | string | object | any[]): any[];
+
+// Warning: (ae-missing-release-tag) "getSlotValue" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function getSlotValue(slots: RequestSlotMap, name: string): RequestSlotValues | undefined;
 
 // Warning: (ae-missing-release-tag) "HandledIn" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -437,6 +484,11 @@ export class LambdaError extends Error {
     statusCode?: number;
 }
 
+// Warning: (ae-missing-release-tag) "linkify" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function linkify(text: string, format?: "markdown" | "html"): string;
+
 // Warning: (ae-missing-release-tag) "ListDelimiter" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
@@ -451,6 +503,14 @@ export enum ListDelimiter {
 //
 // @public
 export function listisize(items: string[], preferredDelimiter?: ListDelimiter): string;
+
+// Warning: (ae-missing-release-tag) "MacroMap" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface MacroMap {
+    // (undocumented)
+    [key: string]: ResponseMacro;
+}
 
 // Warning: (ae-missing-release-tag) "maskEmail" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -482,7 +542,6 @@ export function matchUtteranceToSlotTypeValue<T>(utterance: string | number, slo
 //
 // @public
 function md5_2(input: string): string;
-
 export { md5_2 as md5 }
 
 // @public
@@ -578,6 +637,11 @@ export function removeTagsWithContent(speech: string, tags: string[]): string;
 // @public
 export function requestSlotValueToString(value: RequestSlotValues): string;
 
+// Warning: (ae-missing-release-tag) "ResponseMacro" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type ResponseMacro = (...args: any[]) => string | boolean;
+
 // Warning: (ae-missing-release-tag) "responsesContain" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
@@ -590,6 +654,11 @@ export function sanitizePhoneNumber(phoneNumber: string): string;
 //
 // @public
 export function shuffle<T>(array: T[]): T[];
+
+// Warning: (ae-missing-release-tag) "slot" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function slot(slots: RequestSlotMap, name: string): string;
 
 // Warning: (ae-missing-release-tag) "slotValueToSpeech" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -606,7 +675,7 @@ export class StringExpander {
     constructor(props?: StringExpanderProps);
     // (undocumented)
     expand(str: string): string[];
-    }
+}
 
 // Warning: (ae-missing-release-tag) "StringExpanderProps" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -645,6 +714,13 @@ export function throwIfDoesContain(obj: object, bannedAttrs: string[], onError?:
 //
 // @public
 export function throwIfDoesNotContain(obj: object, requiredAttrs: string[], undefinedPermitted?: boolean, onError?: ValidationErrorHandler): void;
+
+// Warning: (ae-missing-release-tag) "toHTML" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function toHTML(input: string, props?: {
+    allowedTags?: string[];
+}): string;
 
 // Warning: (ae-missing-release-tag) "toMap" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -703,7 +779,6 @@ export type ValidationErrorHandler = (keys: string[], error: Error) => void;
 
 // @public
 export function wordToNumber(word: string): number | string;
-
 
 // (No @packageDocumentation comment for this package)
 

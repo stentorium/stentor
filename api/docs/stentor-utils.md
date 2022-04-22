@@ -8,6 +8,7 @@
 
 |  Class | Description |
 |  --- | --- |
+|  [Compiler](./stentor-utils.compiler.md) | Compiles the templated response based on the provided request and context with some configurability.<!-- -->You can provide custom macros that can be used to modify the templated response and also additional context that will be used as possible replacements. |
 |  [LambdaError](./stentor-utils.lambdaerror.md) | An Error that allows for a status code to be stored. By default the status code is 500. |
 |  [StringExpander](./stentor-utils.stringexpander.md) | Expands strings when the pattern {<!-- -->option0\|option1<!-- -->} is found within the string.<!-- -->If either $<!-- -->{<!-- -->VAR<!-- -->} or the alexa-utterances {<!-- -->-\|VAR<!-- -->} is within the string, it preserved and converted to $<!-- -->{<!-- -->} by default. |
 |  [StringExpanderProps](./stentor-utils.stringexpanderprops.md) |  |
@@ -30,12 +31,13 @@
 |  [capitalize(s)](./stentor-utils.capitalize.md) | Capitalizes the word<!-- -->It turns "zero" to "Zero" |
 |  [cleanInvalid(outputSpeech)](./stentor-utils.cleaninvalid.md) | Removes any invalid characters for SSML<p> Note: This will need to be beefed up in the future. </p>[https://github.com/mandnyc/ssml-builder/blob/master/index.js\#L257](https://github.com/mandnyc/ssml-builder/blob/master/index.js#L257) |
 |  [cleanTags(str)](./stentor-utils.cleantags.md) | Clean HTML and XML tags from a string |
+|  [combine(one, two)](./stentor-utils.combine.md) | Combines two arrays, either of which can be undefined. It always returns an array. |
 |  [combineRequestSlots(current, incoming)](./stentor-utils.combinerequestslots.md) | Combines two slot maps. |
 |  [compare(value1, value2, operator)](./stentor-utils.compare.md) | Compare the first value to the second using the provided operator.<!-- -->If no operator is provided it defaults to "===" |
 |  [compileJSONPaths(responseOutput, object, replaceWhenUndefined)](./stentor-utils.compilejsonpaths.md) | Compiles all instances of a template with the provided string by looking up the JSON path within the provided object.<!-- -->For example, when passed "$<!-- -->{<!-- -->greeting<!-- -->} $<!-- -->{<!-- -->foo.name<!-- -->}<!-- -->, how are you?" and { greeting: "Hello", foo: {<!-- -->name: "Bob" }<!-- -->} will be compiled to "Hello Bob, how are you?" |
 |  [compileJSONPaths(responseOutput, object, replaceWhenUndefined)](./stentor-utils.compilejsonpaths_1.md) |  |
-|  [compileSlotValues(responseOutput, slots, replaceWhenUndefined)](./stentor-utils.compileslotvalues.md) | Compiles a templated response with slot values from the provided slot map.<!-- -->For example, when passed "What date do you want your $<!-- -->{<!-- -->flowers<!-- -->}<!-- -->?" and the slot map contains a slot with name <code>flowers</code> it will replace it with the value.<!-- -->It will handle the different potential value types for slots such as strings, numbers, dates and durations. |
-|  [compileSlotValues(responseOutput, slots, replaceWhenUndefined)](./stentor-utils.compileslotvalues_1.md) |  |
+|  [compileSlotValues(responseOutput, slots, replaceWhenUndefined, macros)](./stentor-utils.compileslotvalues.md) | Compiles a templated response with slot values from the provided slot map.<!-- -->For example, when passed "What date do you want your $<!-- -->{<!-- -->flowers<!-- -->}<!-- -->?" and the slot map contains a slot with name <code>flowers</code> it will replace it with the value.<!-- -->It will handle the different potential value types for slots such as strings, numbers, dates and durations.<!-- -->By default, if the slot value does not exist, the template value is left untouched. |
+|  [compileSlotValues(responseOutput, slots, replaceWhenUndefined, macros)](./stentor-utils.compileslotvalues_1.md) |  |
 |  [concatSSML(one, two, delimiter)](./stentor-utils.concatssml.md) | Concat SSML in a smart way for TTS or display. |
 |  [concatText(one, two, delimiter)](./stentor-utils.concattext.md) | Combine two strings in a smart way for TTS or display. |
 |  [containsInvalidResponse(intent)](./stentor-utils.containsinvalidresponse.md) | Checks to see if any of the responses within the handler has invalid XML within the SSML fields. |
@@ -63,6 +65,8 @@
 |  [getDateTimeFrom(date, includeOnly)](./stentor-utils.getdatetimefrom.md) | From a Dialogflow style ISO-8601 time string: "2019-06-05T12:00:00-04:00", it pulls out the date and the time. |
 |  [getDateTimeRangeFrom(date)](./stentor-utils.getdatetimerangefrom.md) | Parses the string and returns a DateTimeRange object.<!-- -->Supports both the ISO-8601 range &amp; "--<!-- -->&gt;<!-- -->" style date range. |
 |  [getDurationFrom(iso8601Duration, groupBy)](./stentor-utils.getdurationfrom.md) | Parses the string, if in the ISO-8601 duration format, and returns a [Duration](./stentor-models.duration.md) object. If the provided string is not a duration string, it returns undefined.[https://stackoverflow.com/a/29153059/1349766](https://stackoverflow.com/a/29153059/1349766) |
+|  [getJSONPath(path, json)](./stentor-utils.getjsonpath.md) | Simple wrapper around JSONPath Plus |
+|  [getSlotValue(slots, name)](./stentor-utils.getslotvalue.md) | Returns the slot value, if not found it returns undefined. |
 |  [handles(intent, id, how)](./stentor-utils.handles.md) | Does the provided Intent / Handler handle the provided ID in some way or another.<!-- -->This checks redirect, content, &amp; forward for the ID as a key.<!-- -->Optionally, you can specify if you only want to check either redirect, content, or forward. The default is to check all three. |
 |  [hasContent(intent)](./stentor-utils.hascontent.md) | Does the provided intent or handler have content. |
 |  [hasForwards(intent)](./stentor-utils.hasforwards.md) | Does the provided intent or handler have any forward paths setup. |
@@ -85,6 +89,7 @@
 |  [isPreposition(word)](./stentor-utils.ispreposition.md) | Is the word an english preposition.<!-- -->NOTE: The list it checks against is not exhaustive. |
 |  [isUrl(s)](./stentor-utils.isurl.md) | Simple check to see if the string is potentially a URL.<!-- -->Only looks for a prefix of https://, http:// &amp; file:// |
 |  [isValidSSML(response)](./stentor-utils.isvalidssml.md) | Checks to see if the SSML is valid. |
+|  [linkify(text, format)](./stentor-utils.linkify.md) | Searches for URLs in a text and converts them to hyperlinks, either for HTML or markdown (default)<!-- -->Based on [https://stackoverflow.com/a/25821576/1349766](https://stackoverflow.com/a/25821576/1349766) |
 |  [listisize(items, preferredDelimiter)](./stentor-utils.listisize.md) | Builds a speakable and readable list from a set of items.<!-- -->For example, \["one", "two", "three", "four"\] will be transformed to "one, two, three or four". |
 |  [maskEmail(email)](./stentor-utils.maskemail.md) | Partially masks a single email |
 |  [maskEmails(s, partial)](./stentor-utils.maskemails.md) | Masks emails within a given string. |
@@ -110,12 +115,14 @@
 |  [responsesContain(intent, character)](./stentor-utils.responsescontain.md) | Does the provided intent or handler have a response that contains the provided character. |
 |  [sanitizePhoneNumber(phoneNumber)](./stentor-utils.sanitizephonenumber.md) | Sanitizes a phone number for text to speech. |
 |  [shuffle(array)](./stentor-utils.shuffle.md) | Shuffles the contents of an array, returning a new array. |
+|  [slot(slots, name)](./stentor-utils.slot.md) | From the provided slot map, it returns the slot value as a string or an empty string if it doesn't find the value. |
 |  [slotValueToSpeech(value, type)](./stentor-utils.slotvaluetospeech.md) | Based on the provided slot value, it will return the appropriate <say-as> tag.[https://cloud.google.com/text-to-speech/docs/ssml\#say%E2%80%91as](https://cloud.google.com/text-to-speech/docs/ssml#say%E2%80%91as) [https://developer.amazon.com/en-US/docs/alexa/custom-skills/speech-synthesis-markup-language-ssml-reference.html\#say-as](https://developer.amazon.com/en-US/docs/alexa/custom-skills/speech-synthesis-markup-language-ssml-reference.html#say-as) [https://docs.aws.amazon.com/polly/latest/dg/supportedtags.html\#say-as-tag](https://docs.aws.amazon.com/polly/latest/dg/supportedtags.html#say-as-tag) |
 |  [ssmlify(str, clean)](./stentor-utils.ssmlify.md) | Ensures the speech is properly wrapped by <speak> tags. The method is innocuous if they already exist |
 |  [subset(obj, attrs)](./stentor-utils.subset.md) | A function that will return a subset of a given object keeping only the attributes that it contains.<!-- -->The original object is not affected. |
 |  [throwIfContainsExtra(obj, restrictAttrs, undefinedPermitted, onError)](./stentor-utils.throwifcontainsextra.md) | A validation function that can check an object contains properties that should not exist in the object. |
 |  [throwIfDoesContain(obj, bannedAttrs, onError)](./stentor-utils.throwifdoescontain.md) | A validation function that can check if an object contains an attribute that is should not have. |
 |  [throwIfDoesNotContain(obj, requiredAttrs, undefinedPermitted, onError)](./stentor-utils.throwifdoesnotcontain.md) | A validation function that can check if an object contains the required attributes and throws an error if they are not part of it. |
+|  [toHTML(input, props)](./stentor-utils.tohtml.md) | Converts a markdown string to HTML.<!-- -->Supported markdown is Github<!-- -->It also decodes HTML entities and cleans dirty dangerous tags.<!-- -->All <a> hyperlink tags have <code>target=&quot;_blank&quot;</code> added to open the URLs in a new window. |
 |  [toMap(intents)](./stentor-utils.tomap.md) | Quickly turn an array of Intents and Handlers to a map with the intentIds as the keys. |
 |  [toNumber(stringOrNumber)](./stentor-utils.tonumber.md) | Converts the string to a number, if applicable. |
 |  [toNumberIfPossible(potentialNumber)](./stentor-utils.tonumberifpossible.md) | Converts to a number if possible otherwise it passes it through.<!-- -->This preserves Dates and booleans. If true is passed in, true is passed out. Additionally, if an empty string is passed, it passes it through instead of turning it into a number. |
@@ -131,10 +138,12 @@
 
 |  Interface | Description |
 |  --- | --- |
+|  [CompilerProps](./stentor-utils.compilerprops.md) |  |
 |  [ContainsInvalidResponseResult](./stentor-utils.containsinvalidresponseresult.md) |  |
 |  [HandlerMap](./stentor-utils.handlermap.md) |  |
 |  [IntentMap](./stentor-utils.intentmap.md) |  |
 |  [KeyDescription](./stentor-utils.keydescription.md) | A description of a key for either Content, Forwards, or Redirects |
+|  [MacroMap](./stentor-utils.macromap.md) |  |
 |  [MatchResult](./stentor-utils.matchresult.md) | Results returned by the fuzzy string matcher. |
 |  [ObjectWithKeys](./stentor-utils.objectwithkeys.md) |  |
 |  [PercentCompleteAndRemaining](./stentor-utils.percentcompleteandremaining.md) |  |
@@ -144,6 +153,7 @@
 |  Variable | Description |
 |  --- | --- |
 |  [CATCH\_ALL\_REGEX](./stentor-utils.catch_all_regex.md) |  |
+|  [DEFAULT\_MARCOS](./stentor-utils.default_marcos.md) |  |
 |  [DETECTION\_CATCH\_ALL\_WITH\_EXCLUSION\_REGEX](./stentor-utils.detection_catch_all_with_exclusion_regex.md) |  |
 |  [DETECTION\_CATCH\_ALL](./stentor-utils.detection_catch_all.md) |  |
 |  [DETECTION\_ID\_ONLY\_REGEX](./stentor-utils.detection_id_only_regex.md) |  |
@@ -163,6 +173,7 @@
 |  [Comparable](./stentor-utils.comparable.md) |  |
 |  [DurationFormatToMSMultiplier](./stentor-utils.durationformattomsmultiplier.md) |  |
 |  [PercentComplete](./stentor-utils.percentcomplete.md) |  |
+|  [ResponseMacro](./stentor-utils.responsemacro.md) |  |
 |  [ValidateKeyCallback](./stentor-utils.validatekeycallback.md) |  |
 |  [ValidationErrorHandler](./stentor-utils.validationerrorhandler.md) |  |
 

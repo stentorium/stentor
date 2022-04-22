@@ -25,6 +25,6 @@ export interface Pii
 |  [pendingSmsJobs?](./stentor-models.pii.pendingsmsjobs.md) | [SmsDescription](./stentor-models.smsdescription.md)<!-- -->\[\] | <i>(Optional)</i> |
 |  [phoneNumber?](./stentor-models.pii.phonenumber.md) | string | <i>(Optional)</i> |
 |  [phoneNumberStatus?](./stentor-models.pii.phonenumberstatus.md) | [OptStatus](./stentor-models.optstatus.md) | <i>(Optional)</i> |
-|  [preciseLocation?](./stentor-models.pii.preciselocation.md) | string | <i>(Optional)</i> |
+|  [preciseLocation?](./stentor-models.pii.preciselocation.md) | { coordinates?: { latitude: number; longitude: number; }; } | <i>(Optional)</i> |
 |  [token?](./stentor-models.pii.token.md) | string | <i>(Optional)</i> |
 

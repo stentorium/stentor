@@ -15,12 +15,12 @@ export interface Card extends BaseDisplay
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [accessibilityText?](./stentor-models.card.accessibilitytext.md) | string | <i>(Optional)</i> |
-|  [buttons?](./stentor-models.card.buttons.md) | [CardButton](./stentor-models.cardbutton.md)<!-- -->\[\] | <i>(Optional)</i> |
-|  [content](./stentor-models.card.content.md) | string |  |
+|  [accessibilityText?](./stentor-models.card.accessibilitytext.md) | string | <i>(Optional)</i> Used when available as the accessibility text for the image, if provided. |
+|  [buttons?](./stentor-models.card.buttons.md) | [CardButton](./stentor-models.cardbutton.md)<!-- -->\[\] | <i>(Optional)</i> Buttons for the card which typically appear below the body of the card near the bottom. |
+|  [content](./stentor-models.card.content.md) | string | Description, typically used in the body of the card |
 |  [imageActionUrl?](./stentor-models.card.imageactionurl.md) | string | <b><i>(BETA)</i></b> <i>(Optional)</i> When present, if the image is clicked the provided website will open.<!-- -->Not yet fully supported. |
-|  [largeImageUrl?](./stentor-models.card.largeimageurl.md) | string | <i>(Optional)</i> |
-|  [smallImageUrl?](./stentor-models.card.smallimageurl.md) | string | <i>(Optional)</i> |
-|  [title](./stentor-models.card.title.md) | string |  |
+|  [largeImageUrl?](./stentor-models.card.largeimageurl.md) | string | <i>(Optional)</i> Large image, used on larger form factors |
+|  [smallImageUrl?](./stentor-models.card.smallimageurl.md) | string | <i>(Optional)</i> Small image, used on smaller form factors. |
+|  [title](./stentor-models.card.title.md) | string | Card title |
 |  [type](./stentor-models.card.type.md) | "CARD" |  |
 

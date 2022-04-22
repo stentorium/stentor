@@ -4,6 +4,11 @@
 
 ## Context.device property
 
+> Warning: This API is now obsolete.
+> 
+> - Will be removed in next major release. You can find the same information on the request. The information will continue to be in both places until removal.
+> 
+
 Information about the current device the user is on within the channel.
 
 <b>Signature:</b>

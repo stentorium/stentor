@@ -6,7 +6,7 @@
 
 > Warning: This API is now obsolete.
 > 
-> Provide a response translator instead of a customer builder.
+> Provide a response translator instead of a customer builder. This will be removed in the next major release.
 > 
 
 Response builder, this is now deprecated in favor of providing a response translator.

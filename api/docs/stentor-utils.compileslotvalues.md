@@ -4,16 +4,23 @@
 
 ## compileSlotValues() function
 
+> Warning: This API is now obsolete.
+> 
+> Use class Compiler, which handles both JSONPaths &amp; Slots
+> 
+
 Compiles a templated response with slot values from the provided slot map.
 
 For example, when passed "What date do you want your $<!-- -->{<!-- -->flowers<!-- -->}<!-- -->?" and the slot map contains a slot with name `flowers` it will replace it with the value.
 
 It will handle the different potential value types for slots such as strings, numbers, dates and durations.
 
+By default, if the slot value does not exist, the template value is left untouched.
+
 <b>Signature:</b>
 
 ```typescript
-export declare function compileSlotValues(responseOutput: string, slots: RequestSlotMap, replaceWhenUndefined?: boolean): string;
+export declare function compileSlotValues(responseOutput: string, slots: RequestSlotMap, replaceWhenUndefined?: boolean, macros?: MacroMap): string;
 ```
 
 ## Parameters
@@ -22,7 +29,8 @@ export declare function compileSlotValues(responseOutput: string, slots: Request
 |  --- | --- | --- |
 |  responseOutput | string |  |
 |  slots | [RequestSlotMap](./stentor-models.requestslotmap.md) |  |
-|  replaceWhenUndefined | boolean |  |
+|  replaceWhenUndefined | boolean | When set to true, it will replace the value with 'undefined' if it doesn't exist, default behavior is to leave the template as is. |
+|  macros | [MacroMap](./stentor-utils.macromap.md) |  |
 
 <b>Returns:</b>
 

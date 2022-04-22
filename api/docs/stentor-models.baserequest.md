@@ -20,6 +20,7 @@ export interface BaseRequest
 |  [anonymous?](./stentor-models.baserequest.anonymous.md) | boolean | <i>(Optional)</i> The user is anonymous, or a guest.<!-- -->The user either does not yet have a verified identity or have chosen to not have any data saved about them. |
 |  [apiAccess?](./stentor-models.baserequest.apiaccess.md) | [ApiAccessData](./stentor-models.apiaccessdata.md) | <i>(Optional)</i> API access data from the platform In case there is an APIs that provides services like list management, messaging... |
 |  [channel?](./stentor-models.baserequest.channel.md) | string | <i>(Optional)</i> The specific channel that the platform provides. |
+|  [device?](./stentor-models.baserequest.device.md) | [Device](./stentor-models.device.md) | <i>(Optional)</i> Information about the device as far as capabilities such as screen or web browser available.<!-- -->This information is available in two places, also on the context object, until it is removed from the context in the next major release. |
 |  [deviceId?](./stentor-models.baserequest.deviceid.md) | string | <i>(Optional)</i> Unique identifier provided by the channel for the user's current device. |
 |  [isBargeIn?](./stentor-models.baserequest.isbargein.md) | boolean | <i>(Optional)</i> Is the request a barge in<!-- -->Currently only set on Google and Dialogflow request |
 |  [isHealthCheck?](./stentor-models.baserequest.ishealthcheck.md) | boolean | <i>(Optional)</i> Is the request a health check.<!-- -->Currently only Google and Dialogflow perform health checks. |
@@ -28,6 +29,7 @@ export interface BaseRequest
 |  [overrideKey?](./stentor-models.baserequest.overridekey.md) | string | <i>(Optional)</i> Used during forwarding and redirecting the request to another handler. When set it pulls content or paths for this key instead of for the request. |
 |  [platform?](./stentor-models.baserequest.platform.md) | string | <i>(Optional)</i> The platform the request came from.<!-- -->Example platforms are Google's Dialogflow &amp; Amazon's Lex. |
 |  [rawQuery?](./stentor-models.baserequest.rawquery.md) | string | <i>(Optional)</i> Raw speech to text (STT) query, not available on all platforms. |
+|  [requestId?](./stentor-models.baserequest.requestid.md) | string | <i>(Optional)</i> Optional unique identifier for the request provided by the channel. |
 |  [type](./stentor-models.baserequest.type.md) | [RequestTypes](./stentor-models.requesttypes.md) | Type of the request. |
 |  [userId](./stentor-models.baserequest.userid.md) | string | ID for the user making the request. |
 

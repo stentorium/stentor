@@ -16,5 +16,6 @@ export interface NLUService
 
 |  Method | Description |
 |  --- | --- |
-|  [query(q)](./stentor-models.nluservice.query.md) |  |
+|  [query(q, props)](./stentor-models.nluservice.query.md) |  |
+|  [setContext(props)?](./stentor-models.nluservice.setcontext.md) | <i>(Optional)</i> |
 

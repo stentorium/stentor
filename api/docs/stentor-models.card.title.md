@@ -4,6 +4,8 @@
 
 ## Card.title property
 
+Card title
+
 <b>Signature:</b>
 
 ```typescript

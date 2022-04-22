@@ -4,7 +4,12 @@
 
 ## SimpleDisplay interface
 
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+> 
+
 The base Display structure
+
+Not widely used
 
 <b>Signature:</b>
 
@@ -17,12 +22,12 @@ export interface SimpleDisplay extends BaseDisplay
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [backButtonVisible?](./stentor-models.simpledisplay.backbuttonvisible.md) | boolean | <i>(Optional)</i> |
-|  [backgroundImage?](./stentor-models.simpledisplay.backgroundimage.md) | Image | <i>(Optional)</i> |
-|  [image?](./stentor-models.simpledisplay.image.md) | Image | <i>(Optional)</i> |
-|  [listItems?](./stentor-models.simpledisplay.listitems.md) | [DisplayListItem](./stentor-models.displaylistitem.md)<!-- -->\[\] | <i>(Optional)</i> |
-|  [textContent?](./stentor-models.simpledisplay.textcontent.md) | [TextContent](./stentor-models.textcontent.md) | <i>(Optional)</i> |
-|  [title?](./stentor-models.simpledisplay.title.md) | string | <i>(Optional)</i> |
-|  [token](./stentor-models.simpledisplay.token.md) | string |  |
-|  [type](./stentor-models.simpledisplay.type.md) | "ImageDisplay" \| "ShortText" \| "LongText" \| "ImageRightDetail" \| "ImageLeftDetail" \| "ImageForwardList" \| "TextForwardList" |  |
+|  [backButtonVisible?](./stentor-models.simpledisplay.backbuttonvisible.md) | boolean | <b><i>(BETA)</i></b> <i>(Optional)</i> |
+|  [backgroundImage?](./stentor-models.simpledisplay.backgroundimage.md) | Image | <b><i>(BETA)</i></b> <i>(Optional)</i> |
+|  [image?](./stentor-models.simpledisplay.image.md) | Image | <b><i>(BETA)</i></b> <i>(Optional)</i> |
+|  [listItems?](./stentor-models.simpledisplay.listitems.md) | [DisplayListItem](./stentor-models.displaylistitem.md)<!-- -->\[\] | <b><i>(BETA)</i></b> <i>(Optional)</i> |
+|  [textContent?](./stentor-models.simpledisplay.textcontent.md) | [TextContent](./stentor-models.textcontent.md) | <b><i>(BETA)</i></b> <i>(Optional)</i> |
+|  [title?](./stentor-models.simpledisplay.title.md) | string | <b><i>(BETA)</i></b> <i>(Optional)</i> |
+|  [token](./stentor-models.simpledisplay.token.md) | string | <b><i>(BETA)</i></b> |
+|  [type](./stentor-models.simpledisplay.type.md) | "ImageDisplay" \| "ShortText" \| "LongText" \| "ImageRightDetail" \| "ImageLeftDetail" \| "ImageForwardList" \| "TextForwardList" | <b><i>(BETA)</i></b> |
 

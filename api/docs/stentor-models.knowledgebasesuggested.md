@@ -17,5 +17,6 @@ export interface KnowledgeBaseSuggested extends KnowledgeBaseDocument
 
 |  Property | Type | Description |
 |  --- | --- | --- |
+|  [matchConfidence?](./stentor-models.knowledgebasesuggested.matchconfidence.md) | number | <i>(Optional)</i> Confidence of the match, number between 0-1 where the higher the number has a higher confidence. |
 |  [topAnswer?](./stentor-models.knowledgebasesuggested.topanswer.md) | string | <i>(Optional)</i> The snippet that is the exact answer the user is looking for within a larger document. |
 

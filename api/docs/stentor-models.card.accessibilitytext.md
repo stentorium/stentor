@@ -4,6 +4,8 @@
 
 ## Card.accessibilityText property
 
+Used when available as the accessibility text for the image, if provided.
+
 <b>Signature:</b>
 
 ```typescript

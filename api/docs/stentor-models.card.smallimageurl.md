@@ -4,6 +4,8 @@
 
 ## Card.smallImageUrl property
 
+Small image, used on smaller form factors.
+
 <b>Signature:</b>
 
 ```typescript

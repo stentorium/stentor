@@ -19,6 +19,6 @@ export interface ConditionalCheck<T = any>
 |  Property | Type | Description |
 |  --- | --- | --- |
 |  [check](./stentor-models.conditionalcheck.check.md) | (obj: T, ...args: any) =&gt; boolean | Check that is performed on the object to determine if it passes or fails the criteria.<!-- -->The first argument is the object while the subsequent parameters are any additional optional information that is required to make the determination. |
-|  [functions](./stentor-models.conditionalcheck.functions.md) | ((...args: any) =&gt; boolean)\[\] | A set of functions that help determination within a string.<!-- -->For example, for a time based conditional check, you can provide a function:<!-- -->shedule(startTime: string, duration: number, timezone: string): boolean<!-- -->which turns true if the current time is within the provided parameters. |
+|  [functions](./stentor-models.conditionalcheck.functions.md) | ((...args: any) =&gt; boolean \| string \| number)\[\] | A set of functions that help determination within a string.<!-- -->For example, for a time based conditional check, you can provide a function:<!-- -->schedule(startTime: string, duration: number, timezone: string): boolean<!-- -->which turns true if the current time is within the provided parameters. |
 |  [test](./stentor-models.conditionalcheck.test.md) | (obj: T \| object) =&gt; obj is T | A test for an object, that if returns true, can then be passed to the check function. |
 

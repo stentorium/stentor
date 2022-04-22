@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-query(q: string): Promise<NLUQueryResponse>;
+query(q: string, props?: NLURequestProps): Promise<NLUQueryResponse>;
 ```
 
 ## Parameters
@@ -15,6 +15,7 @@ query(q: string): Promise<NLUQueryResponse>;
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  q | string |  |
+|  props | [NLURequestProps](./stentor-models.nlurequestprops.md) |  |
 
 <b>Returns:</b>
 

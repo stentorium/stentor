@@ -16,7 +16,7 @@ export declare function toResponseOutput(input: string | ResponseOutput): Respon
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  input | string \| [ResponseOutput](./stentor-models.responseoutput.md) |  |
+|  input | string \| [ResponseOutput](./stentor-models.responseoutput.md) | Either a string or ResponseOutput to convert to a ResponseOutput |
 
 <b>Returns:</b>
 

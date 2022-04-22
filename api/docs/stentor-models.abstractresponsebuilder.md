@@ -45,9 +45,11 @@ export declare abstract class AbstractResponseBuilder<R = any>
 |  [respond(response)](./stentor-models.abstractresponsebuilder.respond.md) |  | Respond to the user.<!-- -->Can contain just an output speech but can also contain an reprompt. |
 |  [say(ssml, append)](./stentor-models.abstractresponsebuilder.say.md) |  | Say something to the user. |
 |  [stop()](./stentor-models.abstractresponsebuilder.stop.md) |  | Stop the current audio |
+|  [withActiveContext(context)](./stentor-models.abstractresponsebuilder.withactivecontext.md) |  | Active contexts provide guidance to the NLU to help it better select the next intent from the user's utterance. |
 |  [withCanFulfill(results)](./stentor-models.abstractresponsebuilder.withcanfulfill.md) |  | Build intent pre-fetch results aka "CanFulfillRequest" |
 |  [withCard(card)](./stentor-models.abstractresponsebuilder.withcard.md) |  | Provide a card |
 |  [withCarousel(items)](./stentor-models.abstractresponsebuilder.withcarousel.md) |  | Provide a carousel (horizontal selection) |
+|  [withDisplay(display)](./stentor-models.abstractresponsebuilder.withdisplay.md) |  | Add a custom display object to the response |
 |  [withList(items, title)](./stentor-models.abstractresponsebuilder.withlist.md) |  | Provide a list (vertical selection) |
 |  [withSuggestions(suggestion, append)](./stentor-models.abstractresponsebuilder.withsuggestions.md) |  | Provide suggestions for the user.<!-- -->Limited support across platforms for this at the moment, only Google Assistant. |
 

@@ -4,6 +4,8 @@
 
 ## Card.buttons property
 
+Buttons for the card which typically appear below the body of the card near the bottom.
+
 <b>Signature:</b>
 
 ```typescript

@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-export declare function compileSlotValues(responseOutput: ResponseOutput, slots: RequestSlotMap, replaceWhenUndefined?: boolean): ResponseOutput;
+export declare function compileSlotValues(responseOutput: ResponseOutput, slots: RequestSlotMap, replaceWhenUndefined?: boolean, macros?: MacroMap): ResponseOutput;
 ```
 
 ## Parameters
@@ -17,6 +17,7 @@ export declare function compileSlotValues(responseOutput: ResponseOutput, slots:
 |  responseOutput | [ResponseOutput](./stentor-models.responseoutput.md) |  |
 |  slots | [RequestSlotMap](./stentor-models.requestslotmap.md) |  |
 |  replaceWhenUndefined | boolean |  |
+|  macros | [MacroMap](./stentor-utils.macromap.md) |  |
 
 <b>Returns:</b>
 

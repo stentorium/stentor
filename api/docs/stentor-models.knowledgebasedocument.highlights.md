@@ -9,5 +9,5 @@ Notable highlights within the document that can help the user scan and find thei
 <b>Signature:</b>
 
 ```typescript
-highlights?: KnowlegeBaseHighlight[];
+highlights?: KnowledgeBaseHighlight[];
 ```

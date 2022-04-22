@@ -4,6 +4,11 @@
 
 ## compileJSONPaths() function
 
+> Warning: This API is now obsolete.
+> 
+> Use class Compiler, which handles both JSONPaths &amp; Slots
+> 
+
 Compiles all instances of a template with the provided string by looking up the JSON path within the provided object.
 
 For example, when passed "$<!-- -->{<!-- -->greeting<!-- -->} $<!-- -->{<!-- -->foo.name<!-- -->}<!-- -->, how are you?" and { greeting: "Hello", foo: {<!-- -->name: "Bob" }<!-- -->} will be compiled to "Hello Bob, how are you?"

@@ -1,7 +1,7 @@
 {
   "metadata": {
     "toolPackage": "@microsoft/api-extractor",
-    "toolVersion": "7.15.1",
+    "toolVersion": "7.19.4",
     "schemaVersion": 1004,
     "oldestForwardsCompatibleVersion": 1001,
     "tsdocConfig": {
@@ -331,6 +331,53 @@
             },
             {
               "kind": "Method",
+              "canonicalReference": "stentor!Assistant#withCrmService:member(1)",
+              "docComment": "/**\n * The CRM service send the collected sales leads to a CRM server.\n *\n * @param crmService - \n *\n * @beta @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "withCrmService(crmService: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "CrmService",
+                  "canonicalReference": "stentor-models!CrmService:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Assistant",
+                  "canonicalReference": "stentor!Assistant:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "crmService",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  }
+                }
+              ],
+              "name": "withCrmService"
+            },
+            {
+              "kind": "Method",
               "canonicalReference": "stentor!Assistant#withEventPrefix:member(1)",
               "docComment": "/**\n * Add an prefix to your events. This is a key value pair that is prefixed to all of your events.\n *\n * @param prefix - \n *\n * @beta @public\n */\n",
               "excerptTokens": [
@@ -584,6 +631,69 @@
             },
             {
               "kind": "Method",
+              "canonicalReference": "stentor!Assistant#withKnowledgeBaseService:member(1)",
+              "docComment": "/**\n * Add a Knowledge Base Service that is called on particular requests and the results are appended to the request.\n *\n * @param service - Service that impelements KnowledgeBaseService\n *\n * @param config - Configuration for when to call the service and how the results should be used.\n *\n * @returns \n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "withKnowledgeBaseService(service: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "KnowledgeBaseService",
+                  "canonicalReference": "stentor-models!KnowledgeBaseService:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", config: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "KnowledgeBaseConfig",
+                  "canonicalReference": "stentor-runtime!KnowledgeBaseConfig:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Assistant",
+                  "canonicalReference": "stentor!Assistant:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "service",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  }
+                },
+                {
+                  "parameterName": "config",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                }
+              ],
+              "name": "withKnowledgeBaseService"
+            },
+            {
+              "kind": "Method",
               "canonicalReference": "stentor!Assistant#withPiiService:member(1)",
               "docComment": "/**\n * The PII service keeps all personally identifiable information separated from user data that does not contain any PII.\n *\n * @param piiService - \n *\n * @beta @public\n */\n",
               "excerptTokens": [
@@ -675,6 +785,53 @@
                 }
               ],
               "name": "withRuntimeData"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "stentor!Assistant#withSmsService:member(1)",
+              "docComment": "/**\n * The SMS service sends text messages\n *\n * @param smsService - \n *\n * @beta @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "withSmsService(smsService: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "SMSService",
+                  "canonicalReference": "stentor-models!SMSService:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Assistant",
+                  "canonicalReference": "stentor!Assistant:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "smsService",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  }
+                }
+              ],
+              "name": "withSmsService"
             },
             {
               "kind": "Method",

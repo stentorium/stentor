@@ -4,6 +4,8 @@
 
 ## Card.content property
 
+Description, typically used in the body of the card
+
 <b>Signature:</b>
 
 ```typescript

@@ -18,6 +18,7 @@ export interface InputUnknownRequest extends BaseRequest
 |  Property | Type | Description |
 |  --- | --- | --- |
 |  [intentId](./stentor-models.inputunknownrequest.intentid.md) | [InputUnknownID](./stentor-models.inputunknownid.md) | Input Unknowns have a constant intentId. |
+|  [knowledgeBaseResult?](./stentor-models.inputunknownrequest.knowledgebaseresult.md) | [KnowledgeBaseResult](./stentor-models.knowledgebaseresult.md) | <b><i>(BETA)</i></b> <i>(Optional)</i> Results returned from a knowledge base such as AWS Kendra. |
 |  [sessionId](./stentor-models.inputunknownrequest.sessionid.md) | string | The session ID. |
 |  [type](./stentor-models.inputunknownrequest.type.md) | [InputUnknownRequestType](./stentor-models.inputunknownrequesttype.md) |  |
 

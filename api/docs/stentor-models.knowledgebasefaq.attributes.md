@@ -4,7 +4,7 @@
 
 ## KnowledgeBaseFAQ.attributes property
 
-Additional attribute for the document. Keys and values are dependent on the underlying knowledgebase.
+Additional attribute for the document. Keys and values are dependent on the underlying knowledge base.
 
 <b>Signature:</b>
 

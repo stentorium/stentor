@@ -9,7 +9,7 @@
 
 Only one of the objects within the array must pass for the conditions to be met.
 
-If only one is provided, it must pass for the condtions to be met.
+If only one is provided, it must pass for the conditions to be met.
 
 <b>Signature:</b>
 

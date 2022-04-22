@@ -9,5 +9,5 @@ Confidence 0-1
 <b>Signature:</b>
 
 ```typescript
-matchConfidence: number;
+matchConfidence?: number;
 ```

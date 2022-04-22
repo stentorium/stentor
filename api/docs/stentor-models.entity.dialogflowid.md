@@ -6,7 +6,7 @@
 
 > Warning: This API is now obsolete.
 > 
-> This field is being phased out.
+> This field is being phased out. It will be removed in the next major release
 > 
 
 Optional ID if the slot type has a representation in Dialogflow.

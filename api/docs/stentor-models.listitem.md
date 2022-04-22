@@ -20,4 +20,5 @@ export interface ListItem
 |  [synonyms?](./stentor-models.listitem.synonyms.md) | string\[\] | <i>(Optional)</i> Synonyms can be added so the user can speak the selection instead of touching the screen.<!-- -->Only supported on Google. |
 |  [title](./stentor-models.listitem.title.md) | string | Title of the list item, referred to as PrimaryText on Alexa. |
 |  [token](./stentor-models.listitem.token.md) | string | Used as a reference for when the list item is selected.<!-- -->This is the same as a key on Google. |
+|  [url?](./stentor-models.listitem.url.md) | string | <i>(Optional)</i> URL to open when the list item is selected.<!-- -->Not applicable to list type CAROUSEL or available on channels without a web browser available. |
 

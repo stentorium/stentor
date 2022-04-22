@@ -13,7 +13,6 @@ You must start the server that is passed out with:
 
 ```
 app.listen(SERVER_PORT);
-
 ```
 
 <b>Signature:</b>

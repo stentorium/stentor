@@ -19,5 +19,5 @@ export interface UserProfile
 |  [name?](./stentor-models.userprofile.name.md) | string | <i>(Optional)</i> The first name, or given name, of the user. |
 |  [notificationGranted?](./stentor-models.userprofile.notificationgranted.md) | boolean | <i>(Optional)</i> User granted permission to update Note: This isn't a piece of data we want to know, but Google uses the permissioning mechanism to grant it. |
 |  [phone?](./stentor-models.userprofile.phone.md) | string | <i>(Optional)</i> |
-|  [preciseLocation?](./stentor-models.userprofile.preciselocation.md) | string | <i>(Optional)</i> |
+|  [preciseLocation?](./stentor-models.userprofile.preciselocation.md) | { coordinates?: { latitude: number; longitude: number; }; } | <i>(Optional)</i> |
 

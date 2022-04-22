@@ -4,10 +4,10 @@
 
 ## KnowledgeBaseFAQ.highlights property
 
-Highlights within the FAQ document that are relevent to the user's original search.
+Highlights within the FAQ document that are relevant to the user's original search.
 
 <b>Signature:</b>
 
 ```typescript
-highlights?: KnowlegeBaseHighlight[];
+highlights?: KnowledgeBaseHighlight[];
 ```

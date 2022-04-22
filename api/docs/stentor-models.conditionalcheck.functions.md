@@ -8,12 +8,12 @@ A set of functions that help determination within a string.
 
 For example, for a time based conditional check, you can provide a function:
 
-shedule(startTime: string, duration: number, timezone: string): boolean
+schedule(startTime: string, duration: number, timezone: string): boolean
 
 which turns true if the current time is within the provided parameters.
 
 <b>Signature:</b>
 
 ```typescript
-functions: ((...args: any) => boolean)[];
+functions: ((...args: any) => boolean | string | number)[];
 ```

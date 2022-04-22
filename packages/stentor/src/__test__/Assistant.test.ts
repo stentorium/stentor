@@ -110,7 +110,6 @@ describe("Assistant", () => {
                     .withHandlerService(new MockHandlerService());
                 callback = sinon.stub();
 
-                const assistant = new Assistant().withHandlerService().lambda();
 
             });
             it("returns the expected result", async () => {

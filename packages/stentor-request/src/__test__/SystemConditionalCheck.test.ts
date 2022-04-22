@@ -3,10 +3,9 @@ import { expect } from "chai";
 
 import { Context, Storage, SystemDependent } from "stentor-models";
 import { createSessionStore } from "stentor-storage";
-import { LaunchRequestBuilder } from "../Builders";
+import { IntentRequestBuilder, LaunchRequestBuilder } from "../Builders";
 import { SystemConditionalCheck } from "../SystemConditionalCheck";
 import { ResponseBuilder } from "stentor-response";
-import { IntentRequestBuilder } from "../../lib";
 
 const launchRequest = new LaunchRequestBuilder().build();
 

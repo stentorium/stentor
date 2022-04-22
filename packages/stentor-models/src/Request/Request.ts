@@ -29,6 +29,10 @@ export interface BaseRequest {
      */
     overrideKey?: string;
     /**
+     * When the message was created, an ISO-8601 compatible date time string
+     */
+    createdTime?: string;
+    /**
      * ID for the user making the request.
      */
     userId: string;
@@ -101,6 +105,12 @@ export interface BaseRequest {
      * Currently only Google and Dialogflow perform health checks.
      */
     isHealthCheck?: boolean;
+    /**
+     * Optional request attributes to be passed through on the request.
+     * 
+     * If the channel supports it, it will be populated.
+     */
+    attributes?: Record<string, unknown>;
 }
 
 export interface ApiAccessData {

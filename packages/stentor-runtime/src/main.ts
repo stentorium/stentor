@@ -2,6 +2,15 @@
 import { isActionable } from "stentor-guards";
 import { log } from "stentor-logger";
 import { GOODBYE, TROUBLE_WITH_REQUEST, SESSION_STORAGE_NEW_USER, SESSION_STORAGE_SLOTS_KEY, SESSION_STORAGE_KNOWLEDGE_BASE_RESULT } from "stentor-constants";
+import {
+    hasSessionId,
+    isInputUnknownRequest,
+    isIntentRequest,
+    isLaunchRequest,
+    isOptionSelectRequest,
+    isPermissionRequest,
+    isSessionEndedRequest,
+} from "stentor-guards";
 import { ContextFactory } from "stentor-context";
 import { AbstractHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
@@ -14,7 +23,7 @@ import {
     CrmService,
     HandlerService,
     Hooks,
-    KnowledgeBaseService,
+    KnowledgeBaseDependency,
     PIIService,
     Request,
     Response,
@@ -24,51 +33,15 @@ import {
     SMSService,
     UserStorageService
 } from "stentor-models";
-import {
-    hasSessionId,
-    isInputUnknownRequest,
-    isIntentRequest,
-    isLaunchRequest,
-    isOptionSelectRequest,
-    isPermissionRequest,
-    isSessionEndedRequest,
-    keyFromRequest
-} from "stentor-request";
 import { canFulfillAll, canFulfillNothing, getResponse } from "stentor-response";
 import { EventService, wrapCallback as eventServiceCallbackWrapper } from "stentor-service-event";
 import { manipulateStorage } from "stentor-storage";
-import { combineRequestSlots, existsAndNotEmpty, findValueForKey } from "stentor-utils";
+import { combineRequestSlots, requestToMessage, responseToMessage, existsAndNotEmpty, findValueForKey, keyFromRequest } from "stentor-utils";
+
 import { ChannelSelector } from "./ChannelSelector";
 import { combineKnowledgeBaseResults, mergeInKnowledgeBaseResults } from "./combineKnowledgeBaseResults";
 
-export interface KnowledgeBaseConfig {
-    /**
-     * Either the intentId or regex to determine which requests to call the KnowledgeBaseService.  If not provided it defaults to "^.*$", which is a regex
-     * that will match on all requests.
-     */
-    matchIntentId?: string;
-    /**
-     * If provided, it will override the intentId on the original request if the knowledgebase results are preferred.
-     * 
-     * It will also update the request type to be that of an Intent Request.
-     */
-    setIntentId?: string;
-    /**
-     * If set to true then when knowledge base results already exist, they will be merged instead of the default behavior of
-     * being overwritten.
-     *  
-     * @beta - This field and behavior of the field is subject to change.
-     */
-    mergeResults?: boolean;
-    // For future consideration
-    // If set, it will be used to establish a minimum threshold that must be passed in order to use the knowledge base results.
-    // If below the threshold, then the existing intent will be used and not augmented.
-    // confidenceThreshold?: number;
-}
-
-export interface KnowledgeBaseDependency extends KnowledgeBaseConfig {
-    service: KnowledgeBaseService;
-}
+export const DEFAULT_MAX_HISTORY = 20;
 
 /**
  * Runtime dependencies
@@ -117,6 +90,11 @@ export const main = async (
     if (!existsAndNotEmpty(channels)) {
         throw new TypeError("Channels passed to main() was either undefined or empty.");
     }
+
+    // Define some variables that will be used throughout
+
+    const APP_ID: string = process.env["STUDIO_APP_ID"];
+    const HISTORY_SIZE: number = Number(process.env["STUDIO_MAX_HISTORY"]) || DEFAULT_MAX_HISTORY;
 
     const {
         eventService,
@@ -217,10 +195,6 @@ export const main = async (
         if (isIntentRequest(request) && request.canFulfill) {
             eventService.addPrefix({ canFulfill: `${request.canFulfill}` });
         }
-
-        if (isIntentRequest(request) && request.rawQuery) {
-            eventService.addPrefix({ rawQuery: request.rawQuery });
-        }
     }
 
     // Do some logging for debugging if needed
@@ -243,12 +217,24 @@ export const main = async (
     if (channel.nlu) {
         // We don't call if it is a LaunchRequest, option, or permission grant
         if (!isLaunchRequest(request) && !isOptionSelectRequest(request) && !isPermissionRequest(request)) {
-            const nluResponse = await channel.nlu.query(request.rawQuery);
+
+            const userId: string = request.userId;
+            const sessionId: string = hasSessionId(request) ? request.sessionId : undefined;
+            const locale = request.locale;
+
+            const nluResponse = await channel.nlu.query(request.rawQuery, { userId, sessionId, locale });
             // @ts-ignore TypeScript be cool
             request = {
                 ...request,
                 ...nluResponse
             };
+        }
+    }
+
+    // Some updates after NLU is called
+    if (eventService) {
+        if (isIntentRequest(request) && typeof request.matchConfidence === "number") {
+            eventService.addPrefix({ confidence: request.matchConfidence });
         }
     }
 
@@ -304,10 +290,23 @@ export const main = async (
         return;
     }
 
+    //
+    // Context Modifications!
+    //
+
     // See if it doesn't have a lastActiveTimestamp
     if (typeof context.storage.lastActiveTimestamp !== "number") {
         // We want to set a session variable so we can keep track of if they are a new user for the entire session
         context.session.set(SESSION_STORAGE_NEW_USER, true);
+    }
+
+    // If we get a message from the request, add it to the transcript
+    const requestMessage = requestToMessage(request, APP_ID)
+    if (requestMessage) {
+        if (!Array.isArray(context.storage.sessionStore.transcript)) {
+            context.storage.sessionStore.transcript = [];
+        }
+        context.storage.sessionStore.transcript.push(requestMessage);
     }
 
     // Update with the currentHandler
@@ -328,6 +327,9 @@ export const main = async (
         context.session.set(SESSION_STORAGE_KNOWLEDGE_BASE_RESULT, combineKnowledgeBaseResults(context.session.get(SESSION_STORAGE_KNOWLEDGE_BASE_RESULT), request.knowledgeBaseResult));
     }
 
+    //
+    // End Context Modifications!
+    //
 
     // #2 Get the request handler
     let handler: AbstractHandler;
@@ -446,7 +448,7 @@ export const main = async (
     // Save the response we are about to output as the previous response
     context.storage.previousResponse = context.response.response;
     // Trim history
-    context.storage.history = trimHistory(context.storage.history);
+    context.storage.history = trimHistory(context.storage.history, { historySize: HISTORY_SIZE });
 
     // #4.1 Save the PII storage
     if (piiService) {
@@ -487,7 +489,6 @@ export const main = async (
 
         log().debug("Response");
         log().debug(response);
-
         finalResponse = channel.response.translate({ request, response });
         log().debug("Final Response");
         log().debug(finalResponse);
@@ -499,6 +500,18 @@ export const main = async (
             eventService.error(error);
         }
         finalResponse = {};
+    }
+
+    const responseMessage = responseToMessage(response, request, APP_ID);
+    if (responseMessage) {
+        context.storage.sessionStore.transcript.push(responseMessage);
+    }
+
+    // Trim transcript before saving to keep it somewhat managable
+    if (Array.isArray(context.storage.sessionStore?.transcript)) {
+        const transcriptLength = context.storage.sessionStore.transcript.length;
+        const trimmed = context.storage.sessionStore.transcript.slice(Math.max(transcriptLength - HISTORY_SIZE, 0))
+        context.storage.sessionStore.transcript = trimmed;
     }
 
     if (isActionable(response)) {

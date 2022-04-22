@@ -57,6 +57,7 @@ export function dateTimeToSpeech(value: DateTime, type: "ssml" | "displayText" =
     // current date for parsing.  It won't be spoken 
     // back to the user, just for parsing.
     const toParse = { ...value };
+
     if (!toParse.date) {
         toParse.date = format(new Date(), "yyyy-MM-dd");
     }

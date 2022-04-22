@@ -3,6 +3,209 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.55.4](https://github.com/stentorium/stentor/compare/v1.55.3...v1.55.4) (2022-04-21)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.55.1](https://github.com/stentorium/stentor/compare/v1.55.0...v1.55.1) (2022-04-20)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+# [1.55.0](https://github.com/stentorium/stentor/compare/v1.54.25...v1.55.0) (2022-04-18)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.54.25](https://github.com/stentorium/stentor/compare/v1.54.24...v1.54.25) (2022-04-18)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.54.24](https://github.com/stentorium/stentor/compare/v1.54.23...v1.54.24) (2022-04-12)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.54.22](https://github.com/stentorium/stentor/compare/v1.54.21...v1.54.22) (2022-04-08)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.54.20](https://github.com/stentorium/stentor/compare/v1.54.19...v1.54.20) (2022-04-06)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.54.15](https://github.com/stentorium/stentor/compare/v1.54.14...v1.54.15) (2022-04-04)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.54.13](https://github.com/stentorium/stentor/compare/v1.54.12...v1.54.13) (2022-04-02)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.54.12](https://github.com/stentorium/stentor/compare/v1.54.11...v1.54.12) (2022-04-01)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.54.11](https://github.com/stentorium/stentor/compare/v1.54.10...v1.54.11) (2022-03-31)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.54.7](https://github.com/stentorium/stentor/compare/v1.54.6...v1.54.7) (2022-03-25)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.54.6](https://github.com/stentorium/stentor/compare/v1.54.5...v1.54.6) (2022-03-23)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.54.3](https://github.com/stentorium/stentor/compare/v1.54.2...v1.54.3) (2022-03-21)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.54.2](https://github.com/stentorium/stentor/compare/v1.54.1...v1.54.2) (2022-03-18)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.54.1](https://github.com/stentorium/stentor/compare/v1.54.0...v1.54.1) (2022-03-18)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.53.7](https://github.com/stentorium/stentor/compare/v1.53.6...v1.53.7) (2022-03-17)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.53.6](https://github.com/stentorium/stentor/compare/v1.53.5...v1.53.6) (2022-03-17)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.53.5](https://github.com/stentorium/stentor/compare/v1.53.4...v1.53.5) (2022-03-15)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.53.3](https://github.com/stentorium/stentor/compare/v1.53.2...v1.53.3) (2022-03-14)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.53.1](https://github.com/stentorium/stentor/compare/v1.53.0...v1.53.1) (2022-03-11)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+# [1.53.0](https://github.com/stentorium/stentor/compare/v1.52.37...v1.53.0) (2022-03-11)
+
+
+### Features
+
+* Automatic Transcripts on Session Store ([#1432](https://github.com/stentorium/stentor/issues/1432)) ([c8c7075](https://github.com/stentorium/stentor/commit/c8c7075beb83bfe739f10a7c160543dfd2688d75))
+
+
+
+
+
+## [1.52.36](https://github.com/stentorium/stentor/compare/v1.52.35...v1.52.36) (2022-03-09)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.52.35](https://github.com/stentorium/stentor/compare/v1.52.34...v1.52.35) (2022-03-07)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
+## [1.52.33](https://github.com/stentorium/stentor/compare/v1.52.32...v1.52.33) (2022-03-07)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
 ## [1.52.32](https://github.com/stentorium/stentor/compare/v1.52.31...v1.52.32) (2022-03-03)
 
 **Note:** Version bump only for package stentor-history

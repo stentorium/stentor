@@ -1,6 +1,27 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { AbstractBuilder } from "@xapp/patterns";
-import { LAUNCH_REQUEST_ID, INPUT_UNKNOWN_ID, PERMISSION_GRANT_ID, SIGN_IN_ID, OPTION_SELECT_ID } from "stentor-constants";
+import {
+    LAUNCH_REQUEST_ID,
+    INPUT_UNKNOWN_ID,
+    PERMISSION_GRANT_ID,
+    SIGN_IN_ID,
+    OPTION_SELECT_ID,
+    LAUNCH_REQUEST_TYPE,
+    INTENT_REQUEST_TYPE,
+    INPUT_UNKNOWN_REQUEST_TYPE,
+    AUDIO_PLAYER_PLAYBACK_STARTED_EVENT,
+    AUDIO_PLAYER_PLAYBACK_STOPPED_EVENT,
+    AUDIO_PLAYER_REQUEST_TYPE,
+    PLAYBACK_CONTROL_NEXT_EVENT,
+    PLAYBACK_CONTROL_PREVIOUS_EVENT,
+    PLAYBACK_CONTROL_PAUSE_EVENT,
+    PLAYBACK_CONTROL_PLAY_EVENT,
+    PLAYBACK_CONTROL_REQUEST_TYPE,
+    PERMISSION_REQUEST_TYPE,
+    SESSION_ENDED_REQUEST_TYPE,
+    OPTION_SELECT_REQUEST_TYPE,
+    SIGN_IN_REQUEST_TYPE
+} from "stentor-constants";
 import {
     ApiAccessData,
     AudioPlayerEvent,
@@ -21,7 +42,6 @@ import {
 } from "stentor-models";
 
 import * as INTENT from "stentor-interaction-model/lib/Intent/Constants";
-import * as REQUEST from "./Constants";
 
 /**
  * Builds a LaunchRequest
@@ -60,7 +80,7 @@ export class LaunchRequestBuilder extends AbstractBuilder<LaunchRequest> {
 
         return {
             intentId: LAUNCH_REQUEST_ID,
-            type: REQUEST.LAUNCH_REQUEST_TYPE,
+            type: LAUNCH_REQUEST_TYPE,
             isNewSession: true,
             deviceId,
             sessionId: "sessionId",
@@ -102,7 +122,7 @@ export class InputUnknownRequestBuilder extends AbstractBuilder<InputUnknownRequ
     public build(): InputUnknownRequest {
         const request: InputUnknownRequest = {
             intentId: INPUT_UNKNOWN_ID,
-            type: REQUEST.INPUT_UNKNOWN_REQUEST_TYPE,
+            type: INPUT_UNKNOWN_REQUEST_TYPE,
             sessionId: "sessionId",
             isNewSession: false,
             userId: "userId",
@@ -328,7 +348,7 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
         const { apiAccess, canFulFill, device, deviceId, knowledgeBaseResult, intentId, locale, platform, slots, userId, isNewSession, rawQuery } = this;
 
         const request: IntentRequest = {
-            type: REQUEST.INTENT_REQUEST_TYPE,
+            type: INTENT_REQUEST_TYPE,
             userId,
             sessionId: "sessionId",
             isNewSession,
@@ -370,7 +390,7 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
  * Build an AudioPlayerRequest
  */
 export class AudioPlayerRequestBuilder extends AbstractBuilder<AudioPlayerRequest> {
-    private event: AudioPlayerEvent = REQUEST.AUDIO_PLAYER_PLAYBACK_STARTED_EVENT;
+    private event: AudioPlayerEvent = AUDIO_PLAYER_PLAYBACK_STARTED_EVENT;
     private token = "token";
     private offsetInMilliseconds = 0;
 
@@ -380,12 +400,12 @@ export class AudioPlayerRequestBuilder extends AbstractBuilder<AudioPlayerReques
     }
 
     public playbackStarted(): AudioPlayerRequestBuilder {
-        this.event = REQUEST.AUDIO_PLAYER_PLAYBACK_STARTED_EVENT;
+        this.event = AUDIO_PLAYER_PLAYBACK_STARTED_EVENT;
         return this;
     }
 
     public playbackStopped(): AudioPlayerRequestBuilder {
-        this.event = REQUEST.AUDIO_PLAYER_PLAYBACK_STOPPED_EVENT;
+        this.event = AUDIO_PLAYER_PLAYBACK_STOPPED_EVENT;
         return this;
     }
 
@@ -403,7 +423,7 @@ export class AudioPlayerRequestBuilder extends AbstractBuilder<AudioPlayerReques
         const { event, token, offsetInMilliseconds } = this;
 
         return {
-            type: REQUEST.AUDIO_PLAYER_REQUEST_TYPE,
+            type: AUDIO_PLAYER_REQUEST_TYPE,
             userId: "userId",
             event,
             token,
@@ -417,25 +437,25 @@ export class AudioPlayerRequestBuilder extends AbstractBuilder<AudioPlayerReques
  * Builds a PlaybackControlRequest
  */
 export class PlaybackControlRequestBuilder extends AbstractBuilder<PlaybackControlRequest> {
-    private event: PlaybackControlEvent = REQUEST.PLAYBACK_CONTROL_NEXT_EVENT;
+    private event: PlaybackControlEvent = PLAYBACK_CONTROL_NEXT_EVENT;
 
     public withNextEvent(): PlaybackControlRequestBuilder {
-        this.event = REQUEST.PLAYBACK_CONTROL_NEXT_EVENT;
+        this.event = PLAYBACK_CONTROL_NEXT_EVENT;
         return this;
     }
 
     public withPreviousEvent(): PlaybackControlRequestBuilder {
-        this.event = REQUEST.PLAYBACK_CONTROL_PREVIOUS_EVENT;
+        this.event = PLAYBACK_CONTROL_PREVIOUS_EVENT;
         return this;
     }
 
     public withPauseEvent(): PlaybackControlRequestBuilder {
-        this.event = REQUEST.PLAYBACK_CONTROL_PAUSE_EVENT;
+        this.event = PLAYBACK_CONTROL_PAUSE_EVENT;
         return this;
     }
 
     public withPlayEvent(): PlaybackControlRequestBuilder {
-        this.event = REQUEST.PLAYBACK_CONTROL_PLAY_EVENT;
+        this.event = PLAYBACK_CONTROL_PLAY_EVENT;
         return this;
     }
 
@@ -444,7 +464,7 @@ export class PlaybackControlRequestBuilder extends AbstractBuilder<PlaybackContr
 
         return {
             userId: "userId",
-            type: REQUEST.PLAYBACK_CONTROL_REQUEST_TYPE,
+            type: PLAYBACK_CONTROL_REQUEST_TYPE,
             event,
             isNewSession: false
         };
@@ -457,13 +477,15 @@ export class PlaybackControlRequestBuilder extends AbstractBuilder<PlaybackContr
 export class PermissionGrantBuilder extends AbstractBuilder<PermissionRequest> {
     public build(): PermissionRequest {
         return {
-            type: REQUEST.PERMISSION_REQUEST_TYPE,
+            type: PERMISSION_REQUEST_TYPE,
             intentId: PERMISSION_GRANT_ID,
             sessionId: "sessionId",
             granted: true,
             userId: "userId",
             isNewSession: false,
-            userProfile: {}
+            userProfile: {
+                id: "userId"
+            }
         };
     }
 }
@@ -474,7 +496,7 @@ export class PermissionGrantBuilder extends AbstractBuilder<PermissionRequest> {
 export class SessionEndedRequestBuilder extends AbstractBuilder<SessionEndedRequest> {
     public build(): SessionEndedRequest {
         return {
-            type: REQUEST.SESSION_ENDED_REQUEST_TYPE,
+            type: SESSION_ENDED_REQUEST_TYPE,
             sessionId: "sessionId",
             userId: "userId",
             isNewSession: false,
@@ -514,7 +536,7 @@ export class OptionSelectBuilder extends AbstractBuilder<OptionSelectRequest> {
 
     public build(): OptionSelectRequest {
         return {
-            type: REQUEST.OPTION_SELECT_REQUEST_TYPE,
+            type: OPTION_SELECT_REQUEST_TYPE,
             intentId: OPTION_SELECT_ID,
             sessionId: "sessionId",
             token: this.token,
@@ -539,7 +561,7 @@ export class SignInRequestBuilder extends AbstractBuilder<SignInRequest> {
     public build(): SignInRequest {
         const { granted } = this;
         return {
-            type: REQUEST.SIGN_IN_REQUEST_TYPE,
+            type: SIGN_IN_REQUEST_TYPE,
             intentId: SIGN_IN_ID,
             sessionId: "sessionId",
             userId: "userId",

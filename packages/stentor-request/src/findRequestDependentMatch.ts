@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { Request, RequestDependable } from "stentor-models";
 import { compare, random } from "stentor-utils";
-import { isRequestDependable } from "./Guards";
+import { isRequestDependable } from "stentor-guards";
 
 /**
  * Based on the provided request, it finds a request dependent match or undefined if no match is found.

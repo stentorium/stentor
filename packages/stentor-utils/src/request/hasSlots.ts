@@ -1,12 +1,13 @@
-/*! Copyright (c) 2019, XAPPmedia */
+/*! Copyright (c) 2022, XAPPmedia */
+
 import { Request } from "stentor-models";
-import { isIntentRequest } from "./Guards";
+import { isIntentRequest } from "stentor-guards";
 
 /**
  * Helper method to determine if the request has slots.
  *
- * @param {Request} request
- * @returns {boolean}
+ * @param request
+ * @returns 
  */
 export function hasSlots(request: Request): boolean {
     let hasSlots = false;

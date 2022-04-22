@@ -3,6 +3,220 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.55.4](https://github.com/stentorium/stentor/compare/v1.55.3...v1.55.4) (2022-04-21)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.55.1](https://github.com/stentorium/stentor/compare/v1.55.0...v1.55.1) (2022-04-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.40.139 ([#1495](https://github.com/stentorium/stentor/issues/1495)) ([2b3699e](https://github.com/stentorium/stentor/commit/2b3699e5e43bb5e047ac11e7edeaf05ca05e89a1))
+
+
+
+
+
+# [1.55.0](https://github.com/stentorium/stentor/compare/v1.54.25...v1.55.0) (2022-04-18)
+
+
+### Features
+
+* Studio Service query with FAQs ([#1492](https://github.com/stentorium/stentor/issues/1492)) ([2d283db](https://github.com/stentorium/stentor/commit/2d283db45cfe3221a85f17e303e5ca1290d6c989))
+
+
+
+
+
+## [1.54.25](https://github.com/stentorium/stentor/compare/v1.54.24...v1.54.25) (2022-04-18)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.54.24](https://github.com/stentorium/stentor/compare/v1.54.23...v1.54.24) (2022-04-12)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.54.22](https://github.com/stentorium/stentor/compare/v1.54.21...v1.54.22) (2022-04-08)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.54.20](https://github.com/stentorium/stentor/compare/v1.54.19...v1.54.20) (2022-04-06)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.54.15](https://github.com/stentorium/stentor/compare/v1.54.14...v1.54.15) (2022-04-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.40.101 ([b97dc42](https://github.com/stentorium/stentor/commit/b97dc420d1a2c9710c2eba33ab10869658d25975))
+
+
+
+
+
+## [1.54.13](https://github.com/stentorium/stentor/compare/v1.54.12...v1.54.13) (2022-04-02)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.54.12](https://github.com/stentorium/stentor/compare/v1.54.11...v1.54.12) (2022-04-01)
+
+
+### Bug Fixes
+
+* Catastrphic Backticking on Macro Regex & Guards Shuffle ([#1463](https://github.com/stentorium/stentor/issues/1463)) ([d882b35](https://github.com/stentorium/stentor/commit/d882b35e642e0e232de99ed6ab12df4d4e64a4a5))
+
+
+
+
+
+## [1.54.11](https://github.com/stentorium/stentor/compare/v1.54.10...v1.54.11) (2022-03-31)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.54.7](https://github.com/stentorium/stentor/compare/v1.54.6...v1.54.7) (2022-03-25)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.54.6](https://github.com/stentorium/stentor/compare/v1.54.5...v1.54.6) (2022-03-23)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.54.3](https://github.com/stentorium/stentor/compare/v1.54.2...v1.54.3) (2022-03-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.40.83 ([e4810e8](https://github.com/stentorium/stentor/commit/e4810e8da9bb295ceda3a4b355f8589ca2bfb89d))
+
+
+
+
+
+## [1.54.2](https://github.com/stentorium/stentor/compare/v1.54.1...v1.54.2) (2022-03-18)
+
+
+### Bug Fixes
+
+* Changes object to record<string,unknown> on Request Attributes  ([#1447](https://github.com/stentorium/stentor/issues/1447)) ([bcbb5f8](https://github.com/stentorium/stentor/commit/bcbb5f861422140c4bb54d4b6942520ecca7bc3d))
+
+
+
+
+
+## [1.54.1](https://github.com/stentorium/stentor/compare/v1.54.0...v1.54.1) (2022-03-18)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.53.7](https://github.com/stentorium/stentor/compare/v1.53.6...v1.53.7) (2022-03-17)
+
+
+### Bug Fixes
+
+* Add slot obfuscations setting ([#1444](https://github.com/stentorium/stentor/issues/1444)) ([287f8c6](https://github.com/stentorium/stentor/commit/287f8c6c32ca56462dd2cb46e4b37d8dcddb2d33))
+
+
+
+
+
+## [1.53.6](https://github.com/stentorium/stentor/compare/v1.53.5...v1.53.6) (2022-03-17)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.53.5](https://github.com/stentorium/stentor/compare/v1.53.4...v1.53.5) (2022-03-15)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.53.1](https://github.com/stentorium/stentor/compare/v1.53.0...v1.53.1) (2022-03-11)
+
+
+### Bug Fixes
+
+* Add request attributes and update CRM Transcript ([#1435](https://github.com/stentorium/stentor/issues/1435)) ([1743a46](https://github.com/stentorium/stentor/commit/1743a468520e890c570263dbb75b478332287b95))
+
+
+
+
+
+# [1.53.0](https://github.com/stentorium/stentor/compare/v1.52.37...v1.53.0) (2022-03-11)
+
+
+### Features
+
+* Automatic Transcripts on Session Store ([#1432](https://github.com/stentorium/stentor/issues/1432)) ([c8c7075](https://github.com/stentorium/stentor/commit/c8c7075beb83bfe739f10a7c160543dfd2688d75))
+
+
+
+
+
+## [1.52.36](https://github.com/stentorium/stentor/compare/v1.52.35...v1.52.36) (2022-03-09)
+
+**Note:** Version bump only for package stentor-models
+
+
+
+
+
+## [1.52.33](https://github.com/stentorium/stentor/compare/v1.52.32...v1.52.33) (2022-03-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.40.63 ([a7349a0](https://github.com/stentorium/stentor/commit/a7349a0ac3147c15cf3d46890df32bca32ad524c))
+
+
+
+
+
 ## [1.52.32](https://github.com/stentorium/stentor/compare/v1.52.31...v1.52.32) (2022-03-03)
 
 **Note:** Version bump only for package stentor-models

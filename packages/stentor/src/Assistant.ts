@@ -16,17 +16,19 @@ import {
     AppRuntimeData,
     Channel,
     CrmService,
-    SMSService,
     EventStream,
     HandlerService,
     Hooks,
+    KnowledgeBaseConfig,
+    KnowledgeBaseDependency,
     KnowledgeBaseService,
     PIIService,
     RuntimeCallback,
     RuntimeContext,
+    SMSService,
     UserStorageService
 } from "stentor-models";
-import { KnowledgeBaseConfig, KnowledgeBaseDependency, main, translateEventAndContext } from "stentor-runtime";
+import { main, translateEventAndContext } from "stentor-runtime";
 import { EventPrefix, EventService } from "stentor-service-event";
 import { StudioEventStream, StudioService } from "stentor-service-studio";
 import { OVAIEventStream, OVAIService } from "stentor-service-ovai";

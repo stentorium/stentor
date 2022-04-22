@@ -1,6 +1,7 @@
 /*! Copyright (c) 2030, XAPPmedia */
 import { SESSION_STORAGE_SLOTS_KEY, TEMPLATE_REGEX } from "stentor-constants";
-import { Context, IntentRequest, Request, RequestSlotMap, ResponseOutput, SuggestionTypes } from "stentor-models";
+import { isIntentRequest } from "stentor-guards";
+import { Context, Request, RequestSlotMap, ResponseOutput, SuggestionTypes } from "stentor-models";
 import { JSONPath } from "jsonpath-plus";
 
 import { MacroMap } from "./macro";
@@ -12,13 +13,6 @@ import { isLinkoutSuggestion } from "stentor-guards";
 
 type ResponseOutputKeysOnly = Pick<ResponseOutput, "ssml" | "displayText" | "html">;
 
-// We are redefining this here so we don't have to import the entire stentor-request package
-// as a depdenency, which we can't because it would then be circular
-// Idealing we have isIntentRequest in the stentor-guards package
-function isIntentRequest(request: Request): request is IntentRequest {
-    return !!request && request.type === "INTENT_REQUEST";
-}
-
 export const DEFAULT_MARCOS: MacroMap = {
     capitalize: capitalize,
     slotValueToSpeech: slotValueToSpeech,
@@ -27,7 +21,7 @@ export const DEFAULT_MARCOS: MacroMap = {
 
 export interface CompilerProps {
     /**
-     * When true, it will replace the ${foo} with undefined.  Default behavior will leave ${foo} if it does not have a value.
+     * When true, it will replace the ${foo} with undefined or null if the value for `foo` cannot be found.  Default behavior will leave ${foo} if it does not have a value.
      */
     readonly replaceWhenUndefined?: boolean;
     /**
@@ -94,7 +88,7 @@ export class Compiler implements CompilerProps {
         // First look for macros
         // See this regex in action: https://regex101.com/r/MihX7l/2 
         // It is complicated.
-        const MACRO_REGEX = /\$\{\s*([a-zA-Z]*)\(\s*((?:["`']\$\{(?:\s*\$\.)?[\s\w\.]*\}["`']|[^$]\w*)+)\s*\)\s*\}/g;
+        const MACRO_REGEX = /\$\{\s*([a-zA-Z]*)\(\s*((?:["`']\$\{(?:\s*\$\.)?[\s\w\.]*\}["`']|[^$]\w*){0,5})\s*\)\s*\}/g;
 
         let macroResult: RegExpExecArray;
         const macroReg = new RegExp(MACRO_REGEX);
@@ -172,7 +166,7 @@ export class Compiler implements CompilerProps {
 
                 const sessionReplacement = sessionPathResult[0];
 
-                if (typeof sessionReplacement === "object") {
+                if (sessionReplacement && typeof sessionReplacement === "object") {
                     // Try the key, it might be a ResponseOutput
                     if (sessionPathResult[0][key]) {
                         sessionValue = `${sessionReplacement[key]}`;
@@ -183,10 +177,9 @@ export class Compiler implements CompilerProps {
                     }
                 } else if (typeof sessionReplacement === "string") {
                     sessionValue = sessionReplacement
-                } else {
+                } else if (sessionReplacement !== null) {
                     sessionValue = `${sessionReplacement}`;
                 }
-
             }
             // Last, we just try a JSON path
             const pathResult = JSONPath({
@@ -203,7 +196,7 @@ export class Compiler implements CompilerProps {
 
                 const replacement = pathResult[0];
 
-                if (typeof replacement === "object") {
+                if (replacement && typeof replacement === "object") {
                     // Try the key, it might be a ResponseOutput
                     if (replacement[key]) {
                         pathReplacement = `${replacement[key]}`;
@@ -214,7 +207,7 @@ export class Compiler implements CompilerProps {
                     }
                 } else if (typeof replacement === "string") {
                     pathReplacement = replacement;
-                } else {
+                } else if (replacement !== null) {
                     pathReplacement = `${replacement}`;
                 }
             }

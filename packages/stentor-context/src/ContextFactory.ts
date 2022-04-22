@@ -1,4 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { PERMISSION_REQUEST_TYPE } from "stentor-constants";
 import {
     AbstractResponseBuilder,
     AppRuntimeData,
@@ -16,7 +17,7 @@ import {
     UserProfile,
     UserStorageService
 } from "stentor-models";
-import { hasSessionId, PERMISSION_REQUEST_TYPE } from "stentor-request";
+import { hasSessionId } from "stentor-guards";
 import { ResponseBuilder } from "stentor-response";
 import { createSessionStore } from "stentor-storage";
 

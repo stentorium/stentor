@@ -12,18 +12,18 @@
     "website"
   ],
   "devDependencies": {
-    "@microsoft/api-documenter": "7.15.3",
-    "@typescript-eslint/eslint-plugin": "5.13.0",
-    "@typescript-eslint/parser": "5.13.0",
+    "@microsoft/api-documenter": "7.17.9",
+    "@typescript-eslint/eslint-plugin": "5.20.0",
+    "@typescript-eslint/parser": "5.20.0",
     "@xapp/config": "0.2.3",
-    "eslint": "8.10.0",
+    "eslint": "8.13.0",
     "eslint-plugin-notice": "0.9.10",
     "lerna": "4.0.0",
     "license-checker": "25.0.1",
-    "mocha": "9.2.1",
+    "mocha": "9.2.2",
     "mocha-junit-reporter": "2.0.2",
     "nyc": "15.1.0",
-    "syncpack": "6.2.0"
+    "syncpack": "6.2.1"
   },
   "scripts": {
     "api": "lerna run api",

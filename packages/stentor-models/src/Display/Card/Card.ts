@@ -8,6 +8,10 @@ export interface Card extends BaseDisplay {
      */
     title: string;
     /**
+     * Card secondary title, if available it is smaller font below title
+     */
+    subTitle?: string;
+    /**
      * Description, typically used in the body of the card
      */
     content: string;
@@ -21,7 +25,7 @@ export interface Card extends BaseDisplay {
     largeImageUrl?: string;
     /**
      * When present, if the image is clicked the provided website will open.
-     * 
+     *
      * @beta Not yet fully supported.
      */
     imageActionUrl?: string;

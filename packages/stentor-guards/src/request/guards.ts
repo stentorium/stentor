@@ -14,9 +14,10 @@ import {
     SignInRequest,
     SurfaceChangeRequest,
     SystemDependable,
-    SystemDependent
+    SystemDependent,
+    NotificationPermissionRequest
 } from "stentor-models";
-import { NotificationPermissionRequest } from "stentor-models/lib/Request/NotificationPermissionRequest";
+
 import {
     AUDIO_PLAYER_REQUEST_TYPE,
     INPUT_UNKNOWN_REQUEST_TYPE,
@@ -29,13 +30,13 @@ import {
     SESSION_ENDED_REQUEST_TYPE,
     SIGN_IN_REQUEST_TYPE,
     SURFACE_CHANGE_REQUEST_TYPE
-} from "./Constants";
+} from "stentor-constants";
 
 /**
  * Check if the request is a LaunchRequest
  *
- * @param {Request} request
- * @returns {boolean}
+ * @param request
+ * @returns 
  */
 export function isLaunchRequest(request: Request): request is LaunchRequest {
     return !!request && request.type === LAUNCH_REQUEST_TYPE;
@@ -44,8 +45,8 @@ export function isLaunchRequest(request: Request): request is LaunchRequest {
 /**
  * Check if the request is an InputUnknownRequest
  *
- * @param {Request} request
- * @returns {request is InputUnknownRequest}
+ * @param request - Request
+ * @returns If the request is an InputUnknown
  */
 export function isInputUnknownRequest(request: Request): request is InputUnknownRequest {
     return !!request && request.type === INPUT_UNKNOWN_REQUEST_TYPE;
@@ -53,8 +54,8 @@ export function isInputUnknownRequest(request: Request): request is InputUnknown
 /**
  * Check if the request is a SessionEndedRequest
  *
- * @param {Request} request
- * @returns {boolean}
+ * @param request
+ * @returns 
  */
 export function isSessionEndedRequest(request: Request): request is SessionEndedRequest {
     return !!request && request.type === SESSION_ENDED_REQUEST_TYPE;
@@ -62,8 +63,8 @@ export function isSessionEndedRequest(request: Request): request is SessionEnded
 /**
  * Check if the request is a IntentRequest
  *
- * @param {Request} request
- * @returns {boolean}
+ * @param request
+ * @returns 
  */
 export function isIntentRequest(request: Request): request is IntentRequest {
     return !!request && request.type === INTENT_REQUEST_TYPE;
@@ -172,12 +173,11 @@ export function isNewSession(request: Request): boolean {
     return request.isNewSession;
 }
 
-
 /**
  * Helper function to determine if the request has a sessionID.
  *
  * @param {Request} request
- * @returns {(request is IntentRequest | LaunchRequest | SessionEndedRequest | PermissionGrant)}
+ * @returns True if the 
  */
 export function hasSessionId(
     request: Request

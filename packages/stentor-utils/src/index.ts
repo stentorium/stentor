@@ -23,4 +23,6 @@ export * from "./response";
 export * from "./speech";
 export * from "./ssml";
 export * from "./string";
+export * from "./transcript";
 export * from "./uuid";
+export * from "./keyFromRequest";

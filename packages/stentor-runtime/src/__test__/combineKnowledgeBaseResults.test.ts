@@ -1,8 +1,9 @@
 /*! Copyright (c) 2021, XAPPmedia */
 import { expect } from "chai";
 
+import { isIntentRequest } from "stentor-guards";
 import { KnowledgeBaseResult } from "stentor-models";
-import { InputUnknownRequestBuilder, IntentRequestBuilder, isIntentRequest } from "stentor-request";
+import { InputUnknownRequestBuilder, IntentRequestBuilder } from "stentor-request";
 
 import { combineKnowledgeBaseResults, mergeInKnowledgeBaseResults } from "../combineKnowledgeBaseResults";
 

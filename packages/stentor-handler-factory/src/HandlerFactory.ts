@@ -7,8 +7,7 @@ import {
 } from "stentor-handler";
 import { DelegatingHandler, isDelegatingHandler } from "stentor-handler-delegating";
 import { Context, Handler, HandlerDelegates, Request } from "stentor-models";
-import { keyFromRequest } from "stentor-request";
-import { existsAndNotEmpty } from "stentor-utils";
+import { existsAndNotEmpty, keyFromRequest } from "stentor-utils";
 import { NoHandlerClassError } from "./NoHandlerClassError";
 
 // eslint-disable-next-line @typescript-eslint/array-type

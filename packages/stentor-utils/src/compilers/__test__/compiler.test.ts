@@ -15,6 +15,10 @@ const slots: RequestSlotMap = {
     ["name"]: {
         name: "name",
         value: "bob"
+    },
+    ["first_name"]: {
+        name: "first_name",
+        value: "joe"
     }
 }
 
@@ -47,6 +51,10 @@ const sessionData = {
     output: {
         displayText: "session display text",
         ssml: "session ssml"
+    },
+    nullValue: {
+        // @ts-expect-error We are testing null values here
+        foo: null
     }
 }
 
@@ -168,6 +176,26 @@ describe(`${Compiler.name}`, () => {
                             context
                         );
                         expect(compiled).to.equal("Hi Bob Bob!");
+                    });
+                });
+                describe("with single quote", () => {
+                    it("compiles the value", () => {
+                        const compiled = new Compiler().compile(
+                            "<speak>Thank you, ${capitalize('${first_name}')}. Lastly, can you provide your address in case we need to look up information about your house?</speak>",
+                            request,
+                            context
+                        );
+                        expect(compiled).to.equal("<speak>Thank you, Joe. Lastly, can you provide your address in case we need to look up information about your house?</speak>");
+                    });
+                });
+                describe("with escaped quotes", () => {
+                    it("compiles the value", () => {
+                        const compiled = new Compiler().compile(
+                            "<speak>Thank you, ${capitalize(\"${first_name}\")}. Lastly, can you provide your address in case we need to look up information about your house?</speak>",
+                            request,
+                            context
+                        );
+                        expect(compiled).to.equal("<speak>Thank you, Joe. Lastly, can you provide your address in case we need to look up information about your house?</speak>");
                     });
                 });
             });
@@ -304,8 +332,8 @@ describe(`${Compiler.name}`, () => {
                 const compiled = new Compiler({
                     replaceWhenUndefined: true
                 }).compile({
-                    ssml: "<speak>Hi ${first_name}!",
-                    displayText: "Hi ${first_name}!"
+                    ssml: "<speak>Hi ${f_name}!",
+                    displayText: "Hi ${f_name}!"
                 }, request, context);
                 expect(compiled).to.deep.equal({
                     ssml: "<speak>Hi undefined!",
@@ -352,6 +380,15 @@ describe(`${Compiler.name}`, () => {
                     ssml: "<speak>Hi bob vance!</speak>",
                     displayText: "Hi bob Vance!"
                 });
+            });
+        });
+        describe("when a resolved path value is null", () => {
+            it("compiles the values", () => {
+                const json = '{"description":"${currentResult.document}","title":"${nullValue.foo}","url":"${currentResult.source}","synonyms":[],"token":"result-${index}"}';
+                const compiled = new Compiler().compile(json, request, context);
+                expect(compiled).to.exist;
+                expect(compiled).to.equal(json);
+
             });
         });
     });

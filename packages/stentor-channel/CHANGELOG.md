@@ -3,6 +3,338 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.55.5](https://github.com/stentorium/stentor/compare/v1.55.4...v1.55.5) (2022-04-21)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.55.4](https://github.com/stentorium/stentor/compare/v1.55.3...v1.55.4) (2022-04-21)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.55.2](https://github.com/stentorium/stentor/compare/v1.55.1...v1.55.2) (2022-04-21)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.55.1](https://github.com/stentorium/stentor/compare/v1.55.0...v1.55.1) (2022-04-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.40.139 ([#1495](https://github.com/stentorium/stentor/issues/1495)) ([2b3699e](https://github.com/stentorium/stentor/commit/2b3699e5e43bb5e047ac11e7edeaf05ca05e89a1))
+
+
+
+
+
+# [1.55.0](https://github.com/stentorium/stentor/compare/v1.54.25...v1.55.0) (2022-04-18)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.54.25](https://github.com/stentorium/stentor/compare/v1.54.24...v1.54.25) (2022-04-18)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.54.24](https://github.com/stentorium/stentor/compare/v1.54.23...v1.54.24) (2022-04-12)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.54.23](https://github.com/stentorium/stentor/compare/v1.54.22...v1.54.23) (2022-04-11)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.54.22](https://github.com/stentorium/stentor/compare/v1.54.21...v1.54.22) (2022-04-08)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.54.21](https://github.com/stentorium/stentor/compare/v1.54.20...v1.54.21) (2022-04-06)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.54.20](https://github.com/stentorium/stentor/compare/v1.54.19...v1.54.20) (2022-04-06)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.54.19](https://github.com/stentorium/stentor/compare/v1.54.18...v1.54.19) (2022-04-05)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.54.17](https://github.com/stentorium/stentor/compare/v1.54.16...v1.54.17) (2022-04-04)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.54.16](https://github.com/stentorium/stentor/compare/v1.54.15...v1.54.16) (2022-04-04)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.54.15](https://github.com/stentorium/stentor/compare/v1.54.14...v1.54.15) (2022-04-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.40.101 ([b97dc42](https://github.com/stentorium/stentor/commit/b97dc420d1a2c9710c2eba33ab10869658d25975))
+
+
+
+
+
+## [1.54.13](https://github.com/stentorium/stentor/compare/v1.54.12...v1.54.13) (2022-04-02)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.54.12](https://github.com/stentorium/stentor/compare/v1.54.11...v1.54.12) (2022-04-01)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.54.11](https://github.com/stentorium/stentor/compare/v1.54.10...v1.54.11) (2022-03-31)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.54.10](https://github.com/stentorium/stentor/compare/v1.54.9...v1.54.10) (2022-03-28)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.54.9](https://github.com/stentorium/stentor/compare/v1.54.8...v1.54.9) (2022-03-28)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.54.8](https://github.com/stentorium/stentor/compare/v1.54.7...v1.54.8) (2022-03-28)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.54.7](https://github.com/stentorium/stentor/compare/v1.54.6...v1.54.7) (2022-03-25)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.54.6](https://github.com/stentorium/stentor/compare/v1.54.5...v1.54.6) (2022-03-23)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.54.5](https://github.com/stentorium/stentor/compare/v1.54.4...v1.54.5) (2022-03-23)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.54.4](https://github.com/stentorium/stentor/compare/v1.54.3...v1.54.4) (2022-03-21)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.54.3](https://github.com/stentorium/stentor/compare/v1.54.2...v1.54.3) (2022-03-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.40.83 ([e4810e8](https://github.com/stentorium/stentor/commit/e4810e8da9bb295ceda3a4b355f8589ca2bfb89d))
+
+
+
+
+
+## [1.54.2](https://github.com/stentorium/stentor/compare/v1.54.1...v1.54.2) (2022-03-18)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.54.1](https://github.com/stentorium/stentor/compare/v1.54.0...v1.54.1) (2022-03-18)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.53.7](https://github.com/stentorium/stentor/compare/v1.53.6...v1.53.7) (2022-03-17)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.53.6](https://github.com/stentorium/stentor/compare/v1.53.5...v1.53.6) (2022-03-17)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.53.5](https://github.com/stentorium/stentor/compare/v1.53.4...v1.53.5) (2022-03-15)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.53.3](https://github.com/stentorium/stentor/compare/v1.53.2...v1.53.3) (2022-03-14)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.53.2](https://github.com/stentorium/stentor/compare/v1.53.1...v1.53.2) (2022-03-13)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.53.1](https://github.com/stentorium/stentor/compare/v1.53.0...v1.53.1) (2022-03-11)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+# [1.53.0](https://github.com/stentorium/stentor/compare/v1.52.37...v1.53.0) (2022-03-11)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.52.37](https://github.com/stentorium/stentor/compare/v1.52.36...v1.52.37) (2022-03-09)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.52.36](https://github.com/stentorium/stentor/compare/v1.52.35...v1.52.36) (2022-03-09)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.52.35](https://github.com/stentorium/stentor/compare/v1.52.34...v1.52.35) (2022-03-07)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.52.34](https://github.com/stentorium/stentor/compare/v1.52.33...v1.52.34) (2022-03-07)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
+## [1.52.33](https://github.com/stentorium/stentor/compare/v1.52.32...v1.52.33) (2022-03-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.40.63 ([a7349a0](https://github.com/stentorium/stentor/commit/a7349a0ac3147c15cf3d46890df32bca32ad524c))
+
+
+
+
+
 ## [1.52.32](https://github.com/stentorium/stentor/compare/v1.52.31...v1.52.32) (2022-03-03)
 
 **Note:** Version bump only for package stentor-channel

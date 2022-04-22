@@ -1,7 +1,7 @@
 /*! Copyright (c) 2020, XAPPmedia */
 import { SESSION_STORAGE_NEW_USER } from "stentor-constants";
 import { ConditionalCheck, Context, Request, SystemDependable } from "stentor-models";
-import { isSystemDependable } from "./Guards";
+import { isSystemDependable } from "stentor-guards";
 import { findSystemDependentMatch } from "./findSystemDependentMatch";
 
 /**

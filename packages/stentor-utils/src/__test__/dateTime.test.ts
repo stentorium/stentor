@@ -21,6 +21,12 @@ describe(`#${dateTimeToString.name}()`, () => {
             expect(dateTimeToString(undefined)).to.deep.equal("");
         });
     });
+    describe("when passed invalid input", () => {
+        it("returns an empty string", () => {
+            const badInput: any = { date: { name: 'date', value: { date: '2019-09-11' } } };
+            expect(dateTimeToString(badInput)).to.deep.equal("");
+        });
+    });
     describe("when passed just a date time", () => {
         it("returns the correct result", () => {
             expect(

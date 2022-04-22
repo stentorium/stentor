@@ -1,12 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { Request } from "stentor-models";
-import { isAudioPlayerRequest } from "stentor-request";
-
-import {
-    Content,
-    Data
-} from "stentor-models";
-
+import { isAudioPlayerRequest } from "stentor-guards";
+import { Content, Data } from "stentor-models";
 import { AbstractHandler } from "stentor-handler";
 
 

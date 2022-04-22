@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { expect } from "chai";
 
-import { IntentRequestBuilder } from "../Builders";
+import { IntentRequestBuilder } from "stentor-request";
 import { getSlots } from "../getSlots";
 
 describe("#getSlots()", () => {

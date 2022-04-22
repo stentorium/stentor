@@ -4,6 +4,7 @@ export * from "./InputUnknownRequest";
 export * from "./IntentRequest";
 export * from "./KnowledgeBase";
 export * from "./LaunchRequest";
+export * from "./NotificationPermissionRequest";
 export * from "./OptionSelectRequest";
 export * from "./PermissionRequest";
 export * from "./PlaybackControlRequest";

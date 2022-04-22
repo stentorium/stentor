@@ -1,13 +1,13 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { Request, SystemConditionType, SystemDependable } from "stentor-models";
+
 import {
     NOTIFICATION_PERMISSION_REQUEST_TYPE,
     OPTION_SELECT_REQUEST_TYPE,
     PERMISSION_REQUEST_TYPE,
     SURFACE_CHANGE_REQUEST_TYPE
-}
-    from "./Constants";
-import { isSystemDependable } from "./Guards";
+} from "stentor-constants";
+import { isSystemDependable } from "stentor-guards";
+import { Request, SystemConditionType, SystemDependable } from "stentor-models";
 
 /**
  * Based on the provided request, it finds the slot dependent object

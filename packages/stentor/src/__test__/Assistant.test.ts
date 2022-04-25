@@ -110,6 +110,7 @@ describe("Assistant", () => {
                     .withHandlerService(new MockHandlerService());
                 callback = sinon.stub();
 
+
             });
             it("returns the expected result", async () => {
                 const request = new IntentRequestBuilder().withIntentId("HelpIntent").build();

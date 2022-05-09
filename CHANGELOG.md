@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.55.22](https://github.com/stentorium/stentor/compare/v1.55.21...v1.55.22) (2022-05-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fuse.js to v6.6.1 ([#1530](https://github.com/stentorium/stentor/issues/1530)) ([f689adf](https://github.com/stentorium/stentor/commit/f689adf1e522aff75191c16ab54d3e4fd856434d))
+
+
+
+
+
 ## [1.55.21](https://github.com/stentorium/stentor/compare/v1.55.20...v1.55.21) (2022-05-09)
 
 **Note:** Version bump only for package repo

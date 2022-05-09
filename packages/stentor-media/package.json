@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.55.19",
+  "version": "1.55.20",
   "description": "Media for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -23,13 +23,13 @@
     "chai": "4.3.6",
     "mocha": "9.2.2",
     "sinon": "13.0.2",
-    "stentor-models": "1.55.19",
+    "stentor-models": "1.55.20",
     "typescript": "4.6.4"
   },
   "dependencies": {
-    "stentor-guards": "1.55.19",
-    "stentor-time": "1.55.19",
-    "stentor-utils": "1.55.19"
+    "stentor-guards": "1.55.20",
+    "stentor-time": "1.55.20",
+    "stentor-utils": "1.55.20"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

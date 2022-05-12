@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.55.26](https://github.com/stentorium/stentor/compare/v1.55.25...v1.55.26) (2022-05-12)
+
+**Note:** Version bump only for package stentor-channel
+
+
+
+
+
 ## [1.55.25](https://github.com/stentorium/stentor/compare/v1.55.24...v1.55.25) (2022-05-11)
 
 **Note:** Version bump only for package stentor-channel

@@ -29,7 +29,7 @@
     "sinon-chai": "3.7.0",
     "stentor-models": "1.55.31",
     "stentor-request": "1.55.31",
-    "ts-node": "10.7.0",
+    "ts-node": "10.8.0",
     "typescript": "4.6.4"
   },
   "dependencies": {

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.56.0](https://github.com/stentorium/stentor/compare/v1.55.46...v1.56.0) (2022-06-09)
+
+**Note:** Version bump only for package stentor
+
+
+
+
+
 ## [1.55.46](https://github.com/stentorium/stentor/compare/v1.55.45...v1.55.46) (2022-06-07)
 
 

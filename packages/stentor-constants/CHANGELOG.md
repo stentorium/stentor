@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.56.0](https://github.com/stentorium/stentor/compare/v1.55.46...v1.56.0) (2022-06-09)
+
+
+### Features
+
+* Added initial support for Transactions API ([#1572](https://github.com/stentorium/stentor/issues/1572)) ([a755f40](https://github.com/stentorium/stentor/commit/a755f407272939395b1b51c968f68f589e04af14))
+
+
+
+
+
 ## [1.55.45](https://github.com/stentorium/stentor/compare/v1.55.44...v1.55.45) (2022-06-06)
 
 **Note:** Version bump only for package stentor-constants

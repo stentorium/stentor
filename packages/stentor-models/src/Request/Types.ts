@@ -11,6 +11,9 @@ export type RawQueryRequestType = "RAW_QUERY_REQUEST";
 export type SessionEndedRequestType = "SESSION_ENDED_REQUEST";
 export type SignInRequestType = "SIGN_IN_REQUEST";
 export type SurfaceChangeRequestType = "SURFACE_CHANGE_REQUEST";
+export type TransactionRequirementCheckType = "TRANSACTION_REQUIREMENT_CHECK_REQUEST";
+export type TransactionDecisionType = "TRANSACTION_DECISION_REQUEST";
+export type TransactionDeliveryAddressType = "TRANSACTION_DELIVERY_ADDRESS_REQUEST";
 
 export type RequestTypes =
     | AudioPlayerRequestType
@@ -24,7 +27,10 @@ export type RequestTypes =
     | RawQueryRequestType
     | SessionEndedRequestType
     | SignInRequestType
-    | SurfaceChangeRequestType;
+    | SurfaceChangeRequestType
+    | TransactionRequirementCheckType
+    | TransactionDecisionType
+    | TransactionDeliveryAddressType;
 
 export type LaunchRequestID = "LaunchRequest";
 export type PermissionGrantID = "PermissionGrant";

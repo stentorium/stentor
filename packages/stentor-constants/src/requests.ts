@@ -27,7 +27,10 @@ import {
     SessionEndedRequestType,
     SignInID,
     SignInRequestType,
-    SurfaceChangeRequestType
+    SurfaceChangeRequestType,
+    TransactionDecisionType,
+    TransactionDeliveryAddressType,
+    TransactionRequirementCheckType
 } from "stentor-models";
 
 export const LAUNCH_REQUEST_ID: LaunchRequestID = "LaunchRequest";
@@ -51,6 +54,11 @@ export const SURFACE_CHANGE_REQUEST_TYPE: SurfaceChangeRequestType = "SURFACE_CH
 export const SIGN_IN_REQUEST_TYPE: SignInRequestType = "SIGN_IN_REQUEST";
 export const OPTION_SELECT_REQUEST_TYPE: OptionSelectRequestType = "OPTION_SELECT_REQUEST";
 export const NOTIFICATION_PERMISSION_REQUEST_TYPE: NotificationPermissionRequestType = "NOTIFICATION_PERMISSION_REQUEST_TYPE";
+
+// Transaction related requests
+export const TRANSACTION_REQUIREMENT_CHECK_REQUEST_TYPE: TransactionRequirementCheckType = "TRANSACTION_REQUIREMENT_CHECK_REQUEST";
+export const TRANSACTION_DECISION_REQUEST_TYPE: TransactionDecisionType = "TRANSACTION_DECISION_REQUEST";
+export const TRANSACTION_DELIVERY_ADDRESS_REQUEST_TYPE: TransactionDeliveryAddressType = "TRANSACTION_DELIVERY_ADDRESS_REQUEST";
 
 // Audio Player Requests
 export const AUDIO_PLAYER_PLAYBACK_STARTED_EVENT: AudioPlayerPlaybackStartedEvent = "AudioPlayerPlaybackStarted";

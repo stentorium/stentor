@@ -14,6 +14,9 @@ import { SessionEndedRequest } from "./SessionEndedRequest";
 import { SignInRequest } from "./SignInRequest";
 import { SurfaceChangeRequest } from "./SurfaceChangeRequest";
 import { RequestTypes } from "./Types";
+import { DeliveryAddressRequest } from "./DeliveryAddressRequest";
+import { TransactionDecisionRequest } from "./TransactionDecisionRequest";
+import { TransactionRequirementCheckRequest } from "./TransactionRequirementCheckRequest";
 
 /**
  * Shared parameters for each Request
@@ -70,18 +73,18 @@ export interface BaseRequest {
     rawQuery?: string;
     /**
      * The platform the request came from.
-     * 
-     * Example platforms are Google's Dialogflow & Amazon's Lex.  
-     * 
+     *
+     * Example platforms are Google's Dialogflow & Amazon's Lex.
+     *
      */
     platform?: string;
     /**
-     * The specific channel that the platform provides.  
+     * The specific channel that the platform provides.
      */
     channel?: string;
     /**
      * Information about the device as far as capabilities such as screen or web browser available.
-     * 
+     *
      * This information is available in two places, also on the context object, until it is removed from the context
      * in the next major release.
      */
@@ -107,7 +110,7 @@ export interface BaseRequest {
     isHealthCheck?: boolean;
     /**
      * Optional request attributes to be passed through on the request.
-     * 
+     *
      * If the channel supports it, it will be populated.
      */
     attributes?: Record<string, unknown>;
@@ -130,4 +133,7 @@ export type Request =
     | NotificationPermissionRequest
     | SignInRequest
     | OptionSelectRequest
-    | RawQueryRequest;
+    | RawQueryRequest
+    | DeliveryAddressRequest
+    | TransactionDecisionRequest
+    | TransactionRequirementCheckRequest;

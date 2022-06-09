@@ -14,7 +14,7 @@ import { ResponseSegmentsMap } from "./ResponseSegment";
 
 /**
  * Active Context Object
- * 
+ *
  */
 export interface ActiveContext {
     /**
@@ -56,7 +56,7 @@ export interface ResponseData {
     /**
      * If a request ({@link see IntentRequest.canFulfill}) has canFufill as true,
      * this provides information about it's ability to fulfill the request.
-     *  
+     *
      */
     canFulfill?: CanFulfillIntentResult;
     /**
@@ -124,20 +124,25 @@ export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Act
     | "PERMISSION_LOCATION_COARSE"
     | "PERMISSION_NOTIFICATION"
     | "TRANSFER_CALL"
-    | "HANDOFF";
+    | "HANDOFF"
+    | "TRANSACTION_REQUIREMENTS_CHECK"
+    | "TRANSACTION_DELIVERY_ADDRESS"
+    | "TRANSACTION_DECISION"
+    | "TRANSACTION_STATUS"
+    ;
     /**
      * Supplemental data to augment the response.
      */
     data?: ResponseData;
     /**
      * Optional active contexts which help influence the NLU.
-     * 
+     *
      * - {@link https://cloud.google.com/dialogflow/es/docs/contexts-input-output}
      * - {@link https://docs.aws.amazon.com/lex/latest/dg/context-mgmt-active-context.html}
      */
     context?: {
         /**
-         * 
+         *
          * Matches to outputContexts on Dialogflow & activeContexts
          */
         active?: ActiveContext[];

@@ -9,6 +9,7 @@ import { SuggestionTypes } from "../Suggestion";
 import { UserDataType } from "../UserData";
 import { Response, SimpleResponse } from "./Response";
 import { ResponseOutput } from "./ResponseOutput";
+import { OrderDescription, PaymentParameters } from "./Transactions";
 
 export interface ResponseBuilderProps {
     /**
@@ -114,14 +115,14 @@ export abstract class AbstractResponseBuilder<R = any> {
     public abstract withList(items: ListItem[], title?: string): AbstractResponseBuilder<R>;
     /**
      * Provide a carousel (horizontal selection)
-     * 
+     *
      * @param items - List items to display in the carousel
      * @returns The builder instance
      */
     public abstract withCarousel(items: ListItem[]): AbstractResponseBuilder<R>;
     /**
      * Add a custom display object to the response
-     * 
+     *
      * @param display - A custom display object
      * @returns The builder instance
      */
@@ -140,7 +141,7 @@ export abstract class AbstractResponseBuilder<R = any> {
     ): AbstractResponseBuilder<R>;
     /**
      * Active contexts provide guidance to the NLU to help it better select the next intent from the user's utterance.
-     * 
+     *
      * @param context - Either a single context or array of contexts.
      * @returns The builder instance
      */
@@ -249,6 +250,28 @@ export abstract class AbstractResponseBuilder<R = any> {
     * @param handoffTargetId - The id that represents the handoff target (app id/name, queue id/name, etc)
     */
     public abstract askForHandoff(handoffTargetId: string): AbstractResponseBuilder<R>;
+    /**
+     * Check if the user can "transact"
+     */
+    public abstract askTransactionRequirements(): AbstractResponseBuilder<R>;
+    /**
+     * Ask the platform to query the delivery address
+     *
+     * @param response The reason for the delivery address ("To know where to send the order")
+     */
+    public abstract askForDeliveryAddress(response?: string | SimpleResponse): AbstractResponseBuilder<R>;
+    /**
+     *
+     * @param paymentParameters (google payment or merchant)
+     * @param order the order description
+     */
+    public abstract askForTransactionDecision(paymentParameters: PaymentParameters, order: OrderDescription): AbstractResponseBuilder<R>;
+    /**
+     *
+     * @param response To announce the order was completed ("Your order ${conv.data.UNIQUE_ORDER_ID} is all set!")
+     * @param order the order description
+     */
+    public abstract askForOrderUpdate(response: string | SimpleResponse, order: OrderDescription): AbstractResponseBuilder<R>;
     /**
      * Build the response
      *

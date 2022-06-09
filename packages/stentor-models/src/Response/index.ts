@@ -4,3 +4,4 @@ export * from "./CanFulfillIntentResult";
 export * from "./Response";
 export * from "./ResponseOutput";
 export * from "./ResponseSegment";
+export * from "./Transactions";

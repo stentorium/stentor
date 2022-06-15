@@ -188,8 +188,17 @@ export class EventService {
      * @param request 
      * @param response 
      */
-    public requestResponse(request: Request, response: Response): Event<{ request: Request, response: Response }> {
-        return this.event(ANALYTICS_EVENT_TYPE, "REQUEST_RESPONSE", { request, response })
+    public requestResponse(request: Request, response: Response): Event<{ request: Request, response: Response, tag?: string }> {
+        const payload: { request: Request, response: Response, tag?: string } = {
+            request,
+            response
+        };
+        // add tag if it exist
+        const keys: Record<string, unknown> = {};
+        if (response.tag) {
+            keys.tag = response.tag;
+        }
+        return this.event(ANALYTICS_EVENT_TYPE, "REQUEST_RESPONSE", payload, keys)
     }
 
     public error(error: Error): ErrorEvent {
@@ -212,9 +221,13 @@ export class EventService {
         return this.event(MESSAGE_EVENT_TYPE, useName, message.trim()) as MessageEvent;
     }
 
+    /**
+     * Add an event that will be sent to all event streams.
+     * 
+     */
     public event(stentorEvent: Event<any>): Event<any>;
-    public event(type: EventType, name: string, payload?: string | object): Event<any>;
-    public event(type: EventType | Event<any>, name?: string, payload?: string | object): Event<any> {
+    public event(type: EventType, name: string, payload?: string | object, keys?: Record<string, unknown>): Event<any>;
+    public event(type: EventType | Event<any>, name?: string, payload?: string | object, keys?: Record<string, unknown>): Event<any> {
         const event: Event<any> = typeof type === "string" ? { name, type, payload } : type;
 
         if (typeof event.name !== "string") {
@@ -230,10 +243,19 @@ export class EventService {
         const prefix = getPrefix(this.prefix);
         if (containsSameKeys(prefix, event)) {
             log().warn(
-                "Warning: The event contains matching keys to the event prefix. This may be an error. Please check that the do not match."
+                "The event contains matching keys to the event prefix. This may be an error. Please check that they do not match."
             );
         }
-        const everything = { ...prefix, ...event };
+        let everything = { ...prefix, ...event };
+
+        if (keys && typeof keys === "object") {
+            if (containsSameKeys(everything, keys)) {
+                log().warn("The additional keys from the event contains matching keys to the event itself.  This may be an error.  Please check that they do not match")
+            }
+
+            everything = { ...everything, ...keys }
+        }
+
         this.streams.forEach(s => s.addEvent(everything));
         return everything;
     }

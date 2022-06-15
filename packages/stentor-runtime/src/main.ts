@@ -485,6 +485,9 @@ export const main = async (
 
         if (eventService) {
             eventService.requestResponse(request, response);
+
+            // Add the tag?
+            // eventService.
         }
 
         log().debug("Response");

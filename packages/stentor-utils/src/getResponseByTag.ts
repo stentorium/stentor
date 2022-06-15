@@ -46,7 +46,6 @@ export function getResponseByTag(responses: Response[], tag: string, surfaceType
 
     // Exists?
     if (keyContent) {
-        console.log(keyContent);
         return keyContent;
     }
 

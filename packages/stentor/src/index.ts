@@ -16,6 +16,9 @@ import {
     isSessionEndedRequest,
     isSignInRequest,
     isSurfaceRequest,
+    isTransactionRequirementCheckRequest,
+    isTransactionDecisionRequest,
+    isDeliveryAddressRequest
 } from "stentor-guards";
 export {
     isAnonymousUser,
@@ -28,6 +31,9 @@ export {
     isSessionEndedRequest,
     isSignInRequest,
     isSurfaceRequest,
+    isTransactionRequirementCheckRequest,
+    isTransactionDecisionRequest,
+    isDeliveryAddressRequest
 };
 
 import {

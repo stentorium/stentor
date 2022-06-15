@@ -208,11 +208,11 @@ export interface PurchaseFulfillmentInfo {
     fulfillmentType: FulfillmentType;
     expectedFulfillmentTimeMs: number;
     expectedPreparationTimeMs: number;
-    location: TransactionLocation;
-    expireTime: string;
+    location?: TransactionLocation;
+    expireTime?: string;
     price: PriceAttribute;
     fulfillmentContact: SellerInfo;
-    shippingMethodName: string;
+    shippingMethodName?: string;
     storeCode: string;
     pickupInfo?: PickupInfo;
 }

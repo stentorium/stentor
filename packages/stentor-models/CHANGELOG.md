@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.56.6](https://github.com/stentorium/stentor/compare/v1.56.5...v1.56.6) (2022-06-15)
+
+
+### Bug Fixes
+
+* Small Google Transactions changes ([#1583](https://github.com/stentorium/stentor/issues/1583)) ([b4e1b82](https://github.com/stentorium/stentor/commit/b4e1b82f8707299825bf0c0e584a84ef58e36a8e))
+
+
+
+
+
 ## [1.56.5](https://github.com/stentorium/stentor/compare/v1.56.4...v1.56.5) (2022-06-14)
 
 **Note:** Version bump only for package stentor-models

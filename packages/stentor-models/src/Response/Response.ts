@@ -29,7 +29,8 @@ export interface ActiveContext {
     }
     timeToLive: {
         /**
-         *  
+         *  How long in seconds for the context to stay alive.
+         * 
          *  Note: Not supported on Dialogflow
          */
         timeToLiveInSeconds?: number;

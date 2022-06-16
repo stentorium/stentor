@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.56.8](https://github.com/stentorium/stentor/compare/v1.56.7...v1.56.8) (2022-06-16)
+
+
+### Bug Fixes
+
+* Adds tag to request response events ([#1584](https://github.com/stentorium/stentor/issues/1584)) ([06793b5](https://github.com/stentorium/stentor/commit/06793b53990975753b3e2e3279304ced1e4545dd))
+
+
+
+
+
 ## [1.56.7](https://github.com/stentorium/stentor/compare/v1.56.6...v1.56.7) (2022-06-15)
 
 **Note:** Version bump only for package repo

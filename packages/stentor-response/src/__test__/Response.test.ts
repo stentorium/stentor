@@ -8,7 +8,7 @@ const responseOne: ResponseOutput = {
     displayText: "one",
     ssml: "<speak>one</speak>",
     textToSpeech: "one",
-    suggestions: ["one"]
+    suggestions: ["one"],
 };
 
 const responseOnePartial: ResponseOutput = {

@@ -386,8 +386,30 @@ describe("EventService", () => {
             expect(event.type).to.equal("AnalyticsEvent");
             expect(event.name).to.equal("REQUEST_RESPONSE");
             expect(event.payload).to.exist;
-            expect(event.payload.request).to.equal(request);
-            expect(event.payload.response).to.equal(response);
+            if (event.payload) {
+                expect(event.payload.request).to.equal(request);
+                expect(event.payload.response).to.equal(response);
+            }
+        });
+        describe("with a response that has a tag", () => {
+            it("creates the correct event", () => {
+                const request = new LaunchRequestBuilder().build();
+                const response: Response = {
+                    outputSpeech: "Foo",
+                    tag: "RESPONSE_TAG"
+                };
+                const event = eventService.requestResponse(request, response);
+
+                expect(event.type).to.equal("AnalyticsEvent");
+                expect(event.name).to.equal("REQUEST_RESPONSE");
+                expect(event.tag).to.equal("RESPONSE_TAG");
+
+                expect(event.payload).to.exist;
+                if (event.payload) {
+                    expect(event.payload.request).to.equal(request);
+                    expect(event.payload.response).to.equal(response);
+                }
+            });
         });
     });
     describe("#error()", () => {

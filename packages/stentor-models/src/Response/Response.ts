@@ -29,9 +29,14 @@ export interface ActiveContext {
     }
     timeToLive: {
         /**
-         * Not supported on Dialogflow
+         *  How long in seconds for the context to stay alive.
+         * 
+         *  Note: Not supported on Dialogflow
          */
         timeToLiveInSeconds?: number;
+        /**
+         * How many conversational turns to keep the context alive.
+         */
         turnsToLive?: number;
     }
 }

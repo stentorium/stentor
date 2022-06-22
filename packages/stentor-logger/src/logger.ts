@@ -70,6 +70,10 @@ export function redact(info: TransformableInfo): TransformableInfo {
     return info;
 }
 
+function isOnAWSLambda(): boolean {
+    return !!process.env.AWS_LAMBDA_FUNCTION_NAME;
+}
+
 /**
  * Get an instance of the shared logger.
  *
@@ -86,8 +90,15 @@ export function log(): Logger {
                 format.splat(),
                 format.timestamp(),
                 format.printf(info => {
+
                     if (info.message && info.message.constructor === Object) {
-                        info.message = JSON.stringify(info.message, undefined, 2);
+                        // for AWS, if you pretty print then it takes up new lines in CloudWatch, which pollutes
+                        // your log messages so we check to see if we are in a lambda runtime
+                        if (isOnAWSLambda()) {
+                            info.message = JSON.stringify(info.message);
+                        } else {
+                            info.message = JSON.stringify(info.message, undefined, 2);
+                        }
                     }
 
                     let lead: string;
@@ -96,19 +107,34 @@ export function log(): Logger {
                             lead = chalk.blue("debug");
                             break;
                         case "info":
-                            lead = chalk.green("info");
+                            // space here is to help with readability
+                            lead = chalk.green(" info");
                             break;
                         case "warn":
-                            lead = chalk.yellow("warn");
+                            // space here is to help with readability
+                            lead = chalk.yellow(" warn");
                             break;
                         case "error":
                             lead = chalk.red("error");
                             break;
                         default:
-                            lead = "📣";
+                            lead = "    📣";
                     }
 
-                    return `${lead}:${info.message}`;
+                    if (isOnAWSLambda()) {
+                        // CloudWatch automatically includes the timestamp, it isn't needed
+                        return `${lead}|${info.message}`;
+                    } else {
+                        // outside, just print the time mm
+                        const time = new Date(info.timestamp).toLocaleTimeString([], {
+                            minute: '2-digit',
+                            hour: '2-digit',
+                            second: '2-digit',
+                            hour12: false
+                        });
+
+                        return `${lead}|${time}|${info.message}`;
+                    }
                 })
             ),
             transports: [

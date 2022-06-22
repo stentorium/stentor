@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.56.13](https://github.com/stentorium/stentor/compare/v1.56.12...v1.56.13) (2022-06-22)
+
+
+### Bug Fixes
+
+* Better compatibility with CloudWatch logs ([#1595](https://github.com/stentorium/stentor/issues/1595)) ([ed6c65f](https://github.com/stentorium/stentor/commit/ed6c65feae234d1c7c9d02f7e5551d0ba449f6ac))
+
+
+
+
+
 ## [1.56.12](https://github.com/stentorium/stentor/compare/v1.56.11...v1.56.12) (2022-06-21)
 
 **Note:** Version bump only for package stentor-logger

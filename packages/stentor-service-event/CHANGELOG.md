@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.56.21](https://github.com/stentorium/stentor/compare/v1.56.20...v1.56.21) (2022-07-06)
+
+**Note:** Version bump only for package stentor-service-event
+
+
+
+
+
 ## [1.56.20](https://github.com/stentorium/stentor/compare/v1.56.19...v1.56.20) (2022-07-03)
 
 **Note:** Version bump only for package stentor-service-event

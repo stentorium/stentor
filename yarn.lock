@@ -993,27 +993,18 @@
     npmlog "^6.0.2"
     write-file-atomic "^3.0.3"
 
-"@microsoft/api-documenter@7.17.25":
-  version "7.17.25"
-  resolved "https://registry.yarnpkg.com/@microsoft/api-documenter/-/api-documenter-7.17.25.tgz#3ae5c750d3d1b129ef6206eb6787a3adf37f560f"
-  integrity sha512-NMGtIqL9B0kjySEC9PKj5b0S64OOxYJWJwHkssyhaI3P1/ZBJHbByLAfGC+QqzWt6S0Yc3YV4R2EAUqhZ6bC2Q==
+"@microsoft/api-documenter@7.18.1":
+  version "7.18.1"
+  resolved "https://registry.yarnpkg.com/@microsoft/api-documenter/-/api-documenter-7.18.1.tgz#1faa9bf7db14c2a3ace63c05ced20e57b8d64a7a"
+  integrity sha512-IN/vEgBVDe5xIyi72MmLXAF73aBBXZJmqK1jI06SrUMYKqtry1oJszjIuZiVPaP/PM9EIOm7At37hJefyX88xw==
   dependencies:
-    "@microsoft/api-extractor-model" "7.20.2"
+    "@microsoft/api-extractor-model" "7.21.0"
     "@microsoft/tsdoc" "0.14.1"
-    "@rushstack/node-core-library" "3.48.0"
+    "@rushstack/node-core-library" "3.49.0"
     "@rushstack/ts-command-line" "4.12.1"
     colors "~1.2.1"
     js-yaml "~3.13.1"
     resolve "~1.17.0"
-
-"@microsoft/api-extractor-model@7.20.2":
-  version "7.20.2"
-  resolved "https://registry.yarnpkg.com/@microsoft/api-extractor-model/-/api-extractor-model-7.20.2.tgz#b027dec6b4e7a750552d622055802039f8a74778"
-  integrity sha512-xo5RbLj5fdCQ64WkQXxTpnzhkCvRvqy1x67VAcuMeVzUpXUrzcsHyW5mqfKbQVmNGWRgYfCQAKG8b9UtkGr6QQ==
-  dependencies:
-    "@microsoft/tsdoc" "0.14.1"
-    "@microsoft/tsdoc-config" "~0.16.1"
-    "@rushstack/node-core-library" "3.48.0"
 
 "@microsoft/api-extractor-model@7.21.0":
   version "7.21.0"
@@ -1354,21 +1345,6 @@
     "@types/estree" "0.0.39"
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
-
-"@rushstack/node-core-library@3.48.0":
-  version "3.48.0"
-  resolved "https://registry.yarnpkg.com/@rushstack/node-core-library/-/node-core-library-3.48.0.tgz#a727427d259aff14e680f5310beea994b6618f25"
-  integrity sha512-vgkG5gfYGiomnv3Lx4fxFhw0ytTBiAgMAT/6gkiYYracyv6g/Id7BYN+NtTFsHwSA8hSHvK42MOqQXqx04jYoA==
-  dependencies:
-    "@types/node" "12.20.24"
-    colors "~1.2.1"
-    fs-extra "~7.0.1"
-    import-lazy "~4.0.0"
-    jju "~1.4.0"
-    resolve "~1.17.0"
-    semver "~7.3.0"
-    timsort "~0.3.0"
-    z-schema "~5.0.2"
 
 "@rushstack/node-core-library@3.49.0":
   version "3.49.0"

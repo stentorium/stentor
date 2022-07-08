@@ -302,6 +302,7 @@ export class Assistant {
             // Wrap the response according to the lambda call flavor (BST or API GW proxy)
             let response: object | undefined;
 
+            // This is a callback wrapper to help with error handling.
             const myCallback: RuntimeCallback = (error: undefined | Error | null | string, result: any): void => {
                 if (this.eventService) {
                     // Create a analytics event which is used to send data to 3rd party analytics providers
@@ -326,31 +327,46 @@ export class Assistant {
                 }
             };
 
-            const handlerService = this.getHandlerService();
-            const userStorageService = this.getUserStorageService();
-            const factory = new HandlerFactory(this.factoryProps);
+            let handlerService: HandlerService;
+            let userStorageService: UserStorageService;
+            let factory: HandlerFactory;
 
-            this.setupEventService();
+            try {
+                handlerService = this.getHandlerService();
+                userStorageService = this.getUserStorageService();
+                factory = new HandlerFactory(this.factoryProps);
+                this.setupEventService();
+            } catch (e: any) {
+                myCallback(e);
+                callback(null, response);
+                return;
+            }
 
-            await main(
-                runtimeEvent,
-                runtimeContext,
-                myCallback,
-                this.channels,
-                {
-                    userStorageService,
-                    handlerFactory: factory,
-                    handlerService,
-                    eventService: this.eventService,
-                    piiService: this.piiService,
-                    crmService: this.crmService,
-                    smsService: this.smsService,
-                    knowledgeBaseServices: this.knowledgeBaseServices
-                },
-                this.hooks
-            );
-            // Send the response.
-            callback(null, response);
+            try {
+                await main(
+                    runtimeEvent,
+                    runtimeContext,
+                    myCallback,
+                    this.channels,
+                    {
+                        userStorageService,
+                        handlerFactory: factory,
+                        handlerService,
+                        eventService: this.eventService,
+                        piiService: this.piiService,
+                        crmService: this.crmService,
+                        smsService: this.smsService,
+                        knowledgeBaseServices: this.knowledgeBaseServices
+                    },
+                    this.hooks
+                );
+
+                // Send the response.
+                callback(null, response);
+            } catch (e: any) {
+                myCallback(e, response);
+                callback(null, response)
+            }
         };
 
         const lambdaHandler: AWSLambda.Handler = async (event, context, callback) => {

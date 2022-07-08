@@ -1,4 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { Context } from "../Context";
 import { Request } from "../Request";
 import { AbstractResponseBuilder } from "../Response";
 import { Storage } from "../Storage";
@@ -35,7 +36,13 @@ export interface Hooks {
      * @returns Promise that passes back the request
      */
     postRequestTranslation?(request: Request): Promise<Request>;
-
+    /**
+     * This hook, if provided is called after the request is translated then immediately after the context is created.  This happens immediately before the handler is deteremined.
+     * 
+     * @param request 
+     * @param context 
+     */
+    postContextCreation?(request: Request, context: Context): Promise<{ request: Request, context: Context }>;
     /**
      * This hook is called before the response is translated for the channel.
      *

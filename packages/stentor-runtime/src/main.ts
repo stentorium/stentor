@@ -327,6 +327,22 @@ export const main = async (
         context.session.set(SESSION_STORAGE_KNOWLEDGE_BASE_RESULT, combineKnowledgeBaseResults(context.session.get(SESSION_STORAGE_KNOWLEDGE_BASE_RESULT), request.knowledgeBaseResult));
     }
 
+    try {
+        if (hooks && typeof hooks.postContextCreation === "function") {
+            const updated = await hooks.postContextCreation(request, context);
+            if (updated) {
+                request = updated.request;
+                context = updated.context;
+            }
+        }
+    } catch (error) {
+        log().warn(`Error caught in the postContextCreation hook: ${error}`);
+        // Keep moving, record the error
+        if (eventService) {
+            eventService.error(error);
+        }
+    }
+
     //
     // End Context Modifications!
     //

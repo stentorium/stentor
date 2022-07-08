@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.56.24](https://github.com/stentorium/stentor/compare/v1.56.23...v1.56.24) (2022-07-08)
+
+**Note:** Version bump only for package stentor-guards
+
+
+
+
+
 ## [1.56.23](https://github.com/stentorium/stentor/compare/v1.56.22...v1.56.23) (2022-07-06)
 
 **Note:** Version bump only for package stentor-guards

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.56.24](https://github.com/stentorium/stentor/compare/v1.56.23...v1.56.24) (2022-07-08)
+
+
+### Bug Fixes
+
+* New hook for modifying context after creation ([#1622](https://github.com/stentorium/stentor/issues/1622)) ([d15cca7](https://github.com/stentorium/stentor/commit/d15cca74e29dd384c390855bb41a515877dc5c0f))
+
+
+
+
+
 ## [1.56.22](https://github.com/stentorium/stentor/compare/v1.56.21...v1.56.22) (2022-07-06)
 
 **Note:** Version bump only for package stentor-models

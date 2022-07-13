@@ -30,7 +30,7 @@
   "dependencies": {
     "chalk": "4.1.2",
     "stentor-utils": "1.56.29",
-    "winston": "3.7.2"
+    "winston": "3.8.1"
   },
   "scripts": {
     "build": "tsc -d true -p .",

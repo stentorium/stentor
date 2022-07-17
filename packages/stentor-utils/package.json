@@ -59,7 +59,7 @@
     "stentor-guards": "1.56.32",
     "winston": "3.8.1",
     "words-to-numbers": "1.5.1",
-    "xmldoc": "1.1.4"
+    "xmldoc": "1.2.0"
   },
   "peerDependencies": {
     "aws-sdk": "2.x",

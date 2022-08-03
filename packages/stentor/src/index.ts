@@ -190,4 +190,5 @@ export {
     ssmlify,
 };
 
+export * from "./services/Secrets";
 export * from "./Assistant";

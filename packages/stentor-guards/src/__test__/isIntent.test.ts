@@ -87,6 +87,10 @@ describe(`#${isIntent.name}()`, () => {
             expect(isIntent({
                 appId, intentId, organizationId, type: "ConversationHandler"
             })).to.be.false;
+
+            expect(isIntent({
+                appId, intentId, organizationId, type: "ConversationHandler", nlu: null
+            })).to.be.false;
         });
     });
 });

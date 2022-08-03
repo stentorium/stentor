@@ -39,7 +39,7 @@ export function isBuiltInIntent(props: Handler | Intent): boolean {
     }
 
     // We also check overrides
-    if (typeof props.nlu === "object" && Object.keys(props.nlu).length > 0) {
+    if (!!props.nlu && typeof props.nlu === "object" && Object.keys(props.nlu).length > 0) {
 
         const lex = props.nlu["lex"] || props.nlu["lex-connect"] || props.nlu["alexa"];
 
@@ -85,7 +85,7 @@ export function isIntent(props: Handler | Intent): props is Intent {
     }
 
     // if they do any kind of override we are going to trust them
-    if (typeof props.nlu === "object" && Object.keys(props.nlu).length > 0) {
+    if (!!props.nlu && typeof props.nlu === "object" && Object.keys(props.nlu).length > 0) {
         return true;
     }
 

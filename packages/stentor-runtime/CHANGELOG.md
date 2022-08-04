@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.56.44](https://github.com/stentorium/stentor/compare/v1.56.43...v1.56.44) (2022-08-04)
+
+
+### Bug Fixes
+
+* Adding EventService to runtime context ([#1658](https://github.com/stentorium/stentor/issues/1658)) ([a9c5039](https://github.com/stentorium/stentor/commit/a9c5039893adb826ce9c917824df099c83070062))
+
+
+
+
+
 ## [1.56.43](https://github.com/stentorium/stentor/compare/v1.56.42...v1.56.43) (2022-08-04)
 
 **Note:** Version bump only for package stentor-runtime

@@ -2,6 +2,7 @@
 /* eslint-disable no-console */
 import {
     ErrorEvent,
+    ErrorService,
     Event,
     EventStream,
     EventType,
@@ -52,7 +53,6 @@ function getPrefix(prefix: EventPrefix): PrefixObject {
     }, {});
 }
 
-
 function containsSameKeys(obj1: object = {}, obj2: object = {}): boolean {
     const obj1Keys = Object.keys(obj1);
     const obj2Keys = Object.keys(obj2);
@@ -76,7 +76,7 @@ export interface EventServiceProps {
     prefix?: EventPrefix;
 }
 
-export class EventService {
+export class EventService implements ErrorService {
     private readonly streams: EventStream[];
     private prefix: EventPrefix = {
         // default values
@@ -223,7 +223,6 @@ export class EventService {
 
     /**
      * Add an event that will be sent to all event streams.
-     * 
      */
     public event(stentorEvent: Event<any>): Event<any>;
     public event(type: EventType, name: string, payload?: string | object, keys?: Record<string, unknown>): Event<any>;

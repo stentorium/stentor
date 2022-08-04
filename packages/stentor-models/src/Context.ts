@@ -5,7 +5,7 @@ import { AbstractResponseBuilder } from "./Response";
 import { SessionStore, Storage } from "./Storage";
 import { UserDataType } from "./UserData";
 import { UserProfile } from "./UserProfile";
-import { CrmService, SMSService } from "./Services";
+import { CrmService, ErrorService, SMSService } from "./Services";
 
 export enum UserDataRequestStatus {
     DEFERRED,
@@ -21,6 +21,7 @@ export interface UserDataValue {
 
 export type UserData = (userDataType: UserDataType) => Promise<UserDataRequestStatus>;
 
+
 /**
  * These we want to make available for custom handlers
  */
@@ -33,6 +34,10 @@ export interface ContextServices {
      * Service for sending text messages
      */
     smsService?: SMSService;
+    /**
+     * Access to the event service for reporting runtime errors.
+     */
+    eventService?: ErrorService;
 }
 
 /**

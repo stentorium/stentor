@@ -260,6 +260,7 @@ export const main = async (
                 userStorageService,
                 piiService,
                 crmService,
+                eventService,
                 smsService
             },
             channel,

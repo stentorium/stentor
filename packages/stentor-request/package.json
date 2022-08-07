@@ -29,7 +29,7 @@
     "typescript": "4.7.4"
   },
   "dependencies": {
-    "@xapp/patterns": "1.40.228",
+    "@xapp/patterns": "1.40.235",
     "stentor-constants": "1.56.45",
     "stentor-interaction-model": "1.56.46",
     "stentor-utils": "1.56.46"

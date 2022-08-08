@@ -15,7 +15,7 @@
     "node": "^10 || ^12 || ^14 || ^16.0.0"
   },
   "devDependencies": {
-    "@types/chai": "4.3.1",
+    "@types/chai": "4.3.2",
     "@xapp/config": "0.2.3",
     "chai": "4.3.6",
     "stentor-models": "1.56.47",

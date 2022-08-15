@@ -95,7 +95,6 @@ const MockLambdaContext: AWSLambda.Context = {
     succeed: () => {
         return;
     }
-
 }
 
 describe("Assistant", () => {

@@ -24,6 +24,7 @@ import {
     HandlerService,
     Hooks,
     KnowledgeBaseDependency,
+    KnowledgeBaseService,
     PIIService,
     Request,
     Response,
@@ -199,7 +200,7 @@ export const main = async (
 
     // Do some logging for debugging if needed
     log().info(
-        `platform:${request.platform}|request-type:${request.type}|request-key:${keyFromRequest(request)}|userId:${request.userId
+        `platform:${request.platform}|channel:${request.channel}|request-type:${request.type}|request-key:${keyFromRequest(request)}|userId:${request.userId
         }${request.isHealthCheck ? "|HEALTH_CHECK" : ""}`
     );
 
@@ -238,13 +239,34 @@ export const main = async (
         }
     }
 
+    // Check to see if we call the KB service
     if (knowledgeBaseServices && Object.keys(knowledgeBaseServices).length > 0) {
-        const key = keyFromRequest(request);
-        const kbConfig = findValueForKey(key, knowledgeBaseServices);
-        const kbService = kbConfig?.service;
+
+        let kbConfig: KnowledgeBaseDependency;
+        let kbService: KnowledgeBaseService;
+
+        const intentId = keyFromRequest(request);
+        const requestMatch = findValueForKey(intentId, knowledgeBaseServices);
+
+        if (requestMatch && requestMatch.matchIntentId) {
+            kbConfig = requestMatch;
+            kbService = requestMatch.service;
+        }
+
+        // Channel takes precedence over a request one.
+        const channel = request.channel;
+
+        // Try to find a channel match
+        const channelMatch = findValueForKey(channel, knowledgeBaseServices);
+
+        // Make sure it exists and is a channel match
+        if (channelMatch && channelMatch.matchChannel) {
+            kbConfig = channelMatch;
+            kbService = channelMatch.service;
+        }
+
         if (kbService && request.rawQuery) {
             const kbResult = await kbService.query(request.rawQuery);
-
             request = mergeInKnowledgeBaseResults(request, kbResult, kbConfig);
         }
     }

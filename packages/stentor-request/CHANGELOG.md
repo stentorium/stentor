@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.56.56](https://github.com/stentorium/stentor/compare/v1.56.55...v1.56.56) (2022-08-15)
+
+
+### Bug Fixes
+
+* Ability to select KB Service based on Channel ([#1678](https://github.com/stentorium/stentor/issues/1678)) ([86721d8](https://github.com/stentorium/stentor/commit/86721d8cd6d7274643f5964d55dd7631e39156f3))
+
+
+
+
+
 ## [1.56.55](https://github.com/stentorium/stentor/compare/v1.56.54...v1.56.55) (2022-08-15)
 
 **Note:** Version bump only for package stentor-request

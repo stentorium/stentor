@@ -51,6 +51,8 @@ import * as INTENT from "stentor-interaction-model/lib/Intent/Constants";
 export class LaunchRequestBuilder extends AbstractBuilder<LaunchRequest> {
     private accessToken?: string;
     private deviceId = "deviceId";
+    private channel?: string;
+    private platform?: string;
 
     /**
      * Add a access token to the request.
@@ -73,12 +75,33 @@ export class LaunchRequestBuilder extends AbstractBuilder<LaunchRequest> {
     }
 
     /**
+ * Set the platform for the request.
+ *
+ * @param platform - Platform for the request
+ */
+    public onPlatform(platform: string): LaunchRequestBuilder {
+        this.platform = platform;
+        return this;
+    }
+
+    /**
+     * Set the channel for the request 
+     * 
+     * @param channel - Channel for the request
+     * @returns 
+     */
+    public onChannel(channel: string): LaunchRequestBuilder {
+        this.channel = channel;
+        return this;
+    }
+
+    /**
      * Build the request.
      */
     public build(): LaunchRequest {
         const { accessToken, deviceId } = this;
 
-        return {
+        const request: LaunchRequest = {
             intentId: LAUNCH_REQUEST_ID,
             type: LAUNCH_REQUEST_TYPE,
             isNewSession: true,
@@ -87,6 +110,16 @@ export class LaunchRequestBuilder extends AbstractBuilder<LaunchRequest> {
             userId: "userId",
             accessToken
         };
+
+        if (this.channel) {
+            request.channel = this.channel;
+        }
+
+        if (this.platform) {
+            request.platform = this.platform;
+        }
+
+        return request;
     }
 }
 
@@ -98,6 +131,29 @@ export class LaunchRequestBuilder extends AbstractBuilder<LaunchRequest> {
 export class InputUnknownRequestBuilder extends AbstractBuilder<InputUnknownRequest> {
     private deviceId = "deviceId";
     private rawQuery: string;
+    private channel?: string;
+    private platform?: string;
+
+    /**
+ * Set the platform for the request.
+ *
+ * @param platform - Platform for the request
+ */
+    public onPlatform(platform: string): InputUnknownRequestBuilder {
+        this.platform = platform;
+        return this;
+    }
+
+    /**
+     * Set the channel for the request 
+     * 
+     * @param channel - Channel for the request
+     * @returns 
+     */
+    public onChannel(channel: string): InputUnknownRequestBuilder {
+        this.channel = channel;
+        return this;
+    }
 
     /**
      * Add a device ID to the request.
@@ -133,6 +189,14 @@ export class InputUnknownRequestBuilder extends AbstractBuilder<InputUnknownRequ
             request.rawQuery = this.rawQuery;
         }
 
+        if (this.channel) {
+            request.channel = this.channel;
+        }
+
+        if (this.platform) {
+            request.platform = this.platform;
+        }
+
         return request;
     }
 }
@@ -147,6 +211,7 @@ export class InputUnknownRequestBuilder extends AbstractBuilder<InputUnknownRequ
  */
 export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
     private apiAccess: ApiAccessData;
+    private channel: string;
     private deviceId = "deviceId";
     private intentId = "intentId";
     private isNewSession = false;
@@ -185,6 +250,17 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
      */
     public onPlatform(platform: string): IntentRequestBuilder {
         this.platform = platform;
+        return this;
+    }
+
+    /**
+     * Set the channel for the request 
+     * 
+     * @param channel - Channel for the request
+     * @returns 
+     */
+    public onChannel(channel: string): IntentRequestBuilder {
+        this.channel = channel;
         return this;
     }
 
@@ -345,7 +421,7 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
      * Build the intent request.
      */
     public build(): IntentRequest {
-        const { apiAccess, canFulFill, device, deviceId, knowledgeBaseResult, intentId, locale, platform, slots, userId, isNewSession, rawQuery } = this;
+        const { apiAccess, canFulFill, channel, device, deviceId, knowledgeBaseResult, intentId, locale, platform, slots, userId, isNewSession, rawQuery } = this;
 
         const request: IntentRequest = {
             type: INTENT_REQUEST_TYPE,
@@ -364,6 +440,10 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
 
         if (rawQuery) {
             request.rawQuery = rawQuery;
+        }
+
+        if (channel) {
+            request.channel = channel;
         }
 
         if (platform) {

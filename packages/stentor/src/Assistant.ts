@@ -124,8 +124,14 @@ export class Assistant {
      */
     public withKnowledgeBaseService(service: KnowledgeBaseService, config: KnowledgeBaseConfig): Assistant {
         if (service && config) {
+            // Channel take precedence over matchIntentId
+            let key = config.matchChannel || config.matchIntentId;
+
             // If they do not provide one, default is to be called on every request.
-            const key = config.matchIntentId || "^.*$";
+            if (!key) {
+                key = "^.*$";
+                config.matchIntentId = key;
+            }
             this.knowledgeBaseServices[key] = { service, ...config };
         }
         return this;

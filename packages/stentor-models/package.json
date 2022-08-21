@@ -20,7 +20,7 @@
     "@microsoft/api-extractor": "7.29.2",
     "@rollup/plugin-typescript": "8.3.4",
     "@xapp/config": "0.2.3",
-    "rollup": "2.78.0",
+    "rollup": "2.78.1",
     "tslib": "2.4.0",
     "typescript": "4.7.4"
   },

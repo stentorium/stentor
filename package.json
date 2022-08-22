@@ -11,7 +11,7 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@microsoft/api-documenter": "7.19.4",
+    "@microsoft/api-documenter": "7.19.5",
     "@typescript-eslint/eslint-plugin": "5.33.1",
     "@typescript-eslint/parser": "5.33.1",
     "@xapp/config": "0.2.3",

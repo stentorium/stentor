@@ -4,7 +4,7 @@ import * as sinon from "sinon";
 
 import { ContextBuilder } from "stentor-context";
 import { Context, JSONDependent, Request, RequestDependent, SystemDependent, Conditioned } from "stentor-models";
-import { LaunchRequestBuilder, IntentRequestBuilder } from "stentor-request";
+import { LaunchRequestBuilder, IntentRequestBuilder, RequestConditionalCheck } from "stentor-request";
 import { determine } from "../determine";
 
 const simple: object = {
@@ -78,6 +78,16 @@ const CONDITIONAL_SLOT_COMPARE: Conditioned = {
     conditions: 'slot("foo") === "${$.context.storage.foo}"'
 }
 
+type RequestConditioned = Conditioned & RequestDependent;
+
+const conditionedRequested: RequestConditioned = {
+    conditions: '"${$.context.storage.foo}" === "bar"',
+    requestMatch: {
+        name: "channel",
+        value: "test-channel"
+    }
+}
+
 describe(`#${determine.name}()`, () => {
     let request: Request;
     let context: Context;
@@ -134,8 +144,27 @@ describe(`#${determine.name}()`, () => {
                 .build();
         });
         it("returns the match", () => {
+            // this is determined by order
             expect(determine([requestDependent0, jsonDependent0, simple], request, context)).to.equal(
                 requestDependent0
+            );
+        });
+    });
+    describe("when passed objects with multiple match types", () => {
+        beforeEach(() => {
+            request = new LaunchRequestBuilder().onChannel("test-channel").build();
+            context = new ContextBuilder()
+                .withStorage({
+                    createdTimestamp: 1234,
+                    foo: "bar"
+                })
+                .build();
+        });
+        it("returns the match", () => {
+            // this is determined by order
+
+            expect(determine([conditionedRequested, CONDITIONAL_0, simple], request, context)).to.equal(
+                conditionedRequested
             );
         });
     });

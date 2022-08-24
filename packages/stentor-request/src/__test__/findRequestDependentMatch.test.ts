@@ -34,7 +34,15 @@ const three: RequestDependent = {
     }
 };
 
+const four: RequestDependent = {
+    requestMatch: {
+        name: "channel",
+        value: ["test-channel"]
+    }
+}
+
 const intentRequest: IntentRequest = new IntentRequestBuilder().build();
+const channelSpecificRequest: IntentRequest = new IntentRequestBuilder().onChannel("test-channel").build();
 const launchRequest: LaunchRequest = new LaunchRequestBuilder().build();
 const sessionEndedRequest: SessionEndedRequest = new SessionEndedRequestBuilder().build();
 
@@ -70,6 +78,7 @@ describe("#findRequestDependentMatch()", () => {
             expect(findRequestDependentMatch([zero, one], intentRequest)).to.equal(one);
             expect(findRequestDependentMatch([two, one], launchRequest)).to.equal(two);
             expect(findRequestDependentMatch([three, one], launchRequest)).to.be.equal(three);
+            expect(findRequestDependentMatch([one, four], channelSpecificRequest)).to.be.equal(four);
         });
     });
 });

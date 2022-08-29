@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.56.67",
+  "version": "1.56.68",
   "description": "SDK for building omni-channel conversational assistants",
   "types": "lib/index",
   "typings": "lib/index",
@@ -48,19 +48,19 @@
     "dotenv": "16.0.1",
     "express": "4.18.1",
     "stentor-constants": "1.56.67",
-    "stentor-context": "1.56.67",
-    "stentor-determiner": "1.56.67",
-    "stentor-handler": "1.56.67",
-    "stentor-handler-factory": "1.56.67",
-    "stentor-logger": "1.56.67",
+    "stentor-context": "1.56.68",
+    "stentor-determiner": "1.56.68",
+    "stentor-handler": "1.56.68",
+    "stentor-handler-factory": "1.56.68",
+    "stentor-logger": "1.56.68",
     "stentor-models": "1.56.67",
-    "stentor-request": "1.56.67",
-    "stentor-response": "1.56.67",
-    "stentor-runtime": "1.56.67",
-    "stentor-service-event": "1.56.67",
-    "stentor-service-ovai": "1.56.67",
-    "stentor-service-studio": "1.56.67",
-    "stentor-utils": "1.56.67"
+    "stentor-request": "1.56.68",
+    "stentor-response": "1.56.68",
+    "stentor-runtime": "1.56.68",
+    "stentor-service-event": "1.56.68",
+    "stentor-service-ovai": "1.56.68",
+    "stentor-service-studio": "1.56.68",
+    "stentor-utils": "1.56.68"
   },
   "peerDependencies": {
     "aws-sdk": "2.X"

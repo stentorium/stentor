@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.56.80](https://github.com/stentorium/stentor/compare/v1.56.79...v1.56.80) (2022-09-13)
+
+
+### Bug Fixes
+
+* Adding Sentiment Analysis Information to IntentRequest and InputUnknownRequest ([#1722](https://github.com/stentorium/stentor/issues/1722)) ([a69ced5](https://github.com/stentorium/stentor/commit/a69ced5684410ddb690924dbb5ba4828ee0e9931))
+
+
+
+
+
 ## [1.56.79](https://github.com/stentorium/stentor/compare/v1.56.78...v1.56.79) (2022-09-13)
 
 **Note:** Version bump only for package repo

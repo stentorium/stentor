@@ -49,7 +49,7 @@ export interface ResponseData {
     /**
      * Provides context to the user for select system responses.
      *
-     * Used for SURFACE_CHANGE, ACCOUNT_LINK,
+     * Used for SURFACE_CHANGE, ACCOUNT_LINK, or generically to pass information to the client surface.
      */
     content?: string;
     /**
@@ -59,7 +59,7 @@ export interface ResponseData {
      */
     title?: string;
     /**
-     * If a request ({@link see IntentRequest.canFulfill}) has canFufill as true,
+     * If a request ({@link see IntentRequest.canFulfill}) has canFulfill as true,
      * this provides information about it's ability to fulfill the request.
      *
      */
@@ -119,21 +119,24 @@ export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Act
      */
     system?:
     | "ACCOUNT_LINK"
+    | "HANDOFF"
     | "MEDIA_ENQUEUE"
     | "MEDIA_STOP"
-    | "SURFACE_CHANGE"
-    | "PERMISSION_LIST"
     | "PERMISSION_EMAIL"
-    | "PERMISSION_PHONE_NUMBER"
-    | "PERMISSION_LOCATION_PRECISE"
+    | "PERMISSION_LIST"
     | "PERMISSION_LOCATION_COARSE"
+    | "PERMISSION_LOCATION_PRECISE"
     | "PERMISSION_NOTIFICATION"
-    | "TRANSFER_CALL"
-    | "HANDOFF"
-    | "TRANSACTION_REQUIREMENTS_CHECK"
-    | "TRANSACTION_DELIVERY_ADDRESS"
+    | "PERMISSION_PHONE_NUMBER"
+    | "SURFACE_CHANGE" // Request to change surfaces
+    | "SURFACE_CLOSE" // Close the surface window
+    | "SURFACE_MINIMIZE" // Minimize the surface window
+    | "SURFACE_RESET" // Reset the surface state
     | "TRANSACTION_DECISION"
+    | "TRANSACTION_DELIVERY_ADDRESS"
+    | "TRANSACTION_REQUIREMENTS_CHECK"
     | "TRANSACTION_STATUS"
+    | "TRANSFER_CALL" // Moves the call from one telephony provider to another
     ;
     /**
      * Supplemental data to augment the response.

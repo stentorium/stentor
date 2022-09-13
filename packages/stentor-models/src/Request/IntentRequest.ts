@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { DateTime, DateTimeRange, Duration } from "../DateTime";
 import { Data } from "../Handler";
-import { BaseRequest } from "./Request";
+import { BaseRequest, SentimentedRequest } from "./Request";
 import { IntentRequestType } from "./Types";
 import { KnowledgeAnswer, KnowledgeBaseResult } from "./KnowledgeBase";
 
@@ -80,7 +80,7 @@ export interface RequestSlotMap {
  *
  * For Alexa see {@link https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/handling-requests-sent-by-alexa#intentrequest}
  */
-export interface IntentRequest extends BaseRequest {
+export interface IntentRequest extends BaseRequest, SentimentedRequest {
     /**
      * The type of an intent request is always "INTENT_REQUEST"
      */

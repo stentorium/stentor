@@ -116,6 +116,32 @@ export interface BaseRequest {
     attributes?: Record<string, unknown>;
 }
 
+/**
+ * A request with sentiment analysis information
+ */
+export interface SentimentedRequest {
+    /**
+     * An analysis on the user's query text sentiment
+     */
+    sentimentAnalysis?: {
+        /**
+         * An abstracted measure of the sentiment. 
+         * 
+         * * POSITIVE - Query has positive sentiment
+         * * NEUTRAL - Query has either positive or negative sentiment
+         * * NEGATIVE - Query has negative sentiment
+         * * MIXED - Query has both positive and negative sentiment
+         */
+        sentiment: "POSITIVE" | "NEUTRAL" | "NEGATIVE" | "MIXED";
+        /**
+         * The original payload from the sentiment analysis engine stringified
+         * 
+         * You can use `JSON.parse` on this data to extract more information.
+         */
+        original?: string;
+    }
+}
+
 export interface ApiAccessData {
     apiBaseUrl: string;
     apiAuthToken: string;

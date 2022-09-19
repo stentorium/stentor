@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.56.83](https://github.com/stentorium/stentor/compare/v1.56.82...v1.56.83) (2022-09-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.29.3 ([#1727](https://github.com/stentorium/stentor/issues/1727)) ([b40d212](https://github.com/stentorium/stentor/commit/b40d21277488c15594af7f798b75a6fbc206e1c5))
+* **deps:** update dependency sanitize-html to v2.7.2 ([#1728](https://github.com/stentorium/stentor/issues/1728)) ([4fc8a98](https://github.com/stentorium/stentor/commit/4fc8a98d10a237b0487057c86c217484a858cde2))
+
+
+
+
+
 ## [1.56.82](https://github.com/stentorium/stentor/compare/v1.56.81...v1.56.82) (2022-09-19)
 
 **Note:** Version bump only for package stentor-utils

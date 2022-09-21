@@ -12,8 +12,8 @@ module.exports = {
     "notice/notice": [
       "error",
       {
-        mustMatch: "Copyright \\(c\\) [0-9]{0,4}, XAPPmedia",
-        template: "/*! Copyright (c) <%= YEAR %>, XAPPmedia */\n",
+        mustMatch: "Copyright \\(c\\) [0-9]{0,4}, [XAPPmedia|XAPP AI]",
+        template: "/*! Copyright (c) <%= YEAR %>, XAPP AI */\n",
       },
     ],
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
@@ -29,7 +29,7 @@ module.exports = {
         "ts-nocheck": "allow-with-description",
         "ts-check": "allow-with-description",
         minimumDescriptionLength: 3,
-      }
+      },
     ],
     "@typescript-eslint/consistent-type-assertions": 2,
     "@typescript-eslint/explicit-function-return-type": 2,

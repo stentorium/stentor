@@ -1,4 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
+
 export enum ListDelimiter {
     or,
     and

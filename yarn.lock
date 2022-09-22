@@ -1006,14 +1006,14 @@
     npmlog "^6.0.2"
     write-file-atomic "^4.0.1"
 
-"@microsoft/api-documenter@7.19.13":
-  version "7.19.13"
-  resolved "https://registry.yarnpkg.com/@microsoft/api-documenter/-/api-documenter-7.19.13.tgz#a3fba1bdfacec6c1caf1f9181a365395b2cf655e"
-  integrity sha512-wlvbPz1/WC0ZlBYz5oHCYOO7JB1Eh2QTObDdaTeIXRyCGkq2y7DF+0/rXNCtuhR1kM9elvl+IZV1VJzm8z4i1Q==
+"@microsoft/api-documenter@7.19.14":
+  version "7.19.14"
+  resolved "https://registry.yarnpkg.com/@microsoft/api-documenter/-/api-documenter-7.19.14.tgz#6a6fdfd4fa3f9285bddcfdb421c810210278f732"
+  integrity sha512-eLCJ33CnKErTL2rBrN3ILJLf5VogPaIaI7I7vrLzQZJ5ti/Gv4GNvwvkhlsQ9I000L/+iplDf2UwcTYZM7HHtg==
   dependencies:
-    "@microsoft/api-extractor-model" "7.24.1"
+    "@microsoft/api-extractor-model" "7.24.2"
     "@microsoft/tsdoc" "0.14.1"
-    "@rushstack/node-core-library" "3.51.2"
+    "@rushstack/node-core-library" "3.52.0"
     "@rushstack/ts-command-line" "4.12.3"
     colors "~1.2.1"
     js-yaml "~3.13.1"
@@ -1027,6 +1027,15 @@
     "@microsoft/tsdoc" "0.14.1"
     "@microsoft/tsdoc-config" "~0.16.1"
     "@rushstack/node-core-library" "3.51.2"
+
+"@microsoft/api-extractor-model@7.24.2":
+  version "7.24.2"
+  resolved "https://registry.yarnpkg.com/@microsoft/api-extractor-model/-/api-extractor-model-7.24.2.tgz#759b09f2360fe761ff40bcf7e5a57b9b86284235"
+  integrity sha512-uUvjqTCY7hYERWGks+joTioN1QYHIucCDy7I/JqLxFxLbFXE5dpc1X7L+FG4PN/s8QYL24DKt0fqJkgcrFKLTw==
+  dependencies:
+    "@microsoft/tsdoc" "0.14.1"
+    "@microsoft/tsdoc-config" "~0.16.1"
+    "@rushstack/node-core-library" "3.52.0"
 
 "@microsoft/api-extractor@7.31.1":
   version "7.31.1"
@@ -1403,6 +1412,20 @@
   version "3.51.2"
   resolved "https://registry.yarnpkg.com/@rushstack/node-core-library/-/node-core-library-3.51.2.tgz#e74986c0ff519b4ce4dd8a642564387740067dc7"
   integrity sha512-DwK2Lo62sHCsg8VsVe/WfugiL1lC5YzmhwzdWr8jLsfOCl8DzcIdLm4Plz0bOCQj/9ItJX1QGXr2jK5xw1Kzwg==
+  dependencies:
+    "@types/node" "12.20.24"
+    colors "~1.2.1"
+    fs-extra "~7.0.1"
+    import-lazy "~4.0.0"
+    jju "~1.4.0"
+    resolve "~1.17.0"
+    semver "~7.3.0"
+    z-schema "~5.0.2"
+
+"@rushstack/node-core-library@3.52.0":
+  version "3.52.0"
+  resolved "https://registry.yarnpkg.com/@rushstack/node-core-library/-/node-core-library-3.52.0.tgz#ee45e52b4b5fc038ce59bf59b1534311884e63fb"
+  integrity sha512-Z+MAP//G3rEGZd3JxJcBGcPYJlh8pvPoLMTLa5Sy6FTE6hRPzN+5J8DT7BbTmlqZaL6SZpXF30heRUbnYOvujw==
   dependencies:
     "@types/node" "12.20.24"
     colors "~1.2.1"

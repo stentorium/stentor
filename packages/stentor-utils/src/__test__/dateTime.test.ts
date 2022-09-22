@@ -319,7 +319,7 @@ describe(`#${parseRelativeDate.name}`, () => {
             expect(lastSunday).to.exist;
             expect(isDateTime(lastSunday)).to.be.true;
             if (isDateTime(lastSunday)) {
-                expect(lastSunday.date).to.equal("2019-09-01");
+                expect(lastSunday.date).to.equal("2019-09-08");
                 expect(lastSunday.time).to.be.undefined;
             }
 
@@ -449,7 +449,7 @@ describe(`#${parseRelativeDate.name}`, () => {
                 expect(lastSunday).to.exist;
                 expect(isDateTime(lastSunday)).to.be.true;
                 if (isDateTime(lastSunday)) {
-                    expect(lastSunday.date).to.equal("2019-09-01");
+                    expect(lastSunday.date).to.equal("2019-09-08");
                     expect(lastSunday.time).to.be.undefined;
                 }
 
@@ -661,9 +661,9 @@ describe(`#${parseRelativeDate.name}`, () => {
             expect(lastSunday).to.exist;
             expect(isDateTimeRange(lastSunday)).to.be.true;
             if (isDateTimeRange(lastSunday)) {
-                expect(lastSunday.start.date).to.equal("2019-09-01");
+                expect(lastSunday.start.date).to.equal("2019-09-08");
                 expect(lastSunday.start.time).to.equal("12:00:00");
-                expect(lastSunday.end.date).to.equal("2019-09-01");
+                expect(lastSunday.end.date).to.equal("2019-09-08");
                 expect(lastSunday.end.time).to.equal("14:00:00");
             }
 

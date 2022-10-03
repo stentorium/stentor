@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.56.94](https://github.com/stentorium/stentor/compare/v1.56.93...v1.56.94) (2022-10-03)
+
+
+### Bug Fixes
+
+* Form support for incoming payloads, typed native response (ex. XML)  ([#1750](https://github.com/stentorium/stentor/issues/1750)) ([2e15f12](https://github.com/stentorium/stentor/commit/2e15f12dea5ce010176eb94eaed20e8edade7a79))
+
+
+
+
+
 ## [1.56.93](https://github.com/stentorium/stentor/compare/v1.56.92...v1.56.93) (2022-10-03)
 
 **Note:** Version bump only for package repo

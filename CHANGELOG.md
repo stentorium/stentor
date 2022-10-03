@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.56.92](https://github.com/stentorium/stentor/compare/v1.56.91...v1.56.92) (2022-10-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @xapp/patterns to v1.40.297 ([84b207b](https://github.com/stentorium/stentor/commit/84b207b99e55df4adb015095ea1f4cf1e386b172))
+
+
+
+
+
 ## [1.56.91](https://github.com/stentorium/stentor/compare/v1.56.90...v1.56.91) (2022-10-01)
 
 **Note:** Version bump only for package repo

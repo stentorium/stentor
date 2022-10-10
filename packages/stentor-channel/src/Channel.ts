@@ -1,5 +1,8 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { Channel, Device, NLUService } from "stentor-models";
+import { hasSessionId } from "stentor-guards";
+import { log } from "stentor-logger";
+import { AbstractResponseBuilder, Channel, Device, NLUService, Request, Storage } from "stentor-models";
+import { existsAndNotEmpty } from "stentor-utils";
 
 import { DEFAULT_DEVICE, STENTOR_PLATFORM } from "./Constants";
 import { isDeviceable, isStentorRequest } from "./Guards";
@@ -31,8 +34,44 @@ export const STENTOR_CHANNEL: Channel = {
 };
 
 export function Stentor(nlu?: NLUService): Channel {
-    return {
+
+    const channel: Channel = {
         ...STENTOR_CHANNEL,
         nlu
     };
+
+    if (!!nlu && typeof nlu.setContext === "function") {
+        // Add the preResponseTranslationHook
+        log().debug(`Adding preResponseTranslation hook for setting context`);
+        const preResponseTranslation = async (request: Request, response: AbstractResponseBuilder, storage: Storage):
+            Promise<{ request: Request; response: AbstractResponseBuilder; storage: Storage }> => {
+
+            if (hasSessionId(request)) {
+
+                const resp = response.response;
+                const sessionId = request.sessionId;
+
+                if (existsAndNotEmpty(resp.context?.active) && typeof nlu?.setContext === "function") {
+                    const debug: string = resp.context.active.reduce((prev, current) => {
+                        return `${prev}\n${current.name} turns: ${current.timeToLive.turnsToLive}`;
+                    }, "")
+                    log().debug(`Sending active context for session ${sessionId}: ${debug}`);
+
+                    await nlu.setContext({
+                        userId: request.userId,
+                        sessionId,
+                        activeContext: resp.context?.active
+                    });
+                }
+            }
+
+            return { request, response, storage };
+        }
+
+        channel.hooks = {
+            preResponseTranslation
+        }
+    }
+
+    return channel;
 }

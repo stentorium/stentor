@@ -506,7 +506,15 @@ export const main = async (
     }
 
     // preResponseTranslation hook - only real content (leave the errors alone)
-    if (typeof hooks === "object" && typeof hooks.preResponseTranslation === "function") {
+    if (!!channel.hooks && typeof channel.hooks.preResponseTranslation === "function") {
+        const returns = await channel.hooks.preResponseTranslation(request, context.response, context.storage);
+        if (returns) {
+            request = returns.request;
+            context.response = returns.response;
+            context.storage = returns.storage;
+        }
+    }
+    if (!!hooks && typeof hooks === "object" && typeof hooks.preResponseTranslation === "function") {
         const returns = await hooks.preResponseTranslation(request, context.response, context.storage);
         if (returns) {
             request = returns.request;

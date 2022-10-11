@@ -1,6 +1,7 @@
 /*! Copyright (c) 2020, XAPPmedia */
 import { RelativeDateTime } from "./DateTime"
 import { RequestSlot, RequestSlotValues } from "./Request";
+import { ActiveContext } from "./Response";
 
 /**
  * Extends a RequestSlot by adding the RelativeDateTime as a possible value.
@@ -31,6 +32,10 @@ export interface UtteranceTest {
      * The utterance to be tested
      */
     utterance: string;
+    /**
+     * Optional active context required for the utterance to trigger the expected inent.
+     */
+    activeContext?: ActiveContext[];
     /**
      * The expected result once the utterance is passed in the NLU
      */

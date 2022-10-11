@@ -3,6 +3,7 @@
 import { Translator } from "@xapp/patterns";
 import {
     Channel,
+    ChannelHooks,
     Device,
     HandlerService,
     KnowledgeBaseResult,
@@ -21,6 +22,10 @@ import {
 export class MockNLUService implements NLUService {
     public async query(): Promise<NLUQueryResponse> {
         return {} as any;
+    }
+
+    public async setContext(): Promise<void> {
+        return;
     }
 }
 
@@ -127,6 +132,7 @@ export interface PassThroughChannelOptions {
     device?: Device;
     response?: Translator<RequestResponse, Response>;
     nlu?: NLUService;
+    hooks?: ChannelHooks;
     test?(body: object): boolean;
 }
 
@@ -169,6 +175,7 @@ export function passThroughChannel(options?: PassThroughChannelOptions): Channel
                 return true;
             }
         },
+        hooks: options?.hooks,
         request: new PassThroughRequestTranslator(),
         response: options?.response || new PassThroughResponseTranslator(),
         capabilities: (): Device => {

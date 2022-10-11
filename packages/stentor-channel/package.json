@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@xapp/patterns": "1.40.297",
+    "stentor-logger": "1.56.99",
     "stentor-utils": "1.56.99"
   },
   "peerDependencies": {

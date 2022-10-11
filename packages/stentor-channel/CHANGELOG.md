@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.56.100](https://github.com/stentorium/stentor/compare/v1.56.99...v1.56.100) (2022-10-11)
+
+
+### Bug Fixes
+
+* Set Context Support for Stentor Channel ([#1762](https://github.com/stentorium/stentor/issues/1762)) ([b2cac2c](https://github.com/stentorium/stentor/commit/b2cac2cd964d4ec187867554516fc585583c8b8d))
+
+
+
+
+
 ## [1.56.99](https://github.com/stentorium/stentor/compare/v1.56.98...v1.56.99) (2022-10-10)
 
 **Note:** Version bump only for package stentor-channel

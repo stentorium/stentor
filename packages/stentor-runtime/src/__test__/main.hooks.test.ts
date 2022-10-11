@@ -375,7 +375,7 @@ describe("#main() with hooks", () => {
             );
 
             const userStore = await userStorageService.get("fakeUserId");
-            const transcript = userStore.sessionStore.data.transcript;
+            const transcript = userStore?.sessionStore?.data.transcript;
 
             expect(transcript).exist;
             expect(transcript.length).equals(2);

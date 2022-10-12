@@ -1819,10 +1819,10 @@
     runes "0.4.3"
     slugify "1.3.4"
 
-"@xapp/patterns@1.40.297":
-  version "1.40.297"
-  resolved "https://registry.yarnpkg.com/@xapp/patterns/-/patterns-1.40.297.tgz#78dcad6b233f7473f3f78f9b44ccaac189a4190e"
-  integrity sha512-k5W31by5RxKA66qfrC5Ygdx8IKQnRZ0Eo5zL/AFKyP5JQEAMJqTloGuUKDezLWs8MFk13MleZCVlHYma8uqfzQ==
+"@xapp/patterns@1.40.314":
+  version "1.40.314"
+  resolved "https://registry.yarnpkg.com/@xapp/patterns/-/patterns-1.40.314.tgz#f63092a027780e0ac1d282398bc92aecb022f2ed"
+  integrity sha512-Poi4pvRycqkwOBS3Amsep+ldKG4MXuYNzbV4bRFkDYgVGanhkMJejxSguQNpI5LcGjsxdvQtvl/AQ4LAoffZlQ==
 
 "@yarnpkg/lockfile@^1.1.0":
   version "1.1.0"

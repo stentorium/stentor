@@ -5,5 +5,6 @@ export * from "./ErrorService";
 export * from "./HandlerService";
 export * from "./KnowledgeBaseService";
 export * from "./PIIService";
+export * from "./PodcastSearchService";
 export * from "./SMSService";
 export * from "./UserStorageService";

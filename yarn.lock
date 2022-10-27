@@ -1001,27 +1001,18 @@
     npmlog "^6.0.2"
     write-file-atomic "^4.0.1"
 
-"@microsoft/api-documenter@7.19.22":
-  version "7.19.22"
-  resolved "https://registry.yarnpkg.com/@microsoft/api-documenter/-/api-documenter-7.19.22.tgz#961e1e2d5c0ca4751ef9d72c641dbb3ae1206500"
-  integrity sha512-Gz9l7tspR0Brnv4I1PcDMLZTZ9H4n8g1iHDwRNMWuOehvp3Wkn2ydBxmVB4ugsTfOPm04DK3cMm5RCVNejDYuw==
+"@microsoft/api-documenter@7.19.23":
+  version "7.19.23"
+  resolved "https://registry.yarnpkg.com/@microsoft/api-documenter/-/api-documenter-7.19.23.tgz#7740ed4c746e55598bb4274a8d0028b8240a996f"
+  integrity sha512-jLwlR+efMHWWrQXc+sgtatUiKhz1XzuFlOrLllirFTaH45Jh4wTZkts467Vqomck9H/2hsfeX5dyv4AjJlisng==
   dependencies:
-    "@microsoft/api-extractor-model" "7.25.1"
-    "@microsoft/tsdoc" "0.14.1"
+    "@microsoft/api-extractor-model" "7.25.2"
+    "@microsoft/tsdoc" "0.14.2"
     "@rushstack/node-core-library" "3.53.2"
     "@rushstack/ts-command-line" "4.13.0"
     colors "~1.2.1"
     js-yaml "~3.13.1"
     resolve "~1.17.0"
-
-"@microsoft/api-extractor-model@7.25.1":
-  version "7.25.1"
-  resolved "https://registry.yarnpkg.com/@microsoft/api-extractor-model/-/api-extractor-model-7.25.1.tgz#be065a816cc83a5aa1b1203a3ac653dd68d62a0d"
-  integrity sha512-AaZ0ohCGLRjWiZviM+0p/DaxgMhbawS183LW2+CSqyEBh6wZks7NjoyhzhibAYapS4omnrmv96+0V/2wBvnIZQ==
-  dependencies:
-    "@microsoft/tsdoc" "0.14.1"
-    "@microsoft/tsdoc-config" "~0.16.1"
-    "@rushstack/node-core-library" "3.53.2"
 
 "@microsoft/api-extractor-model@7.25.2":
   version "7.25.2"

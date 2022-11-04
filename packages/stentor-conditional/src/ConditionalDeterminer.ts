@@ -1,8 +1,8 @@
 /*! Copyright (c) 2020, XAPPmedia */
 import { log } from "stentor-logger";
 import { Contexts, ConditionalCheck, Conditional } from "stentor-models";
-import { VM } from "vm2";
 
+import { getVM, SandboxFunctions } from "./getVM";
 /**
  * ConditionalDeterminer is first configured with a set of conditional 
  * checks it can perform and then determines which is the best match.
@@ -41,7 +41,7 @@ export class ConditionalDeterminer {
         conditionals.forEach((conditional) => {
             if (typeof conditional.conditions === "string") {
                 // Get all the function and add them to the sandbox.
-                const sandboxFunctions: { [name: string]: ((input: any) => boolean | string | number) } = {};
+                const sandboxFunctions: SandboxFunctions = {};
 
                 if (Array.isArray(this.checks)) {
                     this.checks.forEach((check) => {
@@ -59,17 +59,20 @@ export class ConditionalDeterminer {
                     });
                 }
 
-                const vm = new VM({
+                const vm = getVM({
                     timeout: this.timeout,
                     sandbox: {
                         ...sandboxFunctions
                     }
                 });
+
                 let result: boolean;
                 try {
                     result = vm.run(conditional.conditions);
                 } catch (e) {
-                    log().error(`Error evaluating conditions "${conditional.conditions}": ${e}`);
+                    log().error(`${vm.type}|Error evaluating conditions "${conditional.conditions}": ${e}`);
+
+
                     result = false;
                 }
                 // It should be a boolean but need to double check

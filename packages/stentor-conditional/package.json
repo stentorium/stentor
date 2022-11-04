@@ -21,10 +21,15 @@
     "chai": "4.3.6",
     "mocha": "9.2.2",
     "stentor-models": "1.56.118",
-    "typescript": "4.8.4"
+    "typescript": "4.8.4",
+    "isolated-vm": "4.4.2",
+    "vm2": "3.9.11"
   },
   "dependencies": {
-    "stentor-logger": "1.56.118",
+    "stentor-logger": "1.56.118"
+  },
+  "optionalDependencies": {
+    "isolated-vm": "4.4.2",
     "vm2": "3.9.11"
   },
   "peerDependencies": {

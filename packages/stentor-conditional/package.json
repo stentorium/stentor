@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.56.118",
+  "version": "1.56.119",
   "description": "Conditionals for 📣 stentor",
   "types": "lib/index",
   "typings": "lib/index",
@@ -19,10 +19,10 @@
     "@types/chai": "4.3.3",
     "@xapp/config": "0.2.3",
     "chai": "4.3.6",
+    "isolated-vm": "4.4.2",
     "mocha": "9.2.2",
     "stentor-models": "1.56.118",
     "typescript": "4.8.4",
-    "isolated-vm": "4.4.2",
     "vm2": "3.9.11"
   },
   "dependencies": {

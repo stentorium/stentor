@@ -1,12 +1,53 @@
 /*! Copyright (c) 2022, XAPP AI */
 import { expect } from "chai";
 import { Request, Channeled } from "stentor-models";
-import { IntentRequestBuilder } from "stentor-request";
 import { channelMatchesRequest } from "../channel";
 
+const request1: Request = {
+    type: 'INTENT_REQUEST',
+    userId: 'userId',
+    sessionId: 'sessionId',
+    isNewSession: false,
+    intentId: 'intentId',
+    locale: 'en-US',
+    device: {
+        channel: 'test',
+        audioSupported: true,
+        canPlayAudio: true,
+        videoSupported: false,
+        canPlayVideo: false,
+        canSpeak: true,
+        canThrowCard: true,
+        canTransferCall: false,
+        hasScreen: false,
+        hasWebBrowser: false
+    },
+    deviceId: 'deviceId',
+    channel: 'device1'
+}
 
-const request1: Request = new IntentRequestBuilder().onChannel("device1").build();
-const request2: Request = new IntentRequestBuilder().onChannel("channel-2").build();
+const request2: Request = {
+    type: 'INTENT_REQUEST',
+    userId: 'userId',
+    sessionId: 'sessionId',
+    isNewSession: false,
+    intentId: 'intentId',
+    locale: 'en-US',
+    device: {
+        channel: 'test',
+        audioSupported: true,
+        canPlayAudio: true,
+        videoSupported: false,
+        canPlayVideo: false,
+        canSpeak: true,
+        canThrowCard: true,
+        canTransferCall: false,
+        hasScreen: false,
+        hasWebBrowser: false
+    },
+    deviceId: 'deviceId',
+    channel: 'channel-2'
+}
 
 const channeled1: Channeled = {
     channel: {
@@ -33,7 +74,6 @@ const channeled4: Channeled = {
 }
 
 describe(`$${channelMatchesRequest.name}()`, () => {
-
     it(`returns the expected result`, () => {
         expect(channelMatchesRequest(channeled1, undefined)).to.be.false;
         expect(channelMatchesRequest(undefined, request1)).to.be.false;

@@ -431,7 +431,8 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
             intentId,
             locale,
             device,
-            deviceId
+            deviceId,
+            channel: "stentor"
         };
 
         if (typeof apiAccess === "object") {

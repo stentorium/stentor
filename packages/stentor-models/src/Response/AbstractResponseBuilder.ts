@@ -30,7 +30,7 @@ export interface ResponseBuilderProps {
     assistantTitle?: string;
 }
 
-export abstract class AbstractResponseBuilder<R = unknown> {
+export abstract class AbstractResponseBuilder<R = any> {
     /**
      * Information about the device capabilities.  Use to determine
      * if you can present display information or play media.

@@ -51,7 +51,7 @@ export class DynamoUserStorage implements UserStorageService {
 
     public constructor(props?: DynamoUserStorageProps) {
 
-        let tableSchema: TableSchema<Storage>;
+        let tableSchema: TableSchema<Storage> = UserTableSchema;
         let tableName: string = process.env.USER_STORAGE_TABLE;
         this.appId = process.env.STUDIO_APP_ID;
 

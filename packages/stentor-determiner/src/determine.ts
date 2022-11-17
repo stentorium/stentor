@@ -2,10 +2,13 @@
 import { ConditionalDeterminer } from "stentor-conditional";
 import { SESSION_STORAGE_SLOTS_KEY } from "stentor-constants";
 import {
-    isTimeContextual,
+    isChannelable,
+    isConditional,
     isIntentRequest,
+    isJSONDependable,
     isRequestDependable,
     isSystemDependable,
+    isTimeContextual
 } from "stentor-guards";
 import { findSlotDependentMatch, isSlotDependable, SlotConditionalCheck } from "stentor-interaction-model";
 import { log } from "stentor-logger";
@@ -20,7 +23,7 @@ import {
     SystemDependable,
     TimeContextual,
     Conditional,
-    ConditionalCheck
+    ConditionalCheck,
 } from "stentor-models";
 import {
     findRequestDependentMatch,
@@ -30,9 +33,8 @@ import {
 } from "stentor-request";
 import { findStorageDependentMatch, isStorageDependable, StorageDependentCheck } from "stentor-storage";
 import { findTimeContextualMatch, TimeConditionalCheck } from "stentor-time";
-import { combineRequestSlots, random, existsAndNotEmpty, Compiler } from "stentor-utils";
+import { combineRequestSlots, random, existsAndNotEmpty, Compiler, channelMatchesRequest } from "stentor-utils";
 import { findJSONDependentMatch, JSONConditionalCheck } from "./findJSONDependentMatch";
-import { isJSONDependable, isConditional } from "./Guards";
 
 /**
  * Determine which of the provided objects is best based on provided request and context.
@@ -57,8 +59,23 @@ export function determine<P extends object>(potentials: P[], request: Request, c
     // The new ones, conditionals
     const conditionals: Conditional<P>[] = [];
 
-    // Sort the types of matches
+    // Initial filter, if they specific channel
+    // we only let it proceed if it matches the current request
+    const filtered: P[] = [];
+
     for (const potential of potentials) {
+        if (isChannelable(potential)) {
+            // ok, check to see if it passes
+            if (channelMatchesRequest(potential, request)) {
+                filtered.push(potential);
+            }
+        } else {
+            filtered.push(potential);
+        }
+    }
+
+    // Sort the types of matches
+    for (const potential of filtered) {
         // If conditionals exist, prefer that
         if (isConditional(potential)) {
             conditionals.push(potential);
@@ -135,7 +152,8 @@ export function determine<P extends object>(potentials: P[], request: Request, c
         });
 
         if (matchedOriginals.length > 1) {
-            log().debug(`Found ${matchedOriginals.length} conditional matches, picking a random one.`);
+            // this will help people figure out why it isn't picking what they want every time.
+            log().warn(`Found ${matchedOriginals.length} conditional matches, picking a random one.`);
         }
         // Pick a random one
         conditionalMatch = random(matchedOriginals);

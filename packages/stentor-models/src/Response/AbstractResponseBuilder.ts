@@ -13,7 +13,7 @@ import { OrderDescription, PaymentParameters } from "./Transactions";
 
 export interface ResponseBuilderProps {
     /**
-     * Capabilities of the current device.
+     * Capabilities of the current device used by the builder
      */
     device: Readonly<Device>;
     /**
@@ -30,7 +30,7 @@ export interface ResponseBuilderProps {
     assistantTitle?: string;
 }
 
-export abstract class AbstractResponseBuilder<R = any> {
+export abstract class AbstractResponseBuilder<R = unknown> {
     /**
      * Information about the device capabilities.  Use to determine
      * if you can present display information or play media.

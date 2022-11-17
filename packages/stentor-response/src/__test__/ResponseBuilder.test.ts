@@ -768,4 +768,28 @@ describe("ResponseBuilder", () => {
             expect(builder.build()).to.deep.equal(builder.response);
         });
     });
+    it("can be subclassed", () => {
+
+        class SubBuilder extends ResponseBuilder {
+            // Less than ideal, would like to figure out
+            // how to subclass without rewriting the method with new
+            // return value
+            public say(say: string): SubBuilder {
+                super.say(say);
+                return this;
+            }
+
+            public newMethod(): SubBuilder {
+                return this;
+            }
+        }
+
+        const sub = new SubBuilder({ device });
+        expect(sub).to.be.instanceOf(SubBuilder);
+
+        sub.say("foo").newMethod();
+
+    });
 });
+
+

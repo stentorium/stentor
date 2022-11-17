@@ -100,9 +100,29 @@ describe("#set()", () => {
     });
 });
 describe("#redact()", () => {
+    it("redacts the logs", () => {
+        const redacted = redact({
+            level: "debug",
+            message: "My number is 800-888-8888"
+        });
+        expect(redacted.message).to.equal("My number is ###-###-####");
+    });
+    it("does not modify the original", () => {
+        const original = {
+            level: "debug",
+            message: "My number is 800-888-8888"
+        };
+        const redacted = redact(original);
+        expect(original.message).to.equal("My number is 800-888-8888");
+        expect(redacted.message).to.equal("My number is ###-###-####");
+    });
     describe("with OVAI_LOG_PII set to true", () => {
+        const original = process.env.OVAI_LOG_PII
         beforeEach(() => {
             process.env.OVAI_LOG_PII = "true";
+        });
+        after(() => {
+            process.env.OVAI_LOG_PII = original;
         });
         it("passes through PII!", () => {
             expect(

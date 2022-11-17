@@ -1,5 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 export * from "./array";
+export * from "./channel";
 export * from "./compare";
 export * from "./compilers";
 export * from "./date-time";

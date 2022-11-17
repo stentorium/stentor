@@ -52,7 +52,7 @@ export class ContextFactory {
 
         const device: Device = channel.capabilities(requestBody);
 
-        const response: AbstractResponseBuilder<object> = channel.builder
+        const response: AbstractResponseBuilder<unknown> = channel.builder
             ? new channel.builder({ device, ...appData })
             : new ResponseBuilder({ device, ...appData });
 

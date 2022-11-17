@@ -13,7 +13,7 @@ import { OrderDescription, PaymentParameters } from "./Transactions";
 
 export interface ResponseBuilderProps {
     /**
-     * Capabilities of the current device.
+     * Capabilities of the current device used by the builder
      */
     device: Readonly<Device>;
     /**

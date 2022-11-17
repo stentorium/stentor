@@ -34,8 +34,8 @@ describe(`${DynamoUserStorage.name}`, () => {
         describe('when environment variables are provided', () => {
 
             before(() => {
-                process.env.USER_STORAGE_TABLE = "foo",
-                    process.env.STUDIO_APP_ID = "bar";
+                process.env.USER_STORAGE_TABLE = "foo";
+                process.env.STUDIO_APP_ID = "bar";
             });
             after(() => {
                 delete process.env.USER_STORAGE_TABLE;

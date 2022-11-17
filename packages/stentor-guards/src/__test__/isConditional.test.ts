@@ -1,7 +1,7 @@
 /*! Copyright (c) 2020, XAPPmedia */
 import { expect } from "chai";
 
-import { isConditional } from "../Guards";
+import { isConditional } from "../isConditional";
 
 describe(`#${isConditional.name}()`, () => {
     it('returns the correct result', () => {

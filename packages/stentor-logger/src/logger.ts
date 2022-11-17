@@ -33,7 +33,11 @@ export function redact(info: TransformableInfo): TransformableInfo {
     if (process.env.STENTOR_LOG_PII === "true") {
         return info;
     }
-    let message = info.message;
+
+    // Make a copy so we don't modify the original
+    const copy = { ...info };
+
+    let message = copy.message;
     if (typeof message === "string") {
         let partial = process.env.OVAI_LOG_PII_MASK_PARTIAL === "true";
         if (partial) {
@@ -46,14 +50,14 @@ export function redact(info: TransformableInfo): TransformableInfo {
         message = maskEmails(message, partial);
         message = maskPhoneNumbers(message, partial);
     } else if (typeof message === "object") {
-        let asString = JSON.stringify(info.message);
+        let asString = JSON.stringify(copy.message);
         asString = maskEmails(asString);
         asString = maskPhoneNumbers(asString);
         try {
             message = JSON.parse(asString);
         } catch (e) {
             // Failed to redact successfully.
-            message = info.message;
+            message = copy.message;
             // Setup an error message;
             const error = `PII redaction failed, entire log redacted.`;
             if (process.env.STENTOR_LOG_PII_ERRORS === "true") {
@@ -66,8 +70,8 @@ export function redact(info: TransformableInfo): TransformableInfo {
             }
         }
     }
-    info.message = message;
-    return info;
+    copy.message = message;
+    return copy;
 }
 
 function isOnAWSLambda(): boolean {

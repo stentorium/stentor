@@ -1,5 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { Actionable } from "../Action";
+import { Channeled } from "../Channel/Channeled";
 import { Conditioned } from "../Conditional";
 import { LastActive, Scheduled } from "../DateTime";
 import { Display } from "../Display";
@@ -78,7 +79,7 @@ export interface ResponseData {
 /**
  * A response that expects a user's input.
  */
-export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Actionable>, Partial<Conditioned> {
+export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Actionable>, Partial<Conditioned>, Partial<Channeled> {
     /**
      * Name of the response.
      *

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.57.2](https://github.com/stentorium/stentor/compare/v1.57.1...v1.57.2) (2022-11-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.4.2 ([#1821](https://github.com/stentorium/stentor/issues/1821)) ([720264b](https://github.com/stentorium/stentor/commit/720264ba42dbc21d576d9adebe3d181668e6aea1))
+* **deps:** update dependency marked to v4.2.3 ([#1822](https://github.com/stentorium/stentor/issues/1822)) ([a80c81a](https://github.com/stentorium/stentor/commit/a80c81a68135725be66b61cc77589751c4a2f60a))
+
+
+
+
+
 ## [1.57.1](https://github.com/stentorium/stentor/compare/v1.57.0...v1.57.1) (2022-11-18)
 
 **Note:** Version bump only for package stentor-utils

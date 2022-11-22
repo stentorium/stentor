@@ -29,7 +29,6 @@
     "stentor-logger": "1.57.2"
   },
   "optionalDependencies": {
-    "isolated-vm": "4.4.2",
     "vm2": "3.9.11"
   },
   "peerDependencies": {

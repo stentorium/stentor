@@ -1,8 +1,8 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { InputUnknownRequestType, IntentRequestType, KnowledgeAnswer, RequestSlotMap } from "../Request";
+import { InputUnknownRequestType, IntentRequestType, KnowledgeAnswer, RequestSlotMap, SentimentedRequest } from "../Request";
 import { ActiveContext } from "../Response";
 
-export interface NLUQueryResponse {
+export interface NLUQueryResponse extends SentimentedRequest {
     type: IntentRequestType | InputUnknownRequestType;
     /**
      * ID for the matched intent.

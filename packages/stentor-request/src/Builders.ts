@@ -222,6 +222,7 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
     private userId = "userId";
     private canFulFill: boolean;
     private knowledgeBaseResult: KnowledgeBaseResult;
+    private matchConfidence: number;
     private device: Device = {
         channel: "test",
         audioSupported: true,
@@ -271,6 +272,17 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
      */
     public withRawQuery(rawQuery: string): IntentRequestBuilder {
         this.rawQuery = rawQuery;
+        return this;
+    }
+
+    /**
+     * Set the optional match confidence
+     * 
+     * @param confidence 
+     * @returns 
+     */
+    public withMatchConfidence(confidence: number): IntentRequestBuilder {
+        this.matchConfidence = confidence;
         return this;
     }
 
@@ -421,7 +433,7 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
      * Build the intent request.
      */
     public build(): IntentRequest {
-        const { apiAccess, canFulFill, channel, device, deviceId, knowledgeBaseResult, intentId, locale, platform, slots, userId, isNewSession, rawQuery } = this;
+        const { apiAccess, canFulFill, channel, device, deviceId, knowledgeBaseResult, intentId, locale, matchConfidence, platform, slots, userId, isNewSession, rawQuery } = this;
 
         const request: IntentRequest = {
             type: INTENT_REQUEST_TYPE,
@@ -434,6 +446,10 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
             deviceId,
             channel: "stentor"
         };
+
+        if (matchConfidence) {
+            request.matchConfidence = matchConfidence;
+        }
 
         if (typeof apiAccess === "object") {
             request.apiAccess = apiAccess;

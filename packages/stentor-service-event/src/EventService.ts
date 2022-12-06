@@ -133,20 +133,26 @@ export class EventService implements ErrorService {
      */
     public request(request: Request): Event {
         // Pick out the necessary payload
+        // by default it is just the request
         let payload: any;
         // depending on the request
         if (isInputUnknownRequest(request)) {
             payload = {
+                request,
                 intent: request.intentId
             };
         } else if (isIntentRequest(request)) {
             // Intent requests use the intentId
             // like HelpIntent or WeatherIntent
             payload = {
+                request,
                 intent: request.intentId
             };
             if (request.slots) {
                 payload.slots = request.slots;
+            }
+            if (request.matchConfidence) {
+                payload.matchConfidence = request.matchConfidence;
             }
         } else if (isAudioPlayerRequest(request)) {
             payload = {

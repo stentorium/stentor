@@ -324,7 +324,9 @@ describe("EventService", () => {
             it("sets the payload", () => {
                 const request = new LaunchRequestBuilder().build();
                 const event = eventService.request(request);
-                expect(event.payload).to.be.undefined;
+                expect(event.payload).to.deep.equal({
+                    request
+                });
             });
         });
         describe("for an InputUnknown request", () => {

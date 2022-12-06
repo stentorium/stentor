@@ -133,7 +133,10 @@ export class EventService implements ErrorService {
      */
     public request(request: Request): Event {
         // Pick out the necessary payload
-        let payload: any;
+        // by default it is just the request
+        let payload: any = {
+            request
+        }
         // depending on the request
         if (isInputUnknownRequest(request)) {
             payload = {
@@ -147,6 +150,9 @@ export class EventService implements ErrorService {
             };
             if (request.slots) {
                 payload.slots = request.slots;
+            }
+            if (request.matchConfidence) {
+                payload.matchConfidence = request.matchConfidence;
             }
         } else if (isAudioPlayerRequest(request)) {
             payload = {

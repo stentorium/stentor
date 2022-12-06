@@ -276,7 +276,7 @@ describe("EventService", () => {
             it("sets the payload", () => {
                 const request = new IntentRequestBuilder().withIntentId("HelloIntent").build();
                 const event = eventService.request(request);
-                expect(event.payload).to.deep.equal({ intent: request.intentId });
+                expect(event.payload).to.deep.include({ intent: request.intentId });
             });
             it("sets the rawQuery", () => {
                 const request = new IntentRequestBuilder()
@@ -284,7 +284,16 @@ describe("EventService", () => {
                     .withRawQuery("hiya")
                     .build();
                 const event = eventService.request(request);
-                expect(event.payload).to.deep.equal({ intent: request.intentId, rawQuery: "hiya" });
+                expect(event.payload).to.deep.include({ intent: request.intentId, rawQuery: "hiya" });
+            });
+            it("sets the matchConfidence", () => {
+                const request = new IntentRequestBuilder()
+                    .withIntentId("HelloIntent")
+                    .withRawQuery("hiya")
+                    .withMatchConfidence(44)
+                    .build();
+                const event = eventService.request(request);
+                expect(event.payload).to.deep.include({ intent: request.intentId, rawQuery: "hiya", matchConfidence: 44 });
             });
             describe("with slots", () => {
                 it("adds the slots", () => {
@@ -298,7 +307,7 @@ describe("EventService", () => {
                         .withIntentId("HelloIntent")
                         .build();
                     const event = eventService.request(request);
-                    expect(event.payload).to.deep.equal({
+                    expect(event.payload).to.deep.include({
                         intent: request.intentId,
                         slots: {
                             ["foo"]: {
@@ -324,9 +333,7 @@ describe("EventService", () => {
             it("sets the payload", () => {
                 const request = new LaunchRequestBuilder().build();
                 const event = eventService.request(request);
-                expect(event.payload).to.deep.equal({
-                    request
-                });
+                expect(event.payload).to.be.undefined;
             });
         });
         describe("for an InputUnknown request", () => {
@@ -343,7 +350,7 @@ describe("EventService", () => {
             it("sets the payload", () => {
                 const request = new InputUnknownRequestBuilder().build();
                 const event = eventService.request(request);
-                expect(event.payload).to.deep.equal({
+                expect(event.payload).to.deep.include({
                     intent: "InputUnknown"
                 });
             });

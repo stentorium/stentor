@@ -7223,10 +7223,10 @@ vary@~1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
 
-vm2@3.9.12:
-  version "3.9.12"
-  resolved "https://registry.yarnpkg.com/vm2/-/vm2-3.9.12.tgz#9bfa6d913a8b467861524e5a11c3b038cc967ec4"
-  integrity sha512-OMmRsKh1gmdosFzuqmj6O43hqIStqXA24YbwjtUTO0TkOBP8yLNHLplbr4odnAzEcMnm9lt2r3R8kTivn8urMg==
+vm2@3.9.13:
+  version "3.9.13"
+  resolved "https://registry.yarnpkg.com/vm2/-/vm2-3.9.13.tgz#774a1a3d73b9b90b1aa45bcc5f25e349f2eef649"
+  integrity sha512-0rvxpB8P8Shm4wX2EKOiMp7H2zq+HUE/UwodY0pCZXs9IffIKZq6vUti5OgkVCTakKo9e/fgO4X1fkwfjWxE3Q==
   dependencies:
     acorn "^8.7.0"
     acorn-walk "^8.2.0"

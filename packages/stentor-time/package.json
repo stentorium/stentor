@@ -29,7 +29,7 @@
   "dependencies": {
     "moment": "2.29.4",
     "moment-range": "4.0.2",
-    "moment-timezone": "0.5.39",
+    "moment-timezone": "0.5.40",
     "stentor-guards": "1.57.19",
     "stentor-logger": "1.57.20",
     "stentor-utils": "1.57.20"

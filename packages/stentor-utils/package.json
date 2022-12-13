@@ -53,7 +53,7 @@
     "marked": "4.2.4",
     "number-to-words": "1.2.4",
     "numeral": "2.0.6",
-    "sanitize-html": "2.7.3",
+    "sanitize-html": "2.8.0",
     "slugify": "1.6.5",
     "stentor-constants": "1.57.19",
     "stentor-guards": "1.57.19",

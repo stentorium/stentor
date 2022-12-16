@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.57.23",
+  "version": "1.57.24",
   "description": "Interaction model for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -25,9 +25,9 @@
   },
   "dependencies": {
     "stentor-constants": "1.57.23",
-    "stentor-locales": "1.57.23",
-    "stentor-logger": "1.57.23",
-    "stentor-utils": "1.57.23"
+    "stentor-locales": "1.57.24",
+    "stentor-logger": "1.57.24",
+    "stentor-utils": "1.57.24"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

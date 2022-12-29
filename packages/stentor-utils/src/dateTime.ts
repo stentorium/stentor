@@ -382,7 +382,7 @@ export function parseRelativeDate(
                 const date = parseDate(
                     match[0]
                         .replace("_", " ")
-                        .replace(/[\${}]/, "")
+                        .replace(/[\${}]/g, "")
                         .toLowerCase(),
                     "date"
                 );

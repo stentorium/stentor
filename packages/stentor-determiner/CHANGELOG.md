@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.57.34](https://github.com/stentorium/stentor/compare/v1.57.33...v1.57.34) (2022-12-29)
+
+
+### Bug Fixes
+
+* Conditional Errors when compiling ([#1878](https://github.com/stentorium/stentor/issues/1878)) ([45a18c4](https://github.com/stentorium/stentor/commit/45a18c46b591707d098eda20e176b22143c9479c))
+
+
+
+
+
 ## [1.57.33](https://github.com/stentorium/stentor/compare/v1.57.32...v1.57.33) (2022-12-29)
 
 **Note:** Version bump only for package stentor-determiner

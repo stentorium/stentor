@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.57.36](https://github.com/stentorium/stentor/compare/v1.57.35...v1.57.36) (2022-12-29)
+
+
+### Bug Fixes
+
+* tel: support in isUrl ([#1880](https://github.com/stentorium/stentor/issues/1880)) ([228659d](https://github.com/stentorium/stentor/commit/228659d5d62d41e55ed5b259a459d014bed59a4d))
+
+
+
+
+
 ## [1.57.35](https://github.com/stentorium/stentor/compare/v1.57.34...v1.57.35) (2022-12-29)
 
 

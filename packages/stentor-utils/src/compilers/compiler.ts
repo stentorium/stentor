@@ -22,6 +22,9 @@ export const DEFAULT_MARCOS: MacroMap = {
 export interface CompilerProps {
     /**
      * When true, it will replace the ${foo} with undefined or null if the value for `foo` cannot be found.  Default behavior will leave ${foo} if it does not have a value.
+     * 
+     * A caveat to this is when the `foo` is in a string such as `"${foo}"` then it will replace it with an empty string instead of undefined, thus "" instead of "undefined".  The reason for this
+     * is "" is falsey and "undefined" is not.  If you are doing string comparisons then this will be a problem.
      */
     readonly replaceWhenUndefined?: boolean;
     /**
@@ -78,10 +81,10 @@ export class Compiler implements CompilerProps {
      * @param value 
      * @param request 
      * @param context 
-     * @param key 
+     * @param key - Optional, if not provided it is just assumed to be a string 
      * @returns 
      */
-    private compileString(value: string, request: Request, context: Context, key: "displayText" | "ssml" | "html"): string {
+    private compileString(value: string, request: Request, context: Context, key?: "displayText" | "ssml" | "html"): string {
 
         let compiledValue: string = value;
 
@@ -156,7 +159,8 @@ export class Compiler implements CompilerProps {
             const slot = slots[captured];
             // Based on the type, replace it in the string
             if (slot && key !== "html") {
-                speakableSlotValue = slotValueToSpeech(slot.value, key);
+                // passing "displayText" if no key exists here
+                speakableSlotValue = slotValueToSpeech(slot.value, key || "displayText");
             }
 
             // 2nd special case, session value, which allows you to do ${session_value.key}
@@ -181,6 +185,7 @@ export class Compiler implements CompilerProps {
                     sessionValue = `${sessionReplacement}`;
                 }
             }
+
             // Last, we just try a JSON path
             const pathResult = JSONPath({
                 path: captured.trim(), json: {
@@ -212,10 +217,31 @@ export class Compiler implements CompilerProps {
                 }
             }
 
-            if (speakableSlotValue || sessionValue || pathReplacement || this.replaceWhenUndefined) {
-                const replacement: string = speakableSlotValue || sessionValue || pathReplacement;
-                // replace it
-                compiledValue = compiledValue.replace(result[0], replacement);
+            // Possible replacement value
+            const replacement: string = speakableSlotValue || sessionValue || pathReplacement;
+            // Check if we do replacement
+            // Either we have a replacement value or we are replacing it with undefined
+            if (replacement || this.replaceWhenUndefined) {
+
+                const current: string = result[0];
+                const input = result.input;
+
+                // We want to check to see if the value we are replacing is surrounded by
+                // any kind of quotes
+                const beforeIndex = result.index - 1;
+                const before = input[beforeIndex];
+                const afterIndex = result.index + current.length;
+                const after = input[afterIndex];
+                // So, no replacement value and we are replacing with undefined &&
+                // we are surrounded by "", we want to preserve the fact that "" is falsey
+                // so we replace it with empty string.
+                // Otherwise we do "undefined" and that is no longer falsey
+                if (!replacement && this.replaceWhenUndefined && !key && /['||"||`]/.test(before) && /['||"||`]/.test(after)) {
+                    compiledValue = compiledValue.replace(current, "");
+                } else {
+                    // replace it
+                    compiledValue = compiledValue.replace(current, replacement);
+                }
             }
         }
 
@@ -244,7 +270,7 @@ export class Compiler implements CompilerProps {
         if (typeof compiledValue === "string") {
             // Default it to displayText because it is the safest and works 
             // in both cases.
-            compiledValue = this.compileString(compiledValue, request, context, "displayText");
+            compiledValue = this.compileString(compiledValue, request, context);
         } else {
             // Response is { ssml, displayText }
             const value: ResponseOutput = compiledValue; // This reassignment is only to make TS happy
@@ -263,7 +289,6 @@ export class Compiler implements CompilerProps {
                 // Make a copy
                 const compiledSuggestions: SuggestionTypes[] = [];
 
-
                 value.suggestions.forEach((suggestion) => {
 
                     if (typeof suggestion === "string") {
@@ -273,7 +298,6 @@ export class Compiler implements CompilerProps {
                         // Run through each key
                         suggestion.title = this.compileString(suggestion.title, request, context, "displayText");
                         if (isLinkoutSuggestion(suggestion)) {
-
 
                             const originalUrl = suggestion.url;
                             const originalHasRegex = !!originalUrl.match(new RegExp(TEMPLATE_REGEX))

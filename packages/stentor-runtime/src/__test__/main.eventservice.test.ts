@@ -157,6 +157,7 @@ describe("#main() with EventService", () => {
                 expect(requestEvent.currentHandler).to.equal("LaunchRequest");
                 expect(requestEvent.selectedHandler).to.equal("intentId");
                 expect(requestEvent.rawQuery).to.be.undefined;
+                expect(requestEvent.environment).to.be.undefined;
             });
         });
         describe("without existing handler", () => {
@@ -199,6 +200,53 @@ describe("#main() with EventService", () => {
                 expect(requestEvent.currentHandler).to.be.undefined;
                 expect(requestEvent.selectedHandler).to.equal("intentId");
                 expect(requestEvent.rawQuery).to.equal("oh hi");
+            });
+        });
+        describe("with attributes on the request", () => {
+            beforeEach(() => {
+                request = new IntentRequestBuilder().build();
+                request.attributes = {
+                    environment: "updated"
+                };
+                handlerFactory = new HandlerFactory({ handlers: [ConversationHandler] });
+                context = { ovai: { appId } };
+                callbackSpy = sinon.spy();
+                handlerService = sinon.createStubInstance(MockHandlerService, {
+                    get: intentHandler
+                });
+                userStorageService = sinon.createStubInstance(MockUserStorageService, {
+                    get: Promise.resolve({ ...storage, currentHandler: handler })
+                });
+                eventStream = new TestEventStream();
+                eventService.addStream(eventStream);
+            });
+            it("reports the events", async () => {
+                await main(request, context, callbackSpy, [passThroughChannel()], {
+                    eventService,
+                    handlerFactory,
+                    handlerService,
+                    userStorageService
+                });
+                expect(callbackSpy).to.have.been.calledOnce;
+                expect(callbackSpy).to.have.been.calledWith(null, {
+                    name: "Name",
+                    outputSpeech: {
+                        displayText: "Intent Response",
+                        ssml: "<speak>Intent Response</speak>"
+                    }
+                });
+                expect(eventStream.events).to.have.length(3);
+                const requestEvent = eventStream.events[1];
+                expect(requestEvent.platform).to.equal("MOCK");
+                expect(requestEvent.type).to.equal("REQUEST");
+                expect(requestEvent.name).to.equal("INTENT_REQUEST");
+                expect(requestEvent.appId).to.equal(appId);
+                expect(requestEvent.sessionId).to.equal("sessionId");
+                expect(requestEvent.currentHandler).to.equal("LaunchRequest");
+                expect(requestEvent.selectedHandler).to.equal("intentId");
+                expect(requestEvent.rawQuery).to.be.undefined;
+                // this is what we are testing here.
+                expect(requestEvent.environment).to.equal("updated");
             });
         });
     });

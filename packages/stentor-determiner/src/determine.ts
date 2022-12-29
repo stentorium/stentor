@@ -109,8 +109,9 @@ export function determine<P extends object>(potentials: P[], request: Request, c
         conditionals.forEach((conditional) => {
             if (typeof conditional.conditions === "string") {
                 // Compile it
-                const compiled: string = new Compiler({ additionalContext }).compile(conditional.conditions, request, context);
-
+                //    replaceWhenUndefined is here so we can have logic like:
+                //    !!${$.context.storage.user} <-- And it not throw an error when the user doesn't exist.
+                const compiled: string = new Compiler({ additionalContext, replaceWhenUndefined: true }).compile(conditional.conditions, request, context);
                 // Keep hold of the original
                 originals[compiled] = conditional;
                 // Push a compiled version
@@ -132,11 +133,9 @@ export function determine<P extends object>(potentials: P[], request: Request, c
             SlotConditionalCheck(requestSlots),
             StorageDependentCheck(request, context)
         ];
-        // If we have a lastActiveTimestamp, which we most always do 
-        if (context && context.storage && typeof context.storage.lastActiveTimestamp === "number") {
-            const lastActiveTimestamp = context.storage.lastActiveTimestamp;
-            checks.push(TimeConditionalCheck({ lastActiveTimestamp }));
-        }
+
+        const lastActiveTimestamp = typeof context?.storage?.lastActiveTimestamp === "number" ? context?.storage?.lastActiveTimestamp : undefined;
+        checks.push(TimeConditionalCheck({ lastActiveTimestamp }));
 
         // Big show, determine the matches
         const matches = new ConditionalDeterminer(checks).determine<P>(compiledConditionals);

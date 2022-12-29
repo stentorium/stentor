@@ -128,7 +128,8 @@ const shouldRunConditionals = () => {
             expect(engine.determine([SHOULD_TRUE, SHOULD_FALSE])).to.deep.equal([SHOULD_TRUE]);
         });
     });
-    describe("with a string", () => {
+    describe("with a string conditional", () => {
+        // This is becoming the primary condition method 
         it('returns the correct result', () => {
             expect(new ConditionalDeterminer([]).determine([STRING_TRUE_AND_TRUE])).to.have.length(1);
             expect(new ConditionalDeterminer([]).determine([STRING_TRUE_AND_TRUE])).to.deep.equal([STRING_TRUE_AND_TRUE]);

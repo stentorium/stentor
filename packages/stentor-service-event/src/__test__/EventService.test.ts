@@ -208,6 +208,22 @@ describe("EventService", () => {
                 expect(event).to.deep.include({ mergePrefix2: "Value2" });
             }
         });
+        it("overwrites previous values", () => {
+            const eventService = newService();
+            eventService.addPrefix({
+                environment: "first"
+            });
+            eventService.addPrefix({
+                environment: "second"
+            });
+
+            const max = 10;
+            for (let i = 0; i < max; ++i) {
+                const event = eventService.event(testEvent);
+                expect(event).to.contain(testEvent);
+                expect(event).to.contain({ environment: "second" });
+            }
+        });
     });
     describe("#message()", () => {
         it("Tests that a message event is returned when just a message parameter.", () => {

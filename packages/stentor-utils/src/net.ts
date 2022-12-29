@@ -58,16 +58,20 @@ export function fetchUrl(url: string): Promise<string> {
 /**
  * Simple check to see if the string is potentially a URL.
  *
- * Only looks for a prefix of https://, http:// & file://
+ * Only looks for a prefix of https://, http://, file://, tel:
  *
  * @param {string} s
  * @returns {boolean}
  */
 export function isUrl(s: string): boolean {
+    if (typeof s !== "string") {
+        return false;
+    }
     return (
         s.toLowerCase().startsWith("http://") ||
         s.toLowerCase().startsWith("https://") ||
-        s.toLowerCase().startsWith("file:///")
+        s.toLowerCase().startsWith("file:///") ||
+        s.toLowerCase().startsWith("tel:")
     );
 }
 

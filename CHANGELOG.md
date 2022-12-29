@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.57.35](https://github.com/stentorium/stentor/compare/v1.57.34...v1.57.35) (2022-12-29)
+
+
+### Bug Fixes
+
+* Code Scanning Alerts - global replace on regex ([#1879](https://github.com/stentorium/stentor/issues/1879)) ([59ceaab](https://github.com/stentorium/stentor/commit/59ceaabe161ced9e95eecf157330e6421f61b581))
+
+
+
+
+
 ## [1.57.34](https://github.com/stentorium/stentor/compare/v1.57.33...v1.57.34) (2022-12-29)
 
 

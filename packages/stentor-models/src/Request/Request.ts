@@ -112,6 +112,13 @@ export interface BaseRequest {
      * Optional request attributes to be passed through on the request.
      *
      * If the channel supports it, it will be populated.
+     * 
+     * Some common keys that are use are, all optional:
+     * 
+     * * 
+     * * currentUrl - For channels installed on websites, contains window.location.href information on where the user is
+     * * isLocal - Boolean for if the currentUrl is to localhost.  If it is true then most likely currentUrl will be undefined.
+     * * environment - Used to override the environment 
      */
     attributes?: Record<string, unknown>;
 }

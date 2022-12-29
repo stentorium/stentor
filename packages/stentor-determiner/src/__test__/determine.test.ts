@@ -345,4 +345,27 @@ describe(`#${determine.name}()`, () => {
             expect(determine([channeled2, channeled3], request, context)).to.not.exist;
         });
     });
+    describe("when passed conditions with undefined JSON paths", () => {
+        // error|09:50:31|VM2|Error evaluating conditions "activeWithin(1, "day") && !${$.context.storage.customer}": SyntaxError: Unexpected token '{'
+        // error|09:50:31|VM2|Error evaluating conditions ""widget" !== "AGENT_ASSISTANT" && !!${$.context.storage.customer}": SyntaxError: Unexpected token '{'
+        // error|09:50:31|VM2|Error evaluating conditions ""widget" === "AGENT_ASSISTANT" && !!${$.context.storage.customer} ": SyntaxError: Unexpected token '{'
+        // error|09:50:31|VM2|Error evaluating conditions ""widget" === "AGENT_ASSISTANT" && !${$.context.storage.customer} ": SyntaxError: Unexpected token '{'
+        // The above errors occur when we attempt to do some JSON path replacement but they don't exist
+
+        beforeEach(() => {
+            request = new LaunchRequestBuilder().onChannel("channel-1").build();
+            context = new ContextBuilder()
+                .withStorage({
+                    createdTimestamp: 1234,
+                    foo: "bar"
+                })
+                .build();
+        });
+        it("returns the expected", () => {
+            const notValid: Conditioned = {
+                conditions: '"${$.request.channel}" !== "AGENT_ASSISTANT" && !!${$.context.storage.customer}'
+            }
+            expect(determine([notValid, channeled3], request, context)).to.not.exist;
+        });
+    });
 });

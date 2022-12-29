@@ -196,6 +196,13 @@ export const main = async (
         if (isIntentRequest(request) && request.canFulfill) {
             eventService.addPrefix({ canFulfill: `${request.canFulfill}` });
         }
+
+        // Look for overrides in the attributes field
+        if (request.attributes && typeof request.attributes === "object" && Object.keys(request.attributes).length > 0) {
+            if (request.attributes.environment && typeof request.attributes.environment === "string") {
+                eventService.addPrefix({ environment: request.attributes.environment })
+            }
+        }
     }
 
     // Do some logging for debugging if needed

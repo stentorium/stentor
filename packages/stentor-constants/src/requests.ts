@@ -8,6 +8,7 @@ import {
     AudioPlayerPlaybackStoppedEvent,
     AudioPlayerRequestType,
     AudioPlayerSystemExceptionEvent,
+    ChannelActionRequestType,
     InputUnknownID,
     InputUnknownRequestType,
     IntentRequestType,
@@ -43,17 +44,18 @@ export const KNOWLEDGE_ANSWER_ID: KnowledgeAnswerID = "KnowledgeAnswer";
 export const ATTACHMENT_REQUEST_ID: AttachmentRequestID = "AttachmentRequest";
 
 // Standard Request Types
-export const LAUNCH_REQUEST_TYPE: LaunchRequestType = "LAUNCH_REQUEST";
-export const SESSION_ENDED_REQUEST_TYPE: SessionEndedRequestType = "SESSION_ENDED_REQUEST";
-export const INTENT_REQUEST_TYPE: IntentRequestType = "INTENT_REQUEST";
-export const INPUT_UNKNOWN_REQUEST_TYPE: InputUnknownRequestType = "INPUT_UNKNOWN_REQUEST";
 export const AUDIO_PLAYER_REQUEST_TYPE: AudioPlayerRequestType = "AUDIO_PLAYER_REQUEST";
-export const PLAYBACK_CONTROL_REQUEST_TYPE: PlaybackControlRequestType = "PLAYBACK_CONTROL_REQUEST";
-export const PERMISSION_REQUEST_TYPE: PermissionRequestType = "PERMISSION_GRANT";
-export const SURFACE_CHANGE_REQUEST_TYPE: SurfaceChangeRequestType = "SURFACE_CHANGE_REQUEST";
-export const SIGN_IN_REQUEST_TYPE: SignInRequestType = "SIGN_IN_REQUEST";
-export const OPTION_SELECT_REQUEST_TYPE: OptionSelectRequestType = "OPTION_SELECT_REQUEST";
+export const CHANNEL_ACTION_REQUEST_TYPE: ChannelActionRequestType = "CHANNEL_ACTION_REQUEST";
+export const INPUT_UNKNOWN_REQUEST_TYPE: InputUnknownRequestType = "INPUT_UNKNOWN_REQUEST";
+export const INTENT_REQUEST_TYPE: IntentRequestType = "INTENT_REQUEST";
+export const LAUNCH_REQUEST_TYPE: LaunchRequestType = "LAUNCH_REQUEST";
 export const NOTIFICATION_PERMISSION_REQUEST_TYPE: NotificationPermissionRequestType = "NOTIFICATION_PERMISSION_REQUEST_TYPE";
+export const OPTION_SELECT_REQUEST_TYPE: OptionSelectRequestType = "OPTION_SELECT_REQUEST";
+export const PERMISSION_REQUEST_TYPE: PermissionRequestType = "PERMISSION_GRANT";
+export const PLAYBACK_CONTROL_REQUEST_TYPE: PlaybackControlRequestType = "PLAYBACK_CONTROL_REQUEST";
+export const SESSION_ENDED_REQUEST_TYPE: SessionEndedRequestType = "SESSION_ENDED_REQUEST";
+export const SIGN_IN_REQUEST_TYPE: SignInRequestType = "SIGN_IN_REQUEST";
+export const SURFACE_CHANGE_REQUEST_TYPE: SurfaceChangeRequestType = "SURFACE_CHANGE_REQUEST";
 
 // Transaction related requests
 export const TRANSACTION_REQUIREMENT_CHECK_REQUEST_TYPE: TransactionRequirementCheckType = "TRANSACTION_REQUIREMENT_CHECK_REQUEST";

@@ -17,6 +17,7 @@ import { RequestTypes } from "./Types";
 import { DeliveryAddressRequest } from "./DeliveryAddressRequest";
 import { TransactionDecisionRequest } from "./TransactionDecisionRequest";
 import { TransactionRequirementCheckRequest } from "./TransactionRequirementCheckRequest";
+import { ChannelActionRequest } from "./ChannelActionRequest";
 
 /**
  * Shared parameters for each Request
@@ -155,18 +156,19 @@ export interface ApiAccessData {
 }
 
 export type Request =
-    | LaunchRequest
-    | SessionEndedRequest
+    | AudioPlayerRequest
+    | ChannelActionRequest
+    | DeliveryAddressRequest
     | InputUnknownRequest
     | IntentRequest
-    | AudioPlayerRequest
-    | PlaybackControlRequest
-    | PermissionRequest
-    | SurfaceChangeRequest
+    | LaunchRequest
     | NotificationPermissionRequest
-    | SignInRequest
     | OptionSelectRequest
+    | PermissionRequest
+    | PlaybackControlRequest
     | RawQueryRequest
-    | DeliveryAddressRequest
+    | SessionEndedRequest
+    | SignInRequest
+    | SurfaceChangeRequest
     | TransactionDecisionRequest
     | TransactionRequirementCheckRequest;

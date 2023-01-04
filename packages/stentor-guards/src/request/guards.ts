@@ -15,11 +15,13 @@ import {
     SurfaceChangeRequest,
     SystemDependable,
     SystemDependent,
-    NotificationPermissionRequest
+    NotificationPermissionRequest,
+    ChannelActionRequest
 } from "stentor-models";
 
 import {
     AUDIO_PLAYER_REQUEST_TYPE,
+    CHANNEL_ACTION_REQUEST_TYPE,
     INPUT_UNKNOWN_REQUEST_TYPE,
     INTENT_REQUEST_TYPE,
     LAUNCH_REQUEST_TYPE,
@@ -29,7 +31,8 @@ import {
     PLAYBACK_CONTROL_REQUEST_TYPE,
     SESSION_ENDED_REQUEST_TYPE,
     SIGN_IN_REQUEST_TYPE,
-    SURFACE_CHANGE_REQUEST_TYPE, TRANSACTION_DELIVERY_ADDRESS_REQUEST_TYPE
+    SURFACE_CHANGE_REQUEST_TYPE,
+    TRANSACTION_DELIVERY_ADDRESS_REQUEST_TYPE
 } from "stentor-constants";
 import { DeliveryAddressRequest } from "stentor-models/lib/Request/DeliveryAddressRequest";
 import { TransactionDecisionRequest } from "stentor-models/lib/Request/TransactionDecisionRequest";
@@ -43,6 +46,16 @@ import { TransactionRequirementCheckRequest } from "stentor-models/lib/Request/T
  */
 export function isLaunchRequest(request: Request): request is LaunchRequest {
     return !!request && request.type === LAUNCH_REQUEST_TYPE;
+}
+
+/**
+ * Check if the request is a ChannelActionRequest
+ * 
+ * @param request 
+ * @returns 
+ */
+export function isChannelActionRequest(request: Request): request is ChannelActionRequest {
+    return !!request && request.type === CHANNEL_ACTION_REQUEST_TYPE;
 }
 
 /**

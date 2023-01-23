@@ -16,7 +16,7 @@ import {
     Storage,
     UserStorageService
 } from "stentor-models";
-import { LaunchRequestBuilder, IntentRequestBuilder } from "stentor-request";
+import { LaunchRequestBuilder, IntentRequestBuilder, AudioPlayerRequestBuilder } from "stentor-request";
 import { EventService } from "stentor-service-event";
 import { main } from "../main";
 import { MockHandlerService, MockUserStorageService, passThroughChannel } from "./Mocks";
@@ -532,6 +532,56 @@ describe("#main() with EventService", () => {
             const requestResponseEvent = eventStream.events[0];
             expect(requestResponseEvent.type).to.equal("AnalyticsEvent");
             expect(requestResponseEvent.name).to.equal("REQUEST_RESPONSE");
+        });
+    });
+    describe("when we receive a AudioPlayer.PlaybackFailed request", () => {
+        beforeEach(() => {
+            // @ts-ignore Bad request to crash the channel selector
+            request = new AudioPlayerRequestBuilder().withFailure("UNABLE_TO_PLAY", "things don't work").build();
+
+            request.attributes = {
+                environment: "test"
+            }
+
+            handlerFactory = new HandlerFactory({ handlers: [ConversationHandler] });
+            context = { ovai: { appId } };
+            callbackSpy = sinon.spy();
+            handlerService = sinon.createStubInstance(MockHandlerService, {
+                get: handler
+            });
+            userStorageService = sinon.createStubInstance(MockUserStorageService, {
+                get: Promise.resolve({ ...storage })
+            });
+            eventStream = new TestEventStream();
+            eventService.addStream(eventStream);
+        });
+        it("reports the error", async () => {
+            await main(request, context, callbackSpy, [passThroughChannel({
+                test: (): boolean => {
+                    return true;
+                }
+            })], {
+                eventService,
+                handlerFactory,
+                handlerService,
+                userStorageService
+            });
+            expect(callbackSpy).to.have.been.calledOnce;
+            const arg = callbackSpy.getCall(0);
+            expect(arg.args).to.have.length(2);
+            expect(arg.args[0] instanceof Error).to.be.false;
+
+            expect(eventStream.events).to.have.length(4);
+            const errorEvent = eventStream.events[0];
+
+            expect(errorEvent.environment).to.equal("test");
+            expect(errorEvent.type).to.equal("ERROR");
+            expect(errorEvent.name).to.equal("UNABLE_TO_PLAY");
+            expect(errorEvent.payload).to.contain({ message: "things don't work" });
+            expect(errorEvent.appId).to.equal(appId);
+            // too early to know the platform.
+            expect(errorEvent.platform).to.equal("MOCK");
+            expect(eventStream.flushed).to.be.true;
         });
     });
 });

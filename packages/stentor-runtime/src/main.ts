@@ -1,5 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { isActionable } from "stentor-guards";
+import { isActionable, isAudioPlayerRequest } from "stentor-guards";
 import { log } from "stentor-logger";
 import { GOODBYE, TROUBLE_WITH_REQUEST, SESSION_STORAGE_NEW_USER, SESSION_STORAGE_SLOTS_KEY, SESSION_STORAGE_KNOWLEDGE_BASE_RESULT } from "stentor-constants";
 import {
@@ -179,6 +179,14 @@ export const main = async (
     }
 
     if (eventService) {
+        // Look for overrides in the attributes field
+        // Do this first
+        if (request.attributes && typeof request.attributes === "object" && Object.keys(request.attributes).length > 0) {
+            if (request.attributes.environment && typeof request.attributes.environment === "string") {
+                eventService.addPrefix({ environment: request.attributes.environment })
+            }
+        }
+
         // Now that we have a request, lets add some things to the event service.
         eventService.addPrefix({
             userId: request.userId,
@@ -188,6 +196,7 @@ export const main = async (
             channel: request.channel,
             rawQuery: request.rawQuery
         });
+
         // And sessionId if possible
         if (hasSessionId(request)) {
             eventService.addPrefix({ sessionId: request.sessionId });
@@ -197,11 +206,11 @@ export const main = async (
             eventService.addPrefix({ canFulfill: `${request.canFulfill}` });
         }
 
-        // Look for overrides in the attributes field
-        if (request.attributes && typeof request.attributes === "object" && Object.keys(request.attributes).length > 0) {
-            if (request.attributes.environment && typeof request.attributes.environment === "string") {
-                eventService.addPrefix({ environment: request.attributes.environment })
-            }
+        // If an audio player request event Failed, we want to log the error
+        if (isAudioPlayerRequest(request) && request.event === "AudioPlayerPlaybackFailed") {
+            const audioError = new Error(request.errorMessage)
+            audioError.name = request.errorType;
+            eventService.error(audioError);
         }
     }
 

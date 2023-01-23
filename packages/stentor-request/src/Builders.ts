@@ -491,8 +491,24 @@ export class AudioPlayerRequestBuilder extends AbstractBuilder<AudioPlayerReques
     private token = "token";
     private offsetInMilliseconds = 0;
 
+    private errorType: string;
+    private errorMessage: string;
+
     public withEvent(event: AudioPlayerEvent): AudioPlayerRequestBuilder {
         this.event = event;
+        return this;
+    }
+
+    /**
+     * Sets request type to AudioPlayerPlaybackFailed and adds type & message to the request
+     * @param type 
+     * @param message 
+     */
+    public withFailure(type: string, message: string): AudioPlayerRequestBuilder {
+        this.event = "AudioPlayerPlaybackFailed";
+        this.errorMessage = message;
+        this.errorType = type;
+
         return this;
     }
 
@@ -517,9 +533,9 @@ export class AudioPlayerRequestBuilder extends AbstractBuilder<AudioPlayerReques
     }
 
     public build(): AudioPlayerRequest {
-        const { event, token, offsetInMilliseconds } = this;
+        const { event, token, offsetInMilliseconds, errorMessage, errorType } = this;
 
-        return {
+        const request: AudioPlayerRequest = {
             type: AUDIO_PLAYER_REQUEST_TYPE,
             userId: "userId",
             event,
@@ -527,6 +543,16 @@ export class AudioPlayerRequestBuilder extends AbstractBuilder<AudioPlayerReques
             offsetInMilliseconds,
             isNewSession: false // they are always false
         };
+
+        if (errorMessage) {
+            request.errorMessage = errorMessage;
+        }
+
+        if (errorType) {
+            request.errorType = errorType;
+        }
+
+        return request;
     }
 }
 

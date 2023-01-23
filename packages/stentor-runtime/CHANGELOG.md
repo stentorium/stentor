@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.57.49](https://github.com/stentorium/stentor/compare/v1.57.48...v1.57.49) (2023-01-23)
+
+
+### Bug Fixes
+
+* Report AudioPlayerPlaybackFailed as error ([#1905](https://github.com/stentorium/stentor/issues/1905)) ([91a0dfe](https://github.com/stentorium/stentor/commit/91a0dfe3fba1c0588b563e37e706fecf07722c88))
+
+
+
+
+
 ## [1.57.48](https://github.com/stentorium/stentor/compare/v1.57.47...v1.57.48) (2023-01-23)
 
 **Note:** Version bump only for package stentor-runtime

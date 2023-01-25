@@ -1770,10 +1770,10 @@
     runes "0.4.3"
     slugify "1.3.4"
 
-"@xapp/patterns@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@xapp/patterns/-/patterns-2.0.0.tgz#dba89ef256b03b86336d7dcc84eaaaf62a3e6a55"
-  integrity sha512-9n5KQD8rogrd0qEMUVYGH6cB0tOImJ2ZfAky8ofxCiTsgs04ExBwzHtnQHy0K8WF+opzXRDuDm9N6UqrDF385w==
+"@xapp/patterns@2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@xapp/patterns/-/patterns-2.0.1.tgz#e453467abf994306da315c355d7b7519b06dc796"
+  integrity sha512-mG+RK8ihW/1f6K3Nx2I7ADXQrouLLPUftwpcqgl6jjUWNI9P99KU1O/iXDnCohJQQ3fcRY8ueTTsksXm2lplEw==
 
 "@yarnpkg/lockfile@^1.1.0":
   version "1.1.0"

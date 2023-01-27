@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.57.55](https://github.com/stentorium/stentor/compare/v1.57.54...v1.57.55) (2023-01-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/express to v4.17.16 ([#1912](https://github.com/stentorium/stentor/issues/1912)) ([eb1c10b](https://github.com/stentorium/stentor/commit/eb1c10b45cedf8183a3c118994382e44b10d86b6))
+
+
+
+
+
 ## [1.57.54](https://github.com/stentorium/stentor/compare/v1.57.53...v1.57.54) (2023-01-27)
 
 **Note:** Version bump only for package stentor

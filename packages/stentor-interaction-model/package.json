@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.57.53",
+  "version": "1.57.54",
   "description": "Interaction model for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -19,15 +19,15 @@
     "@xapp/config": "0.2.3",
     "chai": "4.3.7",
     "mocha": "9.2.2",
-    "stentor-models": "1.57.53",
+    "stentor-models": "1.57.54",
     "ts-node": "10.9.1",
     "typescript": "4.9.4"
   },
   "dependencies": {
-    "stentor-constants": "1.57.53",
-    "stentor-locales": "1.57.53",
-    "stentor-logger": "1.57.53",
-    "stentor-utils": "1.57.53"
+    "stentor-constants": "1.57.54",
+    "stentor-locales": "1.57.54",
+    "stentor-logger": "1.57.54",
+    "stentor-utils": "1.57.54"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

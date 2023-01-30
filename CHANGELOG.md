@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.57.59](https://github.com/stentorium/stentor/compare/v1.57.58...v1.57.59) (2023-01-30)
+
+
+### Bug Fixes
+
+* cancelled app status ([#1919](https://github.com/stentorium/stentor/issues/1919)) ([d222716](https://github.com/stentorium/stentor/commit/d222716bfa88cd83b309c574bc988bd942707645))
+
+
+
+
+
 ## [1.57.58](https://github.com/stentorium/stentor/compare/v1.57.57...v1.57.58) (2023-01-30)
 
 

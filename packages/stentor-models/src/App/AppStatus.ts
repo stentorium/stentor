@@ -26,6 +26,9 @@ export const APP_STATUS_REQUIRES_ATTENTION: AppStatusRequiresAttention = "Requir
 // App is no longer live or maintained.
 export type AppStatusArchived = "Archived";
 export const APP_STATUS_ARCHIVED: AppStatusArchived = "Archived";
+// App is cancelled, ready to be cleaned up and archived
+export type AppStatusCancelled = "Cancelled";
+export const APP_STATUS_CANCELLED: AppStatusCancelled = "Cancelled";
 // App is currently live but also has been updated so it needs re-certification.
 export type AppStatusLiveRequiresCert = "Live: Requires Cert";
 export const APP_STATUS_LIVE_AND_REQUIRES_CERT: AppStatusLiveRequiresCert = "Live: Requires Cert";

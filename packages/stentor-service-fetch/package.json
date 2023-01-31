@@ -1,11 +1,11 @@
 {
-  "name": "stentor-interaction-model",
+  "name": "stentor-service-fetch",
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"
   },
   "version": "1.57.59",
-  "description": "Interaction model for stentor",
+  "description": "Simple fetch service with timeouts",
   "types": "lib/index",
   "main": "lib/index",
   "files": [
@@ -16,25 +16,24 @@
   },
   "devDependencies": {
     "@types/chai": "4.3.4",
-    "@xapp/config": "0.2.3",
-    "chai": "4.3.7",
-    "mocha": "9.2.2",
+    "@types/chai-as-promised": "7.1.5",
     "stentor-models": "1.57.59",
     "ts-node": "10.9.1",
+    "chai": "4.3.7",
+    "chai-as-promised": "7.1.1",
     "typescript": "4.9.5"
   },
   "dependencies": {
-    "stentor-constants": "1.57.59",
-    "stentor-locales": "1.57.59",
-    "stentor-logger": "1.57.59",
-    "stentor-utils": "1.57.59"
+    "abort-controller": "3.0.0",
+    "isomorphic-fetch": "3.0.0"
   },
   "peerDependencies": {
     "stentor-models": "1.x"
   },
   "scripts": {
     "build": "tsc -d true -p .",
-    "clean": "rm -rf ./lib/*",
-    "test": "mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
-  }
+    "clean": "rm -rf ./lib/* && rm -rf ./dist/*",
+    "ftest": "TZ=UTC mocha --recursive -r ts-node/register \"./src/**/*.ftest.ts\""
+  },
+  "gitHead": "3a975779368329a0ebf8e16c7a661414f1192053"
 }

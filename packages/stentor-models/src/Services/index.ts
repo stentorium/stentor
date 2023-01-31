@@ -1,5 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 export * from "./AppService";
+export * from "./BaseService";
 export * from "./CrmService";
 export * from "./ErrorService";
 export * from "./HandlerService";

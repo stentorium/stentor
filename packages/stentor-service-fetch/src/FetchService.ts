@@ -37,7 +37,11 @@ export abstract class FetchService extends AbstractService {
      * Will throw a TimeoutError if the timeout is reached.
      */
     protected fetch(url: string, options?: RequestInit & WithTimeout): Promise<Response> {
-        const start = performance.now();
+        let start: number;
+        try {
+            // performance doesn't exist until node 16
+            start = performance.now()
+        } catch { /* Empty as we don't care if it fails, it is just for diagnostics */ }
 
         const controller = new AbortController()
 
@@ -58,10 +62,13 @@ export abstract class FetchService extends AbstractService {
         }, timeoutInMS);
 
         return fetch(url, options).then(response => {
-            const end = performance.now();
-            if (this.logs) {
-                console.info(`Resource took ${url} ${end - start} ms to receive`);
-            }
+            try {
+                const end = performance.now();
+                if (this.logs) {
+                    console.info(`Resource took ${url} ${end - start} ms to receive`);
+                }
+            } catch { /* We don't care if it fails, it is only for diagnostics */ }
+
             return response;
         }).catch((error: Error) => {
 

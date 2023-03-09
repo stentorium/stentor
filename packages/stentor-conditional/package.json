@@ -19,7 +19,7 @@
     "@types/chai": "4.3.4",
     "@xapp/config": "0.2.3",
     "chai": "4.3.7",
-    "isolated-vm": "4.4.2",
+    "isolated-vm": "4.5.0",
     "mocha": "9.2.2",
     "stentor-models": "1.57.78",
     "typescript": "4.9.5",

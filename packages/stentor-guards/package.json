@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.57.91",
+  "version": "1.57.94",
   "description": "Common type guards for 📣 stentor",
   "types": "lib/index",
   "main": "lib/index",

@@ -1,26 +1,21 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { InputUnknownRequestType, IntentRequestType, KnowledgeAnswer, RequestSlotMap, SentimentedRequest } from "../Request";
+import { IntentRequest, InputUnknownRequest } from "../Request";
 import { ActiveContext } from "../Response";
 
-export interface NLUQueryResponse extends SentimentedRequest {
-    type: IntentRequestType | InputUnknownRequestType;
-    /**
-     * ID for the matched intent.
-     */
-    intentId: string;
-    /**
-     * Optional slots for the matched intent.
-     */
-    slots?: RequestSlotMap;
-    /**
-     * Confidence level of the intent match.  On a scale from 0-1 where 1 is the highest confidence of a match.
-     */
-    matchConfidence?: number;
-    /**
-     * Some NLUs will also return knowledgebase results.
-     */
-    knowledgeAnswer?: KnowledgeAnswer;
-}
+/**
+ * Slightly smaller intent request without the sessionId and other identifying information.  It also doesn't pass through the original raw query.
+ */
+export type NLUIntentRequest = Pick<IntentRequest, "type" | "intentId" | "slots" | "matchConfidence" | "knowledgeAnswer" | "knowledgeBaseResult" | "sentimentAnalysis">
+
+/**
+ * Slightly smaller input unknown request without a sessionId and other identifying information.  It also doesn't pass through the original raw query.
+ */
+export type NLUInputUnknownRequest = Pick<InputUnknownRequest, "type" | "intentId" | "knowledgeBaseResult" | "sentimentAnalysis">;
+
+/**
+ * Response from the NLU
+ */
+export type NLUQueryResponse = NLUIntentRequest | NLUInputUnknownRequest;
 
 export interface NLURequestProps {
     /**

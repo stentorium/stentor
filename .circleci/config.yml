@@ -71,6 +71,9 @@ jobs:
       - run:
           name: Version Check
           command: yarn version-check
+      - run:
+          name: Version Check - All
+          command: yarn version-check:all
   test:
     <<: *defaults
     steps:

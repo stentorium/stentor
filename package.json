@@ -37,6 +37,7 @@
     "release": "lerna version --yes && git push origin --tags && lerna publish from-git --yes",
     "release:pre": "lerna version prerelease --yes --allow-branch $CIRCLE_BRANCH --no-changelog && git push origin --tags && lerna publish from-git --yes",
     "license-check": "license-checker --production --start './packages/stentor/' --exclude ISC,MIT,Apache-2.0,BSD-3-Clause,BSD-2-Clause --failOn GPL-3.0",
-    "version-check": "syncpack list-mismatches --prod --dev --filter 'stentor-'"
+    "version-check": "syncpack list-mismatches --types dev,prod --filter 'stentor-'",
+    "version-check:all": "syncpack list-mismatches --types dev,prod"
   }
 }

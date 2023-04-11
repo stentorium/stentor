@@ -144,7 +144,7 @@ describe("#main()", () => {
                 expect(error).to.not.exist;
                 const payload = callBackArgs[1];
                 expect(payload).to.exist;
-                expect(payload).to.deep.equal({});
+                expect(payload).to.deep.equal({ "status": "complete" });
             });
         });
     });

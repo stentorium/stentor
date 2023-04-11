@@ -407,7 +407,7 @@ export const main = async (
         // We may change this behavior in the future.
         if (isChannelActionRequest(request)) {
             // special case
-            callback(null, {}, request, {});
+            callback(null, { status: "complete" }, request);
             return
         }
 

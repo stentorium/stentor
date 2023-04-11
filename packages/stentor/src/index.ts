@@ -2,6 +2,27 @@
 import { ContextBuilder, ContextFactory } from "stentor-context";
 export { ContextBuilder, ContextFactory };
 
+import {
+    INPUT_UNKNOWN_ID,
+    INPUT_UNKNOWN_REQUEST_TYPE,
+    INPUT_UNKNOWN,
+    INTENT_REQUEST_TYPE,
+    LAUNCH_REQUEST_ID,
+    LAUNCH_REQUEST_TYPE,
+    OPTION_SELECT_ID,
+    OPTION_SELECT_REQUEST_TYPE,
+} from "stentor-constants";
+export {
+    INPUT_UNKNOWN_ID,
+    INPUT_UNKNOWN_REQUEST_TYPE,
+    INPUT_UNKNOWN,
+    INTENT_REQUEST_TYPE,
+    LAUNCH_REQUEST_ID,
+    LAUNCH_REQUEST_TYPE,
+    OPTION_SELECT_ID,
+    OPTION_SELECT_REQUEST_TYPE,
+};
+
 import { determine } from "stentor-determiner";
 export { determine };
 
@@ -63,6 +84,11 @@ export {
     HandlersKeyValue,
     HandlersMap
 };
+
+import {
+    log
+} from "stentor-logger";
+export { log };
 
 import {
     Channel,
@@ -189,6 +215,9 @@ export {
     random,
     ssmlify,
 };
+
+import { FetchService, WithTimeout, TimeoutError } from "stentor-service-fetch";
+export { FetchService, WithTimeout, TimeoutError };
 
 export * from "./services/Secrets";
 export * from "./Assistant";

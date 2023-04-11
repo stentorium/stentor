@@ -179,6 +179,7 @@ export const main = async (
         return;
     }
 
+    // Report the event
     if (eventService) {
         // Look for overrides in the attributes field
         // Do this first
@@ -231,11 +232,11 @@ export const main = async (
         return;
     }
 
-    // #.75 Use the NLU service if required by the channel
+    // #0.75 Use the NLU service if required by the channel
     if (channel.nlu) {
         // We don't call if it is a LaunchRequest, option, or permission grant
-        if (!isLaunchRequest(request) 
-            && !isOptionSelectRequest(request) 
+        if (!isLaunchRequest(request)
+            && !isOptionSelectRequest(request)
             && !isPermissionRequest(request)
             && !isChannelActionRequest(request)) {
 
@@ -396,6 +397,20 @@ export const main = async (
         const manager = new HandlerManager({ service: handlerService, factory: handlerFactory });
         handler = await manager.from(request, context);
     } catch (error) {
+
+        // BETA 
+        // We are adding this check here so that we still give the handler an opportunity to
+        // return true to canHandleRequest
+        // If the handler returns false, it will then error out because the ChannelActionRequest
+        // does not have an intentId that is required to then request a new handler.
+        // In this case, we just return an empty payload.
+        // We may change this behavior in the future.
+        if (isChannelActionRequest(request)) {
+            // special case
+            callback(null, { status: "complete" }, request);
+            return
+        }
+
         // Add the error to the event service
         // We will not pass it out to the callback but we want to know about it.
         if (eventService) {

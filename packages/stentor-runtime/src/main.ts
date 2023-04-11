@@ -10,6 +10,7 @@ import {
     isOptionSelectRequest,
     isPermissionRequest,
     isSessionEndedRequest,
+    isChannelActionRequest
 } from "stentor-guards";
 import { ContextFactory } from "stentor-context";
 import { AbstractHandler } from "stentor-handler";
@@ -233,7 +234,10 @@ export const main = async (
     // #.75 Use the NLU service if required by the channel
     if (channel.nlu) {
         // We don't call if it is a LaunchRequest, option, or permission grant
-        if (!isLaunchRequest(request) && !isOptionSelectRequest(request) && !isPermissionRequest(request)) {
+        if (!isLaunchRequest(request) 
+            && !isOptionSelectRequest(request) 
+            && !isPermissionRequest(request)
+            && !isChannelActionRequest(request)) {
 
             const userId: string = request.userId;
             const sessionId: string = hasSessionId(request) ? request.sessionId : undefined;

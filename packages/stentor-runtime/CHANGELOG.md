@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.57.105](https://github.com/stentorium/stentor/compare/v1.57.104...v1.57.105) (2023-04-11)
+
+
+### Bug Fixes
+
+* Don't call the NLU for channel action event ([#2002](https://github.com/stentorium/stentor/issues/2002)) ([7bfc5cd](https://github.com/stentorium/stentor/commit/7bfc5cd491e5650dcd3e6ca01bf6fe6972645774))
+
+
+
+
+
 ## [1.57.104](https://github.com/stentorium/stentor/compare/v1.57.103...v1.57.104) (2023-04-11)
 
 **Note:** Version bump only for package stentor-runtime

@@ -124,8 +124,10 @@ export interface Intent extends Localizable<LocaleSpecificIntent> {
      * NLU specific metadata used when translating the intentId to a NLU specific type.
      * 
      * Use to override the type for a specific NLU. 
+     * 
+     * Additional metadata can be appended that can be used for translating the type.
      */
-    nlu?: { [nlu: string]: { type: string } };
+    nlu?: { [nlu: string]: { type: string, [key: string]: any } };
     /**
      * This is a series of locales that the apps supports.  These can override the
      * items that are in the original Intent.  The items in the main intent are used as defaults if they

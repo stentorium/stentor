@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.57.107](https://github.com/stentorium/stentor/compare/v1.57.106...v1.57.107) (2023-04-11)
+
+
+### Bug Fixes
+
+* Initial Support for ChannelActionRequest ([#2004](https://github.com/stentorium/stentor/issues/2004)) ([43a699d](https://github.com/stentorium/stentor/commit/43a699d388dadc7ee2e8724d01daaebe35fb3b5c))
+
+
+
+
+
 ## [1.57.105](https://github.com/stentorium/stentor/compare/v1.57.104...v1.57.105) (2023-04-11)
 
 

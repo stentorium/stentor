@@ -19,6 +19,34 @@ import {
 
 import { findRequestDependentMatch } from "./findRequestDependentMatch";
 
+
+/**
+ * Checks the requests attributes to see if the request originated when the 
+ * user was on a website that matches the provied pattern.
+ * @param request - Request object
+ * @param pattern - A string that will be matched against the request.attributes.currentUrl key, for example "google.com"
+ * @returns - True if they are on a website that matches the pattern, false if not.
+ */
+export function onWebPage(request: Request, pattern: string): boolean {
+    const url = request?.attributes?.currentUrl || request?.attributes?.url;
+
+    if (!url) {
+        return false;
+    }
+
+    if (!pattern) {
+        return false;
+    }
+
+    if (typeof url === "string") {
+        const reg = new RegExp(pattern);
+        const result = reg.test(url);
+        return result;
+    }
+
+    return false;
+}
+
 /**
  * Check if the request is the following type or types
  * 
@@ -75,6 +103,7 @@ export function RequestConditionalCheck<T extends object>(request: Request): Con
             isSessionEndedRequest.bind(null, request),
             isSignInRequest.bind(null, request),
             isSurfaceRequest.bind(null, request),
+            onWebPage.bind(null, request)
         ]
     }
 }

@@ -3,6 +3,79 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.57.103](https://github.com/stentorium/stentor/compare/v1.57.102...v1.57.103) (2023-04-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.6.3 ([#1982](https://github.com/stentorium/stentor/issues/1982)) ([6665a90](https://github.com/stentorium/stentor/commit/6665a908713caf4b35fd7dd1a09dcc0e1aa5b3d2))
+
+
+
+
+
+## [1.57.102](https://github.com/stentorium/stentor/compare/v1.57.101...v1.57.102) (2023-04-07)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.57.101](https://github.com/stentorium/stentor/compare/v1.57.100...v1.57.101) (2023-04-06)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.57.100](https://github.com/stentorium/stentor/compare/v1.57.99...v1.57.100) (2023-04-06)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.57.99](https://github.com/stentorium/stentor/compare/v1.57.98...v1.57.99) (2023-04-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency xmldoc to v1.3.0 ([#1993](https://github.com/stentorium/stentor/issues/1993)) ([d13ba56](https://github.com/stentorium/stentor/commit/d13ba564f5e0c223141349c1fcdbfd349539919f))
+
+
+
+
+
+## [1.57.98](https://github.com/stentorium/stentor/compare/v1.57.97...v1.57.98) (2023-04-03)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.57.97](https://github.com/stentorium/stentor/compare/v1.57.96...v1.57.97) (2023-04-01)
+
+
+### Bug Fixes
+
+* New onWebPage macro ([#1990](https://github.com/stentorium/stentor/issues/1990)) ([17600be](https://github.com/stentorium/stentor/commit/17600bef3877db2cc23f1abddeca3ad6c98e78ed))
+
+
+
+
+
+## [1.57.96](https://github.com/stentorium/stentor/compare/v1.57.95...v1.57.96) (2023-03-31)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
 ## [1.57.95](https://github.com/stentorium/stentor/compare/v1.57.94...v1.57.95) (2023-03-28)
 
 **Note:** Version bump only for package repo

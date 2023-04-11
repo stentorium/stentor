@@ -211,6 +211,7 @@ export class InputUnknownRequestBuilder extends AbstractBuilder<InputUnknownRequ
  */
 export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
     private apiAccess: ApiAccessData;
+    private attributes: Record<string, unknown>;
     private channel: string;
     private deviceId = "deviceId";
     private intentId = "intentId";
@@ -415,6 +416,17 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
     }
 
     /**
+     * Append attributes to the request.
+     * 
+     * @param attributes 
+     * @returns 
+     */
+    public withAttributes(attributes: Record<string, unknown>): IntentRequestBuilder {
+        this.attributes = attributes;
+        return this;
+    }
+
+    /**
      * Update any or all of the fields on request's device information.
      * 
      * @param device 
@@ -433,7 +445,7 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
      * Build the intent request.
      */
     public build(): IntentRequest {
-        const { apiAccess, canFulFill, channel, device, deviceId, knowledgeBaseResult, intentId, locale, matchConfidence, platform, slots, userId, isNewSession, rawQuery } = this;
+        const { apiAccess, attributes, canFulFill, channel, device, deviceId, knowledgeBaseResult, intentId, locale, matchConfidence, platform, slots, userId, isNewSession, rawQuery } = this;
 
         const request: IntentRequest = {
             type: INTENT_REQUEST_TYPE,
@@ -477,6 +489,10 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
 
         if (typeof knowledgeBaseResult === "object") {
             request.knowledgeBaseResult = knowledgeBaseResult;
+        }
+
+        if (typeof this.attributes === "object") {
+            request.attributes = attributes;
         }
 
         return request;

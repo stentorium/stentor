@@ -2,10 +2,17 @@
 import { expect } from "chai";
 
 import { RequestDependent } from "stentor-models";
-import { LaunchRequestBuilder } from "../Builders";
-import { RequestConditionalCheck } from "../RequestConditionalCheck";
+import { IntentRequestBuilder, LaunchRequestBuilder } from "../Builders";
+import { onWebPage, RequestConditionalCheck } from "../RequestConditionalCheck";
 
 const launchRequest = new LaunchRequestBuilder().build();
+const intentWithAttributes = new IntentRequestBuilder().withAttributes({
+    currentUrl: "https://www.google.com"
+}).build();
+
+const intentWithAttributesAndUrlWithPath = new IntentRequestBuilder().withAttributes({
+    currentUrl: "https://xapp.ai/about-us"
+}).build();
 
 const obj: RequestDependent = {
     requestMatch: {
@@ -13,6 +20,19 @@ const obj: RequestDependent = {
         value: ["INTENT_REQUEST", "LAUNCH_REQUEST"]
     }
 };
+
+describe(`${onWebPage.name}()`, () => {
+    it('returns the expected result', () => {
+        expect(onWebPage(launchRequest, "google.com")).to.be.false;
+        expect(onWebPage(undefined, "google.com")).to.be.false;
+        expect(onWebPage(intentWithAttributes, undefined)).to.be.false;
+        expect(onWebPage(intentWithAttributes, "")).to.be.false;
+        expect(onWebPage(intentWithAttributes, "google.com")).to.be.true;
+        expect(onWebPage(intentWithAttributes, "xapp.ai")).to.be.false;
+        expect(onWebPage(intentWithAttributes, "xapp.ai/about-us")).to.be.false;
+        expect(onWebPage(intentWithAttributesAndUrlWithPath, "xapp.ai/about-us")).to.be.true;
+    });
+});
 
 describe(`${RequestConditionalCheck.name}`, () => {
     describe(`test`, () => {

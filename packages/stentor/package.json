@@ -60,6 +60,7 @@
     "stentor-service-event": "1.57.104",
     "stentor-service-ovai": "1.57.104",
     "stentor-service-studio": "1.57.104",
+    "stentor-service-fetch": "1.57.104",
     "stentor-utils": "1.57.104"
   },
   "peerDependencies": {

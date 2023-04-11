@@ -232,8 +232,6 @@ export const main = async (
         return;
     }
 
-    // #0.55 Close out if we just have the 
-
     // #0.75 Use the NLU service if required by the channel
     if (channel.nlu) {
         // We don't call if it is a LaunchRequest, option, or permission grant

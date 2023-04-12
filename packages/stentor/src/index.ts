@@ -27,7 +27,9 @@ import { determine } from "stentor-determiner";
 export { determine };
 
 import {
+    hasSessionId,
     isAnonymousUser,
+    isDeliveryAddressRequest,
     isInputUnknownRequest,
     isIntentRequest,
     isLaunchRequest,
@@ -37,12 +39,13 @@ import {
     isSessionEndedRequest,
     isSignInRequest,
     isSurfaceRequest,
-    isTransactionRequirementCheckRequest,
     isTransactionDecisionRequest,
-    isDeliveryAddressRequest
+    isTransactionRequirementCheckRequest,
 } from "stentor-guards";
 export {
+    hasSessionId,
     isAnonymousUser,
+    isDeliveryAddressRequest,
     isInputUnknownRequest,
     isIntentRequest,
     isLaunchRequest,
@@ -52,9 +55,8 @@ export {
     isSessionEndedRequest,
     isSignInRequest,
     isSurfaceRequest,
-    isTransactionRequirementCheckRequest,
     isTransactionDecisionRequest,
-    isDeliveryAddressRequest
+    isTransactionRequirementCheckRequest,
 };
 
 import {
@@ -94,10 +96,12 @@ import {
     Channel,
     Content,
     Context,
+    CrmService,
     Data,
     DateTime,
     DateTimeRange,
     Device,
+    ErrorService,
     Forward,
     Handler,
     Intent,
@@ -106,9 +110,11 @@ import {
     KnowledgeBaseFAQ,
     KnowledgeBaseResult,
     KnowledgeBaseSuggested,
+    LeadFormField,
     List,
     ListButton,
     ListItem,
+    Message,
     OptionSelectRequest,
     Redirect,
     Request,
@@ -119,27 +125,31 @@ import {
     RuntimeCallback,
     RuntimeContext,
     Storage,
-    UserStorageService
+    UserStorageService,
 } from "stentor-models";
 export {
     Channel,
     Content,
     Context,
+    CrmService,
     Data,
     DateTime,
     DateTimeRange,
     Device,
+    ErrorService,
     Forward,
     Handler,
     Intent,
     IntentRequest,
+    KnowledgeBaseDocument,
     KnowledgeBaseFAQ,
     KnowledgeBaseResult,
     KnowledgeBaseSuggested,
-    KnowledgeBaseDocument,
+    LeadFormField,
     List,
-    ListItem,
     ListButton,
+    ListItem,
+    Message,
     OptionSelectRequest,
     Redirect,
     Request,
@@ -150,7 +160,7 @@ export {
     RuntimeCallback,
     RuntimeContext,
     Storage,
-    UserStorageService
+    UserStorageService,
 };
 
 import {
@@ -189,15 +199,20 @@ import {
     existsAndNotEmpty,
     findValueForKey,
     formatNumberForDisplay,
+    getResponseByTag,
     getSlots,
-    keyFromRequest,
     isDateTime,
     isDateTimeRange,
+    keyFromRequest,
     listisize,
     numberToWord,
     pruneEmpty,
     random,
-    ssmlify
+    requestSlotsToString,
+    requestSlotValueToString,
+    responseToMessage,
+    ssmlify,
+    toResponseOutput
 } from "stentor-utils";
 export {
     dessmlify,
@@ -205,15 +220,20 @@ export {
     existsAndNotEmpty,
     findValueForKey,
     formatNumberForDisplay,
+    getResponseByTag,
     getSlots,
-    keyFromRequest,
     isDateTime,
     isDateTimeRange,
+    keyFromRequest,
     listisize,
     numberToWord,
     pruneEmpty,
     random,
+    requestSlotsToString,
+    requestSlotValueToString,
+    responseToMessage,
     ssmlify,
+    toResponseOutput
 };
 
 import { FetchService, WithTimeout, TimeoutError } from "stentor-service-fetch";

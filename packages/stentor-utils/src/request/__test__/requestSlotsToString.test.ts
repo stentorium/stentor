@@ -5,6 +5,12 @@ import { requestSlotsToString } from "../requestSlotsToString";
 
 describe(`#${requestSlotsToString.name}()`, () => {
     it('returns the correct value', () => {
+        expect(requestSlotsToString(undefined)).to.equal("");
+        // @ts-expect-error For testing bad input
+        expect(requestSlotsToString(true)).to.equal("");
+        expect(requestSlotsToString(null)).to.equal("");
+        // @ts-expect-error For testing bad input
+        expect(requestSlotsToString([])).to.equal("");
         expect(requestSlotsToString({})).to.equal("");
         expect(requestSlotsToString({
             name: {

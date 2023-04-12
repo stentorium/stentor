@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.57.108](https://github.com/stentorium/stentor/compare/v1.57.107...v1.57.108) (2023-04-12)
+
+
+### Bug Fixes
+
+* requestSlotsToString can now handle undefined input ([#2006](https://github.com/stentorium/stentor/issues/2006)) ([400015a](https://github.com/stentorium/stentor/commit/400015a0fd6d76d5ba4310594d119833a8530307))
+
+
+
+
+
 ## [1.57.104](https://github.com/stentorium/stentor/compare/v1.57.103...v1.57.104) (2023-04-11)
 
 

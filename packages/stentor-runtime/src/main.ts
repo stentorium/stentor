@@ -35,7 +35,7 @@ import {
     SMSService,
     UserStorageService
 } from "stentor-models";
-import { canFulfillAll, canFulfillNothing, getResponse } from "stentor-response";
+import { canFulfillAll, canFulfillNothing, compileResponse, getResponse, ResponseBuilder } from "stentor-response";
 import { EventService, wrapCallback as eventServiceCallbackWrapper } from "stentor-service-event";
 import { manipulateStorage } from "stentor-storage";
 import { combineRequestSlots, requestToMessage, responseToMessage, existsAndNotEmpty, findValueForKey, keyFromRequest } from "stentor-utils";
@@ -329,8 +329,19 @@ export const main = async (
             };
         }
     } catch (error) {
+        if (eventService) {
+            eventService.error(error);
+        }
         console.error(error.stack);
-        callback(error, undefined, request);
+
+        console.log(error.type);
+        console.log(error.message);
+
+        const response = new ResponseBuilder({ device: request.device }).respond(getResponse(TROUBLE_WITH_REQUEST, request, context)).build();
+        const compiled = compileResponse(response, request, context, { error });
+        const translatedTrouble = channel.response.translate({ request, response: compiled });
+
+        callback(null, translatedTrouble, request, response);
         return;
     }
 

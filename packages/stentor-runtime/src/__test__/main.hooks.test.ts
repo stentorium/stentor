@@ -108,7 +108,7 @@ describe("#main() with hooks", () => {
                     return Promise.resolve(undefined);
                 };
             });
-            it("exists immediately after the return", async () => {
+            it("exits immediately after the return", async () => {
                 await main(
                     request,
                     context,

@@ -56,6 +56,18 @@ export class ContextFactory {
             ? new channel.builder({ device, ...appData })
             : new ResponseBuilder({ device, ...appData });
 
+        if (!request) {
+            throw new TypeError(`Request is required when building context.`);
+        }
+
+        if (!userStorageService) {
+            throw new TypeError(`UserStorageService is required when building context.`);
+        }
+
+        if (!request.userId) {
+            throw new TypeError(`User ID on the request is required when building context.`);
+        }
+
         // Get the storage
         let storage: Storage = await userStorageService.get(request.userId);
 
@@ -93,6 +105,11 @@ export class ContextFactory {
 
         // Take care of the session store. If doesn't exist or the session id doesn't match the stored one, create a new store.
         if (hasSessionId(request)) {
+
+            if (!request.sessionId) {
+                throw new Error(`Session ID is undefined when attempting to create update / retreive session store. ${request.sessionId}`)
+            }
+
             if (!storage.sessionStore || storage.sessionStore.id !== request.sessionId) {
                 storage.sessionStore = {
                     id: request.sessionId,

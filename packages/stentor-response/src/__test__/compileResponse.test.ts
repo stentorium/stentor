@@ -15,7 +15,7 @@ import {
     LinkOutSuggestion
 } from "stentor-models";
 import { IntentRequestBuilder } from "stentor-request";
-import { isList, ResponseBuilder } from "stentor-response";
+import { isCard, isList, ResponseBuilder } from "stentor-response";
 import { compileResponse, jsonEscape } from "../compileResponse";
 
 chai.use(sinonChai);
@@ -717,6 +717,72 @@ describe(`#${compileResponse.name}()`, () => {
                 expect(one.title).to.equal("One");
                 expect(one.description).to.equal("One Jim");
             }
+        });
+        describe("with additional context set", () => {
+            it("compiles the displays", () => {
+
+                const displayResponse: SimpleResponse = {
+                    outputSpeech: "Your name is ${ $.request.slots.NAME.value }",
+                    reprompt: {
+                        ssml: "<speak> Hi ${$.context.storage.name} </speak>",
+                        displayText: "Hi ${$.context.storage.name}"
+                    },
+                    silencePrompt: "NO TEMPLATE",
+                    displays: [
+                        {
+                            type: "LIST",
+                            title: "Hello ${$.context.storage.name}",
+                            items: [
+                                {
+                                    title: "One",
+                                    description: "One ${$.request.slots.NAME.value }",
+                                    token: "one",
+                                    synonyms: ["1"]
+                                },
+                                {
+                                    title: "Two",
+                                    description: "Two ${$.request.slots.FOOBAR.value }",
+                                    token: "two",
+                                    synonyms: ["2"]
+                                }
+                            ]
+                        },
+                        {
+                            type: "CARD",
+                            title: "${error.name}",
+                            subTitle: "Error Message: ${$.error.message}"
+                        }
+                    ]
+                };
+
+                class CustomError extends Error {
+                    public constructor(message: string) {
+                        super(message);
+                        this.name = "CustomError";
+                    }
+                }
+
+                const error = new CustomError("Something went wrong");
+
+                compiledResponse = compileResponse(displayResponse, request, context, { error });
+
+                expect(compileResponse).to.exist;
+                expect(compiledResponse.displays).to.have.length(2);
+                const display = compiledResponse.displays[0];
+                expect(isList(display)).to.be.true;
+                if (isList(display)) {
+                    expect(display.title).to.equal("Hello Bob");
+                    const one = display.items[0];
+                    expect(one.title).to.equal("One");
+                    expect(one.description).to.equal("One Jim");
+                }
+                const card = compiledResponse.displays[1];
+                expect(isCard(card)).to.be.true;
+                if (isCard(card)) {
+                    expect(card.title).to.equal("CustomError");
+                    expect(card.subTitle).to.equal("Error Message: Something went wrong");
+                }
+            });
         });
         describe("leveraging the itemObject field", () => {
             it("compiles the displays", () => {

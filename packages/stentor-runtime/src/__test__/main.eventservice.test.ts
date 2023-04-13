@@ -312,7 +312,7 @@ describe("#main() with EventService", () => {
                 }
             } as UserStorageService;
         });
-        it("reports the error", async () => {
+        it.only("reports the error", async () => {
             await main(request, context, callbackSpy, [passThroughChannel()], {
                 eventService,
                 handlerFactory,

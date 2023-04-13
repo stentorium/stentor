@@ -37,6 +37,11 @@ export const TROUBLE_WITH_REQUEST: Response[] = [
                 }
             }
             /* spell-checker: enable */
-        }
+        },
+        displays: [{
+            type: "CARD",
+            title: "${error.name}",
+            subTitle: "Error: ${error.message}"
+        }]
     }
 ];

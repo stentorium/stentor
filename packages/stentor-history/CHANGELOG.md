@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.57.112](https://github.com/stentorium/stentor/compare/v1.57.111...v1.57.112) (2023-04-18)
+
+**Note:** Version bump only for package stentor-history
+
+
+
+
+
 ## [1.57.111](https://github.com/stentorium/stentor/compare/v1.57.110...v1.57.111) (2023-04-17)
 
 **Note:** Version bump only for package stentor-history

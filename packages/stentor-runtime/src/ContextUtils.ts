@@ -150,7 +150,7 @@ export function lambdaAPIGatewayContext(
     const isForm = apiGatewayEvent.headers["Content-Type"] === "application/x-www-form-urlencoded";
 
     // Form fields come in a tall skinny json
-    const event = isForm ? parseQuery(apiGatewayEvent.body): JSON.parse(apiGatewayEvent.body);
+    const event = isForm ? parseQuery(apiGatewayEvent.body) : JSON.parse(apiGatewayEvent.body);
 
     const path = apiGatewayEvent.path;
     const context = Object.assign({} as RuntimeContext, parsePath(path));
@@ -167,7 +167,7 @@ export function lambdaAPIGatewayContext(
 
         // See  https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-output-format
 
-        const headers: {[header: string]: string} = { "Access-Control-Allow-Origin": "*" };
+        const headers: { [header: string]: string } = { "Access-Control-Allow-Origin": "*" };
 
         // If it is typed string use the payload attribute.
         // We need the type because we have to set the content type (see Twilio).

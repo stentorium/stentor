@@ -236,7 +236,7 @@ export class EventService implements ErrorService {
         const event: Event<any> = typeof type === "string" ? { name, type, payload } : type;
 
         if (typeof event.name !== "string") {
-            throw new TypeError("Unable to process event, event name was invalid.");
+            throw new TypeError(`Unable to process event, event name was invalid. ${event.name}`);
         }
         event.name.trim();
 

@@ -57,11 +57,17 @@ export function Stentor(nlu?: NLUService): Channel {
                     }, "")
                     log().debug(`Sending active context for session ${sessionId}: ${debug}`);
 
-                    await nlu.setContext({
-                        userId: request.userId,
-                        sessionId,
-                        activeContext: resp.context?.active
-                    });
+                    try {
+                        await nlu.setContext({
+                            userId: request.userId,
+                            sessionId,
+                            activeContext: resp.context?.active
+                        });
+                    } catch (e) {
+                        log().error(`Error setting context.`);
+                        log().error(e);
+                        // TODO: can we send this event to the Event Service?
+                    }
                 }
             }
 

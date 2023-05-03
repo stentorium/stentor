@@ -94,7 +94,6 @@ export const main = async (
     }
 
     // Define some variables that will be used throughout
-
     const APP_ID: string = process.env["STUDIO_APP_ID"];
     const HISTORY_SIZE: number = Number(process.env["STUDIO_MAX_HISTORY"]) || DEFAULT_MAX_HISTORY;
 
@@ -108,6 +107,13 @@ export const main = async (
         handlerFactory,
         knowledgeBaseServices
     } = dependencies;
+
+    // Wrap the callback
+    //  if the eventService exists
+    if (eventService) {
+        // Wrap the callback so it flushes when we're done.
+        callback = eventServiceCallbackWrapper(eventService, callback);
+    }
 
     // Step #0
     // Get the Channel
@@ -140,23 +146,16 @@ export const main = async (
             }
         }
     } catch (error) {
-
-        // If we had an error, we need to wrap the callback real quick before calling it.
-        if (eventService) {
-            // Wrap the callback so it flushes when we're done.
-            callback = eventServiceCallbackWrapper(eventService, callback);
-        }
+        console.error(`Error calling preExecution hook with request: ${error.message}`);
         console.error(JSON.stringify(requestBody, undefined, 2));
         console.error(error.stack);
+        if (eventService) {
+            eventService.error(error);
+        }
+        // Note: We don't know the channel yet here so we can't send a proper response
+        // which is why we just send the error instead of sending a TROUBLE_WITH_REQUEST method
         callback(error);
         return;
-    }
-
-    // Wrap the callback
-    //  if the eventService exists
-    if (eventService) {
-        // Wrap the callback so it flushes when we're done.
-        callback = eventServiceCallbackWrapper(eventService, callback);
     }
 
     let request: Request;
@@ -173,8 +172,13 @@ export const main = async (
             request = await hooks.postRequestTranslation(request);
         }
     } catch (error) {
+        console.error(`Error calling postRequestTranslation hook: ${error.message}`);
         console.error(JSON.stringify(requestBody, undefined, 2));
         console.error(error.stack);
+        if (eventService) {
+            eventService.error(error);
+        }
+
         callback(error);
         return;
     }
@@ -332,13 +336,20 @@ export const main = async (
         if (eventService) {
             eventService.error(error);
         }
+        console.error(`Error creating Context: ${error.message}`);
         console.error(error.stack);
 
-        console.log(error.type);
-        console.log(error.message);
-
         const response = new ResponseBuilder({ device: request.device }).respond(getResponse(TROUBLE_WITH_REQUEST, request, context)).build();
+
         const compiled = compileResponse(response, request, context, { error });
+        // Testing this, see how this works
+        compiled.displays = [
+            {
+                type: "CARD",
+                title: `${error.name || "Error"}`,
+                context: `${error.message}`
+            }
+        ];
         const translatedTrouble = channel.response.translate({ request, response: compiled });
 
         callback(null, translatedTrouble, request, response);
@@ -392,6 +403,7 @@ export const main = async (
         }
     } catch (error) {
         log().warn(`Error caught in the postContextCreation hook: ${error}`);
+        console.error(error);
         // Keep moving, record the error
         if (eventService) {
             eventService.error(error);
@@ -515,13 +527,13 @@ export const main = async (
     } catch (error) {
         // report the error
         console.error(error.stack);
-        // & apologize to the user
-        const response = context.response.respond(getResponse(TROUBLE_WITH_REQUEST, request, context)).build();
-        const translatedTrouble = channel.response.translate({ request, response });
-        // Add the error to the event service
         if (eventService) {
             eventService.error(error);
         }
+        // & apologize to the user
+        const response = context.response.respond(getResponse(TROUBLE_WITH_REQUEST, request, context)).build();
+        const translatedTrouble = channel.response.translate({ request, response });
+
         callback(null, translatedTrouble, request, response);
         return;
     }
@@ -551,22 +563,32 @@ export const main = async (
         }
     }
 
-    // preResponseTranslation hook - only real content (leave the errors alone)
-    if (!!channel.hooks && typeof channel.hooks.preResponseTranslation === "function") {
-        const returns = await channel.hooks.preResponseTranslation(request, context.response, context.storage);
-        if (returns) {
-            request = returns.request;
-            context.response = returns.response;
-            context.storage = returns.storage;
+    try {
+        // preResponseTranslation hook - only real content (leave the errors alone)
+        if (!!channel.hooks && typeof channel.hooks.preResponseTranslation === "function") {
+            const returns = await channel.hooks.preResponseTranslation(request, context.response, context.storage);
+            if (returns) {
+                request = returns.request;
+                context.response = returns.response;
+                context.storage = returns.storage;
+            }
         }
-    }
-    if (!!hooks && typeof hooks === "object" && typeof hooks.preResponseTranslation === "function") {
-        const returns = await hooks.preResponseTranslation(request, context.response, context.storage);
-        if (returns) {
-            request = returns.request;
-            context.response = returns.response;
-            context.storage = returns.storage;
+        if (!!hooks && typeof hooks === "object" && typeof hooks.preResponseTranslation === "function") {
+            const returns = await hooks.preResponseTranslation(request, context.response, context.storage);
+            if (returns) {
+                request = returns.request;
+                context.response = returns.response;
+                context.storage = returns.storage;
+            }
         }
+    } catch (error) {
+        // report the error
+        console.error(error.stack);
+        // Add the error to the event service
+        if (eventService) {
+            eventService.error(error);
+        }
+        // We don't do a return here since we could keep going
     }
 
     // #4.2 Build and translate the response

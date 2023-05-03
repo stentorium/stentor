@@ -167,7 +167,14 @@ describe("#main() with hooks", () => {
                             '<speak>I\'m sorry, I\'m having trouble with that request.</speak>',
                         displayText: 'I\'m sorry, I\'m having trouble with that request.',
                         defaultLocale: 'en'
-                    }
+                    },
+                    displays: [
+                        {
+                            type: 'CARD',
+                            title: 'TypeError',
+                            context: 'User ID on the request is required when building context.'
+                        }
+                    ]
                 });
             });
         });

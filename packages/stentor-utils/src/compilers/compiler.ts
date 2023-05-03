@@ -192,7 +192,7 @@ export class Compiler implements CompilerProps {
                     ...this.additionalContext,
                     request,
                     context,
-                    storage: context?.storage || undefined,
+                    storage: context?.storage,
                     session: context?.session || undefined
                 }
             });

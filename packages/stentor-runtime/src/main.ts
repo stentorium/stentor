@@ -149,9 +149,8 @@ export const main = async (
         console.error(`Error calling preExecution hook with request: ${error.message}`);
         console.error(JSON.stringify(requestBody, undefined, 2));
         console.error(error.stack);
-        if (eventService) {
-            eventService.error(error);
-        }
+        eventService?.error(error);
+
         // Note: We don't know the channel yet here so we can't send a proper response
         // which is why we just send the error instead of sending a TROUBLE_WITH_REQUEST method
         callback(error);
@@ -175,9 +174,8 @@ export const main = async (
         console.error(`Error calling postRequestTranslation hook: ${error.message}`);
         console.error(JSON.stringify(requestBody, undefined, 2));
         console.error(error.stack);
-        if (eventService) {
-            eventService.error(error);
-        }
+        eventService?.error(error);
+
 
         callback(error);
         return;
@@ -333,11 +331,9 @@ export const main = async (
             };
         }
     } catch (error) {
-        if (eventService) {
-            eventService.error(error);
-        }
         console.error(`Error creating Context: ${error.message}`);
         console.error(error.stack);
+        eventService?.error(error);
 
         const response = new ResponseBuilder({ device: request.device }).respond(getResponse(TROUBLE_WITH_REQUEST, request, context)).build();
 

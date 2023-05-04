@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.57.122](https://github.com/stentorium/stentor/compare/v1.57.121...v1.57.122) (2023-05-04)
+
+
+### Bug Fixes
+
+* Adding Debugging when Errors ([#2024](https://github.com/stentorium/stentor/issues/2024)) ([ef6e36d](https://github.com/stentorium/stentor/commit/ef6e36d27021a1b394fc6c2e99cfe721b23230a6))
+
+
+
+
+
 ## [1.57.121](https://github.com/stentorium/stentor/compare/v1.57.120...v1.57.121) (2023-05-03)
 
 **Note:** Version bump only for package repo

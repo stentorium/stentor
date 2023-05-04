@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.57.121",
+  "version": "1.57.122",
   "description": "Constants for 📣 stentor",
   "types": "lib/index",
   "typings": "lib/index",

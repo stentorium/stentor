@@ -192,8 +192,8 @@ export class Compiler implements CompilerProps {
                     ...this.additionalContext,
                     request,
                     context,
-                    storage: context.storage,
-                    session: context.session
+                    storage: context?.storage,
+                    session: context?.session || undefined
                 }
             });
             let pathReplacement: string;

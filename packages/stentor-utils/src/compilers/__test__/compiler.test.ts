@@ -409,7 +409,6 @@ describe(`${Compiler.name}`, () => {
                 const compiled = new Compiler().compile(json, request, context);
                 expect(compiled).to.exist;
                 expect(compiled).to.equal(json);
-
             });
         });
     });

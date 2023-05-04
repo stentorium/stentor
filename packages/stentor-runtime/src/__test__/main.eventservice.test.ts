@@ -282,7 +282,7 @@ describe("#main() with EventService", () => {
             expect(arg.args).to.have.length(2);
             expect(arg.args[0] instanceof Error).to.be.true;
             expect(arg.args[1]).to.be.undefined;
-            expect(eventStream.events).to.have.length(2);
+            expect(eventStream.events).to.have.length(3);
             const errorEvent = eventStream.events[0];
             expect(errorEvent.type).to.equal("ERROR");
             expect(errorEvent.appId).to.equal(appId);
@@ -320,15 +320,29 @@ describe("#main() with EventService", () => {
                 userStorageService
             });
             expect(callbackSpy).to.have.been.calledOnce;
-            expect(callbackSpy).to.have.been.calledWith(error);
+            expect(callbackSpy).to.have.been.calledWith(null, {
+                name: "I'm having trouble with that request",
+                tag: "TROUBLE_WITH_REQUEST",
+                outputSpeech: {
+                    ssml: "<speak>I'm sorry, I'm having trouble with that request.</speak>",
+                    displayText: "I'm sorry, I'm having trouble with that request.",
+                    defaultLocale: "en",
+                },
+                displays: [
+                    { type: 'CARD', title: 'Error', context: '💣💣💣💣💣💣🔥🔥🔥🔥🔥' }
+                ]
+            });
+
             expect(eventStream.events).to.have.length(3);
-            const requestEvent = eventStream.events[0];
+
+            const requestEvent = eventStream.events[1];
             expect(requestEvent.platform).to.equal("MOCK");
             expect(requestEvent.type).to.equal("REQUEST");
             expect(requestEvent.name).to.equal("LAUNCH_REQUEST");
             expect(requestEvent.appId).to.equal(appId);
             expect(requestEvent.sessionId).to.equal("sessionId");
-            const errorEvent = eventStream.events[1];
+
+            const errorEvent = eventStream.events[0];
             expect(errorEvent.type).to.equal("ERROR");
             expect(errorEvent.appId).to.equal(appId);
             expect(errorEvent.platform).to.equal("MOCK");

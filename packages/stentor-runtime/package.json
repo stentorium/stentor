@@ -20,7 +20,7 @@
     "@types/sinon-chai": "3.2.9",
     "@xapp/config": "0.2.3",
     "@xapp/patterns": "2.0.1",
-    "aws-sdk": "2.1368.0",
+    "aws-sdk": "2.1373.0",
     "chai": "4.3.7",
     "fetch-mock": "9.11.0",
     "mocha": "9.2.2",

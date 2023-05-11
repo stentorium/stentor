@@ -120,17 +120,38 @@ export interface KnowledgeBaseFAQ {
     handlerId?: string;
 }
 
+export interface KnowledgeBaseGenerated extends KnowledgeBaseDocument {
+    /**
+     * The generated text from the LLM
+     */
+    generated: string;
+    /**
+     * Optional, the source LLM of the generated answer.
+     */
+    llm?: string;
+}
+
 export interface KnowledgeBaseResult {
     /**
-     * A ML powered answer
+     * A list of ML powered answer found in specific documents.
+     * 
+     * This corresponds with results such as the Kendra Suggested answer.  They use some ML model to attempt to pinpoint exactly within 
      */
     suggested?: KnowledgeBaseSuggested[];
     /**
      * List of FAQs that could match the query.
+     * 
+     * The source of these answers are from a database of existing FAQs.
      */
     faqs?: KnowledgeBaseFAQ[];
     /**
-     * A list of results based on perceived relevance.  
+     * A list of results based on perceived relevance.
+     * 
+     * The source of this is a set corpus 
      */
     documents?: KnowledgeBaseDocument[];
+    /**
+     * A list of generated answers from a large language model.
+     */
+    generated?: KnowledgeBaseGenerated[];
 }

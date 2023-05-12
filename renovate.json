@@ -13,6 +13,11 @@
       "automerge": true
     },
     {
+      "packagePatterns": ["@microsoft", "@types"],
+      "schedule": ["after 9pm on sunday"],
+      "automerge": true
+    },
+    {
       "packageNames": ["aws-sdk"],
       "schedule": ["after 9pm on sunday"]
     }

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.57.130](https://github.com/stentorium/stentor/compare/v1.57.129...v1.57.130) (2023-05-12)
+
+
+### Bug Fixes
+
+* Reverts date-fns back to 2.29.2 ([#2037](https://github.com/stentorium/stentor/issues/2037)) ([c598385](https://github.com/stentorium/stentor/commit/c598385e8bb789d538b9e427d4d092f0e4d1df77))
+
+
+
+
+
 ## [1.57.129](https://github.com/stentorium/stentor/compare/v1.57.128...v1.57.129) (2023-05-12)
 
 

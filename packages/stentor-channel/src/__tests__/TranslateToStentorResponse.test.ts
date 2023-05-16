@@ -57,5 +57,34 @@ describe(`${TranslateStentorResponse.name}`, () => {
                 });
             });
         });
+        describe("when passed an empty response", () => {
+            it("returns the request", () => {
+                const t = new TranslateStentorResponse();
+                const response = t.translate({
+                    request: {
+                        ...LAUNCH_REQUEST
+                    },
+                    response: {
+                    }
+                });
+                expect(response).to.exist;
+                expect(response).to.deep.equal({});
+            });
+            describe("for a non-widget channel", () => {
+                it("returns the request", () => {
+                    const t = new TranslateStentorResponse();
+                    const response = t.translate({
+                        request: {
+                            ...LAUNCH_REQUEST,
+                            channel: "foo"
+                        },
+                        response: {
+                        }
+                    });
+                    expect(response).to.exist;
+                    expect(response).to.deep.equal({});
+                });
+            });
+        });
     });
 });

@@ -175,8 +175,6 @@ export const main = async (
         console.error(JSON.stringify(requestBody, undefined, 2));
         console.error(error.stack);
         eventService?.error(error);
-
-
         callback(error);
         return;
     }
@@ -398,7 +396,7 @@ export const main = async (
             }
         }
     } catch (error) {
-        log().warn(`Error caught in the postContextCreation hook: ${error}`);
+        console.error(`Error caught in the postContextCreation hook: ${error}`);
         console.error(error);
         // Keep moving, record the error
         if (eventService) {
@@ -432,6 +430,8 @@ export const main = async (
 
         // Add the error to the event service
         // We will not pass it out to the callback but we want to know about it.
+        console.error(`Error caught selecting handler`);
+        console.error(error);
         if (eventService) {
             eventService.error(error);
         }
@@ -451,10 +451,6 @@ export const main = async (
             }
             // not either of these just fall through
         }
-        // report the error
-        console.error(error.stack);
-        // & apologize to the user
-
         const response = context.response.respond(getResponse(TROUBLE_WITH_REQUEST, request, context)).build();
         const translatedTrouble = channel.response.translate({ request, response });
 
@@ -522,7 +518,8 @@ export const main = async (
         await handler.handleRequest(request, context);
     } catch (error) {
         // report the error
-        console.error(error.stack);
+        console.error("Error caught while calling handler.handleRequest() method");
+        console.error(error);
         if (eventService) {
             eventService.error(error);
         }
@@ -579,6 +576,7 @@ export const main = async (
         }
     } catch (error) {
         // report the error
+        console.error("Caught error in the preResponseTranlation hook.");
         console.error(error.stack);
         // Add the error to the event service
         if (eventService) {
@@ -605,6 +603,7 @@ export const main = async (
         log().debug(finalResponse);
     } catch (error) {
         // report the error
+        console.error('Caught error when translating the response for the channel.');
         console.error(error.stack);
         // Add the error to the event service
         if (eventService) {
@@ -634,6 +633,7 @@ export const main = async (
         await userStorageService.update(request.userId, context.storage);
     } catch (error) {
         // report the error
+        console.error('Caught error updating user storage');
         console.error(error.stack);
         // Add the error to the event service
         if (eventService) {

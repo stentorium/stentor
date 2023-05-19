@@ -129,6 +129,10 @@ export interface KnowledgeBaseGenerated extends KnowledgeBaseDocument {
      * Optional, the source LLM of the generated answer.
      */
     llm?: string;
+    /**
+     * Generated AI will still return an response even if it didn't have an answer.
+     */
+    hasAnswer?: boolean;
 }
 
 export interface KnowledgeBaseResult {

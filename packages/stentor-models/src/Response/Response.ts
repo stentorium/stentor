@@ -89,7 +89,7 @@ export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Act
     /**
      * Used for tracking the response in third party analytics.
      */
-    tag?: string;
+    tag?: string | string[];
     /**
      * What the assistant will say first as part of the response.
      */

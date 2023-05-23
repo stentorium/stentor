@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.57.144](https://github.com/stentorium/stentor/compare/v1.57.143...v1.57.144) (2023-05-23)
+
+
+### Bug Fixes
+
+* Support for array of string on tags ([#2056](https://github.com/stentorium/stentor/issues/2056)) ([a54cfaf](https://github.com/stentorium/stentor/commit/a54cfaf95628a9ff3e813755e2982b243d86d9f1))
+
+
+
+
+
 ## [1.57.143](https://github.com/stentorium/stentor/compare/v1.57.142...v1.57.143) (2023-05-22)
 
 **Note:** Version bump only for package stentor-models

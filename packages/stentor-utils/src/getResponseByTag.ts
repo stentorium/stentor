@@ -12,8 +12,13 @@ import { existsAndNotEmpty } from "./array";
  * @returns 
  */
 export function getResponseByTag(responses: Response[], tag: string, surfaceType?: string, device?: string): Response {
-    function isMatch(name: string, key: string): boolean {
-        return key === name;
+    function isMatch(name: string | string[], key: string): boolean {
+        if (typeof name === "string") {
+            return key === name;
+        } else if (existsAndNotEmpty(name)) {
+            return name.includes(key);
+        }
+        return false;
     }
 
     if (!tag) {

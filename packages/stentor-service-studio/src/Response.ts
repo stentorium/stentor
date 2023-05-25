@@ -41,3 +41,9 @@ export interface StudioFAQResponse {
     total: number;
     faq: StudioFAQ[];
 }
+
+export interface StudioRAGResponse {
+    result: string;
+    hasAnswer?: boolean;
+    sources?: { url: string, title?: string }[];
+}

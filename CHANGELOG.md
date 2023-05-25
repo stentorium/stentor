@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.57.146](https://github.com/stentorium/stentor/compare/v1.57.145...v1.57.146) (2023-05-25)
+
+
+### Bug Fixes
+
+* Add new /cms/rag endpoint wrapper to Studio Service ([#2058](https://github.com/stentorium/stentor/issues/2058)) ([03532aa](https://github.com/stentorium/stentor/commit/03532aa9acdcfae0bb483b8a826c6d915afcd0b3))
+
+
+
+
+
 ## [1.57.145](https://github.com/stentorium/stentor/compare/v1.57.144...v1.57.145) (2023-05-23)
 
 **Note:** Version bump only for package repo

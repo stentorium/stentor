@@ -3,7 +3,7 @@ import { HTTP_200_OK } from "stentor-constants";
 import { Event, Handler, HandlerService, KnowledgeBaseResult, KnowledgeBaseService } from "stentor-models";
 import { existsAndNotEmpty, findFuzzyMatch } from "stentor-utils";
 import "isomorphic-fetch";
-import { StudioFAQResponse, StudioHandlerResponse, StudioHandlersResponse } from "./Response";
+import { StudioFAQResponse, StudioHandlerResponse, StudioHandlersResponse, StudioRAGResponse } from "./Response";
 
 const BASE_URL = "https://api.xapp.ai";
 
@@ -218,7 +218,6 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
                 }
             })
     }
-
     /**
      * Find a FAQ match based on the query.
      * 
@@ -251,19 +250,64 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`
             }
-        })
-            .then<StudioFAQResponse>((response) => {
-                status = response.status;
-                statusText = response.statusText;
+        }).then<StudioFAQResponse>((response) => {
+            status = response.status;
+            statusText = response.statusText;
 
-                return response.json();
-            }).then<StudioFAQResponse>((results) => {
-                if (status === 200) {
-                    return results;
-                } else {
-                    throw new Error(`StudioService.faq() returned ${status} ${statusText} ${JSON.stringify(results)}`);
-                }
-            })
+            return response.json();
+        }).then<StudioFAQResponse>((results) => {
+            if (status === 200) {
+                return results;
+            } else {
+                throw new Error(`StudioService.faq() returned ${status} ${statusText} ${JSON.stringify(results)}`);
+            }
+        })
+    }
+
+    public rag(query: string, temperature = 0.5): Promise<StudioRAGResponse> {
+
+        const url = new URL(`${this.baseURL}/cms/rag`);
+
+        const encodedQuery = encodeURIComponent(query);
+
+        url.searchParams.set("question", encodedQuery);
+        url.searchParams.set("temperature", `${temperature}`);
+
+        let token: string = this.token;
+
+        if (this.orgToken) {
+            token = this.orgToken;
+            url.searchParams.set("appId", this.appId);
+        }
+
+        let status: number;
+        let statusText: string;
+
+        return fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        }).then<StudioRAGResponse>((response) => {
+            status = response.status;
+            statusText = response.statusText;
+
+            return response.json();
+        }).then<StudioRAGResponse>((results) => {
+            if (status === 200) {
+
+                const result = results.result;
+                const hasAnswer: boolean = result.toLowerCase() !== "i do not know.";
+
+                return {
+                    result,
+                    hasAnswer
+                };
+            } else {
+                throw new Error(`StudioService.rag() returned ${status} ${statusText} ${JSON.stringify(results)}`);
+            }
+        })
     }
 
     public putEvents(events: Event<any>[]): Promise<void> {
@@ -318,18 +362,16 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
                 Authorization: `Bearer ${token}`
             },
             body: JSON.stringify({ events })
-        })
-            .then(response => {
-                status = response.status;
-                statusText = response.statusText;
-                return response.json();
-            })
-            .then(json => {
-                if (status !== HTTP_200_OK) {
-                    throw new Error(`StudioService.putEvents() returned ${status} ${statusText} ${JSON.stringify(json)}`);
-                }
-                return;
-            });
+        }).then(response => {
+            status = response.status;
+            statusText = response.statusText;
+            return response.json();
+        }).then(json => {
+            if (status !== HTTP_200_OK) {
+                throw new Error(`StudioService.putEvents() returned ${status} ${statusText} ${JSON.stringify(json)}`);
+            }
+            return;
+        });
     }
 }
 

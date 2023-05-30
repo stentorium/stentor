@@ -1,5 +1,13 @@
 /*! Copyright (c) 2021, XAPPmedia */
-import { KnowledgeBaseResult } from "../Request";
+import { KnowledgeBaseGenerated, KnowledgeBaseResult } from "../Request";
+
+
+export interface KnowledgeBaseServiceRAGResult extends KnowledgeBaseGenerated {
+    /**
+     * Source material used to generate the response
+     */
+    sources?: { url: string, title?: string }[];
+}
 
 /**
  * A knowledge base that can be queried
@@ -12,4 +20,11 @@ export interface KnowledgeBaseService {
      * @return Knowledge Base result with either FAQs, suggested, or documents.   
      */
     query(query: string): Promise<KnowledgeBaseResult>;
+    /**
+     * Retrieval Augmented Generation Response
+     * 
+     * @beta
+     * @param query 
+     */
+    rag?(query: string): Promise<KnowledgeBaseServiceRAGResult>;
 }

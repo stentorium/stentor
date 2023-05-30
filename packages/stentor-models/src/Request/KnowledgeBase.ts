@@ -130,7 +130,7 @@ export interface KnowledgeBaseGenerated extends KnowledgeBaseDocument {
      */
     llm?: string;
     /**
-     * Generated AI will still return an response even if it didn't have an answer.
+     * Generated AI will still return an response even if it didn't have an answer.  True if it has the answer to the user's query.
      */
     hasAnswer?: boolean;
 }

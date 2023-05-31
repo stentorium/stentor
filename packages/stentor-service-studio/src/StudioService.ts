@@ -302,7 +302,6 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
         }
 
         if (options?.controller) {
-            console.log('setting controller');
             fetchOptions.signal = options?.controller.signal;
         }
 

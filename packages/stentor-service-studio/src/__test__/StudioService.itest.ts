@@ -44,7 +44,6 @@ describe(`${StudioService.name}`, () => {
             const results = await studio.rag("what is an entity");
             expect(results).to.exist;
             expect(results.generated).to.exist;
-            console.log(results.generated);
             expect(results.hasAnswer).to.be.true;
         }).timeout(12000);
         describe("with an abort controller", () => {
@@ -64,7 +63,6 @@ describe(`${StudioService.name}`, () => {
                 const results = await studio.rag("who is the president");
                 expect(results).to.exist;
                 expect(results.generated).to.exist;
-                console.log(results.generated);
                 expect(results.hasAnswer).to.be.false;
             }).timeout(12000);
         });

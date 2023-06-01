@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.57.154](https://github.com/stentorium/stentor/compare/v1.57.153...v1.57.154) (2023-06-01)
+
+
+### Bug Fixes
+
+* Adding string[] to abstract builder tag ([#2069](https://github.com/stentorium/stentor/issues/2069)) ([047eaa4](https://github.com/stentorium/stentor/commit/047eaa4aaaa85a18f86a7a0b6c6c3ffc3cd93b32))
+
+
+
+
+
 ## [1.57.153](https://github.com/stentorium/stentor/compare/v1.57.152...v1.57.153) (2023-06-01)
 
 

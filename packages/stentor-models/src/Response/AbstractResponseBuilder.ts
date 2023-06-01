@@ -66,7 +66,7 @@ export abstract class AbstractResponseBuilder<R = any> {
     /**
      * Tag used by supported 3rd party analytics to track the response.
      */
-    public tag: string | undefined;
+    public tag: string | string[] | undefined;
 
     public constructor(props: ResponseBuilderProps) {
         this.tag = undefined;

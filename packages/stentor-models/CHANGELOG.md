@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.57.152](https://github.com/stentorium/stentor/compare/v1.57.151...v1.57.152) (2023-06-01)
+
+
+### Bug Fixes
+
+* Adding Abort Controller options to KnowledgeBaseService interface ([#2067](https://github.com/stentorium/stentor/issues/2067)) ([a0f214f](https://github.com/stentorium/stentor/commit/a0f214fbd238147d05cac904d3b092584a1fda5c))
+
+
+
+
+
 ## [1.57.150](https://github.com/stentorium/stentor/compare/v1.57.149...v1.57.150) (2023-05-30)
 
 

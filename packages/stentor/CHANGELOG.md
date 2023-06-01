@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.57.153](https://github.com/stentorium/stentor/compare/v1.57.152...v1.57.153) (2023-06-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency dotenv to v16.1.3 ([#2068](https://github.com/stentorium/stentor/issues/2068)) ([59049f8](https://github.com/stentorium/stentor/commit/59049f8d06c96ace27f6d044e6437acb1707fcdb))
+
+
+
+
+
 ## [1.57.152](https://github.com/stentorium/stentor/compare/v1.57.151...v1.57.152) (2023-06-01)
 
 **Note:** Version bump only for package stentor

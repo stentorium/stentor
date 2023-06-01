@@ -136,11 +136,11 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
      * 
      * @param query 
      */
-    public query(query: string): Promise<KnowledgeBaseResult> {
+    public query(query: string, options?: { controller?: AbortController }): Promise<KnowledgeBaseResult> {
 
         // Call search
-        const search = this.search(query);
-        const faqs = this.faq(query);
+        const search = this.search(query, options);
+        const faqs = this.faq(query, options);
 
         return Promise.all([search, faqs]).then((results) => {
 
@@ -179,9 +179,10 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
      * Calls /cms/search endpoint.
      * 
      * @param query - The query to search  
+     * @param controller - Optional abort controller to cancel the request
      * @returns 
      */
-    public search(query: string): Promise<Pick<KnowledgeBaseResult, "documents" | "suggested">> {
+    public search(query: string, options?: { controller?: AbortController }): Promise<Pick<KnowledgeBaseResult, "documents" | "suggested">> {
         let url = `${this.baseURL}/cms/search`
 
         const encodedQuery = encodeURIComponent(query);
@@ -195,16 +196,22 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
             url += `&appId=${this.appId}`;
         }
 
-        let status: number;
-        let statusText: string;
-
-        return fetch(url, {
+        const fetchOptions: RequestInit = {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`
             }
-        })
+        }
+
+        if (options?.controller) {
+            fetchOptions.signal = options?.controller.signal;
+        }
+
+        let status: number;
+        let statusText: string;
+
+        return fetch(url, fetchOptions)
             .then<KnowledgeBaseResult>((response) => {
                 status = response.status;
                 statusText = response.statusText;
@@ -226,7 +233,7 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
      * @param query 
      * @returns 
      */
-    public faq(query: string): Promise<StudioFAQResponse> {
+    public faq(query: string, options?: { controller?: AbortController }): Promise<StudioFAQResponse> {
 
         let url = `${this.baseURL}/cms/faq/query`
 
@@ -241,16 +248,22 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
             url += `&appId=${this.appId}`;
         }
 
-        let status: number;
-        let statusText: string;
-
-        return fetch(url, {
+        const fetchOptions: RequestInit = {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`
             }
-        }).then<StudioFAQResponse>((response) => {
+        }
+
+        if (options?.controller) {
+            fetchOptions.signal = options?.controller.signal;
+        }
+
+        let status: number;
+        let statusText: string;
+
+        return fetch(url, fetchOptions).then<StudioFAQResponse>((response) => {
             status = response.status;
             statusText = response.statusText;
 
@@ -264,14 +277,14 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
         })
     }
 
-    public rag(query: string, temperature = 0.5): Promise<KnowledgeBaseServiceRAGResult> {
+    public rag(query: string, options: { temperature?: number, controller?: AbortController } = { temperature: 0.5 }): Promise<KnowledgeBaseServiceRAGResult> {
 
         const url = new URL(`${this.baseURL}/cms/rag`);
 
         const encodedQuery = encodeURIComponent(query);
 
         url.searchParams.set("question", encodedQuery);
-        url.searchParams.set("temperature", `${temperature}`);
+        url.searchParams.set("temperature", `${options.temperature}`);
 
         let token: string = this.token;
 
@@ -280,16 +293,22 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
             url.searchParams.set("appId", this.appId);
         }
 
-        let status: number;
-        let statusText: string;
-
-        return fetch(url, {
+        const fetchOptions: RequestInit = {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`
             }
-        }).then<StudioRAGResponse>((response) => {
+        }
+
+        if (options?.controller) {
+            fetchOptions.signal = options?.controller.signal;
+        }
+
+        let status: number;
+        let statusText: string;
+
+        return fetch(url, fetchOptions).then<StudioRAGResponse>((response) => {
             status = response.status;
             statusText = response.statusText;
 

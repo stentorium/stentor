@@ -6862,10 +6862,10 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
-syncpack@10.1.0:
-  version "10.1.0"
-  resolved "https://registry.yarnpkg.com/syncpack/-/syncpack-10.1.0.tgz#4438a78b67037fe161f7936b7a377e8b883a8f34"
-  integrity sha512-3SMPf49tpxw170ZokyurKuJc7G45xZLtzgH6W87+7OsbRQLc+oc9UfoelVf1CuYglZsMwFott4zEShCY8o+R1Q==
+syncpack@10.2.0:
+  version "10.2.0"
+  resolved "https://registry.yarnpkg.com/syncpack/-/syncpack-10.2.0.tgz#471551bafcfcc5b2dfe201b68a6badcb77b7a34d"
+  integrity sha512-qPS66dnRYzWTt1UtAm14uNEtQxFcYWq3xyewfO0k9Uv8aYxP+uR68hcw+PvwPxXw7Oen+oLsS/yULvcYmwCVjQ==
   dependencies:
     chalk "4.1.2"
     commander "10.0.1"

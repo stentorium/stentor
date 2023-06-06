@@ -33,7 +33,7 @@ import {
 } from "stentor-request";
 import { findStorageDependentMatch, isStorageDependable, StorageDependentCheck } from "stentor-storage";
 import { findTimeContextualMatch, TimeConditionalCheck } from "stentor-time";
-import { combineRequestSlots, random, existsAndNotEmpty, Compiler, channelMatchesRequest } from "stentor-utils";
+import { combineRequestSlots, random, existsAndNotEmpty, Compiler, channelMatchesRequest, MacroMap } from "stentor-utils";
 import { findJSONDependentMatch, JSONConditionalCheck } from "./findJSONDependentMatch";
 
 /**
@@ -44,7 +44,7 @@ import { findJSONDependentMatch, JSONConditionalCheck } from "./findJSONDependen
  * @param context
  * @returns The best match from the provided potential matches, undefined if now match could be determined.
  */
-export function determine<P extends object>(potentials: P[], request: Request, context: Context, additionalContext?: Record<string, unknown>): P | undefined {
+export function determine<P extends object>(potentials: P[], request: Request, context: Context, additionalContext?: Record<string, unknown>, macros?: MacroMap): P | undefined {
     if (!Array.isArray(potentials) || potentials.length === 0) {
         return undefined;
     }
@@ -111,7 +111,7 @@ export function determine<P extends object>(potentials: P[], request: Request, c
                 // Compile it
                 //    replaceWhenUndefined is here so we can have logic like:
                 //    !!${$.context.storage.user} <-- And it not throw an error when the user doesn't exist.
-                const compiled: string = new Compiler({ additionalContext, replaceWhenUndefined: true }).compile(conditional.conditions, request, context);
+                const compiled: string = new Compiler({ additionalContext, replaceWhenUndefined: true, macros }).compile(conditional.conditions, request, context);
                 // Keep hold of the original
                 originals[compiled] = conditional;
                 // Push a compiled version
@@ -138,7 +138,8 @@ export function determine<P extends object>(potentials: P[], request: Request, c
         checks.push(TimeConditionalCheck({ lastActiveTimestamp }));
 
         // Big show, determine the matches
-        const matches = new ConditionalDeterminer(checks).determine<P>(compiledConditionals);
+        // need to pass the macros here
+        const matches = new ConditionalDeterminer(checks, macros).determine<P>(compiledConditionals);
         // Look through them and match them up to the original
         const matchedOriginals: Conditional<P>[] = [];
         matches.forEach((match) => {

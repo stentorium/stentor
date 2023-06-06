@@ -87,7 +87,6 @@ export class Compiler implements CompilerProps {
     private compileString(value: string, request: Request, context: Context, key?: "displayText" | "ssml" | "html"): string {
 
         let compiledValue: string = value;
-
         // First look for macros
         // See this regex in action: https://regex101.com/r/MihX7l/2 
         // It is complicated.

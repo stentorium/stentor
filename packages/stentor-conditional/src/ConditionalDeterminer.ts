@@ -1,6 +1,7 @@
 /*! Copyright (c) 2020, XAPPmedia */
 import { log } from "stentor-logger";
 import { Contexts, ConditionalCheck, Conditional } from "stentor-models";
+import { MacroMap } from "stentor-utils";
 
 import { getVM, SandboxFunctions } from "./getVM";
 /**
@@ -9,13 +10,19 @@ import { getVM, SandboxFunctions } from "./getVM";
  */
 export class ConditionalDeterminer {
 
+    private macros: MacroMap = {};
+
     private timeout = 500;
 
     private checks: ConditionalCheck[] = [];
 
-    public constructor(checks?: ConditionalCheck[]) {
+    public constructor(checks?: ConditionalCheck[], macros?: MacroMap) {
         if (Array.isArray(checks)) {
             this.checks = checks;
+        }
+
+        if (macros) {
+            this.macros = macros;
         }
     }
 
@@ -62,7 +69,8 @@ export class ConditionalDeterminer {
                 const vm = getVM({
                     timeout: this.timeout,
                     sandbox: {
-                        ...sandboxFunctions
+                        ...sandboxFunctions,
+                        ...this.macros
                     }
                 });
 

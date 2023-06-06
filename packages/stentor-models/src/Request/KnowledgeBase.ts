@@ -130,6 +130,13 @@ export interface KnowledgeBaseGenerated extends KnowledgeBaseDocument {
      */
     llm?: string;
     /**
+     * A description of the type of generated response.
+     * 
+     * This can be used to better describe the prompt used for generation so it can be understood what type of
+     * information is in the generated response.
+     */
+    type?: string;
+    /**
      * Generated AI will still return an response even if it didn't have an answer.  True if it has the answer to the user's query.
      */
     hasAnswer?: boolean;

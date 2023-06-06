@@ -322,7 +322,8 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
                 return {
                     generated: result,
                     document: result,
-                    hasAnswer
+                    hasAnswer,
+                    type: "retrieval-augmented-generation"
                 };
             } else {
                 throw new Error(`StudioService.rag() returned ${status} ${statusText} ${JSON.stringify(results)}`);

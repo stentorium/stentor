@@ -42,7 +42,7 @@
     "date-fns": "2.29.2",
     "dyno-item-size": "0.3.3",
     "fuse.js": "6.6.2",
-    "html-entities": "2.3.3",
+    "html-entities": "2.3.5",
     "jsonpath-plus": "7.2.0",
     "lodash.clonedeep": "4.5.0",
     "lodash.forown": "4.4.0",

@@ -111,8 +111,6 @@ export function determine<P extends object>(potentials: P[], request: Request, c
                 // Compile it
                 //    replaceWhenUndefined is here so we can have logic like:
                 //    !!${$.context.storage.user} <-- And it not throw an error when the user doesn't exist.
-                console.log(`compiling.. ${conditional.conditions}`);
-                console.log(macros);
                 const compiled: string = new Compiler({ additionalContext, replaceWhenUndefined: true, macros }).compile(conditional.conditions, request, context);
                 // Keep hold of the original
                 originals[compiled] = conditional;

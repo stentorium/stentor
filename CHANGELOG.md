@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.57.158](https://github.com/stentorium/stentor/compare/v1.57.157...v1.57.158) (2023-06-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency html-entities to v2.3.5 ([#2079](https://github.com/stentorium/stentor/issues/2079)) ([50c7238](https://github.com/stentorium/stentor/commit/50c72389e606c319890d1023ed7f0e9be3df97a8))
+
+
+
+
+
 ## [1.57.157](https://github.com/stentorium/stentor/compare/v1.57.156...v1.57.157) (2023-06-05)
 
 **Note:** Version bump only for package repo

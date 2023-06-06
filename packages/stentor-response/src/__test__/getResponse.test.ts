@@ -445,7 +445,7 @@ describe("#getResponse()", () => {
                     ["intentId"]: [
                         {
                             outputSpeech: {
-                                ssml: "<speak>${answer} ${PROMPT}</speak>",
+                                ssml: "<speak>${answer} ${PROMPT} ${number()}</speak>",
                                 displayText: "${answer} ${PROMPT}"
                             },
                             reprompt: {
@@ -460,7 +460,15 @@ describe("#getResponse()", () => {
                                             displayText: "Which would you like?"
                                         }
                                     }]
-                            }
+                            },
+                            conditions: "pick()"
+                        },
+                        {
+                            outputSpeech: {
+                                ssml: "<speak>WRONG</speak>",
+                                displayText: "WRONG"
+                            },
+                            conditions: "dontPick()"
                         }
                     ]
                 },
@@ -491,19 +499,32 @@ describe("#getResponse()", () => {
                 })
                 .build();
         });
-        it("determines and compiles the response", () => {
+        it.only("determines and compiles the response", () => {
+
+            function pick() {
+                return true;
+            }
+
             const response = getResponse(handler, request, context, {
                 answer: {
                     ssml: "Here <break /> is the help content. <break />",
                     displayText: "Here __is the help content.__"
                 }
+            }, {
+                number: () => {
+                    return `1`
+                },
+                dontPick: () => {
+                    return false;
+                },
+                pick: pick
             });
             expect(response).to.exist;
             expect(response).to.be.a("object");
             expect(response.outputSpeech).to.be.a("object");
             if (typeof response.outputSpeech === "object") {
                 expect(response.outputSpeech.ssml).to.equal(
-                    "<speak>Here <break /> is the help content. <break /> Which would you like?</speak>"
+                    "<speak>Here <break /> is the help content. <break /> Which would you like? 1</speak>"
                 );
                 expect(response.outputSpeech.displayText).to.equal("Here __is the help content.__ Which would you like?");
             }
@@ -513,5 +534,6 @@ describe("#getResponse()", () => {
                 expect(response.reprompt.displayText).to.equal("Which would you like?");
             }
         });
+
     });
 });

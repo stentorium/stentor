@@ -198,6 +198,23 @@ describe(`${Compiler.name}`, () => {
                         expect(compiled).to.equal("<speak>Thank you, Joe. Lastly, can you provide your address in case we need to look up information about your house?</speak>");
                     });
                 });
+                describe("without arguments", () => {
+                    it("compiles the value", () => {
+                        const compiled = new Compiler({
+                            macros: {
+                                number: () => {
+                                    return '1'
+                                }
+                            }
+                        }).compile(
+                            "${number()}",
+                            request,
+                            context
+                        );
+                        // At the moment we don't support macros without arguments.  
+                        expect(compiled).to.equal("1");
+                    })
+                })
             });
             describe("without any replacements", () => {
                 it("passes it through", () => {

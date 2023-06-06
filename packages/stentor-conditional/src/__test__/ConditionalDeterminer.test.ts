@@ -3,6 +3,7 @@ import { expect } from "chai";
 
 import { ConditionalDeterminer } from "../ConditionalDeterminer";
 import { ConditionalCheck, Conditioned } from "stentor-models";
+import { MacroMap } from "stentor-utils";
 
 // Data model
 interface YouTellMe {
@@ -157,6 +158,51 @@ const shouldRunConditionals = () => {
                 expect(new ConditionalDeterminer([]).determine([{
                     conditions: "tellMe(true) || false"
                 }])).to.have.length(0);
+            });
+        });
+        describe('with macros', () => {
+            it('returns the correct result', () => {
+                const macros: MacroMap = {
+                    pick: (ret?: string) => {
+                        if (ret === "false") {
+                            return false;
+                        }
+                        return true;
+                    },
+                    no: () => {
+                        return false;
+                    },
+                    yes: () => {
+                        return true;
+                    },
+                    pass: (re: boolean) => {
+                        return re;
+                    }
+
+                };
+                expect(new ConditionalDeterminer([], macros).determine([{
+                    conditions: "pick()"
+                }])).to.have.length(1);
+
+                expect(new ConditionalDeterminer([], macros).determine([{
+                    conditions: "pass(true)"
+                }])).to.have.length(1);
+
+                expect(new ConditionalDeterminer([], macros).determine([{
+                    conditions: "pass(false)"
+                }])).to.have.length(0);
+
+                expect(new ConditionalDeterminer([], macros).determine([{
+                    conditions: "pick('false')"
+                }])).to.have.length(0);
+
+                expect(new ConditionalDeterminer([], macros).determine([{
+                    conditions: "no()"
+                }])).to.have.length(0);
+
+                expect(new ConditionalDeterminer([], macros).determine([{
+                    conditions: "no() || yes()"
+                }])).to.have.length(1);
             });
         });
     });

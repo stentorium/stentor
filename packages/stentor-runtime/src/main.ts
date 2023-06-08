@@ -486,7 +486,7 @@ export const main = async (
     context.storage.currentHandler = handler;
 
     // More logging
-    log().info(`appId:${handler.appId}|selectedHandler:${handler.intentId}`);
+    log().info(`appId:${handler.appId}|selectedHandler:${handler.intentId}|selectedHandlerType:${handler.type}`);
 
     // #3 Kick off the request - check for canFulfill first
     if (isIntentRequest(request) && request.canFulfill) {
@@ -530,9 +530,6 @@ export const main = async (
         callback(null, translatedTrouble, request, response);
         return;
     }
-
-    log().debug("Handler");
-    log().debug(handler);
 
     // #3.5 Post handleRequest storage Updates
     // Save the response we are about to output as the previous response

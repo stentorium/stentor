@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.57.162](https://github.com/stentorium/stentor/compare/v1.57.161...v1.57.162) (2023-06-08)
+
+
+### Bug Fixes
+
+* Reduce logging of handler  ([#2083](https://github.com/stentorium/stentor/issues/2083)) ([1bdafee](https://github.com/stentorium/stentor/commit/1bdafee35cc4238bd315eadfbf78cd617a2eb369))
+
+
+
+
+
 ## [1.57.161](https://github.com/stentorium/stentor/compare/v1.57.160...v1.57.161) (2023-06-08)
 
 **Note:** Version bump only for package repo

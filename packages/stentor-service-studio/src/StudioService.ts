@@ -306,8 +306,6 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
         let status: number;
         let statusText: string;
 
-        console.log(url);
-
         return fetch(url, fetchOptions).then<StudioRAGResponse>((response) => {
             status = response.status;
             statusText = response.statusText;

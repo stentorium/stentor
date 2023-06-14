@@ -281,9 +281,7 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
 
         const url = new URL(`${this.baseURL}/cms/rag`);
 
-        const encodedQuery = encodeURIComponent(query);
-
-        url.searchParams.set("question", encodedQuery);
+        url.searchParams.set("question", query);
         url.searchParams.set("temperature", `${options.temperature}`);
 
         let token: string = this.token;

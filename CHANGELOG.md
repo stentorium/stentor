@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.57.163](https://github.com/stentorium/stentor/compare/v1.57.162...v1.57.163) (2023-06-14)
+
+
+### Bug Fixes
+
+* Double Encoding Query on RAG ([#2085](https://github.com/stentorium/stentor/issues/2085)) ([0223bae](https://github.com/stentorium/stentor/commit/0223bae746fc37a54ef4c65b10760e359401707c))
+
+
+
+
+
 ## [1.57.162](https://github.com/stentorium/stentor/compare/v1.57.161...v1.57.162) (2023-06-08)
 
 

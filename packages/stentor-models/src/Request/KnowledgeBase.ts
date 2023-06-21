@@ -134,12 +134,18 @@ export interface KnowledgeBaseGenerated extends KnowledgeBaseDocument {
      * 
      * This can be used to better describe the prompt used for generation so it can be understood what type of
      * information is in the generated response.
+     * 
+     * Two standard values are "retrieval-augmented-generation" and "general-knowledge"
      */
     type?: string;
     /**
      * Generated AI will still return an response even if it didn't have an answer.  True if it has the answer to the user's query.
      */
     hasAnswer?: boolean;
+    /**
+     * Optional sources that the Generative AI used to generate the response.  This is typically specific to type "retrieval-augmented-generation" where source material is used to generate the answer.
+     */
+    sources?: { url?: string, title?: string }[];
 }
 
 export interface KnowledgeBaseResult {

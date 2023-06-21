@@ -315,12 +315,14 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
             if (status === 200) {
 
                 const result = results.result;
-                const hasAnswer: boolean = result.toLowerCase() !== "i do not know.";
+                const hasAnswer = results.hasAnswer;
+                const sources = results.sources;
 
                 return {
                     generated: result,
                     document: result,
                     hasAnswer,
+                    sources,
                     type: "retrieval-augmented-generation"
                 };
             } else {

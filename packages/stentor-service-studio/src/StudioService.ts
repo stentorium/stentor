@@ -1,6 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { HTTP_200_OK } from "stentor-constants";
-import { Event, Handler, HandlerService, KnowledgeBaseResult, KnowledgeBaseService, KnowledgeBaseServiceRAGResult } from "stentor-models";
+import { Event, Handler, HandlerService, KnowledgeBaseGenerated, KnowledgeBaseResult, KnowledgeBaseService } from "stentor-models";
 import { existsAndNotEmpty, findFuzzyMatch } from "stentor-utils";
 import "isomorphic-fetch";
 import { StudioFAQResponse, StudioHandlerResponse, StudioHandlersResponse, StudioRAGResponse } from "./Response";
@@ -277,7 +277,7 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
         })
     }
 
-    public rag(query: string, options: { temperature?: number, controller?: AbortController } = { temperature: 0.5 }): Promise<KnowledgeBaseServiceRAGResult> {
+    public rag(query: string, options: { temperature?: number, controller?: AbortController } = { temperature: 0.5 }): Promise<KnowledgeBaseGenerated> {
 
         const url = new URL(`${this.baseURL}/cms/rag`);
 
@@ -311,7 +311,7 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
             statusText = response.statusText;
 
             return response.json();
-        }).then<KnowledgeBaseServiceRAGResult>((results) => {
+        }).then<KnowledgeBaseGenerated>((results) => {
             if (status === 200) {
 
                 const result = results.result;

@@ -19,7 +19,7 @@
     "@xapp/config": "0.2.3",
     "chai": "4.3.7",
     "stentor-models": "1.57.177",
-    "typescript": "5.1.5"
+    "typescript": "5.1.6"
   },
   "dependencies": {
     "@xapp/dynamo-service": "1.8.7"

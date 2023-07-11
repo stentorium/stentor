@@ -57,7 +57,7 @@
     "slugify": "1.6.6",
     "stentor-constants": "1.57.184",
     "stentor-guards": "1.57.184",
-    "winston": "3.9.0",
+    "winston": "3.10.0",
     "words-to-numbers": "1.5.1",
     "xmldoc": "1.3.0"
   },

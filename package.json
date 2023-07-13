@@ -20,7 +20,7 @@
     "lerna": "6.6.2",
     "license-checker": "25.0.1",
     "mocha": "9.2.2",
-    "mocha-junit-reporter": "2.2.0",
+    "mocha-junit-reporter": "2.2.1",
     "nyc": "15.1.0",
     "syncpack": "10.6.1"
   },

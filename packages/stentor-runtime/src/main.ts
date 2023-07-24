@@ -52,6 +52,7 @@ export interface Dependencies {
     eventService?: EventService;
     crmService?: CrmService;
     smsService?: SMSService;
+    agentAlertService?: any;
     handlerFactory: HandlerFactory;
     handlerService: HandlerService;
     piiService?: PIIService;

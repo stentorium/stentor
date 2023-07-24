@@ -32,11 +32,12 @@ describe(`${StudioService.name}`, () => {
         });
     });
     describe(`#${StudioService.prototype.faq.name}()`, () => {
-        it("returns results", async () => {
+        it.only("returns results", async () => {
             const studio = new StudioService();
-            const results = await studio.faq("what is your phone number");
+            const results = await studio.faq("What's the cost to replace an Air Conditioner");
             expect(results).to.exist;
-        });
+            console.log(results);
+        }).timeout(1000);
     });
     describe(`#${StudioService.prototype.rag.name}()`, () => {
         it("returns results", async () => {

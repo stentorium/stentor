@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.57.196",
+  "version": "1.57.199",
   "description": "Utilities for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -20,7 +20,7 @@
     "@types/chai": "4.3.5",
     "@types/marked": "4.3.1",
     "@types/mocha": "9.1.1",
-    "@types/node": "18.17.3",
+    "@types/node": "18.17.4",
     "@types/numeral": "2.0.2",
     "@types/sanitize-html": "2.9.0",
     "@types/sinon": "10.0.15",
@@ -31,7 +31,7 @@
     "mocha": "9.2.2",
     "sinon": "15.2.0",
     "sinon-chai": "3.7.0",
-    "stentor-models": "1.57.196",
+    "stentor-models": "1.57.199",
     "ts-node": "10.9.1",
     "typescript": "5.1.6"
   },
@@ -50,13 +50,13 @@
     "lodash.isobject": "3.0.2",
     "lodash.isstring": "4.0.1",
     "lodash.pull": "4.1.0",
-    "marked": "7.0.0",
+    "marked": "7.0.1",
     "number-to-words": "1.2.4",
     "numeral": "2.0.6",
     "sanitize-html": "2.11.0",
     "slugify": "1.6.6",
-    "stentor-constants": "1.57.196",
-    "stentor-guards": "1.57.196",
+    "stentor-constants": "1.57.199",
+    "stentor-guards": "1.57.199",
     "winston": "3.10.0",
     "words-to-numbers": "1.5.1",
     "xmldoc": "1.3.0"

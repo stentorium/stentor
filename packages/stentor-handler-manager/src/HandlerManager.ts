@@ -217,7 +217,7 @@ export class HandlerManager {
                         const props = await this.service.get(id);
                         handler = this.factory.fromProps(props);
                     } catch (error) {
-                        log().info(`Unable to get valid handler for ${id}`);
+                        log().info(`Unable to get valid handler for ${id}.  Error: ${error.message}`);
                     }
 
                     if (!handler) {

@@ -532,8 +532,16 @@ export const main = async (
     }
 
     // #3.5 Post handleRequest storage Updates
-    // Save the response we are about to output as the previous response
-    context.storage.previousResponse = context.response.response;
+    // Save the response we are about to output as the previous response.
+    // Don't wipe out the previous if the response is "silent" (we lose the reprompts for unk. input).
+    // Empty response ({}) can be legit now for ACTION details for example.
+
+    if (Object.keys(context.response.response).length !== 0) {
+        context.storage.previousResponse = context.response.response;
+    } else {
+        log().warn(`Empty response object. Request type: ${request.type}`);
+    }
+
     // Trim history
     context.storage.history = trimHistory(context.storage.history, { historySize: HISTORY_SIZE });
 

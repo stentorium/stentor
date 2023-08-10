@@ -28,7 +28,6 @@
     "api": "lerna run api",
     "docs": "api-documenter markdown -i ./api/json -o ./api/docs",
     "lerna": "lerna",
-    "postinstall": "lerna bootstrap",
     "clean": "lerna run clean",
     "clean:modules": "lerna clean",
     "lint": "eslint 'packages/**/src/**/*.{ts,tsx}'",

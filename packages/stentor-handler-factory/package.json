@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.57.199",
+  "version": "1.57.200",
   "description": "Handler factory for stentor",
   "types": "lib/index",
   "main": "lib/index",

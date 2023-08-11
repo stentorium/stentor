@@ -65,6 +65,10 @@ export class HandlerFactory {
                 this.handlers.set(key, props.mappings[key]);
             });
         }
+
+        // debug the types
+        const keys = Object.keys(this.handlers).concat(",");
+        log().debug(`HandlerFactory created with possible handler types: ${keys}`);
     }
 
     /**

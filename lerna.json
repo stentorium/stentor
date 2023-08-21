@@ -3,7 +3,7 @@
     "packages/**"
   ],
   "npmClient": "yarn",
-  "version": "1.57.205",
+  "version": "1.57.206",
   "command": {
     "init": {
       "exact": true

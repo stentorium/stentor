@@ -1,6 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { Context, Request, ResponseOutput } from "stentor-models";
-import template = require("lodash.template");
+const template = require("lodash.template");
 
 export interface TemplatedResponseOutput<T> extends ResponseOutput {
     data?: T;

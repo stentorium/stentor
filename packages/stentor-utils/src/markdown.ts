@@ -1,6 +1,7 @@
 /*! Copyright (c) 2021, XAPPmedia */
 import { decode } from "html-entities";
 import { marked } from "marked";
+import { markedXhtml } from "marked-xhtml";
 import sanitize = require('sanitize-html');
 import { linkify } from "./net";
 
@@ -23,9 +24,14 @@ export function toHTML(input: string, props?: { allowedTags?: string[] }): strin
         return input;
     }
 
+
+
     const decoded = decode(input);
 
     const linked = linkify(decoded);
+
+    // https://www.npmjs.com/package/marked-xhtml 
+    marked.use(markedXhtml());
 
     // From https://github.com/markedjs/marked/issues/655#issuecomment-383226346
     const renderer = new marked.Renderer();
@@ -40,7 +46,7 @@ export function toHTML(input: string, props?: { allowedTags?: string[] }): strin
     renderer.code = (code): string => {
         return code;
     }
-    const dirty = marked(linked, { renderer, breaks: true, xhtml: true });
+    const dirty = marked(linked, { renderer, breaks: true });
 
     const clean = sanitize(dirty, props);
     return clean;

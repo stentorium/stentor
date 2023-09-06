@@ -66,5 +66,31 @@ describe(`${StudioService.name}`, () => {
                 expect(results.hasAnswer).to.be.false;
             }).timeout(12000);
         });
+        describe("with locationId", () => {
+            it("returns the expected results", async () => {
+                // use title-gpt credentials
+                const studio = new StudioService();
+                const results = await studio.rag("what your underwriting email", { filters: { locationId: "pennsylvania" } });
+                expect(results).to.exist;
+                expect(results.generated).to.exist;
+                expect(results.hasAnswer).to.be.true;
+            }).timeout(12000);
+        });
+    });
+    describe(`#${StudioService.prototype.search.name}()`, () => {
+        it("returns the expected results", async () => {
+            // use title-gpt credentials
+            const studio = new StudioService();
+            const results = await studio.search("what your underwriting email");
+            expect(results).to.exist;
+        }).timeout(12000);
+        describe("with locationId", () => {
+            it("returns the expected results", async () => {
+                // use title-gpt credentials
+                const studio = new StudioService();
+                const results = await studio.search("what your underwriting email", { filters: { locationId: "pennsylvania" } });
+                expect(results).to.exist;
+            }).timeout(12000);
+        });
     });
 });

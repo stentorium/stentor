@@ -1,6 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { HTTP_200_OK } from "stentor-constants";
-import { Event, Handler, HandlerService, KnowledgeBaseGenerated, KnowledgeBaseResult, KnowledgeBaseService } from "stentor-models";
+import { Event, Handler, HandlerService, KnowledgeBaseGenerated, KnowledgeBaseResult, KnowledgeBaseService, KnowledgeBaseServiceFilters } from "stentor-models";
 import { existsAndNotEmpty, findFuzzyMatch } from "stentor-utils";
 import "isomorphic-fetch";
 import { StudioFAQResponse, StudioHandlerResponse, StudioHandlersResponse, StudioRAGResponse } from "./Response";
@@ -136,7 +136,12 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
      * 
      * @param query 
      */
-    public query(query: string, options?: { controller?: AbortController }): Promise<KnowledgeBaseResult> {
+    public query(query: string, options?: {
+        controller?: AbortController,
+        filters?: {
+            [key: KnowledgeBaseServiceFilters]: string;
+        };
+    }): Promise<KnowledgeBaseResult> {
 
         // Call search
         const search = this.search(query, options);
@@ -182,18 +187,26 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
      * @param controller - Optional abort controller to cancel the request
      * @returns 
      */
-    public search(query: string, options?: { controller?: AbortController }): Promise<Pick<KnowledgeBaseResult, "documents" | "suggested">> {
-        let url = `${this.baseURL}/cms/search`
+    public search(query: string, options?: {
+        controller?: AbortController
+        filters?: {
+            [key: KnowledgeBaseServiceFilters]: string;
+        };
+    }): Promise<Pick<KnowledgeBaseResult, "documents" | "suggested">> {
 
-        const encodedQuery = encodeURIComponent(query);
+        const url = new URL(`${this.baseURL}/cms/search`);
 
-        url += `?question=${encodedQuery}`;
+        url.searchParams.set("question", query);
+
+        if (options?.filters?.locationId) {
+            url.searchParams.set("locationId", `${options?.filters?.locationId}`);
+        }
 
         let token: string = this.token;
 
         if (this.orgToken) {
             token = this.orgToken;
-            url += `&appId=${this.appId}`;
+            url.searchParams.set("appId", this.appId);
         }
 
         const fetchOptions: RequestInit = {
@@ -277,13 +290,21 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
         })
     }
 
-    public rag(query: string, options: { temperature?: number, controller?: AbortController } = { temperature: 0.5 }): Promise<KnowledgeBaseGenerated> {
+    public rag(query: string, options: {
+        temperature?: number,
+        controller?: AbortController, filters?: {
+            [key: KnowledgeBaseServiceFilters]: string;
+        };
+    } = { temperature: 0.5 }): Promise<KnowledgeBaseGenerated> {
 
         const url = new URL(`${this.baseURL}/cms/rag`);
 
         url.searchParams.set("question", query);
         url.searchParams.set("temperature", `${options.temperature}`);
 
+        if (options?.filters?.locationId) {
+            url.searchParams.set("locationId", `${options?.filters?.locationId}`);
+        }
         let token: string = this.token;
 
         if (this.orgToken) {

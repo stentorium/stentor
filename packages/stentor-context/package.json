@@ -30,7 +30,6 @@
   "dependencies": {
     "@xapp/patterns": "2.0.1",
     "stentor-constants": "1.58.1",
-    "stentor-guards": "1.58.1",
     "stentor-response": "1.58.2",
     "stentor-storage": "1.58.2"
   },

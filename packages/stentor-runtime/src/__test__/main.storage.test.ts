@@ -16,7 +16,7 @@ import {
     Storage,
     UserStorageService,
 } from "stentor-models";
-import { IntentRequestBuilder } from "stentor-request";
+import { InputUnknownRequestBuilder, IntentRequestBuilder } from "stentor-request";
 import { EventService } from "stentor-service-event";
 
 import { main } from "../main";
@@ -366,7 +366,7 @@ describe(`#${main.name}() storage`, () => {
         });
     });
     describe('with a request', () => {
-        let previousAppId: string;
+        let previousAppId: string | undefined;
         let previousMaxHistory: string;
         beforeEach(() => {
 
@@ -564,6 +564,56 @@ describe(`#${main.name}() storage`, () => {
                     ssml: "<speak>What can we quote for you today?</speak>"
                 });
             });
+        });
+    });
+    describe('with input unknown request', () => {
+        before(() => {
+            const storage: Storage = {
+                createdTimestamp: createdDate.getTime(),
+                lastActiveTimestamp: createdDate.getTime(),
+                sessionStore: {
+                    id: sessionId,
+                    data: {}
+                }
+            };
+
+            request = new InputUnknownRequestBuilder().build();
+
+            handlerFactory = new HandlerFactory({ handlers: [ConversationHandler] });
+            context = { studio: { appId } };
+            callbackSpy = sinon.spy();
+            handlerService = sinon.createStubInstance(MockHandlerService, {
+                get: handlerWithContent
+            });
+            userStorageService = sinon.createStubInstance(MockUserStorageService, {
+                get: Promise.resolve({ ...storage })
+            });
+        })
+        it("updates the count on storage", async () => {
+
+            await main(
+                request,
+                context,
+                callbackSpy,
+                [passThroughChannel()],
+                {
+                    eventService,
+                    handlerFactory,
+                    handlerService,
+                    userStorageService
+                }
+            )
+
+            expect(callbackSpy).to.have.been.calledOnce;
+            expect(userStorageService.update).to.have.been.calledOnce;
+
+            const argOne = (userStorageService.update as any).getCall(0).args[0];
+            expect(argOne).to.exist;
+            expect(argOne).to.equal('userId');
+
+            const argTwo = (userStorageService.update as any).getCall(0).args[1];
+
+            expect(argTwo.sessionStore.data.unknownInputs).to.equal(1);
         });
     });
 });

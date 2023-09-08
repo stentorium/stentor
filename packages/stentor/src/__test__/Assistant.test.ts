@@ -132,6 +132,14 @@ describe("Assistant", () => {
             });
         });
         describe("without environment variables", () => {
+
+            before(() => {
+                // make sure they are all gone
+                delete process.env.STUDIO_TOKEN;
+                delete process.env.STUDIO_APP_ID;
+                delete process.env.OVAI_TOKEN;
+                delete process.env.OVAI_APP_ID;
+            });
             describe("with handler service", () => {
                 beforeEach(() => {
                     assistant = new Assistant().withUserStorage(new MockUserStorageService()).withHandlerService(new MockHandlerService());

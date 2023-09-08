@@ -16,14 +16,11 @@ import {
     UserDataRequestStatus,
     UserDataType,
     UserProfile,
-    UserStorageService
 } from "stentor-models";
-import { hasSessionId } from "stentor-guards";
+
 import { ResponseBuilder } from "stentor-response";
-import { createSessionStore } from "stentor-storage";
 
 export interface ContextFactoryServices {
-    userStorageService: UserStorageService;
     piiService: PIIService;
     crmService?: CrmService;
     smsService?: SMSService;
@@ -44,11 +41,13 @@ export class ContextFactory {
     public static async fromRequest(
         request: Request,
         requestBody: object,
+        storage: Storage,
+        session: SessionStore,
         services: ContextFactoryServices,
         channel: Channel,
         appData?: AppRuntimeData
     ): Promise<Readonly<Context>> {
-        const { userStorageService, piiService, crmService, eventService, smsService } = services;
+        const { piiService, crmService, eventService, smsService } = services;
 
         const device: Device = channel.capabilities(requestBody);
 
@@ -60,36 +59,12 @@ export class ContextFactory {
             throw new TypeError(`Request is required when building context.`);
         }
 
-        if (!userStorageService) {
-            throw new TypeError(`UserStorageService is required when building context.`);
-        }
-
         if (!request.userId) {
             throw new TypeError(`User ID on the request is required when building context.`);
         }
 
-        // Get the storage
-        let storage: Storage = await userStorageService.get(request.userId);
-
-        // Create it if it doesn't exist.
         if (!storage) {
-            storage = await userStorageService.create(request.userId, {
-                createdTimestamp: Date.now(),
-                history: {
-                    handler: []
-                }
-            });
-        }
-
-        // First time users might not have history on storage yet,
-        // make sure it exists
-        if (!storage.history) {
-            storage.history = {
-                handler: []
-            };
-        } else if (!Array.isArray(storage.history.handler)) {
-            // make sure it has an array of handlers
-            storage.history.handler = [];
+            throw new TypeError(`Storage is required when building context.`);
         }
 
         // Pii
@@ -102,23 +77,6 @@ export class ContextFactory {
                 console.error("Cannot fetch initial PII record");
             }
         }
-
-        // Take care of the session store. If doesn't exist or the session id doesn't match the stored one, create a new store.
-        if (hasSessionId(request)) {
-
-            if (!request.sessionId) {
-                throw new Error(`Session ID is undefined when attempting to create update / retreive session store. ${request.sessionId}`)
-            }
-
-            if (!storage.sessionStore || storage.sessionStore.id !== request.sessionId) {
-                storage.sessionStore = {
-                    id: request.sessionId,
-                    data: {}
-                };
-            }
-        }
-
-        const session: SessionStore = createSessionStore(storage);
 
         /**
          * This method is to request granted user profile data. We don't return it - we just say if AVAILABLE or not (or deferred)

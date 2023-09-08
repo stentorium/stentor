@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.58.3](https://github.com/stentorium/stentor/compare/v1.58.2...v1.58.3) (2023-09-08)
+
+
+### Bug Fixes
+
+* Pass through NLU KB Filters ([#2173](https://github.com/stentorium/stentor/issues/2173)) ([aee6c04](https://github.com/stentorium/stentor/commit/aee6c0403e7f950bdcb986eeb6c050e2e819ac43))
+
+
+
+
+
 ## [1.58.2](https://github.com/stentorium/stentor/compare/v1.58.1...v1.58.2) (2023-09-07)
 
 **Note:** Version bump only for package stentor-context

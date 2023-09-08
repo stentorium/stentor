@@ -1,6 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { IntentRequest, InputUnknownRequest } from "../Request";
 import { ActiveContext } from "../Response";
+import { KnowledgeBaseServiceFilters } from "../Services";
 
 /**
  * Slightly smaller intent request without the sessionId and other identifying information.  It also doesn't pass through the original raw query.
@@ -39,6 +40,10 @@ export interface NLURequestProps {
      * Optional request attributes.
      */
     requestAttributes?: Record<string, string>;
+    /**
+     * Optional filters for knowledge base service calls
+     */
+    filters?: { [key: KnowledgeBaseServiceFilters]: string };
 }
 
 /**

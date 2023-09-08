@@ -291,7 +291,7 @@ describe("#main() with EventService", () => {
             expect(eventStream.flushed).to.be.true;
         });
     });
-    describe("when there is an explosion at the context factory (everybody was ok though)", () => {
+    describe("when there is an explosion when creating the storage (everybody was ok though)", () => {
         let error: Error;
         beforeEach(() => {
             request = new LaunchRequestBuilder().build();

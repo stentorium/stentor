@@ -9,6 +9,7 @@ import {
     Pii,
     PIIService,
     Request,
+    SessionStore,
     Storage,
     UserDataValue,
     UserStorageService
@@ -16,6 +17,7 @@ import {
 import { IntentRequestBuilder } from "stentor-request";
 
 import { ContextFactory } from "../ContextFactory";
+import { createSessionStore } from "stentor-storage";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const alexaCancel = require("./assets/alexa-cancel-intent.json");
@@ -102,6 +104,8 @@ describe("ContextFactory", () => {
         lastActiveTimestamp: createdDate.getTime()
     };
 
+    const session: SessionStore = createSessionStore(storage);
+
     beforeEach(() => {
         userStorageService = new TestUserStorageService();
 
@@ -119,96 +123,21 @@ describe("ContextFactory", () => {
             request = new IntentRequestBuilder().cancel().build();
             requestBody = alexaCancel;
         });
-        describe("for a new user", () => {
-            beforeEach(() => {
-                getStorageStub.restore();
-                createStorageStub.restore();
-                getStorageStub = sinon.stub(userStorageService, "get").returns(Promise.resolve(undefined));
-                createStorageStub = sinon.stub(userStorageService, "create").returns(Promise.resolve(storage));
-            });
-            it("creates the storage", async () => {
-                const context = await ContextFactory.fromRequest(
-                    request,
-                    requestBody,
-                    {
-                        userStorageService,
-                        piiService
-                    },
-                    TEST_CHANNEL
-                );
+        it("creates context", async () => {
+            const context = await ContextFactory.fromRequest(
+                request,
+                requestBody,
+                storage,
+                session,
+                {
+                    piiService,
 
-                expect(getStorageStub).to.have.been.calledOnce;
-                expect(createStorageStub).to.have.been.calledOnce;
-                expect(createStorageStub).to.have.been.calledWithMatch(request.userId, {
-                    history: {
-                        handler: []
-                    }
-                });
+                },
+                TEST_CHANNEL
+            );
 
-                expect(context).to.exist;
-                const storage = context.storage;
-                expect(storage).to.exist;
-                expect(storage.createdTimestamp).to.be.a("number");
-                expect(storage.history).to.exist;
-                expect(storage.sessionStore).to.exist;
-            });
-        });
-        // Disabling until we update the Alexa channel, it will fail
-        xdescribe("for an Alexa request", () => {
-            it("sets the audioPlayer information", async () => {
-                const context = await ContextFactory.fromRequest(
-                    request,
-                    requestBody,
-                    {
-                        userStorageService,
-                        piiService
-                    },
-                    TEST_CHANNEL
-                );
-                expect(context.device.mediaPlayerStatus).to.exist;
-                expect(context.device.mediaPlayerStatus.token).to.equal("token");
-                expect(context.device.mediaPlayerStatus.status).to.equal("STOPPED");
-                expect(context.device.mediaPlayerStatus.offsetInMilliseconds).to.equal(29204);
-            });
-            it("calls the user storage service", async () => {
-                await ContextFactory.fromRequest(
-                    request,
-                    requestBody,
-                    {
-                        userStorageService,
-                        piiService
-                    },
-                    TEST_CHANNEL
-                );
-                expect(getStorageStub).to.have.been.calledOnce;
-                expect(getStorageStub).to.have.been.calledWith(request.userId);
-                expect(createStorageStub).to.have.not.been.called;
-            });
-            describe("with unknownInputs on storage", () => {
-                let newStorage: Storage;
-                beforeEach(() => {
-                    newStorage = { ...storage };
-                    newStorage.unknownInputs = 2;
-
-                    getStorageStub.restore();
-                    getStorageStub = sinon.stub(userStorageService, "get").returns(Promise.resolve(newStorage));
-                });
-                it("resets the unknownInputs back to zero", async () => {
-                    const context = await ContextFactory.fromRequest(
-                        request,
-                        requestBody,
-                        {
-                            userStorageService,
-                            piiService
-                        },
-                        TEST_CHANNEL
-                    );
-                    expect(context).to.exist;
-                    expect(context.storage).to.exist;
-                    expect(context.storage.unknownInputs).to.equal(0);
-                    expect(newStorage.unknownInputs).to.equal(0);
-                });
-            });
-        });
+            expect(context).to.exist;
+            expect(context.storage).to.exist;
+        })
     });
 });

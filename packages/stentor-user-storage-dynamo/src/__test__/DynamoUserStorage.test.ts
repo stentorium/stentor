@@ -12,7 +12,19 @@ describe(`${DynamoUserStorage.name}`, () => {
             })).to.be.instanceOf(DynamoUserStorage);
         });
         describe('when environment variables are not available', () => {
-            describe('and appId not provided', () => {
+            let appId: string | undefined;
+            let tableName: string | undefined;
+            before(() => {
+                tableName = process.env.USER_STORAGE_TABLE;
+                appId = process.env.STUDIO_APP_ID;
+                delete process.env.USER_STORAGE_TABLE;
+                delete process.env.STUDIO_APP_ID;
+            });
+            after(() => {
+                process.env.USER_STORAGE_TABLE = tableName;
+                process.env.STUDIO_APP_ID = appId;
+            });
+            describe('and tableName not provided', () => {
                 it('throws an error', () => {
                     expect(() => {
                         new DynamoUserStorage({
@@ -21,7 +33,7 @@ describe(`${DynamoUserStorage.name}`, () => {
                     }).to.throw("Constructor property tableName or environment variable USER_STORAGE_TABLE is required for the DynamoUserStorage.");
                 });
             });
-            describe('and tableName not provided', () => {
+            describe('and appId not provided', () => {
                 it('throws an error', () => {
                     expect(() => {
                         new DynamoUserStorage({

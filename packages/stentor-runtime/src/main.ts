@@ -1,9 +1,18 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { isActionable, isAudioPlayerRequest } from "stentor-guards";
-import { log } from "stentor-logger";
-import { GOODBYE, TROUBLE_WITH_REQUEST, SESSION_STORAGE_NEW_USER, SESSION_STORAGE_SLOTS_KEY, SESSION_STORAGE_KNOWLEDGE_BASE_RESULT } from "stentor-constants";
+
+import {
+    GOODBYE,
+    TROUBLE_WITH_REQUEST,
+    SESSION_STORAGE_NEW_USER,
+    SESSION_STORAGE_SLOTS_KEY,
+    SESSION_STORAGE_KNOWLEDGE_BASE_RESULT,
+    SESSION_STORAGE_KNOWLEDGE_BASE_FILTERS
+} from "stentor-constants";
+import { ContextFactory } from "stentor-context";
 import {
     hasSessionId,
+    isActionable,
+    isAudioPlayerRequest,
     isInputUnknownRequest,
     isIntentRequest,
     isLaunchRequest,
@@ -12,12 +21,12 @@ import {
     isSessionEndedRequest,
     isChannelActionRequest
 } from "stentor-guards";
-import { ContextFactory } from "stentor-context";
 import { AbstractHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
 import { HandlerManager } from "stentor-handler-manager";
 import { trimHistory } from "stentor-history";
 import { CANCEL_INTENT, STOP_INTENT } from "stentor-interaction-model";
+import { log } from "stentor-logger";
 import {
     Channel,
     Context,
@@ -26,22 +35,33 @@ import {
     Hooks,
     KnowledgeBaseDependency,
     KnowledgeBaseService,
+    NLURequestProps,
     PIIService,
     Request,
     Response,
     ResponseOutput,
     RuntimeCallback,
     RuntimeContext,
+    SessionStore,
     SMSService,
+    Storage,
     UserStorageService
 } from "stentor-models";
-import { canFulfillAll, canFulfillNothing, compileResponse, getResponse, ResponseBuilder } from "stentor-response";
+import { canFulfillAll, canFulfillNothing, getResponse } from "stentor-response";
 import { EventService, wrapCallback as eventServiceCallbackWrapper } from "stentor-service-event";
-import { manipulateStorage } from "stentor-storage";
-import { combineRequestSlots, requestToMessage, responseToMessage, existsAndNotEmpty, findValueForKey, keyFromRequest } from "stentor-utils";
+import { createSessionStore, manipulateStorage } from "stentor-storage";
+import {
+    combineRequestSlots,
+    requestToMessage,
+    responseToMessage,
+    existsAndNotEmpty,
+    findValueForKey,
+    keyFromRequest
+} from "stentor-utils";
 
 import { ChannelSelector } from "./ChannelSelector";
 import { combineKnowledgeBaseResults, mergeInKnowledgeBaseResults } from "./combineKnowledgeBaseResults";
+import { getErrorResponse } from "./getErrorResponse";
 
 export const DEFAULT_MAX_HISTORY = 20;
 
@@ -232,6 +252,79 @@ export const main = async (
         return;
     }
 
+    // #0.62.5 Get user storage service
+
+    let storage: Storage;
+    let session: SessionStore;
+
+    try {
+
+        // Get the storage
+        storage = await userStorageService.get(request.userId);
+
+        // Create it if it doesn't exist.
+        if (!storage) {
+            storage = await userStorageService.create(request.userId, {
+                createdTimestamp: Date.now(),
+                history: {
+                    handler: []
+                }
+            });
+        }
+
+        // First time users might not have history on storage yet,
+        // make sure it exists
+        if (!storage.history) {
+            storage.history = {
+                handler: []
+            };
+        } else if (!Array.isArray(storage.history.handler)) {
+            // make sure it has an array of handlers
+            storage.history.handler = [];
+        }
+
+        // Take care of the session store. If doesn't exist or the session id doesn't match the stored one, create a new store.
+        if (hasSessionId(request)) {
+
+            if (!request.sessionId) {
+                throw new Error(`Session ID is undefined when attempting to create update / retreive session store. ${request.sessionId}`)
+            }
+
+            if (!storage.sessionStore || storage.sessionStore.id !== request.sessionId) {
+                storage.sessionStore = {
+                    id: request.sessionId,
+                    data: {}
+                };
+            }
+        }
+
+        session = createSessionStore(storage);
+
+        // See if it doesn't have a lastActiveTimestamp
+        if (typeof storage.lastActiveTimestamp !== "number") {
+            // We want to set a session variable so we can keep track of if they are a new user for the entire session
+            session.set(SESSION_STORAGE_NEW_USER, true);
+        }
+
+        // Adjust the inputUnknown count if the next request is not 
+        // for input unknown
+        if (!isInputUnknownRequest(request)) {
+            session.set("unknownInputs", 0);
+        }
+
+    } catch (error) {
+        console.error(`Error creating and updating storage: ${error.message}`);
+        console.error(JSON.stringify(requestBody, undefined, 2));
+        console.error(error.stack);
+        eventService?.error(error);
+
+        const troubleWithRequest = getErrorResponse(error, request);
+        const translatedTrouble = channel.response.translate({ request, response: troubleWithRequest });
+
+        callback(null, translatedTrouble, request, troubleWithRequest);
+        return;
+    }
+
     // #0.75 Use the NLU service if required by the channel
     if (channel.nlu) {
         // We don't call if it is a LaunchRequest, option, or permission grant
@@ -244,7 +337,15 @@ export const main = async (
             const sessionId: string = hasSessionId(request) ? request.sessionId : undefined;
             const locale = request.locale;
 
-            const nluResponse = await channel.nlu.query(request.rawQuery, { userId, sessionId, locale });
+            const queryProps: NLURequestProps = { userId, sessionId, locale };
+
+            // do i get storage?
+            const filters: { locationId: string } = session.get(SESSION_STORAGE_KNOWLEDGE_BASE_FILTERS);
+            if (filters) {
+                queryProps.filters = filters;
+            }
+
+            const nluResponse = await channel.nlu.query(request.rawQuery, queryProps);
             // @ts-ignore TypeScript be cool
             request = {
                 ...request,
@@ -299,8 +400,9 @@ export const main = async (
         context = await ContextFactory.fromRequest(
             request,
             requestBody,
+            storage,
+            session,
             {
-                userStorageService,
                 piiService,
                 crmService,
                 eventService,
@@ -310,11 +412,6 @@ export const main = async (
             mainContext.appData
         );
 
-        // Adjust the inputUnknown count if the next request is not 
-        // for input unknown
-        if (!isInputUnknownRequest(request)) {
-            context.session.set("unknownInputs", 0);
-        }
 
         // How much time we left
         if (mainContext.getRemainingTimeInMillis) {
@@ -328,37 +425,22 @@ export const main = async (
                 return SIX_SECONDS;
             };
         }
+
     } catch (error) {
         console.error(`Error creating Context: ${error.message}`);
         console.error(error.stack);
         eventService?.error(error);
 
-        const response = new ResponseBuilder({ device: request.device }).respond(getResponse(TROUBLE_WITH_REQUEST, request, context)).build();
+        const troubleWithRequest = getErrorResponse(error, request, context);
+        const translatedTrouble = channel.response.translate({ request, response: troubleWithRequest });
 
-        const compiled = compileResponse(response, request, context, { error });
-        // Testing this, see how this works
-        compiled.displays = [
-            {
-                type: "CARD",
-                title: `${error.name || "Error"}`,
-                context: `${error.message}`
-            }
-        ];
-        const translatedTrouble = channel.response.translate({ request, response: compiled });
-
-        callback(null, translatedTrouble, request, response);
+        callback(null, translatedTrouble, request, troubleWithRequest);
         return;
     }
 
     //
     // Context Modifications!
     //
-
-    // See if it doesn't have a lastActiveTimestamp
-    if (typeof context.storage.lastActiveTimestamp !== "number") {
-        // We want to set a session variable so we can keep track of if they are a new user for the entire session
-        context.session.set(SESSION_STORAGE_NEW_USER, true);
-    }
 
     // If we get a message from the request, add it to the transcript
     const requestMessage = requestToMessage(request, APP_ID)

@@ -499,7 +499,7 @@ describe("#getResponse()", () => {
                 })
                 .build();
         });
-        it.only("determines and compiles the response", () => {
+        it("determines and compiles the response", () => {
 
             function pick() {
                 return true;

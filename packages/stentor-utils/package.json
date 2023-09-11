@@ -50,7 +50,7 @@
     "lodash.isobject": "3.0.2",
     "lodash.isstring": "4.0.1",
     "lodash.pull": "4.1.0",
-    "marked": "8.0.1",
+    "marked": "9.0.0",
     "marked-xhtml": "1.0.5",
     "number-to-words": "1.2.4",
     "numeral": "2.0.6",

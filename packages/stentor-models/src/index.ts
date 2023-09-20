@@ -1,6 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 export type * from "./Action";
-export type * from "./App";
+export * from "./App";
 export type * from "./Channel";
 export type * from "./Conditional";
 export * from "./Context";

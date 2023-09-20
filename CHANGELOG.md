@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.58.12](https://github.com/stentorium/stentor/compare/v1.58.11...v1.58.12) (2023-09-20)
+
+
+### Bug Fixes
+
+* Export Type on App Constants ([#2189](https://github.com/stentorium/stentor/issues/2189)) ([cb9819b](https://github.com/stentorium/stentor/commit/cb9819bc46cf677cf5e8b1b3e1521190f697723a))
+
+
+
+
+
 ## [1.58.11](https://github.com/stentorium/stentor/compare/v1.58.10...v1.58.11) (2023-09-20)
 
 

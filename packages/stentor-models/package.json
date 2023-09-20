@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.58.10",
+  "version": "1.58.11",
   "description": "Models for 📣 stentor",
   "types": "lib/index",
   "typings": "lib/index",

@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.58.12",
+  "version": "1.58.15",
   "description": "Simple fetch service with timeouts",
   "types": "lib/index",
   "main": "lib/index",
@@ -19,7 +19,7 @@
     "@types/chai-as-promised": "7.1.6",
     "chai": "4.3.8",
     "chai-as-promised": "7.1.1",
-    "stentor-models": "1.58.12",
+    "stentor-models": "1.58.15",
     "ts-node": "10.9.1",
     "typescript": "5.2.2"
   },

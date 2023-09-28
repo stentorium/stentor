@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.58.16",
+  "version": "1.58.17",
   "description": "Storage for :mega: stentor using AWS DynamoDB",
   "types": "lib/index",
   "main": "lib/index",

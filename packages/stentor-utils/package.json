@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.58.16",
+  "version": "1.58.17",
   "description": "Utilities for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -57,7 +57,7 @@
     "sanitize-html": "2.11.0",
     "slugify": "1.6.6",
     "stentor-constants": "1.58.16",
-    "stentor-guards": "1.58.16",
+    "stentor-guards": "1.58.17",
     "winston": "3.10.0",
     "words-to-numbers": "1.5.1",
     "xmldoc": "1.3.0"

@@ -17,7 +17,7 @@
     "@xapp/config": "0.2.3",
     "eslint": "8.51.0",
     "eslint-plugin-notice": "0.9.10",
-    "lerna": "7.3.0",
+    "lerna": "7.3.1",
     "license-checker": "25.0.1",
     "mocha": "9.2.2",
     "mocha-junit-reporter": "2.2.1",

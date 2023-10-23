@@ -17,7 +17,7 @@
   "devDependencies": {
     "@microsoft/api-extractor": "7.36.4",
     "@types/blueimp-md5": "2.18.1",
-    "@types/chai": "4.3.8",
+    "@types/chai": "4.3.9",
     "@types/marked": "4.3.2",
     "@types/mocha": "9.1.1",
     "@types/node": "18.18.5",

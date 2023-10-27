@@ -17,6 +17,9 @@ export const APP_STATUS_IN_CERTIFICATION: AppStatusInCertification = "In Certifi
 // App is not live and is waiting to be published.
 export type AppStatusRequiresPublish = "Needs publish";
 export const APP_STATUS_REQUIRES_PUBLISH: AppStatusRequiresPublish = "Needs publish";
+// App is ready for install
+export type AppStatusReadyForInstall = "Ready for Install";
+export const APP_STATUS_READY_FOR_INSTALL: AppStatusReadyForInstall = "Ready for Install";
 // App is live
 export type AppStatusLive = "Live";
 export const APP_STATUS_LIVE: AppStatusLive = "Live";

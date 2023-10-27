@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.58.38](https://github.com/stentorium/stentor/compare/v1.58.37...v1.58.38) (2023-10-27)
+
+
+### Bug Fixes
+
+* Ready for Install Status ([#2232](https://github.com/stentorium/stentor/issues/2232)) ([6c7adbe](https://github.com/stentorium/stentor/commit/6c7adbe00c75ec19a63afa8284060eccbf5d5890))
+
+
+
+
+
 ## [1.58.37](https://github.com/stentorium/stentor/compare/v1.58.36...v1.58.37) (2023-10-23)
 
 **Note:** Version bump only for package repo

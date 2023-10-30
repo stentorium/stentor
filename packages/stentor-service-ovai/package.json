@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@types/chai": "4.3.9",
-    "@types/fetch-mock": "7.3.6",
+    "@types/fetch-mock": "7.3.7",
     "@xapp/config": "0.2.3",
     "chai": "4.3.10",
     "fetch-mock": "9.11.0",

@@ -17,7 +17,7 @@
   "devDependencies": {
     "@types/chai": "4.3.9",
     "@types/chai-as-promised": "7.1.7",
-    "@types/fetch-mock": "7.3.6",
+    "@types/fetch-mock": "7.3.7",
     "@xapp/config": "0.2.3",
     "abort-controller": "3.0.0",
     "chai": "4.3.10",

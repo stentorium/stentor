@@ -1180,10 +1180,10 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
-"@types/fetch-mock@7.3.6":
-  version "7.3.6"
-  resolved "https://registry.yarnpkg.com/@types/fetch-mock/-/fetch-mock-7.3.6.tgz#ec4a72d320cb779f01348af975f786908a641245"
-  integrity sha512-vE4GcV+NzDKKiCtIHO+/+1osbr9sUe5fl1nGlEdwxOXNvJnnXCpC0y6lAqj3S/NlJMEKnGWeCFZWy79vQA4eNA==
+"@types/fetch-mock@7.3.7":
+  version "7.3.7"
+  resolved "https://registry.yarnpkg.com/@types/fetch-mock/-/fetch-mock-7.3.7.tgz#de913c0d905068c340072cca3e342fc2c335332e"
+  integrity sha512-VKtaL2UUTFLXN+JoBOhF0elvQ5eu7ViSVAJDnogsDz4ygWV8/SaAKfJjFbZkHeV/jpAotObjitXM+VZcs+mwGQ==
 
 "@types/json-schema@^7.0.9":
   version "7.0.11"

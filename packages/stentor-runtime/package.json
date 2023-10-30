@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.58.38",
+  "version": "1.58.39",
   "description": "Runtime for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -36,7 +36,7 @@
     "stentor-context": "1.58.38",
     "stentor-handler": "1.58.38",
     "stentor-handler-factory": "1.58.38",
-    "stentor-handler-manager": "1.58.38",
+    "stentor-handler-manager": "1.58.39",
     "stentor-history": "1.58.38",
     "stentor-interaction-model": "1.58.38",
     "stentor-logger": "1.58.38",

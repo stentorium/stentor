@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.58.43](https://github.com/stentorium/stentor/compare/v1.58.42...v1.58.43) (2023-11-02)
+
+**Note:** Version bump only for package stentor-service-fetch
+
+
+
+
+
 ## [1.58.39](https://github.com/stentorium/stentor/compare/v1.58.38...v1.58.39) (2023-10-30)
 
 **Note:** Version bump only for package stentor-service-fetch

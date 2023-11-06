@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@types/chai": "4.3.9",
-    "@types/sinon": "10.0.19",
+    "@types/sinon": "17.0.0",
     "@types/sinon-chai": "3.2.10",
     "@xapp/config": "0.2.3",
     "@xapp/patterns": "2.0.1",
@@ -24,7 +24,7 @@
     "chai": "4.3.10",
     "fetch-mock": "9.11.0",
     "mocha": "9.2.2",
-    "sinon": "17.0.0",
+    "sinon": "17.0.1",
     "sinon-chai": "3.7.0",
     "stentor-models": "1.58.43",
     "stentor-request": "1.58.46",

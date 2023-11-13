@@ -15,7 +15,7 @@
     "node": "^12 || ^14 || ^16 || ^18"
   },
   "devDependencies": {
-    "@types/chai": "4.3.9",
+    "@types/chai": "4.3.10",
     "@types/mocha": "9.1.1",
     "@types/node": "18.18.8",
     "@types/sinon": "17.0.0",

@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@microsoft/api-extractor": "7.36.4",
-    "@types/chai": "4.3.9",
+    "@types/chai": "4.3.10",
     "@types/mocha": "9.1.1",
     "@types/node": "18.18.8",
     "@types/sinon": "17.0.0",

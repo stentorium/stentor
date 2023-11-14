@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.58.50](https://github.com/stentorium/stentor/compare/v1.58.49...v1.58.50) (2023-11-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v9.1.6 ([#2244](https://github.com/stentorium/stentor/issues/2244)) ([7f6a9a9](https://github.com/stentorium/stentor/commit/7f6a9a9e60b09df71734d0558d538e8e170ff964))
+
+
+
+
+
 ## [1.58.49](https://github.com/stentorium/stentor/compare/v1.58.48...v1.58.49) (2023-11-13)
 
 **Note:** Version bump only for package repo

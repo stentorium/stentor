@@ -4791,10 +4791,10 @@ map-obj@^4.0.0:
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-4.3.0.tgz#9304f906e93faae70880da102a9f1df0ea8bb05a"
   integrity sha512-hdN1wVrZbb29eBGiGjJbeP8JbKjq1urkHJ/LIP/NY48MZ1QVXUsQBV1G1zvYFHn1XE06cwjBsOI2K3Ulnj1YXQ==
 
-marked-xhtml@1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/marked-xhtml/-/marked-xhtml-1.0.6.tgz#00edd9904379236a35a3cb4366152a4517d1cce1"
-  integrity sha512-m8VxJYiaRvzb1gfTYpGohg+Cwkuu0Q838IdlB3awkesZG5ni9lMmDQNd0h+KLgFYt4NKjqhgD1E5n9UJ0idH4Q==
+marked-xhtml@1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/marked-xhtml/-/marked-xhtml-1.0.7.tgz#a16d5ee6fe176783ff3c0da07db18aeec068765e"
+  integrity sha512-UAdMhRgS5K+OVqCI9BDRp42ioMs8TqdNdoSMCVf+7kyyRCvYySMec2mRPud1IrMrdQ1Vs8cCTk32xQ9LB0utFA==
 
 marked@9.1.6:
   version "9.1.6"

@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.58.51",
+  "version": "1.58.54",
   "description": "Event service for 📣 stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -31,9 +31,9 @@
   },
   "dependencies": {
     "stacktrace-parser": "0.1.10",
-    "stentor-guards": "1.58.49",
-    "stentor-logger": "1.58.51",
-    "stentor-utils": "1.58.51"
+    "stentor-guards": "1.58.54",
+    "stentor-logger": "1.58.54",
+    "stentor-utils": "1.58.54"
   },
   "peerDependencies": {
     "aws-sdk": "2.x",

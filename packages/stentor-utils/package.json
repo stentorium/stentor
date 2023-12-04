@@ -20,7 +20,7 @@
     "@types/chai": "4.3.11",
     "@types/marked": "4.3.2",
     "@types/mocha": "9.1.1",
-    "@types/node": "18.18.13",
+    "@types/node": "18.19.2",
     "@types/numeral": "2.0.5",
     "@types/sanitize-html": "2.9.5",
     "@types/sinon": "17.0.0",

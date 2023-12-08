@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.58.60](https://github.com/stentorium/stentor/compare/v1.58.59...v1.58.60) (2023-12-08)
+
+
+### Bug Fixes
+
+* Optional Update on CrmService ([#2264](https://github.com/stentorium/stentor/issues/2264)) ([0c088af](https://github.com/stentorium/stentor/commit/0c088aff2c509c964f7b27526ca3e4114213c654))
+
+
+
+
+
 ## [1.58.59](https://github.com/stentorium/stentor/compare/v1.58.58...v1.58.59) (2023-12-04)
 
 

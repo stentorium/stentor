@@ -14,4 +14,13 @@ export interface CrmService {
      * @param extras Optional additional metadata to pass to the CRM
      */
     send(externalLead: ExternalLead, extras?: Record<string, unknown>): Promise<CrmResponse>;
+    /**
+     * Updates a lead if the user provides more information after the lead has been sent.
+     * 
+     * It leverages the refId on the externalLead, which is originally provided in the CrmResponse to properly
+     * 
+     * @param externalLead 
+     * @param extras 
+     */
+    update?(externalLead: ExternalLead, extras?: Record<string, unknown>): Promise<CrmResponse>;
 }

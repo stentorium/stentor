@@ -24,7 +24,7 @@
     "sinon": "17.0.1",
     "stentor-models": "1.58.60",
     "ts-node": "10.9.2",
-    "typescript": "5.2.2"
+    "typescript": "5.3.3"
   },
   "dependencies": {
     "moment": "2.29.4",

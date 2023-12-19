@@ -39,7 +39,7 @@
     "@types/xmldoc": "1.1.7",
     "blueimp-md5": "2.19.0",
     "chrono-node": "2.7.3",
-    "date-fns": "2.30.0",
+    "date-fns": "3.0.0",
     "dyno-item-size": "0.3.3",
     "fuse.js": "6.6.2",
     "html-entities": "2.4.0",

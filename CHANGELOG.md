@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.58.76](https://github.com/stentorium/stentor/compare/v1.58.75...v1.58.76) (2024-01-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v3.1.0 ([#2283](https://github.com/stentorium/stentor/issues/2283)) ([7c78080](https://github.com/stentorium/stentor/commit/7c780807ac75f0768a2e7c2e8d2084ed43f027bb))
+
+
+
+
+
 ## [1.58.75](https://github.com/stentorium/stentor/compare/v1.58.74...v1.58.75) (2024-01-06)
 
 **Note:** Version bump only for package repo

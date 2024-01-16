@@ -172,3 +172,12 @@ export interface KnowledgeBaseResult {
      */
     generated?: KnowledgeBaseGenerated[];
 }
+
+export interface KnowledgeBaseFAQResult {
+    /**
+     * List of FAQs that could match the query.
+     * 
+     * The source of these answers are from a database of existing FAQs.
+     */
+    faqs: KnowledgeBaseFAQ[];
+}

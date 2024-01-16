@@ -2,14 +2,9 @@
   "extends": "@xapp/config/tsconfig.json",
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "lib"
+    "outDir": "lib",
+    "esModuleInterop": true
   },
-  "include": [
-    "src",
-    "typings/**/*.d.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "src/**/__test__/*"
-  ]
+  "include": ["src", "typings/**/*.d.ts"],
+  "exclude": ["node_modules", "src/**/__test__/*"]
 }

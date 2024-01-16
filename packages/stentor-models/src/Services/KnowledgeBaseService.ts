@@ -1,5 +1,5 @@
 /*! Copyright (c) 2021, XAPPmedia */
-import { KnowledgeBaseGenerated, KnowledgeBaseResult } from "../Request";
+import { KnowledgeBaseFAQResult, KnowledgeBaseGenerated, KnowledgeBaseResult } from "../Request";
 
 /**
  * Filters for searching.
@@ -19,6 +19,13 @@ export interface KnowledgeBaseService {
      * @return Knowledge Base result with either FAQs, suggested, or documents.   
      */
     query(query: string, options?: { controller?: AbortController, filters?: { [key: KnowledgeBaseServiceFilters]: string } }): Promise<KnowledgeBaseResult>;
+    /**
+     * Search for matching FAQs
+     * 
+     * @param query 
+     * @param options 
+     */
+    faq?(query: string, options?: { controller?: AbortController }): Promise<KnowledgeBaseFAQResult>;
     /**
      * Retrieval Augmented Generation Response
      * 

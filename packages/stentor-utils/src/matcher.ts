@@ -1,10 +1,81 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { RequestSlot, SlotTypeValue } from "stentor-models";
+
+import union from 'lodash.union';
+import keys from 'lodash.keys';
+import sumBy from 'lodash.sumby';
+
 // For the types
 import Fuse from "fuse.js";
 // To prevent the error Unhandled error TypeError: fuse_js_1.default is not a constructor
 // Use this for the constructor
 const FuseConstructor = require("fuse.js");
+
+
+// Function to tokenize text
+const tokenize = (text: string): string[] => {
+    return text.toLowerCase().match(/\b(\w+)\b/g) || [];
+};
+
+// Function to create a word frequency vector
+const createVector = (tokens: string[]): { [key: string]: number } => {
+    const frequency: { [key: string]: number } = {}; // Add index signature
+    tokens.forEach((token) => {
+        if (!frequency[token]) {
+            frequency[token] = 1;
+        } else {
+            frequency[token]++;
+        }
+    });
+    return frequency;
+};
+
+// Function to calculate cosine similarity
+const cosineSimilarity = (vec1: Record<string, number>, vec2: Record<string, number>): number => {
+    const uniqueWords = union(keys(vec1), keys(vec2));
+    const dotProduct = uniqueWords.reduce((sum, word) => {
+        return sum + (vec1[word] || 0) * (vec2[word] || 0);
+    }, 0);
+
+    const magnitudeA = Math.sqrt(sumBy(keys(vec1), (k) => Math.pow(vec1[k], 2)));
+    const magnitudeB = Math.sqrt(sumBy(keys(vec2), (k) => Math.pow(vec2[k], 2)));
+
+    return dotProduct / (magnitudeA * magnitudeB);
+};
+
+const computeStringSimilarity = (str1: string, str2: string): number => {
+    const vector1 = createVector(tokenize(str1));
+    const vector2 = createVector(tokenize(str2));
+
+    return cosineSimilarity(vector1, vector2);
+};
+
+// Define question words
+const questionWords = ["who", "what", "where", "when", "why", "how"];
+
+// Function to check if a query starts with a question word
+const startsWithQuestionWord = (query: string): boolean => {
+    const firstWord = query.split(' ')[0].toLowerCase();
+    return questionWords.includes(firstWord);
+};
+
+const findAllSimilarFAQs = (query: string, faqQuestions: string[], baseThreshold = 0.76): string[] => {
+    const similarQuestions: string[] = [];
+
+    // Adjust threshold based on query type
+    // if it does not start with a question word, lower the threshold
+    // this lets "mayor of pawnee" match with "who is the mayor of pawnee"
+    const threshold = startsWithQuestionWord(query) ? baseThreshold : baseThreshold * 0.8;
+
+    faqQuestions.forEach(question => {
+        const score = computeStringSimilarity(query, question);
+        if (score >= threshold) {
+            similarQuestions.push(question);
+        }
+    });
+
+    return similarQuestions;
+};
 
 
 export interface FuzzyMatchOptions {
@@ -53,6 +124,7 @@ export function findFuzzyMatch<T = string | Record<string, unknown>>(find: strin
     const fuseOptions: Fuse.IFuseOptions<T> = {
         distance: 100,
         location: 0,
+        threshold: 0.3,
         minMatchCharLength: 1,
         shouldSort: true,
         includeScore: true,
@@ -65,6 +137,11 @@ export function findFuzzyMatch<T = string | Record<string, unknown>>(find: strin
     matches = result.map((result) => {
         return from[result.refIndex];
     });
+
+    // further filter if matches is an array of strings
+    if (typeof matches[0] === "string" && matches.length > 0) {
+        matches = findAllSimilarFAQs(find, matches as string[]) as T[];
+    }
 
     return matches;
 }

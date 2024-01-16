@@ -1,6 +1,15 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { HTTP_200_OK } from "stentor-constants";
-import { Event, Handler, HandlerService, KnowledgeBaseGenerated, KnowledgeBaseResult, KnowledgeBaseService, KnowledgeBaseServiceFilters } from "stentor-models";
+import {
+    Event,
+    Handler,
+    HandlerService,
+    KnowledgeBaseFAQResult,
+    KnowledgeBaseGenerated,
+    KnowledgeBaseResult,
+    KnowledgeBaseService,
+    KnowledgeBaseServiceFilters
+} from "stentor-models";
 import { existsAndNotEmpty, findFuzzyMatch } from "stentor-utils";
 import "isomorphic-fetch";
 import { StudioFAQResponse, StudioHandlerResponse, StudioHandlersResponse, StudioRAGResponse } from "./Response";
@@ -117,18 +126,16 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`
             }
-        })
-            .then<StudioHandlerResponse>(response => response.json())
-            .then<Handler>(json => {
-                // TODO: Check status code to better handle error codes
-                if ((json as any).message === "Unauthorized") {
-                    throw new Error("Token provided to StudioService is unauthorized to perform current action.");
-                } else if (typeof json.handler === "object") {
-                    return json.handler;
-                }
+        }).then<StudioHandlerResponse>(response => response.json()).then<Handler>(json => {
+            // TODO: Check status code to better handle error codes
+            if ((json as any).message === "Unauthorized") {
+                throw new Error("Token provided to StudioService is unauthorized to perform current action.");
+            } else if (typeof json.handler === "object") {
+                return json.handler;
+            }
 
-                return undefined;
-            });
+            return undefined;
+        });
     }
 
     /**
@@ -156,23 +163,12 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
             };
 
             const searchResults: Pick<KnowledgeBaseResult, "documents" | "suggested"> = results[0];
-            const faqResults: StudioFAQResponse = results[1];
+            const faqResults: KnowledgeBaseFAQResult = results[1];
 
             result.documents = searchResults.documents;
             result.suggested = searchResults.suggested;
-            faqResults.faq.forEach((faq) => {
+            result.faqs = faqResults?.faqs || [];
 
-                // Find the closest question
-                const questions = findFuzzyMatch(query, faq.questions);
-                // Only if we find a decent match, do we return it
-                if (existsAndNotEmpty(questions)) {
-                    result.faqs.push({
-                        uri: faq.url,
-                        question: questions[0],
-                        document: faq.answer
-                    });
-                }
-            });
             // For FAQs, we do a quick string closeness match
             return result;
         });
@@ -246,7 +242,7 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
      * @param query 
      * @returns 
      */
-    public faq(query: string, options?: { controller?: AbortController }): Promise<StudioFAQResponse> {
+    public faq(query: string, options?: { controller?: AbortController }): Promise<KnowledgeBaseFAQResult> {
 
         let url = `${this.baseURL}/cms/faq/query`
 
@@ -281,9 +277,28 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
             statusText = response.statusText;
 
             return response.json();
-        }).then<StudioFAQResponse>((results) => {
+        }).then<KnowledgeBaseFAQResult>((results) => {
             if (status === 200) {
-                return results;
+
+                const faqResult: KnowledgeBaseFAQResult = {
+                    faqs: []
+                }
+
+                results.faq.forEach((faq) => {
+                    // Find the closest question
+                    const questions = findFuzzyMatch(query, faq.questions);
+                    // Only if we find a decent match, do we return it
+                    if (existsAndNotEmpty(questions)) {
+                        faqResult.faqs.push({
+                            uri: faq.url,
+                            question: questions[0],
+                            document: faq.answer,
+                            matchConfidence: faq._score
+                        });
+                    }
+                });
+
+                return faqResult;
             } else {
                 throw new Error(`StudioService.faq() returned ${status} ${statusText} ${JSON.stringify(results)}`);
             }

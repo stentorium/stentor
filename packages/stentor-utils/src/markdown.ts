@@ -46,8 +46,13 @@ export function toHTML(input: string, props?: { allowedTags?: string[] }): strin
     renderer.code = (code): string => {
         return code;
     }
+    // marked can return a string or promise, promise only if you set async to be tru
     const dirty = marked(linked, { renderer, breaks: true });
+    let clean: string;
+    // dirty will always be a string since we aren't using async
+    if (typeof dirty === "string") {
+        clean = sanitize(dirty, props);
+    }
 
-    const clean = sanitize(dirty, props);
     return clean;
 }

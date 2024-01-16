@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import * as Chai from "chai";
-import * as sinon from "sinon";
-import * as SinonChai from "sinon-chai";
+import Chai from "chai";
+import sinon from "sinon";
+import SinonChai from "sinon-chai";
 
 import * as Utils from "../object";
 

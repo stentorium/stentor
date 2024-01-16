@@ -3,6 +3,106 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.58.84](https://github.com/stentorium/stentor/compare/v1.58.83...v1.58.84) (2024-01-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.83](https://github.com/stentorium/stentor/compare/v1.58.82...v1.58.83) (2024-01-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.82](https://github.com/stentorium/stentor/compare/v1.58.81...v1.58.82) (2024-01-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.81](https://github.com/stentorium/stentor/compare/v1.58.80...v1.58.81) (2024-01-13)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.80](https://github.com/stentorium/stentor/compare/v1.58.79...v1.58.80) (2024-01-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v3.2.0 ([#2287](https://github.com/stentorium/stentor/issues/2287)) ([d33a85a](https://github.com/stentorium/stentor/commit/d33a85af87bb0fb52fb3340cccf3819d6f0d9619))
+
+
+
+
+
+## [1.58.79](https://github.com/stentorium/stentor/compare/v1.58.78...v1.58.79) (2024-01-10)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.77](https://github.com/stentorium/stentor/compare/v1.58.76...v1.58.77) (2024-01-08)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.76](https://github.com/stentorium/stentor/compare/v1.58.75...v1.58.76) (2024-01-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v3.1.0 ([#2283](https://github.com/stentorium/stentor/issues/2283)) ([7c78080](https://github.com/stentorium/stentor/commit/7c780807ac75f0768a2e7c2e8d2084ed43f027bb))
+
+
+
+
+
+## [1.58.75](https://github.com/stentorium/stentor/compare/v1.58.74...v1.58.75) (2024-01-06)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.74](https://github.com/stentorium/stentor/compare/v1.58.73...v1.58.74) (2024-01-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.7.4 ([#2280](https://github.com/stentorium/stentor/issues/2280)) ([6d4d466](https://github.com/stentorium/stentor/commit/6d4d46643da8799c69412f2811f98793bdedd320))
+
+
+
+
+
+## [1.58.72](https://github.com/stentorium/stentor/compare/v1.58.71...v1.58.72) (2024-01-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v3.0.6 ([#2274](https://github.com/stentorium/stentor/issues/2274)) ([cba3724](https://github.com/stentorium/stentor/commit/cba3724a611538321f6c76875acd264b60efaaec))
+
+
+
+
+
 ## [1.58.69](https://github.com/stentorium/stentor/compare/v1.58.68...v1.58.69) (2023-12-21)
 
 

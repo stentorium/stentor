@@ -3,6 +3,94 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.58.84](https://github.com/stentorium/stentor/compare/v1.58.83...v1.58.84) (2024-01-15)
+
+**Note:** Version bump only for package stentor-service-ovai
+
+
+
+
+
+## [1.58.83](https://github.com/stentorium/stentor/compare/v1.58.82...v1.58.83) (2024-01-15)
+
+**Note:** Version bump only for package stentor-service-ovai
+
+
+
+
+
+## [1.58.82](https://github.com/stentorium/stentor/compare/v1.58.81...v1.58.82) (2024-01-15)
+
+**Note:** Version bump only for package stentor-service-ovai
+
+
+
+
+
+## [1.58.81](https://github.com/stentorium/stentor/compare/v1.58.80...v1.58.81) (2024-01-13)
+
+**Note:** Version bump only for package stentor-service-ovai
+
+
+
+
+
+## [1.58.80](https://github.com/stentorium/stentor/compare/v1.58.79...v1.58.80) (2024-01-10)
+
+**Note:** Version bump only for package stentor-service-ovai
+
+
+
+
+
+## [1.58.79](https://github.com/stentorium/stentor/compare/v1.58.78...v1.58.79) (2024-01-10)
+
+**Note:** Version bump only for package stentor-service-ovai
+
+
+
+
+
+## [1.58.77](https://github.com/stentorium/stentor/compare/v1.58.76...v1.58.77) (2024-01-08)
+
+**Note:** Version bump only for package stentor-service-ovai
+
+
+
+
+
+## [1.58.76](https://github.com/stentorium/stentor/compare/v1.58.75...v1.58.76) (2024-01-06)
+
+**Note:** Version bump only for package stentor-service-ovai
+
+
+
+
+
+## [1.58.75](https://github.com/stentorium/stentor/compare/v1.58.74...v1.58.75) (2024-01-06)
+
+**Note:** Version bump only for package stentor-service-ovai
+
+
+
+
+
+## [1.58.74](https://github.com/stentorium/stentor/compare/v1.58.73...v1.58.74) (2024-01-02)
+
+**Note:** Version bump only for package stentor-service-ovai
+
+
+
+
+
+## [1.58.72](https://github.com/stentorium/stentor/compare/v1.58.71...v1.58.72) (2024-01-01)
+
+**Note:** Version bump only for package stentor-service-ovai
+
+
+
+
+
 ## [1.58.69](https://github.com/stentorium/stentor/compare/v1.58.68...v1.58.69) (2023-12-21)
 
 **Note:** Version bump only for package stentor-service-ovai

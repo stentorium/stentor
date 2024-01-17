@@ -1045,10 +1045,10 @@
   dependencies:
     "@types/lodash" "*"
 
-"@types/lodash.union@4.6.0":
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/@types/lodash.union/-/lodash.union-4.6.0.tgz#0b7ca7af7dc696d4d63d1d9d1ad29b245086f2a3"
-  integrity sha512-Oyu+g9TY7C9cjJ8wmYGXe79UsuKKkizk26vEV1974d7KisRmfXRcwef9JASto5lQ/ssZfVHAF0KkBmNu4lDo6g==
+"@types/lodash.union@4.6.9":
+  version "4.6.9"
+  resolved "https://registry.yarnpkg.com/@types/lodash.union/-/lodash.union-4.6.9.tgz#953e63e3c97ecb7a704a4589e7584645e9315f0f"
+  integrity sha512-l/GEj9Xp2DptsfFYZ1JUczg6W/6JGbbDi0mVK8urg8XLUMguNJ2L1ya0QJzMctrtlP9+t5lfyL4QLF6P9/6ssQ==
   dependencies:
     "@types/lodash" "*"
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.58.86](https://github.com/stentorium/stentor/compare/v1.58.85...v1.58.86) (2024-01-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency lodash.keys to v4.2.0 ([#2293](https://github.com/stentorium/stentor/issues/2293)) ([c3fab1f](https://github.com/stentorium/stentor/commit/c3fab1f5253e89d5460c54a10cb3aa737c510a3d))
+
+
+
+
+
 ## [1.58.85](https://github.com/stentorium/stentor/compare/v1.58.84...v1.58.85) (2024-01-16)
 
 

@@ -14,13 +14,13 @@
     "lib"
   ],
   "engines": {
-    "node": "^12 || ^14 || ^16 || ^18"
+    "node": "^12 || ^14 || ^16 || ^18 || ^20.0.0"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "7.36.4",
     "@types/chai": "4.3.11",
     "@types/mocha": "9.1.1",
-    "@types/node": "18.19.7",
+    "@types/node": "20.11.4",
     "@types/sinon": "17.0.3",
     "@types/sinon-chai": "3.2.12",
     "@xapp/config": "0.2.3",

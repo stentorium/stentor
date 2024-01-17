@@ -4446,10 +4446,10 @@ lodash.ismatch@^4.4.0:
   resolved "https://registry.yarnpkg.com/lodash.ismatch/-/lodash.ismatch-4.4.0.tgz#756cb5150ca3ba6f11085a78849645f188f85f37"
   integrity sha512-fPMfXjGQEV9Xsq/8MTSgUf255gawYRbjwMyDbcvDhXgV7enSZA0hynz6vMPnpAb5iONEzBHBPsT+0zes5Z301g==
 
-lodash.keys@4.0.7:
-  version "4.0.7"
-  resolved "https://registry.yarnpkg.com/lodash.keys/-/lodash.keys-4.0.7.tgz#30e1b3bd98e54d6a0611991812685b6bc47cb63b"
-  integrity sha512-hyqZMFrIwZ5p1qC+LFCBEM1djRZpGgT6f6z6jI93otUpN2GPkhZp4KzpF+xkXzt+bRSbaUw9+0uB/eY2nhUIMA==
+lodash.keys@4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/lodash.keys/-/lodash.keys-4.2.0.tgz#a08602ac12e4fb83f91fc1fb7a360a4d9ba35205"
+  integrity sha512-J79MkJcp7Df5mizHiVNpjoHXLi4HLjh9VLS/M7lQSGoQ+0oQ+lWEigREkqKyizPB1IawvQLLKY8mzEcm1tkyxQ==
 
 lodash.merge@^4.6.2:
   version "4.6.2"

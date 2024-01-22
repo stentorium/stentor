@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.58.92](https://github.com/stentorium/stentor/compare/v1.58.91...v1.58.92) (2024-01-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/xmldoc to v1.1.9 ([ae15e32](https://github.com/stentorium/stentor/commit/ae15e3263199e563d6851a2e9c807980adacb3d0))
+
+
+
+
+
 ## [1.58.91](https://github.com/stentorium/stentor/compare/v1.58.90...v1.58.91) (2024-01-22)
 
 **Note:** Version bump only for package repo

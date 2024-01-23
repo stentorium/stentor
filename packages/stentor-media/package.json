@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.58.93",
+  "version": "1.58.94",
   "description": "Media for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -28,8 +28,8 @@
   },
   "dependencies": {
     "stentor-guards": "1.58.87",
-    "stentor-time": "1.58.93",
-    "stentor-utils": "1.58.93"
+    "stentor-time": "1.58.94",
+    "stentor-utils": "1.58.94"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

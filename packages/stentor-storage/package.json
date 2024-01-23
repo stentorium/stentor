@@ -22,7 +22,7 @@
     "typescript": "5.3.3"
   },
   "dependencies": {
-    "jsonpath-plus": "7.2.0",
+    "jsonpath-plus": "8.0.0",
     "stentor-utils": "1.58.92"
   },
   "peerDependencies": {

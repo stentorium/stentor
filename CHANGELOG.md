@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.58.93](https://github.com/stentorium/stentor/compare/v1.58.92...v1.58.93) (2024-01-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.7.5 ([#2299](https://github.com/stentorium/stentor/issues/2299)) ([f029058](https://github.com/stentorium/stentor/commit/f029058cb55175b5af994664fa4aa7bc74650435))
+* **deps:** update dependency dotenv to v16.3.2 ([#2298](https://github.com/stentorium/stentor/issues/2298)) ([2f2a52b](https://github.com/stentorium/stentor/commit/2f2a52bd1281312ce9832cecbfb460fabefc8555))
+* **deps:** update dependency jsonpath-plus to v8 ([#2297](https://github.com/stentorium/stentor/issues/2297)) ([e4d8592](https://github.com/stentorium/stentor/commit/e4d85920ff9ad24e11d8dd489cb15501f4bfc0be))
+
+
+
+
+
 ## [1.58.92](https://github.com/stentorium/stentor/compare/v1.58.91...v1.58.92) (2024-01-22)
 
 

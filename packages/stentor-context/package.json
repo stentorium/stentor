@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.58.102",
+  "version": "1.58.103",
   "description": "Context for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -30,8 +30,8 @@
   "dependencies": {
     "@xapp/patterns": "2.0.1",
     "stentor-constants": "1.58.87",
-    "stentor-response": "1.58.102",
-    "stentor-storage": "1.58.102"
+    "stentor-response": "1.58.103",
+    "stentor-storage": "1.58.103"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

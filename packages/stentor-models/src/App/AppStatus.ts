@@ -44,6 +44,9 @@ export const APP_STATUS_LIVE_AND_REQUIRES_PUBLISH: AppStatusLiveAndRequiresPubli
 // App is live and needs attention
 export type AppStatusLiveAndRequiresAttention = "Live: Requires Attention";
 export const APP_STATUS_LIVE_AND_REQUIRES_ATTENTION: AppStatusLiveAndRequiresAttention = "Live: Requires Attention";
+// App was live but is now uninstalled
+export type AppStatusUninstalled = "Uninstalled";
+export const APP_STATUS_UNINSTALLED: AppStatusUninstalled = "Uninstalled";
 
 // The different status types
 export type AppStatusType =
@@ -59,7 +62,8 @@ export type AppStatusType =
     | AppStatusLiveRequiresCert
     | AppStatusLiveInCert
     | AppStatusLiveAndRequiresPublish
-    | AppStatusLiveAndRequiresAttention;
+    | AppStatusLiveAndRequiresAttention
+    | AppStatusUninstalled;
 /**
  * The status of the App
  */

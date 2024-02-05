@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.58.106](https://github.com/stentorium/stentor/compare/v1.58.105...v1.58.106) (2024-02-05)
+
+
+### Bug Fixes
+
+* Adding uninstalled status ([#2317](https://github.com/stentorium/stentor/issues/2317)) ([f3759df](https://github.com/stentorium/stentor/commit/f3759dfd8e8d7bead6ea88d05b6760c1f27a0f77))
+
+
+
+
+
 ## [1.58.105](https://github.com/stentorium/stentor/compare/v1.58.104...v1.58.105) (2024-02-05)
 
 

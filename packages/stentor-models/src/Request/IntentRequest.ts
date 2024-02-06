@@ -4,6 +4,7 @@ import { Data } from "../Handler";
 import { BaseRequest, SentimentedRequest } from "./Request";
 import { IntentRequestType } from "./Types";
 import { KnowledgeAnswer, KnowledgeBaseResult } from "./KnowledgeBase";
+import { ActiveContext } from "../Response";
 
 export type RequestSlotValues = string | number | object | DateTimeRange | DateTime | Duration | (string)[];
 
@@ -108,6 +109,10 @@ export interface IntentRequest extends BaseRequest, SentimentedRequest {
      * {@link https://cloud.google.com/dialogflow/es/docs/intents-matching#confidence}
      */
     matchConfidence?: number;
+    /**
+     * Current active contexts.
+     */
+    activeContexts?: ActiveContext[];
     /**
      * Is the request a barge-in, did the user interupt the assistants response.
      */

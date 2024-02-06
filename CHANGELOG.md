@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.58.108](https://github.com/stentorium/stentor/compare/v1.58.107...v1.58.108) (2024-02-06)
+
+
+### Bug Fixes
+
+* Adds active contexts to IntentRequest ([#2319](https://github.com/stentorium/stentor/issues/2319)) ([3bac148](https://github.com/stentorium/stentor/commit/3bac148d3b03fee932409a81e18d56796506afeb))
+
+
+
+
+
 ## [1.58.107](https://github.com/stentorium/stentor/compare/v1.58.106...v1.58.107) (2024-02-06)
 
 

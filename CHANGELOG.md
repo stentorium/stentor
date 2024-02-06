@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.58.107](https://github.com/stentorium/stentor/compare/v1.58.106...v1.58.107) (2024-02-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked-xhtml to v1.0.9 ([#2318](https://github.com/stentorium/stentor/issues/2318)) ([5325407](https://github.com/stentorium/stentor/commit/532540743b4eae65b397684cc3799de22fcb9851))
+* **deps:** update dependency moment-timezone to v0.5.45 ([#2316](https://github.com/stentorium/stentor/issues/2316)) ([6f71c6f](https://github.com/stentorium/stentor/commit/6f71c6f5202520d3ea3281d04f87dfc3fdd2d77a))
+
+
+
+
+
 ## [1.58.106](https://github.com/stentorium/stentor/compare/v1.58.105...v1.58.106) (2024-02-05)
 
 

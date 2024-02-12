@@ -1291,10 +1291,10 @@
     runes "0.4.3"
     slugify "1.3.4"
 
-"@xapp/patterns@2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@xapp/patterns/-/patterns-2.0.1.tgz#e453467abf994306da315c355d7b7519b06dc796"
-  integrity sha512-mG+RK8ihW/1f6K3Nx2I7ADXQrouLLPUftwpcqgl6jjUWNI9P99KU1O/iXDnCohJQQ3fcRY8ueTTsksXm2lplEw==
+"@xapp/patterns@2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@xapp/patterns/-/patterns-2.0.2.tgz#02a824ed07abf4d3cdf4817699c41128b4b073a8"
+  integrity sha512-WtbqB0VimV9soUu7CWlAuanS+5bbYYojrWImwHsuD2rSugrbuv1iLpZHBAxbKLJ0wf0l8Yl1QmsOjdeHqI9kLQ==
 
 "@yarnpkg/lockfile@^1.1.0":
   version "1.1.0"

@@ -307,6 +307,7 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
 
     public rag(query: string, options: {
         temperature?: number,
+        api?: "retrieve" | "query",
         controller?: AbortController, filters?: {
             [key: KnowledgeBaseServiceFilters]: string;
         };
@@ -316,6 +317,10 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
 
         url.searchParams.set("question", query);
         url.searchParams.set("temperature", `${options.temperature}`);
+
+        if (options?.filters?.api) {
+            url.searchParams.set("useRetrievalApi", `${options?.filters?.api}`);
+        }
 
         if (options?.filters?.locationId) {
             url.searchParams.set("locationId", `${options?.filters?.locationId}`);

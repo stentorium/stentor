@@ -32,7 +32,7 @@ export abstract class AbstractHandler<
     D extends Data = Data,
     F extends Forward = Forward,
     R extends Redirect = Redirect
-    > implements RequestHandler, Handler<C, D, F, R> {
+> implements RequestHandler, Handler<C, D, F, R> {
 
     public readonly type: string;
 
@@ -248,6 +248,11 @@ export abstract class AbstractHandler<
                     default:
                         // Third (or greater), say bye.  Recommendation from Google
                         context.response.say("Sorry, I wasn't able to help.");
+                }
+
+                // see if we have suggestion chips and add them
+                if (this.data?.chat?.suggestionChips) {
+                    context.response.withSuggestions(this.data.chat.suggestionChips, true);
                 }
 
                 // increase the unknownInput

@@ -2,7 +2,7 @@
 import { SESSION_STORAGE_SLOTS_KEY } from "stentor-constants";
 import { isHandler, isIntentRequest } from "stentor-guards";
 import { Content, Context, Handler, Request, Response, Slot, RequestSlotMap } from "stentor-models";
-import { combineRequestSlots, findValueForKey, existsAndNotEmpty, MacroMap, random, keyFromRequest } from "stentor-utils";
+import { combineRequestSlots, findValueForKey, existsAndNotEmpty, MacroMap, mergeSuggestions, random, keyFromRequest, toResponseOutput } from "stentor-utils";
 import { compileResponse } from "./compileResponse";
 import { determineResponse } from "./determineResponse";
 
@@ -90,6 +90,18 @@ export function getResponse(
     let response: Response = determineResponse(responses, request, context, additionalContext, macros);
     // And compile
     response = compileResponse(response, request, context, additionalContext, macros);
+
+    // Check if we can append the suggestion chips
+    if (response && isHandler(content) && existsAndNotEmpty(content?.data?.chat?.suggestionChips)) {
+        if (typeof response.outputSpeech === "object") {
+            response.outputSpeech.suggestions = mergeSuggestions(response.outputSpeech.suggestions, content.data.chat.suggestionChips);
+        } else {
+            response.outputSpeech = toResponseOutput(response.outputSpeech);
+            response.outputSpeech.suggestions = content.data.chat.suggestionChips;
+        }
+        response.outputSpeech
+    }
+
     // Check for actions and apply them?
     return response;
 }

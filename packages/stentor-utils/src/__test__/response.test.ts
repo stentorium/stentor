@@ -1,9 +1,16 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { expect } from "chai";
 
-import { DateTimeRange, DateTime } from "stentor-models";
+import { DateTimeRange, DateTime, SuggestionTypes } from "stentor-models";
 
-import { dateTimeRangeToSpeech, toResponseOutput, dateTimeToSpeech, durationToSpeech, slotValueToSpeech } from "../response";
+import {
+    dateTimeRangeToSpeech,
+    toResponseOutput,
+    dateTimeToSpeech,
+    durationToSpeech,
+    mergeSuggestions,
+    slotValueToSpeech
+} from "../response";
 
 describe(`#${toResponseOutput.name}()`, () => {
     describe("when passed undefined", () => {
@@ -173,5 +180,80 @@ describe(`#${durationToSpeech.name}()`, () => {
             expect(durationToSpeech({ amount: 2, format: "minute" })).equal('<say-as interpret-as="cardinal">2</say-as> minutes');
             expect(durationToSpeech({ amount: 2, format: "minute" }, "displayText")).equal('2 minutes');
         });
+    });
+});
+
+describe(`#${mergeSuggestions.name}()`, () => {
+    describe("when passed undefined", () => {
+        it("returns an empty array", () => {
+            const result = mergeSuggestions(undefined, undefined);
+            expect(result).to.deep.equal([]);
+        });
+    });
+    describe("when existing suggestions is empty", () => {
+        it("returns the incoming suggestions", () => {
+            const incoming: SuggestionTypes[] = ["suggestion1", "suggestion2"];
+            const result = mergeSuggestions([], incoming);
+            expect(result).to.deep.equal(incoming);
+        });
+    });
+
+    describe("when incoming suggestions is empty", () => {
+        it("returns the existing suggestions", () => {
+            const existing: SuggestionTypes[] = ["suggestion1", "suggestion2"];
+            const result = mergeSuggestions(existing, []);
+            expect(result).to.deep.equal(existing);
+        });
+    });
+
+    describe("when both existing and incoming suggestions are empty", () => {
+        it("returns an empty array", () => {
+            const result = mergeSuggestions([], []);
+            expect(result).to.deep.equal([]);
+        });
+    });
+
+    describe("when there are no duplicate suggestions", () => {
+        it("returns the merged suggestions", () => {
+            const existing: SuggestionTypes[] = ["suggestion1", "suggestion2"];
+            const incoming: SuggestionTypes[] = ["suggestion3", "suggestion4"];
+            const result = mergeSuggestions(existing, incoming);
+            expect(result).to.deep.equal([...existing, ...incoming]);
+        });
+    });
+
+    describe("when there are duplicate suggestions", () => {
+        it("replaces the existing suggestions with the incoming suggestions", () => {
+            const existing: SuggestionTypes[] = ["suggestion1", "suggestion2"];
+            const incoming: SuggestionTypes[] = ["suggestion2", "suggestion3"];
+            const result = mergeSuggestions(existing, incoming);
+            expect(result).to.deep.equal(["suggestion1", "suggestion2", "suggestion3"]);
+        });
+    });
+
+    describe("when suggestions contain objects", () => {
+        it("compares the 'title' property for duplicates", () => {
+            const existing: SuggestionTypes[] = [{ title: "suggestion1" }, { title: "suggestion2" }];
+            const incoming: SuggestionTypes[] = [{ title: "suggestion2" }, { title: "suggestion3" }];
+            const result = mergeSuggestions(existing, incoming);
+            expect(result).to.deep.equal([{ title: "suggestion1" }, { title: "suggestion2" }, { title: "suggestion3" }]);
+        });
+    });
+
+    describe("when suggestions contain a mix of strings and objects", () => {
+        it("compares the 'title' property for duplicates", () => {
+            const existing: SuggestionTypes[] = [{ title: "suggestion1" }, "suggestion2"];
+            const incoming: SuggestionTypes[] = [{ title: "suggestion2" }, { title: "suggestion3" }];
+            const result = mergeSuggestions(existing, incoming);
+            expect(result).to.deep.equal([{ title: "suggestion1" }, { title: "suggestion2" }, { title: "suggestion3" }]);
+        });
+        describe("and the incoming has a URL and existing does not", () => {
+            it("replaces the existing with the incoming", () => {
+                const existing: SuggestionTypes[] = ["suggestion1", "Contact Us"];
+                const incoming: SuggestionTypes[] = [{ title: "contact us", url: "https://www.example.com" }, { title: "suggestion3" }];
+                const result = mergeSuggestions(existing, incoming);
+                expect(result).to.deep.equal(["suggestion1", { title: "contact us", url: "https://www.example.com" }, { title: "suggestion3" }]);
+            });
+        })
     });
 });

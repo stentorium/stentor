@@ -15,7 +15,7 @@ import {
     UserDataType,
     UserDataValue
 } from "stentor-models";
-import { toResponseOutput } from "stentor-utils";
+import { mergeSuggestions, toResponseOutput } from "stentor-utils";
 import { concatResponseOutput } from "./concat";
 import { OrderDescription, PaymentParameters } from "stentor-models/lib/Response/Transactions";
 
@@ -113,10 +113,7 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         }
 
         if (append) {
-            const existingSuggestions = this._response.outputSpeech.suggestions;
-            this._response.outputSpeech.suggestions = Array.isArray(existingSuggestions)
-                ? existingSuggestions.concat(outputSpeechSuggests)
-                : existingSuggestions;
+            this._response.outputSpeech.suggestions = mergeSuggestions(this._response.outputSpeech.suggestions, outputSpeechSuggests);
         } else {
             this._response.outputSpeech.suggestions = outputSpeechSuggests;
         }

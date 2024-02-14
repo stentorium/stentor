@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.59.0](https://github.com/stentorium/stentor/compare/v1.58.112...v1.59.0) (2024-02-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency dotenv to v16.4.4 ([#2324](https://github.com/stentorium/stentor/issues/2324)) ([87451ac](https://github.com/stentorium/stentor/commit/87451ac69669e20610e45f0f31e6a6e95c7dd8c3))
+
+
+### Features
+
+* Adds the ability to set suggestion chips on handler data, which are then applied ([#2325](https://github.com/stentorium/stentor/issues/2325)) ([616a70e](https://github.com/stentorium/stentor/commit/616a70ee0033b173951b0459f8bea77061f35b0e))
+
+
+
+
+
 ## [1.58.112](https://github.com/stentorium/stentor/compare/v1.58.111...v1.58.112) (2024-02-13)
 
 

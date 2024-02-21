@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.4](https://github.com/stentorium/stentor/compare/v1.59.3...v1.59.4) (2024-02-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency dotenv to v16.4.5 ([#2330](https://github.com/stentorium/stentor/issues/2330)) ([30e2e67](https://github.com/stentorium/stentor/commit/30e2e67c49af8be8b1ffc92509fef1de22344fd6))
+
+
+
+
+
 ## [1.59.2](https://github.com/stentorium/stentor/compare/v1.59.1...v1.59.2) (2024-02-19)
 
 **Note:** Version bump only for package stentor-service-studio

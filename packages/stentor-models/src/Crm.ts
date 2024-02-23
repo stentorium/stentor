@@ -25,7 +25,7 @@ export interface ExternalLead {
      */
     refId?: string;
     /**
-     * Is it abandoned abandoned (unfinished)?
+     * Is it abandoned (unfinished)?
      */
     isAbandoned?: boolean;
 }

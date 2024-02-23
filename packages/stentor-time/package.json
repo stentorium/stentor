@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.59.2",
+  "version": "1.59.5",
   "description": "Time for 📣 stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -31,8 +31,8 @@
     "moment-range": "4.0.2",
     "moment-timezone": "0.5.45",
     "stentor-guards": "1.59.1",
-    "stentor-logger": "1.59.2",
-    "stentor-utils": "1.59.2"
+    "stentor-logger": "1.59.5",
+    "stentor-utils": "1.59.5"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

@@ -24,6 +24,10 @@ export interface ExternalLead {
      * Optional reference ID
      */
     refId?: string;
+    /**
+     * Is it abandoned (unfinished)?
+     */
+    isAbandoned?: boolean;
 }
 
 export interface CrmResponse {

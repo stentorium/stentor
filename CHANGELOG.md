@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.6](https://github.com/stentorium/stentor/compare/v1.59.5...v1.59.6) (2024-02-24)
+
+
+### Bug Fixes
+
+* Mark CRM external leads abandoned for the service ([#2332](https://github.com/stentorium/stentor/issues/2332)) ([dd9cef4](https://github.com/stentorium/stentor/commit/dd9cef4241ba68b401215fab104d1f87976b340d))
+
+
+
+
+
 ## [1.59.5](https://github.com/stentorium/stentor/compare/v1.59.4...v1.59.5) (2024-02-23)
 
 

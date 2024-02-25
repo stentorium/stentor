@@ -15,7 +15,7 @@
     "node": "^12 || ^14 || ^16 || ^18 || ^20.0.0"
   },
   "devDependencies": {
-    "@types/chai": "4.3.11",
+    "@types/chai": "4.3.12",
     "@types/mocha": "9.1.1",
     "@types/sinon": "17.0.3",
     "@xapp/config": "0.2.3",

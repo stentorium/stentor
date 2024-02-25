@@ -15,7 +15,7 @@
     "node": "^12 || ^14 || ^16 || ^18 || ^20.0.0"
   },
   "devDependencies": {
-    "@types/chai": "4.3.11",
+    "@types/chai": "4.3.12",
     "@types/chai-as-promised": "7.1.8",
     "@types/fetch-mock": "7.3.8",
     "@xapp/config": "0.2.3",

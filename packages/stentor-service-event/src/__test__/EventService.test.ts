@@ -44,6 +44,7 @@ function getSubstackLength(): number {
     let EXPECTED_STACK_LENGTH = 13;
 
     switch (process.version.substr(0, 3)) {
+        case "v20":
         case "v18":
         case "v16":
         case "v14":

@@ -32,6 +32,14 @@ export interface NLURequestProps {
      */
     sessionId?: string;
     /**
+     * Optional channel information
+     */
+    channel?: string;
+    /**
+     * Optional platform information.
+     */
+    platform?: string;
+    /**
      * Optional active context to pass with the request, used to weight 
      * certain intents.
      */

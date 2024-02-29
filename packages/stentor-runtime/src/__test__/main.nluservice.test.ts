@@ -109,7 +109,7 @@ describe(`#${main.name}()`, () => {
             });
 
             expect(nlu.query).to.have.been.calledOnce;
-            expect(nlu.query).to.have.been.calledWith("the query", { userId: request.userId, sessionId: request.sessionId, locale: request.locale })
+            expect(nlu.query).to.have.been.calledWith("the query", { userId: request.userId, sessionId: request.sessionId, locale: request.locale, channel: "stentor", platform: "MOCK" })
         });
     });
 });

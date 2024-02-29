@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.9](https://github.com/stentorium/stentor/compare/v1.59.8...v1.59.9) (2024-02-29)
+
+
+### Bug Fixes
+
+* Add Channel and Platform to NLURequestProps ([#2337](https://github.com/stentorium/stentor/issues/2337)) ([7612980](https://github.com/stentorium/stentor/commit/76129805ef6bc0dc09e44ea69aee52b4dcd1b72e))
+
+
+
+
+
 ## [1.59.8](https://github.com/stentorium/stentor/compare/v1.59.7...v1.59.8) (2024-02-26)
 
 **Note:** Version bump only for package repo

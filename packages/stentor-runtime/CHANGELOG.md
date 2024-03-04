@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.12](https://github.com/stentorium/stentor/compare/v1.59.11...v1.59.12) (2024-03-04)
+
+
+### Bug Fixes
+
+* Adding Transcripts to NLU Props ([#2343](https://github.com/stentorium/stentor/issues/2343)) ([be5246c](https://github.com/stentorium/stentor/commit/be5246c1cd3996c3ce7ed7368a2db351a0ef199d))
+
+
+
+
+
 ## [1.59.11](https://github.com/stentorium/stentor/compare/v1.59.10...v1.59.11) (2024-03-04)
 
 **Note:** Version bump only for package stentor-runtime

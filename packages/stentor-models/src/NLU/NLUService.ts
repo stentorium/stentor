@@ -1,4 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { Message } from "../Message";
 import { IntentRequest, InputUnknownRequest } from "../Request";
 import { ActiveContext } from "../Response";
 import { KnowledgeBaseServiceFilters } from "../Services";
@@ -48,6 +49,10 @@ export interface NLURequestProps {
      * Optional request attributes.
      */
     requestAttributes?: Record<string, string>;
+    /**
+     * Current session transcript
+     */
+    transcript?: Message[];
     /**
      * Optional filters for knowledge base service calls
      */

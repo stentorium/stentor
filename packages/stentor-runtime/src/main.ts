@@ -339,6 +339,11 @@ export const main = async (
 
             const queryProps: NLURequestProps = { userId, sessionId, locale, channel: request.channel, platform: request.platform };
 
+            const transcript = session?.transcript();
+            if (existsAndNotEmpty(transcript)) {
+                queryProps.transcript = transcript;
+            }
+
             // do i get storage?
             const filters: { locationId: string } = session.get(SESSION_STORAGE_KNOWLEDGE_BASE_FILTERS);
             if (filters) {
@@ -443,7 +448,7 @@ export const main = async (
     //
 
     // If we get a message from the request, add it to the transcript
-    const requestMessage = requestToMessage(request, APP_ID)
+    const requestMessage = requestToMessage(request, APP_ID);
     if (requestMessage) {
         if (!Array.isArray(context.storage.sessionStore.transcript)) {
             context.storage.sessionStore.transcript = [];

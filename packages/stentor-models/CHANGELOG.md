@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.13](https://github.com/stentorium/stentor/compare/v1.59.12...v1.59.13) (2024-03-05)
+
+
+### Bug Fixes
+
+* Adding appStatusCancelled to AppStatusType ([#2344](https://github.com/stentorium/stentor/issues/2344)) ([0415fa5](https://github.com/stentorium/stentor/commit/0415fa55815757248dcbcbcf0aa175cee80f4935))
+
+
+
+
+
 ## [1.59.12](https://github.com/stentorium/stentor/compare/v1.59.11...v1.59.12) (2024-03-04)
 
 

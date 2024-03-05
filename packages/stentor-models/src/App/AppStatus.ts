@@ -63,6 +63,7 @@ export type AppStatusType =
     | AppStatusLiveInCert
     | AppStatusLiveAndRequiresPublish
     | AppStatusLiveAndRequiresAttention
+    | AppStatusCancelled
     | AppStatusUninstalled;
 /**
  * The status of the App

@@ -9,6 +9,6 @@ export function cleanTags(str: string): string {
     if (!str) {
         return str;
     }
-    const regex = /(<([^>]+)>)/gi;
+    const regex = /(<([^>]+?)>)/gi;
     return str.replace(regex, "");
 }

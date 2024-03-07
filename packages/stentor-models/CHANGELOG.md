@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.18](https://github.com/stentorium/stentor/compare/v1.59.17...v1.59.18) (2024-03-07)
+
+
+### Bug Fixes
+
+* Attributes on NLURequests ([#2349](https://github.com/stentorium/stentor/issues/2349)) ([5535ca6](https://github.com/stentorium/stentor/commit/5535ca6688f1e569a1523132e558150b866bf07a))
+
+
+
+
+
 ## [1.59.16](https://github.com/stentorium/stentor/compare/v1.59.15...v1.59.16) (2024-03-07)
 
 **Note:** Version bump only for package stentor-models

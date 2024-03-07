@@ -7,12 +7,12 @@ import { KnowledgeBaseServiceFilters } from "../Services";
 /**
  * Slightly smaller intent request without the sessionId and other identifying information.  It also doesn't pass through the original raw query.
  */
-export type NLUIntentRequest = Pick<IntentRequest, "type" | "intentId" | "slots" | "matchConfidence" | "knowledgeAnswer" | "knowledgeBaseResult" | "sentimentAnalysis">
+export type NLUIntentRequest = Pick<IntentRequest, "type" | "intentId" | "slots" | "matchConfidence" | "knowledgeAnswer" | "knowledgeBaseResult" | "sentimentAnalysis" | "attributes">
 
 /**
  * Slightly smaller input unknown request without a sessionId and other identifying information.  It also doesn't pass through the original raw query.
  */
-export type NLUInputUnknownRequest = Pick<InputUnknownRequest, "type" | "intentId" | "knowledgeBaseResult" | "sentimentAnalysis">;
+export type NLUInputUnknownRequest = Pick<InputUnknownRequest, "type" | "intentId" | "knowledgeBaseResult" | "sentimentAnalysis" | "attributes">;
 
 /**
  * Response from the NLU

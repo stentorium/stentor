@@ -24,8 +24,6 @@ export function toHTML(input: string, props?: { allowedTags?: string[] }): strin
         return input;
     }
 
-
-
     const decoded = decode(input);
 
     const linked = linkify(decoded);

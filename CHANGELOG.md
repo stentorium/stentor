@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.17](https://github.com/stentorium/stentor/compare/v1.59.16...v1.59.17) (2024-03-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v12.0.1 ([#2347](https://github.com/stentorium/stentor/issues/2347)) ([33e5dbb](https://github.com/stentorium/stentor/commit/33e5dbbc483d3458060f0f4e2ae478f6b2cbf13f))
+
+
+
+
+
 ## [1.59.16](https://github.com/stentorium/stentor/compare/v1.59.15...v1.59.16) (2024-03-07)
 
 **Note:** Version bump only for package repo

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.24](https://github.com/stentorium/stentor/compare/v1.59.23...v1.59.24) (2024-03-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency express to v4.19.1 ([#2358](https://github.com/stentorium/stentor/issues/2358)) ([4ef09b8](https://github.com/stentorium/stentor/commit/4ef09b8837a30950dfa9d51c247fdf2e7323efcf))
+
+
+
+
+
 ## [1.59.23](https://github.com/stentorium/stentor/compare/v1.59.22...v1.59.23) (2024-03-19)
 
 

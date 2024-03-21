@@ -23,7 +23,7 @@
     "sinon": "17.0.1",
     "stentor-models": "1.59.18",
     "ts-node": "10.9.2",
-    "typescript": "5.4.2"
+    "typescript": "5.4.3"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

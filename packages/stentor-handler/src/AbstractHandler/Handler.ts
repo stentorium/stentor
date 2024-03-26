@@ -224,7 +224,7 @@ export abstract class AbstractHandler<
                         const reprompt = context.storage.previousResponse
                             ? context.storage.previousResponse.reprompt
                             : undefined;
-                        const helpResponse = determineResponse(this.content.HelpIntent, request, context);
+                        const helpResponse = determineResponse(this.content?.HelpIntent, request, context);
                         const helpOutputSpeech = helpResponse ? helpResponse.outputSpeech : undefined;
                         // Reprompt first, then help if available.
                         const response = reprompt || helpOutputSpeech;

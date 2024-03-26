@@ -505,6 +505,24 @@ describe("AbstractHandler", () => {
                 expect(response.say).to.have.been.calledWith("Sorry, what was that?");
             });
         });
+        describe("with undefined content", () => {
+            beforeEach(() => {
+                newContext = new ContextBuilder().withResponse(response).build();
+                handler = new TestHandler({
+                    appId,
+                    organizationId,
+                    intentId,
+                    type: BASE_HANDLER_TYPE,
+                    content: undefined
+                });
+                request = new InputUnknownRequestBuilder().build();
+            });
+            it("returns the first time response", async () => {
+                await handler.handleRequest(request, newContext);
+                expect(response.say).to.have.been.called;
+                expect(response.say).to.have.been.calledWith("Sorry, what was that?");
+            });
+        });
     });
     describe("#handleRequest()", () => {
         let handler: TestHandler;

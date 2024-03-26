@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.29](https://github.com/stentorium/stentor/compare/v1.59.28...v1.59.29) (2024-03-26)
+
+
+### Bug Fixes
+
+* Crash in InputUnknown workflow when no content on handler ([#2367](https://github.com/stentorium/stentor/issues/2367)) ([ac4388b](https://github.com/stentorium/stentor/commit/ac4388b723067d45a7dfd241d4f33b7cefbd9295))
+
+
+
+
+
 ## [1.59.28](https://github.com/stentorium/stentor/compare/v1.59.27...v1.59.28) (2024-03-26)
 
 **Note:** Version bump only for package stentor-handler

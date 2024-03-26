@@ -46,7 +46,7 @@
     "@xapp/patterns": "2.0.2",
     "body-parser": "1.20.2",
     "dotenv": "16.4.5",
-    "express": "4.19.1",
+    "express": "4.19.2",
     "stentor-constants": "1.59.24",
     "stentor-context": "1.59.26",
     "stentor-determiner": "1.59.26",

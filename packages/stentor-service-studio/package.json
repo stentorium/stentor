@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.59.27",
+  "version": "1.59.28",
   "description": "OC Studio service for 📣 stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -32,8 +32,8 @@
   "dependencies": {
     "isomorphic-fetch": "3.0.0",
     "stentor-constants": "1.59.24",
-    "stentor-service-event": "1.59.27",
-    "stentor-utils": "1.59.27"
+    "stentor-service-event": "1.59.28",
+    "stentor-utils": "1.59.28"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

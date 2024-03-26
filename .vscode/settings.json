@@ -10,5 +10,6 @@
     "linkify",
     "listisize",
     "localizable"
-  ]
+  ],
+  "codeQL.githubDatabase.update": "never"
 }

@@ -443,10 +443,10 @@
     yargs "16.2.0"
     yargs-parser "20.2.4"
 
-"@microsoft/api-documenter@7.23.37":
-  version "7.23.37"
-  resolved "https://registry.yarnpkg.com/@microsoft/api-documenter/-/api-documenter-7.23.37.tgz#379446cd99da5d694e7c4b0da9ca4be5029dcb88"
-  integrity sha512-8StaLn4tLGllcgXCNGnqQRLFcWT9JILv5dHm2rYDdMWDQulInNKJnc2P9rpcI5mrO+cKcIRl75kdq4QrI9zunw==
+"@microsoft/api-documenter@7.24.1":
+  version "7.24.1"
+  resolved "https://registry.yarnpkg.com/@microsoft/api-documenter/-/api-documenter-7.24.1.tgz#56c57bd0b28ddd40f5ff51b44b5ee22913f4eea4"
+  integrity sha512-DX332aznb5SWpOLGuymvzg2OZsQ5+dCbSm8yvVYqTylDgSAiPouvKrdlWPoEeicuLU8wzxSl3xv7DMb6xgYwPw==
   dependencies:
     "@microsoft/api-extractor-model" "7.28.13"
     "@microsoft/tsdoc" "0.14.2"

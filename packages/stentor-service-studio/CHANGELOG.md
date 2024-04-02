@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.32](https://github.com/stentorium/stentor/compare/v1.59.31...v1.59.32) (2024-04-02)
+
+
+### Bug Fixes
+
+* FAQ Prefiltering no longer default on StudioService ([#2372](https://github.com/stentorium/stentor/issues/2372)) ([f5274ef](https://github.com/stentorium/stentor/commit/f5274ef994c066700ff1bfb5909a45c564366047))
+
+
+
+
+
 ## [1.59.31](https://github.com/stentorium/stentor/compare/v1.59.30...v1.59.31) (2024-04-01)
 
 **Note:** Version bump only for package stentor-service-studio

@@ -62,6 +62,8 @@ const startsWithQuestionWord = (query: string): boolean => {
 /**
  * Uses cosine similarity to find all similar FAQs.
  * 
+ * In comparing similarity using cosine similarity, 0.0 is dissimilar and 1.0 is similar.
+ * 
  * @param query 
  * @param faqQuestions 
  * @param baseThreshold 
@@ -73,16 +75,10 @@ const findAllSimilarFAQs = (query: string, faqQuestions: string[], baseThreshold
     // Adjust threshold based on query type
     // if it does not start with a question word, lower the threshold
     // this lets "mayor of pawnee" match with "who is the mayor of pawnee"
-    // remember, number closer to 1.0 will means less close and 0.0 means exact match
     const threshold = startsWithQuestionWord(query) ? baseThreshold : baseThreshold * 0.8;
 
-    console.log(`Query: ${query}`);
-    console.log(`Threshold: ${threshold}`);
     faqQuestions.forEach(question => {
         const score = computeStringSimilarity(query, question);
-
-        //
-        console.log(`Score for ${question}: ${score}`);
 
         if (score >= threshold) {
             similarQuestions.push(question);

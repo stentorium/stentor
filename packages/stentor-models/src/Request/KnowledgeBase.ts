@@ -91,9 +91,15 @@ export interface KnowledgeBaseSuggested extends KnowledgeBaseDocument {
  */
 export interface KnowledgeBaseFAQ {
     /**
-     * The question
+     * The question that is the closest match
      */
     question: string;
+    /**
+     * Optional, some FAQ based systems can return multiple questions that match to the same answer.  This will be populated if they exist.
+     * 
+     * There most likely be a duplicate of the question field.
+     */
+    questions?: string[];
     /**
      * URI, either the source or a location where more information can be found.
      */

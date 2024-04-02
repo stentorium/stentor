@@ -37,6 +37,10 @@ export interface StudioServiceProps {
      * The appId for the application you are requesting information for.
      */
     appId?: string;
+    /**
+     * Previously true by default, we are not phasing this out.  You can set this to be true if you want to pre-filter the FAQs as done previously.
+     */
+    preFilterFAQs?: boolean;
 }
 
 export class StudioService implements HandlerService, KnowledgeBaseService {
@@ -44,6 +48,7 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
     private readonly token: string;
     private readonly orgToken?: string;
     private readonly appId: string;
+    private readonly preFilterFAQs: boolean = false;
 
     public constructor(props?: StudioServiceProps) {
         // First look for the token & appId on the environment variables
@@ -68,6 +73,7 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
             this.token = props.token ? props.token : this.token;
             this.appId = props.appId ? props.appId : this.appId;
             this.orgToken = props.orgToken ? props.orgToken : this.orgToken;
+            this.preFilterFAQs = typeof props.preFilterFAQs === "boolean" ? props.preFilterFAQs : this.preFilterFAQs;
         }
 
         if (!this.token) {
@@ -285,13 +291,29 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
                 }
 
                 results.faq.forEach((faq) => {
-                    // Find the closest question
-                    const questions = findFuzzyMatch(query, faq.questions);
-                    // Only if we find a decent match, do we return it
-                    if (existsAndNotEmpty(questions)) {
+
+                    if (this.preFilterFAQs) {
+                        // Old legacy way
+                        // Find the closest question
+                        const questions = findFuzzyMatch(query, faq.questions);
+                        // Only if we find a decent match, do we return it
+                        if (existsAndNotEmpty(questions)) {
+                            faqResult.faqs.push({
+                                uri: faq.url,
+                                question: questions[0],
+                                questions: faq.questions,
+                                document: faq.answer,
+                                matchConfidence: faq._score
+                            });
+                        }
+                    } else {
+                        // setting threshold to 1.0 will return all matches and just order them by score
+                        const questions = findFuzzyMatch(query, faq.questions, { threshold: 1.0 });
+                        // we then take the first one and make it our top question
                         faqResult.faqs.push({
                             uri: faq.url,
                             question: questions[0],
+                            questions: faq.questions,
                             document: faq.answer,
                             matchConfidence: faq._score
                         });

@@ -59,16 +59,31 @@ const startsWithQuestionWord = (query: string): boolean => {
     return questionWords.includes(firstWord);
 };
 
+/**
+ * Uses cosine similarity to find all similar FAQs.
+ * 
+ * @param query 
+ * @param faqQuestions 
+ * @param baseThreshold 
+ * @returns 
+ */
 const findAllSimilarFAQs = (query: string, faqQuestions: string[], baseThreshold = 0.76): string[] => {
     const similarQuestions: string[] = [];
 
     // Adjust threshold based on query type
     // if it does not start with a question word, lower the threshold
     // this lets "mayor of pawnee" match with "who is the mayor of pawnee"
+    // remember, number closer to 1.0 will means less close and 0.0 means exact match
     const threshold = startsWithQuestionWord(query) ? baseThreshold : baseThreshold * 0.8;
 
+    console.log(`Query: ${query}`);
+    console.log(`Threshold: ${threshold}`);
     faqQuestions.forEach(question => {
         const score = computeStringSimilarity(query, question);
+
+        //
+        console.log(`Score for ${question}: ${score}`);
+
         if (score >= threshold) {
             similarQuestions.push(question);
         }
@@ -134,13 +149,22 @@ export function findFuzzyMatch<T = string | Record<string, unknown>>(find: strin
     const fuse = new FuseConstructor(from, fuseOptions);
     const result: Fuse.FuseResult<T>[] = fuse.search(find); // Literal here is to turn numbers to strings
 
+    console.log(result);
+
     matches = result.map((result) => {
         return from[result.refIndex];
     });
 
     // further filter if matches is an array of strings
     if (typeof matches[0] === "string" && matches.length > 0) {
-        matches = findAllSimilarFAQs(find, matches as string[]) as T[];
+        // findAllSimilarFAQs is looking for opposite number than what Fuse.js is looking for
+        // in fuse, 0.0 is a perfect match and 1.0 is a bad match
+        // in findAllSimilarFAQs, 0.0 is a bad match and 1.0 is a perfect match
+        // so if a threshold is provided we need to flip it
+        const similarThreshold: number | undefined = options.threshold ? 1 - options.threshold : undefined;
+        matches = findAllSimilarFAQs(find, matches as string[], similarThreshold) as T[];
+        console.log('Filtered matches');
+        console.log(matches);
     }
 
     return matches;

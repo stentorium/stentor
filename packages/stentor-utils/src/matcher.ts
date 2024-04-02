@@ -59,6 +59,16 @@ const startsWithQuestionWord = (query: string): boolean => {
     return questionWords.includes(firstWord);
 };
 
+/**
+ * Uses cosine similarity to find all similar FAQs.
+ * 
+ * In comparing similarity using cosine similarity, 0.0 is dissimilar and 1.0 is similar.
+ * 
+ * @param query 
+ * @param faqQuestions 
+ * @param baseThreshold 
+ * @returns 
+ */
 const findAllSimilarFAQs = (query: string, faqQuestions: string[], baseThreshold = 0.76): string[] => {
     const similarQuestions: string[] = [];
 
@@ -69,6 +79,7 @@ const findAllSimilarFAQs = (query: string, faqQuestions: string[], baseThreshold
 
     faqQuestions.forEach(question => {
         const score = computeStringSimilarity(query, question);
+
         if (score >= threshold) {
             similarQuestions.push(question);
         }
@@ -140,7 +151,12 @@ export function findFuzzyMatch<T = string | Record<string, unknown>>(find: strin
 
     // further filter if matches is an array of strings
     if (typeof matches[0] === "string" && matches.length > 0) {
-        matches = findAllSimilarFAQs(find, matches as string[]) as T[];
+        // findAllSimilarFAQs is looking for opposite number than what Fuse.js is looking for
+        // in fuse, 0.0 is a perfect match and 1.0 is a bad match
+        // in findAllSimilarFAQs, 0.0 is a bad match and 1.0 is a perfect match
+        // so if a threshold is provided we need to flip it
+        const similarThreshold: number | undefined = options.threshold ? 1 - options.threshold : undefined;
+        matches = findAllSimilarFAQs(find, matches as string[], similarThreshold) as T[];
     }
 
     return matches;

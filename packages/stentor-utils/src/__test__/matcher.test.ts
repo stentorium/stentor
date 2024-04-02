@@ -36,6 +36,19 @@ describe(`#${findFuzzyMatch.name}()`, () => {
             const matches = findFuzzyMatch("What is the capital of France?", ["How to reset password?", "Payment methods accepted", "Software installation guide"]);
             expect(matches).to.have.length(0);
         });
+        describe("and options are provided to return the closest", () => {
+            it("returns the closest match", () => {
+                const matches = findFuzzyMatch("what is your address", ["What is your location?", "Where are you located?", "How do I get to you?"], { threshold: 0.7 });
+                expect(matches[0]).to.equal("What is your location?");
+            });
+        });
+    });
+    describe("when the threshold is low (1.0)", () => {
+        it("will order the matches by closest match", () => {
+            const matches = findFuzzyMatch("what is your address", ["How do I get to you?", "What is your location?", "Where are you located?"], { threshold: 1.0 });
+            expect(matches).to.have.length(3);
+            expect(matches[0]).to.equal("What is your location?");
+        });
     });
 
     describe("when there are close matches", () => {

@@ -145,8 +145,6 @@ export function findFuzzyMatch<T = string | Record<string, unknown>>(find: strin
     const fuse = new FuseConstructor(from, fuseOptions);
     const result: Fuse.FuseResult<T>[] = fuse.search(find); // Literal here is to turn numbers to strings
 
-    console.log(result);
-
     matches = result.map((result) => {
         return from[result.refIndex];
     });
@@ -159,8 +157,6 @@ export function findFuzzyMatch<T = string | Record<string, unknown>>(find: strin
         // so if a threshold is provided we need to flip it
         const similarThreshold: number | undefined = options.threshold ? 1 - options.threshold : undefined;
         matches = findAllSimilarFAQs(find, matches as string[], similarThreshold) as T[];
-        console.log('Filtered matches');
-        console.log(matches);
     }
 
     return matches;

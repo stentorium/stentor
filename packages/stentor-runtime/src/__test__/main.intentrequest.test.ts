@@ -106,6 +106,8 @@ describe("#main() for an IntentRequest", () => {
             expect(sessionStorage.id).to.equal("sessionId");
             expect(sessionStorage.data).to.deep.equal({
                 knowledge_base_result: undefined,
+                current_handler: "IntentId",
+                previous_handler: "IntentId",
                 slots: { f_name: { name: 'f_name', value: 'foo', rawValue: 'fu' } },
                 unknownInputs: 0
             });
@@ -170,6 +172,8 @@ describe("#main() for an IntentRequest", () => {
             expect(sessionStorage.id).to.equal("sessionId");
             expect(sessionStorage.data).to.deep.equal({
                 knowledge_base_result: undefined,
+                current_handler: "IntentId",
+                previous_handler: "IntentId",
                 slots: {
                     f_name: { name: 'f_name', value: 'foo', rawValue: 'fu' },
                     l_name: { name: 'l_name', value: 'bar', rawValue: 'bar' }

@@ -337,7 +337,7 @@ export const main = async (
             const sessionId: string = hasSessionId(request) ? request.sessionId : undefined;
             const locale = request.locale;
 
-            const queryProps: NLURequestProps = { userId, sessionId, locale, channel: request.channel, platform: request.platform };
+            const queryProps: NLURequestProps = { userId, sessionId, locale, channel: request.channel, platform: request.platform, session };
 
             const transcript = session?.transcript();
             if (existsAndNotEmpty(transcript)) {

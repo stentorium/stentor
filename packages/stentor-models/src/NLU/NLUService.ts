@@ -3,6 +3,7 @@ import { Message } from "../Message";
 import { IntentRequest, InputUnknownRequest } from "../Request";
 import { ActiveContext } from "../Response";
 import { KnowledgeBaseServiceFilters } from "../Services";
+import { SessionStore } from "../Storage";
 
 /**
  * Slightly smaller intent request without the sessionId and other identifying information.  It also doesn't pass through the original raw query.
@@ -53,6 +54,10 @@ export interface NLURequestProps {
      * Current session transcript
      */
     transcript?: Message[];
+    /**
+     * Optional session store
+     */
+    session?: SessionStore;
     /**
      * Optional filters for knowledge base service calls
      */

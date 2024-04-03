@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.33](https://github.com/stentorium/stentor/compare/v1.59.32...v1.59.33) (2024-04-03)
+
+
+### Bug Fixes
+
+* Passing through Session Storage on NLU Query ([#2373](https://github.com/stentorium/stentor/issues/2373)) ([aff8dbb](https://github.com/stentorium/stentor/commit/aff8dbbc4bc97c9cd3bd9c977a979f6f6f7de75c))
+
+
+
+
+
 ## [1.59.32](https://github.com/stentorium/stentor/compare/v1.59.31...v1.59.32) (2024-04-02)
 
 **Note:** Version bump only for package stentor-constants

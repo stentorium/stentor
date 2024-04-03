@@ -109,7 +109,20 @@ describe(`#${main.name}()`, () => {
             });
 
             expect(nlu.query).to.have.been.calledOnce;
-            expect(nlu.query).to.have.been.calledWith("the query", { userId: request.userId, sessionId: request.sessionId, locale: request.locale, channel: "stentor", platform: "MOCK" })
+            expect(nlu.query).to.have.been.calledWithMatch("the query", {
+                userId: request.userId,
+                sessionId: request.sessionId,
+                locale: request.locale,
+                channel: "stentor",
+                platform: "MOCK",
+            });
+
+            // get the first call and make sure session is on the second parameter
+            const args = (nlu.query as sinon.SinonStub).getCall(0).args;
+            const props = args[1];
+            expect(props).to.exist;
+            expect(props.session).to.exist;
+
         });
     });
 });

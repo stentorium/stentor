@@ -6,7 +6,10 @@ import {
     SESSION_STORAGE_NEW_USER,
     SESSION_STORAGE_SLOTS_KEY,
     SESSION_STORAGE_KNOWLEDGE_BASE_RESULT,
-    SESSION_STORAGE_KNOWLEDGE_BASE_FILTERS
+    SESSION_STORAGE_KNOWLEDGE_BASE_FILTERS,
+    SESSION_STORAGE_UNKNOWN_INPUTS,
+    SESSION_STORAGE_PREVIOUS_HANDLER,
+    SESSION_STORAGE_CURRENT_HANDLER
 } from "stentor-constants";
 import { ContextFactory } from "stentor-context";
 import {
@@ -237,6 +240,7 @@ export const main = async (
     }
 
     // Do some logging for debugging if needed
+    log().info(`query:"${request.rawQuery}"`)
     log().info(
         `platform:${request.platform}|channel:${request.channel}|request-type:${request.type}|request-key:${keyFromRequest(request)}|userId:${request.userId
         }${request.isHealthCheck ? "|HEALTH_CHECK" : ""}`
@@ -309,7 +313,7 @@ export const main = async (
         // Adjust the inputUnknown count if the next request is not 
         // for input unknown
         if (!isInputUnknownRequest(request)) {
-            session.set("unknownInputs", 0);
+            session.set(SESSION_STORAGE_UNKNOWN_INPUTS, 0);
         }
 
     } catch (error) {
@@ -337,7 +341,7 @@ export const main = async (
             const sessionId: string = hasSessionId(request) ? request.sessionId : undefined;
             const locale = request.locale;
 
-            const queryProps: NLURequestProps = { userId, sessionId, locale, channel: request.channel, platform: request.platform };
+            const queryProps: NLURequestProps = { userId, sessionId, locale, channel: request.channel, platform: request.platform, session };
 
             const transcript = session?.transcript();
             if (existsAndNotEmpty(transcript)) {
@@ -571,6 +575,9 @@ export const main = async (
     // Swap out handlers on storage, this is very important
     context.storage.previousHandler = context.storage.currentHandler;
     context.storage.currentHandler = handler;
+
+    context.session.set(SESSION_STORAGE_PREVIOUS_HANDLER, context.storage.currentHandler.intentId);
+    context.session.set(SESSION_STORAGE_CURRENT_HANDLER, handler.intentId);
 
     // More logging
     log().info(`appId:${handler.appId}|selectedHandler:${handler.intentId}|selectedHandlerType:${handler.type}`);

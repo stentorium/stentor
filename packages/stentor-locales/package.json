@@ -21,7 +21,7 @@
     "mocha": "9.2.2",
     "stentor-models": "1.59.34",
     "ts-node": "10.9.2",
-    "typescript": "5.4.3"
+    "typescript": "5.4.4"
   },
   "dependencies": {
     "stentor-utils": "1.59.34"

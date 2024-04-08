@@ -962,10 +962,10 @@
   resolved "https://registry.yarnpkg.com/@types/argparse/-/argparse-1.0.38.tgz#a81fd8606d481f873a3800c6ebae4f1d768a56a9"
   integrity sha512-ebDJ9b0e702Yr7pWgB0jzm+CX4Srzz8RcXtLJDJB+BSccqMa36uyH/zUsSYao5+BD1ytv3k3rPYCq4mAE1hsXA==
 
-"@types/aws-lambda@8.10.136":
-  version "8.10.136"
-  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.136.tgz#12a2af86b9123f4e4549992b27e1bf0dcf60d9f9"
-  integrity sha512-cmmgqxdVGhxYK9lZMYYXYRJk6twBo53ivtXjIUEFZxfxe4TkZTZBK3RRWrY2HjJcUIix0mdifn15yjOAat5lTA==
+"@types/aws-lambda@8.10.137":
+  version "8.10.137"
+  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.137.tgz#c9998a944541afdd6df0d159e9ec9c23dfe5fb40"
+  integrity sha512-YNFwzVarXAOXkjuFxONyDw1vgRNzyH8AuyN19s0bM+ChSu/bzxb5XPxYFLXoqoM+tvgzwR3k7fXcEOW125yJxg==
 
 "@types/blueimp-md5@2.18.2":
   version "2.18.2"

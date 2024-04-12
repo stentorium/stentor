@@ -21,7 +21,7 @@
     "chai-as-promised": "7.1.1",
     "stentor-models": "1.59.35",
     "ts-node": "10.9.2",
-    "typescript": "5.4.4"
+    "typescript": "5.4.5"
   },
   "dependencies": {
     "abort-controller": "3.0.0",

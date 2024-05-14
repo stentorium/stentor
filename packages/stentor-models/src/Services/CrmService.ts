@@ -3,11 +3,17 @@
 import { CrmResponse, ExternalLead } from "../Crm";
 import { DateTime, DateTimeRange } from "../DateTime";
 
+export type DayOfWeek = "monday" | "tuesday" | "wednesday" | "thursday" | "friday" | "saturday" | "sunday";
+
 export interface CrmServiceAvailabilityOptions {
     /**
-     * The Google Place ID for the business to help determine availability.
+     * The days of the week they are available to schedule appointments through the scheduler.
      */
-    placeId?: string;
+    availableDays?: DayOfWeek[];
+    /**
+     * These are holidays or any other days specific to the business that they are not available for appointments.
+     */
+    blockedDays?: DateTime[];
     /**
      * Maximum total number of appointments a day that can be scheduled through the scheduler.
      */
@@ -72,4 +78,39 @@ export interface CrmService {
      * @param options 
      */
     getAvailability(range: DateTimeRange, options?: CrmServiceAvailabilityOptions): Promise<CrmServiceAvailability>;
+}
+
+export type CrmServiceProps = CrmServiceAvailabilityOptions
+
+export class AbstractCrmService implements CrmService, CrmServiceAvailabilityOptions {
+
+    public availableDays?: DayOfWeek[];
+
+    public blockedDays?: DateTime[];
+
+    public constructor(props: CrmServiceProps) {
+
+        if (props.availableDays) {
+            this.availableDays = props.availableDays;
+        }
+
+        if (props.blockedDays) {
+            this.blockedDays = props.blockedDays;
+        }
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    public async send(externalLead: ExternalLead, extras?: Record<string, unknown>): Promise<CrmResponse> {
+        throw new Error("Method not implemented.");
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    public async getAvailability(range: DateTimeRange, options?: CrmServiceAvailabilityOptions): Promise<CrmServiceAvailability> {
+        throw new Error("Method not implemented.");
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    public async update?(externalLead: ExternalLead, extras?: Record<string, unknown>): Promise<CrmResponse> {
+        throw new Error("Method not implemented.");
+    }
 }

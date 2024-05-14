@@ -1,6 +1,46 @@
 /*! Copyright (c) 2022, XAPPmedia */
 
 import { CrmResponse, ExternalLead } from "../Crm";
+import { DateTime, DateTimeRange } from "../DateTime";
+
+export interface CrmServiceAvailabilityOptions {
+    /**
+     * The Google Place ID for the business to help determine availability.
+     */
+    placeId?: string;
+    /**
+     * Maximum total number of appointments a day that can be scheduled through the scheduler.
+     */
+    maxTotalDailyAppointments?: number;
+}
+
+export interface CrmServiceDateAvailability {
+    /**
+     * The number of appointments available for the given range.
+     * 
+     * Typically, just the date is used, tz and time are not needed.
+     */
+    date: DateTime;
+    /**
+     * If the day is available for appointments.
+     */
+    available: boolean;
+    /**
+     * The number of remaining available appointments.
+     */
+    remainingAppointments?: number;
+}
+
+export interface CrmServiceAvailability {
+    /**
+     * The range
+     */
+    range: DateTimeRange;
+    /**
+     * Availability for each date in the range.
+     */
+    dateAvailabilities: CrmServiceDateAvailability[];
+}
 
 export interface CrmService {
     /**
@@ -19,8 +59,17 @@ export interface CrmService {
      * 
      * It leverages the refId on the externalLead, which is originally provided in the CrmResponse to properly
      * 
+     * @deprecated Use send with a refId on the externalLead and call send() again.  This will update.
+     * 
      * @param externalLead 
      * @param extras 
      */
     update?(externalLead: ExternalLead, extras?: Record<string, unknown>): Promise<CrmResponse>;
+    /**
+     * Returns availability for scheduling an appointment with the business.
+     * 
+     * @param range 
+     * @param options 
+     */
+    getAvailability(range: DateTimeRange, options?: CrmServiceAvailabilityOptions): Promise<CrmServiceAvailability>;
 }

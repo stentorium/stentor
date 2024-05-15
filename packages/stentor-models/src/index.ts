@@ -32,7 +32,7 @@ export type * from "./Request";
 export type * from "./RequestHandler";
 export * from "./Response";
 export type * from "./Runtime";
-export type * from "./Services";
+export * from "./Services";
 export type * from "./Slot";
 export type * from "./SMS";
 export type * from "./Storage";

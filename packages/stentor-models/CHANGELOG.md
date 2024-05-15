@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.52](https://github.com/stentorium/stentor/compare/v1.59.51...v1.59.52) (2024-05-15)
+
+
+### Bug Fixes
+
+* CRM service is a class. Needs full export ([#2405](https://github.com/stentorium/stentor/issues/2405)) ([3b9733b](https://github.com/stentorium/stentor/commit/3b9733b8a9d6e4026cd5523db1130202b91af659))
+
+
+
+
+
 ## [1.59.51](https://github.com/stentorium/stentor/compare/v1.59.50...v1.59.51) (2024-05-15)
 
 

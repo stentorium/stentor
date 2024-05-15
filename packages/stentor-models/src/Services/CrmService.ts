@@ -36,8 +36,6 @@ export interface CrmServiceTimeAvailability {
 
 export interface CrmServiceDateAvailability {
     /**
-     * The number of appointments available for the given range.
-     * 
      * Typically, just the date is used, tz and time are not needed.
      */
     date: DateTime;

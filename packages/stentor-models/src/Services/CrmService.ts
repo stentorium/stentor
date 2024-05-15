@@ -5,7 +5,10 @@ import { DateTime, DateTimeRange } from "../DateTime";
 
 export type DayOfWeek = "monday" | "tuesday" | "wednesday" | "thursday" | "friday" | "saturday" | "sunday";
 
-export interface CrmServiceAvailabilityOptions {
+/**
+ * Settings for the availability of the CRM service.
+ */
+export interface CrmServiceAvailabilitySettings {
     /**
      * The days of the week they are available to schedule appointments through the scheduler.
      */
@@ -20,6 +23,17 @@ export interface CrmServiceAvailabilityOptions {
     maxTotalDailyAppointments?: number;
 }
 
+export interface CrmServiceTimeAvailability {
+    /**
+     * The time slot
+     */
+    range: DateTimeRange;
+    /**
+     * If the time slot is available.
+     */
+    available: boolean;
+}
+
 export interface CrmServiceDateAvailability {
     /**
      * The number of appointments available for the given range.
@@ -28,13 +42,21 @@ export interface CrmServiceDateAvailability {
      */
     date: DateTime;
     /**
-     * If the day is available for appointments.
+     * If the day has any availability for appointments.
      */
     available: boolean;
     /**
      * The number of remaining available appointments.
      */
     remainingAppointments?: number;
+    /**
+     * Blocked time slots for the day.
+     * 
+     * These are only blocked times during their normal business hours.
+     * 
+     * @note - This is only for future consideration.
+     */
+    blockedTimeSlots?: CrmServiceTimeAvailability[];
 }
 
 export interface CrmServiceAvailability {
@@ -44,8 +66,19 @@ export interface CrmServiceAvailability {
     range: DateTimeRange;
     /**
      * Availability for each date in the range.
+     * 
+     * If the date is not included in the array, it is assumed to be available.
      */
-    dateAvailabilities: CrmServiceDateAvailability[];
+    unavailabilities: CrmServiceDateAvailability[];
+}
+
+export interface CrmServiceAvailabilityOptions extends CrmServiceAvailabilitySettings {
+    /**
+     * Job Type to filter availability by.
+     * 
+     * This allows to display availability for a specific job type, which can be different.
+     */
+    jobType?: string;
 }
 
 export interface CrmService {
@@ -80,13 +113,15 @@ export interface CrmService {
     getAvailability(range: DateTimeRange, options?: CrmServiceAvailabilityOptions): Promise<CrmServiceAvailability>;
 }
 
-export type CrmServiceProps = CrmServiceAvailabilityOptions
+export type CrmServiceProps = CrmServiceAvailabilitySettings;
 
-export class AbstractCrmService implements CrmService, CrmServiceAvailabilityOptions {
+export class AbstractCrmService implements CrmService {
 
-    public availableDays?: DayOfWeek[];
+    protected availableDays?: DayOfWeek[];
 
-    public blockedDays?: DateTime[];
+    protected blockedDays?: DateTime[];
+
+    protected maxTotalDailyAppointments?: number | undefined;
 
     public constructor(props: CrmServiceProps) {
 
@@ -96,6 +131,10 @@ export class AbstractCrmService implements CrmService, CrmServiceAvailabilityOpt
 
         if (props.blockedDays) {
             this.blockedDays = props.blockedDays;
+        }
+
+        if (typeof props.maxTotalDailyAppointments === "number") {
+            this.maxTotalDailyAppointments = props.maxTotalDailyAppointments;
         }
     }
 

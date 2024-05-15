@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.51](https://github.com/stentorium/stentor/compare/v1.59.50...v1.59.51) (2024-05-15)
+
+
+### Bug Fixes
+
+* Feedback on getAvailability() ([#2404](https://github.com/stentorium/stentor/issues/2404)) ([0d91d39](https://github.com/stentorium/stentor/commit/0d91d39f73f876a12ed8d1f1b951b855fdb1cee6))
+
+
+
+
+
 ## [1.59.50](https://github.com/stentorium/stentor/compare/v1.59.49...v1.59.50) (2024-05-15)
 
 **Note:** Version bump only for package repo

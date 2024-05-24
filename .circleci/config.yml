@@ -2,7 +2,7 @@ version: 2
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: cimg/node:18.20.3
+    - image: cimg/node:22.2.0
 
 jobs:
   checkout:

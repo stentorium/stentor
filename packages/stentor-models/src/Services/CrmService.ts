@@ -21,6 +21,10 @@ export interface CrmServiceAvailabilitySettings {
      * Maximum total number of appointments a day that can be scheduled through the scheduler.
      */
     maxTotalDailyAppointments?: number;
+    /**
+     * Job types, where we only schedule a few days (3) ahead
+     */
+    delayedJobTypes?: string[];
 }
 
 export interface CrmServiceTimeAvailability {
@@ -109,6 +113,12 @@ export interface CrmService {
      * @param options 
      */
     getAvailability(range: DateTimeRange, options?: CrmServiceAvailabilityOptions): Promise<CrmServiceAvailability>;
+    /**
+     * Returns the job type (id) for the free text job description (AI call usually)
+     * 
+     * @param message 
+     */
+    getJobType(message: string): Promise<string>;
 }
 
 export type CrmServiceProps = CrmServiceAvailabilitySettings;
@@ -120,6 +130,8 @@ export class AbstractCrmService implements CrmService {
     protected blockedDays?: DateTime[];
 
     protected maxTotalDailyAppointments?: number | undefined;
+
+    protected delayedJobTypes?: string[];
 
     public constructor(props: CrmServiceProps) {
 
@@ -134,6 +146,10 @@ export class AbstractCrmService implements CrmService {
         if (typeof props.maxTotalDailyAppointments === "number") {
             this.maxTotalDailyAppointments = props.maxTotalDailyAppointments;
         }
+
+        if (typeof props.delayedJobTypes) {
+            this.delayedJobTypes = props.delayedJobTypes;
+        }
     }
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -143,6 +159,11 @@ export class AbstractCrmService implements CrmService {
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     public async getAvailability(range: DateTimeRange, options?: CrmServiceAvailabilityOptions): Promise<CrmServiceAvailability> {
+        throw new Error("Method not implemented.");
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    public async getJobType(message: string): Promise<string> {
         throw new Error("Method not implemented.");
     }
 

@@ -37,6 +37,11 @@ export interface ExternalLead {
      */
     refId?: string;
     /**
+     * Optional job type ID in the 3rd party CRM 
+     * (this maybe looked up already as a side effect of the avalability request)
+     */
+    jobTypeId?: string;
+    /**
      * Is it abandoned (unfinished)?
      */
     isAbandoned?: boolean;

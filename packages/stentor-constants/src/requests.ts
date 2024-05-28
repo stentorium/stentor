@@ -25,6 +25,7 @@ import {
     PlaybackControlPlayEvent,
     PlaybackControlPreviousEvent,
     PlaybackControlRequestType,
+    RawQueryRequestType,
     SessionEndedRequestType,
     SignInID,
     SignInRequestType,
@@ -49,6 +50,7 @@ export const CHANNEL_ACTION_REQUEST_TYPE: ChannelActionRequestType = "CHANNEL_AC
 export const INPUT_UNKNOWN_REQUEST_TYPE: InputUnknownRequestType = "INPUT_UNKNOWN_REQUEST";
 export const INTENT_REQUEST_TYPE: IntentRequestType = "INTENT_REQUEST";
 export const LAUNCH_REQUEST_TYPE: LaunchRequestType = "LAUNCH_REQUEST";
+export const RAW_QUERY_REQUEST_TYPE: RawQueryRequestType = "RAW_QUERY_REQUEST";
 export const NOTIFICATION_PERMISSION_REQUEST_TYPE: NotificationPermissionRequestType = "NOTIFICATION_PERMISSION_REQUEST_TYPE";
 export const OPTION_SELECT_REQUEST_TYPE: OptionSelectRequestType = "OPTION_SELECT_REQUEST";
 export const PERMISSION_REQUEST_TYPE: PermissionRequestType = "PERMISSION_GRANT";

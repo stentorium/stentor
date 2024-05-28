@@ -88,6 +88,8 @@ export interface IntentRequest extends BaseRequest, SentimentedRequest {
     type: IntentRequestType;
     /**
      * The ID of the matched intent.
+     * 
+     * A value of NLU_RESULT_PLACEHOLDER will send the IntentRequest through an NLU service if one is provided.
      */
     intentId: string;
     /**

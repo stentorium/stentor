@@ -22,7 +22,11 @@ import {
     isOptionSelectRequest,
     isPermissionRequest,
     isSessionEndedRequest,
-    isChannelActionRequest
+    isChannelActionRequest,
+    isNotificationPermissionRequest,
+    isPlaybackControlRequest,
+    isSurfaceChangeRequest,
+    hasIntentId
 } from "stentor-guards";
 import { AbstractHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
@@ -331,11 +335,26 @@ export const main = async (
 
     // #0.75 Use the NLU service if required by the channel
     if (channel.nlu) {
-        // We don't call if it is a LaunchRequest, option, or permission grant
-        if (!isLaunchRequest(request)
-            && !isOptionSelectRequest(request)
-            && !isPermissionRequest(request)
-            && !isChannelActionRequest(request)) {
+        // if we already have an intentId then we don't need to call the NLU as long as it doesn't equal NLU_RESULT_PLACEHOLDER
+        const resolvedIntentId: boolean = hasIntentId(request) ? request.intentId !== "NLU_RESULT_PLACEHOLDER" : false;
+
+        if (
+            // if we haven't resolved the intentId
+            !resolvedIntentId &&
+            // Or for any of the following requests that don't need NLU
+            // Launch Requests don't have queries
+            !isLaunchRequest(request) &&
+            // OptionSelect always goes to OptionSelect intentId
+            !isOptionSelectRequest(request) &&
+            // These are system requests and don't require NLU
+            !isChannelActionRequest(request) &&
+            !isPermissionRequest(request) &&
+            !isNotificationPermissionRequest(request) &&
+            // Audio Playback requests don't require NLU
+            !isAudioPlayerRequest(request) &&
+            !isPlaybackControlRequest(request) &&
+            !isSurfaceChangeRequest(request)
+        ) {
 
             const userId: string = request.userId;
             const sessionId: string = hasSessionId(request) ? request.sessionId : undefined;

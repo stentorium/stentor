@@ -9,6 +9,7 @@ export * from "./NotificationPermissionRequest";
 export * from "./OptionSelectRequest";
 export * from "./PermissionRequest";
 export * from "./PlaybackControlRequest";
+export * from "./RawQueryRequest";
 export * from "./Request";
 export * from "./RequestDependent";
 export * from "./SessionEndedRequest";

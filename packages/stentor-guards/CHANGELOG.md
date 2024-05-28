@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.56](https://github.com/stentorium/stentor/compare/v1.59.55...v1.59.56) (2024-05-28)
+
+
+### Bug Fixes
+
+* Do Not Call NLU on PLACEHOLDER intentId and RawQueryRequest ([#2412](https://github.com/stentorium/stentor/issues/2412)) ([52cf227](https://github.com/stentorium/stentor/commit/52cf22727ae1158dbcb7cca4f3804d0fc599335b))
+
+
+
+
+
 ## [1.59.54](https://github.com/stentorium/stentor/compare/v1.59.53...v1.59.54) (2024-05-24)
 
 **Note:** Version bump only for package stentor-guards

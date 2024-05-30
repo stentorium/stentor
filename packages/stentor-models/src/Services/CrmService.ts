@@ -83,6 +83,19 @@ export interface CrmServiceAvailabilityOptions extends CrmServiceAvailabilitySet
     jobType?: string;
 }
 
+export interface CrmServiceJobType {
+    /**
+     * The job type id.
+     */
+    id: string;
+    /**
+     * The job type name.
+     */
+    name?: string;
+
+    class?: "MAINTENANCE" | "REPAIR" | "INSTALLATION" | "ESTIMATION";
+}
+
 export interface CrmService {
     /**
      * Send information about a lead to the CRM.
@@ -118,7 +131,7 @@ export interface CrmService {
      * 
      * @param message 
      */
-    getJobType(message: string): Promise<string>;
+    getJobType(message: string, externalLead?: ExternalLead): Promise<CrmServiceJobType>;
 }
 
 export type CrmServiceProps = CrmServiceAvailabilitySettings;
@@ -163,7 +176,7 @@ export class AbstractCrmService implements CrmService {
     }
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    public async getJobType(message: string): Promise<string> {
+    public async getJobType(message: string, externalLead?: ExternalLead): Promise<CrmServiceJobType> {
         throw new Error("Method not implemented.");
     }
 

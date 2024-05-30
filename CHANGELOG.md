@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.58](https://github.com/stentorium/stentor/compare/v1.59.57...v1.59.58) (2024-05-30)
+
+
+### Bug Fixes
+
+* Update getJobType Update([#2414](https://github.com/stentorium/stentor/issues/2414)) ([8fc3d71](https://github.com/stentorium/stentor/commit/8fc3d7111862a6e968803c617273d2eaa3bbc869))
+
+
+
+
+
 ## [1.59.57](https://github.com/stentorium/stentor/compare/v1.59.56...v1.59.57) (2024-05-29)
 
 **Note:** Version bump only for package repo

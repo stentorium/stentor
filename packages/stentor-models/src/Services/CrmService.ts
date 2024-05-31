@@ -80,7 +80,7 @@ export interface CrmServiceAvailabilityOptions extends CrmServiceAvailabilitySet
      * 
      * This allows to display availability for a specific job type, which can be different.
      */
-    jobType?: string;
+    jobType?: CrmServiceJobType;
 }
 
 export interface CrmServiceJobType {

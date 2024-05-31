@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.59](https://github.com/stentorium/stentor/compare/v1.59.58...v1.59.59) (2024-05-31)
+
+
+### Bug Fixes
+
+* CRMService: send job type object to availability() ([#2415](https://github.com/stentorium/stentor/issues/2415)) ([445553d](https://github.com/stentorium/stentor/commit/445553d64bd93fcf7692e122d960cbcbc2b068e4))
+
+
+
+
+
 ## [1.59.58](https://github.com/stentorium/stentor/compare/v1.59.57...v1.59.58) (2024-05-30)
 
 

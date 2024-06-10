@@ -1,5 +1,7 @@
 /*! Copyright (c) 2021, XAPPmedia */
 
+import { SuggestionObjectTypes } from "../Suggestion";
+
 export interface KnowledgeAnswer {
     /**
      * Which knowledge base (optional)
@@ -148,6 +150,10 @@ export interface KnowledgeBaseGenerated extends KnowledgeBaseDocument {
      * Generated AI will still return an response even if it didn't have an answer.  True if it has the answer to the user's query.
      */
     hasAnswer?: boolean;
+    /**
+     * Generated AI suggested follow up queries.
+     */
+    suggestions?: SuggestionObjectTypes[];
     /**
      * Optional sources that the Generative AI used to generate the response.  This is typically specific to type "retrieval-augmented-generation" where source material is used to generate the answer.
      */

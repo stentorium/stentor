@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.63](https://github.com/stentorium/stentor/compare/v1.59.62...v1.59.63) (2024-06-10)
+
+
+### Bug Fixes
+
+* Add suggestion chips to a Generated AI Response ([#2422](https://github.com/stentorium/stentor/issues/2422)) ([d631128](https://github.com/stentorium/stentor/commit/d63112865c9afa20499877337fc0f98c68906e89))
+
+
+
+
+
 ## [1.59.62](https://github.com/stentorium/stentor/compare/v1.59.61...v1.59.62) (2024-06-10)
 
 

@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.59.61",
+  "version": "1.59.63",
   "description": "Utilities for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -34,7 +34,7 @@
     "mocha": "9.2.2",
     "sinon": "18.0.0",
     "sinon-chai": "3.7.0",
-    "stentor-models": "1.59.61",
+    "stentor-models": "1.59.63",
     "ts-node": "10.9.2",
     "typescript": "5.4.5"
   },
@@ -56,8 +56,8 @@
     "numeral": "2.0.6",
     "sanitize-html": "2.13.0",
     "slugify": "1.6.6",
-    "stentor-constants": "1.59.61",
-    "stentor-guards": "1.59.61",
+    "stentor-constants": "1.59.63",
+    "stentor-guards": "1.59.63",
     "winston": "3.13.0",
     "words-to-numbers": "1.5.1",
     "xmldoc": "1.3.0"

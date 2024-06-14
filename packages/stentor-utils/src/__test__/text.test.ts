@@ -13,15 +13,39 @@ describe("#splitTextIntoSentences()", () => {
         expect(splitTextIntoSentences(text)).to.deep.equal(sentences);
     });
 
-    it("should handle text without punctuation", () => {
-        const text = "This is a test with no punctuation";
-        const sentences = ["This is a test with no punctuation"];
-        expect(splitTextIntoSentences(text)).to.deep.equal(sentences);
-    });
-
     it("should handle multiple punctuations correctly", () => {
         const text = "Hello... Is it you? Yes! It is.";
         const sentences = ["Hello...", "Is it you?", "Yes!", "It is."];
+        expect(splitTextIntoSentences(text)).to.deep.equal(sentences);
+    });
+
+    it("should handle multiple punctuations correctly, including up to 10 periods, exclamation marks, or question marks", () => {
+        const text = "Hello... Is it you? Yes! It is.......... Sure! Alright.........";
+        const sentences = ["Hello...", "Is it you?", "Yes!", "It is..........", "Sure!", "Alright........."];
+        expect(splitTextIntoSentences(text)).to.deep.equal(sentences);
+    });
+
+    it("should handle common abbreviations without splitting", () => {
+        const text = "Dr. Bela is the best at D.P.A.. No one can beat him.";
+        const sentences = ["Dr. Bela is the best at D.P.A..", "No one can beat him."];
+        expect(splitTextIntoSentences(text)).to.deep.equal(sentences);
+    });
+
+    it("should handle PhD abbreviation correctly", () => {
+        const text = "Dr. Bela has a PhD. in biomechanics. No one can beat him.";
+        const sentences = ["Dr. Bela has a PhD. in biomechanics.", "No one can beat him."];
+        expect(splitTextIntoSentences(text)).to.deep.equal(sentences);
+    });
+
+    it("should handle text with more than 2 spaces and tabs/new lines in between sentences", () => {
+        const text = "Hello world! \t \t \t \t \t How are you today? \t \t \n \t \t This is a test.";
+        const sentences = ["Hello world!", "How are you today?", "This is a test."];
+        expect(splitTextIntoSentences(text)).to.deep.equal(sentences);
+    });
+
+    it("should handle text without punctuation", () => {
+        const text = "This is a test with no punctuation";
+        const sentences = ["This is a test with no punctuation"];
         expect(splitTextIntoSentences(text)).to.deep.equal(sentences);
     });
 

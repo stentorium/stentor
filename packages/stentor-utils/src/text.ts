@@ -10,16 +10,60 @@
  * @returns An array of sentences.
  */
 export function splitTextIntoSentences(text: string): string[] {
-
-    if (!text && typeof text !== "string") {
+    if (typeof text !== "string") {
         return [];
     }
-    // Regular expression to match sentences ending with up to 10 periods, !, or ? followed by a space or end of string
-    const sentenceRegex = /[^.!?]*[.!?]{1,10}(?:\s|$)/g;
-    const sentences = text.match(sentenceRegex);
 
-    // Return an empty array if no matches found
-    return sentences ? sentences.map(sentence => sentence.trim()) : [text];
+    if (text.length === 0) {
+        return [""];
+    }
+
+    // List of common abbreviations
+    const abbreviations = ["Mr.", "Mrs.", "Ms.", "Dr.", "Prof.", "Sr.", "Jr.", "St.", "Mt.", "Ave.", "Rd.", "Blvd.", "Ph.D.", "PhD.", "M.D.", "D.D.S.", "D.V.M.", "D.P.A.", "Pharm.D.", "B.A.", "M.A.", "M.S.", "M.B.A.", "M.D.", "M.P.H.", "M.P.P.", "M.P.A.", "M.S.W.", "M.F.A.", "M.Div.", "M.Ed.", "M.S.Ed.", "M.S.N."];
+
+    // Regular expression to match sentence end markers followed by a space or end of string
+    const sentenceEndRegex = /([.!?])(\s+|$)/g;
+
+    // Split the text based on the sentence end markers, keeping the punctuation marks separate
+    const parts = text.split(sentenceEndRegex);
+
+    const sentences = [];
+    let currentSentence = "";
+
+    for (let i = 0; i < parts.length; i += 3) {
+
+        currentSentence += parts[i]; // Add the text part
+
+        let addedPunctuation = false;
+
+        if (i + 1 < parts.length) {
+            currentSentence += parts[i + 1]; // Add the punctuation mark
+            addedPunctuation = true;
+        }
+
+        const trimmedSentence = currentSentence.trim();
+        const lastWord = trimmedSentence.split(" ").pop();
+
+        // Check if the last word plus punctuation is an abbreviation
+        const possibleAbbreviation = addedPunctuation ? lastWord : lastWord + (parts[i + 1] || '');
+
+        if (abbreviations.includes(possibleAbbreviation)) {
+            currentSentence += parts[i + 2]; // Add the abbreviation
+            continue; // If it is an abbreviation, continue without splitting
+        } else {
+            if (trimmedSentence.length > 0) {
+                sentences.push(trimmedSentence); // Add the sentence to the array
+            }
+            currentSentence = ""; // Reset the current sentence for the next iteration
+        }
+    }
+
+    // If there's any remaining part of the sentence that wasn't added, add it now
+    if (currentSentence.trim().length > 0) {
+        sentences.push(currentSentence.trim());
+    }
+
+    return sentences.filter(sentence => sentence.length > 0); // Ensure no empty strings are added
 }
 
 /**

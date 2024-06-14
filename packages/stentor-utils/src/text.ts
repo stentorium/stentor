@@ -22,10 +22,10 @@ export function splitTextIntoSentences(text: string): string[] {
     const abbreviations = ["Mr.", "Mrs.", "Ms.", "Dr.", "Prof.", "Sr.", "Jr.", "St.", "Mt.", "Ave.", "Rd.", "Blvd.", "Ph.D.", "PhD.", "M.D.", "D.D.S.", "D.V.M.", "D.P.A.", "Pharm.D.", "B.A.", "M.A.", "M.S.", "M.B.A.", "M.D.", "M.P.H.", "M.P.P.", "M.P.A.", "M.S.W.", "M.F.A.", "M.Div.", "M.Ed.", "M.S.Ed.", "M.S.N."];
 
     // Regular expression to match sentence end markers followed by a space or end of string
-    const sentenceEndRegex = /([.!?])(\s+|$)/g;
+    const sentenceEndRegex = /([.!?])(\s{1,100}|$)/g;
 
     // Split the text based on the sentence end markers, keeping the punctuation marks separate
-    const parts = text.split(sentenceEndRegex);
+    const parts = text.trim().split(sentenceEndRegex);
 
     const sentences = [];
     let currentSentence = "";

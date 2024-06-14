@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.66](https://github.com/stentorium/stentor/compare/v1.59.65...v1.59.66) (2024-06-14)
+
+
+### Bug Fixes
+
+* Utils - Sentence Splitter and Question Popper ([#2427](https://github.com/stentorium/stentor/issues/2427)) ([d5ee7b6](https://github.com/stentorium/stentor/commit/d5ee7b6d1e5f4810958c0cdacb67ca356b42cbb6))
+
+
+
+
+
 ## [1.59.65](https://github.com/stentorium/stentor/compare/v1.59.64...v1.59.65) (2024-06-13)
 
 

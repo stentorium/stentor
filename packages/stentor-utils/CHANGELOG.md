@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.67](https://github.com/stentorium/stentor/compare/v1.59.66...v1.59.67) (2024-06-14)
+
+
+### Bug Fixes
+
+* Ability to Pop Questions with newlines in between ([#2428](https://github.com/stentorium/stentor/issues/2428)) ([832995a](https://github.com/stentorium/stentor/commit/832995ab5fb90de50f8d07941e3f4425d438824b))
+
+
+
+
+
 ## [1.59.66](https://github.com/stentorium/stentor/compare/v1.59.65...v1.59.66) (2024-06-14)
 
 

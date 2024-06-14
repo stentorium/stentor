@@ -14,9 +14,8 @@ export function splitTextIntoSentences(text: string): string[] {
     if (!text && typeof text !== "string") {
         return [];
     }
-
-    // Regular expression to match sentences ending with ., !, or ? followed by a space or end of string
-    const sentenceRegex = /[^.!?]*[.!?]+(?:\s|$)/g;
+    // Regular expression to match sentences ending with up to 10 periods, !, or ? followed by a space or end of string
+    const sentenceRegex = /[^.!?]*[.!?]{1,10}(?:\s|$)/g;
     const sentences = text.match(sentenceRegex);
 
     // Return an empty array if no matches found
@@ -46,7 +45,8 @@ export function isQuestion(sentence: string): boolean {
  * Removes the last sentence from the text if it is a question.
  * 
  * @param text - The input text from which the last question sentence will be removed.
- * @returns The modified text with the last question sentence removed, or the original text if the last sentence is not a question.
+ * @returns Returns an array with the modified text in the first element and the last question sentence in the second element.  
+ * If there isn't a question in the text the first element will be unmodified and the second element will not be provided.
  */
 export function popLastQuestion(text: string): [string, string?] {
     const sentences = splitTextIntoSentences(text);

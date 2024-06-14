@@ -27,5 +27,6 @@ export * from "./response";
 export * from "./speech";
 export * from "./ssml";
 export * from "./string";
+export * from "./text";
 export * from "./transcript";
 export * from "./uuid";

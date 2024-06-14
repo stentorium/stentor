@@ -108,8 +108,8 @@ export function popLastQuestion(text: string): [string, string?] {
     const lastSentence = sentences[sentences.length - 1];
 
     if (isQuestion(lastSentence)) {
-        // remove the last sentence from the original text using a regular expression
-        const modifiedText = text.replace(new RegExp(`${lastSentence}\\s*$`), "").trim();
+        // remove the last sentence from the original text
+        const modifiedText = text.trim().replace(lastSentence.trim(), "").trim();
         return [modifiedText, lastSentence];
     }
 

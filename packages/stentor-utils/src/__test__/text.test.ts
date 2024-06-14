@@ -43,6 +43,12 @@ describe("#splitTextIntoSentences()", () => {
         expect(splitTextIntoSentences(text)).to.deep.equal(sentences);
     });
 
+    it("should handle text with just two carriage returns in between sentences", () => {
+        const text = "This is the answer.\n\nAnything else I can help with?";
+        const sentences = ["This is the answer.", "Anything else I can help with?"];
+        expect(splitTextIntoSentences(text)).to.deep.equal(sentences);
+    });
+
     it("should handle text without punctuation", () => {
         const text = "This is a test with no punctuation";
         const sentences = ["This is a test with no punctuation"];
@@ -98,6 +104,11 @@ describe("#popLastQuestion()", () => {
     it("should handle single question sentence", () => {
         const text = "Is this the only question?";
         expect(popLastQuestion(text)).to.deep.equal(["", "Is this the only question?"]);
+    });
+
+    it("should handle two sentences with new lines in between", () => {
+        const text = "This is the answer.\n\nAnything else I can help with?";
+        expect(popLastQuestion(text)).to.deep.equal(["This is the answer.", "Anything else I can help with?"]);
     });
 
     it("should handle bad input", () => {

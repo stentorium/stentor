@@ -20,7 +20,7 @@
     "@types/sinon": "17.0.3",
     "@types/sinon-chai": "3.2.12",
     "@xapp/config": "0.2.3",
-    "aws-sdk": "2.1608.0",
+    "aws-sdk": "2.1642.0",
     "chai": "4.4.1",
     "mocha": "9.2.2",
     "sinon": "18.0.0",

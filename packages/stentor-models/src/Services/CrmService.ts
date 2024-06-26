@@ -110,7 +110,7 @@ export interface CrmServiceJobType {
      */
     name?: string;
 
-    class?: "MAINTENANCE" | "REPAIR" | "INSTALLATION" | "ESTIMATION";
+    class?: string;
 }
 
 export interface CrmService {

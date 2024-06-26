@@ -42,6 +42,10 @@ export interface ExternalLead {
      */
     jobTypeId?: string;
     /**
+     * Optinal id to to identify the availabilty stratego (blocked days ahead, etc)
+     */
+    availabilityClassId?: string;
+    /**
      * Is it abandoned (unfinished)?
      */
     isAbandoned?: boolean;

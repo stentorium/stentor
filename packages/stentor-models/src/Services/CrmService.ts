@@ -5,6 +5,15 @@ import { DateTime, DateTimeRange } from "../DateTime";
 
 export type DayOfWeek = "monday" | "tuesday" | "wednesday" | "thursday" | "friday" | "saturday" | "sunday";
 
+export interface AvailabilityClass {
+    id: string;
+    name: string;
+    summary: string;
+    numberOfDaysOut: number;
+    appointmentsPerDay: number;
+    leadOnly: boolean;
+}
+
 /**
  * Settings for the availability of the CRM service.
  */
@@ -25,6 +34,14 @@ export interface CrmServiceAvailabilitySettings {
      * Job types, where we only schedule a few days (3) ahead
      */
     delayedJobTypes?: string[];
+    /**
+     * The customer specific "availability classes" that describes the scheduling strategy for job types.
+     */
+    availabilityClasses?: AvailabilityClass[];
+    /**
+     * The default availability class (when the AI cannot figure it out)
+     */
+    defaultAvailabilityClass?: string;
 }
 
 export interface CrmServiceTimeAvailability {

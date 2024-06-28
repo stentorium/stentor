@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.75](https://github.com/stentorium/stentor/compare/v1.59.74...v1.59.75) (2024-06-28)
+
+
+### Bug Fixes
+
+* Availability class support on CRM ([#2438](https://github.com/stentorium/stentor/issues/2438)) ([016cfb9](https://github.com/stentorium/stentor/commit/016cfb9c951d218513b0f284d1f0d1ef6e921e3d))
+
+
+
+
+
 ## [1.59.74](https://github.com/stentorium/stentor/compare/v1.59.73...v1.59.74) (2024-06-25)
 
 **Note:** Version bump only for package repo

@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.59.75",
+  "version": "1.59.77",
   "description": "Storage for :mega: stentor using AWS DynamoDB",
   "types": "lib/index",
   "main": "lib/index",
@@ -18,7 +18,7 @@
     "@types/chai": "4.3.16",
     "@xapp/config": "0.2.3",
     "chai": "4.4.1",
-    "stentor-models": "1.59.75",
+    "stentor-models": "1.59.77",
     "typescript": "5.5.3"
   },
   "dependencies": {

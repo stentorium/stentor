@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.59.80",
+  "version": "1.59.81",
   "description": "Simple logging library built on top of Winston for 📣 stentor",
   "types": "lib/index",
   "main": "lib/index",

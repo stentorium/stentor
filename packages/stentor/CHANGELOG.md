@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.82](https://github.com/stentorium/stentor/compare/v1.59.81...v1.59.82) (2024-07-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/aws-lambda to v8.10.141 ([bafb9d5](https://github.com/stentorium/stentor/commit/bafb9d5e8dfc35e207d3c504105807086ff006cc))
+
+
+
+
+
 ## [1.59.81](https://github.com/stentorium/stentor/compare/v1.59.80...v1.59.81) (2024-07-11)
 
 **Note:** Version bump only for package stentor

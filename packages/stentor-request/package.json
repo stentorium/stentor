@@ -26,7 +26,7 @@
     "stentor-models": "1.59.84",
     "stentor-storage": "1.59.84",
     "ts-node": "10.9.2",
-    "typescript": "5.5.3"
+    "typescript": "5.5.4"
   },
   "dependencies": {
     "@xapp/patterns": "2.0.2",

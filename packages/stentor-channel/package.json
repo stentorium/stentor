@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.59.85",
+  "version": "1.59.86",
   "description": "The most basic of channels, one that uses stentor requests & responses as input.",
   "types": "lib/index",
   "main": "lib/index",
@@ -23,14 +23,14 @@
     "mocha": "9.2.2",
     "sinon": "18.0.0",
     "sinon-chai": "3.7.0",
-    "stentor-models": "1.59.85",
+    "stentor-models": "1.59.86",
     "ts-node": "10.9.2",
     "typescript": "5.5.4"
   },
   "dependencies": {
     "@xapp/patterns": "2.0.2",
-    "stentor-logger": "1.59.85",
-    "stentor-utils": "1.59.85"
+    "stentor-logger": "1.59.86",
+    "stentor-utils": "1.59.86"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

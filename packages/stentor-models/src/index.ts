@@ -14,6 +14,7 @@ export type * from "./Display";
 export type * from "./Email";
 export type * from "./Entity";
 export type * from "./Events";
+export type * from "./Form";
 export type * from "./Handler";
 export type * from "./History";
 export type * from "./Intent";

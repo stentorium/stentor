@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.87](https://github.com/stentorium/stentor/compare/v1.59.86...v1.59.87) (2024-07-25)
+
+
+### Bug Fixes
+
+* Adding Form Models ([#2454](https://github.com/stentorium/stentor/issues/2454)) ([66e177a](https://github.com/stentorium/stentor/commit/66e177abfe846faf193c782b992a7553b2f53f0f))
+
+
+
+
+
 ## [1.59.86](https://github.com/stentorium/stentor/compare/v1.59.85...v1.59.86) (2024-07-25)
 
 **Note:** Version bump only for package repo

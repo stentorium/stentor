@@ -17,7 +17,7 @@
   "devDependencies": {
     "@types/chai": "4.3.16",
     "@xapp/config": "0.2.3",
-    "chai": "4.4.1",
+    "chai": "4.5.0",
     "stentor-models": "1.59.87",
     "typescript": "5.5.4"
   },

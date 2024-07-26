@@ -20,7 +20,7 @@
     "@types/fetch-mock": "7.3.8",
     "@xapp/config": "0.2.3",
     "abort-controller": "3.0.0",
-    "chai": "4.4.1",
+    "chai": "4.5.0",
     "chai-as-promised": "7.1.2",
     "dotenv": "16.4.5",
     "fetch-mock": "9.11.0",

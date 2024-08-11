@@ -16,7 +16,7 @@
     "node": "^12 || ^14 || ^16 || ^18 || ^20.0.0"
   },
   "devDependencies": {
-    "@types/chai": "4.3.16",
+    "@types/chai": "4.3.17",
     "@xapp/config": "0.2.3",
     "chai": "4.5.0",
     "isolated-vm": "5.0.1",

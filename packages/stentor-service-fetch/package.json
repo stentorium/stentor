@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.59.91",
+  "version": "1.59.92",
   "description": "Simple fetch service with timeouts",
   "types": "lib/index",
   "main": "lib/index",

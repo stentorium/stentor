@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.96](https://github.com/stentorium/stentor/compare/v1.59.95...v1.59.96) (2024-08-15)
+
+
+### Bug Fixes
+
+* Documentation on Availability Classes ([#2470](https://github.com/stentorium/stentor/issues/2470)) ([4ca0dec](https://github.com/stentorium/stentor/commit/4ca0decfd824306b456cff781fd39a9b895ee960))
+
+
+
+
+
 ## [1.59.95](https://github.com/stentorium/stentor/compare/v1.59.94...v1.59.95) (2024-08-14)
 
 

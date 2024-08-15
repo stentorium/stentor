@@ -6,12 +6,36 @@ import { DateTime, DateTimeRange } from "../DateTime";
 export type DayOfWeek = "monday" | "tuesday" | "wednesday" | "thursday" | "friday" | "saturday" | "sunday";
 
 export interface AvailabilityClass {
+    /**
+     * ID for the availability class, typically the slugged name.
+     */
     id: string;
+    /**
+     * Human readable name of the availability class
+     */
     name: string;
+    /**
+     * Summary of the availability class.  This is used to describe the availability class so the AI can match it to user input.  It contains high level description as well as examples of input that would match to this class.
+     */
     summary: string;
-    numberOfDaysOut: number;
-    appointmentsPerDay: number;
-    leadOnly: boolean;
+    /**
+     * Minimum number of days out that can be scheduled for this type.
+     * 
+     * This is independent of if the day is available or not.
+     * 
+     * Value of 0 is the default if not provided, meaning same day could be available.
+     */
+    numberOfDaysOut?: number;
+    /**
+     * Maximum number of appointments that can be scheduled per day for this type.
+     * 
+     * If not provided, it is assumed to be unlimited.
+     */
+    appointmentsPerDay?: number;
+    /**
+     * If true, this availability class is only for leads and not for appointments as they typically require more information and followup.
+     */
+    leadOnly?: boolean;
 }
 
 /**

@@ -17,7 +17,7 @@
     "node": "^12 || ^14 || ^16 || ^18 || ^20.0.0"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "7.47.6",
+    "@microsoft/api-extractor": "7.47.7",
     "@types/chai": "4.3.17",
     "@types/mocha": "9.1.1",
     "@types/node": "20.16.1",

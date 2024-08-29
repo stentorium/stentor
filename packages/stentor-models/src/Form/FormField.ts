@@ -155,11 +155,38 @@ export interface FormCardInput extends FormInput {
     align?: string; // text alignment, which can be set to "left," "center," "right," or "justify."
 }
 
+
+export interface BusyDayDescription {
+    /**
+     * Blocks all weekends
+     */
+    readonly blockWeekends?: boolean;
+    /**
+     * Blocks the current day.
+     * 
+     * If it is a weekend and weekends are not blocked, it will be blocked.
+     * If it is a weekend and weekends are blocked, the it will be disregarded.
+     */
+    readonly blockCurrentDay?: boolean;
+    /**
+     * Blocks the next number of business days.
+     * 
+     * One business day will bock the next business day.
+     */
+    readonly blockNextBusinessDays?: number;
+}
+
 /**
  * Single date
  */
 export interface FormDateInput extends FormInput {
     preselecteDate?: Date;
+    /**
+     * Default busy days that will show as unavailable.
+     * 
+     * These are only used when busy days are not provided by the FSM
+     */
+    defaultBusyDays?: BusyDayDescription;
 }
 
 /**

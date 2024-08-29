@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.102](https://github.com/stentorium/stentor/compare/v1.59.101...v1.59.102) (2024-08-29)
+
+
+### Bug Fixes
+
+* Adds defaultBusyDays to be configurable for the form field ([#2480](https://github.com/stentorium/stentor/issues/2480)) ([d9f75e4](https://github.com/stentorium/stentor/commit/d9f75e473b864d8341ae239dbd20f206f2b221ff))
+
+
+
+
+
 ## [1.59.101](https://github.com/stentorium/stentor/compare/v1.59.100...v1.59.101) (2024-08-26)
 
 **Note:** Version bump only for package repo

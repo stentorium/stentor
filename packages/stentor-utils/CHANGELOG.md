@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.110](https://github.com/stentorium/stentor/compare/v1.59.109...v1.59.110) (2024-09-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.7.7 ([#2498](https://github.com/stentorium/stentor/issues/2498)) ([b192539](https://github.com/stentorium/stentor/commit/b19253965ad170019a4e8bafd1bcced77b401d5b))
+
+
+
+
+
 ## [1.59.109](https://github.com/stentorium/stentor/compare/v1.59.108...v1.59.109) (2024-09-17)
 
 

@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.59.114",
+  "version": "1.59.115",
   "description": "Locales for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -24,7 +24,7 @@
     "typescript": "5.5.4"
   },
   "dependencies": {
-    "stentor-utils": "1.59.114"
+    "stentor-utils": "1.59.115"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

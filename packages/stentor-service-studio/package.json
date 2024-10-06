@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.59.116",
+  "version": "1.59.117",
   "description": "OC Studio service for 📣 stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -25,15 +25,15 @@
     "dotenv": "16.4.5",
     "fetch-mock": "9.11.0",
     "mocha": "9.2.2",
-    "stentor-models": "1.59.114",
+    "stentor-models": "1.59.117",
     "ts-node": "10.9.2",
     "typescript": "5.5.4"
   },
   "dependencies": {
     "isomorphic-fetch": "3.0.0",
-    "stentor-constants": "1.59.114",
-    "stentor-service-event": "1.59.116",
-    "stentor-utils": "1.59.116"
+    "stentor-constants": "1.59.117",
+    "stentor-service-event": "1.59.117",
+    "stentor-utils": "1.59.117"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

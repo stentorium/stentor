@@ -28,7 +28,7 @@
     "typescript": "5.5.4"
   },
   "dependencies": {
-    "jsonpath-plus": "9.0.0",
+    "jsonpath-plus": "10.0.0",
     "stentor-conditional": "1.59.118",
     "stentor-constants": "1.59.117",
     "stentor-guards": "1.59.117",

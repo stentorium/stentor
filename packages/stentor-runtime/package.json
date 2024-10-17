@@ -29,7 +29,7 @@
     "stentor-models": "1.59.123",
     "stentor-request": "1.59.123",
     "ts-node": "10.9.2",
-    "typescript": "5.5.4"
+    "typescript": "5.6.3"
   },
   "dependencies": {
     "stentor-constants": "1.59.123",

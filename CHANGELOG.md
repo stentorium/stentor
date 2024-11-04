@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.130](https://github.com/stentorium/stentor/compare/v1.59.129...v1.59.130) (2024-11-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/express to v5 ([745ef58](https://github.com/stentorium/stentor/commit/745ef58b40d9a3f00f627860762ab398e4bab3bf))
+
+
+
+
+
 ## [1.59.129](https://github.com/stentorium/stentor/compare/v1.59.128...v1.59.129) (2024-11-04)
 
 **Note:** Version bump only for package repo

@@ -5047,10 +5047,10 @@ map-obj@^4.0.0:
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-4.3.0.tgz#9304f906e93faae70880da102a9f1df0ea8bb05a"
   integrity sha512-hdN1wVrZbb29eBGiGjJbeP8JbKjq1urkHJ/LIP/NY48MZ1QVXUsQBV1G1zvYFHn1XE06cwjBsOI2K3Ulnj1YXQ==
 
-marked-xhtml@1.0.11:
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/marked-xhtml/-/marked-xhtml-1.0.11.tgz#e20a922d862a5f9dc49d42a3fb02e6403981d2b5"
-  integrity sha512-2sIywINl8anbzErb0+FdMdCy2Rqqy8LCVuFULjDbbd6ekZvYJRI2vSPf265RGJH+zHqdu66aHx+HMPTxDb1UfA==
+marked-xhtml@1.0.12:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/marked-xhtml/-/marked-xhtml-1.0.12.tgz#89ad539f346e854d45e51c47e89fe4cc84dca7b6"
+  integrity sha512-h35OOyAH8cGHAuwXCj0LMi/mXWGS4st2SOj78EGNBFEJq7YzQklU8xPkWd9h4Glby6QbHghk9RNiWiVaTwVPZQ==
 
 marked@*:
   version "14.1.2"

@@ -12,12 +12,12 @@
     "lib"
   ],
   "engines": {
-    "node": "^12 || ^14 || ^16 || ^18 || ^20.0.0"
+    "node": "^12 || ^14 || ^16 || ^18 || ^20.0.0 || ^22.0.0"
   },
   "devDependencies": {
     "@types/chai": "4.3.20",
     "@types/mocha": "9.1.1",
-    "@types/node": "20.17.6",
+    "@types/node": "22.9.1",
     "@types/sinon": "17.0.3",
     "@xapp/config": "0.2.3",
     "chai": "4.5.0",

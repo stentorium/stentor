@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.134](https://github.com/stentorium/stentor/compare/v1.59.133...v1.59.134) (2024-11-20)
+
+
+### Bug Fixes
+
+* Updates hasSessionId to reflect ChannelActionRequest ([#2542](https://github.com/stentorium/stentor/issues/2542)) ([e41034b](https://github.com/stentorium/stentor/commit/e41034bb913966c98c3f877437a716aaecd238c9))
+
+
+
+
+
 ## [1.59.128](https://github.com/stentorium/stentor/compare/v1.59.127...v1.59.128) (2024-11-01)
 
 **Note:** Version bump only for package stentor-guards

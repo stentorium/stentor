@@ -41,8 +41,11 @@ export class HandlerFactory {
         // Help from here: https://github.com/Microsoft/TypeScript/issues/9302
         this.handlers = new Map<string, new (props: Handler) => AbstractHandler>();
         // These are always available
-        this.handlers.set(ConversationHandler.name, ConversationHandler);
-        this.handlers.set(DelegatingHandler.name, DelegatingHandler);
+        // TODO: These get obfuscated in the build process and don't work anymore! COOL!
+        //  this.handlers.set(ConversationHandler.name, ConversationHandler);
+        this.handlers.set("ConversationHandler", ConversationHandler);
+        // this.handlers.set(DelegatingHandler.name, DelegatingHandler);
+        this.handlers.set("DelegatingHandler", DelegatingHandler);
         // This accounts to some v0 mappings
         this.handlers.set(CONVERSATION_HANDLER_TYPE, ConversationHandler);
         this.handlers.set(BASE_HANDLER_TYPE, ConversationHandler);

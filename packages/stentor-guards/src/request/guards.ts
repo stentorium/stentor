@@ -243,20 +243,18 @@ export function isNewSession(request: Request): boolean {
 
 /**
  * Helper function to determine if the request has a sessionID.
- *
- * @param {Request} request
- * @returns True if the
  */
 export function hasSessionId(
     request: Request
-): request is InputUnknownRequest | IntentRequest | LaunchRequest | SessionEndedRequest | PermissionRequest | RawQueryRequest {
+): request is InputUnknownRequest | IntentRequest | LaunchRequest | SessionEndedRequest | PermissionRequest | RawQueryRequest | ChannelActionRequest {
     return (
         isInputUnknownRequest(request) ||
         isIntentRequest(request) ||
         isLaunchRequest(request) ||
         isSessionEndedRequest(request) ||
         isPermissionRequest(request) ||
-        isRawQueryRequest(request)
+        isRawQueryRequest(request) ||
+        isChannelActionRequest(request)
     );
 }
 

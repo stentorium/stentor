@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.133](https://github.com/stentorium/stentor/compare/v1.59.132...v1.59.133) (2024-11-20)
+
+
+### Bug Fixes
+
+* Strings for Handler Map Keys ([#2541](https://github.com/stentorium/stentor/issues/2541)) ([50c0320](https://github.com/stentorium/stentor/commit/50c0320702ee8c1aec1ea4facc623c3159e75744))
+
+
+
+
+
 ## [1.59.132](https://github.com/stentorium/stentor/compare/v1.59.131...v1.59.132) (2024-11-11)
 
 **Note:** Version bump only for package stentor-handler-factory

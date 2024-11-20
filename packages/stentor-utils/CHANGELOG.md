@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.133](https://github.com/stentorium/stentor/compare/v1.59.132...v1.59.133) (2024-11-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency jsonpath-plus to v10.2.0 ([#2539](https://github.com/stentorium/stentor/issues/2539)) ([678f193](https://github.com/stentorium/stentor/commit/678f1933afa34e9aab16f1bc2e72821edcd1547d))
+* **deps:** update dependency marked-xhtml to v1.0.12 ([#2534](https://github.com/stentorium/stentor/issues/2534)) ([cac5ce5](https://github.com/stentorium/stentor/commit/cac5ce5fba1cd96af335f357d5188151c8b58550))
+
+
+
+
+
 ## [1.59.132](https://github.com/stentorium/stentor/compare/v1.59.131...v1.59.132) (2024-11-11)
 
 **Note:** Version bump only for package stentor-utils

@@ -40,7 +40,7 @@
     "test": "mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
   },
   "dependencies": {
-    "@types/aws-lambda": "8.10.145",
+    "@types/aws-lambda": "8.10.146",
     "@types/body-parser": "1.19.5",
     "@types/express": "5.0.0",
     "@xapp/patterns": "2.0.2",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.59.139](https://github.com/stentorium/stentor/compare/v1.59.138...v1.59.139) (2024-12-09)
+
+
+### Bug Fixes
+
+* hasSessionID for channel request ([#2550](https://github.com/stentorium/stentor/issues/2550)) ([238f61c](https://github.com/stentorium/stentor/commit/238f61ce320e8fad603d9df3914a1d85744fab21))
+
+
+
+
+
 ## [1.59.138](https://github.com/stentorium/stentor/compare/v1.59.137...v1.59.138) (2024-12-02)
 
 

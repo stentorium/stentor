@@ -17,7 +17,7 @@
     "node": "^12 || ^14 || ^16 || ^18 || ^20.0.0"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "7.48.0",
+    "@microsoft/api-extractor": "7.48.1",
     "@rollup/plugin-typescript": "12.1.1",
     "@xapp/config": "0.2.3",
     "rollup": "3.29.5",

@@ -28,7 +28,7 @@
     "stentor-models": "1.59.144",
     "stentor-request": "1.59.144",
     "ts-node": "10.9.2",
-    "typescript": "5.5.4"
+    "typescript": "5.7.2"
   },
   "dependencies": {
     "stentor-guards": "1.59.144",

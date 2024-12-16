@@ -22,7 +22,7 @@
     "isolated-vm": "5.0.2",
     "mocha": "11.0.1",
     "stentor-models": "1.59.144",
-    "typescript": "5.5.4",
+    "typescript": "5.7.2",
     "vm2": "3.9.19"
   },
   "dependencies": {

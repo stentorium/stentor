@@ -14,34 +14,41 @@ jobs:
       - restore_cache:
           keys:
             # when lock file changes, use increasingly general patterns to restore cache
-            - yarn-packages-v2-{{ .Branch }}-{{ checksum "yarn.lock" }}
-            - yarn-packages-v2-{{ .Branch }}-
-            - yarn-packages-v2-
+            - yarn-packages-v3-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - yarn-packages-v3-{{ .Branch }}-
+            - yarn-packages-v3-
       - run:
           name: Install Dependencies
-          command: yarn --frozen-lockfile --cache-folder ~/.cache/yarn
+          command: yarn install --immutable
       - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-v3-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
-            - ~/.cache/yarn
-          key: yarn-packages-v2-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - node_modules
+            - .yarn/cache
+            - .yarn/unplugged
       - persist_to_workspace:
           root: ~/repo
           paths:
-            - .git/*
-            - .npmrc
-            - .nycrc
-            - .nyc_output/*
-            - test/mocha.opts
-            - scripts/*
-            - node_modules/*
-            - packages/*
-            - package.json
-            - README.md
-            - tsconfig.json
-            - lerna.json
             - .eslintignore
             - .eslintrc.js
-            - .yarnrc
+            - .git/*
+            - .npmrc
+            - .nyc_output/*
+            - .nycrc
+            - .yarn/releases/yarn-4.5.3.cjs
+            - .yarn/plugins/*
+            - .yarnclean
+            - .yarnrc.yml
+            - lerna.json
+            - node_modules/*
+            - package.json
+            - packages/*
+            - README.md
+            - scripts/*
+            - test/mocha.opts
+            - tsconfig.json
+            - yarn.lock
   build:
     <<: *defaults
     steps:

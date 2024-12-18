@@ -35,24 +35,27 @@ export function redact(info: TransformableInfo): TransformableInfo {
     }
 
     // Make a copy so we don't modify the original
-    const copy = { ...info };
+    const copy: TransformableInfo = { ...info };
 
-    let message = copy.message;
+    let partial = process.env.OVAI_LOG_PII_MASK_PARTIAL === "true";
+    if (partial) {
+        console.warn(`OVAI_LOG_PII_MASK_PARTIAL is now deprecated, please update to use STENTOR_LOG_PII_MASK_PARTIAL instead.`)
+    }
+    // Override the deprecated one if the real one exists.
+    if (process.env.STENTOR_LOG_PII_MASK_PARTIAL) {
+        partial = process.env.STENTOR_LOG_PII_MASK_PARTIAL === "true";
+    }
+
+    let message: unknown = copy.message;
+
     if (typeof message === "string") {
-        let partial = process.env.OVAI_LOG_PII_MASK_PARTIAL === "true";
-        if (partial) {
-            console.warn(`OVAI_LOG_PII_MASK_PARTIAL is now deprecated, please update to use STENTOR_LOG_PII_MASK_PARTIAL instead.`)
-        }
-        // Override the deprecated one if the real one exists.
-        if (process.env.STENTOR_LOG_PII_MASK_PARTIAL) {
-            partial = process.env.STENTOR_LOG_PII_MASK_PARTIAL === "true";
-        }
-        message = maskEmails(message, partial);
-        message = maskPhoneNumbers(message, partial);
+
+        const emailsMasked: string = maskEmails(message, partial);
+        message = maskPhoneNumbers(emailsMasked, partial);
     } else if (typeof message === "object") {
-        let asString = JSON.stringify(copy.message);
-        asString = maskEmails(asString);
-        asString = maskPhoneNumbers(asString);
+        let asString = JSON.stringify(message);
+        const emailsMasked = maskEmails(asString, partial);
+        asString = maskPhoneNumbers(emailsMasked, partial);
         try {
             message = JSON.parse(asString);
         } catch (e) {
@@ -93,7 +96,7 @@ export function log(): Logger {
                 format.prettyPrint(),
                 format.splat(),
                 format.timestamp(),
-                format.printf(info => {
+                format.printf((info) => {
 
                     if (info.message && info.message.constructor === Object) {
                         // for AWS, if you pretty print then it takes up new lines in CloudWatch, which pollutes
@@ -128,7 +131,7 @@ export function log(): Logger {
                     if (isOnAWSLambda()) {
                         // CloudWatch automatically includes the timestamp, it isn't needed
                         return `${lead}|${info.message}`;
-                    } else {
+                    } else if (typeof info.timestamp === "string") {
                         // outside, just print the time mm
                         const time = new Date(info.timestamp).toLocaleTimeString([], {
                             minute: '2-digit',

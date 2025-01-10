@@ -9312,7 +9312,7 @@ __metadata:
     stentor-models: "npm:1.59.146"
     stentor-utils: "npm:1.59.146"
     ts-node: "npm:10.9.2"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
@@ -9329,7 +9329,7 @@ __metadata:
     mocha: "npm:11.0.1"
     stentor-logger: "npm:1.59.146"
     stentor-models: "npm:1.59.146"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
     vm2: "npm:3.9.19"
   peerDependencies:
     stentor-models: 1.x
@@ -9345,7 +9345,7 @@ __metadata:
   dependencies:
     "@xapp/config": "npm:0.2.3"
     stentor-models: "npm:1.59.146"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
@@ -9369,7 +9369,7 @@ __metadata:
     stentor-response: "npm:1.59.146"
     stentor-storage: "npm:1.59.146"
     ts-node: "npm:10.9.2"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
@@ -9399,7 +9399,7 @@ __metadata:
     stentor-time: "npm:1.59.146"
     stentor-utils: "npm:1.59.146"
     ts-node: "npm:10.9.2"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
@@ -9420,7 +9420,7 @@ __metadata:
     stentor-constants: "npm:1.59.146"
     stentor-models: "npm:1.59.146"
     ts-node: "npm:10.9.2"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
@@ -9437,7 +9437,7 @@ __metadata:
     stentor-models: "npm:1.59.146"
     stentor-utils: "npm:1.59.146"
     ts-node: "npm:10.9.2"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
@@ -9466,7 +9466,7 @@ __metadata:
     stentor-response: "npm:1.59.146"
     stentor-utils: "npm:1.59.146"
     ts-node: "npm:10.9.2"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
@@ -9495,7 +9495,7 @@ __metadata:
     stentor-response: "npm:1.59.146"
     stentor-storage: "npm:1.59.146"
     ts-node: "npm:10.9.2"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
@@ -9528,7 +9528,7 @@ __metadata:
     stentor-storage: "npm:1.59.146"
     stentor-utils: "npm:1.59.146"
     ts-node: "npm:10.9.2"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
@@ -9546,7 +9546,7 @@ __metadata:
     sinon: "npm:19.0.2"
     stentor-models: "npm:1.59.146"
     ts-node: "npm:10.9.2"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
@@ -9566,7 +9566,7 @@ __metadata:
     stentor-models: "npm:1.59.146"
     stentor-utils: "npm:1.59.146"
     ts-node: "npm:10.9.2"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
@@ -9583,7 +9583,7 @@ __metadata:
     stentor-models: "npm:1.59.146"
     stentor-utils: "npm:1.59.146"
     ts-node: "npm:10.9.2"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
@@ -9605,7 +9605,7 @@ __metadata:
     stentor-models: "npm:1.59.146"
     stentor-utils: "npm:1.59.146"
     ts-node: "npm:10.9.2"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
     winston: "npm:3.17.0"
   languageName: unknown
   linkType: soft
@@ -9626,7 +9626,7 @@ __metadata:
     stentor-models: "npm:1.59.146"
     stentor-time: "npm:1.59.146"
     stentor-utils: "npm:1.59.146"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
@@ -9642,7 +9642,7 @@ __metadata:
     "@xapp/patterns": "npm:2.0.2"
     rollup: "npm:3.29.5"
     tslib: "npm:2.8.1"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
   languageName: unknown
   linkType: soft
 
@@ -9665,7 +9665,7 @@ __metadata:
     stentor-storage: "npm:1.59.146"
     stentor-utils: "npm:1.59.146"
     ts-node: "npm:10.9.2"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
@@ -9691,7 +9691,7 @@ __metadata:
     stentor-models: "npm:1.59.146"
     stentor-utils: "npm:1.59.146"
     ts-node: "npm:10.9.2"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
@@ -9726,7 +9726,7 @@ __metadata:
     stentor-service-event: "npm:1.59.146"
     stentor-utils: "npm:1.59.146"
     ts-node: "npm:10.9.2"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
@@ -9752,7 +9752,7 @@ __metadata:
     stentor-models: "npm:1.59.146"
     stentor-utils: "npm:1.59.146"
     ts-node: "npm:10.9.2"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
   peerDependencies:
     aws-sdk: 2.x
     stentor-models: 1.x
@@ -9771,7 +9771,7 @@ __metadata:
     isomorphic-fetch: "npm:3.0.0"
     stentor-models: "npm:1.59.146"
     ts-node: "npm:10.9.2"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
@@ -9793,7 +9793,7 @@ __metadata:
     stentor-service-event: "npm:1.59.146"
     stentor-utils: "npm:1.59.146"
     ts-node: "npm:10.9.2"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
@@ -9819,7 +9819,7 @@ __metadata:
     stentor-service-event: "npm:1.59.146"
     stentor-utils: "npm:1.59.146"
     ts-node: "npm:10.9.2"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
@@ -9835,7 +9835,7 @@ __metadata:
     jsonpath-plus: "npm:10.2.0"
     stentor-models: "npm:1.59.146"
     stentor-utils: "npm:1.59.146"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
@@ -9860,7 +9860,7 @@ __metadata:
     stentor-models: "npm:1.59.146"
     stentor-utils: "npm:1.59.146"
     ts-node: "npm:10.9.2"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
@@ -9875,7 +9875,7 @@ __metadata:
     "@xapp/dynamo-service": "npm:1.8.7"
     chai: "npm:4.5.0"
     stentor-models: "npm:1.59.146"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
@@ -9925,7 +9925,7 @@ __metadata:
     stentor-guards: "npm:1.59.146"
     stentor-models: "npm:1.59.146"
     ts-node: "npm:10.9.2"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
     words-to-numbers: "npm:1.5.1"
     xmldoc: "npm:1.3.0"
   peerDependencies:
@@ -9974,7 +9974,7 @@ __metadata:
     stentor-service-studio: "npm:1.59.146"
     stentor-utils: "npm:1.59.146"
     ts-node: "npm:10.9.2"
-    typescript: "npm:5.7.2"
+    typescript: "npm:5.7.3"
   peerDependencies:
     aws-sdk: 2.X
   languageName: unknown
@@ -10599,7 +10599,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:5.7.2, typescript@npm:>=3 < 6":
+"typescript@npm:5.7.3":
+  version: 5.7.3
+  resolution: "typescript@npm:5.7.3"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 10c0/b7580d716cf1824736cc6e628ab4cd8b51877408ba2be0869d2866da35ef8366dd6ae9eb9d0851470a39be17cbd61df1126f9e211d8799d764ea7431d5435afa
+  languageName: node
+  linkType: hard
+
+"typescript@npm:>=3 < 6":
   version: 5.7.2
   resolution: "typescript@npm:5.7.2"
   bin:
@@ -10619,7 +10629,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A5.7.2#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A>=3 < 6#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A5.7.3#optional!builtin<compat/typescript>":
+  version: 5.7.3
+  resolution: "typescript@patch:typescript@npm%3A5.7.3#optional!builtin<compat/typescript>::version=5.7.3&hash=5786d5"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 10c0/6fd7e0ed3bf23a81246878c613423730c40e8bdbfec4c6e4d7bf1b847cbb39076e56ad5f50aa9d7ebd89877999abaee216002d3f2818885e41c907caaa192cc4
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@npm%3A>=3 < 6#optional!builtin<compat/typescript>":
   version: 5.7.2
   resolution: "typescript@patch:typescript@npm%3A5.7.2#optional!builtin<compat/typescript>::version=5.7.2&hash=5786d5"
   bin:

@@ -36,7 +36,7 @@ jobs:
             - .npmrc
             - .nyc_output/*
             - .nycrc
-            - .yarn/releases/yarn-4.5.3.cjs
+            - .yarn/releases/*
             - .yarn/plugins/*
             - .yarnclean
             - .yarnrc.yml

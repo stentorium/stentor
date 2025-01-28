@@ -6,7 +6,7 @@ import {
   parseAddressAsSlots,
 } from "../address";
 
-describe.only(`#${parseAddress.name}()`, () => {
+describe(`#${parseAddress.name}()`, () => {
   it("parses the address", () => {
     const parsed = parseAddress(
       "1600 Pennsylvania Avenue NW, Washington, DC 20500"
@@ -34,8 +34,7 @@ describe.only(`#${parseAddress.name}()`, () => {
   });
   describe("with partial addresses", () => {
     it("parses correctly", () => {
-      // 60951 Granite Dr  97702
-      const parsed = parseAddress("60951 Granite Dr  97702");
+      const parsed = parseAddress("70951 Granite Dr  97702");
       expect(parsed).to.exist;
       // This still needs more work to work
       // expect(parsed.zip).toBe("97702");
@@ -133,17 +132,17 @@ describe(`#${parseAddressAsSlots.name}()`, () => {
       const parsed = parseAddressAsSlots("1600 Pennsylvania Avenue NW");
       expect(parsed).to.deep.equal({});
 
-      const parsed0 = parseAddressAsSlots("1617 D St NE");
+      const parsed0 = parseAddressAsSlots("1500 E St SE");
       expect(parsed0).to.exist;
 
-      const parsed1 = parseAddressAsSlots("5 Glenlake Court");
+      const parsed1 = parseAddressAsSlots("5 Glenpone Court");
       expect(parsed1).to.exist;
     });
   });
 
   describe("with partial addresses", () => {
     it("parses correctly", () => {
-      const parsed = parseAddressAsSlots("60951 Granite Dr  97702");
+      const parsed = parseAddressAsSlots("70951 Granite Dr  97702");
       expect(parsed).to.exist;
     });
   });

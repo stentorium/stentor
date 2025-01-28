@@ -63,7 +63,7 @@ function customParseAddress(formattedAddress: string): ParsedAddress {
 
     parsedAddress.stateName = parsedAddress.stateAbbreviation; // Fallback since the full name isn't provided
   } else {
-    log().warn("Unexpected address format:", formattedAddress);
+    console.warn("Unexpected address format:", formattedAddress);
   }
 
   parsedAddress.id =
@@ -174,8 +174,7 @@ export function parseAddressAsSlots(
     addressed = addresser.parseAddress(address);
   } catch (e) {
     // not a valid address
-    log().warn(`Unabled to parse address string "${address}"`);
-    log().warn(e);
+    console.warn(`Unabled to parse address string "${address}"`);
   }
 
   if (addressed) {

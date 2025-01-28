@@ -1,5 +1,4 @@
 /*! Copyright (c) 2025, XAPP AI */
-import { log } from "stentor-logger";
 import { AddressIntentRequestSlotMap } from "stentor-models";
 import * as addresser from "addresser";
 
@@ -86,12 +85,7 @@ export function parseAddress(address: string): ParsedAddress | undefined {
   try {
     addressed = addresser.parseAddress(address);
   } catch (e) {
-    // not a valid address
-    log().warn(
-      `Unable to parse address string "${address}" using addresser, attempting fallback.`
-    );
-    log().warn(e);
-
+    // Not a valid address
     // Fallback to custom parser
     addressed = customParseAddress(address);
   }

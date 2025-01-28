@@ -1,4 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
+export * from "./AddressIntentRequest";
 export * from "./AudioPlayerRequest";
 export * from "./ChannelActionRequest";
 export * from "./InputUnknownRequest";

@@ -1808,6 +1808,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"addresser@npm:1.1.20":
+  version: 1.1.20
+  resolution: "addresser@npm:1.1.20"
+  checksum: 10c0/97304b70b092597f8fa3551c3396bfdeb6ac855f54f3f6c8388e6dd57f8041d65c999bc3d2d6d79ef2966f3b5a3438aab395383badcd602fb8cc977a27d4402a
+  languageName: node
+  linkType: hard
+
 "agent-base@npm:6, agent-base@npm:^6.0.2":
   version: 6.0.2
   resolution: "agent-base@npm:6.0.2"
@@ -9900,6 +9907,7 @@ __metadata:
     "@types/sinon-chai": "npm:3.2.12"
     "@types/xmldoc": "npm:1.1.9"
     "@xapp/config": "npm:0.2.3"
+    addresser: "npm:1.1.20"
     aws-sdk: "npm:2.1692.0"
     blueimp-md5: "npm:2.19.0"
     chai: "npm:4.5.0"

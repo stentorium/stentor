@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@types/xmldoc": "1.1.9",
+    "addresser": "1.1.20",
     "blueimp-md5": "2.19.0",
     "chrono-node": "2.7.7",
     "date-fns": "4.1.0",

@@ -517,20 +517,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@microsoft/api-documenter@npm:7.26.7":
-  version: 7.26.7
-  resolution: "@microsoft/api-documenter@npm:7.26.7"
+"@microsoft/api-documenter@npm:7.26.8":
+  version: 7.26.8
+  resolution: "@microsoft/api-documenter@npm:7.26.8"
   dependencies:
     "@microsoft/api-extractor-model": "npm:7.30.3"
     "@microsoft/tsdoc": "npm:~0.15.1"
     "@rushstack/node-core-library": "npm:5.11.0"
-    "@rushstack/terminal": "npm:0.14.6"
-    "@rushstack/ts-command-line": "npm:4.23.4"
+    "@rushstack/terminal": "npm:0.15.0"
+    "@rushstack/ts-command-line": "npm:4.23.5"
     js-yaml: "npm:~3.13.1"
     resolve: "npm:~1.22.1"
   bin:
     api-documenter: bin/api-documenter
-  checksum: 10c0/7c0c331bf3829edb8418cfb35a53f0f7527a19aab409089394aa92c6d2d9d589927b58f69a9aeaceaf4b2db7d74ed318d88807ff7e28555dc95145b00aa68e66
+  checksum: 10c0/6e756fa5ede8f2dd6537a05b71048048b7879c4f71c22f294a5185072cb8c90a277c02978e5c1e7ba9d4f8c6252e9a35223b49074b6e77b8f544ae952efe7cfa
   languageName: node
   linkType: hard
 
@@ -1081,6 +1081,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rushstack/terminal@npm:0.15.0":
+  version: 0.15.0
+  resolution: "@rushstack/terminal@npm:0.15.0"
+  dependencies:
+    "@rushstack/node-core-library": "npm:5.11.0"
+    supports-color: "npm:~8.1.1"
+  peerDependencies:
+    "@types/node": "*"
+  peerDependenciesMeta:
+    "@types/node":
+      optional: true
+  checksum: 10c0/44e23353e8a4b8024d10d01b9a05fd8d736ddbe2d595a12bfcd290c27842fef156e2471f5e61eed62bad733bd692ba261f1e642c2b1547a0009927805e74e2a6
+  languageName: node
+  linkType: hard
+
 "@rushstack/ts-command-line@npm:4.23.4":
   version: 4.23.4
   resolution: "@rushstack/ts-command-line@npm:4.23.4"
@@ -1090,6 +1105,18 @@ __metadata:
     argparse: "npm:~1.0.9"
     string-argv: "npm:~0.3.1"
   checksum: 10c0/0f95ce851f589c1b8ab7efed60c7eea98fc181db07526a3f31aec0f255a3cb23c6a4dfeb30bb717b5efd4149a56abc43636d850710141303a6435c850bf64f1e
+  languageName: node
+  linkType: hard
+
+"@rushstack/ts-command-line@npm:4.23.5":
+  version: 4.23.5
+  resolution: "@rushstack/ts-command-line@npm:4.23.5"
+  dependencies:
+    "@rushstack/terminal": "npm:0.15.0"
+    "@types/argparse": "npm:1.0.38"
+    argparse: "npm:~1.0.9"
+    string-argv: "npm:~0.3.1"
+  checksum: 10c0/8c4330620658227bb7af27031d720a826f6a8b92f281cc433393c52968475fddc0031d86477f1676377878130b926b2efb7893edb2d73cdb1fa23444b792e88a
   languageName: node
   linkType: hard
 
@@ -8663,7 +8690,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@microsoft/api-documenter": "npm:7.26.7"
+    "@microsoft/api-documenter": "npm:7.26.8"
     "@typescript-eslint/eslint-plugin": "npm:6.21.0"
     "@typescript-eslint/parser": "npm:6.21.0"
     "@xapp/config": "npm:0.2.3"

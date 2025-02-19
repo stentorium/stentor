@@ -30,7 +30,7 @@
     "typescript": "5.7.3"
   },
   "dependencies": {
-    "stacktrace-parser": "0.1.10",
+    "stacktrace-parser": "0.1.11",
     "stentor-guards": "1.59.146",
     "stentor-logger": "1.59.146",
     "stentor-utils": "1.59.146"

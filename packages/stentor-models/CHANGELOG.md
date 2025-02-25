@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.60.0](https://github.com/stentorium/stentor/compare/v1.59.146...v1.60.0) (2025-02-25)
+
+
+### Bug Fixes
+
+* Adds address parsing features to utils ([#2571](https://github.com/stentorium/stentor/issues/2571)) ([b903f0d](https://github.com/stentorium/stentor/commit/b903f0dddc091511b58c4941155f7cb98eb3dd33))
+
+
+### Features
+
+* Address Parsing Utils ([#2584](https://github.com/stentorium/stentor/issues/2584)) ([d8b48fa](https://github.com/stentorium/stentor/commit/d8b48fa2b28acffefdde745f2eb70ad03d7e3dfb))
+
+
+
+
+
 ## [1.59.146](https://github.com/stentorium/stentor/compare/v1.59.145...v1.59.146) (2024-12-18)
 
 **Note:** Version bump only for package stentor-models

@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.60.0](https://github.com/stentorium/stentor/compare/v1.59.146...v1.60.0) (2025-02-25)
+
+
+### Bug Fixes
+
+* Adds address parsing features to utils ([#2571](https://github.com/stentorium/stentor/issues/2571)) ([b903f0d](https://github.com/stentorium/stentor/commit/b903f0dddc091511b58c4941155f7cb98eb3dd33))
+* **deps:** update dependency @types/aws-lambda to v8.10.147 ([#2565](https://github.com/stentorium/stentor/issues/2565)) ([6eebc1d](https://github.com/stentorium/stentor/commit/6eebc1d7dc138a4f7a014d002a0ae8752affb046))
+* **deps:** update dependency jsonpath-plus to v10.3.0 ([#2578](https://github.com/stentorium/stentor/issues/2578)) ([34dc163](https://github.com/stentorium/stentor/commit/34dc1630fff4812dfc0acf9bf26492bec0574dfd))
+* **deps:** update dependency moment-timezone to v0.5.47 ([#2572](https://github.com/stentorium/stentor/issues/2572)) ([93c0691](https://github.com/stentorium/stentor/commit/93c06919e814a4ab2d8a52a9938cd2ecea5c7a2a))
+* **deps:** update dependency sanitize-html to v2.14.0 ([#2561](https://github.com/stentorium/stentor/issues/2561)) ([4774fab](https://github.com/stentorium/stentor/commit/4774fab58d2c6c3aba65c89ec3145b61fe0108ce))
+* **deps:** update dependency stacktrace-parser to v0.1.11 ([#2581](https://github.com/stentorium/stentor/issues/2581)) ([d74e9ef](https://github.com/stentorium/stentor/commit/d74e9efb634a42837fb3d462d8ed01c3a3073ce1))
+* **deps:** update dependency winston to v3.17.0 ([#2537](https://github.com/stentorium/stentor/issues/2537)) ([32d92f5](https://github.com/stentorium/stentor/commit/32d92f5e2a894f3eda59af4cfc09f792aa91d431))
+
+
+### Features
+
+* Address Parsing Utils ([#2584](https://github.com/stentorium/stentor/issues/2584)) ([d8b48fa](https://github.com/stentorium/stentor/commit/d8b48fa2b28acffefdde745f2eb70ad03d7e3dfb))
+
+
+
+
+
 ## [1.59.146](https://github.com/stentorium/stentor/compare/v1.59.145...v1.59.146) (2024-12-18)
 
 **Note:** Version bump only for package repo

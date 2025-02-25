@@ -1,8 +1,30 @@
 /*! Copyright (c) 2025, XAPP AI */
 import { AddressIntentRequestSlotMap } from "stentor-models";
 import * as addresser from "addresser";
+import { pruneEmpty } from "./json";
 
-export type ParsedAddress = addresser.IParsedAddress;
+export interface ParsedAddress
+  extends Omit<addresser.IParsedAddress, "id" | "zipCode"> {
+  formattedAddress?: string;
+  /**
+   * Direction such as NW, SE, etc.
+   */
+  streetDirection?: string;
+  /**
+   * Zip/Postal Code
+   */
+  zipCode?: string;
+  /**
+   * Place name, typically the city or town.
+   */
+  placeName: string;
+  /**
+   * An ID for the address.
+   *
+   * @note It is not recommended to use this.
+   */
+  id?: string;
+}
 
 /**
  * Custom fallback parser for address strings.
@@ -94,7 +116,7 @@ export function parseAddress(address: string): ParsedAddress | undefined {
 }
 
 /**
- * Forms an address tring from from the slots.
+ * Forms an address string from from the slots.
  *
  * @param slots
  * @returns
@@ -174,7 +196,7 @@ export function parseAddressAsSlots(
     addressed = addresser.parseAddress(address);
   } catch (e) {
     // not a valid address
-    console.warn(`Unabled to parse address string "${address}"`);
+    console.warn(`Unable to parse address string "${address}"`);
   }
 
   if (addressed) {
@@ -219,4 +241,55 @@ export function parseAddressAsSlots(
   }
 
   return slots;
+}
+
+/**
+ * Takes an input and attempts to parse out all the components
+ *
+ * It can be passed a partial address object and will attempt to fill in the missing components if a fullAddress is provided
+ *
+ * @param input
+ */
+export function getAddressComponents(
+  input: string | Partial<ParsedAddress>
+): ParsedAddress {
+  let parsedAddress: ParsedAddress;
+
+  if (typeof input === "string") {
+    parsedAddress = parseAddress(input);
+  } else {
+    parsedAddress = input as ParsedAddress;
+  }
+
+  // do some tests to make sure we have all the components
+  if (!parsedAddress.stateAbbreviation || !parsedAddress.stateName) {
+    // attempt to parse the address section and merge it in
+    const parsedFormattedAddress = parseAddress(
+      parsedAddress.formattedAddress || parsedAddress.addressLine1
+    );
+    // clean off the parsedFormattedAddress to remove any empty strings & values
+    const pruned = pruneEmpty(parsedFormattedAddress);
+    parsedAddress = { ...parsedAddress, ...pruned };
+  }
+
+  if (!parsedAddress.id) {
+    // id is just concatenation of the address
+    let id = "";
+    if (parsedAddress.addressLine1) {
+      id += `${parsedAddress.addressLine1},`;
+    }
+    if (parsedAddress.placeName) {
+      id += `-${parsedAddress.placeName},`;
+    }
+    if (parsedAddress.stateName) {
+      id += `-${parsedAddress.stateName}`;
+    }
+    if (parsedAddress.zipCode) {
+      id += `-${parsedAddress.zipCode}`;
+    }
+
+    parsedAddress.id = id.replace(/\s+/g, "-");
+  }
+
+  return parsedAddress;
 }

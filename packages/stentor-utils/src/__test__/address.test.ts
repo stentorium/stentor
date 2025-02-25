@@ -4,6 +4,8 @@ import {
   parseAddress,
   formAddressFromSlots,
   parseAddressAsSlots,
+  getAddressComponents,
+  ParsedAddress,
 } from "../address";
 
 describe(`#${parseAddress.name}()`, () => {
@@ -167,6 +169,84 @@ describe(`#${parseAddressAsSlots.name}()`, () => {
         value: "Washington",
       });
       expect(parsed0?.zip).to.deep.equal({ name: "zip", value: "20500" });
+    });
+  });
+});
+
+describe(`#${getAddressComponents.name}()`, () => {
+  describe("when passed a string", () => {
+    describe("that is valid", () => {
+      it("returns correctly", () => {
+        const address = "1600 Pennsylvania Avenue NW, Washington, DC 20500";
+        const components = getAddressComponents(address);
+        expect(components).to.deep.equal({
+          streetNumber: "1600",
+          formattedAddress: "1600 Pennsylvania Ave NW, Washington, DC 20500",
+          addressLine1: "1600 Pennsylvania Ave NW",
+          placeName: "Washington",
+          stateAbbreviation: "DC",
+          streetDirection: "NW",
+          streetName: "Pennsylvania",
+          streetSuffix: "Ave",
+          stateName: "District Of Columbia",
+          zipCode: "20500",
+          id: "1600-Pennsylvania-Ave-NW,-Washington,-DC-20500",
+        });
+      });
+    });
+  });
+  describe("when passed an object", () => {
+    describe("without an address and no state", () => {
+      it("returns correctly", () => {
+        const formatted: Partial<ParsedAddress> = {
+          formattedAddress: "2328 West Sebring Dr, Tucson, Arizona",
+        };
+
+        // expected parsed address
+        const parsed: ParsedAddress = {
+          stateName: "Arizona",
+          stateAbbreviation: "AZ",
+          placeName: "Tucson",
+          addressLine1: "2328 West Sebring Dr",
+          id: "2328-West-Sebring-Dr,-Tucson,-Arizona",
+          streetNumber: "2328",
+          streetSuffix: "Dr",
+          streetName: "West Sebring",
+        };
+
+        const components = getAddressComponents(formatted);
+        expect(components).to.include({ ...parsed });
+
+        // Try passing it through to itself
+        const components2 = getAddressComponents({ ...parsed, ...formatted });
+        expect(components2).to.include({ ...parsed });
+      });
+    });
+    describe("when passed a full object", () => {
+      it("returns correctly", () => {
+        const formatted: Partial<ParsedAddress> = {
+          formattedAddress: "2328 West Sebring Dr, Tucson, Arizona",
+          stateAbbreviation: "AZ",
+          placeName: "Tucson",
+          addressLine1: "2328 West Sebring Dr",
+          streetNumber: "2328",
+          streetSuffix: "Dr",
+          streetName: "West Sebring",
+        };
+        expect(getAddressComponents(formatted)).to.include({ ...formatted });
+      });
+    });
+    describe("when passed incomplete data", () => {
+      it("returns correctly", () => {
+        const formatted: Partial<ParsedAddress> = {
+          placeName: "Tucson",
+          addressLine1: "2328 West Sebring Dr",
+          streetNumber: "2328",
+          streetSuffix: "Dr",
+          streetName: "West Sebring",
+        };
+        expect(getAddressComponents(formatted)).to.include({ ...formatted });
+      });
     });
   });
 });

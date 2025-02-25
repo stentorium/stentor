@@ -1,7 +1,7 @@
 {
   "private": true,
   "engines": {
-    "node": "^12 || ^14 || ^16 || ^18 || ^20 || ^22.0.0"
+    "node": "^12 || ^14 || ^16 || ^18 || ^20 || ^22"
   },
   "repository": {
     "type": "git",
@@ -11,7 +11,7 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@microsoft/api-documenter": "7.26.3",
+    "@microsoft/api-documenter": "7.26.10",
     "@typescript-eslint/eslint-plugin": "6.21.0",
     "@typescript-eslint/parser": "6.21.0",
     "@xapp/config": "0.2.3",
@@ -19,10 +19,10 @@
     "eslint-plugin-notice": "1.0.0",
     "lerna": "7.4.2",
     "license-checker": "25.0.1",
-    "mocha": "11.0.1",
+    "mocha": "11.1.0",
     "mocha-junit-reporter": "2.2.1",
     "nyc": "17.1.0",
-    "syncpack": "13.0.0"
+    "syncpack": "13.0.2"
   },
   "scripts": {
     "api": "lerna run api",

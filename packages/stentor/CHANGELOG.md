@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.60.1](https://github.com/stentorium/stentor/compare/v1.60.0...v1.60.1) (2025-02-26)
+
+
+### Bug Fixes
+
+* update dependency @microsoft/api-extractor to v7.50.1 ([#2585](https://github.com/stentorium/stentor/issues/2585)) ([cd3b346](https://github.com/stentorium/stentor/commit/cd3b346ef05106b34e07fc24549795ef826d7add))
+
+
+
+
+
 # [1.60.0](https://github.com/stentorium/stentor/compare/v1.59.146...v1.60.0) (2025-02-25)
 
 

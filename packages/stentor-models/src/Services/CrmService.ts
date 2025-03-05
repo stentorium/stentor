@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /*! Copyright (c) 2022, XAPPmedia */
 
 import { CrmResponse, ExternalLead } from "../Crm";
@@ -229,7 +230,6 @@ export class AbstractCrmService implements CrmService {
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public async send(
     externalLead: ExternalLead,
     extras?: Record<string, unknown>
@@ -237,7 +237,6 @@ export class AbstractCrmService implements CrmService {
     throw new Error("Method not implemented.");
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public async getAvailability(
     range: DateTimeRange,
     options?: CrmServiceAvailabilityOptions
@@ -245,7 +244,6 @@ export class AbstractCrmService implements CrmService {
     throw new Error("Method not implemented.");
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public async getJobType(
     message: string,
     externalLead?: ExternalLead
@@ -253,7 +251,6 @@ export class AbstractCrmService implements CrmService {
     throw new Error("Method not implemented.");
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public async update?(
     externalLead: ExternalLead,
     extras?: Record<string, unknown>

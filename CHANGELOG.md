@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.60.5](https://github.com/stentorium/stentor/compare/v1.60.4...v1.60.5) (2025-03-05)
+
+
+### Bug Fixes
+
+* Model Alignment ([#2591](https://github.com/stentorium/stentor/issues/2591)) ([0826d55](https://github.com/stentorium/stentor/commit/0826d55d8d368ec67c386fc54146fbe089f927a3))
+
+
+
+
+
 ## [1.60.4](https://github.com/stentorium/stentor/compare/v1.60.3...v1.60.4) (2025-03-04)
 
 **Note:** Version bump only for package repo

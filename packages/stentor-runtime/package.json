@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@types/chai": "4.3.20",
-    "@types/sinon": "17.0.3",
+    "@types/sinon": "17.0.4",
     "@types/sinon-chai": "3.2.12",
     "@xapp/config": "0.2.3",
     "@xapp/patterns": "2.0.2",

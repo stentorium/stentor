@@ -42,7 +42,7 @@
   "dependencies": {
     "@types/aws-lambda": "8.10.147",
     "@types/body-parser": "1.19.5",
-    "@types/express": "5.0.0",
+    "@types/express": "5.0.1",
     "@xapp/patterns": "2.0.2",
     "body-parser": "1.20.3",
     "dotenv": "16.4.7",

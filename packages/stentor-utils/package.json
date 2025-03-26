@@ -55,7 +55,7 @@
     "marked-xhtml": "1.0.12",
     "number-to-words": "1.2.4",
     "numeral": "2.0.6",
-    "sanitize-html": "2.14.0",
+    "sanitize-html": "2.15.0",
     "slugify": "1.6.6",
     "stentor-constants": "1.60.8",
     "stentor-guards": "1.60.8",

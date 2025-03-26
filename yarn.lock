@@ -4925,10 +4925,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-entities@npm:2.5.2":
-  version: 2.5.2
-  resolution: "html-entities@npm:2.5.2"
-  checksum: 10c0/f20ffb4326606245c439c231de40a7c560607f639bf40ffbfb36b4c70729fd95d7964209045f1a4e62fe17f2364cef3d6e49b02ea09016f207fde51c2211e481
+"html-entities@npm:2.5.3":
+  version: 2.5.3
+  resolution: "html-entities@npm:2.5.3"
+  checksum: 10c0/313b0550926b56ccb46c0df4db63e743e565f222e6a8bc97d848d8c9bb51a2c0ff3c724856675032b5c2a9a757c9ab68019956c52e60dd9836d554cdde5bbbc3
   languageName: node
   linkType: hard
 
@@ -9966,7 +9966,7 @@ __metadata:
     date-fns: "npm:4.1.0"
     dyno-item-size: "npm:0.3.3"
     fuse.js: "npm:6.6.2"
-    html-entities: "npm:2.5.2"
+    html-entities: "npm:2.5.3"
     jsonpath-plus: "npm:10.3.0"
     lodash.keys: "npm:4.2.0"
     lodash.sumby: "npm:4.6.0"

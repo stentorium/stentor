@@ -1153,7 +1153,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sinonjs/fake-timers@npm:^13.0.1, @sinonjs/fake-timers@npm:^13.0.2":
+"@sinonjs/fake-timers@npm:^13.0.1, @sinonjs/fake-timers@npm:^13.0.5":
   version: 13.0.5
   resolution: "@sinonjs/fake-timers@npm:13.0.5"
   dependencies:
@@ -9069,17 +9069,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sinon@npm:19.0.2":
-  version: 19.0.2
-  resolution: "sinon@npm:19.0.2"
+"sinon@npm:19.0.5":
+  version: 19.0.5
+  resolution: "sinon@npm:19.0.5"
   dependencies:
     "@sinonjs/commons": "npm:^3.0.1"
-    "@sinonjs/fake-timers": "npm:^13.0.2"
+    "@sinonjs/fake-timers": "npm:^13.0.5"
     "@sinonjs/samsam": "npm:^8.0.1"
     diff: "npm:^7.0.0"
     nise: "npm:^6.1.1"
     supports-color: "npm:^7.2.0"
-  checksum: 10c0/a5d988d55643677e55bbc70c3aa6c9977f8a7cf55d157278ea8e4474d9acbec16d9c44056bd763e4f5988daf0fb75370099cf90105243dbb8742978478d53c40
+  checksum: 10c0/93ae3b376fc20d6f6b1b503b9c2003c57db451d595491feac5edc673046b0b7ca1aec8b8c9321b9f15e1591e24be8cfe0dbcb636548f3f9238ede688e669d35c
   languageName: node
   linkType: hard
 
@@ -9364,7 +9364,7 @@ __metadata:
     "@xapp/patterns": "npm:2.0.2"
     chai: "npm:4.5.0"
     mocha: "npm:11.1.0"
-    sinon: "npm:19.0.2"
+    sinon: "npm:19.0.5"
     sinon-chai: "npm:3.7.0"
     stentor-logger: "npm:1.60.11"
     stentor-models: "npm:1.60.8"
@@ -9420,7 +9420,7 @@ __metadata:
     "@xapp/patterns": "npm:2.0.2"
     chai: "npm:4.5.0"
     mocha: "npm:11.1.0"
-    sinon: "npm:19.0.2"
+    sinon: "npm:19.0.5"
     sinon-chai: "npm:3.7.0"
     stentor-constants: "npm:1.60.8"
     stentor-models: "npm:1.60.8"
@@ -9444,7 +9444,7 @@ __metadata:
     chai: "npm:4.5.0"
     jsonpath-plus: "npm:10.3.0"
     mocha: "npm:11.1.0"
-    sinon: "npm:19.0.2"
+    sinon: "npm:19.0.5"
     sinon-chai: "npm:3.7.0"
     stentor-conditional: "npm:1.60.11"
     stentor-constants: "npm:1.60.8"
@@ -9473,7 +9473,7 @@ __metadata:
     "@xapp/config": "npm:0.2.3"
     chai: "npm:4.5.0"
     mocha: "npm:11.1.0"
-    sinon: "npm:19.0.2"
+    sinon: "npm:19.0.5"
     sinon-chai: "npm:3.7.0"
     stentor-constants: "npm:1.60.8"
     stentor-models: "npm:1.60.8"
@@ -9511,7 +9511,7 @@ __metadata:
     "@xapp/config": "npm:0.2.3"
     chai: "npm:4.5.0"
     mocha: "npm:11.1.0"
-    sinon: "npm:19.0.2"
+    sinon: "npm:19.0.5"
     sinon-chai: "npm:3.7.0"
     stentor-constants: "npm:1.60.8"
     stentor-context: "npm:1.60.11"
@@ -9542,7 +9542,7 @@ __metadata:
     chai: "npm:4.5.0"
     chai-as-promised: "npm:7.1.2"
     mocha: "npm:11.1.0"
-    sinon: "npm:19.0.2"
+    sinon: "npm:19.0.5"
     sinon-chai: "npm:3.7.0"
     stentor-guards: "npm:1.60.8"
     stentor-handler: "npm:1.60.11"
@@ -9570,7 +9570,7 @@ __metadata:
     "@xapp/patterns": "npm:2.0.2"
     chai: "npm:4.5.0"
     mocha: "npm:11.1.0"
-    sinon: "npm:19.0.2"
+    sinon: "npm:19.0.5"
     sinon-chai: "npm:3.7.0"
     stentor-conditional: "npm:1.60.11"
     stentor-constants: "npm:1.60.8"
@@ -9601,7 +9601,7 @@ __metadata:
     "@xapp/config": "npm:0.2.3"
     chai: "npm:4.5.0"
     mocha: "npm:11.1.0"
-    sinon: "npm:19.0.2"
+    sinon: "npm:19.0.5"
     stentor-models: "npm:1.60.8"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.8.2"
@@ -9658,7 +9658,7 @@ __metadata:
     chai: "npm:4.5.0"
     chalk: "npm:4.1.2"
     mocha: "npm:11.1.0"
-    sinon: "npm:19.0.2"
+    sinon: "npm:19.0.5"
     sinon-chai: "npm:3.7.0"
     stentor-models: "npm:1.60.8"
     stentor-utils: "npm:1.60.11"
@@ -9679,7 +9679,7 @@ __metadata:
     "@xapp/config": "npm:0.2.3"
     chai: "npm:4.5.0"
     mocha: "npm:11.1.0"
-    sinon: "npm:19.0.2"
+    sinon: "npm:19.0.5"
     stentor-guards: "npm:1.60.8"
     stentor-models: "npm:1.60.8"
     stentor-time: "npm:1.60.11"
@@ -9715,7 +9715,7 @@ __metadata:
     "@xapp/patterns": "npm:2.0.2"
     chai: "npm:4.5.0"
     mocha: "npm:11.1.0"
-    sinon: "npm:19.0.2"
+    sinon: "npm:19.0.5"
     sinon-chai: "npm:3.7.0"
     stentor-constants: "npm:1.60.8"
     stentor-interaction-model: "npm:1.60.11"
@@ -9741,7 +9741,7 @@ __metadata:
     chai: "npm:4.5.0"
     lodash.template: "npm:4.5.0"
     mocha: "npm:11.1.0"
-    sinon: "npm:19.0.2"
+    sinon: "npm:19.0.5"
     sinon-chai: "npm:3.7.0"
     stentor-determiner: "npm:1.60.11"
     stentor-locales: "npm:1.60.11"
@@ -9768,7 +9768,7 @@ __metadata:
     chai: "npm:4.5.0"
     fetch-mock: "npm:9.11.0"
     mocha: "npm:11.1.0"
-    sinon: "npm:19.0.2"
+    sinon: "npm:19.0.5"
     sinon-chai: "npm:3.7.0"
     stentor-constants: "npm:1.60.8"
     stentor-context: "npm:1.60.11"
@@ -9802,7 +9802,7 @@ __metadata:
     aws-sdk: "npm:2.1692.0"
     chai: "npm:4.5.0"
     mocha: "npm:11.1.0"
-    sinon: "npm:19.0.2"
+    sinon: "npm:19.0.5"
     sinon-chai: "npm:3.7.0"
     stacktrace-parser: "npm:0.1.11"
     stentor-guards: "npm:1.60.8"
@@ -9912,7 +9912,7 @@ __metadata:
     moment: "npm:2.30.1"
     moment-range: "npm:4.0.2"
     moment-timezone: "npm:0.5.48"
-    sinon: "npm:19.0.2"
+    sinon: "npm:19.0.5"
     stentor-guards: "npm:1.60.8"
     stentor-logger: "npm:1.60.11"
     stentor-models: "npm:1.60.8"
@@ -9977,7 +9977,7 @@ __metadata:
     number-to-words: "npm:1.2.4"
     numeral: "npm:2.0.6"
     sanitize-html: "npm:2.15.0"
-    sinon: "npm:19.0.2"
+    sinon: "npm:19.0.5"
     sinon-chai: "npm:3.7.0"
     slugify: "npm:1.6.6"
     stentor-constants: "npm:1.60.8"
@@ -10015,7 +10015,7 @@ __metadata:
     dotenv: "npm:16.4.7"
     express: "npm:4.21.2"
     mocha: "npm:11.1.0"
-    sinon: "npm:19.0.2"
+    sinon: "npm:19.0.5"
     sinon-chai: "npm:3.7.0"
     stentor-constants: "npm:1.60.8"
     stentor-context: "npm:1.60.11"

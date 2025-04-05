@@ -22,7 +22,7 @@
     "@xapp/config": "0.2.3",
     "rollup": "3.29.5",
     "tslib": "2.8.1",
-    "typescript": "5.8.2"
+    "typescript": "5.8.3"
   },
   "scripts": {
     "api": "api-extractor run --local",

@@ -545,9 +545,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@microsoft/api-extractor@npm:7.52.2":
-  version: 7.52.2
-  resolution: "@microsoft/api-extractor@npm:7.52.2"
+"@microsoft/api-extractor@npm:7.52.3":
+  version: 7.52.3
+  resolution: "@microsoft/api-extractor@npm:7.52.3"
   dependencies:
     "@microsoft/api-extractor-model": "npm:7.30.5"
     "@microsoft/tsdoc": "npm:~0.15.1"
@@ -564,7 +564,7 @@ __metadata:
     typescript: "npm:5.8.2"
   bin:
     api-extractor: bin/api-extractor
-  checksum: 10c0/d9ce903a292d89266a4c48410ac67ca229402a080d467be63db4c0e92f4a911f263b010bd99b12aa662ad140dc0448c41e0a769c2cda0835bbe5181fb68db2ff
+  checksum: 10c0/3c48f46b9bc3f90ca632ab0a61226e9f54a5c86317fec34e98fad30c9575535d8f463b29717ea00b3aaa22d44c8f8b62dee17beadce07e167183ca4db4c14d1f
   languageName: node
   linkType: hard
 
@@ -9720,7 +9720,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-models@workspace:packages/stentor-models"
   dependencies:
-    "@microsoft/api-extractor": "npm:7.52.2"
+    "@microsoft/api-extractor": "npm:7.52.3"
     "@rollup/plugin-typescript": "npm:12.1.2"
     "@xapp/config": "npm:0.2.3"
     "@xapp/patterns": "npm:2.0.2"
@@ -9969,7 +9969,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-utils@workspace:packages/stentor-utils"
   dependencies:
-    "@microsoft/api-extractor": "npm:7.52.2"
+    "@microsoft/api-extractor": "npm:7.52.3"
     "@types/blueimp-md5": "npm:2.18.2"
     "@types/chai": "npm:4.3.20"
     "@types/lodash.keys": "npm:4.2.9"
@@ -10023,7 +10023,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor@workspace:packages/stentor"
   dependencies:
-    "@microsoft/api-extractor": "npm:7.52.2"
+    "@microsoft/api-extractor": "npm:7.52.3"
     "@types/aws-lambda": "npm:8.10.147"
     "@types/body-parser": "npm:1.19.5"
     "@types/chai": "npm:4.3.20"

@@ -39,5 +39,5 @@
     "version-check": "syncpack list-mismatches --types dev,prod --filter 'stentor-'",
     "version-check:all": "syncpack list-mismatches --types dev,prod"
   },
-  "packageManager": "yarn@4.8.1"
+  "packageManager": "yarn@4.9.0"
 }

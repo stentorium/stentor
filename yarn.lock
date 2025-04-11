@@ -9883,7 +9883,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-service-studio@npm:1.60.16, stentor-service-studio@workspace:packages/stentor-service-studio":
+"stentor-service-studio@npm:1.60.17, stentor-service-studio@workspace:packages/stentor-service-studio":
   version: 0.0.0-use.local
   resolution: "stentor-service-studio@workspace:packages/stentor-service-studio"
   dependencies:
@@ -10056,7 +10056,7 @@ __metadata:
     stentor-service-event: "npm:1.60.16"
     stentor-service-fetch: "npm:1.60.16"
     stentor-service-ovai: "npm:1.60.16"
-    stentor-service-studio: "npm:1.60.16"
+    stentor-service-studio: "npm:1.60.17"
     stentor-utils: "npm:1.60.16"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.8.3"

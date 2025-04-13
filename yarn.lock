@@ -1239,10 +1239,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/aws-lambda@npm:8.10.147":
-  version: 8.10.147
-  resolution: "@types/aws-lambda@npm:8.10.147"
-  checksum: 10c0/c77bcb18a935fb26f5b1164aaadf46b3d11d6c001a95c6e9f2ff72f7d9ed4e7f28075a3abf9f9585cc75510acbc29c7a6441e66727902eae1bd39ac8dc28351e
+"@types/aws-lambda@npm:8.10.149":
+  version: 8.10.149
+  resolution: "@types/aws-lambda@npm:8.10.149"
+  checksum: 10c0/9ef41214a1b69fa30d89cab575429793f1ccc49cfe3a7aa75228aef31a202bb6d2c306a5b33def61ef29e0d0a1a324412bf6a4fa5a615e61117685584a394047
   languageName: node
   linkType: hard
 
@@ -10024,7 +10024,7 @@ __metadata:
   resolution: "stentor@workspace:packages/stentor"
   dependencies:
     "@microsoft/api-extractor": "npm:7.52.3"
-    "@types/aws-lambda": "npm:8.10.147"
+    "@types/aws-lambda": "npm:8.10.149"
     "@types/body-parser": "npm:1.19.5"
     "@types/chai": "npm:4.3.20"
     "@types/express": "npm:5.0.1"

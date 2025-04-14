@@ -1435,12 +1435,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:22.13.11":
-  version: 22.13.11
-  resolution: "@types/node@npm:22.13.11"
+"@types/node@npm:22.14.1":
+  version: 22.14.1
+  resolution: "@types/node@npm:22.14.1"
   dependencies:
-    undici-types: "npm:~6.20.0"
-  checksum: 10c0/f6ee33d36372242535c38640fe7550a6640d8a775ec19b55bfc11775b521cba072d892ca92a912332ce01b317293d645c1bf767f3f882ec719f2404a3d2a5b96
+    undici-types: "npm:~6.21.0"
+  checksum: 10c0/d49c4d00403b1c2348cf0701b505fd636d80aabe18102105998dc62fdd36dcaf911e73c7a868c48c21c1022b825c67b475b65b1222d84b704d8244d152bb7f86
   languageName: node
   linkType: hard
 
@@ -9700,7 +9700,7 @@ __metadata:
   dependencies:
     "@types/chai": "npm:4.3.20"
     "@types/mocha": "npm:10.0.10"
-    "@types/node": "npm:22.13.11"
+    "@types/node": "npm:22.14.1"
     "@types/sinon": "npm:17.0.4"
     "@xapp/config": "npm:0.2.3"
     chai: "npm:4.5.0"
@@ -9977,7 +9977,7 @@ __metadata:
     "@types/lodash.union": "npm:4.6.9"
     "@types/marked": "npm:6.0.0"
     "@types/mocha": "npm:10.0.10"
-    "@types/node": "npm:22.13.11"
+    "@types/node": "npm:22.14.1"
     "@types/numeral": "npm:2.0.5"
     "@types/sanitize-html": "npm:2.13.0"
     "@types/sinon": "npm:17.0.4"
@@ -10029,7 +10029,7 @@ __metadata:
     "@types/chai": "npm:4.3.20"
     "@types/express": "npm:5.0.1"
     "@types/mocha": "npm:10.0.10"
-    "@types/node": "npm:22.13.11"
+    "@types/node": "npm:22.14.1"
     "@types/sinon": "npm:17.0.4"
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.2.3"
@@ -10758,6 +10758,13 @@ __metadata:
   version: 6.20.0
   resolution: "undici-types@npm:6.20.0"
   checksum: 10c0/68e659a98898d6a836a9a59e6adf14a5d799707f5ea629433e025ac90d239f75e408e2e5ff086afc3cace26f8b26ee52155293564593fbb4a2f666af57fc59bf
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~6.21.0":
+  version: 6.21.0
+  resolution: "undici-types@npm:6.21.0"
+  checksum: 10c0/c01ed51829b10aa72fc3ce64b747f8e74ae9b60eafa19a7b46ef624403508a54c526ffab06a14a26b3120d055e1104d7abe7c9017e83ced038ea5cf52f8d5e04
   languageName: node
   linkType: hard
 

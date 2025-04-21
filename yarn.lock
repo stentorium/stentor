@@ -1472,12 +1472,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/sanitize-html@npm:2.13.0":
-  version: 2.13.0
-  resolution: "@types/sanitize-html@npm:2.13.0"
+"@types/sanitize-html@npm:2.15.0":
+  version: 2.15.0
+  resolution: "@types/sanitize-html@npm:2.15.0"
   dependencies:
     htmlparser2: "npm:^8.0.0"
-  checksum: 10c0/c6614b38f67dd6fb3a94c9163a55fa43b9aa81a845fe9584d9ffbd5da0e00e0ac8162ede9f4bde095840b2ef9db12265f5fcc40b707f48a420405c6aa7c3ff51
+  checksum: 10c0/446479c1ed34ee21e5c7eef803056a7fbb984559c16b05a6e53a06f5ecb0e4efd8d3bcfb07f9a73bd15e0be86fd1f12a5f5a539546edab05e9667543b8780800
   languageName: node
   linkType: hard
 
@@ -8810,9 +8810,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sanitize-html@npm:2.15.0":
-  version: 2.15.0
-  resolution: "sanitize-html@npm:2.15.0"
+"sanitize-html@npm:2.16.0":
+  version: 2.16.0
+  resolution: "sanitize-html@npm:2.16.0"
   dependencies:
     deepmerge: "npm:^4.2.2"
     escape-string-regexp: "npm:^4.0.0"
@@ -8820,7 +8820,7 @@ __metadata:
     is-plain-object: "npm:^5.0.0"
     parse-srcset: "npm:^1.0.2"
     postcss: "npm:^8.3.11"
-  checksum: 10c0/ad0086cbaa53f06d9c0c551cfd057ea03a35834bd77f37393bc83ab042ade2f19b41a43bf78ddadd95ad33b54ffd8ecf26d38b73690d41c239ab042b4815bb46
+  checksum: 10c0/c94311c73a8f4b6c5970f4d743e3f1a7f0f6b443b0841a6ec0b88725da16237a5a076534240b042858f964bdc437b421b09a22b76e8e22e6ef2cbba2ed52d77f
   languageName: node
   linkType: hard
 
@@ -9979,7 +9979,7 @@ __metadata:
     "@types/mocha": "npm:10.0.10"
     "@types/node": "npm:22.14.1"
     "@types/numeral": "npm:2.0.5"
-    "@types/sanitize-html": "npm:2.13.0"
+    "@types/sanitize-html": "npm:2.15.0"
     "@types/sinon": "npm:17.0.4"
     "@types/sinon-chai": "npm:3.2.12"
     "@types/xmldoc": "npm:1.1.9"
@@ -10002,7 +10002,7 @@ __metadata:
     mocha: "npm:11.1.0"
     number-to-words: "npm:1.2.4"
     numeral: "npm:2.0.6"
-    sanitize-html: "npm:2.15.0"
+    sanitize-html: "npm:2.16.0"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
     slugify: "npm:1.6.6"

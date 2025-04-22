@@ -59,16 +59,35 @@ export interface FormInput {
    * Type of the input
    */
   type: "TEXT" | "DROPDOWN" | "CHECK" | "CHIPS" | "DATE" | "DATERANGE" | "CARD";
+  /**
+   * Optional, used to shape the input.  Not applicable to all inputs.
+   */
   shape?: "ROUND" | "SQUARE";
-
-  // Like "issue === 'service_repair'" - issue is a field name in this example
-  // ths is to support conditional dropdowns
+  /**
+   * A condition that must be met for the field to be shown.
+   *
+   * For example: "issue === 'service_repair'" - issue is a field name in this example
+   *
+   */
   condition?: string;
-
+  /**
+   * Is the field required.
+   */
   mandatory?: boolean;
+  /**
+   * Error message to show when the field is required but not filled out.
+   */
   mandatoryError?: string;
-
-  style?: object; // {{ width: '300px', height: '150px' }}
+  /**
+   * Group fields together where one of the fields in the group is required.
+   */
+  mandatoryGroup?: string;
+  /**
+   * React.CSSProperties style object to apply to the field.
+   *
+   * For example: {{ width: '300px', height: '150px' }}
+   */
+  style?: object;
 }
 
 export interface FormFieldTextAddressInput extends FormTextInput {

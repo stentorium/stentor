@@ -517,20 +517,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@microsoft/api-documenter@npm:7.26.22":
-  version: 7.26.22
-  resolution: "@microsoft/api-documenter@npm:7.26.22"
+"@microsoft/api-documenter@npm:7.26.24":
+  version: 7.26.24
+  resolution: "@microsoft/api-documenter@npm:7.26.24"
   dependencies:
     "@microsoft/api-extractor-model": "npm:7.30.5"
     "@microsoft/tsdoc": "npm:~0.15.1"
     "@rushstack/node-core-library": "npm:5.13.0"
     "@rushstack/terminal": "npm:0.15.2"
-    "@rushstack/ts-command-line": "npm:4.23.7"
+    "@rushstack/ts-command-line": "npm:5.0.0"
     js-yaml: "npm:~3.13.1"
     resolve: "npm:~1.22.1"
   bin:
     api-documenter: bin/api-documenter
-  checksum: 10c0/432f635fe42a83ec55467759407249807c39dd383af7ec1802344d69444dd56856fa112d5c024f8a358cf3121e47e8f003b948fc8e3a948ea11c61f3c74cb42c
+  checksum: 10c0/1b33e5a74458436d2392fb1bece9db3ca51bad286c60b9fdfe9648b18b3e110df8bc5991de49e3dd24ffbc5ba4678d921dbbe750466c3b802220f969118fe702
   languageName: node
   linkType: hard
 
@@ -1090,6 +1090,18 @@ __metadata:
     argparse: "npm:~1.0.9"
     string-argv: "npm:~0.3.1"
   checksum: 10c0/d77d2099ed295a0ef66f0763ad4cdbd64b7ab998dda0e5714d13ae34156c813ee59fa92633763ed6f2b5eeea98afaee143f1088e2f58b0d88b920694194e739d
+  languageName: node
+  linkType: hard
+
+"@rushstack/ts-command-line@npm:5.0.0":
+  version: 5.0.0
+  resolution: "@rushstack/ts-command-line@npm:5.0.0"
+  dependencies:
+    "@rushstack/terminal": "npm:0.15.2"
+    "@types/argparse": "npm:1.0.38"
+    argparse: "npm:~1.0.9"
+    string-argv: "npm:~0.3.1"
+  checksum: 10c0/beacc9c1f4a00f109f729839323351e726216d34a660d572d30e284724114a0141f36be1f027c278a984c1e70e4958a5a3d599421a125638f12937e5c72af017
   languageName: node
   linkType: hard
 
@@ -8724,7 +8736,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@microsoft/api-documenter": "npm:7.26.22"
+    "@microsoft/api-documenter": "npm:7.26.24"
     "@typescript-eslint/eslint-plugin": "npm:6.21.0"
     "@typescript-eslint/parser": "npm:6.21.0"
     "@xapp/config": "npm:0.2.3"

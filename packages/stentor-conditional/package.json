@@ -20,7 +20,7 @@
     "@xapp/config": "0.2.3",
     "chai": "4.5.0",
     "isolated-vm": "5.0.4",
-    "mocha": "11.1.0",
+    "mocha": "11.2.2",
     "stentor-models": "1.60.24",
     "typescript": "5.8.3",
     "vm2": "3.9.19"

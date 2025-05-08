@@ -1531,10 +1531,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/xmldoc@npm:1.1.9":
-  version: 1.1.9
-  resolution: "@types/xmldoc@npm:1.1.9"
-  checksum: 10c0/5de967d947ab2890320f65e3c4e053e573c312bb1b2f116084dde648128ae3f9a49657305156a8e1579f2d80573ee4960cbb140ea0e4c337a41ee4b31c120531
+"@types/xmldoc@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@types/xmldoc@npm:2.0.0"
+  dependencies:
+    xmldoc: "npm:*"
+  checksum: 10c0/f6fdbd3725332ecb6e3cdb92982e02c955a85e924db1d6ddbeaf3bae158c0d1e2ab1632a2fd646109ceee30e8571282f3f45be02491a2386c27cc9b8566066a3
   languageName: node
   linkType: hard
 
@@ -9926,7 +9928,7 @@ __metadata:
     "@types/sanitize-html": "npm:2.15.0"
     "@types/sinon": "npm:17.0.4"
     "@types/sinon-chai": "npm:3.2.12"
-    "@types/xmldoc": "npm:1.1.9"
+    "@types/xmldoc": "npm:2.0.0"
     "@xapp/config": "npm:0.2.3"
     addresser: "npm:1.1.20"
     aws-sdk: "npm:2.1692.0"
@@ -9956,7 +9958,7 @@ __metadata:
     ts-node: "npm:10.9.2"
     typescript: "npm:5.8.3"
     words-to-numbers: "npm:1.5.1"
-    xmldoc: "npm:1.3.0"
+    xmldoc: "npm:2.0.1"
   peerDependencies:
     aws-sdk: 2.x
     stentor-models: 1.x
@@ -11267,12 +11269,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"xmldoc@npm:1.3.0":
-  version: 1.3.0
-  resolution: "xmldoc@npm:1.3.0"
+"xmldoc@npm:*, xmldoc@npm:2.0.1":
+  version: 2.0.1
+  resolution: "xmldoc@npm:2.0.1"
   dependencies:
     sax: "npm:^1.2.4"
-  checksum: 10c0/7957c57ff77008ced62063560d3e8f80c7fdf31d3fafa12d16c9f1fe676c8255f50889e8f41b61cca4cd473b841eedf2625089dcaf3f6b8717df521b9d0acfcf
+  checksum: 10c0/efba9b47c413f7b4c4d0424013738fa4ae66a9530d28a3ae1e49770d8632f98a2e2a86c968292030e1be43cbb2deef7e44f5377b26a233e3331061282265f329
   languageName: node
   linkType: hard
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.60.29](https://github.com/stentorium/stentor/compare/v1.60.28...v1.60.29) (2025-05-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency sanitize-html to v2.17.0 ([#2635](https://github.com/stentorium/stentor/issues/2635)) ([e0868ab](https://github.com/stentorium/stentor/commit/e0868abf3d634a31e5ad64072ba62b7a16a83a13))
+
+
+
+
+
 ## [1.60.28](https://github.com/stentorium/stentor/compare/v1.60.27...v1.60.28) (2025-05-12)
 
 **Note:** Version bump only for package stentor-utils

@@ -506,9 +506,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@microsoft/api-documenter@npm:7.26.26":
-  version: 7.26.26
-  resolution: "@microsoft/api-documenter@npm:7.26.26"
+"@microsoft/api-documenter@npm:7.26.27":
+  version: 7.26.27
+  resolution: "@microsoft/api-documenter@npm:7.26.27"
   dependencies:
     "@microsoft/api-extractor-model": "npm:7.30.6"
     "@microsoft/tsdoc": "npm:~0.15.1"
@@ -519,7 +519,7 @@ __metadata:
     resolve: "npm:~1.22.1"
   bin:
     api-documenter: bin/api-documenter
-  checksum: 10c0/65f37959275895a6a36537f4d5bbc107c5debd8e618f8f042b5a26376be6c4fd8e6d4f6cb8b0eeae16e1da200ee2506afd3bcf45534c4ea3abcb6e20f2dab905
+  checksum: 10c0/21a5193be73890e3c8515e1c0736aad50d33fe9ec038505bc81658edaee44120cdd1fd08110717c54ec0426941726602189c39b56f9e9899c020587efef56617
   languageName: node
   linkType: hard
 
@@ -8668,7 +8668,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@microsoft/api-documenter": "npm:7.26.26"
+    "@microsoft/api-documenter": "npm:7.26.27"
     "@typescript-eslint/eslint-plugin": "npm:6.21.0"
     "@typescript-eslint/parser": "npm:6.21.0"
     "@xapp/config": "npm:0.2.3"

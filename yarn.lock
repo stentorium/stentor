@@ -9833,7 +9833,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-service-ovai@npm:1.60.33, stentor-service-ovai@workspace:packages/stentor-service-ovai":
+"stentor-service-ovai@npm:1.60.34, stentor-service-ovai@workspace:packages/stentor-service-ovai":
   version: 0.0.0-use.local
   resolution: "stentor-service-ovai@workspace:packages/stentor-service-ovai"
   dependencies:
@@ -9855,7 +9855,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-service-studio@npm:1.60.33, stentor-service-studio@workspace:packages/stentor-service-studio":
+"stentor-service-studio@npm:1.60.34, stentor-service-studio@workspace:packages/stentor-service-studio":
   version: 0.0.0-use.local
   resolution: "stentor-service-studio@workspace:packages/stentor-service-studio"
   dependencies:
@@ -10027,8 +10027,8 @@ __metadata:
     stentor-runtime: "npm:1.60.33"
     stentor-service-event: "npm:1.60.33"
     stentor-service-fetch: "npm:1.60.31"
-    stentor-service-ovai: "npm:1.60.33"
-    stentor-service-studio: "npm:1.60.33"
+    stentor-service-ovai: "npm:1.60.34"
+    stentor-service-studio: "npm:1.60.34"
     stentor-utils: "npm:1.60.33"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.8.3"

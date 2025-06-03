@@ -139,7 +139,7 @@ export interface FormChipsInput extends FormInput {
   minRequired?: number;
   maxAllowed?: number;
 
-  items: SelectableItem[];
+  items: (SelectableItem | ActionableItem)[];
 }
 
 /**
@@ -224,6 +224,24 @@ export interface FormDateInput extends FormInput {
  */
 export interface FormDateRangeInput extends FormInput {
   preselecteDates?: { from?: Date; to?: Date };
+}
+
+/**
+ * Ability to click on the item and perform an action.
+ */
+export interface ActionableItem {
+  /**
+   * Label to display
+   */
+  label: string;
+  /**
+   * ID of the item. This is what is sent to the server and should be a form of the label that is human readable.
+   */
+  id: string;
+  /**
+   * Url
+   */
+  url: string;
 }
 
 /**

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.60.38](https://github.com/stentorium/stentor/compare/v1.60.37...v1.60.38) (2025-06-03)
+
+
+### Bug Fixes
+
+* Ability to make form field chips open links ([#2649](https://github.com/stentorium/stentor/issues/2649)) ([62d9bea](https://github.com/stentorium/stentor/commit/62d9bea294373a9a7cbf1607de0c5a6b1504cf2d))
+
+
+
+
+
 ## [1.60.37](https://github.com/stentorium/stentor/compare/v1.60.36...v1.60.37) (2025-06-03)
 
 

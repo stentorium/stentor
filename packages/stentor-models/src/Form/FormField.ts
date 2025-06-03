@@ -139,7 +139,7 @@ export interface FormChipsInput extends FormInput {
   minRequired?: number;
   maxAllowed?: number;
 
-  items: SelectableItem[];
+  items: (SelectableItem | ActionableItem)[];
 }
 
 /**
@@ -149,7 +149,7 @@ export interface FormSelectInput extends FormInput {
   radio?: boolean; // single select
   defaultOpen?: boolean;
 
-  items: (SelectableItem | ActionableItem)[];
+  items: SelectableItem[];
 }
 
 /**

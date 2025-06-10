@@ -27,7 +27,7 @@
     "aws-sdk": "2.1692.0",
     "chai": "4.5.0",
     "chai-as-promised": "7.1.2",
-    "mocha": "11.5.0",
+    "mocha": "11.6.0",
     "sinon": "20.0.0",
     "sinon-chai": "3.7.0",
     "ts-node": "10.9.2",

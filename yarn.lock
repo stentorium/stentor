@@ -2641,12 +2641,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chrono-node@npm:2.8.2":
-  version: 2.8.2
-  resolution: "chrono-node@npm:2.8.2"
+"chrono-node@npm:2.8.3":
+  version: 2.8.3
+  resolution: "chrono-node@npm:2.8.3"
   dependencies:
     dayjs: "npm:^1.10.0"
-  checksum: 10c0/6a4ef6b414206b3ab58dcdad2ba6b1410559cd13191be108b3a6bf31f68479617baa112dfe68051b2320f52520366b168a117968a51b850675b3ccf9507ed2d3
+  checksum: 10c0/1e2619aa908e4029618eac20f84495fb23f06ab27edcf8f87f96272db998a230cd0e67866624858788962216d1eb9010ce0688e52057d3ec689d3f19a42edc5a
   languageName: node
   linkType: hard
 
@@ -9970,7 +9970,7 @@ __metadata:
     aws-sdk: "npm:2.1692.0"
     blueimp-md5: "npm:2.19.0"
     chai: "npm:4.5.0"
-    chrono-node: "npm:2.8.2"
+    chrono-node: "npm:2.8.3"
     date-fns: "npm:4.1.0"
     dyno-item-size: "npm:0.3.3"
     fuse.js: "npm:6.6.2"

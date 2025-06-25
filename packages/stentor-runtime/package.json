@@ -23,7 +23,7 @@
     "aws-sdk": "2.1692.0",
     "chai": "4.5.0",
     "fetch-mock": "9.11.0",
-    "mocha": "11.7.0",
+    "mocha": "11.7.1",
     "sinon": "20.0.0",
     "sinon-chai": "3.7.0",
     "stentor-models": "1.60.44",

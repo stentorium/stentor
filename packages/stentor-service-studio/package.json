@@ -22,7 +22,7 @@
     "abort-controller": "3.0.0",
     "chai": "4.5.0",
     "chai-as-promised": "7.1.2",
-    "dotenv": "16.5.0",
+    "dotenv": "16.6.1",
     "fetch-mock": "9.11.0",
     "mocha": "11.7.1",
     "stentor-models": "1.60.45",

@@ -1443,12 +1443,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:22.15.33":
-  version: 22.15.33
-  resolution: "@types/node@npm:22.15.33"
+"@types/node@npm:22.15.34":
+  version: 22.15.34
+  resolution: "@types/node@npm:22.15.34"
   dependencies:
     undici-types: "npm:~6.21.0"
-  checksum: 10c0/ee040c29c891aa37fffc27d04a8529318c391356346933646b7692eaf62236831ad532f6ebaf43ebd6a2ef1f0f091860d8a0a83a4e3c5a4f66d37aa1b2c99f31
+  checksum: 10c0/fb6a6b36daaa1b484aaba3d33b4d1e7b37ea993e29f20b7a676affa76ed6ff6acd2ded4d5003469bc8dbc815b3d224533b4560896037ef6d5b5d552721ab7d57
   languageName: node
   linkType: hard
 
@@ -9682,7 +9682,7 @@ __metadata:
   dependencies:
     "@types/chai": "npm:4.3.20"
     "@types/mocha": "npm:10.0.10"
-    "@types/node": "npm:22.15.33"
+    "@types/node": "npm:22.15.34"
     "@types/sinon": "npm:17.0.4"
     "@xapp/config": "npm:0.2.3"
     chai: "npm:4.5.0"
@@ -9959,7 +9959,7 @@ __metadata:
     "@types/lodash.union": "npm:4.6.9"
     "@types/marked": "npm:6.0.0"
     "@types/mocha": "npm:10.0.10"
-    "@types/node": "npm:22.15.33"
+    "@types/node": "npm:22.15.34"
     "@types/numeral": "npm:2.0.5"
     "@types/sanitize-html": "npm:2.16.0"
     "@types/sinon": "npm:17.0.4"
@@ -10011,7 +10011,7 @@ __metadata:
     "@types/chai": "npm:4.3.20"
     "@types/express": "npm:5.0.1"
     "@types/mocha": "npm:10.0.10"
-    "@types/node": "npm:22.15.33"
+    "@types/node": "npm:22.15.34"
     "@types/sinon": "npm:17.0.4"
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.2.3"

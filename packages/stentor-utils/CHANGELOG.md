@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.60.47](https://github.com/stentorium/stentor/compare/v1.60.46...v1.60.47) (2025-07-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked-xhtml to v1.0.13 ([#2661](https://github.com/stentorium/stentor/issues/2661)) ([5efdf47](https://github.com/stentorium/stentor/commit/5efdf47a51e553ed154bfef1578d84bdbfd5efa7))
+
+
+
+
+
 ## [1.60.46](https://github.com/stentorium/stentor/compare/v1.60.45...v1.60.46) (2025-06-30)
 
 **Note:** Version bump only for package stentor-utils

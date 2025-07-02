@@ -10,9 +10,7 @@ import {
 
 describe(`#${parseAddress.name}()`, () => {
   it("parses the address", () => {
-    const parsed = parseAddress(
-      "1600 Pennsylvania Avenue NW, Washington, DC 20500"
-    );
+    const parsed = parseAddress("1600 Pennsylvania Avenue NW, Washington, DC 20500");
     expect(parsed).to.exist;
 
     expect(parsed?.stateName).to.equal("District Of Columbia");
@@ -55,9 +53,7 @@ describe(`#${parseAddress.name}()`, () => {
   });
   describe("with additional carrier phrase", () => {
     it("parses correctly", () => {
-      const parsed0 = parseAddress(
-        "my address is 1600 Pennsylvania Avenue NW, Washington, DC 20500"
-      );
+      const parsed0 = parseAddress("my address is 1600 Pennsylvania Avenue NW, Washington, DC 20500");
       expect(parsed0).to.exist;
       expect(parsed0?.placeName).to.equal("Washington");
       expect(parsed0?.zipCode).to.equal("20500");
@@ -75,9 +71,7 @@ describe(`#${formAddressFromSlots.name}()`, () => {
       zip: { name: "zip", value: "20500" },
     };
     const address = formAddressFromSlots(slots);
-    expect(address).to.equal(
-      "1600 Pennsylvania Avenue NW, Washington, DC 20500"
-    );
+    expect(address).to.equal("1600 Pennsylvania Avenue NW, Washington, DC 20500");
   });
 
   it("parses address with missing street number", () => {
@@ -112,17 +106,13 @@ describe(`#${formAddressFromSlots.name}()`, () => {
       zip: { name: "zip", value: "20500" },
     };
     const address = formAddressFromSlots(slots);
-    expect(address).to.equal(
-      "1600 Pennsylvania Avenue NW, Washington, DC 20500"
-    );
+    expect(address).to.equal("1600 Pennsylvania Avenue NW, Washington, DC 20500");
   });
 });
 
 describe(`#${parseAddressAsSlots.name}()`, () => {
   it("parses the address", () => {
-    const parsed = parseAddressAsSlots(
-      "1600 Pennsylvania Avenue NW, Washington, DC 20500"
-    );
+    const parsed = parseAddressAsSlots("1600 Pennsylvania Avenue NW, Washington, DC 20500");
     expect(parsed).to.exist;
     expect(parsed?.city?.value).to.equal("Washington");
     expect(parsed?.state?.value).to.equal("District Of Columbia");
@@ -160,9 +150,7 @@ describe(`#${parseAddressAsSlots.name}()`, () => {
 
   describe("with additional carrier phrase", () => {
     it("parses correctly", () => {
-      const parsed0 = parseAddressAsSlots(
-        "my address is 1600 Pennsylvania Avenue NW, Washington, DC 20500"
-      );
+      const parsed0 = parseAddressAsSlots("my address is 1600 Pennsylvania Avenue NW, Washington, DC 20500");
       expect(parsed0).to.exist;
       expect(parsed0?.city).to.deep.equal({
         name: "city",

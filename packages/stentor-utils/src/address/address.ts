@@ -1,10 +1,10 @@
 /*! Copyright (c) 2025, XAPP AI */
 import { AddressIntentRequestSlotMap } from "stentor-models";
 import * as addresser from "addresser";
-import { pruneEmpty } from "./json";
 
-export interface ParsedAddress
-  extends Omit<addresser.IParsedAddress, "id" | "zipCode"> {
+import { pruneEmpty } from "../json";
+
+export interface ParsedAddress extends Omit<addresser.IParsedAddress, "id" | "zipCode"> {
   formattedAddress?: string;
   /**
    * Direction such as NW, SE, etc.
@@ -54,10 +54,7 @@ function customParseAddress(formattedAddress: string): ParsedAddress {
 
     const statePostal = parts[2].split(" ");
 
-    if (
-      statePostal.length > 1 &&
-      /^[A-Z]\d[A-Z]\s?\d[A-Z]\d$/.test(statePostal.slice(-2).join(" "))
-    ) {
+    if (statePostal.length > 1 && /^[A-Z]\d[A-Z]\s?\d[A-Z]\d$/.test(statePostal.slice(-2).join(" "))) {
       parsedAddress.stateAbbreviation = statePostal.slice(0, -2).join(" ");
       parsedAddress.zipCode = statePostal.slice(-2).join(" ");
     } else {
@@ -72,10 +69,7 @@ function customParseAddress(formattedAddress: string): ParsedAddress {
 
     const statePostal = parts[1].split(" ");
 
-    if (
-      statePostal.length > 1 &&
-      /^[A-Z]\d[A-Z]\s?\d[A-Z]\d$/.test(statePostal.slice(-2).join(" "))
-    ) {
+    if (statePostal.length > 1 && /^[A-Z]\d[A-Z]\s?\d[A-Z]\d$/.test(statePostal.slice(-2).join(" "))) {
       parsedAddress.stateAbbreviation = statePostal.slice(0, -2).join(" ");
       parsedAddress.zipCode = statePostal.slice(-2).join(" ");
     } else {
@@ -88,10 +82,9 @@ function customParseAddress(formattedAddress: string): ParsedAddress {
     console.warn("Unexpected address format:", formattedAddress);
   }
 
-  parsedAddress.id =
-    `${parsedAddress.placeName}-${parsedAddress.zipCode}-${parsedAddress.addressLine1}`
-      .replace(/\s+/g, "-")
-      .toLowerCase();
+  parsedAddress.id = `${parsedAddress.placeName}-${parsedAddress.zipCode}-${parsedAddress.addressLine1}`
+    .replace(/\s+/g, "-")
+    .toLowerCase();
   return parsedAddress;
 }
 
@@ -121,9 +114,7 @@ export function parseAddress(address: string): ParsedAddress | undefined {
  * @param slots
  * @returns
  */
-export function formAddressFromSlots(
-  slots: AddressIntentRequestSlotMap
-): string {
+export function formAddressFromSlots(slots: AddressIntentRequestSlotMap): string {
   const hasCity = slots.city && slots.city.value;
   const hasState = slots.state && slots.state.value;
 
@@ -185,9 +176,7 @@ export function formAddressFromSlots(
  * @param address
  * @returns
  */
-export function parseAddressAsSlots(
-  address: string
-): AddressIntentRequestSlotMap {
+export function parseAddressAsSlots(address: string): AddressIntentRequestSlotMap {
   const slots: AddressIntentRequestSlotMap = {};
 
   let addressed: addresser.IParsedAddress;
@@ -250,9 +239,7 @@ export function parseAddressAsSlots(
  *
  * @param input
  */
-export function getAddressComponents(
-  input: string | Partial<ParsedAddress>
-): ParsedAddress {
+export function getAddressComponents(input: string | Partial<ParsedAddress>): ParsedAddress {
   let parsedAddress: ParsedAddress;
 
   if (typeof input === "string") {
@@ -264,9 +251,7 @@ export function getAddressComponents(
   // do some tests to make sure we have all the components
   if (!parsedAddress.stateAbbreviation || !parsedAddress.stateName) {
     // attempt to parse the address section and merge it in
-    const parsedFormattedAddress = parseAddress(
-      parsedAddress.formattedAddress || parsedAddress.addressLine1
-    );
+    const parsedFormattedAddress = parseAddress(parsedAddress.formattedAddress || parsedAddress.addressLine1);
     // clean off the parsedFormattedAddress to remove any empty strings & values
     const pruned = pruneEmpty(parsedFormattedAddress);
     parsedAddress = { ...parsedAddress, ...pruned };

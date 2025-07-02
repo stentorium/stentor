@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.60.49](https://github.com/stentorium/stentor/compare/v1.60.48...v1.60.49) (2025-07-02)
+
+
+### Bug Fixes
+
+* Location Utils - ZIP TO TIMEZONE ([#2667](https://github.com/stentorium/stentor/issues/2667)) ([7794f81](https://github.com/stentorium/stentor/commit/7794f81fa6fed2d6062c3581d9d1c117bd68ea16))
+
+
+
+
+
 ## [1.60.48](https://github.com/stentorium/stentor/compare/v1.60.47...v1.60.48) (2025-07-01)
 
 **Note:** Version bump only for package repo

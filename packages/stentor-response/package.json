@@ -29,7 +29,6 @@
   },
   "dependencies": {
     "@xapp/patterns": "2.0.2",
-    "lodash.template": "4.5.0",
     "stentor-determiner": "1.60.52",
     "stentor-locales": "1.60.52",
     "stentor-media": "1.60.52",

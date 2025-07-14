@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.60.53](https://github.com/stentorium/stentor/compare/v1.60.52...v1.60.53) (2025-07-14)
+
+
+### Bug Fixes
+
+* Removing Deprecated lodash.template ([#2671](https://github.com/stentorium/stentor/issues/2671)) ([ab2576d](https://github.com/stentorium/stentor/commit/ab2576df83a1f0cb0fdb1fa04aca3202ed8c7d00))
+
+
+
+
+
 ## [1.60.52](https://github.com/stentorium/stentor/compare/v1.60.51...v1.60.52) (2025-07-14)
 
 **Note:** Version bump only for package repo

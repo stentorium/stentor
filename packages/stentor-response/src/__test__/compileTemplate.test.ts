@@ -18,7 +18,7 @@ describe("compileTemplate", () => {
   it("should handle missing values gracefully", () => {
     const tpl = compileTemplate("Hello, ${user.name}!");
     const result = tpl({}); // user is undefined
-    expect(result).to.include("undefined");
+    expect(result).to.equal("Hello, ${user.name}!");
   });
 
   it("should escape backticks in the template string", () => {

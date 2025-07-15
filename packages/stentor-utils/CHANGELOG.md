@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.60.54](https://github.com/stentorium/stentor/compare/v1.60.53...v1.60.54) (2025-07-15)
+
+
+### Bug Fixes
+
+* Adding haversine distance calculation to stentor-utils ([#2672](https://github.com/stentorium/stentor/issues/2672)) ([641d882](https://github.com/stentorium/stentor/commit/641d882fbf8f49f6f2e7a94deb97e9ab37ba75e4))
+
+
+
+
+
 ## [1.60.52](https://github.com/stentorium/stentor/compare/v1.60.51...v1.60.52) (2025-07-14)
 
 **Note:** Version bump only for package stentor-utils

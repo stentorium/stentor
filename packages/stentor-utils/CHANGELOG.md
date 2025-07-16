@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.60.56](https://github.com/stentorium/stentor/compare/v1.60.55...v1.60.56) (2025-07-16)
+
+
+### Bug Fixes
+
+* Adding simple tokenizer ([#2674](https://github.com/stentorium/stentor/issues/2674)) ([7afcc3a](https://github.com/stentorium/stentor/commit/7afcc3a9eefe41a9c26a1de42c35d347c9d909de))
+
+
+
+
+
 ## [1.60.55](https://github.com/stentorium/stentor/compare/v1.60.54...v1.60.55) (2025-07-16)
 
 **Note:** Version bump only for package stentor-utils

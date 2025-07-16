@@ -5,6 +5,7 @@ export * from "./compare";
 export * from "./randomString";
 export * from "./removePostFix";
 export * from "./StringExpander";
+export * from "./tokenize";
 export * from "./toNumber";
 export * from "./toNumberIfPossible";
 export * from "./trim";

@@ -1,5 +1,4 @@
 /*! Copyright (c) 2025, XAPP AI */
-// TypeScript helpers to compute distance between two geo points in KM and Miles
 
 /**
  * Calculate the Haversine distance between two points on the Earth.

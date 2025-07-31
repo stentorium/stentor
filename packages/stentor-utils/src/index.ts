@@ -1,5 +1,4 @@
 /*! Copyright (c) 2019, XAPPmedia */
-export * from "./address";
 export * from "./array";
 export * from "./channel";
 export * from "./cleanAnswer";

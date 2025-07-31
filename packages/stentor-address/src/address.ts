@@ -1,8 +1,8 @@
 /*! Copyright (c) 2025, XAPP AI */
 import { AddressIntentRequestSlotMap } from "stentor-models";
-import * as addresser from "addresser";
+import { pruneEmpty } from "stentor-utils";
 
-import { pruneEmpty } from "../json";
+import * as addresser from "addresser";
 
 export interface ParsedAddress extends Omit<addresser.IParsedAddress, "id" | "zipCode"> {
   formattedAddress?: string;

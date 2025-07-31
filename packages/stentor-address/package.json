@@ -1,11 +1,11 @@
 {
-  "name": "stentor-utils",
+  "name": "stentor-address",
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"
   },
   "version": "1.60.59",
-  "description": "Utilities for stentor",
+  "description": "Utilities for address parsing and formatting",
   "types": "lib/index",
   "main": "lib/index",
   "files": [
@@ -16,16 +16,9 @@
   },
   "devDependencies": {
     "@microsoft/api-extractor": "7.52.9",
-    "@types/blueimp-md5": "2.18.2",
     "@types/chai": "4.3.20",
-    "@types/lodash.keys": "4.2.9",
-    "@types/lodash.sumby": "4.6.9",
-    "@types/lodash.union": "4.6.9",
-    "@types/marked": "6.0.0",
     "@types/mocha": "10.0.10",
     "@types/node": "22.16.5",
-    "@types/numeral": "2.0.5",
-    "@types/sanitize-html": "2.16.0",
     "@types/sinon": "17.0.4",
     "@types/sinon-chai": "3.2.12",
     "@xapp/config": "0.2.3",
@@ -35,35 +28,17 @@
     "sinon": "20.0.0",
     "sinon-chai": "3.7.0",
     "stentor-models": "1.60.59",
+    "stentor-utils": "1.60.59",
     "ts-node": "10.9.2",
     "typescript": "5.8.3"
   },
   "dependencies": {
-    "@types/xmldoc": "1.1.9",
-    "blueimp-md5": "2.19.0",
-    "chrono-node": "2.8.3",
-    "date-fns": "4.1.0",
-    "dyno-item-size": "0.3.3",
-    "fuse.js": "6.6.2",
-    "html-entities": "2.6.0",
-    "jsonpath-plus": "10.3.0",
-    "lodash.keys": "4.2.0",
-    "lodash.sumby": "4.6.0",
-    "lodash.union": "4.6.0",
-    "marked": "12.0.2",
-    "marked-xhtml": "1.0.13",
-    "number-to-words": "1.2.4",
-    "numeral": "2.0.6",
-    "sanitize-html": "2.17.0",
-    "slugify": "1.6.6",
-    "stentor-constants": "1.60.59",
-    "stentor-guards": "1.60.59",
-    "words-to-numbers": "1.5.1",
-    "xmldoc": "1.3.0"
+    "addresser": "1.1.20"
   },
   "peerDependencies": {
     "aws-sdk": "2.x",
-    "stentor-models": "1.x"
+    "stentor-models": "1.x",
+    "stentor-utils": "1.x"
   },
   "scripts": {
     "api": "api-extractor run --local",

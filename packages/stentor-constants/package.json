@@ -18,7 +18,7 @@
   "devDependencies": {
     "@xapp/config": "0.2.3",
     "stentor-models": "1.60.59",
-    "typescript": "5.8.3"
+    "typescript": "5.9.2"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

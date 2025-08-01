@@ -30,7 +30,7 @@
     "stentor-models": "1.60.59",
     "stentor-utils": "1.61.0",
     "ts-node": "10.9.2",
-    "typescript": "5.8.3"
+    "typescript": "5.9.2"
   },
   "dependencies": {
     "addresser": "1.1.20"

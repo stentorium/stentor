@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.61.1",
+  "version": "1.61.2",
   "description": "Runtime for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -26,23 +26,23 @@
     "mocha": "11.7.1",
     "sinon": "20.0.0",
     "sinon-chai": "3.7.0",
-    "stentor-models": "1.61.1",
-    "stentor-request": "1.61.1",
+    "stentor-models": "1.61.2",
+    "stentor-request": "1.61.2",
     "ts-node": "10.9.2",
     "typescript": "5.9.2"
   },
   "dependencies": {
-    "stentor-constants": "1.61.1",
-    "stentor-context": "1.61.1",
-    "stentor-handler": "1.61.1",
-    "stentor-handler-factory": "1.61.1",
-    "stentor-handler-manager": "1.61.1",
-    "stentor-history": "1.61.1",
-    "stentor-interaction-model": "1.61.1",
-    "stentor-logger": "1.61.1",
-    "stentor-response": "1.61.1",
-    "stentor-service-event": "1.61.1",
-    "stentor-utils": "1.61.1"
+    "stentor-constants": "1.61.2",
+    "stentor-context": "1.61.2",
+    "stentor-handler": "1.61.2",
+    "stentor-handler-factory": "1.61.2",
+    "stentor-handler-manager": "1.61.2",
+    "stentor-history": "1.61.2",
+    "stentor-interaction-model": "1.61.2",
+    "stentor-logger": "1.61.2",
+    "stentor-response": "1.61.2",
+    "stentor-service-event": "1.61.2",
+    "stentor-utils": "1.61.2"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

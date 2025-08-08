@@ -6,6 +6,7 @@ import { getDurationMs } from "stentor-utils";
 
 import { findTimeContextualMatch } from "./findTimeContextualMatch";
 import { findSchedulableMatch } from "./findSchedulableMatch";
+import { normalizeLegacyFormat } from "./normalizeLegacyFormat";
 
 /**
  * Depending on the provided last active timestamp and current time, has the user
@@ -64,11 +65,14 @@ export function fitsSchedule(
   durationFormat: DurationFormat,
   timeZone?: string
 ): boolean {
+  // Convert legacy Moment.js format to Luxon format
+  const normalizedFormat = normalizeLegacyFormat(startFormat);
+  
   const schedule: Schedulable = {
     schedule: {
       start: {
         time: start,
-        format: startFormat,
+        format: normalizedFormat,
         timeZone,
       },
       duration: {
@@ -82,11 +86,11 @@ export function fitsSchedule(
 
   if (!fitSchedule) {
     log().debug(
-      `Schedule starting ${start}, with format ${startFormat}, and running for ${duration} ${durationFormat} did NOT fit. Current date ${new Date().toISOString()}`
+      `Schedule starting ${start}, with format ${startFormat} (normalized: ${normalizedFormat}), and running for ${duration} ${durationFormat} did NOT fit. Current date ${new Date().toISOString()}`
     );
   } else {
     log().debug(
-      `Schedule starting ${start}, with format ${startFormat}, and running for ${duration} ${durationFormat} fits.`
+      `Schedule starting ${start}, with format ${startFormat} (normalized: ${normalizedFormat}), and running for ${duration} ${durationFormat} fits.`
     );
   }
 

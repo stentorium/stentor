@@ -11,6 +11,12 @@ function escapeRegex(string: string): string {
  * @returns The equivalent Luxon format string
  */
 export function normalizeLegacyFormat(momentFormat: string): string {
+  // Special case: handle YYYY-MM-DDTmm:ss which appears to be a typo/legacy format
+  // where mm:ss should be HH:mm (hours:minutes not minutes:seconds)
+  if (momentFormat === "YYYY-MM-DDTmm:ss") {
+    return "yyyy-MM-dd'T'HH:mm";
+  }
+  
   // Quick check: if format looks like it's already Luxon-style (lowercase yyyy, dd in date context), return as-is  
   if (/yyyy.*-MM-dd/.test(momentFormat) || /dd.*-MM-yyyy/.test(momentFormat)) {
     return momentFormat;

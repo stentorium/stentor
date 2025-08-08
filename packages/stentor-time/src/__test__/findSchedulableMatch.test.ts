@@ -60,9 +60,6 @@ describe("#findSchedulableMatch()", () => {
       },
     };
 
-    console.log(`Current time: ${now.toISO()}`);
-    console.log(`Now toFormat("HH:mm"): ${now.toFormat("HH:mm")}`);
-
     nowWithinHourAndAHalf = {
       schedule: {
         start: {

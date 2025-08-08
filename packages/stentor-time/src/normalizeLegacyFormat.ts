@@ -18,16 +18,19 @@ export function normalizeLegacyFormat(momentFormat: string): string {
   }
   
   // Quick check: if format looks like it's already Luxon-style (lowercase yyyy, dd in date context), return as-is  
-  if (/yyyy.*-MM-dd/.test(momentFormat) || /dd.*-MM-yyyy/.test(momentFormat)) {
+  // Use bounded matching to prevent ReDoS attacks
+  if (/yyyy[^M]{0,10}-MM-dd/.test(momentFormat) || /dd[^M]{0,10}-MM-yyyy/.test(momentFormat)) {
     return momentFormat;
   }
 
   // For mixed formats with dd in date context, we need to be careful not to convert dd to weekday
-  const hasMixedDateFormat = /(?:YYYY|yyyy).*-MM-dd/.test(momentFormat) || /dd.*-MM-(?:YYYY|yyyy)/.test(momentFormat);
+  // Use non-greedy, bounded matching to prevent ReDoS attacks
+  const hasMixedDateFormat = /(?:YYYY|yyyy)[^M]{0,10}-MM-dd/.test(momentFormat) || /dd[^M]{0,10}-MM-(?:YYYY|yyyy)/.test(momentFormat);
 
   // Handle escaped characters in brackets first
+  // Limit content within brackets to prevent ReDoS attacks
   const escapedChars: string[] = [];
-  let result = momentFormat.replace(/\[([^\]]*)\]/g, (_, content) => {
+  let result = momentFormat.replace(/\[([^\]]{0,100})\]/g, (_, content) => {
     const placeholder = `###ESC${escapedChars.length}###`;
     escapedChars.push(content);
     return placeholder;

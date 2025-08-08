@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.61.3",
+  "version": "1.61.4",
   "description": "Determination for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -36,7 +36,7 @@
     "stentor-logger": "1.61.3",
     "stentor-request": "1.61.3",
     "stentor-storage": "1.61.3",
-    "stentor-time": "1.61.3",
+    "stentor-time": "1.61.4",
     "stentor-utils": "1.61.3"
   },
   "peerDependencies": {

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.61.3](https://github.com/stentorium/stentor/compare/v1.61.2...v1.61.3) (2025-08-08)
+
+
+### Bug Fixes
+
+* Removing moment, moment-range and replacing with luxon ([#2684](https://github.com/stentorium/stentor/issues/2684)) ([421b912](https://github.com/stentorium/stentor/commit/421b9125b825027645221a24afe64ee88794dc45))
+
+
+
+
+
 ## [1.61.2](https://github.com/stentorium/stentor/compare/v1.61.1...v1.61.2) (2025-08-04)
 
 **Note:** Version bump only for package repo

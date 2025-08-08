@@ -1,89 +1,113 @@
 /*! Copyright (c) 2020, XAPPmedia */
-import * as Moment from "moment";
-import { extendMoment } from "moment-range";
 import { log } from "stentor-logger";
 import { ConditionalCheck, TimeContextual, DurationFormat, Schedulable } from "stentor-models";
 import { isTimeContextual } from "stentor-guards";
+import { getDurationMs } from "stentor-utils";
+
 import { findTimeContextualMatch } from "./findTimeContextualMatch";
 import { findSchedulableMatch } from "./findSchedulableMatch";
-
-// Add the range plugin to moment
-const moment = extendMoment(Moment);
+import { normalizeLegacyFormat } from "./normalizeLegacyFormat";
 
 /**
- * Depending on the provided last active timestamp and current time, has the user 
- * been active within 
- * 
+ * Depending on the provided last active timestamp and current time, has the user
+ * been active within the specified duration.
+ *
  * @param context - Contains the last active timestamp
  * @param amount - Duration amount
  * @param format - Format of the duration amount
  */
-export function activeWithin(context: { lastActiveTimestamp: number }, amount: number, format: DurationFormat): boolean {
+export function activeWithin(
+  context: { lastActiveTimestamp: number },
+  amount: number,
+  format: DurationFormat
+): boolean {
+  const now = Date.now();
+  const lastActive = context.lastActiveTimestamp;
 
-    const now = moment();
-    const lastActive = context.lastActiveTimestamp !== undefined ? moment(context.lastActiveTimestamp) : undefined;
-
-    const rangeStart = moment(now).subtract(amount, format);
-    const range = moment.range(rangeStart, now);
-
-    if (lastActive && range.contains(lastActive)) {
-        log().debug(`User was active within ${amount} ${format}`);
-        return true;
-    }
-    log().debug(`User was NOT active within ${amount} ${format}`);
+  if (typeof amount !== "number" || isNaN(amount) || amount < 0 || typeof format !== "string") {
+    log().warn(`Invalid activeWithin params: amount=${amount}, format=${format}`);
     return false;
+  }
+
+  let durationMs: number;
+
+  try {
+    durationMs = getDurationMs(amount, format);
+  } catch (err) {
+    log().warn(`activeWithin failed to get durationMs for ${amount} ${format}`, err);
+    return false;
+  }
+
+  const rangeStart = now - durationMs;
+
+  if (lastActive !== undefined && lastActive >= rangeStart && lastActive <= now) {
+    log().debug(`User was active within ${amount} ${format}`);
+    return true;
+  }
+
+  log().debug(`User was NOT active within ${amount} ${format}`);
+  return false;
 }
 
 /**
  * Is the current time within the provided schedule.
- * 
- * @param start - Start date
+ *
+ * @param start - Start date string
  * @param startFormat - Format of the start date string
- * @param duration - Duration
+ * @param duration - Duration amount
  * @param durationFormat - Format of the duration
  * @param timeZone - Optional time zone
  */
-export function fitsSchedule(start: string, startFormat: string, duration: number, durationFormat: DurationFormat, timeZone?: string): boolean {
-    const schedule: Schedulable = {
-        schedule: {
-            start: {
-                time: start,
-                format: startFormat,
-                timeZone
-            },
-            duration: {
-                amount: duration,
-                format: durationFormat
-            }
-        }
-    }
+export function fitsSchedule(
+  start: string,
+  startFormat: string,
+  duration: number,
+  durationFormat: DurationFormat,
+  timeZone?: string
+): boolean {
+  // Convert legacy Moment.js format to Luxon format
+  const normalizedFormat = normalizeLegacyFormat(startFormat);
+  
+  const schedule: Schedulable = {
+    schedule: {
+      start: {
+        time: start,
+        format: normalizedFormat,
+        timeZone,
+      },
+      duration: {
+        amount: duration,
+        format: durationFormat,
+      },
+    },
+  };
 
-    const fitSchedule = !!findSchedulableMatch([schedule]);
+  const fitSchedule = !!findSchedulableMatch([schedule]);
 
-    if (!fitSchedule) {
-        log().debug(`Schedule starting ${start}, with format ${startFormat}, and running for ${duration} ${durationFormat} did NOT fit.  Current date ${new Date().toISOString()}`);
-    } else {
-        log().debug(`Schedule starting ${start}, with format ${startFormat}, and running for ${duration} ${durationFormat} fits.`);
-    }
+  if (!fitSchedule) {
+    log().debug(
+      `Schedule starting ${start}, with format ${startFormat} (normalized: ${normalizedFormat}), and running for ${duration} ${durationFormat} did NOT fit. Current date ${new Date().toISOString()}`
+    );
+  } else {
+    log().debug(
+      `Schedule starting ${start}, with format ${startFormat} (normalized: ${normalizedFormat}), and running for ${duration} ${durationFormat} fits.`
+    );
+  }
 
-    return fitSchedule;
+  return fitSchedule;
 }
 
 /**
- * Generate a time conditional check for the provided 
- * context with last active timestamp.
- * 
- * @param context 
+ * Generate a time-based conditional check for the given context.
+ *
+ * @param context - Object containing lastActiveTimestamp
  */
 export function TimeConditionalCheck<T extends object>(context: { lastActiveTimestamp: number }): ConditionalCheck {
-    return {
-        test: isTimeContextual,
-        check: (obj: TimeContextual<T>): boolean => {
-            return !!findTimeContextualMatch([obj], context);
-        },
-        functions: [
-            activeWithin.bind(null, context),
-            fitsSchedule
-        ]
-    }
+  return {
+    test: isTimeContextual,
+    check: (obj: TimeContextual<T>): boolean => {
+      return !!findTimeContextualMatch([obj], context);
+    },
+    functions: [activeWithin.bind(null, context), fitsSchedule],
+  };
 }

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.61.6](https://github.com/stentorium/stentor/compare/v1.61.5...v1.61.6) (2025-08-08)
+
+
+### Bug Fixes
+
+* Adding luxon types ([#2686](https://github.com/stentorium/stentor/issues/2686)) ([c7d583c](https://github.com/stentorium/stentor/commit/c7d583c0570ea3fe086240bf7d32a5e4ce77f6bb))
+
+
+
+
+
 ## [1.61.5](https://github.com/stentorium/stentor/compare/v1.61.4...v1.61.5) (2025-08-08)
 
 

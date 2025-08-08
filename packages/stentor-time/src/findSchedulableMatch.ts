@@ -66,36 +66,29 @@ export function findSchedulableMatch<T extends object>(
 
       // Legacy format handling: H:mm Z D
       if (format === "H:mm Z D") {
-        console.log(`Attempting to parse legacy format: ${format}, time: ${time}`);
-
         const match = time.match(/^(\d{1,2}:\d{2}) ([+-]\d{4}) (\d)$/);
         if (match) {
           const [, timePart, offset, legacyDayOfWeek] = match;
-          console.log(`Matched legacy values -> time: ${timePart}, offset: ${offset}, dayOfWeek: ${legacyDayOfWeek}`);
 
-          // Reconstruct date using a known week containing that day
-          const baseOfWeek = DateTime.fromObject(
-            { year: 2017, month: 3, day: 1, hour: 0 },
+          // Legacy format day mapping: directly map to the target date in March 2017
+          // The 'D' token represents day-of-month, not day-of-week
+          const legacyDay = parseInt(legacyDayOfWeek);
+          const targetDate = DateTime.fromObject(
+            { year: 2017, month: 3, day: legacyDay, hour: 0 },
             { zone: "America/New_York" }
-          ).startOf("week");
+          );
 
-          console.log(`Base of week: ${baseOfWeek.toISO()} (${baseOfWeek.weekday})`);
-
-          const targetDate = baseOfWeek.plus({ days: parseInt(legacyDayOfWeek) });
           const fullDate = targetDate.toFormat("yyyy-MM-dd");
 
           const [h, m] = timePart.split(":");
           const normalizedTime = `${h.padStart(2, "0")}:${m}`;
           const fullTime = `${fullDate} ${normalizedTime} ${offset}`;
 
-          console.log(`Full time to parse: ${fullTime}`);
-
           const parsed = DateTime.fromFormat(fullTime, "yyyy-MM-dd HH:mm ZZZ", {
             setZone: true,
             locale: "en",
           });
 
-          console.log(`Parsed candidate datetime: ${parsed.toISO()}`);
           start = parsed;
         }
       } else {
@@ -104,16 +97,12 @@ export function findSchedulableMatch<T extends object>(
           patchedFormat = format.replace("Z", "'Z'");
         }
 
-        console.log(`Parsing start time: ${time} with format: ${patchedFormat}`);
         start = DateTime.fromFormat(patchedTime, patchedFormat, {
           zone: timeZone || baseNow.zone,
         });
-        console.log(`Parsed start time: ${start.toISO()}`);
       }
     } else {
-      console.log(`Parsing start time: ${time} without format`);
       start = DateTime.fromISO(time, { zone: timeZone || baseNow.zone });
-      console.log(`Parsed start time: ${start.toISO()}`);
     }
 
     if (!start.isValid) {

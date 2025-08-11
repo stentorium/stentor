@@ -300,6 +300,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@isaacs/balanced-match@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "@isaacs/balanced-match@npm:4.0.1"
+  checksum: 10c0/7da011805b259ec5c955f01cee903da72ad97c5e6f01ca96197267d3f33103d5b2f8a1af192140f3aa64526c593c8d098ae366c2b11f7f17645d12387c2fd420
+  languageName: node
+  linkType: hard
+
+"@isaacs/brace-expansion@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@isaacs/brace-expansion@npm:5.0.0"
+  dependencies:
+    "@isaacs/balanced-match": "npm:^4.0.1"
+  checksum: 10c0/b4d4812f4be53afc2c5b6c545001ff7a4659af68d4484804e9d514e183d20269bb81def8682c01a22b17c4d6aed14292c8494f7d2ac664e547101c1a905aa977
+  languageName: node
+  linkType: hard
+
 "@isaacs/cliui@npm:^8.0.2":
   version: 8.0.2
   resolution: "@isaacs/cliui@npm:8.0.2"
@@ -534,9 +550,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@microsoft/api-extractor@npm:7.52.9":
-  version: 7.52.9
-  resolution: "@microsoft/api-extractor@npm:7.52.9"
+"@microsoft/api-extractor@npm:7.52.10":
+  version: 7.52.10
+  resolution: "@microsoft/api-extractor@npm:7.52.10"
   dependencies:
     "@microsoft/api-extractor-model": "npm:7.30.7"
     "@microsoft/tsdoc": "npm:~0.15.1"
@@ -546,14 +562,14 @@ __metadata:
     "@rushstack/terminal": "npm:0.15.4"
     "@rushstack/ts-command-line": "npm:5.0.2"
     lodash: "npm:~4.17.15"
-    minimatch: "npm:~3.0.3"
+    minimatch: "npm:10.0.3"
     resolve: "npm:~1.22.1"
     semver: "npm:~7.5.4"
     source-map: "npm:~0.6.1"
     typescript: "npm:5.8.2"
   bin:
     api-extractor: bin/api-extractor
-  checksum: 10c0/055c5febcf650aa3ce4e0a0f7acbaf9561027633484aef52fa7cd717e472b68d413d9ac2dd983704d3a1297c0c664f4eb6d0e371650f423186b611d2d70c9227
+  checksum: 10c0/4bf45d24b672d36b9035d6ac025bdbe11979de36756b8871986166f7dac108dd70f57356e8746a882d55622ac5ae2a4ea8ac66cda1eefb37cab088ee660eec4a
   languageName: node
   linkType: hard
 
@@ -6432,6 +6448,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"minimatch@npm:10.0.3":
+  version: 10.0.3
+  resolution: "minimatch@npm:10.0.3"
+  dependencies:
+    "@isaacs/brace-expansion": "npm:^5.0.0"
+  checksum: 10c0/e43e4a905c5d70ac4cec8530ceaeccb9c544b1ba8ac45238e2a78121a01c17ff0c373346472d221872563204eabe929ad02669bb575cb1f0cc30facab369f70f
+  languageName: node
+  linkType: hard
+
 "minimatch@npm:3.0.5":
   version: 3.0.5
   resolution: "minimatch@npm:3.0.5"
@@ -6483,15 +6508,6 @@ __metadata:
   dependencies:
     brace-expansion: "npm:^2.0.1"
   checksum: 10c0/a0a394c356dd5b4cb7f821720841a82fa6f07c9c562c5b716909d1b6ec5e56a7e4c4b5029da26dd256b7d2b3a3f38cbf9ddd8680e887b9b5282b09c05501c1ca
-  languageName: node
-  linkType: hard
-
-"minimatch@npm:~3.0.3":
-  version: 3.0.8
-  resolution: "minimatch@npm:3.0.8"
-  dependencies:
-    brace-expansion: "npm:^1.1.7"
-  checksum: 10c0/72b226f452dcfb5075255f53534cb83fc25565b909e79b9be4fad463d735cb1084827f7013ff41d050e77ee6e474408c6073473edd2fb72c2fd630cfb0acc6ad
   languageName: node
   linkType: hard
 
@@ -9158,7 +9174,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-address@workspace:packages/stentor-address"
   dependencies:
-    "@microsoft/api-extractor": "npm:7.52.9"
+    "@microsoft/api-extractor": "npm:7.52.10"
     "@types/chai": "npm:4.3.20"
     "@types/mocha": "npm:10.0.10"
     "@types/node": "npm:22.17.0"
@@ -9523,7 +9539,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-models@workspace:packages/stentor-models"
   dependencies:
-    "@microsoft/api-extractor": "npm:7.52.9"
+    "@microsoft/api-extractor": "npm:7.52.10"
     "@rollup/plugin-typescript": "npm:12.1.4"
     "@xapp/config": "npm:0.2.3"
     "@xapp/patterns": "npm:2.0.2"
@@ -9770,7 +9786,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-utils@workspace:packages/stentor-utils"
   dependencies:
-    "@microsoft/api-extractor": "npm:7.52.9"
+    "@microsoft/api-extractor": "npm:7.52.10"
     "@types/blueimp-md5": "npm:2.18.2"
     "@types/chai": "npm:4.3.20"
     "@types/lodash.keys": "npm:4.2.9"
@@ -9823,7 +9839,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor@workspace:packages/stentor"
   dependencies:
-    "@microsoft/api-extractor": "npm:7.52.9"
+    "@microsoft/api-extractor": "npm:7.52.10"
     "@types/aws-lambda": "npm:8.10.152"
     "@types/body-parser": "npm:1.19.6"
     "@types/chai": "npm:4.3.20"

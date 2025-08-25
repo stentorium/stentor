@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.61.10](https://github.com/stentorium/stentor/compare/v1.61.9...v1.61.10) (2025-08-25)
+
+
+### Bug Fixes
+
+* More Stop Word Removals ([#2694](https://github.com/stentorium/stentor/issues/2694)) ([a82e5cd](https://github.com/stentorium/stentor/commit/a82e5cd00c60dbeb08e9fa7300689edef735b648))
+
+
+
+
+
 ## [1.61.9](https://github.com/stentorium/stentor/compare/v1.61.8...v1.61.9) (2025-08-25)
 
 **Note:** Version bump only for package repo

@@ -594,7 +594,22 @@ export function tokenize(message?: string, options: TokenizeOptions = {}): strin
     // Remove leading and trailing punctuation, but keep apostrophes within the word
     // Also remove standalone ampersands
     // Include normalized quotes and fancy quotes in the punctuation removal pattern
-    return token.replace(/^[.,!?;:()[\]{}"'\u201C\u201D\u2018\u2019&]+/, "").replace(/[.,!?;:()[\]{}"'\u201C\u201D\u2018\u2019&]+$/, "");
+    const punctuation = new Set(['.', ',', '!', '?', ';', ':', '(', ')', '[', ']', '{', '}', '"', "'", '\u201C', '\u201D', '\u2018', '\u2019', '&']);
+    
+    let start = 0;
+    let end = token.length;
+    
+    // Remove leading punctuation
+    while (start < end && punctuation.has(token[start])) {
+      start++;
+    }
+    
+    // Remove trailing punctuation
+    while (end > start && punctuation.has(token[end - 1])) {
+      end--;
+    }
+    
+    return token.slice(start, end);
   }).filter((t) => t.length > 0 && t !== "&");
 
   // optionally remove stop words

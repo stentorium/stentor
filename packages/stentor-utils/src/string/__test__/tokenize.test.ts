@@ -27,13 +27,35 @@ describe(`#${tokenize.name}()`, () => {
   });
 
   it("removes stop words with apostrophes", () => {
-    const input = "I'm and I'm not sure if it's working";
+    // notice the two types of apostrophes here
+    const input = "I'm and I´m not sure if it's working";
     const result = tokenize(input, { removeStopWords: true });
     expect(result).to.not.include("I'm");
     expect(result).to.not.include("it's");
     expect(result).to.not.include("i'm");
     expect(result).to.include("sure");
     expect(result).to.include("working");
+  });
+
+  it("normalizes fancy Mac OS/iOS style quotes and apostrophes", () => {
+    // Test fancy apostrophes: ' (U+2019) and ` (U+0060)
+    // Test fancy quotes: " " (U+201C, U+201D) and ' ' (U+2018, U+2019)
+    const input = `I\u2019m working \u201csmart quotes\u201d and \u2018fancy apostrophes\u2019 here`;
+    const result = tokenize(input, { removeStopWords: true });
+
+    // Should normalize and remove stop words ("i'm", "and", "here" are stop words)
+    expect(result).to.not.include("i'm"); // normalized and removed as stop word
+    expect(result).to.include("working");
+    expect(result).to.include("smart");
+    expect(result).to.include("quotes");
+    expect(result).to.include("fancy");
+    expect(result).to.include("apostrophes");
+
+    // Verify quotes are removed from tokens
+    expect(result).to.not.include("\u201csmart");
+    expect(result).to.not.include("quotes\u201d");
+    expect(result).to.not.include("\u2018fancy");
+    expect(result).to.not.include("apostrophes\u2019");
   });
 
   it("handles trailing punctuation", () => {

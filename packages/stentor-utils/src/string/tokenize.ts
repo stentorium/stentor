@@ -568,6 +568,7 @@ export const DEFAULT_STOP_WORDS: Set<string> = new Set([
  * Tokenizes a message into an array of words, optionally removing stop words.
  *
  * Will lowercase the message, trim whitespace, and remove common punctuation.
+ * Normalizes fancy Mac OS/iOS quotes and apostrophes to standard ASCII equivalents.
  *
  * @param {string} [message] - The message to tokenize.
  * @param {TokenizeOptions} [options] - Options for tokenization.
@@ -576,7 +577,14 @@ export const DEFAULT_STOP_WORDS: Set<string> = new Set([
 export function tokenize(message?: string, options: TokenizeOptions = {}): string[] {
   if (!message) return [];
 
-  const trimmed = message.trim().toLowerCase();
+  let trimmed = message.trim().toLowerCase();
+
+  // Normalize fancy Mac OS/iOS style quotes and apostrophes to standard ASCII
+  trimmed = trimmed
+    .replace(/[\u2018\u2019]/g, "'") // ' ' → '
+    .replace(/[\u201C\u201D]/g, '"') // " " → "
+    .replace(/\u0060/g, "'")         // ` → '
+    .replace(/\u00B4/g, "'");        // ´ → '
 
   // split on whitespace first
   let tokens = trimmed.split(/\s+/).filter((t) => t.length > 0);
@@ -585,7 +593,8 @@ export function tokenize(message?: string, options: TokenizeOptions = {}): strin
   tokens = tokens.map(token => {
     // Remove leading and trailing punctuation, but keep apostrophes within the word
     // Also remove standalone ampersands
-    return token.replace(/^[.,!?;:()[\]{}"&]+|[.,!?;:()[\]{}"&]+$/g, "");
+    // Include normalized quotes and fancy quotes in the punctuation removal pattern
+    return token.replace(/^[.,!?;:()[\]{}"'\u201C\u201D\u2018\u2019&]+|[.,!?;:()[\]{}"'\u201C\u201D\u2018\u2019&]+$/g, "");
   }).filter((t) => t.length > 0 && t !== "&");
 
   // optionally remove stop words

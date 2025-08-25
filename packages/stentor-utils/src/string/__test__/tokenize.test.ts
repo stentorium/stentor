@@ -26,6 +26,16 @@ describe(`#${tokenize.name}()`, () => {
     expect(result).to.include("brown");
   });
 
+  it("removes stop words with apostrophes", () => {
+    const input = "I'm and I'm not sure if it's working";
+    const result = tokenize(input, { removeStopWords: true });
+    expect(result).to.not.include("I'm");
+    expect(result).to.not.include("it's");
+    expect(result).to.not.include("i'm");
+    expect(result).to.include("sure");
+    expect(result).to.include("working");
+  });
+
   it("handles trailing punctuation", () => {
     const input = "paperwork? thanks.";
     const result = tokenize(input);
@@ -33,5 +43,18 @@ describe(`#${tokenize.name}()`, () => {
     expect(result).to.include("thanks");
     expect(result).to.not.include("paperwork?");
     expect(result).to.not.include("thanks.");
+  });
+
+  it("removes ampersands and titles", () => {
+    const input = "Mr. Smith & Mrs. Jones visited Dr. Brown";
+    const result = tokenize(input, { removeStopWords: true });
+    expect(result).to.not.include("&");
+    expect(result).to.not.include("mr");
+    expect(result).to.not.include("mrs");
+    expect(result).to.not.include("dr");
+    expect(result).to.include("smith");
+    expect(result).to.include("jones");
+    expect(result).to.include("visited");
+    expect(result).to.include("brown");
   });
 });

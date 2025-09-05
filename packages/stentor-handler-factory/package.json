@@ -15,7 +15,7 @@
     "node": "^12 || ^14 || ^16 || ^18 || ^20.0.0 || ^22.0.0"
   },
   "devDependencies": {
-    "@types/chai": "4.3.20",
+    "@types/chai": "5.2.2",
     "@types/sinon": "17.0.4",
     "@types/sinon-chai": "3.2.12",
     "@xapp/config": "0.2.3",

@@ -17,7 +17,7 @@
   "devDependencies": {
     "@microsoft/api-extractor": "7.52.11",
     "@types/blueimp-md5": "2.18.2",
-    "@types/chai": "4.3.20",
+    "@types/chai": "5.2.2",
     "@types/lodash.keys": "4.2.9",
     "@types/lodash.sumby": "4.6.9",
     "@types/lodash.union": "4.6.9",

@@ -18,6 +18,9 @@ jobs:
     #   github.event.pull_request.user.login == 'new-developer' ||
     #   github.event.pull_request.author_association == 'FIRST_TIME_CONTRIBUTOR'
     
+    # Exclude Renovate and other bots from Claude review
+    if: github.event.pull_request.user.login != 'renovate[bot]'
+    
     runs-on: ubuntu-latest
     permissions:
       contents: read

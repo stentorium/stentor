@@ -20,7 +20,7 @@
     "@xapp/config": "0.2.3",
     "chai": "4.5.0",
     "fetch-mock": "9.11.0",
-    "mocha": "11.7.1",
+    "mocha": "11.7.2",
     "stentor-models": "1.61.11",
     "ts-node": "10.9.2",
     "typescript": "5.9.2"

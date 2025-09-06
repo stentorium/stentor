@@ -24,7 +24,7 @@
     "@xapp/config": "0.2.3",
     "aws-sdk": "2.1692.0",
     "chai": "4.5.0",
-    "mocha": "11.7.1",
+    "mocha": "11.7.2",
     "sinon": "20.0.0",
     "sinon-chai": "3.7.0",
     "stentor-models": "1.61.11",

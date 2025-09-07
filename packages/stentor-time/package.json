@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@types/luxon": "3.7.1",
-    "luxon": "3.7.1",
+    "luxon": "3.7.2",
     "stentor-guards": "1.61.13",
     "stentor-logger": "1.61.13",
     "stentor-utils": "1.61.13"

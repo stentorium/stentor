@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.61.14](https://github.com/stentorium/stentor/compare/v1.61.13...v1.61.14) (2025-09-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency luxon to v3.7.2 ([#2702](https://github.com/stentorium/stentor/issues/2702)) ([3d1fe63](https://github.com/stentorium/stentor/commit/3d1fe63ff5ee933a574802900f9e44a3ba8c2526))
+
+
+
+
+
 ## [1.61.13](https://github.com/stentorium/stentor/compare/v1.61.12...v1.61.13) (2025-09-07)
 
 **Note:** Version bump only for package stentor-time

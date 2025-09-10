@@ -23,6 +23,8 @@ afterEach(() => {
     process.env.STENTOR_LOG_LEVEL = logLevel;
     process.env.OVAI_LOG_PII = logPii;
     process.env.OVAI_LOG_PII_MASK_PARTIAL = maskPartial;
+    // Reset the logger instance
+    set(undefined);
 });
 describe("#log()", () => {
     it("returns a logger", () => {

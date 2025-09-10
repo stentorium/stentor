@@ -2107,13 +2107,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"assertion-error@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "assertion-error@npm:1.1.0"
-  checksum: 10c0/25456b2aa333250f01143968e02e4884a34588a8538fbbf65c91a637f1dbfb8069249133cd2f4e530f10f624d206a664e7df30207830b659e9f5298b00a4099b
-  languageName: node
-  linkType: hard
-
 "async@npm:^3.2.3":
   version: 3.2.6
   resolution: "async@npm:3.2.6"
@@ -2499,18 +2492,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chai@npm:4.5.0":
-  version: 4.5.0
-  resolution: "chai@npm:4.5.0"
-  dependencies:
-    assertion-error: "npm:^1.1.0"
-    check-error: "npm:^1.0.3"
-    deep-eql: "npm:^4.1.3"
-    get-func-name: "npm:^2.0.2"
-    loupe: "npm:^2.3.6"
-    pathval: "npm:^1.1.1"
-    type-detect: "npm:^4.1.0"
-  checksum: 10c0/b8cb596bd1aece1aec659e41a6e479290c7d9bee5b3ad63d2898ad230064e5b47889a3bc367b20100a0853b62e026e2dc514acf25a3c9385f936aa3614d4ab4d
+"chai@npm:6.0.1":
+  version: 6.0.1
+  resolution: "chai@npm:6.0.1"
+  checksum: 10c0/a09f6019b92b471ebbdac7ecb1d8abbfe66a3cfd90c4e8e2e1b6aabddd6c9001e616f6ae9e15e169fefe9af76eb6007b7b6b285564ab62c738aa354177d01948
   languageName: node
   linkType: hard
 
@@ -2575,7 +2560,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"check-error@npm:^1.0.2, check-error@npm:^1.0.3":
+"check-error@npm:^1.0.2":
   version: 1.0.3
   resolution: "check-error@npm:1.0.3"
   dependencies:
@@ -3161,15 +3146,6 @@ __metadata:
   version: 0.7.0
   resolution: "dedent@npm:0.7.0"
   checksum: 10c0/7c3aa00ddfe3e5fcd477958e156156a5137e3bb6ff1493ca05edff4decf29a90a057974cc77e75951f8eb801c1816cb45aea1f52d628cdd000b82b36ab839d1b
-  languageName: node
-  linkType: hard
-
-"deep-eql@npm:^4.1.3":
-  version: 4.1.4
-  resolution: "deep-eql@npm:4.1.4"
-  dependencies:
-    type-detect: "npm:^4.0.0"
-  checksum: 10c0/264e0613493b43552fc908f4ff87b8b445c0e6e075656649600e1b8a17a57ee03e960156fce7177646e4d2ddaf8e5ee616d76bd79929ff593e5c79e4e5e6c517
   languageName: node
   linkType: hard
 
@@ -4301,7 +4277,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"get-func-name@npm:^2.0.1, get-func-name@npm:^2.0.2":
+"get-func-name@npm:^2.0.2":
   version: 2.0.2
   resolution: "get-func-name@npm:2.0.2"
   checksum: 10c0/89830fd07623fa73429a711b9daecdb304386d237c71268007f788f113505ef1d4cc2d0b9680e072c5082490aec9df5d7758bf5ac6f1c37062855e8e3dc0b9df
@@ -6014,15 +5990,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"loupe@npm:^2.3.6":
-  version: 2.3.7
-  resolution: "loupe@npm:2.3.7"
-  dependencies:
-    get-func-name: "npm:^2.0.1"
-  checksum: 10c0/71a781c8fc21527b99ed1062043f1f2bb30bdaf54fa4cf92463427e1718bc6567af2988300bc243c1f276e4f0876f29e3cbf7b58106fdc186915687456ce5bf4
-  languageName: node
-  linkType: hard
-
 "lru-cache@npm:^10.0.1, lru-cache@npm:^10.2.0":
   version: 10.4.3
   resolution: "lru-cache@npm:10.4.3"
@@ -7685,13 +7652,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pathval@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "pathval@npm:1.1.1"
-  checksum: 10c0/f63e1bc1b33593cdf094ed6ff5c49c1c0dc5dc20a646ca9725cc7fe7cd9995002d51d5685b9b2ec6814342935748b711bafa840f84c0bb04e38ff40a335c94dc
-  languageName: node
-  linkType: hard
-
 "picocolors@npm:^1.0.0, picocolors@npm:^1.1.1":
   version: 1.1.1
   resolution: "picocolors@npm:1.1.1"
@@ -9049,7 +9009,7 @@ __metadata:
     "@xapp/config": "npm:0.2.3"
     addresser: "npm:1.1.20"
     aws-sdk: "npm:2.1692.0"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
@@ -9073,7 +9033,7 @@ __metadata:
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.2.3"
     "@xapp/patterns": "npm:2.0.2"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
@@ -9093,7 +9053,7 @@ __metadata:
   dependencies:
     "@types/chai": "npm:5.2.2"
     "@xapp/config": "npm:0.2.3"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     isolated-vm: "npm:5.0.4"
     mocha: "npm:11.7.2"
     stentor-logger: "npm:1.61.15"
@@ -9129,7 +9089,7 @@ __metadata:
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.2.3"
     "@xapp/patterns": "npm:2.0.2"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
@@ -9152,7 +9112,7 @@ __metadata:
     "@types/sinon": "npm:17.0.4"
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.2.3"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     jsonpath-plus: "npm:10.3.0"
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
@@ -9182,7 +9142,7 @@ __metadata:
     "@types/sinon": "npm:17.0.4"
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.2.3"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
@@ -9201,7 +9161,7 @@ __metadata:
   dependencies:
     "@types/chai": "npm:5.2.2"
     "@xapp/config": "npm:0.2.3"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     stentor-handler: "npm:1.61.15"
     stentor-models: "npm:1.61.11"
     stentor-utils: "npm:1.61.13"
@@ -9220,7 +9180,7 @@ __metadata:
     "@types/sinon": "npm:17.0.4"
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.2.3"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
@@ -9250,7 +9210,7 @@ __metadata:
     "@types/sinon": "npm:17.0.4"
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.2.3"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     chai-as-promised: "npm:7.1.2"
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
@@ -9279,7 +9239,7 @@ __metadata:
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.2.3"
     "@xapp/patterns": "npm:2.0.2"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
@@ -9310,7 +9270,7 @@ __metadata:
     "@types/chai": "npm:5.2.2"
     "@types/sinon": "npm:17.0.4"
     "@xapp/config": "npm:0.2.3"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
     stentor-models: "npm:1.61.11"
@@ -9327,7 +9287,7 @@ __metadata:
   dependencies:
     "@types/chai": "npm:5.2.2"
     "@xapp/config": "npm:0.2.3"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     mocha: "npm:11.7.2"
     stentor-constants: "npm:1.61.11"
     stentor-locales: "npm:1.61.13"
@@ -9347,7 +9307,7 @@ __metadata:
   dependencies:
     "@types/chai": "npm:5.2.2"
     "@xapp/config": "npm:0.2.3"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     mocha: "npm:11.7.2"
     stentor-models: "npm:1.61.11"
     stentor-utils: "npm:1.61.13"
@@ -9366,7 +9326,7 @@ __metadata:
     "@types/sinon": "npm:17.0.4"
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.2.3"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     chalk: "npm:4.1.2"
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
@@ -9395,7 +9355,7 @@ __metadata:
     "@types/node": "npm:22.18.0"
     "@types/sinon": "npm:17.0.4"
     "@xapp/config": "npm:0.2.3"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
     stentor-guards: "npm:1.61.13"
@@ -9431,7 +9391,7 @@ __metadata:
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.2.3"
     "@xapp/patterns": "npm:2.0.2"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
@@ -9456,7 +9416,7 @@ __metadata:
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.2.3"
     "@xapp/patterns": "npm:2.0.2"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
@@ -9482,7 +9442,7 @@ __metadata:
     "@xapp/config": "npm:0.2.3"
     "@xapp/patterns": "npm:2.0.2"
     aws-sdk: "npm:2.1692.0"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     fetch-mock: "npm:9.11.0"
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
@@ -9517,7 +9477,7 @@ __metadata:
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.2.3"
     aws-sdk: "npm:2.1692.0"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
@@ -9541,7 +9501,7 @@ __metadata:
     "@types/chai": "npm:5.2.2"
     "@types/chai-as-promised": "npm:7.1.8"
     abort-controller: "npm:3.0.0"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     chai-as-promised: "npm:7.1.2"
     isomorphic-fetch: "npm:3.0.0"
     stentor-models: "npm:1.61.11"
@@ -9559,7 +9519,7 @@ __metadata:
     "@types/chai": "npm:5.2.2"
     "@types/fetch-mock": "npm:9.2.2"
     "@xapp/config": "npm:0.2.3"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     fetch-mock: "npm:9.11.0"
     isomorphic-fetch: "npm:3.0.0"
     mocha: "npm:11.7.2"
@@ -9583,7 +9543,7 @@ __metadata:
     "@types/fetch-mock": "npm:9.2.2"
     "@xapp/config": "npm:0.2.3"
     abort-controller: "npm:3.0.0"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     chai-as-promised: "npm:7.1.2"
     dotenv: "npm:16.6.1"
     fetch-mock: "npm:9.11.0"
@@ -9606,7 +9566,7 @@ __metadata:
   dependencies:
     "@types/chai": "npm:5.2.2"
     "@xapp/config": "npm:0.2.3"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     jsonpath-plus: "npm:10.3.0"
     stentor-models: "npm:1.61.11"
     stentor-utils: "npm:1.61.13"
@@ -9625,7 +9585,7 @@ __metadata:
     "@types/mocha": "npm:10.0.10"
     "@types/sinon": "npm:17.0.4"
     "@xapp/config": "npm:0.2.3"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     luxon: "npm:3.7.2"
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
@@ -9647,7 +9607,7 @@ __metadata:
     "@types/chai": "npm:5.2.2"
     "@xapp/config": "npm:0.2.3"
     "@xapp/dynamo-service": "npm:1.8.7"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     stentor-models: "npm:1.61.11"
     typescript: "npm:5.9.2"
   peerDependencies:
@@ -9676,7 +9636,7 @@ __metadata:
     "@xapp/config": "npm:0.2.3"
     aws-sdk: "npm:2.1692.0"
     blueimp-md5: "npm:2.19.0"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     chrono-node: "npm:2.8.4"
     date-fns: "npm:4.1.0"
     dyno-item-size: "npm:0.3.3"
@@ -9725,7 +9685,7 @@ __metadata:
     "@xapp/patterns": "npm:2.0.2"
     aws-sdk: "npm:2.1692.0"
     body-parser: "npm:2.2.0"
-    chai: "npm:4.5.0"
+    chai: "npm:6.0.1"
     chai-as-promised: "npm:7.1.2"
     dotenv: "npm:16.6.1"
     express: "npm:5.1.0"
@@ -10268,7 +10228,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-detect@npm:^4.0.0, type-detect@npm:^4.1.0":
+"type-detect@npm:^4.1.0":
   version: 4.1.0
   resolution: "type-detect@npm:4.1.0"
   checksum: 10c0/df8157ca3f5d311edc22885abc134e18ff8ffbc93d6a9848af5b682730ca6a5a44499259750197250479c5331a8a75b5537529df5ec410622041650a7f293e2a

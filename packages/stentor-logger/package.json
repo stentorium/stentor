@@ -5,7 +5,7 @@
     "access": "public"
   },
   "version": "1.61.13",
-  "description": "Simple logging library built on top of Winston for 📣 stentor",
+  "description": "Simple logging library with optional Winston support for 📣 stentor",
   "types": "lib/index",
   "main": "lib/index",
   "files": [
@@ -29,8 +29,19 @@
   },
   "dependencies": {
     "chalk": "4.1.2",
-    "stentor-utils": "1.61.13",
-    "winston": "3.17.0"
+    "stentor-utils": "1.61.13"
+  },
+  "peerDependencies": {
+    "winston": ">=3.0.0",
+    "logform": ">=1.0.0"
+  },
+  "peerDependenciesMeta": {
+    "winston": {
+      "optional": true
+    },
+    "logform": {
+      "optional": true
+    }
   },
   "scripts": {
     "build": "tsc -d true -p .",

@@ -23,6 +23,7 @@ interface WinstonFormat {
   splat: () => any;
   timestamp: () => any;
   printf: (fn: (info: any) => string) => any;
+  (transformer: (info: any) => any): () => any;
 }
 
 interface WinstonTransports {
@@ -37,16 +38,13 @@ interface WinstonModule {
 
 // Try to import Winston dynamically - it might not be available
 let winston: WinstonModule | null = null;
-let TransformableInfo: any = null;
 
 try {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   winston = require("winston") as WinstonModule;
-  const logform = require("logform");
-  TransformableInfo = logform.TransformableInfo;
 } catch (e) {
   // Winston is not available, will use fallback logger
   winston = null;
-  TransformableInfo = null;
 }
 
 export interface LoggerMethod {
@@ -136,20 +134,27 @@ function createFallbackLogger(level: string): Logger {
       error: 0,
       warn: 1,
       info: 2,
-      debug: 3
+      debug: 3,
     };
     return levels[logLevel] <= levels[level];
   };
 
+  const fallbackLogger: Logger = {
+    debug: () => fallbackLogger,
+    info: () => fallbackLogger,
+    warn: () => fallbackLogger,
+    error: () => fallbackLogger,
+  };
+
   const logMethod = (logLevel: string): LoggerMethod => {
-    return (message: string | object, ...meta: any[]) => {
+    return (message: string | object) => {
       if (!shouldLog(logLevel)) {
         return fallbackLogger;
       }
 
       // Apply PII redaction
       let processedMessage = message;
-      if (typeof message === 'string' || typeof message === 'object') {
+      if (typeof message === "string" || typeof message === "object") {
         const info = redact({ level: logLevel, message });
         processedMessage = info.message;
       }
@@ -174,10 +179,10 @@ function createFallbackLogger(level: string): Logger {
 
       let output: string;
       if (typeof processedMessage === "object") {
-        const jsonMessage = isOnAWSLambda() 
-          ? JSON.stringify(processedMessage) 
+        const jsonMessage = isOnAWSLambda()
+          ? JSON.stringify(processedMessage)
           : JSON.stringify(processedMessage, undefined, 2);
-        
+
         if (isOnAWSLambda()) {
           output = `${lead}|${jsonMessage}`;
         } else {
@@ -203,17 +208,16 @@ function createFallbackLogger(level: string): Logger {
         }
       }
 
+      // eslint-disable-next-line no-console
       console.log(output);
       return fallbackLogger;
     };
   };
 
-  const fallbackLogger: Logger = {
-    debug: logMethod("debug"),
-    info: logMethod("info"),
-    warn: logMethod("warn"),
-    error: logMethod("error")
-  };
+  fallbackLogger.debug = logMethod("debug");
+  fallbackLogger.info = logMethod("info");
+  fallbackLogger.warn = logMethod("warn");
+  fallbackLogger.error = logMethod("error");
 
   return fallbackLogger;
 }
@@ -308,10 +312,10 @@ function createWinstonLogger(level: string): Logger | null {
 export function log(): Logger {
   if (!LOGGER) {
     const level = process.env.STENTOR_LOG_LEVEL || process.env.OVAI_LOG_LEVEL || "error";
-    
+
     // Try to create Winston logger first
     LOGGER = createWinstonLogger(level);
-    
+
     // If Winston is not available, use fallback logger
     if (!LOGGER) {
       LOGGER = createFallbackLogger(level);
@@ -341,14 +345,16 @@ export function set(logger: Logger | undefined): void {
  */
 export function registerWinstonLogger(winstonLogger: any): void {
   // Ensure the passed object has the required methods
-  if (!winstonLogger || 
-      typeof winstonLogger.debug !== 'function' ||
-      typeof winstonLogger.info !== 'function' ||
-      typeof winstonLogger.warn !== 'function' ||
-      typeof winstonLogger.error !== 'function') {
-    throw new Error('Invalid Winston logger: must have debug, info, warn, and error methods');
+  if (
+    !winstonLogger ||
+    typeof winstonLogger.debug !== "function" ||
+    typeof winstonLogger.info !== "function" ||
+    typeof winstonLogger.warn !== "function" ||
+    typeof winstonLogger.error !== "function"
+  ) {
+    throw new Error("Invalid Winston logger: must have debug, info, warn, and error methods");
   }
-  
+
   LOGGER = winstonLogger as Logger;
 }
 

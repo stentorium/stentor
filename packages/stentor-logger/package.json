@@ -32,14 +32,14 @@
     "stentor-utils": "1.61.13"
   },
   "peerDependencies": {
-    "winston": ">=3.0.0",
-    "logform": ">=1.0.0"
+    "logform": ">=1.0.0",
+    "winston": ">=3.0.0"
   },
   "peerDependenciesMeta": {
-    "winston": {
+    "logform": {
       "optional": true
     },
-    "logform": {
+    "winston": {
       "optional": true
     }
   },

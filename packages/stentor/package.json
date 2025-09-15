@@ -17,6 +17,7 @@
     "node": "^12 || ^14 || ^16 || ^18 || ^20.0.0 || ^22.0.0"
   },
   "devDependencies": {
+    "@aws-sdk/client-secrets-manager": "^3.0.0",
     "@microsoft/api-extractor": "7.52.13",
     "@types/chai": "5.2.2",
     "@types/mocha": "10.0.10",
@@ -64,11 +65,15 @@
     "stentor-utils": "1.61.16"
   },
   "peerDependencies": {
+    "@aws-sdk/client-secrets-manager": "^3.0.0",
     "aws-sdk": "2.X",
     "body-parser": "2.2.0",
     "express": "5.1.0"
   },
   "peerDependenciesMeta": {
+    "@aws-sdk/client-secrets-manager": {
+      "optional": true
+    },
     "aws-sdk": {
       "optional": true
     },

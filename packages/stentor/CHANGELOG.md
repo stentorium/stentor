@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.62.0](https://github.com/stentorium/stentor/compare/v1.61.16...v1.62.0) (2025-09-15)
+
+
+### Features
+
+* migrate AWS SDK v2 to v3 for Secrets Manager - phase 1 ([#2708](https://github.com/stentorium/stentor/issues/2708)) ([293b8a0](https://github.com/stentorium/stentor/commit/293b8a0d0b0668b224221785dd9c82153e65ce34))
+
+
+
+
+
 ## [1.61.16](https://github.com/stentorium/stentor/compare/v1.61.15...v1.61.16) (2025-09-15)
 
 **Note:** Version bump only for package stentor

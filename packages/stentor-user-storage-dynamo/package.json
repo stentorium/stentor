@@ -25,7 +25,17 @@
     "@xapp/dynamo-service": "1.8.7"
   },
   "peerDependencies": {
-    "stentor-models": "1.x"
+    "stentor-models": "1.x",
+    "aws-sdk": "*",
+    "@aws-sdk/lib-dynamodb": "*"
+  },
+  "peerDependenciesMeta": {
+    "aws-sdk": {
+      "optional": true
+    },
+    "@aws-sdk/lib-dynamodb": {
+      "optional": true
+    }
   },
   "scripts": {
     "build": "tsc -d true -p .",

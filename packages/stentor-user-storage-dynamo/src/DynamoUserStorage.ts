@@ -1,6 +1,5 @@
 /*! Copyright (c) 2020, XAPPmedia */
 import { Storage, UserStorageService } from "stentor-models";
-import { DocumentClient } from 'aws-sdk/clients/dynamodb';
 
 import { TableSchema } from '@xapp/dynamo-service/dist/service/KeySchema';
 import { DynamoService } from '@xapp/dynamo-service/dist/service/DynamoService';
@@ -8,7 +7,41 @@ import {
     AWS_COLUMN_REGEX,
     TableService
 } from '@xapp/dynamo-service/dist/service/TableService';
-import { DynamoDB } from 'aws-sdk';
+
+// Support both AWS SDK v2 and v3
+let DocumentClient: any;
+let DynamoDB: any;
+let DynamoDBDocument: any;
+
+try {
+    // Try AWS SDK v3 first
+    const { DynamoDBDocument: DynamoDBDocumentV3 } = require('@aws-sdk/lib-dynamodb');
+    const { DynamoDBClient } = require('@aws-sdk/client-dynamodb');
+    DynamoDBDocument = DynamoDBDocumentV3;
+    // For v3, we'll create a wrapper that mimics DocumentClient interface
+    DocumentClient = class DocumentClientV3Wrapper {
+        private dynamoDoc: any;
+        constructor(options?: any) {
+            const client = options?.client || new DynamoDBClient(options);
+            this.dynamoDoc = DynamoDBDocument.from(client);
+        }
+        put = this.dynamoDoc.put?.bind(this.dynamoDoc);
+        get = this.dynamoDoc.get?.bind(this.dynamoDoc);
+        update = this.dynamoDoc.update?.bind(this.dynamoDoc);
+        delete = this.dynamoDoc.delete?.bind(this.dynamoDoc);
+        scan = this.dynamoDoc.scan?.bind(this.dynamoDoc);
+        query = this.dynamoDoc.query?.bind(this.dynamoDoc);
+    };
+} catch (e) {
+    // Fallback to AWS SDK v2
+    try {
+        const awsSDK = require('aws-sdk');
+        DocumentClient = awsSDK.DynamoDB.DocumentClient;
+        DynamoDB = awsSDK.DynamoDB;
+    } catch (e2) {
+        throw new Error('Neither AWS SDK v3 (@aws-sdk/lib-dynamodb) nor v2 (aws-sdk) is available. Please install one of them.');
+    }
+}
 
 import { UserStorageRow, UserTableSchema } from "./UserStorageTableSchema";
 
@@ -27,8 +60,9 @@ export interface DynamoUserStorageProps {
     tableName?: string;
     /**
      * DynamoDB instance, optional.  If one isn't provided it will be created for you based on the provided table name.
+     * Supports both AWS SDK v2 (DynamoDB.DocumentClient) and v3 (DynamoDBDocument) clients.
      */
-    dynamo?: DynamoDB | DynamoDB.DocumentClient;
+    dynamo?: any;
     /**
      * Optional table schema.  This is required if you want to save additional information to long term storage.
      * 
@@ -70,7 +104,8 @@ export class DynamoUserStorage implements UserStorageService {
             throw new Error(`Constructor property appId or environment variable STUDIO_APP_ID is required for the DynamoUserStorage.`);
         }
 
-        const dynamo = new DocumentClient();
+        // Use provided dynamo client or create a new one
+        const dynamo = props?.dynamo || new DocumentClient();
 
         this.service = new TableService<UserStorageRow>(tableName, new DynamoService(dynamo), tableSchema, {
             trimColumnsInGet: [AWS_COLUMN_REGEX],

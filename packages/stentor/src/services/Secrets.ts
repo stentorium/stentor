@@ -31,7 +31,7 @@ export async function setEnv(): Promise<void> {
         const data = await secretClient.send(command);
 
         if (data && data.SecretString) {
-            log().debug(`Using secrets from ${process.env.STUDIO_SECRET_NAME}`);
+            log().debug("Using secrets from AWS Secrets Manager");
 
             const parsed: { [key: string]: string } = JSON.parse(data.SecretString);
 
@@ -41,12 +41,12 @@ export async function setEnv(): Promise<void> {
 
             secretsLoadedMillis = new Date().getTime();
 
-            log().debug(`Secrets were (re-)loaded. Secrets version (STUDIO_SECRET_VERSION): ${process.env.STUDIO_SECRET_VERSION}`);
+            log().debug("Secrets were (re-)loaded successfully");
         } else {
-            log().debug(`There were no secrets in ${process.env.STUDIO_SECRET_NAME}`);
+            log().debug("No secrets found in AWS Secrets Manager");
         }
     } catch (err) {
-        log().debug(`Failed to get secrets from  ${process.env.STUDIO_SECRET_NAME}: ${err.message}`);
+        log().debug(`Failed to get secrets from AWS Secrets Manager: ${err.message}`);
         throw err;
     }
 }

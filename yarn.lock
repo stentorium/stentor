@@ -9053,8 +9053,8 @@ __metadata:
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
-    stentor-models: "npm:1.61.11"
-    stentor-utils: "npm:1.61.13"
+    stentor-models: "npm:1.61.16"
+    stentor-utils: "npm:1.61.16"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.2"
   peerDependencies:
@@ -9077,9 +9077,9 @@ __metadata:
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
-    stentor-logger: "npm:1.61.15"
-    stentor-models: "npm:1.61.11"
-    stentor-utils: "npm:1.61.13"
+    stentor-logger: "npm:1.61.16"
+    stentor-models: "npm:1.61.16"
+    stentor-utils: "npm:1.61.16"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.2"
   peerDependencies:
@@ -9087,7 +9087,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-conditional@npm:1.61.15, stentor-conditional@workspace:packages/stentor-conditional":
+"stentor-conditional@npm:1.61.16, stentor-conditional@workspace:packages/stentor-conditional":
   version: 0.0.0-use.local
   resolution: "stentor-conditional@workspace:packages/stentor-conditional"
   dependencies:
@@ -9096,8 +9096,8 @@ __metadata:
     chai: "npm:4.5.0"
     isolated-vm: "npm:5.0.4"
     mocha: "npm:11.7.2"
-    stentor-logger: "npm:1.61.15"
-    stentor-models: "npm:1.61.11"
+    stentor-logger: "npm:1.61.16"
+    stentor-models: "npm:1.61.16"
     typescript: "npm:5.9.2"
     vm2: "npm:3.9.19"
   peerDependencies:
@@ -9108,19 +9108,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-constants@npm:1.61.11, stentor-constants@workspace:packages/stentor-constants":
+"stentor-constants@npm:1.61.16, stentor-constants@workspace:packages/stentor-constants":
   version: 0.0.0-use.local
   resolution: "stentor-constants@workspace:packages/stentor-constants"
   dependencies:
     "@xapp/config": "npm:0.2.3"
-    stentor-models: "npm:1.61.11"
+    stentor-models: "npm:1.61.16"
     typescript: "npm:5.9.2"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
   linkType: soft
 
-"stentor-context@npm:1.61.15, stentor-context@workspace:packages/stentor-context":
+"stentor-context@npm:1.61.16, stentor-context@workspace:packages/stentor-context":
   version: 0.0.0-use.local
   resolution: "stentor-context@workspace:packages/stentor-context"
   dependencies:
@@ -9133,10 +9133,10 @@ __metadata:
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
-    stentor-constants: "npm:1.61.11"
-    stentor-models: "npm:1.61.11"
-    stentor-response: "npm:1.61.15"
-    stentor-storage: "npm:1.61.13"
+    stentor-constants: "npm:1.61.16"
+    stentor-models: "npm:1.61.16"
+    stentor-response: "npm:1.61.16"
+    stentor-storage: "npm:1.61.16"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.2"
   peerDependencies:
@@ -9144,7 +9144,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-determiner@npm:1.61.15, stentor-determiner@workspace:packages/stentor-determiner":
+"stentor-determiner@npm:1.61.16, stentor-determiner@workspace:packages/stentor-determiner":
   version: 0.0.0-use.local
   resolution: "stentor-determiner@workspace:packages/stentor-determiner"
   dependencies:
@@ -9157,16 +9157,16 @@ __metadata:
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
-    stentor-conditional: "npm:1.61.15"
-    stentor-constants: "npm:1.61.11"
-    stentor-guards: "npm:1.61.13"
-    stentor-interaction-model: "npm:1.61.15"
-    stentor-logger: "npm:1.61.15"
-    stentor-models: "npm:1.61.11"
-    stentor-request: "npm:1.61.15"
-    stentor-storage: "npm:1.61.13"
-    stentor-time: "npm:1.61.15"
-    stentor-utils: "npm:1.61.13"
+    stentor-conditional: "npm:1.61.16"
+    stentor-constants: "npm:1.61.16"
+    stentor-guards: "npm:1.61.16"
+    stentor-interaction-model: "npm:1.61.16"
+    stentor-logger: "npm:1.61.16"
+    stentor-models: "npm:1.61.16"
+    stentor-request: "npm:1.61.16"
+    stentor-storage: "npm:1.61.16"
+    stentor-time: "npm:1.61.16"
+    stentor-utils: "npm:1.61.16"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.2"
   peerDependencies:
@@ -9174,7 +9174,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-guards@npm:1.61.13, stentor-guards@workspace:packages/stentor-guards":
+"stentor-guards@npm:1.61.16, stentor-guards@workspace:packages/stentor-guards":
   version: 0.0.0-use.local
   resolution: "stentor-guards@workspace:packages/stentor-guards"
   dependencies:
@@ -9186,8 +9186,8 @@ __metadata:
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
-    stentor-constants: "npm:1.61.11"
-    stentor-models: "npm:1.61.11"
+    stentor-constants: "npm:1.61.16"
+    stentor-models: "npm:1.61.16"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.2"
   peerDependencies:
@@ -9195,16 +9195,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-handler-delegating@npm:1.61.15, stentor-handler-delegating@workspace:packages/stentor-handler-delegating":
+"stentor-handler-delegating@npm:1.61.16, stentor-handler-delegating@workspace:packages/stentor-handler-delegating":
   version: 0.0.0-use.local
   resolution: "stentor-handler-delegating@workspace:packages/stentor-handler-delegating"
   dependencies:
     "@types/chai": "npm:5.2.2"
     "@xapp/config": "npm:0.2.3"
     chai: "npm:4.5.0"
-    stentor-handler: "npm:1.61.15"
-    stentor-models: "npm:1.61.11"
-    stentor-utils: "npm:1.61.13"
+    stentor-handler: "npm:1.61.16"
+    stentor-models: "npm:1.61.16"
+    stentor-utils: "npm:1.61.16"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.2"
   peerDependencies:
@@ -9212,7 +9212,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-handler-factory@npm:1.61.15, stentor-handler-factory@workspace:packages/stentor-handler-factory":
+"stentor-handler-factory@npm:1.61.16, stentor-handler-factory@workspace:packages/stentor-handler-factory":
   version: 0.0.0-use.local
   resolution: "stentor-handler-factory@workspace:packages/stentor-handler-factory"
   dependencies:
@@ -9224,16 +9224,16 @@ __metadata:
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
-    stentor-constants: "npm:1.61.11"
-    stentor-context: "npm:1.61.15"
-    stentor-handler: "npm:1.61.15"
-    stentor-handler-delegating: "npm:1.61.15"
-    stentor-interaction-model: "npm:1.61.15"
-    stentor-logger: "npm:1.61.15"
-    stentor-models: "npm:1.61.11"
-    stentor-request: "npm:1.61.15"
-    stentor-response: "npm:1.61.15"
-    stentor-utils: "npm:1.61.13"
+    stentor-constants: "npm:1.61.16"
+    stentor-context: "npm:1.61.16"
+    stentor-handler: "npm:1.61.16"
+    stentor-handler-delegating: "npm:1.61.16"
+    stentor-interaction-model: "npm:1.61.16"
+    stentor-logger: "npm:1.61.16"
+    stentor-models: "npm:1.61.16"
+    stentor-request: "npm:1.61.16"
+    stentor-response: "npm:1.61.16"
+    stentor-utils: "npm:1.61.16"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.2"
   peerDependencies:
@@ -9241,7 +9241,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-handler-manager@npm:1.61.15, stentor-handler-manager@workspace:packages/stentor-handler-manager":
+"stentor-handler-manager@npm:1.61.16, stentor-handler-manager@workspace:packages/stentor-handler-manager":
   version: 0.0.0-use.local
   resolution: "stentor-handler-manager@workspace:packages/stentor-handler-manager"
   dependencies:
@@ -9255,14 +9255,14 @@ __metadata:
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
-    stentor-guards: "npm:1.61.13"
-    stentor-handler: "npm:1.61.15"
-    stentor-handler-factory: "npm:1.61.15"
-    stentor-logger: "npm:1.61.15"
-    stentor-models: "npm:1.61.11"
-    stentor-request: "npm:1.61.15"
-    stentor-response: "npm:1.61.15"
-    stentor-storage: "npm:1.61.13"
+    stentor-guards: "npm:1.61.16"
+    stentor-handler: "npm:1.61.16"
+    stentor-handler-factory: "npm:1.61.16"
+    stentor-logger: "npm:1.61.16"
+    stentor-models: "npm:1.61.16"
+    stentor-request: "npm:1.61.16"
+    stentor-response: "npm:1.61.16"
+    stentor-storage: "npm:1.61.16"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.2"
   peerDependencies:
@@ -9270,7 +9270,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-handler@npm:1.61.15, stentor-handler@workspace:packages/stentor-handler":
+"stentor-handler@npm:1.61.16, stentor-handler@workspace:packages/stentor-handler":
   version: 0.0.0-use.local
   resolution: "stentor-handler@workspace:packages/stentor-handler"
   dependencies:
@@ -9283,19 +9283,19 @@ __metadata:
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
-    stentor-conditional: "npm:1.61.15"
-    stentor-constants: "npm:1.61.11"
-    stentor-context: "npm:1.61.15"
-    stentor-guards: "npm:1.61.13"
-    stentor-history: "npm:1.61.13"
-    stentor-interaction-model: "npm:1.61.15"
-    stentor-locales: "npm:1.61.13"
-    stentor-logger: "npm:1.61.15"
-    stentor-models: "npm:1.61.11"
-    stentor-request: "npm:1.61.15"
-    stentor-response: "npm:1.61.15"
-    stentor-storage: "npm:1.61.13"
-    stentor-utils: "npm:1.61.13"
+    stentor-conditional: "npm:1.61.16"
+    stentor-constants: "npm:1.61.16"
+    stentor-context: "npm:1.61.16"
+    stentor-guards: "npm:1.61.16"
+    stentor-history: "npm:1.61.16"
+    stentor-interaction-model: "npm:1.61.16"
+    stentor-locales: "npm:1.61.16"
+    stentor-logger: "npm:1.61.16"
+    stentor-models: "npm:1.61.16"
+    stentor-request: "npm:1.61.16"
+    stentor-response: "npm:1.61.16"
+    stentor-storage: "npm:1.61.16"
+    stentor-utils: "npm:1.61.16"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.2"
   peerDependencies:
@@ -9303,7 +9303,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-history@npm:1.61.13, stentor-history@workspace:packages/stentor-history":
+"stentor-history@npm:1.61.16, stentor-history@workspace:packages/stentor-history":
   version: 0.0.0-use.local
   resolution: "stentor-history@workspace:packages/stentor-history"
   dependencies:
@@ -9313,7 +9313,7 @@ __metadata:
     chai: "npm:4.5.0"
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
-    stentor-models: "npm:1.61.11"
+    stentor-models: "npm:1.61.16"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.2"
   peerDependencies:
@@ -9321,7 +9321,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-interaction-model@npm:1.61.15, stentor-interaction-model@workspace:packages/stentor-interaction-model":
+"stentor-interaction-model@npm:1.61.16, stentor-interaction-model@workspace:packages/stentor-interaction-model":
   version: 0.0.0-use.local
   resolution: "stentor-interaction-model@workspace:packages/stentor-interaction-model"
   dependencies:
@@ -9329,11 +9329,11 @@ __metadata:
     "@xapp/config": "npm:0.2.3"
     chai: "npm:4.5.0"
     mocha: "npm:11.7.2"
-    stentor-constants: "npm:1.61.11"
-    stentor-locales: "npm:1.61.13"
-    stentor-logger: "npm:1.61.15"
-    stentor-models: "npm:1.61.11"
-    stentor-utils: "npm:1.61.13"
+    stentor-constants: "npm:1.61.16"
+    stentor-locales: "npm:1.61.16"
+    stentor-logger: "npm:1.61.16"
+    stentor-models: "npm:1.61.16"
+    stentor-utils: "npm:1.61.16"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.2"
   peerDependencies:
@@ -9341,7 +9341,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-locales@npm:1.61.13, stentor-locales@workspace:packages/stentor-locales":
+"stentor-locales@npm:1.61.16, stentor-locales@workspace:packages/stentor-locales":
   version: 0.0.0-use.local
   resolution: "stentor-locales@workspace:packages/stentor-locales"
   dependencies:
@@ -9349,8 +9349,8 @@ __metadata:
     "@xapp/config": "npm:0.2.3"
     chai: "npm:4.5.0"
     mocha: "npm:11.7.2"
-    stentor-models: "npm:1.61.11"
-    stentor-utils: "npm:1.61.13"
+    stentor-models: "npm:1.61.16"
+    stentor-utils: "npm:1.61.16"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.2"
   peerDependencies:
@@ -9358,7 +9358,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-logger@npm:1.61.15, stentor-logger@workspace:packages/stentor-logger":
+"stentor-logger@npm:1.61.16, stentor-logger@workspace:packages/stentor-logger":
   version: 0.0.0-use.local
   resolution: "stentor-logger@workspace:packages/stentor-logger"
   dependencies:
@@ -9371,8 +9371,8 @@ __metadata:
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
-    stentor-models: "npm:1.61.11"
-    stentor-utils: "npm:1.61.13"
+    stentor-models: "npm:1.61.16"
+    stentor-utils: "npm:1.61.16"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.2"
   peerDependencies:
@@ -9386,7 +9386,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-media@npm:1.61.15, stentor-media@workspace:packages/stentor-media":
+"stentor-media@npm:1.61.16, stentor-media@workspace:packages/stentor-media":
   version: 0.0.0-use.local
   resolution: "stentor-media@workspace:packages/stentor-media"
   dependencies:
@@ -9398,17 +9398,17 @@ __metadata:
     chai: "npm:4.5.0"
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
-    stentor-guards: "npm:1.61.13"
-    stentor-models: "npm:1.61.11"
-    stentor-time: "npm:1.61.15"
-    stentor-utils: "npm:1.61.13"
+    stentor-guards: "npm:1.61.16"
+    stentor-models: "npm:1.61.16"
+    stentor-time: "npm:1.61.16"
+    stentor-utils: "npm:1.61.16"
     typescript: "npm:5.9.2"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
   linkType: soft
 
-"stentor-models@npm:1.61.11, stentor-models@workspace:packages/stentor-models":
+"stentor-models@npm:1.61.16, stentor-models@workspace:packages/stentor-models":
   version: 0.0.0-use.local
   resolution: "stentor-models@workspace:packages/stentor-models"
   dependencies:
@@ -9422,7 +9422,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-request@npm:1.61.15, stentor-request@workspace:packages/stentor-request":
+"stentor-request@npm:1.61.16, stentor-request@workspace:packages/stentor-request":
   version: 0.0.0-use.local
   resolution: "stentor-request@workspace:packages/stentor-request"
   dependencies:
@@ -9435,11 +9435,11 @@ __metadata:
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
-    stentor-constants: "npm:1.61.11"
-    stentor-interaction-model: "npm:1.61.15"
-    stentor-models: "npm:1.61.11"
-    stentor-storage: "npm:1.61.13"
-    stentor-utils: "npm:1.61.13"
+    stentor-constants: "npm:1.61.16"
+    stentor-interaction-model: "npm:1.61.16"
+    stentor-models: "npm:1.61.16"
+    stentor-storage: "npm:1.61.16"
+    stentor-utils: "npm:1.61.16"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.2"
   peerDependencies:
@@ -9447,7 +9447,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-response@npm:1.61.15, stentor-response@workspace:packages/stentor-response":
+"stentor-response@npm:1.61.16, stentor-response@workspace:packages/stentor-response":
   version: 0.0.0-use.local
   resolution: "stentor-response@workspace:packages/stentor-response"
   dependencies:
@@ -9460,11 +9460,11 @@ __metadata:
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
-    stentor-determiner: "npm:1.61.15"
-    stentor-locales: "npm:1.61.13"
-    stentor-media: "npm:1.61.15"
-    stentor-models: "npm:1.61.11"
-    stentor-utils: "npm:1.61.13"
+    stentor-determiner: "npm:1.61.16"
+    stentor-locales: "npm:1.61.16"
+    stentor-media: "npm:1.61.16"
+    stentor-models: "npm:1.61.16"
+    stentor-utils: "npm:1.61.16"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.2"
   peerDependencies:
@@ -9472,7 +9472,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-runtime@npm:1.61.15, stentor-runtime@workspace:packages/stentor-runtime":
+"stentor-runtime@npm:1.61.16, stentor-runtime@workspace:packages/stentor-runtime":
   version: 0.0.0-use.local
   resolution: "stentor-runtime@workspace:packages/stentor-runtime"
   dependencies:
@@ -9487,19 +9487,19 @@ __metadata:
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
-    stentor-constants: "npm:1.61.11"
-    stentor-context: "npm:1.61.15"
-    stentor-handler: "npm:1.61.15"
-    stentor-handler-factory: "npm:1.61.15"
-    stentor-handler-manager: "npm:1.61.15"
-    stentor-history: "npm:1.61.13"
-    stentor-interaction-model: "npm:1.61.15"
-    stentor-logger: "npm:1.61.15"
-    stentor-models: "npm:1.61.11"
-    stentor-request: "npm:1.61.15"
-    stentor-response: "npm:1.61.15"
-    stentor-service-event: "npm:1.61.15"
-    stentor-utils: "npm:1.61.13"
+    stentor-constants: "npm:1.61.16"
+    stentor-context: "npm:1.61.16"
+    stentor-handler: "npm:1.61.16"
+    stentor-handler-factory: "npm:1.61.16"
+    stentor-handler-manager: "npm:1.61.16"
+    stentor-history: "npm:1.61.16"
+    stentor-interaction-model: "npm:1.61.16"
+    stentor-logger: "npm:1.61.16"
+    stentor-models: "npm:1.61.16"
+    stentor-request: "npm:1.61.16"
+    stentor-response: "npm:1.61.16"
+    stentor-service-event: "npm:1.61.16"
+    stentor-utils: "npm:1.61.16"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.2"
   peerDependencies:
@@ -9507,7 +9507,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-service-event@npm:1.61.15, stentor-service-event@workspace:packages/stentor-service-event":
+"stentor-service-event@npm:1.61.16, stentor-service-event@workspace:packages/stentor-service-event":
   version: 0.0.0-use.local
   resolution: "stentor-service-event@workspace:packages/stentor-service-event"
   dependencies:
@@ -9522,10 +9522,10 @@ __metadata:
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
     stacktrace-parser: "npm:0.1.11"
-    stentor-guards: "npm:1.61.13"
-    stentor-logger: "npm:1.61.15"
-    stentor-models: "npm:1.61.11"
-    stentor-utils: "npm:1.61.13"
+    stentor-guards: "npm:1.61.16"
+    stentor-logger: "npm:1.61.16"
+    stentor-models: "npm:1.61.16"
+    stentor-utils: "npm:1.61.16"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.2"
   peerDependencies:
@@ -9534,7 +9534,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-service-fetch@npm:1.61.12, stentor-service-fetch@workspace:packages/stentor-service-fetch":
+"stentor-service-fetch@npm:1.61.16, stentor-service-fetch@workspace:packages/stentor-service-fetch":
   version: 0.0.0-use.local
   resolution: "stentor-service-fetch@workspace:packages/stentor-service-fetch"
   dependencies:
@@ -9544,7 +9544,7 @@ __metadata:
     chai: "npm:4.5.0"
     chai-as-promised: "npm:7.1.2"
     isomorphic-fetch: "npm:3.0.0"
-    stentor-models: "npm:1.61.11"
+    stentor-models: "npm:1.61.16"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.2"
   peerDependencies:
@@ -9552,7 +9552,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-service-ovai@npm:1.61.15, stentor-service-ovai@workspace:packages/stentor-service-ovai":
+"stentor-service-ovai@npm:1.61.16, stentor-service-ovai@workspace:packages/stentor-service-ovai":
   version: 0.0.0-use.local
   resolution: "stentor-service-ovai@workspace:packages/stentor-service-ovai"
   dependencies:
@@ -9563,10 +9563,10 @@ __metadata:
     fetch-mock: "npm:9.11.0"
     isomorphic-fetch: "npm:3.0.0"
     mocha: "npm:11.7.2"
-    stentor-constants: "npm:1.61.11"
-    stentor-models: "npm:1.61.11"
-    stentor-service-event: "npm:1.61.15"
-    stentor-utils: "npm:1.61.13"
+    stentor-constants: "npm:1.61.16"
+    stentor-models: "npm:1.61.16"
+    stentor-service-event: "npm:1.61.16"
+    stentor-utils: "npm:1.61.16"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.2"
   peerDependencies:
@@ -9574,7 +9574,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-service-studio@npm:1.61.15, stentor-service-studio@workspace:packages/stentor-service-studio":
+"stentor-service-studio@npm:1.61.16, stentor-service-studio@workspace:packages/stentor-service-studio":
   version: 0.0.0-use.local
   resolution: "stentor-service-studio@workspace:packages/stentor-service-studio"
   dependencies:
@@ -9589,10 +9589,10 @@ __metadata:
     fetch-mock: "npm:9.11.0"
     isomorphic-fetch: "npm:3.0.0"
     mocha: "npm:11.7.2"
-    stentor-constants: "npm:1.61.11"
-    stentor-models: "npm:1.61.11"
-    stentor-service-event: "npm:1.61.15"
-    stentor-utils: "npm:1.61.13"
+    stentor-constants: "npm:1.61.16"
+    stentor-models: "npm:1.61.16"
+    stentor-service-event: "npm:1.61.16"
+    stentor-utils: "npm:1.61.16"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.2"
   peerDependencies:
@@ -9600,7 +9600,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-storage@npm:1.61.13, stentor-storage@workspace:packages/stentor-storage":
+"stentor-storage@npm:1.61.16, stentor-storage@workspace:packages/stentor-storage":
   version: 0.0.0-use.local
   resolution: "stentor-storage@workspace:packages/stentor-storage"
   dependencies:
@@ -9608,15 +9608,15 @@ __metadata:
     "@xapp/config": "npm:0.2.3"
     chai: "npm:4.5.0"
     jsonpath-plus: "npm:10.3.0"
-    stentor-models: "npm:1.61.11"
-    stentor-utils: "npm:1.61.13"
+    stentor-models: "npm:1.61.16"
+    stentor-utils: "npm:1.61.16"
     typescript: "npm:5.9.2"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
   linkType: soft
 
-"stentor-time@npm:1.61.15, stentor-time@workspace:packages/stentor-time":
+"stentor-time@npm:1.61.16, stentor-time@workspace:packages/stentor-time":
   version: 0.0.0-use.local
   resolution: "stentor-time@workspace:packages/stentor-time"
   dependencies:
@@ -9629,10 +9629,10 @@ __metadata:
     luxon: "npm:3.7.2"
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
-    stentor-guards: "npm:1.61.13"
-    stentor-logger: "npm:1.61.15"
-    stentor-models: "npm:1.61.11"
-    stentor-utils: "npm:1.61.13"
+    stentor-guards: "npm:1.61.16"
+    stentor-logger: "npm:1.61.16"
+    stentor-models: "npm:1.61.16"
+    stentor-utils: "npm:1.61.16"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.2"
   peerDependencies:
@@ -9648,14 +9648,14 @@ __metadata:
     "@xapp/config": "npm:0.2.3"
     "@xapp/dynamo-service": "npm:1.8.7"
     chai: "npm:4.5.0"
-    stentor-models: "npm:1.61.11"
+    stentor-models: "npm:1.61.16"
     typescript: "npm:5.9.2"
   peerDependencies:
     stentor-models: 1.x
   languageName: unknown
   linkType: soft
 
-"stentor-utils@npm:1.61.13, stentor-utils@workspace:packages/stentor-utils":
+"stentor-utils@npm:1.61.16, stentor-utils@workspace:packages/stentor-utils":
   version: 0.0.0-use.local
   resolution: "stentor-utils@workspace:packages/stentor-utils"
   dependencies:
@@ -9695,9 +9695,9 @@ __metadata:
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
     slugify: "npm:1.6.6"
-    stentor-constants: "npm:1.61.11"
-    stentor-guards: "npm:1.61.13"
-    stentor-models: "npm:1.61.11"
+    stentor-constants: "npm:1.61.16"
+    stentor-guards: "npm:1.61.16"
+    stentor-models: "npm:1.61.16"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.2"
     words-to-numbers: "npm:1.5.1"
@@ -9732,21 +9732,21 @@ __metadata:
     mocha: "npm:11.7.2"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
-    stentor-constants: "npm:1.61.11"
-    stentor-context: "npm:1.61.15"
-    stentor-determiner: "npm:1.61.15"
-    stentor-handler: "npm:1.61.15"
-    stentor-handler-factory: "npm:1.61.15"
-    stentor-logger: "npm:1.61.15"
-    stentor-models: "npm:1.61.11"
-    stentor-request: "npm:1.61.15"
-    stentor-response: "npm:1.61.15"
-    stentor-runtime: "npm:1.61.15"
-    stentor-service-event: "npm:1.61.15"
-    stentor-service-fetch: "npm:1.61.12"
-    stentor-service-ovai: "npm:1.61.15"
-    stentor-service-studio: "npm:1.61.15"
-    stentor-utils: "npm:1.61.13"
+    stentor-constants: "npm:1.61.16"
+    stentor-context: "npm:1.61.16"
+    stentor-determiner: "npm:1.61.16"
+    stentor-handler: "npm:1.61.16"
+    stentor-handler-factory: "npm:1.61.16"
+    stentor-logger: "npm:1.61.16"
+    stentor-models: "npm:1.61.16"
+    stentor-request: "npm:1.61.16"
+    stentor-response: "npm:1.61.16"
+    stentor-runtime: "npm:1.61.16"
+    stentor-service-event: "npm:1.61.16"
+    stentor-service-fetch: "npm:1.61.16"
+    stentor-service-ovai: "npm:1.61.16"
+    stentor-service-studio: "npm:1.61.16"
+    stentor-utils: "npm:1.61.16"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.2"
   peerDependencies:

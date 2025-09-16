@@ -15,6 +15,9 @@
     "node": "^12 || ^14 || ^16 || ^18 || ^20.0.0 || ^22.0.0"
   },
   "devDependencies": {
+    "@aws-sdk/client-firehose": "^3.0.0",
+    "@aws-sdk/client-kinesis": "^3.0.0",
+    "@aws-sdk/client-sns": "^3.0.0",
     "@types/chai": "5.2.2",
     "@types/mocha": "10.0.10",
     "@types/sinon": "17.0.4",
@@ -37,6 +40,9 @@
   },
   "peerDependencies": {
     "aws-sdk": "2.x",
+    "@aws-sdk/client-firehose": "^3.0.0",
+    "@aws-sdk/client-kinesis": "^3.0.0", 
+    "@aws-sdk/client-sns": "^3.0.0",
     "stentor-models": "1.x"
   },
   "scripts": {

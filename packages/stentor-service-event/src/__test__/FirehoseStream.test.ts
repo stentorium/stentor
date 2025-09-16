@@ -4,7 +4,6 @@ import * as Sinon from "sinon";
 import * as SinonChai from "sinon-chai";
 
 import { Event } from "stentor-models";
-import { Firehose } from "aws-sdk";
 import { FirehoseStream } from "../FirehoseStream";
 
 Chai.use(SinonChai);
@@ -12,7 +11,8 @@ const expect = Chai.expect;
 
 describe("FirehouseStream", () => {
     let putRecordBatchStub: Sinon.SinonStub;
-    let testFirehouse: Firehose;
+    let sendStub: Sinon.SinonStub;
+    let testFirehouse: any;
 
     const testEvent: Event<any> = {
         type: "REQUEST",
@@ -26,17 +26,28 @@ describe("FirehouseStream", () => {
     };
 
     before(() => {
-        testFirehouse = new Firehose();
-        testFirehouse.putRecordBatch = putRecordBatchStub = Sinon.stub();
+        // Create a mock client that works with both v2 and v3 APIs
+        testFirehouse = {
+            putRecordBatch: Sinon.stub(),
+            send: Sinon.stub()
+        };
+        putRecordBatchStub = testFirehouse.putRecordBatch;
+        sendStub = testFirehouse.send;
     });
 
     beforeEach(() => {
-        putRecordBatchStub.reset();
+        putRecordBatchStub.resetHistory();
+        putRecordBatchStub.resetBehavior();
+        sendStub.resetHistory();
+        sendStub.resetBehavior();
+        
+        // Mock v2 API
         putRecordBatchStub.returns({
-            promise: () => {
-                return Promise.resolve();
-            }
+            promise: () => Promise.resolve()
         });
+        
+        // Mock v3 API
+        sendStub.returns(Promise.resolve());
     });
 
     it("Tests that the flush sends all the records.", async () => {

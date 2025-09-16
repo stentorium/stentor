@@ -1,5 +1,4 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { Kinesis } from "aws-sdk";
 import * as Chai from "chai";
 import * as Sinon from "sinon";
 import * as SinonChai from "sinon-chai";
@@ -17,7 +16,8 @@ const expect = Chai.expect;
 
 describe("KinesisStream", () => {
     let putRecordsStub: Sinon.SinonStub;
-    let testKinesis: Kinesis;
+    let sendStub: Sinon.SinonStub;
+    let testKinesis: any;
 
     const testEvent: Event<any> = {
         type: "REQUEST",
@@ -28,16 +28,28 @@ describe("KinesisStream", () => {
     };
 
     before(() => {
-        testKinesis = new Kinesis();
-        putRecordsStub = Sinon.stub(testKinesis, "putRecords");
+        // Create a mock client that works with both v2 and v3 APIs
+        testKinesis = {
+            putRecords: Sinon.stub(),
+            send: Sinon.stub()
+        };
+        putRecordsStub = testKinesis.putRecords;
+        sendStub = testKinesis.send;
     });
 
     beforeEach(() => {
         putRecordsStub.resetHistory();
         putRecordsStub.resetBehavior();
+        sendStub.resetHistory();
+        sendStub.resetBehavior();
+        
+        // Mock v2 API
         putRecordsStub.returns({
             promise: () => Promise.resolve()
         });
+        
+        // Mock v3 API
+        sendStub.returns(Promise.resolve());
     });
 
     describe("Constructor", () => {

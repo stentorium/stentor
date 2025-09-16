@@ -4,7 +4,6 @@ import * as Sinon from "sinon";
 import * as SinonChai from "sinon-chai";
 
 import { Event } from "stentor-models";
-import { SNS } from "aws-sdk";
 import { SNSStream } from "../SNSStream";
 
 Chai.use(SinonChai);
@@ -12,7 +11,8 @@ const expect = Chai.expect;
 
 describe("SNSStreamStream", () => {
     let publishStub: Sinon.SinonStub;
-    let testSNS: SNS;
+    let sendStub: Sinon.SinonStub;
+    let testSNS: any;
 
     const testEvent: Event<any> = {
         type: "REQUEST",
@@ -23,17 +23,28 @@ describe("SNSStreamStream", () => {
     };
 
     before(() => {
-        testSNS = new SNS();
-        testSNS.publish = publishStub = Sinon.stub();
+        // Create a mock client that works with both v2 and v3 APIs
+        testSNS = {
+            publish: Sinon.stub(),
+            send: Sinon.stub()
+        };
+        publishStub = testSNS.publish;
+        sendStub = testSNS.send;
     });
 
     beforeEach(() => {
-        publishStub.reset();
+        publishStub.resetHistory();
+        publishStub.resetBehavior();
+        sendStub.resetHistory();
+        sendStub.resetBehavior();
+        
+        // Mock v2 API
         publishStub.returns({
-            promise: () => {
-                return Promise.resolve();
-            }
+            promise: () => Promise.resolve()
         });
+        
+        // Mock v3 API
+        sendStub.returns(Promise.resolve());
     });
 
     it("Tests that the flush sends all the records.", async () => {

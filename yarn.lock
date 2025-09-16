@@ -72,7 +72,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-firehose@npm:^3.0.0":
+"@aws-sdk/client-firehose@npm:3.888.0":
   version: 3.888.0
   resolution: "@aws-sdk/client-firehose@npm:3.888.0"
   dependencies:
@@ -119,7 +119,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-kinesis@npm:^3.0.0":
+"@aws-sdk/client-kinesis@npm:3.888.0":
   version: 3.888.0
   resolution: "@aws-sdk/client-kinesis@npm:3.888.0"
   dependencies:
@@ -170,7 +170,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-secrets-manager@npm:^3.0.0":
+"@aws-sdk/client-secrets-manager@npm:3.888.0":
   version: 3.888.0
   resolution: "@aws-sdk/client-secrets-manager@npm:3.888.0"
   dependencies:
@@ -219,7 +219,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-sns@npm:^3.0.0":
+"@aws-sdk/client-sns@npm:3.888.0":
   version: 3.888.0
   resolution: "@aws-sdk/client-sns@npm:3.888.0"
   dependencies:
@@ -10725,9 +10725,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-service-event@workspace:packages/stentor-service-event"
   dependencies:
-    "@aws-sdk/client-firehose": "npm:^3.0.0"
-    "@aws-sdk/client-kinesis": "npm:^3.0.0"
-    "@aws-sdk/client-sns": "npm:^3.0.0"
+    "@aws-sdk/client-firehose": "npm:3.888.0"
+    "@aws-sdk/client-kinesis": "npm:3.888.0"
+    "@aws-sdk/client-sns": "npm:3.888.0"
     "@types/chai": "npm:5.2.2"
     "@types/mocha": "npm:10.0.10"
     "@types/sinon": "npm:17.0.4"
@@ -10939,7 +10939,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor@workspace:packages/stentor"
   dependencies:
-    "@aws-sdk/client-secrets-manager": "npm:^3.0.0"
+    "@aws-sdk/client-secrets-manager": "npm:3.888.0"
     "@microsoft/api-extractor": "npm:7.52.13"
     "@types/aws-lambda": "npm:8.10.152"
     "@types/body-parser": "npm:1.19.6"
@@ -10978,7 +10978,7 @@ __metadata:
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.2"
   peerDependencies:
-    "@aws-sdk/client-secrets-manager": ^3.0.0
+    "@aws-sdk/client-secrets-manager": 3.X
     aws-sdk: 2.X
     body-parser: 2.2.0
     express: 5.1.0

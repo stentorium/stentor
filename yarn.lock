@@ -10643,7 +10643,14 @@ __metadata:
     stentor-models: "npm:1.61.16"
     typescript: "npm:5.9.2"
   peerDependencies:
+    "@aws-sdk/lib-dynamodb": "*"
+    aws-sdk: "*"
     stentor-models: 1.x
+  peerDependenciesMeta:
+    "@aws-sdk/lib-dynamodb":
+      optional: true
+    aws-sdk:
+      optional: true
   languageName: unknown
   linkType: soft
 

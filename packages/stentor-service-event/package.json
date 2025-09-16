@@ -12,9 +12,12 @@
     "lib"
   ],
   "engines": {
-    "node": "^12 || ^14 || ^16 || ^18 || ^20.0.0 || ^22.0.0"
+    "node": "^12 || ^14 || ^16 || ^18 || ^20 || ^22"
   },
   "devDependencies": {
+    "@aws-sdk/client-firehose": "3.888.0",
+    "@aws-sdk/client-kinesis": "3.888.0",
+    "@aws-sdk/client-sns": "3.888.0",
     "@types/chai": "5.2.2",
     "@types/mocha": "10.0.10",
     "@types/sinon": "17.0.4",
@@ -36,6 +39,9 @@
     "stentor-utils": "1.61.16"
   },
   "peerDependencies": {
+    "@aws-sdk/client-firehose": "3.x",
+    "@aws-sdk/client-kinesis": "3.x",
+    "@aws-sdk/client-sns": "3.x",
     "aws-sdk": "2.x",
     "stentor-models": "1.x"
   },

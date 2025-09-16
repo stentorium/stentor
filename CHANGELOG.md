@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.63.0](https://github.com/stentorium/stentor/compare/v1.62.0...v1.63.0) (2025-09-16)
+
+
+### Features
+
+* migrate AWS SDK v2 to v3 for DynamoDB - phase 2 ([#2709](https://github.com/stentorium/stentor/issues/2709)) ([bf31ad3](https://github.com/stentorium/stentor/commit/bf31ad322db5c58c0e5dc0e891c62070cb4fb14c))
+
+
+
+
+
 # [1.62.0](https://github.com/stentorium/stentor/compare/v1.61.16...v1.62.0) (2025-09-15)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.64.0](https://github.com/stentorium/stentor/compare/v1.63.0...v1.64.0) (2025-09-16)
+
+
+### Features
+
+* migrate AWS SDK v2 to v3 for Event Services - phase 3 ([#2710](https://github.com/stentorium/stentor/issues/2710)) ([4680d03](https://github.com/stentorium/stentor/commit/4680d0391a1b50987d067988a808228dc8dee3f7))
+
+
+
+
+
 # [1.63.0](https://github.com/stentorium/stentor/compare/v1.62.0...v1.63.0) (2025-09-16)
 
 

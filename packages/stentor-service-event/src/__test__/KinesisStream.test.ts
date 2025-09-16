@@ -35,6 +35,12 @@ describe("KinesisStream", () => {
         };
         putRecordsStub = testKinesis.putRecords;
         sendStub = testKinesis.send;
+
+        // Mock the PutRecordsCommand for v3 API
+        sendStub.callsFake((command: any) => {
+            // The command should have the input property with our parameters
+            return Promise.resolve();
+        });
     });
 
     beforeEach(() => {
@@ -96,15 +102,34 @@ describe("KinesisStream", () => {
             const stream = new KinesisStream(props);
             stream.addEvent(testEvent);
             await stream.flush();
-            expect(putRecordsStub).to.have.been.calledWithMatch({
-                StreamName: "StreamName",
-                Records: [
-                    {
-                        Data: JSON.stringify(testEvent),
-                        PartitionKey: "TestPartition"
-                    }
-                ]
-            });
+
+            // The implementation tries v3 first, then falls back to v2
+            // Since v3 SDK is available in devDependencies, it will use the v3 API
+            if (sendStub.called) {
+                // AWS SDK v3 - check the send method was called with a command
+                expect(sendStub).to.have.been.calledOnce;
+                const command = sendStub.getCall(0).args[0];
+                expect(command.input).to.deep.equal({
+                    StreamName: "StreamName",
+                    Records: [
+                        {
+                            Data: JSON.stringify(testEvent),
+                            PartitionKey: "TestPartition"
+                        }
+                    ]
+                });
+            } else {
+                // AWS SDK v2 - check the putRecords method was called
+                expect(putRecordsStub).to.have.been.calledWithMatch({
+                    StreamName: "StreamName",
+                    Records: [
+                        {
+                            Data: JSON.stringify(testEvent),
+                            PartitionKey: "TestPartition"
+                        }
+                    ]
+                });
+            }
         });
 
         it("Tests that the custom generator uses the partition.", async () => {
@@ -116,15 +141,34 @@ describe("KinesisStream", () => {
             const stream = new KinesisStream(props);
             stream.addEvent(testEvent);
             await stream.flush();
-            expect(putRecordsStub).to.have.been.calledWithMatch({
-                StreamName: "StreamName",
-                Records: [
-                    {
-                        Data: JSON.stringify(testEvent),
-                        PartitionKey: "MyOwnPartition"
-                    }
-                ]
-            });
+
+            // The implementation tries v3 first, then falls back to v2
+            // Since v3 SDK is available in devDependencies, it will use the v3 API
+            if (sendStub.called) {
+                // AWS SDK v3 - check the send method was called with a command
+                expect(sendStub).to.have.been.calledOnce;
+                const command = sendStub.getCall(0).args[0];
+                expect(command.input).to.deep.equal({
+                    StreamName: "StreamName",
+                    Records: [
+                        {
+                            Data: JSON.stringify(testEvent),
+                            PartitionKey: "MyOwnPartition"
+                        }
+                    ]
+                });
+            } else {
+                // AWS SDK v2 - check the putRecords method was called
+                expect(putRecordsStub).to.have.been.calledWithMatch({
+                    StreamName: "StreamName",
+                    Records: [
+                        {
+                            Data: JSON.stringify(testEvent),
+                            PartitionKey: "MyOwnPartition"
+                        }
+                    ]
+                });
+            }
         });
 
         it("Tests that an error is thrown if the records can not be stringified.", async () => {

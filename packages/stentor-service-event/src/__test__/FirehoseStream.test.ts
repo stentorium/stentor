@@ -33,6 +33,14 @@ describe("FirehouseStream", () => {
         };
         putRecordBatchStub = testFirehouse.putRecordBatch;
         sendStub = testFirehouse.send;
+
+        // Mock the PutRecordBatchCommand constructor for v3 API
+        // Since the implementation creates a new command with the parameters,
+        // we need to make sure our mock client receives the command properly
+        sendStub.callsFake((command: any) => {
+            // The command should have the input property with our parameters
+            return Promise.resolve();
+        });
     });
 
     beforeEach(() => {
@@ -54,14 +62,32 @@ describe("FirehouseStream", () => {
         const stream = new FirehoseStream("StreamName", testFirehouse);
         stream.addEvent(testEvent);
         await stream.flush();
-        expect(putRecordBatchStub).to.have.been.calledWithMatch({
-            DeliveryStreamName: "StreamName",
-            Records: [
-                {
-                    Data: JSON.stringify(testEvent)
-                }
-            ]
-        });
+
+        // The implementation tries v3 first, then falls back to v2
+        // Since v3 SDK is available in devDependencies, it will use the v3 API
+        if (sendStub.called) {
+            // AWS SDK v3 - check the send method was called with a command
+            expect(sendStub).to.have.been.calledOnce;
+            const command = sendStub.getCall(0).args[0];
+            expect(command.input).to.deep.equal({
+                DeliveryStreamName: "StreamName",
+                Records: [
+                    {
+                        Data: JSON.stringify(testEvent)
+                    }
+                ]
+            });
+        } else {
+            // AWS SDK v2 - check the putRecordBatch method was called
+            expect(putRecordBatchStub).to.have.been.calledWithMatch({
+                DeliveryStreamName: "StreamName",
+                Records: [
+                    {
+                        Data: JSON.stringify(testEvent)
+                    }
+                ]
+            });
+        }
     });
 
     it("throws an error if the required fields are not provided", async () => {

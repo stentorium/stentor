@@ -30,6 +30,12 @@ describe("SNSStreamStream", () => {
         };
         publishStub = testSNS.publish;
         sendStub = testSNS.send;
+
+        // Mock the PublishCommand for v3 API
+        sendStub.callsFake((command: any) => {
+            // The command should have the input property with our parameters
+            return Promise.resolve();
+        });
     });
 
     beforeEach(() => {
@@ -51,10 +57,24 @@ describe("SNSStreamStream", () => {
         const stream = new SNSStream("TestArn", testSNS);
         stream.addEvent(testEvent);
         await stream.flush();
-        expect(publishStub).to.have.been.calledWithMatch({
-            TopicArn: "TestArn",
-            Message: JSON.stringify([testEvent])
-        });
+
+        // The implementation tries v3 first, then falls back to v2
+        // Since v3 SDK is available in devDependencies, it will use the v3 API
+        if (sendStub.called) {
+            // AWS SDK v3 - check the send method was called with a command
+            expect(sendStub).to.have.been.calledOnce;
+            const command = sendStub.getCall(0).args[0];
+            expect(command.input).to.deep.equal({
+                TopicArn: "TestArn",
+                Message: JSON.stringify([testEvent])
+            });
+        } else {
+            // AWS SDK v2 - check the publish method was called
+            expect(publishStub).to.have.been.calledWithMatch({
+                TopicArn: "TestArn",
+                Message: JSON.stringify([testEvent])
+            });
+        }
     });
 
     it("Tests that an error is properly thrown if the events can't be processed.", async () => {

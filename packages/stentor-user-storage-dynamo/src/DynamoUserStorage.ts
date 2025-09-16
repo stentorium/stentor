@@ -10,7 +10,6 @@ import {
 
 // Support both AWS SDK v2 and v3
 let DocumentClient: any;
-let DynamoDB: any;
 let DynamoDBDocument: any;
 
 try {
@@ -21,23 +20,30 @@ try {
     // For v3, we'll create a wrapper that mimics DocumentClient interface
     DocumentClient = class DocumentClientV3Wrapper {
         private dynamoDoc: any;
-        constructor(options?: any) {
+
+        public put: any;
+        public get: any;
+        public update: any;
+        public delete: any;
+        public scan: any;
+        public query: any;
+
+        public constructor(options?: any) {
             const client = options?.client || new DynamoDBClient(options);
             this.dynamoDoc = DynamoDBDocument.from(client);
+            this.put = this.dynamoDoc.put?.bind(this.dynamoDoc);
+            this.get = this.dynamoDoc.get?.bind(this.dynamoDoc);
+            this.update = this.dynamoDoc.update?.bind(this.dynamoDoc);
+            this.delete = this.dynamoDoc.delete?.bind(this.dynamoDoc);
+            this.scan = this.dynamoDoc.scan?.bind(this.dynamoDoc);
+            this.query = this.dynamoDoc.query?.bind(this.dynamoDoc);
         }
-        put = this.dynamoDoc.put?.bind(this.dynamoDoc);
-        get = this.dynamoDoc.get?.bind(this.dynamoDoc);
-        update = this.dynamoDoc.update?.bind(this.dynamoDoc);
-        delete = this.dynamoDoc.delete?.bind(this.dynamoDoc);
-        scan = this.dynamoDoc.scan?.bind(this.dynamoDoc);
-        query = this.dynamoDoc.query?.bind(this.dynamoDoc);
     };
 } catch (e) {
     // Fallback to AWS SDK v2
     try {
         const awsSDK = require('aws-sdk');
         DocumentClient = awsSDK.DynamoDB.DocumentClient;
-        DynamoDB = awsSDK.DynamoDB;
     } catch (e2) {
         throw new Error('Neither AWS SDK v3 (@aws-sdk/lib-dynamodb) nor v2 (aws-sdk) is available. Please install one of them.');
     }

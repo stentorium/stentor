@@ -8,23 +8,24 @@ let PublishCommand: any;
 let SNS: any;
 let globalSNS: any;
 
+// Default region can be overridden by AWS_DEFAULT_REGION or AWS_REGION environment variables
+const defaultRegion = process.env.AWS_DEFAULT_REGION || process.env.AWS_REGION || "us-east-1";
+
 try {
     // AWS SDK v3
     const snsV3 = require("@aws-sdk/client-sns");
     SNSClient = snsV3.SNSClient;
     PublishCommand = snsV3.PublishCommand;
-    globalSNS = new SNSClient({ region: "us-east-1" });
+    globalSNS = new SNSClient({ region: defaultRegion });
 } catch {
     // AWS SDK v2 fallback
     const awsSdk = require("aws-sdk");
     SNS = awsSdk.SNS;
-    globalSNS = new SNS({ apiVersion: "2010-03-31", region: "us-east-1" });
+    globalSNS = new SNS({ apiVersion: "2010-03-31", region: defaultRegion });
 }
 
 function eventsToString(events: Event<any>[]): Promise<string> {
-    return new Promise((resolve) => {
-        resolve(JSON.stringify(events));
-    });
+    return Promise.resolve(JSON.stringify(events));
 }
 
 export class SNSStream extends AbstractEventStream {
@@ -50,8 +51,7 @@ export class SNSStream extends AbstractEventStream {
                 await this.sns.publish({ TopicArn: this.topicArn, Message }).promise();
             }
         } catch (e) {
-            console.error("Error converting events to a string.");
-            console.error(e);
+            console.error("Error converting events to a string.", e);
             throw e;
         }
     }

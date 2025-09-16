@@ -6,33 +6,31 @@ import { AbstractEventStream } from "./AbstractEventStream";
 let FirehoseClient: any;
 let PutRecordBatchCommand: any;
 let Firehose: any;
-let globalFirehouse: any;
+let globalFirehose: any;
 
 try {
     // AWS SDK v3
     const firehoseV3 = require("@aws-sdk/client-firehose");
     FirehoseClient = firehoseV3.FirehoseClient;
     PutRecordBatchCommand = firehoseV3.PutRecordBatchCommand;
-    globalFirehouse = new FirehoseClient({});
+    globalFirehose = new FirehoseClient({});
 } catch {
     // AWS SDK v2 fallback
     const awsSdk = require("aws-sdk");
     Firehose = awsSdk.Firehose;
-    globalFirehouse = new Firehose({ apiVersion: "2015-08-04" });
+    globalFirehose = new Firehose({ apiVersion: "2015-08-04" });
 }
 
 function generateRecords(events: Event<any>[] = []): Promise<any[]> {
-    return new Promise((resolve) => {
-        resolve(
-            events.map(
-                (event): any => {
-                    return {
-                        Data: JSON.stringify(event)
-                    };
-                }
-            )
-        );
-    });
+    return Promise.resolve(
+        events.map(
+            (event): any => {
+                return {
+                    Data: JSON.stringify(event)
+                };
+            }
+        )
+    );
 }
 
 function validateRecords(events: Event<any>[] = []): Promise<Event<any>[]> {
@@ -66,10 +64,10 @@ export class FirehoseStream extends AbstractEventStream {
     private readonly deliveryStreamName: string;
     private readonly firehose: any; // Can be either v2 Firehose or v3 FirehoseClient
 
-    public constructor(deliveryStreamName: string, injectedFirehouse: any = globalFirehouse) {
+    public constructor(deliveryStreamName: string, injectedFirehose: any = globalFirehose) {
         super();
         this.deliveryStreamName = deliveryStreamName;
-        this.firehose = injectedFirehouse;
+        this.firehose = injectedFirehose;
     }
 
     public async flushEvents(events: Event<any>[]): Promise<void> {
@@ -94,8 +92,7 @@ export class FirehoseStream extends AbstractEventStream {
                     .promise();
             }
         } catch (e) {
-            console.error("Error generating records.");
-            console.error(e);
+            console.error("Error generating records.", e);
             throw e;
         }
     }

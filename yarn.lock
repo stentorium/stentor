@@ -10746,9 +10746,9 @@ __metadata:
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.2"
   peerDependencies:
-    "@aws-sdk/client-firehose": ^3.0.0
-    "@aws-sdk/client-kinesis": ^3.0.0
-    "@aws-sdk/client-sns": ^3.0.0
+    "@aws-sdk/client-firehose": 3.x
+    "@aws-sdk/client-kinesis": 3.x
+    "@aws-sdk/client-sns": 3.x
     aws-sdk: 2.x
     stentor-models: 1.x
   languageName: unknown

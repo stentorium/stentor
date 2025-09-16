@@ -37,7 +37,7 @@ describe("KinesisStream", () => {
         sendStub = testKinesis.send;
 
         // Mock the PutRecordsCommand for v3 API
-        sendStub.callsFake((command: any) => {
+        sendStub.callsFake(() => {
             // The command should have the input property with our parameters
             return Promise.resolve();
         });

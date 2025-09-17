@@ -27,7 +27,10 @@
   },
   "scripts": {
     "api": "lerna run api",
-    "docs": "api-documenter markdown -i ./api/json -o ./website/api/",
+    "docs": "api-documenter markdown -i ./api/json -o ./api/docs/",
+    "docs:build": "./deploy/build-docs.sh",
+    "docs:deploy": "./deploy/deploy-docs.sh",
+    "docs:serve": "yarn workspace website serve",
     "lerna": "lerna",
     "postinstall": "lerna bootstrap",
     "clean": "lerna run clean",

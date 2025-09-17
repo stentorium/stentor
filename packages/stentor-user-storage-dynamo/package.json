@@ -22,7 +22,7 @@
     "typescript": "5.9.2"
   },
   "dependencies": {
-    "@xapp/dynamo-service": "1.8.7"
+    "@xapp/dynamo-service": "2.0.5"
   },
   "peerDependencies": {
     "@aws-sdk/lib-dynamodb": "*",

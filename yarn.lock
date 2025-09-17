@@ -2897,13 +2897,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xapp/dynamo-service@npm:1.8.7":
-  version: 1.8.7
-  resolution: "@xapp/dynamo-service@npm:1.8.7"
+"@xapp/dynamo-service@npm:2.0.5":
+  version: 2.0.5
+  resolution: "@xapp/dynamo-service@npm:2.0.5"
   dependencies:
     runes: "npm:0.4.3"
     slugify: "npm:1.3.4"
-  checksum: 10c0/c118f7a8af4621b5e3f297c9b2578d0fe2eafaab49d1eab909bb38bccd50df4b09e09e9fa57f58da40c6b2abed81033dc444ad9ce26d2a319800967ce201bc2f
+  peerDependencies:
+    "@aws-sdk/client-dynamodb": 3.x
+    "@aws-sdk/lib-dynamodb": 3.x
+    "@smithy/smithy-client": 2.x
+  checksum: 10c0/22cd38d0d1c6777b407dc38298161972e8a13601fa8348683d8e59f44c5f0ec2080369a6d4e0a65f858638a0f82a7edc60f9adf39b00532691167aab0392f174
   languageName: node
   linkType: hard
 
@@ -10864,7 +10868,7 @@ __metadata:
   dependencies:
     "@types/chai": "npm:5.2.2"
     "@xapp/config": "npm:0.2.3"
-    "@xapp/dynamo-service": "npm:1.8.7"
+    "@xapp/dynamo-service": "npm:2.0.5"
     chai: "npm:4.5.0"
     stentor-models: "npm:1.64.0"
     typescript: "npm:5.9.2"

@@ -15,9 +15,9 @@
     "node": "^12 || ^14 || ^16 || ^18 || ^20 || ^22"
   },
   "devDependencies": {
-    "@aws-sdk/client-firehose": "3.895.0",
-    "@aws-sdk/client-kinesis": "3.895.0",
-    "@aws-sdk/client-sns": "3.895.0",
+    "@aws-sdk/client-firehose": "3.896.0",
+    "@aws-sdk/client-kinesis": "3.896.0",
+    "@aws-sdk/client-sns": "3.896.0",
     "@types/chai": "5.2.2",
     "@types/mocha": "10.0.10",
     "@types/sinon": "17.0.4",

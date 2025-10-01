@@ -24,7 +24,7 @@
     "chai-as-promised": "7.1.2",
     "dotenv": "16.6.1",
     "fetch-mock": "9.11.0",
-    "mocha": "11.7.2",
+    "mocha": "11.7.3",
     "stentor-models": "1.65.7",
     "ts-node": "10.9.2",
     "typescript": "5.9.3"

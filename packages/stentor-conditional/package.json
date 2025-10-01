@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.65.7",
+  "version": "1.65.9",
   "description": "Conditionals for 📣 stentor",
   "types": "lib/index",
   "typings": "lib/index",
@@ -21,12 +21,12 @@
     "chai": "4.5.0",
     "isolated-vm": "5.0.4",
     "mocha": "11.7.3",
-    "stentor-models": "1.65.7",
+    "stentor-models": "1.65.9",
     "typescript": "5.9.3",
     "vm2": "3.9.19"
   },
   "dependencies": {
-    "stentor-logger": "1.65.7"
+    "stentor-logger": "1.65.9"
   },
   "optionalDependencies": {
     "vm2": "3.9.19"

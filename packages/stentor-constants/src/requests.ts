@@ -9,6 +9,7 @@ import {
     AudioPlayerRequestType,
     AudioPlayerSystemExceptionEvent,
     ChannelActionRequestType,
+    EventRequestType,
     InputUnknownID,
     InputUnknownRequestType,
     IntentRequestType,
@@ -47,6 +48,7 @@ export const ATTACHMENT_REQUEST_ID: AttachmentRequestID = "AttachmentRequest";
 // Standard Request Types
 export const AUDIO_PLAYER_REQUEST_TYPE: AudioPlayerRequestType = "AUDIO_PLAYER_REQUEST";
 export const CHANNEL_ACTION_REQUEST_TYPE: ChannelActionRequestType = "CHANNEL_ACTION_REQUEST";
+export const EVENT_REQUEST_TYPE: EventRequestType = "EVENT_REQUEST";
 export const INPUT_UNKNOWN_REQUEST_TYPE: InputUnknownRequestType = "INPUT_UNKNOWN_REQUEST";
 export const INTENT_REQUEST_TYPE: IntentRequestType = "INTENT_REQUEST";
 export const LAUNCH_REQUEST_TYPE: LaunchRequestType = "LAUNCH_REQUEST";

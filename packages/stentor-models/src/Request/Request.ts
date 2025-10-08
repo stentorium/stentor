@@ -2,6 +2,9 @@
 import { Device } from "../Device";
 import { Locale } from "../Locale";
 import { AudioPlayerRequest } from "./AudioPlayerRequest";
+import { ChannelActionRequest } from "./ChannelActionRequest";
+import { DeliveryAddressRequest } from "./DeliveryAddressRequest";
+import { EventRequest } from "./EventRequest";
 import { InputUnknownRequest } from "./InputUnknownRequest";
 import { IntentRequest } from "./IntentRequest";
 import { LaunchRequest } from "./LaunchRequest";
@@ -13,11 +16,9 @@ import { RawQueryRequest } from "./RawQueryRequest";
 import { SessionEndedRequest } from "./SessionEndedRequest";
 import { SignInRequest } from "./SignInRequest";
 import { SurfaceChangeRequest } from "./SurfaceChangeRequest";
-import { RequestTypes } from "./Types";
-import { DeliveryAddressRequest } from "./DeliveryAddressRequest";
 import { TransactionDecisionRequest } from "./TransactionDecisionRequest";
 import { TransactionRequirementCheckRequest } from "./TransactionRequirementCheckRequest";
-import { ChannelActionRequest } from "./ChannelActionRequest";
+import { RequestTypes } from "./Types";
 
 /**
  * Shared parameters for each Request
@@ -159,6 +160,7 @@ export type Request =
     | AudioPlayerRequest
     | ChannelActionRequest
     | DeliveryAddressRequest
+    | EventRequest
     | InputUnknownRequest
     | IntentRequest
     | LaunchRequest

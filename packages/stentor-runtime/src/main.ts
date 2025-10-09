@@ -267,10 +267,12 @@ export const main = async (
     // EventRequests are simple events that only require acknowledgment
     if (eventService) {
       try {
-        // Send the event to the event service as an AnalyticsEvent
-        eventService.event("AnalyticsEvent", request.eventName, request.metadata);
+        // Send each event to the event service
+        for (const event of request.events) {
+          eventService.event(event);
+        }
       } catch (error) {
-        console.error(`Error sending event to eventService: ${error.message}`);
+        console.error(`Error sending events to eventService: ${error.message}`);
         console.error(error.stack);
         eventService?.error(error);
       }

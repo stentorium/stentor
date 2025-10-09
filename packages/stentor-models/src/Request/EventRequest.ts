@@ -1,4 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { Event } from "../Events";
 import { BaseRequest } from "./Request";
 import { EventRequestType } from "./Types";
 
@@ -14,11 +15,7 @@ export interface EventRequest extends BaseRequest {
      */
     type: EventRequestType;
     /**
-     * The name of the event being sent
+     * Array of events to be sent to the event service
      */
-    eventName: string;
-    /**
-     * Optional metadata associated with the event
-     */
-    metadata?: Record<string, unknown>;
+    events: Event[];
 }

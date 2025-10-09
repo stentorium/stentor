@@ -19,8 +19,13 @@ const channelActionRequest: ChannelActionRequest = {
 const eventRequest: EventRequest = {
     type: "EVENT_REQUEST",
     userId: "userId",
-    eventName: "test_event",
-    metadata: { foo: "bar" }
+    events: [
+        {
+            name: "test_event",
+            type: "AnalyticsEvent",
+            payload: { foo: "bar" } as any
+        }
+    ]
 }
 
 describe(`#${isChannelActionRequest.name}()`, () => {

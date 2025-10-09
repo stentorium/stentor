@@ -2,6 +2,7 @@
 export * from "./AddressIntentRequest";
 export * from "./AudioPlayerRequest";
 export * from "./ChannelActionRequest";
+export * from "./EventRequest";
 export * from "./InputUnknownRequest";
 export * from "./IntentRequest";
 export * from "./KnowledgeBase";

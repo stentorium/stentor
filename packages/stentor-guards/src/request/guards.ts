@@ -1,9 +1,12 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import {
     AudioPlayerRequest,
+    ChannelActionRequest,
+    EventRequest,
     InputUnknownRequest,
     IntentRequest,
     LaunchRequest,
+    NotificationPermissionRequest,
     OptionSelectRequest,
     PermissionRequest,
     PlaybackControlRequest,
@@ -14,14 +17,13 @@ import {
     SignInRequest,
     SurfaceChangeRequest,
     SystemDependable,
-    SystemDependent,
-    NotificationPermissionRequest,
-    ChannelActionRequest
+    SystemDependent
 } from "stentor-models";
 
 import {
     AUDIO_PLAYER_REQUEST_TYPE,
     CHANNEL_ACTION_REQUEST_TYPE,
+    EVENT_REQUEST_TYPE,
     INPUT_UNKNOWN_REQUEST_TYPE,
     INTENT_REQUEST_TYPE,
     LAUNCH_REQUEST_TYPE,
@@ -52,12 +54,22 @@ export function isLaunchRequest(request: Request): request is LaunchRequest {
 
 /**
  * Check if the request is a ChannelActionRequest
- * 
- * @param request 
- * @returns 
+ *
+ * @param request
+ * @returns
  */
 export function isChannelActionRequest(request: Request): request is ChannelActionRequest {
     return !!request && request.type === CHANNEL_ACTION_REQUEST_TYPE;
+}
+
+/**
+ * Check if the request is an EventRequest
+ *
+ * @param request
+ * @returns
+ */
+export function isEventRequest(request: Request): request is EventRequest {
+    return !!request && request.type === EVENT_REQUEST_TYPE;
 }
 
 /**

@@ -1,6 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 export type AudioPlayerRequestType = "AUDIO_PLAYER_REQUEST";
 export type ChannelActionRequestType = "CHANNEL_ACTION_REQUEST"
+export type EventRequestType = "EVENT_REQUEST";
 export type InputUnknownRequestType = "INPUT_UNKNOWN_REQUEST";
 export type IntentRequestType = "INTENT_REQUEST";
 export type LaunchRequestType = "LAUNCH_REQUEST";
@@ -19,6 +20,7 @@ export type TransactionDeliveryAddressType = "TRANSACTION_DELIVERY_ADDRESS_REQUE
 export type RequestTypes =
     | AudioPlayerRequestType
     | ChannelActionRequestType
+    | EventRequestType
     | InputUnknownRequestType
     | IntentRequestType
     | LaunchRequestType

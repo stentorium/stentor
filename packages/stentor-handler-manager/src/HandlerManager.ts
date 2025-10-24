@@ -123,11 +123,12 @@ export class HandlerManager {
                 const props = await this.service.get(id);
                 handler = this.factory.fromProps(props);
             } catch (error) {
-                log().warn(`Unable to get valid handler for ${id}`);
+                const errorMessage = error instanceof Error ? error.message : String(error);
+                log().warn(`Unable to get valid handler for ${id}: ${errorMessage}`);
                 if (error instanceof NoHandlerClassError) {
                     console.error(error.message);
                 } else {
-                    console.error(error);
+                    console.error(errorMessage);
                 }
             }
         }
@@ -158,7 +159,8 @@ export class HandlerManager {
                 handler = this.factory.fromProps(props);
             } catch (error) {
                 // log and move on
-                log().info(error);
+                const errorMessage = error instanceof Error ? error.message : String(error);
+                log().warn(`Unable to get InputUnknown handler: ${errorMessage}`);
             }
 
             // If we got one from the DB, transform the request
@@ -217,7 +219,8 @@ export class HandlerManager {
                         const props = await this.service.get(id);
                         handler = this.factory.fromProps(props);
                     } catch (error) {
-                        log().info(`Unable to get valid handler for ${id}.  Error: ${error.message}`);
+                        const errorMessage = error instanceof Error ? error.message : String(error);
+                        log().warn(`Unable to get valid handler for ${id}.  Error: ${errorMessage}`);
                     }
 
                     if (!handler) {

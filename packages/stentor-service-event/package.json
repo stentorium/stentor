@@ -18,7 +18,7 @@
     "@aws-sdk/client-firehose": "3.917.0",
     "@aws-sdk/client-kinesis": "3.917.0",
     "@aws-sdk/client-sns": "3.917.0",
-    "@types/chai": "5.2.2",
+    "@types/chai": "5.2.3",
     "@types/mocha": "10.0.10",
     "@types/sinon": "17.0.4",
     "@types/sinon-chai": "3.2.12",

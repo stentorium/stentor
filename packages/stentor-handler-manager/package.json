@@ -15,7 +15,7 @@
     "node": "^12 || ^14 || ^16 || ^18 || ^20 || ^22"
   },
   "devDependencies": {
-    "@types/chai": "5.2.2",
+    "@types/chai": "5.2.3",
     "@types/chai-as-promised": "7.1.8",
     "@types/sinon": "17.0.4",
     "@types/sinon-chai": "3.2.12",

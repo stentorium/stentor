@@ -2973,12 +2973,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chai@npm:5.2.2":
-  version: 5.2.2
-  resolution: "@types/chai@npm:5.2.2"
+"@types/chai@npm:5.2.3":
+  version: 5.2.3
+  resolution: "@types/chai@npm:5.2.3"
   dependencies:
     "@types/deep-eql": "npm:*"
-  checksum: 10c0/49282bf0e8246800ebb36f17256f97bd3a8c4fb31f92ad3c0eaa7623518d7e87f1eaad4ad206960fcaf7175854bdff4cb167e4fe96811e0081b4ada83dd533ec
+    assertion-error: "npm:^2.0.1"
+  checksum: 10c0/e0ef1de3b6f8045a5e473e867c8565788c444271409d155588504840ad1a53611011f85072188c2833941189400228c1745d78323dac13fcede9c2b28bacfb2f
   languageName: node
   linkType: hard
 
@@ -3769,6 +3770,13 @@ __metadata:
   version: 1.1.0
   resolution: "assertion-error@npm:1.1.0"
   checksum: 10c0/25456b2aa333250f01143968e02e4884a34588a8538fbbf65c91a637f1dbfb8069249133cd2f4e530f10f624d206a664e7df30207830b659e9f5298b00a4099b
+  languageName: node
+  linkType: hard
+
+"assertion-error@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "assertion-error@npm:2.0.1"
+  checksum: 10c0/bbbcb117ac6480138f8c93cf7f535614282dea9dc828f540cdece85e3c665e8f78958b96afac52f29ff883c72638e6a87d469ecc9fe5bc902df03ed24a55dba8
   languageName: node
   linkType: hard
 
@@ -10487,7 +10495,7 @@ __metadata:
   resolution: "stentor-address@workspace:packages/stentor-address"
   dependencies:
     "@microsoft/api-extractor": "npm:7.52.13"
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@types/mocha": "npm:10.0.10"
     "@types/node": "npm:22.18.12"
     "@types/sinon": "npm:17.0.4"
@@ -10512,7 +10520,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-channel@workspace:packages/stentor-channel"
   dependencies:
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@types/sinon": "npm:17.0.4"
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.2.3"
@@ -10535,7 +10543,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-conditional@workspace:packages/stentor-conditional"
   dependencies:
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@xapp/config": "npm:0.2.3"
     chai: "npm:4.5.0"
     isolated-vm: "npm:5.0.4"
@@ -10568,7 +10576,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-context@workspace:packages/stentor-context"
   dependencies:
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@types/sinon": "npm:17.0.4"
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.2.3"
@@ -10592,7 +10600,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-determiner@workspace:packages/stentor-determiner"
   dependencies:
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@types/sinon": "npm:17.0.4"
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.2.3"
@@ -10622,7 +10630,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-guards@workspace:packages/stentor-guards"
   dependencies:
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@types/sinon": "npm:17.0.4"
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.2.3"
@@ -10643,7 +10651,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-handler-delegating@workspace:packages/stentor-handler-delegating"
   dependencies:
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@xapp/config": "npm:0.2.3"
     chai: "npm:4.5.0"
     stentor-handler: "npm:1.66.12"
@@ -10660,7 +10668,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-handler-factory@workspace:packages/stentor-handler-factory"
   dependencies:
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@types/sinon": "npm:17.0.4"
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.2.3"
@@ -10689,7 +10697,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-handler-manager@workspace:packages/stentor-handler-manager"
   dependencies:
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@types/chai-as-promised": "npm:7.1.8"
     "@types/sinon": "npm:17.0.4"
     "@types/sinon-chai": "npm:3.2.12"
@@ -10718,7 +10726,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-handler@workspace:packages/stentor-handler"
   dependencies:
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@types/sinon": "npm:17.0.4"
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.2.3"
@@ -10751,7 +10759,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-history@workspace:packages/stentor-history"
   dependencies:
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@types/sinon": "npm:17.0.4"
     "@xapp/config": "npm:0.2.3"
     chai: "npm:4.5.0"
@@ -10769,7 +10777,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-interaction-model@workspace:packages/stentor-interaction-model"
   dependencies:
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@xapp/config": "npm:0.2.3"
     chai: "npm:4.5.0"
     mocha: "npm:11.7.4"
@@ -10789,7 +10797,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-locales@workspace:packages/stentor-locales"
   dependencies:
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@xapp/config": "npm:0.2.3"
     chai: "npm:4.5.0"
     mocha: "npm:11.7.4"
@@ -10834,7 +10842,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-media@workspace:packages/stentor-media"
   dependencies:
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@types/mocha": "npm:10.0.10"
     "@types/node": "npm:22.18.12"
     "@types/sinon": "npm:17.0.4"
@@ -10870,7 +10878,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-request@workspace:packages/stentor-request"
   dependencies:
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@types/sinon": "npm:17.0.4"
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.2.3"
@@ -10895,7 +10903,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-response@workspace:packages/stentor-response"
   dependencies:
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@types/sinon": "npm:17.0.4"
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.2.3"
@@ -10920,7 +10928,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-runtime@workspace:packages/stentor-runtime"
   dependencies:
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@types/sinon": "npm:17.0.4"
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.2.3"
@@ -10957,7 +10965,7 @@ __metadata:
     "@aws-sdk/client-firehose": "npm:3.917.0"
     "@aws-sdk/client-kinesis": "npm:3.917.0"
     "@aws-sdk/client-sns": "npm:3.917.0"
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@types/mocha": "npm:10.0.10"
     "@types/sinon": "npm:17.0.4"
     "@types/sinon-chai": "npm:3.2.12"
@@ -10987,7 +10995,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-service-fetch@workspace:packages/stentor-service-fetch"
   dependencies:
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@types/chai-as-promised": "npm:7.1.8"
     abort-controller: "npm:3.0.0"
     chai: "npm:4.5.0"
@@ -11005,7 +11013,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-service-ovai@workspace:packages/stentor-service-ovai"
   dependencies:
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@types/fetch-mock": "npm:9.2.2"
     "@xapp/config": "npm:0.2.3"
     chai: "npm:4.5.0"
@@ -11027,7 +11035,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-service-studio@workspace:packages/stentor-service-studio"
   dependencies:
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@types/chai-as-promised": "npm:7.1.8"
     "@types/fetch-mock": "npm:9.2.2"
     "@xapp/config": "npm:0.2.3"
@@ -11053,7 +11061,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-storage@workspace:packages/stentor-storage"
   dependencies:
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@xapp/config": "npm:0.2.3"
     chai: "npm:4.5.0"
     jsonpath-plus: "npm:10.3.0"
@@ -11069,7 +11077,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-time@workspace:packages/stentor-time"
   dependencies:
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@types/luxon": "npm:3.7.1"
     "@types/mocha": "npm:10.0.10"
     "@types/sinon": "npm:17.0.4"
@@ -11093,7 +11101,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-user-storage-dynamo@workspace:packages/stentor-user-storage-dynamo"
   dependencies:
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@xapp/config": "npm:0.2.3"
     "@xapp/dynamo-service": "npm:1.8.7"
     chai: "npm:4.5.0"
@@ -11117,7 +11125,7 @@ __metadata:
   dependencies:
     "@microsoft/api-extractor": "npm:7.52.13"
     "@types/blueimp-md5": "npm:2.18.2"
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@types/lodash.keys": "npm:4.2.9"
     "@types/lodash.sumby": "npm:4.6.9"
     "@types/lodash.union": "npm:4.6.9"
@@ -11170,7 +11178,7 @@ __metadata:
     "@microsoft/api-extractor": "npm:7.52.13"
     "@types/aws-lambda": "npm:8.10.156"
     "@types/body-parser": "npm:1.19.6"
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@types/express": "npm:5.0.3"
     "@types/mocha": "npm:10.0.10"
     "@types/node": "npm:22.18.12"

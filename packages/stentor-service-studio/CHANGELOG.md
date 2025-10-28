@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.66.16](https://github.com/stentorium/stentor/compare/v1.66.15...v1.66.16) (2025-10-28)
+
+
+### Bug Fixes
+
+* Better Error Messages in Studio HandlerService ([#2744](https://github.com/stentorium/stentor/issues/2744)) ([1c8ba19](https://github.com/stentorium/stentor/commit/1c8ba196c3d8a2609df3f0bbef9e93b34bd5085d))
+
+
+
+
+
 ## [1.66.14](https://github.com/stentorium/stentor/compare/v1.66.13...v1.66.14) (2025-10-27)
 
 **Note:** Version bump only for package stentor-service-studio

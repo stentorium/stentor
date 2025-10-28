@@ -110,9 +110,9 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
 
     /**
      * Get the handler by ID.
-     * 
-     * @param id 
-     * @returns 
+     *
+     * @param id
+     * @returns
      */
     public get(id: string | { intentId: string }): Promise<Handler> | Promise<undefined> {
         const intentId = getIntentId(id);
@@ -126,16 +126,26 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
             url += `?appId=${this.appId}`;
         }
 
+        let status: number;
+        let statusText: string;
+
         return fetch(url, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`
             }
-        }).then<StudioHandlerResponse>(response => response.json()).then<Handler>(json => {
-            // TODO: Check status code to better handle error codes
-            if ((json as any).message === "Unauthorized") {
+        }).then<StudioHandlerResponse>(response => {
+            status = response.status;
+            statusText = response.statusText;
+            return response.json();
+        }).then<Handler>(json => {
+            if (status === 404) {
+                throw new Error(`Handler with intentId "${intentId}" not found. Please verify the intentId exists in your application.`);
+            } else if (status === 401 || (json as any).message === "Unauthorized") {
                 throw new Error("Token provided to StudioService is unauthorized to perform current action.");
+            } else if (status !== HTTP_200_OK) {
+                throw new Error(`StudioService.get() returned ${status} ${statusText} for intentId "${intentId}": ${JSON.stringify(json)}`);
             } else if (typeof json.handler === "object") {
                 return json.handler;
             }

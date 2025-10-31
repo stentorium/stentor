@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.66.18",
+  "version": "1.66.19",
   "description": "OV·AI service for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -28,7 +28,7 @@
   "dependencies": {
     "isomorphic-fetch": "3.0.0",
     "stentor-constants": "1.66.12",
-    "stentor-service-event": "1.66.18",
+    "stentor-service-event": "1.66.19",
     "stentor-utils": "1.66.14"
   },
   "peerDependencies": {

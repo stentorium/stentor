@@ -119,9 +119,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-kinesis@npm:3.922.0":
-  version: 3.922.0
-  resolution: "@aws-sdk/client-kinesis@npm:3.922.0"
+"@aws-sdk/client-kinesis@npm:3.923.0":
+  version: 3.923.0
+  resolution: "@aws-sdk/client-kinesis@npm:3.923.0"
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
@@ -166,7 +166,7 @@ __metadata:
     "@smithy/util-utf8": "npm:^4.2.0"
     "@smithy/util-waiter": "npm:^4.2.4"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/5a7cb03d3444e4bab10b2290e0075c5f68c92d4a32857e10456c224dfd8d90b9ab241268b03f648f67be6c5c14cd00bc6e98a1d53aa876c6e6147a3c0084fb4c
+  checksum: 10c0/665f7d6b2ee382bc04f716c74fbe07e4b0ceeb7b3f730c54769dbbffd45974ecc08d4e3a95c61a1a13308cfaa15e3bef7b6bae656e5a1c5fca0aeec778167771
   languageName: node
   linkType: hard
 
@@ -10973,7 +10973,7 @@ __metadata:
   resolution: "stentor-service-event@workspace:packages/stentor-service-event"
   dependencies:
     "@aws-sdk/client-firehose": "npm:3.922.0"
-    "@aws-sdk/client-kinesis": "npm:3.922.0"
+    "@aws-sdk/client-kinesis": "npm:3.923.0"
     "@aws-sdk/client-sns": "npm:3.922.0"
     "@types/chai": "npm:5.2.3"
     "@types/mocha": "npm:10.0.10"

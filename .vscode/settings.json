@@ -11,5 +11,7 @@
     "listisize",
     "localizable"
   ],
-  "codeQL.githubDatabase.update": "never"
+  "codeQL.githubDatabase.update": "never",
+  "editor.formatOnSave": true,
+  "files.autoSave": "onFocusChange"
 }

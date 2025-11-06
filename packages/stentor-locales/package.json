@@ -18,7 +18,7 @@
     "@types/chai": "5.2.3",
     "@xapp/config": "0.2.3",
     "chai": "4.5.0",
-    "mocha": "11.7.4",
+    "mocha": "11.7.5",
     "stentor-models": "1.66.22",
     "ts-node": "10.9.2",
     "typescript": "5.9.3"

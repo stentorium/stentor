@@ -68,4 +68,25 @@ export interface FormStep {
 
   // Server should send the data to the crm
   crmSubmit?: boolean;
+
+  /**
+   * Warn the user before unloading the page if there are unsaved changes.
+   * 
+   * This is especially helpful when either crmSubmit is true or final is true,
+   * to prevent users from accidentally losing their data.
+   * 
+   * This will trigger a browser dialog when the user attempts to close the tab or navigate away which does not work on all browsers.
+   * 
+   * @beta This is a beta feature and may change in future releases.
+   */
+  warnBeforeUnload?: boolean;
+  /**
+   * Custom message to display in the unload warning dialog.  This is used when the use attempts to hit the 'X' button on the form when they have unsaved changes.
+   * 
+   * @beta This is a beta feature and may change in future releases.
+   * 
+   * Note: Most browsers do not display custom messages anymore, but having this
+   * property allows for future compatibility and clarity.
+   */
+  warnBeforeUnloadMessage?: string;
 }

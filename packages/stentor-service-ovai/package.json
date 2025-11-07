@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.66.24",
+  "version": "1.66.25",
   "description": "OV·AI service for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -21,15 +21,15 @@
     "chai": "4.5.0",
     "fetch-mock": "9.11.0",
     "mocha": "11.7.5",
-    "stentor-models": "1.66.24",
+    "stentor-models": "1.66.25",
     "ts-node": "10.9.2",
     "typescript": "5.9.3"
   },
   "dependencies": {
     "isomorphic-fetch": "3.0.0",
-    "stentor-constants": "1.66.24",
-    "stentor-service-event": "1.66.24",
-    "stentor-utils": "1.66.24"
+    "stentor-constants": "1.66.25",
+    "stentor-service-event": "1.66.25",
+    "stentor-utils": "1.66.25"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

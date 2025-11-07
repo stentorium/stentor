@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.66.25](https://github.com/stentorium/stentor/compare/v1.66.24...v1.66.25) (2025-11-07)
+
+
+### Bug Fixes
+
+* Adding ZIP_CODE as possible format ([#2760](https://github.com/stentorium/stentor/issues/2760)) ([927d474](https://github.com/stentorium/stentor/commit/927d474b2796ffeaeb21105d22b358d279f786ee))
+
+
+
+
+
 ## [1.66.24](https://github.com/stentorium/stentor/compare/v1.66.23...v1.66.24) (2025-11-06)
 
 

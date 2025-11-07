@@ -111,7 +111,7 @@ export interface FormFieldTextAddressInput extends FormTextInput {
  */
 export interface FormTextInput extends FormInput {
   multiline?: boolean; // render text area
-  format?: "PHONE" | "EMAIL" | "ADDRESS"; // ... default is free text
+  format?: "PHONE" | "EMAIL" | "ADDRESS" | "ZIP_CODE"; // ... default is free text
   placeholder?: string;
 
   label?: string;

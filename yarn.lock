@@ -2922,10 +2922,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/aws-lambda@npm:8.10.156":
-  version: 8.10.156
-  resolution: "@types/aws-lambda@npm:8.10.156"
-  checksum: 10c0/7de38e4241c4b4ffd740622850508aff77ed3258ff2278cc96f86d18f8045d2c0fd944c74c0fbcc32334179a7022a85ce69b5cc807e9a473243cd7d1cb90959b
+"@types/aws-lambda@npm:8.10.157":
+  version: 8.10.157
+  resolution: "@types/aws-lambda@npm:8.10.157"
+  checksum: 10c0/2517007b6c0b392883aac58d8ef88c0d387de5fcb425011300d2641fd1a1dab5755df4d973abc8879132ffb2924321e19b5ce3ecd06eaa0fdf71ba6e172c9be0
   languageName: node
   linkType: hard
 
@@ -11186,7 +11186,7 @@ __metadata:
   dependencies:
     "@aws-sdk/client-secrets-manager": "npm:3.927.0"
     "@microsoft/api-extractor": "npm:7.52.13"
-    "@types/aws-lambda": "npm:8.10.156"
+    "@types/aws-lambda": "npm:8.10.157"
     "@types/body-parser": "npm:1.19.6"
     "@types/chai": "npm:5.2.3"
     "@types/express": "npm:5.0.4"

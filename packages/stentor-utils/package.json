@@ -23,7 +23,7 @@
     "@types/lodash.union": "4.6.9",
     "@types/marked": "6.0.0",
     "@types/mocha": "10.0.10",
-    "@types/node": "24.10.0",
+    "@types/node": "24.10.1",
     "@types/numeral": "2.0.5",
     "@types/sanitize-html": "2.16.0",
     "@types/sinon": "17.0.4",

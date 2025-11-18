@@ -13,7 +13,7 @@ import { findSchedulableMatch } from "./findSchedulableMatch";
  */
 export function findTimeContextualMatch<T extends object>(
     objects: (T | TimeContextual<T>)[],
-    context?: { lastActiveTimestamp: number }
+    context?: { lastActiveTimestamp: number | undefined }
 ): TimeContextual<T> | undefined {
     // A couple of exit conditions to start us off...
     // No objects or empty responses, bail

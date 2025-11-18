@@ -2,7 +2,7 @@ version: 2
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: circleci/node:14.18.2
+    - image: cimg/node:18.20.4
 
 jobs:
   checkout:
@@ -14,34 +14,41 @@ jobs:
       - restore_cache:
           keys:
             # when lock file changes, use increasingly general patterns to restore cache
-            - yarn-packages-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
-            - yarn-packages-v1-{{ .Branch }}-
-            - yarn-packages-v1-
+            - yarn-packages-v3-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - yarn-packages-v3-{{ .Branch }}-
+            - yarn-packages-v3-
       - run:
-          run: Install Dependencies
-          command: yarn --frozen-lockfile --cache-folder ~/.cache/yarn
+          name: Install Dependencies
+          command: yarn install --immutable
       - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-v3-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
-            - ~/.cache/yarn
-          key: yarn-packages-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - node_modules
+            - .yarn/cache
+            - .yarn/unplugged
       - persist_to_workspace:
           root: ~/repo
           paths:
-            - .git/*
-            - .npmrc
-            - .nycrc
-            - .nyc_output/*
-            - test/mocha.opts
-            - scripts/*
-            - node_modules/*
-            - packages/*
-            - package.json
-            - README.md
-            - tsconfig.json
-            - lerna.json
             - .eslintignore
             - .eslintrc.js
-            - .yarnrc
+            - .git/*
+            - .npmrc
+            - .nyc_output/*
+            - .nycrc
+            - .yarn/releases/*
+            - .yarn/plugins/*
+            - .yarnclean
+            - .yarnrc.yml
+            - lerna.json
+            - node_modules/*
+            - package.json
+            - packages/*
+            - README.md
+            - scripts/*
+            - test/mocha.opts
+            - tsconfig.json
+            - yarn.lock
   build:
     <<: *defaults
     steps:
@@ -49,7 +56,7 @@ jobs:
           at: ~/repo
       - run:
           name: Build
-          command: yarn build --concurrency 4
+          command: yarn build
       # Need to persist the generated .js and d.ts files
       - persist_to_workspace:
           root: ~/repo
@@ -71,6 +78,9 @@ jobs:
       - run:
           name: Version Check
           command: yarn version-check
+      - run:
+          name: Version Check - All
+          command: yarn version-check:all
   test:
     <<: *defaults
     steps:

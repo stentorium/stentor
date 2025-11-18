@@ -1,6 +1,7 @@
 /*! Copyright (c) 2021, XAPPmedia */
 import { decode } from "html-entities";
 import { marked } from "marked";
+import { markedXhtml } from "marked-xhtml";
 import sanitize = require('sanitize-html');
 import { linkify } from "./net";
 
@@ -27,6 +28,9 @@ export function toHTML(input: string, props?: { allowedTags?: string[] }): strin
 
     const linked = linkify(decoded);
 
+    // https://www.npmjs.com/package/marked-xhtml 
+    marked.use(markedXhtml());
+
     // From https://github.com/markedjs/marked/issues/655#issuecomment-383226346
     const renderer = new marked.Renderer();
     // copy the existing link renderer for use later
@@ -40,8 +44,13 @@ export function toHTML(input: string, props?: { allowedTags?: string[] }): strin
     renderer.code = (code): string => {
         return code;
     }
-    const dirty = marked(linked, { renderer, breaks: true, xhtml: true });
+    // marked can return a string or promise, promise only if you set async to be tru
+    const dirty = marked(linked, { renderer, breaks: true });
+    let clean: string;
+    // dirty will always be a string since we aren't using async
+    if (typeof dirty === "string") {
+        clean = sanitize(dirty, props);
+    }
 
-    const clean = sanitize(dirty, props);
     return clean;
 }

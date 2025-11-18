@@ -14,6 +14,7 @@ import {
     AbstractResponseBuilder,
     Channel,
     Content,
+    Context,
     Handler,
     HandlerService,
     Request,
@@ -28,6 +29,7 @@ import { dessmlify, LambdaError } from "stentor-utils";
 
 import { main } from "../main";
 import { MOCK_CHANNEL, MockHandlerService, MockUserStorageService, passThroughChannel } from "./Mocks";
+import { CustomContext, CustomContextHandler } from "./models/CustomContextHandler";
 
 const appId = "appId";
 
@@ -49,6 +51,16 @@ const handler: Handler = {
     content,
     data: {}
 };
+
+const customHandler: Handler = {
+    organizationId: "organizationId",
+    appId,
+    intentId: "LaunchRequest",
+    name: "Launch Request",
+    type: "CustomContextHandler",
+    content,
+    data: {}
+}
 
 const createdDate = new Date();
 createdDate.setDate(createdDate.getDate() - 1);
@@ -96,7 +108,7 @@ describe("#main() with hooks", () => {
                     return Promise.resolve(undefined);
                 };
             });
-            it("exists immediately after the return", async () => {
+            it("exits immediately after the return", async () => {
                 await main(
                     request,
                     context,
@@ -155,7 +167,14 @@ describe("#main() with hooks", () => {
                             '<speak>I\'m sorry, I\'m having trouble with that request.</speak>',
                         displayText: 'I\'m sorry, I\'m having trouble with that request.',
                         defaultLocale: 'en'
-                    }
+                    },
+                    displays: [
+                        {
+                            type: 'CARD',
+                            title: 'TypeError',
+                            context: 'User ID on the request is required when building context.'
+                        }
+                    ]
                 });
             });
         });
@@ -269,7 +288,52 @@ describe("#main() with hooks", () => {
             expect(userStorageService.get).to.has.been.calledWith("newID");
         });
     });
+    describe("with postContextCreation hook", () => {
+        let postContextCreation: (request: Request, context: Context) => Promise<{ request: Request, context: Context }>;
 
+        beforeEach(() => {
+            request = new LaunchRequestBuilder().build();
+            handlerFactory = new HandlerFactory({ handlers: [ConversationHandler, CustomContextHandler], mappings: { ["CustomContextHandler"]: CustomContextHandler } });
+            context = { ovai: { appId } };
+            callbackSpy = sinon.spy();
+            handlerService = sinon.createStubInstance(MockHandlerService, {
+                get: customHandler
+            });
+            userStorageService = sinon.createStubInstance(MockUserStorageService, {
+                get: Promise.resolve({ ...storage })
+            });
+            // The hook to test!
+            postContextCreation = async (request: Request, context: CustomContext): Promise<{ request: Request, context: Context }> => {
+                request.userId = "newID";
+                context.foo = 1
+                return { request, context };
+            };
+        });
+        it("updates the request and context", async () => {
+            await main(
+                request,
+                context,
+                callbackSpy,
+                [passThroughChannel()],
+                {
+                    eventService,
+                    handlerFactory,
+                    handlerService,
+                    userStorageService
+                },
+                {
+                    postContextCreation
+                }
+            );
+            expect(callbackSpy).to.have.been.calledOnce;
+            expect(callbackSpy).to.have.been.calledWith(null, {
+                outputSpeech: {
+                    displayText: "newID 1",
+                    ssml: "<speak>newID 1</speak>"
+                },
+            });
+        });
+    });
     describe("with preResponseTranslation hook (alexa)", () => {
         let preResponseTranslation: (request: Request, response: AbstractResponseBuilder, storage: Storage) => Promise<{ request: Request; response: AbstractResponseBuilder; storage: Storage }>;
 
@@ -318,7 +382,7 @@ describe("#main() with hooks", () => {
             );
 
             const userStore = await userStorageService.get("fakeUserId");
-            const transcript = userStore.sessionStore.data.transcript;
+            const transcript = userStore?.sessionStore?.data.transcript;
 
             expect(transcript).exist;
             expect(transcript.length).equals(2);

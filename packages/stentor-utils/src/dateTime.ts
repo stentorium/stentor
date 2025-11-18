@@ -381,8 +381,8 @@ export function parseRelativeDate(
             while (match !== null) {
                 const date = parseDate(
                     match[0]
-                        .replace("_", " ")
-                        .replace(/[\${}]/, "")
+                        .replace(/_/g, " ")
+                        .replace(/[\${}]/g, "")
                         .toLowerCase(),
                     "date"
                 );
@@ -398,8 +398,8 @@ export function parseRelativeDate(
         } else {
             dateTime = parseDate(
                 relative
-                    .replace("_", " ")
-                    .replace(/[\${}]/, "")
+                    .replace(/_/g, " ")
+                    .replace(/[\${}]/g, "")
                     .toLowerCase(),
                 "date"
             );

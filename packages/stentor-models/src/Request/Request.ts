@@ -2,6 +2,9 @@
 import { Device } from "../Device";
 import { Locale } from "../Locale";
 import { AudioPlayerRequest } from "./AudioPlayerRequest";
+import { ChannelActionRequest } from "./ChannelActionRequest";
+import { DeliveryAddressRequest } from "./DeliveryAddressRequest";
+import { EventRequest } from "./EventRequest";
 import { InputUnknownRequest } from "./InputUnknownRequest";
 import { IntentRequest } from "./IntentRequest";
 import { LaunchRequest } from "./LaunchRequest";
@@ -13,6 +16,8 @@ import { RawQueryRequest } from "./RawQueryRequest";
 import { SessionEndedRequest } from "./SessionEndedRequest";
 import { SignInRequest } from "./SignInRequest";
 import { SurfaceChangeRequest } from "./SurfaceChangeRequest";
+import { TransactionDecisionRequest } from "./TransactionDecisionRequest";
+import { TransactionRequirementCheckRequest } from "./TransactionRequirementCheckRequest";
 import { RequestTypes } from "./Types";
 
 /**
@@ -70,18 +75,18 @@ export interface BaseRequest {
     rawQuery?: string;
     /**
      * The platform the request came from.
-     * 
-     * Example platforms are Google's Dialogflow & Amazon's Lex.  
-     * 
+     *
+     * Example platforms are Google's Dialogflow & Amazon's Lex.
+     *
      */
     platform?: string;
     /**
-     * The specific channel that the platform provides.  
+     * The specific channel that the platform provides.
      */
     channel?: string;
     /**
      * Information about the device as far as capabilities such as screen or web browser available.
-     * 
+     *
      * This information is available in two places, also on the context object, until it is removed from the context
      * in the next major release.
      */
@@ -107,10 +112,43 @@ export interface BaseRequest {
     isHealthCheck?: boolean;
     /**
      * Optional request attributes to be passed through on the request.
-     * 
+     *
      * If the channel supports it, it will be populated.
+     * 
+     * Some common keys that are use are, all optional:
+     * 
+     * * 
+     * * currentUrl - For channels installed on websites, contains window.location.href information on where the user is
+     * * isLocal - Boolean for if the currentUrl is to localhost.  If it is true then most likely currentUrl will be undefined.
+     * * environment - Used to override the environment 
      */
     attributes?: Record<string, unknown>;
+}
+
+/**
+ * A request with sentiment analysis information
+ */
+export interface SentimentedRequest {
+    /**
+     * An analysis on the user's query text sentiment
+     */
+    sentimentAnalysis?: {
+        /**
+         * An abstracted measure of the sentiment. 
+         * 
+         * * POSITIVE - Query has positive sentiment
+         * * NEUTRAL - Query has either positive or negative sentiment
+         * * NEGATIVE - Query has negative sentiment
+         * * MIXED - Query has both positive and negative sentiment
+         */
+        sentiment: "POSITIVE" | "NEUTRAL" | "NEGATIVE" | "MIXED";
+        /**
+         * The original payload from the sentiment analysis engine stringified
+         * 
+         * You can use `JSON.parse` on this data to extract more information.
+         */
+        original?: string;
+    }
 }
 
 export interface ApiAccessData {
@@ -119,15 +157,20 @@ export interface ApiAccessData {
 }
 
 export type Request =
-    | LaunchRequest
-    | SessionEndedRequest
+    | AudioPlayerRequest
+    | ChannelActionRequest
+    | DeliveryAddressRequest
+    | EventRequest
     | InputUnknownRequest
     | IntentRequest
-    | AudioPlayerRequest
-    | PlaybackControlRequest
-    | PermissionRequest
-    | SurfaceChangeRequest
+    | LaunchRequest
     | NotificationPermissionRequest
-    | SignInRequest
     | OptionSelectRequest
-    | RawQueryRequest;
+    | PermissionRequest
+    | PlaybackControlRequest
+    | RawQueryRequest
+    | SessionEndedRequest
+    | SignInRequest
+    | SurfaceChangeRequest
+    | TransactionDecisionRequest
+    | TransactionRequirementCheckRequest;

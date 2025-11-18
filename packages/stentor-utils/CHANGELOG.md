@@ -3,6 +3,5511 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.66.30](https://github.com/stentorium/stentor/compare/v1.66.29...v1.66.30) (2025-11-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked-xhtml to v1.0.14 ([#2767](https://github.com/stentorium/stentor/issues/2767)) ([f150b07](https://github.com/stentorium/stentor/commit/f150b078ff87334f783ec4703cc19a9d14c79326))
+
+
+
+
+
+## [1.66.25](https://github.com/stentorium/stentor/compare/v1.66.24...v1.66.25) (2025-11-07)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.66.24](https://github.com/stentorium/stentor/compare/v1.66.23...v1.66.24) (2025-11-06)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.66.22](https://github.com/stentorium/stentor/compare/v1.66.21...v1.66.22) (2025-11-04)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.66.14](https://github.com/stentorium/stentor/compare/v1.66.13...v1.66.14) (2025-10-27)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.66.12](https://github.com/stentorium/stentor/compare/v1.66.11...v1.66.12) (2025-10-24)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.66.10](https://github.com/stentorium/stentor/compare/v1.66.9...v1.66.10) (2025-10-23)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.66.7](https://github.com/stentorium/stentor/compare/v1.66.6...v1.66.7) (2025-10-20)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.66.2](https://github.com/stentorium/stentor/compare/v1.66.1...v1.66.2) (2025-10-13)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+# [1.66.0](https://github.com/stentorium/stentor/compare/v1.65.12...v1.66.0) (2025-10-09)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.65.11](https://github.com/stentorium/stentor/compare/v1.65.10...v1.65.11) (2025-10-06)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.65.9](https://github.com/stentorium/stentor/compare/v1.65.8...v1.65.9) (2025-10-01)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.65.7](https://github.com/stentorium/stentor/compare/v1.65.6...v1.65.7) (2025-09-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.9.0 ([#2721](https://github.com/stentorium/stentor/issues/2721)) ([18bd987](https://github.com/stentorium/stentor/commit/18bd98767471a9ef03d7ae877cc1735e3d024c03))
+
+
+
+
+
+# [1.65.0](https://github.com/stentorium/stentor/compare/v1.64.0...v1.65.0) (2025-09-16)
+
+
+### Features
+
+* remove unused AWS SDK v2 dependencies - phase 4 ([#2711](https://github.com/stentorium/stentor/issues/2711)) ([008f039](https://github.com/stentorium/stentor/commit/008f039769a8e5a59276f94434603c412d43c043))
+
+
+
+
+
+# [1.64.0](https://github.com/stentorium/stentor/compare/v1.63.0...v1.64.0) (2025-09-16)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.61.16](https://github.com/stentorium/stentor/compare/v1.61.15...v1.61.16) (2025-09-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.61.13](https://github.com/stentorium/stentor/compare/v1.61.12...v1.61.13) (2025-09-07)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.61.12](https://github.com/stentorium/stentor/compare/v1.61.11...v1.61.12) (2025-09-05)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.61.11](https://github.com/stentorium/stentor/compare/v1.61.10...v1.61.11) (2025-09-05)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.61.10](https://github.com/stentorium/stentor/compare/v1.61.9...v1.61.10) (2025-08-25)
+
+
+### Bug Fixes
+
+* More Stop Word Removals ([#2694](https://github.com/stentorium/stentor/issues/2694)) ([a82e5cd](https://github.com/stentorium/stentor/commit/a82e5cd00c60dbeb08e9fa7300689edef735b648))
+
+
+
+
+
+## [1.61.9](https://github.com/stentorium/stentor/compare/v1.61.8...v1.61.9) (2025-08-25)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.61.8](https://github.com/stentorium/stentor/compare/v1.61.7...v1.61.8) (2025-08-18)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.61.7](https://github.com/stentorium/stentor/compare/v1.61.6...v1.61.7) (2025-08-11)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.61.5](https://github.com/stentorium/stentor/compare/v1.61.4...v1.61.5) (2025-08-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.8.4 ([#2683](https://github.com/stentorium/stentor/issues/2683)) ([a93ad32](https://github.com/stentorium/stentor/commit/a93ad3266fb71faf4feaf0dd1a71109906f5cc5b))
+
+
+
+
+
+## [1.61.3](https://github.com/stentorium/stentor/compare/v1.61.2...v1.61.3) (2025-08-08)
+
+
+### Bug Fixes
+
+* Removing moment, moment-range and replacing with luxon ([#2684](https://github.com/stentorium/stentor/issues/2684)) ([421b912](https://github.com/stentorium/stentor/commit/421b9125b825027645221a24afe64ee88794dc45))
+
+
+
+
+
+## [1.61.2](https://github.com/stentorium/stentor/compare/v1.61.1...v1.61.2) (2025-08-04)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.61.1](https://github.com/stentorium/stentor/compare/v1.61.0...v1.61.1) (2025-08-01)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+# [1.61.0](https://github.com/stentorium/stentor/compare/v1.60.59...v1.61.0) (2025-07-31)
+
+
+### Features
+
+* Isolating Address Utilities ([#2680](https://github.com/stentorium/stentor/issues/2680)) ([8305875](https://github.com/stentorium/stentor/commit/8305875b8f1d78a9a97fb440d29c6b923c6053aa))
+
+
+
+
+
+## [1.60.59](https://github.com/stentorium/stentor/compare/v1.60.58...v1.60.59) (2025-07-28)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.57](https://github.com/stentorium/stentor/compare/v1.60.56...v1.60.57) (2025-07-21)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.56](https://github.com/stentorium/stentor/compare/v1.60.55...v1.60.56) (2025-07-16)
+
+
+### Bug Fixes
+
+* Adding simple tokenizer ([#2674](https://github.com/stentorium/stentor/issues/2674)) ([7afcc3a](https://github.com/stentorium/stentor/commit/7afcc3a9eefe41a9c26a1de42c35d347c9d909de))
+
+
+
+
+
+## [1.60.55](https://github.com/stentorium/stentor/compare/v1.60.54...v1.60.55) (2025-07-16)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.54](https://github.com/stentorium/stentor/compare/v1.60.53...v1.60.54) (2025-07-15)
+
+
+### Bug Fixes
+
+* Adding haversine distance calculation to stentor-utils ([#2672](https://github.com/stentorium/stentor/issues/2672)) ([641d882](https://github.com/stentorium/stentor/commit/641d882fbf8f49f6f2e7a94deb97e9ab37ba75e4))
+
+
+
+
+
+## [1.60.52](https://github.com/stentorium/stentor/compare/v1.60.51...v1.60.52) (2025-07-14)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.51](https://github.com/stentorium/stentor/compare/v1.60.50...v1.60.51) (2025-07-07)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.49](https://github.com/stentorium/stentor/compare/v1.60.48...v1.60.49) (2025-07-02)
+
+
+### Bug Fixes
+
+* Location Utils - ZIP TO TIMEZONE ([#2667](https://github.com/stentorium/stentor/issues/2667)) ([7794f81](https://github.com/stentorium/stentor/commit/7794f81fa6fed2d6062c3581d9d1c117bd68ea16))
+
+
+
+
+
+## [1.60.48](https://github.com/stentorium/stentor/compare/v1.60.47...v1.60.48) (2025-07-01)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.47](https://github.com/stentorium/stentor/compare/v1.60.46...v1.60.47) (2025-07-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked-xhtml to v1.0.13 ([#2661](https://github.com/stentorium/stentor/issues/2661)) ([5efdf47](https://github.com/stentorium/stentor/commit/5efdf47a51e553ed154bfef1578d84bdbfd5efa7))
+
+
+
+
+
+## [1.60.46](https://github.com/stentorium/stentor/compare/v1.60.45...v1.60.46) (2025-06-30)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.45](https://github.com/stentorium/stentor/compare/v1.60.44...v1.60.45) (2025-06-25)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.44](https://github.com/stentorium/stentor/compare/v1.60.43...v1.60.44) (2025-06-24)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.43](https://github.com/stentorium/stentor/compare/v1.60.42...v1.60.43) (2025-06-18)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.42](https://github.com/stentorium/stentor/compare/v1.60.41...v1.60.42) (2025-06-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.8.3 ([#2653](https://github.com/stentorium/stentor/issues/2653)) ([3af9a8e](https://github.com/stentorium/stentor/commit/3af9a8e7f66ef9e725e584b0e8c36835e8f32af2))
+
+
+
+
+
+## [1.60.40](https://github.com/stentorium/stentor/compare/v1.60.39...v1.60.40) (2025-06-16)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.39](https://github.com/stentorium/stentor/compare/v1.60.38...v1.60.39) (2025-06-10)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.38](https://github.com/stentorium/stentor/compare/v1.60.37...v1.60.38) (2025-06-03)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.37](https://github.com/stentorium/stentor/compare/v1.60.36...v1.60.37) (2025-06-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.8.2 ([#2646](https://github.com/stentorium/stentor/issues/2646)) ([cba8b3f](https://github.com/stentorium/stentor/commit/cba8b3ff0cb1c84e3c20ec7669c764b20eaf6c51))
+
+
+
+
+
+## [1.60.36](https://github.com/stentorium/stentor/compare/v1.60.35...v1.60.36) (2025-06-02)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.35](https://github.com/stentorium/stentor/compare/v1.60.34...v1.60.35) (2025-05-28)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.33](https://github.com/stentorium/stentor/compare/v1.60.32...v1.60.33) (2025-05-24)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.32](https://github.com/stentorium/stentor/compare/v1.60.31...v1.60.32) (2025-05-20)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.31](https://github.com/stentorium/stentor/compare/v1.60.30...v1.60.31) (2025-05-19)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.30](https://github.com/stentorium/stentor/compare/v1.60.29...v1.60.30) (2025-05-17)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.29](https://github.com/stentorium/stentor/compare/v1.60.28...v1.60.29) (2025-05-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency sanitize-html to v2.17.0 ([#2635](https://github.com/stentorium/stentor/issues/2635)) ([e0868ab](https://github.com/stentorium/stentor/commit/e0868abf3d634a31e5ad64072ba62b7a16a83a13))
+
+
+
+
+
+## [1.60.28](https://github.com/stentorium/stentor/compare/v1.60.27...v1.60.28) (2025-05-12)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.27](https://github.com/stentorium/stentor/compare/v1.60.26...v1.60.27) (2025-05-12)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.26](https://github.com/stentorium/stentor/compare/v1.60.25...v1.60.26) (2025-05-05)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.25](https://github.com/stentorium/stentor/compare/v1.60.24...v1.60.25) (2025-05-02)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.24](https://github.com/stentorium/stentor/compare/v1.60.23...v1.60.24) (2025-04-28)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.23](https://github.com/stentorium/stentor/compare/v1.60.22...v1.60.23) (2025-04-25)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.22](https://github.com/stentorium/stentor/compare/v1.60.21...v1.60.22) (2025-04-22)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.21](https://github.com/stentorium/stentor/compare/v1.60.20...v1.60.21) (2025-04-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency sanitize-html to v2.16.0 ([#2621](https://github.com/stentorium/stentor/issues/2621)) ([1ee5f30](https://github.com/stentorium/stentor/commit/1ee5f303489dcee1ae49d7347bda9da9fe09c3b3))
+
+
+
+
+
+## [1.60.20](https://github.com/stentorium/stentor/compare/v1.60.19...v1.60.20) (2025-04-21)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.19](https://github.com/stentorium/stentor/compare/v1.60.18...v1.60.19) (2025-04-14)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.16](https://github.com/stentorium/stentor/compare/v1.60.15...v1.60.16) (2025-04-10)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.15](https://github.com/stentorium/stentor/compare/v1.60.14...v1.60.15) (2025-04-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.8.0 ([#2570](https://github.com/stentorium/stentor/issues/2570)) ([b519e32](https://github.com/stentorium/stentor/commit/b519e320e96965892184f3c3f21e19ef36c05c50))
+* **deps:** update dependency html-entities to v2.6.0 ([#2607](https://github.com/stentorium/stentor/issues/2607)) ([265ee74](https://github.com/stentorium/stentor/commit/265ee74f08505bf900afc63a88e24c60fdfd1f50))
+
+
+
+
+
+## [1.60.14](https://github.com/stentorium/stentor/compare/v1.60.13...v1.60.14) (2025-03-31)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.13](https://github.com/stentorium/stentor/compare/v1.60.12...v1.60.13) (2025-03-28)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.12](https://github.com/stentorium/stentor/compare/v1.60.11...v1.60.12) (2025-03-27)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.11](https://github.com/stentorium/stentor/compare/v1.60.10...v1.60.11) (2025-03-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency html-entities to v2.5.3 ([#2603](https://github.com/stentorium/stentor/issues/2603)) ([a8fa065](https://github.com/stentorium/stentor/commit/a8fa065ae258732ea905023fb8896cb967cf41b5))
+* **deps:** update dependency sanitize-html to v2.15.0 ([#2600](https://github.com/stentorium/stentor/issues/2600)) ([4cc76a1](https://github.com/stentorium/stentor/commit/4cc76a1ebb57417b544e8e3f8180e538571f6b8a))
+
+
+
+
+
+## [1.60.9](https://github.com/stentorium/stentor/compare/v1.60.8...v1.60.9) (2025-03-24)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.8](https://github.com/stentorium/stentor/compare/v1.60.7...v1.60.8) (2025-03-17)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.7](https://github.com/stentorium/stentor/compare/v1.60.6...v1.60.7) (2025-03-10)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.6](https://github.com/stentorium/stentor/compare/v1.60.5...v1.60.6) (2025-03-10)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.5](https://github.com/stentorium/stentor/compare/v1.60.4...v1.60.5) (2025-03-05)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.3](https://github.com/stentorium/stentor/compare/v1.60.2...v1.60.3) (2025-03-03)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.2](https://github.com/stentorium/stentor/compare/v1.60.1...v1.60.2) (2025-03-01)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.60.1](https://github.com/stentorium/stentor/compare/v1.60.0...v1.60.1) (2025-02-26)
+
+
+### Bug Fixes
+
+* update dependency @microsoft/api-extractor to v7.50.1 ([#2585](https://github.com/stentorium/stentor/issues/2585)) ([cd3b346](https://github.com/stentorium/stentor/commit/cd3b346ef05106b34e07fc24549795ef826d7add))
+
+
+
+
+
+# [1.60.0](https://github.com/stentorium/stentor/compare/v1.59.146...v1.60.0) (2025-02-25)
+
+
+### Bug Fixes
+
+* Adds address parsing features to utils ([#2571](https://github.com/stentorium/stentor/issues/2571)) ([b903f0d](https://github.com/stentorium/stentor/commit/b903f0dddc091511b58c4941155f7cb98eb3dd33))
+* **deps:** update dependency jsonpath-plus to v10.3.0 ([#2578](https://github.com/stentorium/stentor/issues/2578)) ([34dc163](https://github.com/stentorium/stentor/commit/34dc1630fff4812dfc0acf9bf26492bec0574dfd))
+* **deps:** update dependency sanitize-html to v2.14.0 ([#2561](https://github.com/stentorium/stentor/issues/2561)) ([4774fab](https://github.com/stentorium/stentor/commit/4774fab58d2c6c3aba65c89ec3145b61fe0108ce))
+
+
+### Features
+
+* Address Parsing Utils ([#2584](https://github.com/stentorium/stentor/issues/2584)) ([d8b48fa](https://github.com/stentorium/stentor/commit/d8b48fa2b28acffefdde745f2eb70ad03d7e3dfb))
+
+
+
+
+
+## [1.59.146](https://github.com/stentorium/stentor/compare/v1.59.145...v1.59.146) (2024-12-18)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.144](https://github.com/stentorium/stentor/compare/v1.59.143...v1.59.144) (2024-12-16)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.143](https://github.com/stentorium/stentor/compare/v1.59.142...v1.59.143) (2024-12-16)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.141](https://github.com/stentorium/stentor/compare/v1.59.140...v1.59.141) (2024-12-09)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.139](https://github.com/stentorium/stentor/compare/v1.59.138...v1.59.139) (2024-12-09)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.137](https://github.com/stentorium/stentor/compare/v1.59.136...v1.59.137) (2024-12-02)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.136](https://github.com/stentorium/stentor/compare/v1.59.135...v1.59.136) (2024-11-25)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.135](https://github.com/stentorium/stentor/compare/v1.59.134...v1.59.135) (2024-11-21)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.134](https://github.com/stentorium/stentor/compare/v1.59.133...v1.59.134) (2024-11-20)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.133](https://github.com/stentorium/stentor/compare/v1.59.132...v1.59.133) (2024-11-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency jsonpath-plus to v10.2.0 ([#2539](https://github.com/stentorium/stentor/issues/2539)) ([678f193](https://github.com/stentorium/stentor/commit/678f1933afa34e9aab16f1bc2e72821edcd1547d))
+* **deps:** update dependency marked-xhtml to v1.0.12 ([#2534](https://github.com/stentorium/stentor/issues/2534)) ([cac5ce5](https://github.com/stentorium/stentor/commit/cac5ce5fba1cd96af335f357d5188151c8b58550))
+
+
+
+
+
+## [1.59.132](https://github.com/stentorium/stentor/compare/v1.59.131...v1.59.132) (2024-11-11)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.129](https://github.com/stentorium/stentor/compare/v1.59.128...v1.59.129) (2024-11-04)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.128](https://github.com/stentorium/stentor/compare/v1.59.127...v1.59.128) (2024-11-01)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.127](https://github.com/stentorium/stentor/compare/v1.59.126...v1.59.127) (2024-10-28)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.126](https://github.com/stentorium/stentor/compare/v1.59.125...v1.59.126) (2024-10-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency jsonpath-plus to v10.1.0 ([#2523](https://github.com/stentorium/stentor/issues/2523)) ([465efa2](https://github.com/stentorium/stentor/commit/465efa2e274331faee28fc2ab5dff888441531ac))
+
+
+
+
+
+## [1.59.125](https://github.com/stentorium/stentor/compare/v1.59.124...v1.59.125) (2024-10-21)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.124](https://github.com/stentorium/stentor/compare/v1.59.123...v1.59.124) (2024-10-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency jsonpath-plus to v10.0.6 ([#2522](https://github.com/stentorium/stentor/issues/2522)) ([f997ae0](https://github.com/stentorium/stentor/commit/f997ae03332dfd464b1cafaf763dd401efd87836))
+
+
+
+
+
+## [1.59.123](https://github.com/stentorium/stentor/compare/v1.59.122...v1.59.123) (2024-10-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency jsonpath-plus to v10.0.1 ([#2521](https://github.com/stentorium/stentor/issues/2521)) ([34c22ad](https://github.com/stentorium/stentor/commit/34c22ad42d053784730da0fcb34cf2104537a7c4))
+
+
+
+
+
+## [1.59.122](https://github.com/stentorium/stentor/compare/v1.59.121...v1.59.122) (2024-10-16)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.121](https://github.com/stentorium/stentor/compare/v1.59.120...v1.59.121) (2024-10-14)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.120](https://github.com/stentorium/stentor/compare/v1.59.119...v1.59.120) (2024-10-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency jsonpath-plus to v10 ([#2516](https://github.com/stentorium/stentor/issues/2516)) ([5c4acec](https://github.com/stentorium/stentor/commit/5c4acec612851c245040baac78fda3223f308f24))
+
+
+
+
+
+## [1.59.118](https://github.com/stentorium/stentor/compare/v1.59.117...v1.59.118) (2024-10-07)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.117](https://github.com/stentorium/stentor/compare/v1.59.116...v1.59.117) (2024-10-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency sanitize-html to v2.13.1 ([#2509](https://github.com/stentorium/stentor/issues/2509)) ([a45c8bb](https://github.com/stentorium/stentor/commit/a45c8bbfb5cca0a4fcb911f65a87c5af09752993))
+
+
+
+
+
+## [1.59.116](https://github.com/stentorium/stentor/compare/v1.59.115...v1.59.116) (2024-09-30)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.115](https://github.com/stentorium/stentor/compare/v1.59.114...v1.59.115) (2024-09-30)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.114](https://github.com/stentorium/stentor/compare/v1.59.113...v1.59.114) (2024-09-27)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.113](https://github.com/stentorium/stentor/compare/v1.59.112...v1.59.113) (2024-09-23)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.112](https://github.com/stentorium/stentor/compare/v1.59.111...v1.59.112) (2024-09-23)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.111](https://github.com/stentorium/stentor/compare/v1.59.110...v1.59.111) (2024-09-23)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.110](https://github.com/stentorium/stentor/compare/v1.59.109...v1.59.110) (2024-09-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.7.7 ([#2498](https://github.com/stentorium/stentor/issues/2498)) ([b192539](https://github.com/stentorium/stentor/commit/b19253965ad170019a4e8bafd1bcced77b401d5b))
+
+
+
+
+
+## [1.59.109](https://github.com/stentorium/stentor/compare/v1.59.108...v1.59.109) (2024-09-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v4 ([#2499](https://github.com/stentorium/stentor/issues/2499)) ([fd6c5ab](https://github.com/stentorium/stentor/commit/fd6c5ab3fdd32d6854785af8baa7bb0c41260f54))
+
+
+
+
+
+## [1.59.108](https://github.com/stentorium/stentor/compare/v1.59.107...v1.59.108) (2024-09-16)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.107](https://github.com/stentorium/stentor/compare/v1.59.106...v1.59.107) (2024-09-16)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.105](https://github.com/stentorium/stentor/compare/v1.59.104...v1.59.105) (2024-09-09)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.104](https://github.com/stentorium/stentor/compare/v1.59.103...v1.59.104) (2024-09-02)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.103](https://github.com/stentorium/stentor/compare/v1.59.102...v1.59.103) (2024-09-02)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.102](https://github.com/stentorium/stentor/compare/v1.59.101...v1.59.102) (2024-08-29)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.101](https://github.com/stentorium/stentor/compare/v1.59.100...v1.59.101) (2024-08-26)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.100](https://github.com/stentorium/stentor/compare/v1.59.99...v1.59.100) (2024-08-24)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.99](https://github.com/stentorium/stentor/compare/v1.59.98...v1.59.99) (2024-08-23)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.98](https://github.com/stentorium/stentor/compare/v1.59.97...v1.59.98) (2024-08-19)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.96](https://github.com/stentorium/stentor/compare/v1.59.95...v1.59.96) (2024-08-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.94](https://github.com/stentorium/stentor/compare/v1.59.93...v1.59.94) (2024-08-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked-xhtml to v1.0.11 ([#2465](https://github.com/stentorium/stentor/issues/2465)) ([f40b0ef](https://github.com/stentorium/stentor/commit/f40b0efee18b88c47e64ad911137aade27dc0f88))
+
+
+
+
+
+## [1.59.93](https://github.com/stentorium/stentor/compare/v1.59.92...v1.59.93) (2024-08-12)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.92](https://github.com/stentorium/stentor/compare/v1.59.91...v1.59.92) (2024-08-12)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.91](https://github.com/stentorium/stentor/compare/v1.59.90...v1.59.91) (2024-08-05)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.90](https://github.com/stentorium/stentor/compare/v1.59.89...v1.59.90) (2024-07-29)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.89](https://github.com/stentorium/stentor/compare/v1.59.88...v1.59.89) (2024-07-26)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.88](https://github.com/stentorium/stentor/compare/v1.59.87...v1.59.88) (2024-07-26)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.87](https://github.com/stentorium/stentor/compare/v1.59.86...v1.59.87) (2024-07-25)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.86](https://github.com/stentorium/stentor/compare/v1.59.85...v1.59.86) (2024-07-25)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.85](https://github.com/stentorium/stentor/compare/v1.59.84...v1.59.85) (2024-07-24)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.84](https://github.com/stentorium/stentor/compare/v1.59.83...v1.59.84) (2024-07-22)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.83](https://github.com/stentorium/stentor/compare/v1.59.82...v1.59.83) (2024-07-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.80](https://github.com/stentorium/stentor/compare/v1.59.79...v1.59.80) (2024-07-09)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.79](https://github.com/stentorium/stentor/compare/v1.59.78...v1.59.79) (2024-07-08)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.78](https://github.com/stentorium/stentor/compare/v1.59.77...v1.59.78) (2024-07-08)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.77](https://github.com/stentorium/stentor/compare/v1.59.76...v1.59.77) (2024-07-02)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.76](https://github.com/stentorium/stentor/compare/v1.59.75...v1.59.76) (2024-07-01)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.75](https://github.com/stentorium/stentor/compare/v1.59.74...v1.59.75) (2024-06-28)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.73](https://github.com/stentorium/stentor/compare/v1.59.72...v1.59.73) (2024-06-24)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.72](https://github.com/stentorium/stentor/compare/v1.59.71...v1.59.72) (2024-06-24)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.70](https://github.com/stentorium/stentor/compare/v1.59.69...v1.59.70) (2024-06-21)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.69](https://github.com/stentorium/stentor/compare/v1.59.68...v1.59.69) (2024-06-17)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.68](https://github.com/stentorium/stentor/compare/v1.59.67...v1.59.68) (2024-06-17)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.67](https://github.com/stentorium/stentor/compare/v1.59.66...v1.59.67) (2024-06-14)
+
+
+### Bug Fixes
+
+* Ability to Pop Questions with newlines in between ([#2428](https://github.com/stentorium/stentor/issues/2428)) ([832995a](https://github.com/stentorium/stentor/commit/832995ab5fb90de50f8d07941e3f4425d438824b))
+
+
+
+
+
+## [1.59.66](https://github.com/stentorium/stentor/compare/v1.59.65...v1.59.66) (2024-06-14)
+
+
+### Bug Fixes
+
+* Utils - Sentence Splitter and Question Popper ([#2427](https://github.com/stentorium/stentor/issues/2427)) ([d5ee7b6](https://github.com/stentorium/stentor/commit/d5ee7b6d1e5f4810958c0cdacb67ca356b42cbb6))
+
+
+
+
+
+## [1.59.65](https://github.com/stentorium/stentor/compare/v1.59.64...v1.59.65) (2024-06-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked-xhtml to v1.0.10 ([#2425](https://github.com/stentorium/stentor/issues/2425)) ([6936504](https://github.com/stentorium/stentor/commit/6936504cc62d86415472dd20efc9c215c8c2245e))
+
+
+
+
+
+## [1.59.64](https://github.com/stentorium/stentor/compare/v1.59.63...v1.59.64) (2024-06-11)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.63](https://github.com/stentorium/stentor/compare/v1.59.62...v1.59.63) (2024-06-10)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.61](https://github.com/stentorium/stentor/compare/v1.59.60...v1.59.61) (2024-06-07)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.60](https://github.com/stentorium/stentor/compare/v1.59.59...v1.59.60) (2024-06-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.7.6 ([#2416](https://github.com/stentorium/stentor/issues/2416)) ([89b8513](https://github.com/stentorium/stentor/commit/89b851309eadb481a0d376cce1aff51edfb0fdb1))
+
+
+
+
+
+## [1.59.59](https://github.com/stentorium/stentor/compare/v1.59.58...v1.59.59) (2024-05-31)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.58](https://github.com/stentorium/stentor/compare/v1.59.57...v1.59.58) (2024-05-30)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.57](https://github.com/stentorium/stentor/compare/v1.59.56...v1.59.57) (2024-05-29)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.56](https://github.com/stentorium/stentor/compare/v1.59.55...v1.59.56) (2024-05-28)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.55](https://github.com/stentorium/stentor/compare/v1.59.54...v1.59.55) (2024-05-27)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.54](https://github.com/stentorium/stentor/compare/v1.59.53...v1.59.54) (2024-05-24)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.53](https://github.com/stentorium/stentor/compare/v1.59.52...v1.59.53) (2024-05-16)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.52](https://github.com/stentorium/stentor/compare/v1.59.51...v1.59.52) (2024-05-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.51](https://github.com/stentorium/stentor/compare/v1.59.50...v1.59.51) (2024-05-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.50](https://github.com/stentorium/stentor/compare/v1.59.49...v1.59.50) (2024-05-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.48](https://github.com/stentorium/stentor/compare/v1.59.47...v1.59.48) (2024-05-13)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.47](https://github.com/stentorium/stentor/compare/v1.59.46...v1.59.47) (2024-05-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency jsonpath-plus to v9 ([#2399](https://github.com/stentorium/stentor/issues/2399)) ([b35502b](https://github.com/stentorium/stentor/commit/b35502b25394cb747ffbc033d36f17a9611d1c0c))
+
+
+
+
+
+## [1.59.46](https://github.com/stentorium/stentor/compare/v1.59.45...v1.59.46) (2024-05-10)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.45](https://github.com/stentorium/stentor/compare/v1.59.44...v1.59.45) (2024-05-08)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.44](https://github.com/stentorium/stentor/compare/v1.59.43...v1.59.44) (2024-05-06)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.43](https://github.com/stentorium/stentor/compare/v1.59.42...v1.59.43) (2024-05-06)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.42](https://github.com/stentorium/stentor/compare/v1.59.41...v1.59.42) (2024-04-29)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.41](https://github.com/stentorium/stentor/compare/v1.59.40...v1.59.41) (2024-04-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v12.0.2 ([#2384](https://github.com/stentorium/stentor/issues/2384)) ([083e47c](https://github.com/stentorium/stentor/commit/083e47cb3910341409fff7792585f5e5029250db))
+
+
+
+
+
+## [1.59.40](https://github.com/stentorium/stentor/compare/v1.59.39...v1.59.40) (2024-04-22)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.39](https://github.com/stentorium/stentor/compare/v1.59.38...v1.59.39) (2024-04-17)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.38](https://github.com/stentorium/stentor/compare/v1.59.37...v1.59.38) (2024-04-12)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.36](https://github.com/stentorium/stentor/compare/v1.59.35...v1.59.36) (2024-04-08)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.35](https://github.com/stentorium/stentor/compare/v1.59.34...v1.59.35) (2024-04-05)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.34](https://github.com/stentorium/stentor/compare/v1.59.33...v1.59.34) (2024-04-04)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.33](https://github.com/stentorium/stentor/compare/v1.59.32...v1.59.33) (2024-04-03)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.32](https://github.com/stentorium/stentor/compare/v1.59.31...v1.59.32) (2024-04-02)
+
+
+### Bug Fixes
+
+* FAQ Prefiltering no longer default on StudioService ([#2372](https://github.com/stentorium/stentor/issues/2372)) ([f5274ef](https://github.com/stentorium/stentor/commit/f5274ef994c066700ff1bfb5909a45c564366047))
+
+
+
+
+
+## [1.59.31](https://github.com/stentorium/stentor/compare/v1.59.30...v1.59.31) (2024-04-01)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.30](https://github.com/stentorium/stentor/compare/v1.59.29...v1.59.30) (2024-03-28)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.28](https://github.com/stentorium/stentor/compare/v1.59.27...v1.59.28) (2024-03-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency winston to v3.13.0 ([#2362](https://github.com/stentorium/stentor/issues/2362)) ([866ca3f](https://github.com/stentorium/stentor/commit/866ca3faf9299e26ba5a55954a560dcd4a77c597))
+
+
+
+
+
+## [1.59.27](https://github.com/stentorium/stentor/compare/v1.59.26...v1.59.27) (2024-03-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency sanitize-html to v2.13.0 ([#2359](https://github.com/stentorium/stentor/issues/2359)) ([3bcfe4a](https://github.com/stentorium/stentor/commit/3bcfe4a44e7ce5b97e52c791024ef970a866e459))
+
+
+
+
+
+## [1.59.26](https://github.com/stentorium/stentor/compare/v1.59.25...v1.59.26) (2024-03-25)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.25](https://github.com/stentorium/stentor/compare/v1.59.24...v1.59.25) (2024-03-25)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.24](https://github.com/stentorium/stentor/compare/v1.59.23...v1.59.24) (2024-03-21)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.23](https://github.com/stentorium/stentor/compare/v1.59.22...v1.59.23) (2024-03-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v3.6.0 ([#2353](https://github.com/stentorium/stentor/issues/2353)) ([08160b2](https://github.com/stentorium/stentor/commit/08160b2b408107c9edbf7c59c04846cbd6d14f6d))
+
+
+
+
+
+## [1.59.21](https://github.com/stentorium/stentor/compare/v1.59.20...v1.59.21) (2024-03-18)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.20](https://github.com/stentorium/stentor/compare/v1.59.19...v1.59.20) (2024-03-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v3.4.0 ([#2352](https://github.com/stentorium/stentor/issues/2352)) ([622a06f](https://github.com/stentorium/stentor/commit/622a06fd148fcb994b8abe66ad6fd85de6e35503))
+
+
+
+
+
+## [1.59.19](https://github.com/stentorium/stentor/compare/v1.59.18...v1.59.19) (2024-03-11)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.18](https://github.com/stentorium/stentor/compare/v1.59.17...v1.59.18) (2024-03-07)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.17](https://github.com/stentorium/stentor/compare/v1.59.16...v1.59.17) (2024-03-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v12.0.1 ([#2347](https://github.com/stentorium/stentor/issues/2347)) ([33e5dbb](https://github.com/stentorium/stentor/commit/33e5dbbc483d3458060f0f4e2ae478f6b2cbf13f))
+
+
+
+
+
+## [1.59.16](https://github.com/stentorium/stentor/compare/v1.59.15...v1.59.16) (2024-03-07)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.15](https://github.com/stentorium/stentor/compare/v1.59.14...v1.59.15) (2024-03-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency jsonpath-plus to v8.1.0 ([#2346](https://github.com/stentorium/stentor/issues/2346)) ([64ada89](https://github.com/stentorium/stentor/commit/64ada8901e36bdf3ecb66d3baf8408a227154f54))
+
+
+
+
+
+## [1.59.14](https://github.com/stentorium/stentor/compare/v1.59.13...v1.59.14) (2024-03-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency winston to v3.12.0 ([#2345](https://github.com/stentorium/stentor/issues/2345)) ([addc04c](https://github.com/stentorium/stentor/commit/addc04c34bcd4791edb656b1c1f8d54985413e00))
+
+
+
+
+
+## [1.59.13](https://github.com/stentorium/stentor/compare/v1.59.12...v1.59.13) (2024-03-05)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.12](https://github.com/stentorium/stentor/compare/v1.59.11...v1.59.12) (2024-03-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency html-entities to v2.5.2 ([#2342](https://github.com/stentorium/stentor/issues/2342)) ([fc12877](https://github.com/stentorium/stentor/commit/fc128773b07b8ac650304716559c01d6c7f28483))
+
+
+
+
+
+## [1.59.11](https://github.com/stentorium/stentor/compare/v1.59.10...v1.59.11) (2024-03-04)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.9](https://github.com/stentorium/stentor/compare/v1.59.8...v1.59.9) (2024-02-29)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.8](https://github.com/stentorium/stentor/compare/v1.59.7...v1.59.8) (2024-02-26)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.7](https://github.com/stentorium/stentor/compare/v1.59.6...v1.59.7) (2024-02-26)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.6](https://github.com/stentorium/stentor/compare/v1.59.5...v1.59.6) (2024-02-24)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.5](https://github.com/stentorium/stentor/compare/v1.59.4...v1.59.5) (2024-02-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency sanitize-html to v2.12.1 ([#2331](https://github.com/stentorium/stentor/issues/2331)) ([90841d0](https://github.com/stentorium/stentor/commit/90841d036eb54d80e7d4b5801f297c8da9c3f0ec))
+
+
+
+
+
+## [1.59.2](https://github.com/stentorium/stentor/compare/v1.59.1...v1.59.2) (2024-02-19)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.59.1](https://github.com/stentorium/stentor/compare/v1.59.0...v1.59.1) (2024-02-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+# [1.59.0](https://github.com/stentorium/stentor/compare/v1.58.112...v1.59.0) (2024-02-14)
+
+
+### Features
+
+* Adds the ability to set suggestion chips on handler data, which are then applied ([#2325](https://github.com/stentorium/stentor/issues/2325)) ([616a70e](https://github.com/stentorium/stentor/commit/616a70ee0033b173951b0459f8bea77061f35b0e))
+
+
+
+
+
+## [1.58.110](https://github.com/stentorium/stentor/compare/v1.58.109...v1.58.110) (2024-02-12)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.109](https://github.com/stentorium/stentor/compare/v1.58.108...v1.58.109) (2024-02-12)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.108](https://github.com/stentorium/stentor/compare/v1.58.107...v1.58.108) (2024-02-06)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.107](https://github.com/stentorium/stentor/compare/v1.58.106...v1.58.107) (2024-02-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked-xhtml to v1.0.9 ([#2318](https://github.com/stentorium/stentor/issues/2318)) ([5325407](https://github.com/stentorium/stentor/commit/532540743b4eae65b397684cc3799de22fcb9851))
+
+
+
+
+
+## [1.58.106](https://github.com/stentorium/stentor/compare/v1.58.105...v1.58.106) (2024-02-05)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.104](https://github.com/stentorium/stentor/compare/v1.58.103...v1.58.104) (2024-02-05)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.103](https://github.com/stentorium/stentor/compare/v1.58.102...v1.58.103) (2024-02-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v12 ([#2313](https://github.com/stentorium/stentor/issues/2313)) ([905f81e](https://github.com/stentorium/stentor/commit/905f81e3dcaaa7cb7c2f19e6eb527787bc3bebe0))
+
+
+
+
+
+## [1.58.102](https://github.com/stentorium/stentor/compare/v1.58.101...v1.58.102) (2024-01-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v11.2.0 ([#2310](https://github.com/stentorium/stentor/issues/2310)) ([dca9dbe](https://github.com/stentorium/stentor/commit/dca9dbed043839c1c868408be8bd5988e70b9387))
+
+
+
+
+
+## [1.58.100](https://github.com/stentorium/stentor/compare/v1.58.99...v1.58.100) (2024-01-29)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.99](https://github.com/stentorium/stentor/compare/v1.58.98...v1.58.99) (2024-01-27)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.98](https://github.com/stentorium/stentor/compare/v1.58.97...v1.58.98) (2024-01-26)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.96](https://github.com/stentorium/stentor/compare/v1.58.95...v1.58.96) (2024-01-25)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.94](https://github.com/stentorium/stentor/compare/v1.58.93...v1.58.94) (2024-01-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v3.3.1 ([#2303](https://github.com/stentorium/stentor/issues/2303)) ([2907601](https://github.com/stentorium/stentor/commit/290760106e79139b60b2f6c96fb8d5189df91734))
+
+
+
+
+
+## [1.58.93](https://github.com/stentorium/stentor/compare/v1.58.92...v1.58.93) (2024-01-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.7.5 ([#2299](https://github.com/stentorium/stentor/issues/2299)) ([f029058](https://github.com/stentorium/stentor/commit/f029058cb55175b5af994664fa4aa7bc74650435))
+* **deps:** update dependency jsonpath-plus to v8 ([#2297](https://github.com/stentorium/stentor/issues/2297)) ([e4d8592](https://github.com/stentorium/stentor/commit/e4d85920ff9ad24e11d8dd489cb15501f4bfc0be))
+
+
+
+
+
+## [1.58.92](https://github.com/stentorium/stentor/compare/v1.58.91...v1.58.92) (2024-01-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/xmldoc to v1.1.9 ([ae15e32](https://github.com/stentorium/stentor/commit/ae15e3263199e563d6851a2e9c807980adacb3d0))
+
+
+
+
+
+## [1.58.91](https://github.com/stentorium/stentor/compare/v1.58.90...v1.58.91) (2024-01-22)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.89](https://github.com/stentorium/stentor/compare/v1.58.88...v1.58.89) (2024-01-17)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.88](https://github.com/stentorium/stentor/compare/v1.58.87...v1.58.88) (2024-01-17)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.87](https://github.com/stentorium/stentor/compare/v1.58.86...v1.58.87) (2024-01-17)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.86](https://github.com/stentorium/stentor/compare/v1.58.85...v1.58.86) (2024-01-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency lodash.keys to v4.2.0 ([#2293](https://github.com/stentorium/stentor/issues/2293)) ([c3fab1f](https://github.com/stentorium/stentor/commit/c3fab1f5253e89d5460c54a10cb3aa737c510a3d))
+
+
+
+
+
+## [1.58.85](https://github.com/stentorium/stentor/compare/v1.58.84...v1.58.85) (2024-01-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v11 ([#2259](https://github.com/stentorium/stentor/issues/2259)) ([59badc0](https://github.com/stentorium/stentor/commit/59badc0c308c8b4b6c00caaa0485240e583bcc3c))
+
+
+
+
+
+## [1.58.84](https://github.com/stentorium/stentor/compare/v1.58.83...v1.58.84) (2024-01-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.83](https://github.com/stentorium/stentor/compare/v1.58.82...v1.58.83) (2024-01-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.82](https://github.com/stentorium/stentor/compare/v1.58.81...v1.58.82) (2024-01-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.81](https://github.com/stentorium/stentor/compare/v1.58.80...v1.58.81) (2024-01-13)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.80](https://github.com/stentorium/stentor/compare/v1.58.79...v1.58.80) (2024-01-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v3.2.0 ([#2287](https://github.com/stentorium/stentor/issues/2287)) ([d33a85a](https://github.com/stentorium/stentor/commit/d33a85af87bb0fb52fb3340cccf3819d6f0d9619))
+
+
+
+
+
+## [1.58.79](https://github.com/stentorium/stentor/compare/v1.58.78...v1.58.79) (2024-01-10)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.77](https://github.com/stentorium/stentor/compare/v1.58.76...v1.58.77) (2024-01-08)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.76](https://github.com/stentorium/stentor/compare/v1.58.75...v1.58.76) (2024-01-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v3.1.0 ([#2283](https://github.com/stentorium/stentor/issues/2283)) ([7c78080](https://github.com/stentorium/stentor/commit/7c780807ac75f0768a2e7c2e8d2084ed43f027bb))
+
+
+
+
+
+## [1.58.75](https://github.com/stentorium/stentor/compare/v1.58.74...v1.58.75) (2024-01-06)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.74](https://github.com/stentorium/stentor/compare/v1.58.73...v1.58.74) (2024-01-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.7.4 ([#2280](https://github.com/stentorium/stentor/issues/2280)) ([6d4d466](https://github.com/stentorium/stentor/commit/6d4d46643da8799c69412f2811f98793bdedd320))
+
+
+
+
+
+## [1.58.72](https://github.com/stentorium/stentor/compare/v1.58.71...v1.58.72) (2024-01-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v3.0.6 ([#2274](https://github.com/stentorium/stentor/issues/2274)) ([cba3724](https://github.com/stentorium/stentor/commit/cba3724a611538321f6c76875acd264b60efaaec))
+
+
+
+
+
+## [1.58.69](https://github.com/stentorium/stentor/compare/v1.58.68...v1.58.69) (2023-12-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v3.0.5 ([#2273](https://github.com/stentorium/stentor/issues/2273)) ([d3e9178](https://github.com/stentorium/stentor/commit/d3e9178a03c1109810126ad218f90ed050c110cc))
+
+
+
+
+
+## [1.58.68](https://github.com/stentorium/stentor/compare/v1.58.67...v1.58.68) (2023-12-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v3.0.1 ([#2272](https://github.com/stentorium/stentor/issues/2272)) ([f50e74e](https://github.com/stentorium/stentor/commit/f50e74eb713b102647b036b3fb3c1b215b9533b5))
+
+
+
+
+
+## [1.58.67](https://github.com/stentorium/stentor/compare/v1.58.66...v1.58.67) (2023-12-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v3 ([#2271](https://github.com/stentorium/stentor/issues/2271)) ([b1293e0](https://github.com/stentorium/stentor/commit/b1293e041d51e0be955346666bd03a38c4a42fe8))
+
+
+
+
+
+## [1.58.65](https://github.com/stentorium/stentor/compare/v1.58.64...v1.58.65) (2023-12-18)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.64](https://github.com/stentorium/stentor/compare/v1.58.63...v1.58.64) (2023-12-11)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.63](https://github.com/stentorium/stentor/compare/v1.58.62...v1.58.63) (2023-12-11)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.62](https://github.com/stentorium/stentor/compare/v1.58.61...v1.58.62) (2023-12-11)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.61](https://github.com/stentorium/stentor/compare/v1.58.60...v1.58.61) (2023-12-11)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.60](https://github.com/stentorium/stentor/compare/v1.58.59...v1.58.60) (2023-12-08)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.59](https://github.com/stentorium/stentor/compare/v1.58.58...v1.58.59) (2023-12-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked-xhtml to v1.0.8 ([#2260](https://github.com/stentorium/stentor/issues/2260)) ([d399971](https://github.com/stentorium/stentor/commit/d399971cd1f284252f118d3c0105e89a75b2477c))
+
+
+
+
+
+## [1.58.58](https://github.com/stentorium/stentor/compare/v1.58.57...v1.58.58) (2023-12-04)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.57](https://github.com/stentorium/stentor/compare/v1.58.56...v1.58.57) (2023-12-04)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.56](https://github.com/stentorium/stentor/compare/v1.58.55...v1.58.56) (2023-11-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.7.3 ([#2253](https://github.com/stentorium/stentor/issues/2253)) ([9632552](https://github.com/stentorium/stentor/commit/963255210fb1ddbb1c713348b80c90237d2483f6))
+
+
+
+
+
+## [1.58.55](https://github.com/stentorium/stentor/compare/v1.58.54...v1.58.55) (2023-11-27)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.54](https://github.com/stentorium/stentor/compare/v1.58.53...v1.58.54) (2023-11-27)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.51](https://github.com/stentorium/stentor/compare/v1.58.50...v1.58.51) (2023-11-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked-xhtml to v1.0.7 ([#2246](https://github.com/stentorium/stentor/issues/2246)) ([1e8666a](https://github.com/stentorium/stentor/commit/1e8666afd6445d2b67a30b4a92b52a7dc1cdec1b))
+
+
+
+
+
+## [1.58.50](https://github.com/stentorium/stentor/compare/v1.58.49...v1.58.50) (2023-11-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v9.1.6 ([#2244](https://github.com/stentorium/stentor/issues/2244)) ([7f6a9a9](https://github.com/stentorium/stentor/commit/7f6a9a9e60b09df71734d0558d538e8e170ff964))
+
+
+
+
+
+## [1.58.49](https://github.com/stentorium/stentor/compare/v1.58.48...v1.58.49) (2023-11-13)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.48](https://github.com/stentorium/stentor/compare/v1.58.47...v1.58.48) (2023-11-13)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.47](https://github.com/stentorium/stentor/compare/v1.58.46...v1.58.47) (2023-11-06)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.46](https://github.com/stentorium/stentor/compare/v1.58.45...v1.58.46) (2023-11-06)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.45](https://github.com/stentorium/stentor/compare/v1.58.44...v1.58.45) (2023-11-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v9.1.5 ([#2240](https://github.com/stentorium/stentor/issues/2240)) ([104472d](https://github.com/stentorium/stentor/commit/104472d74dab3e5cc3ae209cc214f5ad350d5fd4))
+
+
+
+
+
+## [1.58.44](https://github.com/stentorium/stentor/compare/v1.58.43...v1.58.44) (2023-11-06)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.43](https://github.com/stentorium/stentor/compare/v1.58.42...v1.58.43) (2023-11-02)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.42](https://github.com/stentorium/stentor/compare/v1.58.41...v1.58.42) (2023-11-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v9.1.4 ([#2237](https://github.com/stentorium/stentor/issues/2237)) ([42940ef](https://github.com/stentorium/stentor/commit/42940eff5a8f74dff79d95a0034935e315f4efb2))
+
+
+
+
+
+## [1.58.41](https://github.com/stentorium/stentor/compare/v1.58.40...v1.58.41) (2023-10-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v9.1.3 ([#2233](https://github.com/stentorium/stentor/issues/2233)) ([feb2a89](https://github.com/stentorium/stentor/commit/feb2a89e61b433e25fe6f34cb075df891ec696a0))
+
+
+
+
+
+## [1.58.38](https://github.com/stentorium/stentor/compare/v1.58.37...v1.58.38) (2023-10-27)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.37](https://github.com/stentorium/stentor/compare/v1.58.36...v1.58.37) (2023-10-23)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.36](https://github.com/stentorium/stentor/compare/v1.58.35...v1.58.36) (2023-10-23)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.35](https://github.com/stentorium/stentor/compare/v1.58.34...v1.58.35) (2023-10-23)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.34](https://github.com/stentorium/stentor/compare/v1.58.33...v1.58.34) (2023-10-20)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.33](https://github.com/stentorium/stentor/compare/v1.58.32...v1.58.33) (2023-10-16)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.32](https://github.com/stentorium/stentor/compare/v1.58.31...v1.58.32) (2023-10-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v9.1.2 ([#2218](https://github.com/stentorium/stentor/issues/2218)) ([89975ad](https://github.com/stentorium/stentor/commit/89975ad92d8facda7b230ee2aa0d8501bdc652e7))
+
+
+
+
+
+## [1.58.31](https://github.com/stentorium/stentor/compare/v1.58.30...v1.58.31) (2023-10-16)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.30](https://github.com/stentorium/stentor/compare/v1.58.29...v1.58.30) (2023-10-16)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.29](https://github.com/stentorium/stentor/compare/v1.58.28...v1.58.29) (2023-10-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v9.1.1 ([#2216](https://github.com/stentorium/stentor/issues/2216)) ([10e71ef](https://github.com/stentorium/stentor/commit/10e71efdea78e3c2cd1eb7ce40c04bfba65376da))
+
+
+
+
+
+## [1.58.28](https://github.com/stentorium/stentor/compare/v1.58.27...v1.58.28) (2023-10-11)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.27](https://github.com/stentorium/stentor/compare/v1.58.26...v1.58.27) (2023-10-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v9.1.0 ([#2206](https://github.com/stentorium/stentor/issues/2206)) ([77287e5](https://github.com/stentorium/stentor/commit/77287e59e164befd9b7a1235b88fbc42b4e7bb9e))
+* **deps:** update dependency winston to v3.11.0 ([#2211](https://github.com/stentorium/stentor/issues/2211)) ([55f0711](https://github.com/stentorium/stentor/commit/55f0711f7ea0327579d2750b537ca64c2ce90562))
+
+
+
+
+
+## [1.58.25](https://github.com/stentorium/stentor/compare/v1.58.24...v1.58.25) (2023-10-09)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.24](https://github.com/stentorium/stentor/compare/v1.58.23...v1.58.24) (2023-10-06)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.22](https://github.com/stentorium/stentor/compare/v1.58.21...v1.58.22) (2023-10-04)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.21](https://github.com/stentorium/stentor/compare/v1.58.20...v1.58.21) (2023-10-04)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.20](https://github.com/stentorium/stentor/compare/v1.58.19...v1.58.20) (2023-10-02)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.19](https://github.com/stentorium/stentor/compare/v1.58.18...v1.58.19) (2023-10-02)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.18](https://github.com/stentorium/stentor/compare/v1.58.17...v1.58.18) (2023-09-29)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.17](https://github.com/stentorium/stentor/compare/v1.58.16...v1.58.17) (2023-09-28)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.16](https://github.com/stentorium/stentor/compare/v1.58.15...v1.58.16) (2023-09-26)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.15](https://github.com/stentorium/stentor/compare/v1.58.14...v1.58.15) (2023-09-25)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.14](https://github.com/stentorium/stentor/compare/v1.58.13...v1.58.14) (2023-09-25)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.13](https://github.com/stentorium/stentor/compare/v1.58.12...v1.58.13) (2023-09-25)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.12](https://github.com/stentorium/stentor/compare/v1.58.11...v1.58.12) (2023-09-20)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.11](https://github.com/stentorium/stentor/compare/v1.58.10...v1.58.11) (2023-09-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v9.0.3 ([#2187](https://github.com/stentorium/stentor/issues/2187)) ([1966e65](https://github.com/stentorium/stentor/commit/1966e652b6e9a04cd3e78ef921ea22efaf2b9443))
+
+
+
+
+
+## [1.58.10](https://github.com/stentorium/stentor/compare/v1.58.9...v1.58.10) (2023-09-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v9.0.2 ([#2184](https://github.com/stentorium/stentor/issues/2184)) ([7f43bef](https://github.com/stentorium/stentor/commit/7f43bef96e2f2bd2ba5bbafd3404ea109246c965))
+
+
+
+
+
+## [1.58.9](https://github.com/stentorium/stentor/compare/v1.58.8...v1.58.9) (2023-09-18)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.8](https://github.com/stentorium/stentor/compare/v1.58.7...v1.58.8) (2023-09-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.7](https://github.com/stentorium/stentor/compare/v1.58.6...v1.58.7) (2023-09-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked-xhtml to v1.0.6 ([#2180](https://github.com/stentorium/stentor/issues/2180)) ([ae7463f](https://github.com/stentorium/stentor/commit/ae7463f9fd3ed6fb867a1f9d0cbbf02cd8a40e63))
+
+
+
+
+
+## [1.58.5](https://github.com/stentorium/stentor/compare/v1.58.4...v1.58.5) (2023-09-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.7.0 ([#2179](https://github.com/stentorium/stentor/issues/2179)) ([21c90a2](https://github.com/stentorium/stentor/commit/21c90a261332135a08be0d55d8803d5d43c3bf02))
+* **deps:** update dependency marked to v9 ([#2175](https://github.com/stentorium/stentor/issues/2175)) ([5b46e6e](https://github.com/stentorium/stentor/commit/5b46e6ed0a3f9b88a8ac897533abea2f59b49f11))
+
+
+
+
+
+## [1.58.4](https://github.com/stentorium/stentor/compare/v1.58.3...v1.58.4) (2023-09-11)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.3](https://github.com/stentorium/stentor/compare/v1.58.2...v1.58.3) (2023-09-08)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.58.2](https://github.com/stentorium/stentor/compare/v1.58.1...v1.58.2) (2023-09-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v8.0.1 ([#2171](https://github.com/stentorium/stentor/issues/2171)) ([6d7d78e](https://github.com/stentorium/stentor/commit/6d7d78ef3cdd0392ce8e45437c881ec4a3a439cc))
+
+
+
+
+
+## [1.58.1](https://github.com/stentorium/stentor/compare/v1.58.0...v1.58.1) (2023-09-07)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+# [1.58.0](https://github.com/stentorium/stentor/compare/v1.57.216...v1.58.0) (2023-09-06)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.216](https://github.com/stentorium/stentor/compare/v1.57.215...v1.57.216) (2023-09-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v8 ([#2169](https://github.com/stentorium/stentor/issues/2169)) ([649f39a](https://github.com/stentorium/stentor/commit/649f39a11e08ee5ad2ba2cb0d7c01917c1ce819d))
+
+
+
+
+
+## [1.57.215](https://github.com/stentorium/stentor/compare/v1.57.214...v1.57.215) (2023-09-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.6.6 ([#2166](https://github.com/stentorium/stentor/issues/2166)) ([095b6dc](https://github.com/stentorium/stentor/commit/095b6dc6ab2ffb06961048c836e7dbd852b42dc7))
+
+
+
+
+
+## [1.57.214](https://github.com/stentorium/stentor/compare/v1.57.213...v1.57.214) (2023-09-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/xmldoc to v1.1.7 ([de7f03b](https://github.com/stentorium/stentor/commit/de7f03b5af03b1a5cac479795ed457a84be688a3))
+
+
+
+
+
+## [1.57.213](https://github.com/stentorium/stentor/compare/v1.57.212...v1.57.213) (2023-09-04)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.212](https://github.com/stentorium/stentor/compare/v1.57.211...v1.57.212) (2023-09-01)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.211](https://github.com/stentorium/stentor/compare/v1.57.210...v1.57.211) (2023-08-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v7.0.5 ([#2162](https://github.com/stentorium/stentor/issues/2162)) ([c14646d](https://github.com/stentorium/stentor/commit/c14646d403034170ab0e032e3620a1bf508faa45))
+
+
+
+
+
+## [1.57.210](https://github.com/stentorium/stentor/compare/v1.57.209...v1.57.210) (2023-08-28)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.209](https://github.com/stentorium/stentor/compare/v1.57.208...v1.57.209) (2023-08-28)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.208](https://github.com/stentorium/stentor/compare/v1.57.207...v1.57.208) (2023-08-25)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.207](https://github.com/stentorium/stentor/compare/v1.57.206...v1.57.207) (2023-08-24)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.206](https://github.com/stentorium/stentor/compare/v1.57.205...v1.57.206) (2023-08-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.6.5 ([#2156](https://github.com/stentorium/stentor/issues/2156)) ([c0b9f7a](https://github.com/stentorium/stentor/commit/c0b9f7ac1f2bf29c0faeb123fbf3ce5634806af4))
+* **deps:** update dependency marked to v7.0.4 ([#2153](https://github.com/stentorium/stentor/issues/2153)) ([56fce95](https://github.com/stentorium/stentor/commit/56fce9530fd72184693d5eab8ddbf02ca711c8f1))
+
+
+
+
+
+## [1.57.205](https://github.com/stentorium/stentor/compare/v1.57.204...v1.57.205) (2023-08-21)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.204](https://github.com/stentorium/stentor/compare/v1.57.203...v1.57.204) (2023-08-21)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.203](https://github.com/stentorium/stentor/compare/v1.57.202...v1.57.203) (2023-08-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v7.0.3 ([#2150](https://github.com/stentorium/stentor/issues/2150)) ([d32e9ef](https://github.com/stentorium/stentor/commit/d32e9ef0626165b06e75e4da6088cfc9ec25149b))
+
+
+
+
+
+## [1.57.202](https://github.com/stentorium/stentor/compare/v1.57.201...v1.57.202) (2023-08-14)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.201](https://github.com/stentorium/stentor/compare/v1.57.200...v1.57.201) (2023-08-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v7.0.2 ([#2146](https://github.com/stentorium/stentor/issues/2146)) ([f162985](https://github.com/stentorium/stentor/commit/f162985ce3561d4386ae0b436da26516f51bfdd5))
+
+
+
+
+
+## [1.57.199](https://github.com/stentorium/stentor/compare/v1.57.198...v1.57.199) (2023-08-10)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.198](https://github.com/stentorium/stentor/compare/v1.57.197...v1.57.198) (2023-08-10)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.197](https://github.com/stentorium/stentor/compare/v1.57.196...v1.57.197) (2023-08-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v7.0.1 ([#2140](https://github.com/stentorium/stentor/issues/2140)) ([fd4fa90](https://github.com/stentorium/stentor/commit/fd4fa90bbc573bd79fb63dc0b20628df38770e15))
+
+
+
+
+
+## [1.57.196](https://github.com/stentorium/stentor/compare/v1.57.195...v1.57.196) (2023-08-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v7 ([#2139](https://github.com/stentorium/stentor/issues/2139)) ([ca2ad83](https://github.com/stentorium/stentor/commit/ca2ad83785cfecd739a9b99d32a99b15bdac8787))
+
+
+
+
+
+## [1.57.195](https://github.com/stentorium/stentor/compare/v1.57.194...v1.57.195) (2023-08-07)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.194](https://github.com/stentorium/stentor/compare/v1.57.193...v1.57.194) (2023-08-01)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.193](https://github.com/stentorium/stentor/compare/v1.57.192...v1.57.193) (2023-07-31)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.192](https://github.com/stentorium/stentor/compare/v1.57.191...v1.57.192) (2023-07-29)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.190](https://github.com/stentorium/stentor/compare/v1.57.189...v1.57.190) (2023-07-24)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.189](https://github.com/stentorium/stentor/compare/v1.57.188...v1.57.189) (2023-07-21)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.188](https://github.com/stentorium/stentor/compare/v1.57.187...v1.57.188) (2023-07-18)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.187](https://github.com/stentorium/stentor/compare/v1.57.186...v1.57.187) (2023-07-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.6.4 ([#2121](https://github.com/stentorium/stentor/issues/2121)) ([da87f76](https://github.com/stentorium/stentor/commit/da87f76d23641216bda37ce6e6d674babebe570a))
+
+
+
+
+
+## [1.57.186](https://github.com/stentorium/stentor/compare/v1.57.185...v1.57.186) (2023-07-17)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.185](https://github.com/stentorium/stentor/compare/v1.57.184...v1.57.185) (2023-07-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency winston to v3.10.0 ([#2118](https://github.com/stentorium/stentor/issues/2118)) ([1e297a5](https://github.com/stentorium/stentor/commit/1e297a56cb609b645ec1a6d21a77a6ba25a39cdf))
+
+
+
+
+
+## [1.57.184](https://github.com/stentorium/stentor/compare/v1.57.183...v1.57.184) (2023-07-10)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.183](https://github.com/stentorium/stentor/compare/v1.57.182...v1.57.183) (2023-07-06)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.182](https://github.com/stentorium/stentor/compare/v1.57.181...v1.57.182) (2023-07-03)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.181](https://github.com/stentorium/stentor/compare/v1.57.180...v1.57.181) (2023-07-03)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.180](https://github.com/stentorium/stentor/compare/v1.57.179...v1.57.180) (2023-07-02)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.178](https://github.com/stentorium/stentor/compare/v1.57.177...v1.57.178) (2023-06-29)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.177](https://github.com/stentorium/stentor/compare/v1.57.176...v1.57.177) (2023-06-28)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.176](https://github.com/stentorium/stentor/compare/v1.57.175...v1.57.176) (2023-06-27)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.175](https://github.com/stentorium/stentor/compare/v1.57.174...v1.57.175) (2023-06-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency html-entities to v2.4.0 ([#2103](https://github.com/stentorium/stentor/issues/2103)) ([49d8621](https://github.com/stentorium/stentor/commit/49d862179e1d52d04cc3954cc53a838e4c06775e))
+
+
+
+
+
+## [1.57.173](https://github.com/stentorium/stentor/compare/v1.57.172...v1.57.173) (2023-06-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency sanitize-html to v2.11.0 ([#2101](https://github.com/stentorium/stentor/issues/2101)) ([730106a](https://github.com/stentorium/stentor/commit/730106a30ae92e75e53485c48e039518506e3513))
+
+
+
+
+
+## [1.57.172](https://github.com/stentorium/stentor/compare/v1.57.171...v1.57.172) (2023-06-21)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.170](https://github.com/stentorium/stentor/compare/v1.57.169...v1.57.170) (2023-06-21)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.169](https://github.com/stentorium/stentor/compare/v1.57.168...v1.57.169) (2023-06-21)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.168](https://github.com/stentorium/stentor/compare/v1.57.167...v1.57.168) (2023-06-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.30.0 ([#2089](https://github.com/stentorium/stentor/issues/2089)) ([ed862b9](https://github.com/stentorium/stentor/commit/ed862b9d9e344303a469f5b9b48c47f94a81728f))
+
+
+
+
+
+## [1.57.167](https://github.com/stentorium/stentor/compare/v1.57.166...v1.57.167) (2023-06-19)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.166](https://github.com/stentorium/stentor/compare/v1.57.165...v1.57.166) (2023-06-16)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.165](https://github.com/stentorium/stentor/compare/v1.57.164...v1.57.165) (2023-06-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.164](https://github.com/stentorium/stentor/compare/v1.57.163...v1.57.164) (2023-06-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency html-entities to v2.3.6 ([#2087](https://github.com/stentorium/stentor/issues/2087)) ([fda6ef3](https://github.com/stentorium/stentor/commit/fda6ef36297cf5a85833078a58b65e509f449c66))
+
+
+
+
+
+## [1.57.161](https://github.com/stentorium/stentor/compare/v1.57.160...v1.57.161) (2023-06-08)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.159](https://github.com/stentorium/stentor/compare/v1.57.158...v1.57.159) (2023-06-06)
+
+
+### Bug Fixes
+
+* Support for macros on Conditional Determiner ([#2080](https://github.com/stentorium/stentor/issues/2080)) ([9749391](https://github.com/stentorium/stentor/commit/9749391ef7e85c466ca792008eeb791a4421aaad))
+
+
+
+
+
+## [1.57.158](https://github.com/stentorium/stentor/compare/v1.57.157...v1.57.158) (2023-06-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency html-entities to v2.3.5 ([#2079](https://github.com/stentorium/stentor/issues/2079)) ([50c7238](https://github.com/stentorium/stentor/commit/50c72389e606c319890d1023ed7f0e9be3df97a8))
+
+
+
+
+
+## [1.57.157](https://github.com/stentorium/stentor/compare/v1.57.156...v1.57.157) (2023-06-05)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.156](https://github.com/stentorium/stentor/compare/v1.57.155...v1.57.156) (2023-06-05)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.155](https://github.com/stentorium/stentor/compare/v1.57.154...v1.57.155) (2023-06-05)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.154](https://github.com/stentorium/stentor/compare/v1.57.153...v1.57.154) (2023-06-01)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.152](https://github.com/stentorium/stentor/compare/v1.57.151...v1.57.152) (2023-06-01)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.150](https://github.com/stentorium/stentor/compare/v1.57.149...v1.57.150) (2023-05-30)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.149](https://github.com/stentorium/stentor/compare/v1.57.148...v1.57.149) (2023-05-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency winston to v3.9.0 ([#2059](https://github.com/stentorium/stentor/issues/2059)) ([0b4610e](https://github.com/stentorium/stentor/commit/0b4610eb5b99e15650fc5bcc918503a78a6607b6))
+
+
+
+
+
+## [1.57.148](https://github.com/stentorium/stentor/compare/v1.57.147...v1.57.148) (2023-05-29)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.147](https://github.com/stentorium/stentor/compare/v1.57.146...v1.57.147) (2023-05-29)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.144](https://github.com/stentorium/stentor/compare/v1.57.143...v1.57.144) (2023-05-23)
+
+
+### Bug Fixes
+
+* Support for array of string on tags ([#2056](https://github.com/stentorium/stentor/issues/2056)) ([a54cfaf](https://github.com/stentorium/stentor/commit/a54cfaf95628a9ff3e813755e2982b243d86d9f1))
+
+
+
+
+
+## [1.57.143](https://github.com/stentorium/stentor/compare/v1.57.142...v1.57.143) (2023-05-22)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.142](https://github.com/stentorium/stentor/compare/v1.57.141...v1.57.142) (2023-05-22)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.141](https://github.com/stentorium/stentor/compare/v1.57.140...v1.57.141) (2023-05-22)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.140](https://github.com/stentorium/stentor/compare/v1.57.139...v1.57.140) (2023-05-22)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.139](https://github.com/stentorium/stentor/compare/v1.57.138...v1.57.139) (2023-05-21)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.138](https://github.com/stentorium/stentor/compare/v1.57.137...v1.57.138) (2023-05-19)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.137](https://github.com/stentorium/stentor/compare/v1.57.136...v1.57.137) (2023-05-19)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.136](https://github.com/stentorium/stentor/compare/v1.57.135...v1.57.136) (2023-05-17)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.132](https://github.com/stentorium/stentor/compare/v1.57.131...v1.57.132) (2023-05-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.131](https://github.com/stentorium/stentor/compare/v1.57.130...v1.57.131) (2023-05-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.130](https://github.com/stentorium/stentor/compare/v1.57.129...v1.57.130) (2023-05-12)
+
+
+### Bug Fixes
+
+* Reverts date-fns back to 2.29.2 ([#2037](https://github.com/stentorium/stentor/issues/2037)) ([c598385](https://github.com/stentorium/stentor/commit/c598385e8bb789d538b9e427d4d092f0e4d1df77))
+
+
+
+
+
+## [1.57.129](https://github.com/stentorium/stentor/compare/v1.57.128...v1.57.129) (2023-05-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.30.0 ([#2035](https://github.com/stentorium/stentor/issues/2035)) ([a597adb](https://github.com/stentorium/stentor/commit/a597adb1a5328f6d43ab5562a03adf21f34251ad))
+
+
+
+
+
+## [1.57.128](https://github.com/stentorium/stentor/compare/v1.57.127...v1.57.128) (2023-05-11)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.127](https://github.com/stentorium/stentor/compare/v1.57.126...v1.57.127) (2023-05-10)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.125](https://github.com/stentorium/stentor/compare/v1.57.124...v1.57.125) (2023-05-08)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.124](https://github.com/stentorium/stentor/compare/v1.57.123...v1.57.124) (2023-05-07)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.123](https://github.com/stentorium/stentor/compare/v1.57.122...v1.57.123) (2023-05-05)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.122](https://github.com/stentorium/stentor/compare/v1.57.121...v1.57.122) (2023-05-04)
+
+
+### Bug Fixes
+
+* Adding Debugging when Errors ([#2024](https://github.com/stentorium/stentor/issues/2024)) ([ef6e36d](https://github.com/stentorium/stentor/commit/ef6e36d27021a1b394fc6c2e99cfe721b23230a6))
+
+
+
+
+
+## [1.57.121](https://github.com/stentorium/stentor/compare/v1.57.120...v1.57.121) (2023-05-03)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.120](https://github.com/stentorium/stentor/compare/v1.57.119...v1.57.120) (2023-05-02)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.119](https://github.com/stentorium/stentor/compare/v1.57.118...v1.57.119) (2023-05-02)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.118](https://github.com/stentorium/stentor/compare/v1.57.117...v1.57.118) (2023-05-01)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.117](https://github.com/stentorium/stentor/compare/v1.57.116...v1.57.117) (2023-04-30)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.116](https://github.com/stentorium/stentor/compare/v1.57.115...v1.57.116) (2023-04-24)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.115](https://github.com/stentorium/stentor/compare/v1.57.114...v1.57.115) (2023-04-21)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.114](https://github.com/stentorium/stentor/compare/v1.57.113...v1.57.114) (2023-04-21)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.112](https://github.com/stentorium/stentor/compare/v1.57.111...v1.57.112) (2023-04-18)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.111](https://github.com/stentorium/stentor/compare/v1.57.110...v1.57.111) (2023-04-17)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.110](https://github.com/stentorium/stentor/compare/v1.57.109...v1.57.110) (2023-04-17)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.109](https://github.com/stentorium/stentor/compare/v1.57.108...v1.57.109) (2023-04-12)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.108](https://github.com/stentorium/stentor/compare/v1.57.107...v1.57.108) (2023-04-12)
+
+
+### Bug Fixes
+
+* requestSlotsToString can now handle undefined input ([#2006](https://github.com/stentorium/stentor/issues/2006)) ([400015a](https://github.com/stentorium/stentor/commit/400015a0fd6d76d5ba4310594d119833a8530307))
+
+
+
+
+
+## [1.57.104](https://github.com/stentorium/stentor/compare/v1.57.103...v1.57.104) (2023-04-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v4.3.0 ([#1989](https://github.com/stentorium/stentor/issues/1989)) ([7101148](https://github.com/stentorium/stentor/commit/7101148fe741ca76455babd7d2cdbb9e8130b0cb))
+
+
+
+
+
+## [1.57.103](https://github.com/stentorium/stentor/compare/v1.57.102...v1.57.103) (2023-04-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.6.3 ([#1982](https://github.com/stentorium/stentor/issues/1982)) ([6665a90](https://github.com/stentorium/stentor/commit/6665a908713caf4b35fd7dd1a09dcc0e1aa5b3d2))
+
+
+
+
+
+## [1.57.101](https://github.com/stentorium/stentor/compare/v1.57.100...v1.57.101) (2023-04-06)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.100](https://github.com/stentorium/stentor/compare/v1.57.99...v1.57.100) (2023-04-06)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.99](https://github.com/stentorium/stentor/compare/v1.57.98...v1.57.99) (2023-04-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency xmldoc to v1.3.0 ([#1993](https://github.com/stentorium/stentor/issues/1993)) ([d13ba56](https://github.com/stentorium/stentor/commit/d13ba564f5e0c223141349c1fcdbfd349539919f))
+
+
+
+
+
+## [1.57.98](https://github.com/stentorium/stentor/compare/v1.57.97...v1.57.98) (2023-04-03)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.96](https://github.com/stentorium/stentor/compare/v1.57.95...v1.57.96) (2023-03-31)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.95](https://github.com/stentorium/stentor/compare/v1.57.94...v1.57.95) (2023-03-28)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.94](https://github.com/stentorium/stentor/compare/v1.57.93...v1.57.94) (2023-03-28)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.93](https://github.com/stentorium/stentor/compare/v1.57.92...v1.57.93) (2023-03-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency slugify to v1.6.6 ([#1985](https://github.com/stentorium/stentor/issues/1985)) ([06ef35d](https://github.com/stentorium/stentor/commit/06ef35d52f42a60366ba498d09c9cc5e8232d316))
+
+
+
+
+
+## [1.57.91](https://github.com/stentorium/stentor/compare/v1.57.90...v1.57.91) (2023-03-24)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.90](https://github.com/stentorium/stentor/compare/v1.57.89...v1.57.90) (2023-03-22)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.87](https://github.com/stentorium/stentor/compare/v1.57.86...v1.57.87) (2023-03-16)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.86](https://github.com/stentorium/stentor/compare/v1.57.85...v1.57.86) (2023-03-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.85](https://github.com/stentorium/stentor/compare/v1.57.84...v1.57.85) (2023-03-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.6.1 ([#1963](https://github.com/stentorium/stentor/issues/1963)) ([f46be26](https://github.com/stentorium/stentor/commit/f46be26422b0bcbfac7ff9789a2c51da24265508))
+
+
+
+
+
+## [1.57.84](https://github.com/stentorium/stentor/compare/v1.57.83...v1.57.84) (2023-03-14)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.83](https://github.com/stentorium/stentor/compare/v1.57.82...v1.57.83) (2023-03-13)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.82](https://github.com/stentorium/stentor/compare/v1.57.81...v1.57.82) (2023-03-10)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.81](https://github.com/stentorium/stentor/compare/v1.57.80...v1.57.81) (2023-03-10)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.79](https://github.com/stentorium/stentor/compare/v1.57.78...v1.57.79) (2023-03-06)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.78](https://github.com/stentorium/stentor/compare/v1.57.77...v1.57.78) (2023-03-02)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.77](https://github.com/stentorium/stentor/compare/v1.57.76...v1.57.77) (2023-02-27)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.76](https://github.com/stentorium/stentor/compare/v1.57.75...v1.57.76) (2023-02-26)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.74](https://github.com/stentorium/stentor/compare/v1.57.73...v1.57.74) (2023-02-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency sanitize-html to v2.10.0 ([#1949](https://github.com/stentorium/stentor/issues/1949)) ([8c7889b](https://github.com/stentorium/stentor/commit/8c7889b75754f52484063e72c58917fbd5531a1a))
+
+
+
+
+
+## [1.57.73](https://github.com/stentorium/stentor/compare/v1.57.72...v1.57.73) (2023-02-20)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.72](https://github.com/stentorium/stentor/compare/v1.57.71...v1.57.72) (2023-02-13)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.71](https://github.com/stentorium/stentor/compare/v1.57.70...v1.57.71) (2023-02-12)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.70](https://github.com/stentorium/stentor/compare/v1.57.69...v1.57.70) (2023-02-10)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.68](https://github.com/stentorium/stentor/compare/v1.57.67...v1.57.68) (2023-02-08)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.66](https://github.com/stentorium/stentor/compare/v1.57.65...v1.57.66) (2023-02-06)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.65](https://github.com/stentorium/stentor/compare/v1.57.64...v1.57.65) (2023-02-04)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.64](https://github.com/stentorium/stentor/compare/v1.57.63...v1.57.64) (2023-02-03)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.63](https://github.com/stentorium/stentor/compare/v1.57.62...v1.57.63) (2023-02-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency sanitize-html to v2.9.0 ([#1928](https://github.com/stentorium/stentor/issues/1928)) ([83bacde](https://github.com/stentorium/stentor/commit/83bacde8a6581f1c182c44cb460ccdd9bdbb6a04))
+
+
+
+
+
+## [1.57.62](https://github.com/stentorium/stentor/compare/v1.57.61...v1.57.62) (2023-02-02)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.61](https://github.com/stentorium/stentor/compare/v1.57.60...v1.57.61) (2023-02-01)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.60](https://github.com/stentorium/stentor/compare/v1.57.59...v1.57.60) (2023-01-31)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.59](https://github.com/stentorium/stentor/compare/v1.57.58...v1.57.59) (2023-01-30)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.57](https://github.com/stentorium/stentor/compare/v1.57.56...v1.57.57) (2023-01-30)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.56](https://github.com/stentorium/stentor/compare/v1.57.55...v1.57.56) (2023-01-29)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.54](https://github.com/stentorium/stentor/compare/v1.57.53...v1.57.54) (2023-01-27)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.53](https://github.com/stentorium/stentor/compare/v1.57.52...v1.57.53) (2023-01-25)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.52](https://github.com/stentorium/stentor/compare/v1.57.51...v1.57.52) (2023-01-24)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.51](https://github.com/stentorium/stentor/compare/v1.57.50...v1.57.51) (2023-01-24)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.50](https://github.com/stentorium/stentor/compare/v1.57.49...v1.57.50) (2023-01-24)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.48](https://github.com/stentorium/stentor/compare/v1.57.47...v1.57.48) (2023-01-23)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.47](https://github.com/stentorium/stentor/compare/v1.57.46...v1.57.47) (2023-01-23)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.46](https://github.com/stentorium/stentor/compare/v1.57.45...v1.57.46) (2023-01-18)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.45](https://github.com/stentorium/stentor/compare/v1.57.44...v1.57.45) (2023-01-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v4.2.12 ([#1896](https://github.com/stentorium/stentor/issues/1896)) ([73e2eb0](https://github.com/stentorium/stentor/commit/73e2eb0269d8c658a064c883aa8fdb1c864a2781))
+
+
+
+
+
+## [1.57.44](https://github.com/stentorium/stentor/compare/v1.57.43...v1.57.44) (2023-01-16)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.43](https://github.com/stentorium/stentor/compare/v1.57.42...v1.57.43) (2023-01-16)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.42](https://github.com/stentorium/stentor/compare/v1.57.41...v1.57.42) (2023-01-09)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.41](https://github.com/stentorium/stentor/compare/v1.57.40...v1.57.41) (2023-01-09)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.40](https://github.com/stentorium/stentor/compare/v1.57.39...v1.57.40) (2023-01-09)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.39](https://github.com/stentorium/stentor/compare/v1.57.38...v1.57.39) (2023-01-04)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.38](https://github.com/stentorium/stentor/compare/v1.57.37...v1.57.38) (2023-01-03)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.37](https://github.com/stentorium/stentor/compare/v1.57.36...v1.57.37) (2023-01-02)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.36](https://github.com/stentorium/stentor/compare/v1.57.35...v1.57.36) (2022-12-29)
+
+
+### Bug Fixes
+
+* tel: support in isUrl ([#1880](https://github.com/stentorium/stentor/issues/1880)) ([228659d](https://github.com/stentorium/stentor/commit/228659d5d62d41e55ed5b259a459d014bed59a4d))
+
+
+
+
+
+## [1.57.35](https://github.com/stentorium/stentor/compare/v1.57.34...v1.57.35) (2022-12-29)
+
+
+### Bug Fixes
+
+* Code Scanning Alerts - global replace on regex ([#1879](https://github.com/stentorium/stentor/issues/1879)) ([59ceaab](https://github.com/stentorium/stentor/commit/59ceaabe161ced9e95eecf157330e6421f61b581))
+
+
+
+
+
+## [1.57.34](https://github.com/stentorium/stentor/compare/v1.57.33...v1.57.34) (2022-12-29)
+
+
+### Bug Fixes
+
+* Conditional Errors when compiling ([#1878](https://github.com/stentorium/stentor/issues/1878)) ([45a18c4](https://github.com/stentorium/stentor/commit/45a18c46b591707d098eda20e176b22143c9479c))
+
+
+
+
+
+## [1.57.33](https://github.com/stentorium/stentor/compare/v1.57.32...v1.57.33) (2022-12-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.5.0 ([#1877](https://github.com/stentorium/stentor/issues/1877)) ([6a75948](https://github.com/stentorium/stentor/commit/6a75948e5e4b56576c66983d42d2056c69d89c29))
+
+
+
+
+
+## [1.57.32](https://github.com/stentorium/stentor/compare/v1.57.31...v1.57.32) (2022-12-29)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.31](https://github.com/stentorium/stentor/compare/v1.57.30...v1.57.31) (2022-12-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v4.2.5 ([#1871](https://github.com/stentorium/stentor/issues/1871)) ([2cbeba8](https://github.com/stentorium/stentor/commit/2cbeba8d411eea55039952d19a31bf93f2822290))
+
+
+
+
+
+## [1.57.30](https://github.com/stentorium/stentor/compare/v1.57.29...v1.57.30) (2022-12-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency sanitize-html to v2.8.1 ([#1868](https://github.com/stentorium/stentor/issues/1868)) ([aaf12da](https://github.com/stentorium/stentor/commit/aaf12da410b52b972e162633b3b59b387f1f97d2))
+
+
+
+
+
+## [1.57.29](https://github.com/stentorium/stentor/compare/v1.57.28...v1.57.29) (2022-12-26)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.28](https://github.com/stentorium/stentor/compare/v1.57.27...v1.57.28) (2022-12-23)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.27](https://github.com/stentorium/stentor/compare/v1.57.26...v1.57.27) (2022-12-21)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.26](https://github.com/stentorium/stentor/compare/v1.57.25...v1.57.26) (2022-12-19)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.25](https://github.com/stentorium/stentor/compare/v1.57.24...v1.57.25) (2022-12-19)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.24](https://github.com/stentorium/stentor/compare/v1.57.23...v1.57.24) (2022-12-16)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.23](https://github.com/stentorium/stentor/compare/v1.57.22...v1.57.23) (2022-12-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.22](https://github.com/stentorium/stentor/compare/v1.57.21...v1.57.22) (2022-12-14)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.20](https://github.com/stentorium/stentor/compare/v1.57.19...v1.57.20) (2022-12-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency sanitize-html to v2.8.0 ([#1855](https://github.com/stentorium/stentor/issues/1855)) ([8d38fe1](https://github.com/stentorium/stentor/commit/8d38fe1707079831520a166adc584c875a622f25))
+
+
+
+
+
+## [1.57.19](https://github.com/stentorium/stentor/compare/v1.57.18...v1.57.19) (2022-12-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v4.2.4 ([#1849](https://github.com/stentorium/stentor/issues/1849)) ([a74db37](https://github.com/stentorium/stentor/commit/a74db37c304f304bb0d642421a169735f1a76cf9))
+
+
+
+
+
+## [1.57.18](https://github.com/stentorium/stentor/compare/v1.57.17...v1.57.18) (2022-12-12)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.17](https://github.com/stentorium/stentor/compare/v1.57.16...v1.57.17) (2022-12-11)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.16](https://github.com/stentorium/stentor/compare/v1.57.15...v1.57.16) (2022-12-09)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.14](https://github.com/stentorium/stentor/compare/v1.57.13...v1.57.14) (2022-12-07)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.12](https://github.com/stentorium/stentor/compare/v1.57.11...v1.57.12) (2022-12-06)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.11](https://github.com/stentorium/stentor/compare/v1.57.10...v1.57.11) (2022-12-05)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.10](https://github.com/stentorium/stentor/compare/v1.57.9...v1.57.10) (2022-12-05)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.9](https://github.com/stentorium/stentor/compare/v1.57.8...v1.57.9) (2022-12-05)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.8](https://github.com/stentorium/stentor/compare/v1.57.7...v1.57.8) (2022-12-02)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.6](https://github.com/stentorium/stentor/compare/v1.57.5...v1.57.6) (2022-11-28)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.5](https://github.com/stentorium/stentor/compare/v1.57.4...v1.57.5) (2022-11-28)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.4](https://github.com/stentorium/stentor/compare/v1.57.3...v1.57.4) (2022-11-23)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.57.2](https://github.com/stentorium/stentor/compare/v1.57.1...v1.57.2) (2022-11-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.4.2 ([#1821](https://github.com/stentorium/stentor/issues/1821)) ([720264b](https://github.com/stentorium/stentor/commit/720264ba42dbc21d576d9adebe3d181668e6aea1))
+* **deps:** update dependency marked to v4.2.3 ([#1822](https://github.com/stentorium/stentor/issues/1822)) ([a80c81a](https://github.com/stentorium/stentor/commit/a80c81a68135725be66b61cc77589751c4a2f60a))
+
+
+
+
+
+## [1.57.1](https://github.com/stentorium/stentor/compare/v1.57.0...v1.57.1) (2022-11-18)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+# [1.57.0](https://github.com/stentorium/stentor/compare/v1.56.127...v1.57.0) (2022-11-17)
+
+
+### Features
+
+* Channeled ([#1819](https://github.com/stentorium/stentor/issues/1819)) ([a72d15d](https://github.com/stentorium/stentor/commit/a72d15dd19b915157a844474b6d4b0c7a4404566))
+
+
+
+
+
+## [1.56.126](https://github.com/stentorium/stentor/compare/v1.56.125...v1.56.126) (2022-11-14)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.125](https://github.com/stentorium/stentor/compare/v1.56.124...v1.56.125) (2022-11-14)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.124](https://github.com/stentorium/stentor/compare/v1.56.123...v1.56.124) (2022-11-13)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.123](https://github.com/stentorium/stentor/compare/v1.56.122...v1.56.123) (2022-11-10)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.122](https://github.com/stentorium/stentor/compare/v1.56.121...v1.56.122) (2022-11-07)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.121](https://github.com/stentorium/stentor/compare/v1.56.120...v1.56.121) (2022-11-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v4.2.2 ([#1802](https://github.com/stentorium/stentor/issues/1802)) ([b528699](https://github.com/stentorium/stentor/commit/b528699d7e9a20d914ef0ca82f2b84da8d621a5b))
+
+
+
+
+
+## [1.56.120](https://github.com/stentorium/stentor/compare/v1.56.119...v1.56.120) (2022-11-07)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.118](https://github.com/stentorium/stentor/compare/v1.56.117...v1.56.118) (2022-11-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v4.2.1 ([#1799](https://github.com/stentorium/stentor/issues/1799)) ([14ad1d1](https://github.com/stentorium/stentor/commit/14ad1d14b23e759efda652f12f54ba5ddbd55d4e))
+
+
+
+
+
+## [1.56.117](https://github.com/stentorium/stentor/compare/v1.56.116...v1.56.117) (2022-11-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v4.2.0 ([#1798](https://github.com/stentorium/stentor/issues/1798)) ([00d6a8d](https://github.com/stentorium/stentor/commit/00d6a8d5bd9e341cd5c9080d804abd8617782824))
+
+
+
+
+
+## [1.56.116](https://github.com/stentorium/stentor/compare/v1.56.115...v1.56.116) (2022-10-31)
+
+
+### Bug Fixes
+
+* **deps:** update dependency sanitize-html to v2.7.3 ([#1791](https://github.com/stentorium/stentor/issues/1791)) ([907beda](https://github.com/stentorium/stentor/commit/907beda30a84f3945194912f8c02adf3d77c308b))
+
+
+
+
+
+## [1.56.115](https://github.com/stentorium/stentor/compare/v1.56.114...v1.56.115) (2022-10-27)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.114](https://github.com/stentorium/stentor/compare/v1.56.113...v1.56.114) (2022-10-26)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.113](https://github.com/stentorium/stentor/compare/v1.56.112...v1.56.113) (2022-10-24)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.112](https://github.com/stentorium/stentor/compare/v1.56.111...v1.56.112) (2022-10-24)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.111](https://github.com/stentorium/stentor/compare/v1.56.110...v1.56.111) (2022-10-20)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.110](https://github.com/stentorium/stentor/compare/v1.56.109...v1.56.110) (2022-10-20)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.108](https://github.com/stentorium/stentor/compare/v1.56.107...v1.56.108) (2022-10-18)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.106](https://github.com/stentorium/stentor/compare/v1.56.105...v1.56.106) (2022-10-17)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.105](https://github.com/stentorium/stentor/compare/v1.56.104...v1.56.105) (2022-10-16)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.104](https://github.com/stentorium/stentor/compare/v1.56.103...v1.56.104) (2022-10-13)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.103](https://github.com/stentorium/stentor/compare/v1.56.102...v1.56.103) (2022-10-12)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.102](https://github.com/stentorium/stentor/compare/v1.56.101...v1.56.102) (2022-10-11)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.100](https://github.com/stentorium/stentor/compare/v1.56.99...v1.56.100) (2022-10-11)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.99](https://github.com/stentorium/stentor/compare/v1.56.98...v1.56.99) (2022-10-10)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.98](https://github.com/stentorium/stentor/compare/v1.56.97...v1.56.98) (2022-10-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v4.1.1 ([#1753](https://github.com/stentorium/stentor/issues/1753)) ([0e9a3bd](https://github.com/stentorium/stentor/commit/0e9a3bd120590858bd1c1a7001cc3fbcb38835d4))
+
+
+
+
+
+## [1.56.97](https://github.com/stentorium/stentor/compare/v1.56.96...v1.56.97) (2022-10-05)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.96](https://github.com/stentorium/stentor/compare/v1.56.95...v1.56.96) (2022-10-04)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.93](https://github.com/stentorium/stentor/compare/v1.56.92...v1.56.93) (2022-10-03)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.92](https://github.com/stentorium/stentor/compare/v1.56.91...v1.56.92) (2022-10-03)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.91](https://github.com/stentorium/stentor/compare/v1.56.90...v1.56.91) (2022-10-01)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.90](https://github.com/stentorium/stentor/compare/v1.56.89...v1.56.90) (2022-09-30)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.89](https://github.com/stentorium/stentor/compare/v1.56.88...v1.56.89) (2022-09-28)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.88](https://github.com/stentorium/stentor/compare/v1.56.87...v1.56.88) (2022-09-26)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.87](https://github.com/stentorium/stentor/compare/v1.56.86...v1.56.87) (2022-09-23)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.86](https://github.com/stentorium/stentor/compare/v1.56.85...v1.56.86) (2022-09-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.4.1 ([#1690](https://github.com/stentorium/stentor/issues/1690)) ([5a00039](https://github.com/stentorium/stentor/commit/5a00039557b52808a2e08dcb429f129d38aae975))
+
+
+
+
+
+## [1.56.85](https://github.com/stentorium/stentor/compare/v1.56.84...v1.56.85) (2022-09-21)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.84](https://github.com/stentorium/stentor/compare/v1.56.83...v1.56.84) (2022-09-20)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.83](https://github.com/stentorium/stentor/compare/v1.56.82...v1.56.83) (2022-09-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.29.3 ([#1727](https://github.com/stentorium/stentor/issues/1727)) ([b40d212](https://github.com/stentorium/stentor/commit/b40d21277488c15594af7f798b75a6fbc206e1c5))
+* **deps:** update dependency sanitize-html to v2.7.2 ([#1728](https://github.com/stentorium/stentor/issues/1728)) ([4fc8a98](https://github.com/stentorium/stentor/commit/4fc8a98d10a237b0487057c86c217484a858cde2))
+
+
+
+
+
+## [1.56.82](https://github.com/stentorium/stentor/compare/v1.56.81...v1.56.82) (2022-09-19)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.81](https://github.com/stentorium/stentor/compare/v1.56.80...v1.56.81) (2022-09-16)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.80](https://github.com/stentorium/stentor/compare/v1.56.79...v1.56.80) (2022-09-13)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.79](https://github.com/stentorium/stentor/compare/v1.56.78...v1.56.79) (2022-09-13)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.78](https://github.com/stentorium/stentor/compare/v1.56.77...v1.56.78) (2022-09-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency jsonpath-plus to v7.2.0 ([#1716](https://github.com/stentorium/stentor/issues/1716)) ([990d1be](https://github.com/stentorium/stentor/commit/990d1bea496641da36e55229fce36cca2f80b5c0))
+* **deps:** update dependency marked to v4.1.0 ([#1717](https://github.com/stentorium/stentor/issues/1717)) ([e505837](https://github.com/stentorium/stentor/commit/e50583762fc5fd276c98b1ae260bc05a3bf9b4b4))
+
+
+
+
+
+## [1.56.77](https://github.com/stentorium/stentor/compare/v1.56.76...v1.56.77) (2022-09-12)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.76](https://github.com/stentorium/stentor/compare/v1.56.75...v1.56.76) (2022-09-09)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.75](https://github.com/stentorium/stentor/compare/v1.56.74...v1.56.75) (2022-09-09)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.74](https://github.com/stentorium/stentor/compare/v1.56.73...v1.56.74) (2022-09-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency winston to v3.8.2 ([#1712](https://github.com/stentorium/stentor/issues/1712)) ([904bce5](https://github.com/stentorium/stentor/commit/904bce5b9481365115770d8907aa0774d584bb45))
+
+
+
+
+
+## [1.56.73](https://github.com/stentorium/stentor/compare/v1.56.72...v1.56.73) (2022-09-05)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.72](https://github.com/stentorium/stentor/compare/v1.56.71...v1.56.72) (2022-09-04)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.71](https://github.com/stentorium/stentor/compare/v1.56.70...v1.56.71) (2022-09-04)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.68](https://github.com/stentorium/stentor/compare/v1.56.67...v1.56.68) (2022-08-29)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.67](https://github.com/stentorium/stentor/compare/v1.56.66...v1.56.67) (2022-08-28)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.66](https://github.com/stentorium/stentor/compare/v1.56.65...v1.56.66) (2022-08-26)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.65](https://github.com/stentorium/stentor/compare/v1.56.64...v1.56.65) (2022-08-26)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.64](https://github.com/stentorium/stentor/compare/v1.56.63...v1.56.64) (2022-08-25)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.63](https://github.com/stentorium/stentor/compare/v1.56.62...v1.56.63) (2022-08-23)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.62](https://github.com/stentorium/stentor/compare/v1.56.61...v1.56.62) (2022-08-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v4.0.19 ([#1688](https://github.com/stentorium/stentor/issues/1688)) ([76fb2c6](https://github.com/stentorium/stentor/commit/76fb2c6ceee9f92805f2713d86184ff5e4700595))
+
+
+
+
+
+## [1.56.61](https://github.com/stentorium/stentor/compare/v1.56.60...v1.56.61) (2022-08-22)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.60](https://github.com/stentorium/stentor/compare/v1.56.59...v1.56.60) (2022-08-21)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.59](https://github.com/stentorium/stentor/compare/v1.56.58...v1.56.59) (2022-08-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.29.2 ([#1686](https://github.com/stentorium/stentor/issues/1686)) ([094b7f0](https://github.com/stentorium/stentor/commit/094b7f0db0279b94af586f80305315ae09fa1531))
+
+
+
+
+
+## [1.56.58](https://github.com/stentorium/stentor/compare/v1.56.57...v1.56.58) (2022-08-19)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.57](https://github.com/stentorium/stentor/compare/v1.56.56...v1.56.57) (2022-08-16)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.56](https://github.com/stentorium/stentor/compare/v1.56.55...v1.56.56) (2022-08-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.55](https://github.com/stentorium/stentor/compare/v1.56.54...v1.56.55) (2022-08-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.54](https://github.com/stentorium/stentor/compare/v1.56.53...v1.56.54) (2022-08-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.53](https://github.com/stentorium/stentor/compare/v1.56.52...v1.56.53) (2022-08-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.52](https://github.com/stentorium/stentor/compare/v1.56.51...v1.56.52) (2022-08-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.51](https://github.com/stentorium/stentor/compare/v1.56.50...v1.56.51) (2022-08-13)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.50](https://github.com/stentorium/stentor/compare/v1.56.49...v1.56.50) (2022-08-11)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.49](https://github.com/stentorium/stentor/compare/v1.56.48...v1.56.49) (2022-08-11)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.48](https://github.com/stentorium/stentor/compare/v1.56.47...v1.56.48) (2022-08-08)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.47](https://github.com/stentorium/stentor/compare/v1.56.46...v1.56.47) (2022-08-07)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.46](https://github.com/stentorium/stentor/compare/v1.56.45...v1.56.46) (2022-08-05)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.45](https://github.com/stentorium/stentor/compare/v1.56.44...v1.56.45) (2022-08-05)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.44](https://github.com/stentorium/stentor/compare/v1.56.43...v1.56.44) (2022-08-04)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.43](https://github.com/stentorium/stentor/compare/v1.56.42...v1.56.43) (2022-08-04)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.42](https://github.com/stentorium/stentor/compare/v1.56.41...v1.56.42) (2022-08-03)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.41](https://github.com/stentorium/stentor/compare/v1.56.40...v1.56.41) (2022-08-01)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.40](https://github.com/stentorium/stentor/compare/v1.56.39...v1.56.40) (2022-08-01)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.39](https://github.com/stentorium/stentor/compare/v1.56.38...v1.56.39) (2022-07-27)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.38](https://github.com/stentorium/stentor/compare/v1.56.37...v1.56.38) (2022-07-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.29.1 ([#1647](https://github.com/stentorium/stentor/issues/1647)) ([8997550](https://github.com/stentorium/stentor/commit/8997550e75b5eb296f170588561cac96e7062e3d))
+
+
+
+
+
+## [1.56.37](https://github.com/stentorium/stentor/compare/v1.56.36...v1.56.37) (2022-07-24)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.36](https://github.com/stentorium/stentor/compare/v1.56.35...v1.56.36) (2022-07-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency sanitize-html to v2.7.1 ([#1644](https://github.com/stentorium/stentor/issues/1644)) ([acb7c6a](https://github.com/stentorium/stentor/commit/acb7c6aebf107d4ef4aaf0df5a9867c66436c938))
+
+
+
+
+
+## [1.56.35](https://github.com/stentorium/stentor/compare/v1.56.34...v1.56.35) (2022-07-19)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.34](https://github.com/stentorium/stentor/compare/v1.56.33...v1.56.34) (2022-07-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency xmldoc to v1.2.0 ([#1638](https://github.com/stentorium/stentor/issues/1638)) ([0ea7d6d](https://github.com/stentorium/stentor/commit/0ea7d6d674b362af52dbcd8c83de6aab8bf24f7b))
+
+
+
+
+
+## [1.56.33](https://github.com/stentorium/stentor/compare/v1.56.32...v1.56.33) (2022-07-17)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.32](https://github.com/stentorium/stentor/compare/v1.56.31...v1.56.32) (2022-07-16)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.31](https://github.com/stentorium/stentor/compare/v1.56.30...v1.56.31) (2022-07-16)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.30](https://github.com/stentorium/stentor/compare/v1.56.29...v1.56.30) (2022-07-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency winston to v3.8.1 ([#1632](https://github.com/stentorium/stentor/issues/1632)) ([d9a200b](https://github.com/stentorium/stentor/commit/d9a200bab13fa1091d3dcb7a983b85dae174588d))
+
+
+
+
+
+## [1.56.29](https://github.com/stentorium/stentor/compare/v1.56.28...v1.56.29) (2022-07-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v4.0.18 ([#1631](https://github.com/stentorium/stentor/issues/1631)) ([3055a4b](https://github.com/stentorium/stentor/commit/3055a4be6b275c27162153fea4a59ddf35162e2a))
+
+
+
+
+
+## [1.56.28](https://github.com/stentorium/stentor/compare/v1.56.27...v1.56.28) (2022-07-11)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.27](https://github.com/stentorium/stentor/compare/v1.56.26...v1.56.27) (2022-07-11)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.26](https://github.com/stentorium/stentor/compare/v1.56.25...v1.56.26) (2022-07-10)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.25](https://github.com/stentorium/stentor/compare/v1.56.24...v1.56.25) (2022-07-10)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.24](https://github.com/stentorium/stentor/compare/v1.56.23...v1.56.24) (2022-07-08)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.23](https://github.com/stentorium/stentor/compare/v1.56.22...v1.56.23) (2022-07-06)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.22](https://github.com/stentorium/stentor/compare/v1.56.21...v1.56.22) (2022-07-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chrono-node to v2.3.9 ([#1613](https://github.com/stentorium/stentor/issues/1613)) ([ac70bce](https://github.com/stentorium/stentor/commit/ac70bcec0cbe1eb8793f80576e220e1c5d1c6571))
+
+
+
+
+
+## [1.56.21](https://github.com/stentorium/stentor/compare/v1.56.20...v1.56.21) (2022-07-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency xmldoc to v1.1.4 ([#1614](https://github.com/stentorium/stentor/issues/1614)) ([c2f8fb2](https://github.com/stentorium/stentor/commit/c2f8fb2b20069680f5691cf6b827b81765cf39ee))
+
+
+
+
+
+## [1.56.20](https://github.com/stentorium/stentor/compare/v1.56.19...v1.56.20) (2022-07-03)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.19](https://github.com/stentorium/stentor/compare/v1.56.18...v1.56.19) (2022-07-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency jsonpath-plus to v7 ([#1607](https://github.com/stentorium/stentor/issues/1607)) ([6c8681f](https://github.com/stentorium/stentor/commit/6c8681f7e674fa73cdac9fc7ac6cab70ad1b2647))
+
+
+
+
+
+## [1.56.18](https://github.com/stentorium/stentor/compare/v1.56.17...v1.56.18) (2022-06-28)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.17](https://github.com/stentorium/stentor/compare/v1.56.16...v1.56.17) (2022-06-27)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.16](https://github.com/stentorium/stentor/compare/v1.56.15...v1.56.16) (2022-06-27)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.15](https://github.com/stentorium/stentor/compare/v1.56.14...v1.56.15) (2022-06-24)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.14](https://github.com/stentorium/stentor/compare/v1.56.13...v1.56.14) (2022-06-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency xmldoc to v1.1.3 ([#1596](https://github.com/stentorium/stentor/issues/1596)) ([4486ed6](https://github.com/stentorium/stentor/commit/4486ed6fe07b36ef766041d685c77433e0931b95))
+
+
+
+
+
+## [1.56.12](https://github.com/stentorium/stentor/compare/v1.56.11...v1.56.12) (2022-06-21)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.11](https://github.com/stentorium/stentor/compare/v1.56.10...v1.56.11) (2022-06-20)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.10](https://github.com/stentorium/stentor/compare/v1.56.9...v1.56.10) (2022-06-20)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.9](https://github.com/stentorium/stentor/compare/v1.56.8...v1.56.9) (2022-06-17)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.8](https://github.com/stentorium/stentor/compare/v1.56.7...v1.56.8) (2022-06-16)
+
+
+### Bug Fixes
+
+* Adds tag to request response events ([#1584](https://github.com/stentorium/stentor/issues/1584)) ([06793b5](https://github.com/stentorium/stentor/commit/06793b53990975753b3e2e3279304ced1e4545dd))
+
+
+
+
+
+## [1.56.7](https://github.com/stentorium/stentor/compare/v1.56.6...v1.56.7) (2022-06-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.6](https://github.com/stentorium/stentor/compare/v1.56.5...v1.56.6) (2022-06-15)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.5](https://github.com/stentorium/stentor/compare/v1.56.4...v1.56.5) (2022-06-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v4.0.17 ([#1580](https://github.com/stentorium/stentor/issues/1580)) ([84704d5](https://github.com/stentorium/stentor/commit/84704d58ec4f7ba832006b86c3e724f37f0a7be4))
+
+
+
+
+
+## [1.56.4](https://github.com/stentorium/stentor/compare/v1.56.3...v1.56.4) (2022-06-13)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.3](https://github.com/stentorium/stentor/compare/v1.56.2...v1.56.3) (2022-06-13)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.2](https://github.com/stentorium/stentor/compare/v1.56.1...v1.56.2) (2022-06-13)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.56.1](https://github.com/stentorium/stentor/compare/v1.56.0...v1.56.1) (2022-06-12)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+# [1.56.0](https://github.com/stentorium/stentor/compare/v1.55.46...v1.56.0) (2022-06-09)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.45](https://github.com/stentorium/stentor/compare/v1.55.44...v1.55.45) (2022-06-06)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.44](https://github.com/stentorium/stentor/compare/v1.55.43...v1.55.44) (2022-06-06)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.43](https://github.com/stentorium/stentor/compare/v1.55.42...v1.55.43) (2022-06-06)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.42](https://github.com/stentorium/stentor/compare/v1.55.41...v1.55.42) (2022-06-02)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.41](https://github.com/stentorium/stentor/compare/v1.55.40...v1.55.41) (2022-05-31)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.40](https://github.com/stentorium/stentor/compare/v1.55.39...v1.55.40) (2022-05-30)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.39](https://github.com/stentorium/stentor/compare/v1.55.38...v1.55.39) (2022-05-29)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.38](https://github.com/stentorium/stentor/compare/v1.55.37...v1.55.38) (2022-05-27)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.37](https://github.com/stentorium/stentor/compare/v1.55.36...v1.55.37) (2022-05-25)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.36](https://github.com/stentorium/stentor/compare/v1.55.35...v1.55.36) (2022-05-24)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.35](https://github.com/stentorium/stentor/compare/v1.55.34...v1.55.35) (2022-05-23)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.34](https://github.com/stentorium/stentor/compare/v1.55.33...v1.55.34) (2022-05-23)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.33](https://github.com/stentorium/stentor/compare/v1.55.32...v1.55.33) (2022-05-23)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.32](https://github.com/stentorium/stentor/compare/v1.55.31...v1.55.32) (2022-05-22)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.31](https://github.com/stentorium/stentor/compare/v1.55.30...v1.55.31) (2022-05-20)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.30](https://github.com/stentorium/stentor/compare/v1.55.29...v1.55.30) (2022-05-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fuse.js to v6.6.2 ([#1538](https://github.com/stentorium/stentor/issues/1538)) ([3ab95d5](https://github.com/stentorium/stentor/commit/3ab95d595278cd065b486eb0374253e444d3dff2))
+* **deps:** update dependency marked to v4.0.16 ([#1541](https://github.com/stentorium/stentor/issues/1541)) ([658afdc](https://github.com/stentorium/stentor/commit/658afdc77b5347b23e44236b86abee92fc710a89))
+
+
+
+
+
+## [1.55.29](https://github.com/stentorium/stentor/compare/v1.55.28...v1.55.29) (2022-05-19)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.28](https://github.com/stentorium/stentor/compare/v1.55.27...v1.55.28) (2022-05-18)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.27](https://github.com/stentorium/stentor/compare/v1.55.26...v1.55.27) (2022-05-17)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.26](https://github.com/stentorium/stentor/compare/v1.55.25...v1.55.26) (2022-05-12)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.25](https://github.com/stentorium/stentor/compare/v1.55.24...v1.55.25) (2022-05-11)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.22](https://github.com/stentorium/stentor/compare/v1.55.21...v1.55.22) (2022-05-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fuse.js to v6.6.1 ([#1530](https://github.com/stentorium/stentor/issues/1530)) ([f689adf](https://github.com/stentorium/stentor/commit/f689adf1e522aff75191c16ab54d3e4fd856434d))
+
+
+
+
+
+## [1.55.21](https://github.com/stentorium/stentor/compare/v1.55.20...v1.55.21) (2022-05-09)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.20](https://github.com/stentorium/stentor/compare/v1.55.19...v1.55.20) (2022-05-09)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.19](https://github.com/stentorium/stentor/compare/v1.55.18...v1.55.19) (2022-05-06)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.18](https://github.com/stentorium/stentor/compare/v1.55.17...v1.55.18) (2022-05-06)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.17](https://github.com/stentorium/stentor/compare/v1.55.16...v1.55.17) (2022-05-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v4.0.15 ([#1519](https://github.com/stentorium/stentor/issues/1519)) ([48acaa3](https://github.com/stentorium/stentor/commit/48acaa3ef7fa028946d834698ceb717c993f8513))
+
+
+
+
+
+## [1.55.16](https://github.com/stentorium/stentor/compare/v1.55.15...v1.55.16) (2022-05-02)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.15](https://github.com/stentorium/stentor/compare/v1.55.14...v1.55.15) (2022-05-02)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.14](https://github.com/stentorium/stentor/compare/v1.55.13...v1.55.14) (2022-05-02)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.13](https://github.com/stentorium/stentor/compare/v1.55.12...v1.55.13) (2022-05-01)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.12](https://github.com/stentorium/stentor/compare/v1.55.11...v1.55.12) (2022-04-29)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.11](https://github.com/stentorium/stentor/compare/v1.55.10...v1.55.11) (2022-04-28)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.10](https://github.com/stentorium/stentor/compare/v1.55.9...v1.55.10) (2022-04-26)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.9](https://github.com/stentorium/stentor/compare/v1.55.8...v1.55.9) (2022-04-26)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.7](https://github.com/stentorium/stentor/compare/v1.55.6...v1.55.7) (2022-04-23)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
+## [1.55.6](https://github.com/stentorium/stentor/compare/v1.55.5...v1.55.6) (2022-04-22)
+
+**Note:** Version bump only for package stentor-utils
+
+
+
+
+
 ## [1.55.5](https://github.com/stentorium/stentor/compare/v1.55.4...v1.55.5) (2022-04-21)
 
 **Note:** Version bump only for package stentor-utils

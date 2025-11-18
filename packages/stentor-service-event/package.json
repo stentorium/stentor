@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.55.5",
+  "version": "1.66.32",
   "description": "Event service for 📣 stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -12,30 +12,36 @@
     "lib"
   ],
   "engines": {
-    "node": "^10 || ^12 || ^14 || ^16.0.0"
+    "node": "^12 || ^14 || ^16 || ^18 || ^20 || ^22 || ^24.0.0"
   },
   "devDependencies": {
-    "@types/chai": "4.3.1",
-    "@types/mocha": "9.1.0",
-    "@types/sinon": "10.0.11",
-    "@types/sinon-chai": "3.2.8",
+    "@aws-sdk/client-firehose": "3.932.0",
+    "@aws-sdk/client-kinesis": "3.932.0",
+    "@aws-sdk/client-sns": "3.932.0",
+    "@types/chai": "5.2.3",
+    "@types/mocha": "10.0.10",
+    "@types/sinon": "17.0.4",
+    "@types/sinon-chai": "3.2.12",
     "@xapp/config": "0.2.3",
-    "aws-sdk": "2.1111.0",
-    "chai": "4.3.6",
-    "mocha": "9.2.2",
-    "sinon": "13.0.2",
+    "aws-sdk": "2.1692.0",
+    "chai": "4.5.0",
+    "mocha": "11.7.5",
+    "sinon": "20.0.0",
     "sinon-chai": "3.7.0",
-    "stentor-models": "1.55.4",
-    "ts-node": "10.7.0",
-    "typescript": "4.6.3"
+    "stentor-models": "1.66.30",
+    "ts-node": "10.9.2",
+    "typescript": "5.9.3"
   },
   "dependencies": {
-    "stacktrace-parser": "0.1.10",
-    "stentor-guards": "1.55.4",
-    "stentor-logger": "1.55.5",
-    "stentor-utils": "1.55.5"
+    "stacktrace-parser": "0.1.11",
+    "stentor-guards": "1.66.30",
+    "stentor-logger": "1.66.30",
+    "stentor-utils": "1.66.30"
   },
   "peerDependencies": {
+    "@aws-sdk/client-firehose": "3.x",
+    "@aws-sdk/client-kinesis": "3.x",
+    "@aws-sdk/client-sns": "3.x",
     "aws-sdk": "2.x",
     "stentor-models": "1.x"
   },

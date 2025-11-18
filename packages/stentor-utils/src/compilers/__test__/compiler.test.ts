@@ -58,7 +58,6 @@ const sessionData = {
     }
 }
 
-
 const context: Context = {
     device: {
         channel: "test",
@@ -74,6 +73,7 @@ const context: Context = {
     },
     storage: {
         createdTimestamp: Date.now(),
+        foo: "bar",
         sessionStore: {
             data: {
                 ...sessionData
@@ -198,6 +198,23 @@ describe(`${Compiler.name}`, () => {
                         expect(compiled).to.equal("<speak>Thank you, Joe. Lastly, can you provide your address in case we need to look up information about your house?</speak>");
                     });
                 });
+                describe("without arguments", () => {
+                    it("compiles the value", () => {
+                        const compiled = new Compiler({
+                            macros: {
+                                number: () => {
+                                    return '1'
+                                }
+                            }
+                        }).compile(
+                            "${number()}",
+                            request,
+                            context
+                        );
+                        // At the moment we don't support macros without arguments.  
+                        expect(compiled).to.equal("1");
+                    })
+                })
             });
             describe("without any replacements", () => {
                 it("passes it through", () => {
@@ -207,6 +224,27 @@ describe(`${Compiler.name}`, () => {
                         context
                     );
                     expect(compiled).to.equal("Hi bob!");
+                });
+            });
+            describe("with replaceWhenUndefined set to true", () => {
+                it("compiles the value", () => {
+                    const compiled = new Compiler({
+                        replaceWhenUndefined: true
+                    }).compile('!!"${no_exist}"', request, context);
+                    expect(compiled).to.deep.equal('!!""');
+                    const compiled1 = new Compiler({
+                        replaceWhenUndefined: true
+                    }).compile('"${no_exist}"', request, context);
+                    expect(compiled1).to.deep.equal('""');
+                    const compiled2 = new Compiler({
+                        replaceWhenUndefined: true
+                    }).compile('`${no_exist}`', request, context);
+                    expect(compiled2).to.deep.equal('``');
+                    // this one should still compile
+                    const compiled3 = new Compiler({
+                        replaceWhenUndefined: true
+                    }).compile('"${$.context.storage.foo}" === "bar"', request, context);
+                    expect(compiled3).to.deep.equal('"bar" === "bar"');
                 });
             });
         });
@@ -388,7 +426,6 @@ describe(`${Compiler.name}`, () => {
                 const compiled = new Compiler().compile(json, request, context);
                 expect(compiled).to.exist;
                 expect(compiled).to.equal(json);
-
             });
         });
     });

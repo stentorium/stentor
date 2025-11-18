@@ -1,5 +1,4 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { Kinesis } from "aws-sdk";
 import * as Chai from "chai";
 import * as Sinon from "sinon";
 import * as SinonChai from "sinon-chai";
@@ -17,7 +16,8 @@ const expect = Chai.expect;
 
 describe("KinesisStream", () => {
     let putRecordsStub: Sinon.SinonStub;
-    let testKinesis: Kinesis;
+    let sendStub: Sinon.SinonStub;
+    let testKinesis: any;
 
     const testEvent: Event<any> = {
         type: "REQUEST",
@@ -28,16 +28,34 @@ describe("KinesisStream", () => {
     };
 
     before(() => {
-        testKinesis = new Kinesis();
-        putRecordsStub = Sinon.stub(testKinesis, "putRecords");
+        // Create a mock client that works with both v2 and v3 APIs
+        testKinesis = {
+            putRecords: Sinon.stub(),
+            send: Sinon.stub()
+        };
+        putRecordsStub = testKinesis.putRecords;
+        sendStub = testKinesis.send;
+
+        // Mock the PutRecordsCommand for v3 API
+        sendStub.callsFake(() => {
+            // The command should have the input property with our parameters
+            return Promise.resolve();
+        });
     });
 
     beforeEach(() => {
         putRecordsStub.resetHistory();
         putRecordsStub.resetBehavior();
+        sendStub.resetHistory();
+        sendStub.resetBehavior();
+        
+        // Mock v2 API
         putRecordsStub.returns({
             promise: () => Promise.resolve()
         });
+        
+        // Mock v3 API
+        sendStub.returns(Promise.resolve());
     });
 
     describe("Constructor", () => {
@@ -84,15 +102,34 @@ describe("KinesisStream", () => {
             const stream = new KinesisStream(props);
             stream.addEvent(testEvent);
             await stream.flush();
-            expect(putRecordsStub).to.have.been.calledWithMatch({
-                StreamName: "StreamName",
-                Records: [
-                    {
-                        Data: JSON.stringify(testEvent),
-                        PartitionKey: "TestPartition"
-                    }
-                ]
-            });
+
+            // The implementation tries v3 first, then falls back to v2
+            // Since v3 SDK is available in devDependencies, it will use the v3 API
+            if (sendStub.called) {
+                // AWS SDK v3 - check the send method was called with a command
+                expect(sendStub).to.have.been.calledOnce;
+                const command = sendStub.getCall(0).args[0];
+                expect(command.input).to.deep.equal({
+                    StreamName: "StreamName",
+                    Records: [
+                        {
+                            Data: JSON.stringify(testEvent),
+                            PartitionKey: "TestPartition"
+                        }
+                    ]
+                });
+            } else {
+                // AWS SDK v2 - check the putRecords method was called
+                expect(putRecordsStub).to.have.been.calledWithMatch({
+                    StreamName: "StreamName",
+                    Records: [
+                        {
+                            Data: JSON.stringify(testEvent),
+                            PartitionKey: "TestPartition"
+                        }
+                    ]
+                });
+            }
         });
 
         it("Tests that the custom generator uses the partition.", async () => {
@@ -104,15 +141,34 @@ describe("KinesisStream", () => {
             const stream = new KinesisStream(props);
             stream.addEvent(testEvent);
             await stream.flush();
-            expect(putRecordsStub).to.have.been.calledWithMatch({
-                StreamName: "StreamName",
-                Records: [
-                    {
-                        Data: JSON.stringify(testEvent),
-                        PartitionKey: "MyOwnPartition"
-                    }
-                ]
-            });
+
+            // The implementation tries v3 first, then falls back to v2
+            // Since v3 SDK is available in devDependencies, it will use the v3 API
+            if (sendStub.called) {
+                // AWS SDK v3 - check the send method was called with a command
+                expect(sendStub).to.have.been.calledOnce;
+                const command = sendStub.getCall(0).args[0];
+                expect(command.input).to.deep.equal({
+                    StreamName: "StreamName",
+                    Records: [
+                        {
+                            Data: JSON.stringify(testEvent),
+                            PartitionKey: "MyOwnPartition"
+                        }
+                    ]
+                });
+            } else {
+                // AWS SDK v2 - check the putRecords method was called
+                expect(putRecordsStub).to.have.been.calledWithMatch({
+                    StreamName: "StreamName",
+                    Records: [
+                        {
+                            Data: JSON.stringify(testEvent),
+                            PartitionKey: "MyOwnPartition"
+                        }
+                    ]
+                });
+            }
         });
 
         it("Tests that an error is thrown if the records can not be stringified.", async () => {

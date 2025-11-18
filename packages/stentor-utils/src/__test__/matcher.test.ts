@@ -26,12 +26,75 @@ describe(`#${findFuzzyMatch.name}()`, () => {
             expect(matches[0]).to.equal("When was Pawnee founded?");
         });
     });
+    describe("when there are no close matches", () => {
+        it("handles queries with no relevant FAQs", () => {
+            const matches = findFuzzyMatch("What is your number?", ["Who is gbm?", "What is your name?", "What is your last name?"]);
+            expect(matches).to.have.length(0);
+        });
+
+        it("deals with completely unrelated content", () => {
+            const matches = findFuzzyMatch("What is the capital of France?", ["How to reset password?", "Payment methods accepted", "Software installation guide"]);
+            expect(matches).to.have.length(0);
+        });
+        describe("and options are provided to return the closest", () => {
+            it("returns the closest match", () => {
+                const matches = findFuzzyMatch("what is your address", ["What is your location?", "Where are you located?", "How do I get to you?"], { threshold: 0.7 });
+                expect(matches[0]).to.equal("What is your location?");
+            });
+        });
+    });
+    describe("when the threshold is low (1.0)", () => {
+        it("will order the matches by closest match", () => {
+            const matches = findFuzzyMatch("what is your address", ["How do I get to you?", "What is your location?", "Where are you located?"], { threshold: 1.0 });
+            expect(matches).to.have.length(3);
+            expect(matches[0]).to.equal("What is your location?");
+        });
+    });
+
+    describe("when there are close matches", () => {
+        it("handles slightly misspelled queries", () => {
+            const matches = findFuzzyMatch("Wat is to plus too", ["What is two plus two?", "How to update software?", "What are your business hours?"]);
+            expect(matches).to.have.length(0);
+            // currently not working
+            // expect(matches).to.include("What is two plus two?");
+        });
+
+        it("handles different word order", () => {
+            const matches = findFuzzyMatch("two plus what is two", ["What is two plus two?", "What is the sum of two and two?", "How to calculate additions?"]);
+            expect(matches).to.have.length(0);
+            // currently not working
+            // expect(matches).to.include("What is two plus two?");
+        });
+
+        it("handles synonyms and paraphrasing", () => {
+            const matches = findFuzzyMatch("How do I reset a password?", ["How can I change my password?", "Password resetting steps", "What is the process for updating my password?"]);
+            expect(matches).to.have.length(0);
+            // currently not working
+            //expect(matches).to.include("How can I change my password?");
+        });
+    });
+
     describe("without any good matches", () => {
         it("returns an empty array", () => {
             const matches = findFuzzyMatch("copay", ["Who is the mayor of Pawnee?", "When was Pawnee founded?"]);
             expect(matches).to.have.length(0);
         });
-    })
+    });
+    describe("for a real example", () => {
+        it("returns as expected", () => {
+
+            const faqs = ["What do customers say about your services?", "What do people think of your services?"];
+
+            const matches = findFuzzyMatch("i need a quote for soffit repair", faqs);
+            expect(matches).to.have.length(0);
+
+            const matches0 = findFuzzyMatch("what is your phone number", faqs);
+            expect(matches0).to.have.length(0);
+
+            const matches1 = findFuzzyMatch("What do people think of you?", faqs);
+            expect(matches1).to.have.length(1);
+        });
+    });
 });
 
 describe("#matchRequestSlotToSlotTypeValue()", () => {

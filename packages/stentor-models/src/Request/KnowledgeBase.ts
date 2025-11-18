@@ -1,5 +1,7 @@
 /*! Copyright (c) 2021, XAPPmedia */
 
+import { SuggestionObjectTypes } from "../Suggestion";
+
 export interface KnowledgeAnswer {
     /**
      * Which knowledge base (optional)
@@ -91,9 +93,15 @@ export interface KnowledgeBaseSuggested extends KnowledgeBaseDocument {
  */
 export interface KnowledgeBaseFAQ {
     /**
-     * The question
+     * The question that is the closest match
      */
     question: string;
+    /**
+     * Optional, some FAQ based systems can return multiple questions that match to the same answer.  This will be populated if they exist.
+     * 
+     * There most likely be a duplicate of the question field.
+     */
+    questions?: string[];
     /**
      * URI, either the source or a location where more information can be found.
      */
@@ -120,17 +128,68 @@ export interface KnowledgeBaseFAQ {
     handlerId?: string;
 }
 
+export interface KnowledgeBaseGenerated extends KnowledgeBaseDocument {
+    /**
+     * The generated text from the LLM
+     */
+    generated: string;
+    /**
+     * Optional, the source LLM of the generated answer.
+     */
+    llm?: string;
+    /**
+     * A description of the type of generated response.
+     * 
+     * This can be used to better describe the prompt used for generation so it can be understood what type of
+     * information is in the generated response.
+     * 
+     * Two standard values are "retrieval-augmented-generation" and "general-knowledge"
+     */
+    type?: string;
+    /**
+     * Generated AI will still return an response even if it didn't have an answer.  True if it has the answer to the user's query.
+     */
+    hasAnswer?: boolean;
+    /**
+     * Generated AI suggested follow up queries.
+     */
+    suggestions?: SuggestionObjectTypes[];
+    /**
+     * Optional sources that the Generative AI used to generate the response.  This is typically specific to type "retrieval-augmented-generation" where source material is used to generate the answer.
+     */
+    sources?: { url?: string, title?: string }[];
+}
+
 export interface KnowledgeBaseResult {
     /**
-     * A ML powered answer
+     * A list of ML powered answer found in specific documents.
+     * 
+     * This corresponds with results such as the Kendra Suggested answer.  They use some ML model to attempt to pinpoint exactly within 
      */
     suggested?: KnowledgeBaseSuggested[];
     /**
      * List of FAQs that could match the query.
+     * 
+     * The source of these answers are from a database of existing FAQs.
      */
     faqs?: KnowledgeBaseFAQ[];
     /**
-     * A list of results based on perceived relevance.  
+     * A list of results based on perceived relevance.
+     * 
+     * The source of this is a set corpus 
      */
     documents?: KnowledgeBaseDocument[];
+    /**
+     * A list of generated answers from a large language model.
+     */
+    generated?: KnowledgeBaseGenerated[];
+}
+
+export interface KnowledgeBaseFAQResult {
+    /**
+     * List of FAQs that could match the query.
+     * 
+     * The source of these answers are from a database of existing FAQs.
+     */
+    faqs: KnowledgeBaseFAQ[];
 }

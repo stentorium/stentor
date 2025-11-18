@@ -1,9 +1,27 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { Context, Request, ResponseOutput } from "stentor-models";
-import template = require("lodash.template");
+
+import { compileTemplate } from "./compileTemplate";
 
 export interface TemplatedResponseOutput<T> extends ResponseOutput {
-    data?: T;
+  data?: T;
+}
+
+function _replace(s: string, data: any): string {
+  if (!s) {
+    return s;
+  }
+
+  try {
+    const compiled = compileTemplate(s);
+    const result = compiled(data);
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
+
+  // return the original in case of error
+  return s;
 }
 
 /**
@@ -18,47 +36,24 @@ export interface TemplatedResponseOutput<T> extends ResponseOutput {
  * @returns {Promise<ResponseOutput>}
  */
 export function executeTemplate<T extends object>(
-    templatedResponse: TemplatedResponseOutput<T>
+  templatedResponse: TemplatedResponseOutput<T>
 ): Promise<ResponseOutput> {
-    // Using a promise right now because we will eventually
-    // want to pass in the source and that will resolve the data
-    // and then execute the template
-    return new Promise((resolve) => {
-        const { data } = templatedResponse;
+  // Using a promise right now because we will eventually
+  // want to pass in the source and that will resolve the data
+  // and then execute the template
+  return new Promise((resolve) => {
+    const { data } = templatedResponse;
 
-        const ssmlBuilder = template(templatedResponse.ssml);
-        const ssml = ssmlBuilder(data);
+    const ssml = _replace(templatedResponse.ssml, data);
+    const textToSpeech = _replace(templatedResponse.textToSpeech, data);
+    const displayText = _replace(templatedResponse.displayText, data);
 
-        const textToSpeechBuilder = template(templatedResponse.textToSpeech);
-        const textToSpeech = textToSpeechBuilder(data);
-
-        const displayTextBuilder = template(templatedResponse.displayText);
-        const displayText = displayTextBuilder(data);
-
-        resolve({
-            ssml,
-            textToSpeech,
-            displayText
-        });
+    resolve({
+      ssml,
+      textToSpeech,
+      displayText,
     });
-}
-
-
-function _replace(s: string, data: any): string {
-    if (!s) {
-        return s;
-    }
-
-    try {
-        const compiled = template(s);
-        const result = compiled(data);
-        return result;
-    } catch (error) {
-        console.error(error);
-    }
-
-    // return the original in case of error
-    return s;
+  });
 }
 
 /**
@@ -72,33 +67,32 @@ function _replace(s: string, data: any): string {
  * @returns {string | ResponseOutput}
  */
 export function replacePlaceholders(
-    template: string | ResponseOutput,
-    request: Request,
-    context: Context
+  template: string | ResponseOutput,
+  request: Request,
+  context: Context
 ): string | ResponseOutput {
-    if (!template) {
-        return template;
-    }
+  if (!template) {
+    return template;
+  }
 
-    const data = {
-        $: {
-            storage: context.storage,
-            pii: context.pii,
-            session: context.session.getStore(),
-            request
-        }
+  const data = {
+    $: {
+      storage: context.storage,
+      pii: context.pii,
+      session: context.session.getStore(),
+      request,
+    },
+  };
+
+  if ("string" === typeof template) {
+    return _replace(template as string, data);
+  } else {
+    const result: ResponseOutput = {
+      ssml: _replace(template.ssml, data),
+      displayText: _replace(template.displayText, data),
+      textToSpeech: _replace(template.textToSpeech, data),
     };
 
-    if ("string" === typeof template) {
-        return _replace(template as string, data);
-    } else {
-        const result: ResponseOutput = {
-            ssml: _replace(template.ssml, data),
-            displayText: _replace(template.displayText, data),
-            textToSpeech: _replace(template.textToSpeech, data)
-        };
-
-        return result;
-    }
+    return result;
+  }
 }
-

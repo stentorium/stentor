@@ -1,7 +1,7 @@
 /*! Copyright (c) 2021, XAPPmedia */
 import { expect } from "chai";
 
-import { linkify } from "../net";
+import { linkify, isUrl } from "../net";
 
 describe(`#${linkify.name}()`, () => {
     it("returns the correct result", () => {
@@ -18,3 +18,12 @@ describe(`#${linkify.name}()`, () => {
         });
     })
 });
+
+describe(`#${isUrl}()`, () => {
+    it("returns the correct result", () => {
+        expect(isUrl("https://xapp.ai")).to.be.true;
+        expect(isUrl("tel:999-999-9999")).to.be.true;
+        expect(isUrl(undefined)).to.be.false;
+        expect(isUrl("hi how are you")).to.be.false;
+    });
+})

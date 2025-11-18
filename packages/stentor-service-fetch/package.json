@@ -1,0 +1,39 @@
+{
+  "name": "stentor-service-fetch",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.66.30",
+  "description": "Simple fetch service with timeouts",
+  "types": "lib/index",
+  "main": "lib/index",
+  "files": [
+    "lib"
+  ],
+  "engines": {
+    "node": "^12 || ^14 || ^16 || ^18 || ^20 || ^22 || ^24.0.0"
+  },
+  "devDependencies": {
+    "@types/chai": "5.2.3",
+    "@types/chai-as-promised": "7.1.8",
+    "chai": "4.5.0",
+    "chai-as-promised": "7.1.2",
+    "stentor-models": "1.66.30",
+    "ts-node": "10.9.2",
+    "typescript": "5.9.3"
+  },
+  "dependencies": {
+    "abort-controller": "3.0.0",
+    "isomorphic-fetch": "3.0.0"
+  },
+  "peerDependencies": {
+    "stentor-models": "1.x"
+  },
+  "scripts": {
+    "build": "tsc -d true -p .",
+    "clean": "rm -rf ./lib/* && rm -rf ./dist/*",
+    "ftest": "TZ=UTC mocha --recursive -r ts-node/register \"./src/**/*.ftest.ts\""
+  },
+  "gitHead": "3a975779368329a0ebf8e16c7a661414f1192053"
+}

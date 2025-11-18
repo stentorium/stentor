@@ -51,6 +51,8 @@ import * as INTENT from "stentor-interaction-model/lib/Intent/Constants";
 export class LaunchRequestBuilder extends AbstractBuilder<LaunchRequest> {
     private accessToken?: string;
     private deviceId = "deviceId";
+    private channel?: string;
+    private platform?: string;
 
     /**
      * Add a access token to the request.
@@ -73,12 +75,33 @@ export class LaunchRequestBuilder extends AbstractBuilder<LaunchRequest> {
     }
 
     /**
+ * Set the platform for the request.
+ *
+ * @param platform - Platform for the request
+ */
+    public onPlatform(platform: string): LaunchRequestBuilder {
+        this.platform = platform;
+        return this;
+    }
+
+    /**
+     * Set the channel for the request 
+     * 
+     * @param channel - Channel for the request
+     * @returns 
+     */
+    public onChannel(channel: string): LaunchRequestBuilder {
+        this.channel = channel;
+        return this;
+    }
+
+    /**
      * Build the request.
      */
     public build(): LaunchRequest {
         const { accessToken, deviceId } = this;
 
-        return {
+        const request: LaunchRequest = {
             intentId: LAUNCH_REQUEST_ID,
             type: LAUNCH_REQUEST_TYPE,
             isNewSession: true,
@@ -87,6 +110,16 @@ export class LaunchRequestBuilder extends AbstractBuilder<LaunchRequest> {
             userId: "userId",
             accessToken
         };
+
+        if (this.channel) {
+            request.channel = this.channel;
+        }
+
+        if (this.platform) {
+            request.platform = this.platform;
+        }
+
+        return request;
     }
 }
 
@@ -98,6 +131,29 @@ export class LaunchRequestBuilder extends AbstractBuilder<LaunchRequest> {
 export class InputUnknownRequestBuilder extends AbstractBuilder<InputUnknownRequest> {
     private deviceId = "deviceId";
     private rawQuery: string;
+    private channel?: string;
+    private platform?: string;
+
+    /**
+ * Set the platform for the request.
+ *
+ * @param platform - Platform for the request
+ */
+    public onPlatform(platform: string): InputUnknownRequestBuilder {
+        this.platform = platform;
+        return this;
+    }
+
+    /**
+     * Set the channel for the request 
+     * 
+     * @param channel - Channel for the request
+     * @returns 
+     */
+    public onChannel(channel: string): InputUnknownRequestBuilder {
+        this.channel = channel;
+        return this;
+    }
 
     /**
      * Add a device ID to the request.
@@ -133,6 +189,14 @@ export class InputUnknownRequestBuilder extends AbstractBuilder<InputUnknownRequ
             request.rawQuery = this.rawQuery;
         }
 
+        if (this.channel) {
+            request.channel = this.channel;
+        }
+
+        if (this.platform) {
+            request.platform = this.platform;
+        }
+
         return request;
     }
 }
@@ -147,6 +211,8 @@ export class InputUnknownRequestBuilder extends AbstractBuilder<InputUnknownRequ
  */
 export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
     private apiAccess: ApiAccessData;
+    private attributes: Record<string, unknown>;
+    private channel: string;
     private deviceId = "deviceId";
     private intentId = "intentId";
     private isNewSession = false;
@@ -157,6 +223,7 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
     private userId = "userId";
     private canFulFill: boolean;
     private knowledgeBaseResult: KnowledgeBaseResult;
+    private matchConfidence: number;
     private device: Device = {
         channel: "test",
         audioSupported: true,
@@ -189,12 +256,34 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
     }
 
     /**
+     * Set the channel for the request 
+     * 
+     * @param channel - Channel for the request
+     * @returns 
+     */
+    public onChannel(channel: string): IntentRequestBuilder {
+        this.channel = channel;
+        return this;
+    }
+
+    /**
      * Set the raw query for the request.
      *
      * @param rawQuery - Raw query for the request
      */
     public withRawQuery(rawQuery: string): IntentRequestBuilder {
         this.rawQuery = rawQuery;
+        return this;
+    }
+
+    /**
+     * Set the optional match confidence
+     * 
+     * @param confidence 
+     * @returns 
+     */
+    public withMatchConfidence(confidence: number): IntentRequestBuilder {
+        this.matchConfidence = confidence;
         return this;
     }
 
@@ -327,6 +416,17 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
     }
 
     /**
+     * Append attributes to the request.
+     * 
+     * @param attributes 
+     * @returns 
+     */
+    public withAttributes(attributes: Record<string, unknown>): IntentRequestBuilder {
+        this.attributes = attributes;
+        return this;
+    }
+
+    /**
      * Update any or all of the fields on request's device information.
      * 
      * @param device 
@@ -345,7 +445,7 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
      * Build the intent request.
      */
     public build(): IntentRequest {
-        const { apiAccess, canFulFill, device, deviceId, knowledgeBaseResult, intentId, locale, platform, slots, userId, isNewSession, rawQuery } = this;
+        const { apiAccess, attributes, canFulFill, channel, device, deviceId, knowledgeBaseResult, intentId, locale, matchConfidence, platform, slots, userId, isNewSession, rawQuery } = this;
 
         const request: IntentRequest = {
             type: INTENT_REQUEST_TYPE,
@@ -355,8 +455,13 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
             intentId,
             locale,
             device,
-            deviceId
+            deviceId,
+            channel: "stentor"
         };
+
+        if (matchConfidence) {
+            request.matchConfidence = matchConfidence;
+        }
 
         if (typeof apiAccess === "object") {
             request.apiAccess = apiAccess;
@@ -364,6 +469,10 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
 
         if (rawQuery) {
             request.rawQuery = rawQuery;
+        }
+
+        if (channel) {
+            request.channel = channel;
         }
 
         if (platform) {
@@ -382,6 +491,10 @@ export class IntentRequestBuilder extends AbstractBuilder<IntentRequest> {
             request.knowledgeBaseResult = knowledgeBaseResult;
         }
 
+        if (typeof this.attributes === "object") {
+            request.attributes = attributes;
+        }
+
         return request;
     }
 }
@@ -394,8 +507,24 @@ export class AudioPlayerRequestBuilder extends AbstractBuilder<AudioPlayerReques
     private token = "token";
     private offsetInMilliseconds = 0;
 
+    private errorType: string;
+    private errorMessage: string;
+
     public withEvent(event: AudioPlayerEvent): AudioPlayerRequestBuilder {
         this.event = event;
+        return this;
+    }
+
+    /**
+     * Sets request type to AudioPlayerPlaybackFailed and adds type & message to the request
+     * @param type 
+     * @param message 
+     */
+    public withFailure(type: string, message: string): AudioPlayerRequestBuilder {
+        this.event = "AudioPlayerPlaybackFailed";
+        this.errorMessage = message;
+        this.errorType = type;
+
         return this;
     }
 
@@ -420,9 +549,9 @@ export class AudioPlayerRequestBuilder extends AbstractBuilder<AudioPlayerReques
     }
 
     public build(): AudioPlayerRequest {
-        const { event, token, offsetInMilliseconds } = this;
+        const { event, token, offsetInMilliseconds, errorMessage, errorType } = this;
 
-        return {
+        const request: AudioPlayerRequest = {
             type: AUDIO_PLAYER_REQUEST_TYPE,
             userId: "userId",
             event,
@@ -430,6 +559,16 @@ export class AudioPlayerRequestBuilder extends AbstractBuilder<AudioPlayerReques
             offsetInMilliseconds,
             isNewSession: false // they are always false
         };
+
+        if (errorMessage) {
+            request.errorMessage = errorMessage;
+        }
+
+        if (errorType) {
+            request.errorType = errorType;
+        }
+
+        return request;
     }
 }
 

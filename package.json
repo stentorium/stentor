@@ -1,7 +1,7 @@
 {
   "private": true,
   "engines": {
-    "node": "^10 || ^12 || ^14 || ^16.0.0"
+    "node": "^12 || ^14 || ^16 || ^18 || ^20 || ^22 || ^24.0.0"
   },
   "repository": {
     "type": "git",
@@ -12,18 +12,18 @@
     "website"
   ],
   "devDependencies": {
-    "@microsoft/api-documenter": "7.17.9",
-    "@typescript-eslint/eslint-plugin": "5.20.0",
-    "@typescript-eslint/parser": "5.20.0",
+    "@microsoft/api-documenter": "7.26.34",
+    "@typescript-eslint/eslint-plugin": "6.21.0",
+    "@typescript-eslint/parser": "6.21.0",
     "@xapp/config": "0.2.3",
-    "eslint": "8.13.0",
-    "eslint-plugin-notice": "0.9.10",
-    "lerna": "4.0.0",
+    "eslint": "8.57.1",
+    "eslint-plugin-notice": "1.0.0",
+    "lerna": "9.0.1",
     "license-checker": "25.0.1",
-    "mocha": "9.2.2",
-    "mocha-junit-reporter": "2.0.2",
-    "nyc": "15.1.0",
-    "syncpack": "6.2.1"
+    "mocha": "11.7.5",
+    "mocha-junit-reporter": "2.2.1",
+    "nyc": "17.1.0",
+    "syncpack": "13.0.4"
   },
   "scripts": {
     "api": "lerna run api",
@@ -32,7 +32,6 @@
     "docs:deploy": "./deploy/deploy-docs.sh",
     "docs:serve": "yarn workspace website serve",
     "lerna": "lerna",
-    "postinstall": "lerna bootstrap",
     "clean": "lerna run clean",
     "clean:modules": "lerna clean",
     "lint": "eslint 'packages/**/src/**/*.{ts,tsx}'",
@@ -42,6 +41,8 @@
     "release": "lerna version --yes && git push origin --tags && lerna publish from-git --yes",
     "release:pre": "lerna version prerelease --yes --allow-branch $CIRCLE_BRANCH --no-changelog && git push origin --tags && lerna publish from-git --yes",
     "license-check": "license-checker --production --start './packages/stentor/' --exclude ISC,MIT,Apache-2.0,BSD-3-Clause,BSD-2-Clause --failOn GPL-3.0",
-    "version-check": "syncpack list-mismatches --prod --filter 'stentor-'"
-  }
+    "version-check": "syncpack list-mismatches --types dev,prod --filter 'stentor-'",
+    "version-check:all": "syncpack list-mismatches --types dev,prod"
+  },
+  "packageManager": "yarn@4.11.0"
 }

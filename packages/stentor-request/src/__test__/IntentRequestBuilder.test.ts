@@ -15,6 +15,7 @@ describe(`${IntentRequestBuilder.name}`, () => {
                     sessionId: "sessionId",
                     locale: "en-US",
                     isNewSession: false,
+                    channel: "stentor",
                     device: {
                         "audioSupported": true,
                         "canPlayAudio": true,

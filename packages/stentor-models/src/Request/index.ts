@@ -1,5 +1,8 @@
 /*! Copyright (c) 2019, XAPPmedia */
+export * from "./AddressIntentRequest";
 export * from "./AudioPlayerRequest";
+export * from "./ChannelActionRequest";
+export * from "./EventRequest";
 export * from "./InputUnknownRequest";
 export * from "./IntentRequest";
 export * from "./KnowledgeBase";
@@ -8,6 +11,7 @@ export * from "./NotificationPermissionRequest";
 export * from "./OptionSelectRequest";
 export * from "./PermissionRequest";
 export * from "./PlaybackControlRequest";
+export * from "./RawQueryRequest";
 export * from "./Request";
 export * from "./RequestDependent";
 export * from "./SessionEndedRequest";

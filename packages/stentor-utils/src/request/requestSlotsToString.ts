@@ -13,6 +13,9 @@ export function requestSlotsToString(slots: RequestSlotMap): string {
 
     let str = "";
 
+    if (!slots || typeof slots !== "object") {
+        return str;
+    }
 
     const slotNames = Object.keys(slots);
 

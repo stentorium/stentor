@@ -5,3 +5,4 @@ export * from "./getSlotValue";
 export * from "./hasSlots";
 export * from "./requestSlotsToString";
 export * from "./requestSlotValueToString";
+export * from "./slotExists";

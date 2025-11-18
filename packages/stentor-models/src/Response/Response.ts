@@ -1,5 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { Actionable } from "../Action";
+import { Channeled } from "../Channel/Channeled";
 import { Conditioned } from "../Conditional";
 import { LastActive, Scheduled } from "../DateTime";
 import { Display } from "../Display";
@@ -14,7 +15,7 @@ import { ResponseSegmentsMap } from "./ResponseSegment";
 
 /**
  * Active Context Object
- * 
+ *
  */
 export interface ActiveContext {
     /**
@@ -29,9 +30,14 @@ export interface ActiveContext {
     }
     timeToLive: {
         /**
-         * Not supported on Dialogflow
+         *  How long in seconds for the context to stay alive.
+         * 
+         *  Note: Not supported on Dialogflow
          */
         timeToLiveInSeconds?: number;
+        /**
+         * How many conversational turns to keep the context alive.
+         */
         turnsToLive?: number;
     }
 }
@@ -44,7 +50,7 @@ export interface ResponseData {
     /**
      * Provides context to the user for select system responses.
      *
-     * Used for SURFACE_CHANGE, ACCOUNT_LINK,
+     * Used for SURFACE_CHANGE, ACCOUNT_LINK, or generically to pass information to the client surface.
      */
     content?: string;
     /**
@@ -54,9 +60,9 @@ export interface ResponseData {
      */
     title?: string;
     /**
-     * If a request ({@link see IntentRequest.canFulfill}) has canFufill as true,
+     * If a request ({@link see IntentRequest.canFulfill}) has canFulfill as true,
      * this provides information about it's ability to fulfill the request.
-     *  
+     *
      */
     canFulfill?: CanFulfillIntentResult;
     /**
@@ -73,7 +79,7 @@ export interface ResponseData {
 /**
  * A response that expects a user's input.
  */
-export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Actionable>, Partial<Conditioned> {
+export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Actionable>, Partial<Conditioned>, Partial<Channeled> {
     /**
      * Name of the response.
      *
@@ -83,7 +89,7 @@ export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Act
     /**
      * Used for tracking the response in third party analytics.
      */
-    tag?: string;
+    tag?: string | string[];
     /**
      * What the assistant will say first as part of the response.
      */
@@ -114,30 +120,38 @@ export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Act
      */
     system?:
     | "ACCOUNT_LINK"
+    | "HANDOFF"
     | "MEDIA_ENQUEUE"
     | "MEDIA_STOP"
-    | "SURFACE_CHANGE"
-    | "PERMISSION_LIST"
     | "PERMISSION_EMAIL"
-    | "PERMISSION_PHONE_NUMBER"
-    | "PERMISSION_LOCATION_PRECISE"
+    | "PERMISSION_LIST"
     | "PERMISSION_LOCATION_COARSE"
+    | "PERMISSION_LOCATION_PRECISE"
     | "PERMISSION_NOTIFICATION"
-    | "TRANSFER_CALL"
-    | "HANDOFF";
+    | "PERMISSION_PHONE_NUMBER"
+    | "SURFACE_CHANGE" // Request to change surfaces
+    | "SURFACE_CLOSE" // Close the surface window
+    | "SURFACE_MINIMIZE" // Minimize the surface window
+    | "SURFACE_RESET" // Reset the surface state
+    | "TRANSACTION_DECISION"
+    | "TRANSACTION_DELIVERY_ADDRESS"
+    | "TRANSACTION_REQUIREMENTS_CHECK"
+    | "TRANSACTION_STATUS"
+    | "TRANSFER_CALL" // Moves the call from one telephony provider to another
+    ;
     /**
      * Supplemental data to augment the response.
      */
     data?: ResponseData;
     /**
      * Optional active contexts which help influence the NLU.
-     * 
+     *
      * - {@link https://cloud.google.com/dialogflow/es/docs/contexts-input-output}
      * - {@link https://docs.aws.amazon.com/lex/latest/dg/context-mgmt-active-context.html}
      */
     context?: {
         /**
-         * 
+         *
          * Matches to outputContexts on Dialogflow & activeContexts
          */
         active?: ActiveContext[];

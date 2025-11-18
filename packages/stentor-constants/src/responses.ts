@@ -38,5 +38,13 @@ export const TROUBLE_WITH_REQUEST: Response[] = [
             }
             /* spell-checker: enable */
         }
+        /* Would like to figure this out, how we can send the error in the response
+        displays: [
+            {
+                type: "CARD",
+                title: "${error.name}",
+                subTitle: "Error Message: ${$.error.message}"
+            }
+        ] */
     }
 ];

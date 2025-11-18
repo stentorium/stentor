@@ -7,6 +7,7 @@ import {
     Context,
     CrmService,
     Device,
+    ErrorService,
     Pii,
     PIIService,
     Request,
@@ -15,17 +16,15 @@ import {
     UserDataRequestStatus,
     UserDataType,
     UserProfile,
-    UserStorageService
 } from "stentor-models";
-import { hasSessionId } from "stentor-guards";
+
 import { ResponseBuilder } from "stentor-response";
-import { createSessionStore } from "stentor-storage";
 
 export interface ContextFactoryServices {
-    userStorageService: UserStorageService;
     piiService: PIIService;
     crmService?: CrmService;
     smsService?: SMSService;
+    eventService?: ErrorService;
 }
 
 export class ContextFactory {
@@ -42,40 +41,30 @@ export class ContextFactory {
     public static async fromRequest(
         request: Request,
         requestBody: object,
+        storage: Storage,
+        session: SessionStore,
         services: ContextFactoryServices,
         channel: Channel,
         appData?: AppRuntimeData
     ): Promise<Readonly<Context>> {
-        const { userStorageService, piiService, crmService, smsService } = services;
+        const { piiService, crmService, eventService, smsService } = services;
 
         const device: Device = channel.capabilities(requestBody);
 
-        const response: AbstractResponseBuilder<object> = channel.builder
+        const response: AbstractResponseBuilder<unknown> = channel.builder
             ? new channel.builder({ device, ...appData })
             : new ResponseBuilder({ device, ...appData });
 
-        // Get the storage
-        let storage: Storage = await userStorageService.get(request.userId);
-
-        // Create it if it doesn't exist.
-        if (!storage) {
-            storage = await userStorageService.create(request.userId, {
-                createdTimestamp: Date.now(),
-                history: {
-                    handler: []
-                }
-            });
+        if (!request) {
+            throw new TypeError(`Request is required when building context.`);
         }
 
-        // First time users might not have history on storage yet,
-        // make sure it exists
-        if (!storage.history) {
-            storage.history = {
-                handler: []
-            };
-        } else if (!Array.isArray(storage.history.handler)) {
-            // make sure it has an array of handlers
-            storage.history.handler = [];
+        if (!request.userId) {
+            throw new TypeError(`User ID on the request is required when building context.`);
+        }
+
+        if (!storage) {
+            throw new TypeError(`Storage is required when building context.`);
         }
 
         // Pii
@@ -88,18 +77,6 @@ export class ContextFactory {
                 console.error("Cannot fetch initial PII record");
             }
         }
-
-        // Take care of the session store. If doesn't exist or the session id doesn't match the stored one, create a new store.
-        if (hasSessionId(request)) {
-            if (!storage.sessionStore || storage.sessionStore.id !== request.sessionId) {
-                storage.sessionStore = {
-                    id: request.sessionId,
-                    data: {}
-                };
-            }
-        }
-
-        const session: SessionStore = createSessionStore(storage);
 
         /**
          * This method is to request granted user profile data. We don't return it - we just say if AVAILABLE or not (or deferred)
@@ -164,7 +141,8 @@ export class ContextFactory {
             pii,
             services: {
                 crmService,
-                smsService
+                smsService,
+                eventService
             }
         };
     }

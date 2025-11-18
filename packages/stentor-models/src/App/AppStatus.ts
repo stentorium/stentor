@@ -17,6 +17,9 @@ export const APP_STATUS_IN_CERTIFICATION: AppStatusInCertification = "In Certifi
 // App is not live and is waiting to be published.
 export type AppStatusRequiresPublish = "Needs publish";
 export const APP_STATUS_REQUIRES_PUBLISH: AppStatusRequiresPublish = "Needs publish";
+// App is ready for install
+export type AppStatusReadyForInstall = "Ready for Install";
+export const APP_STATUS_READY_FOR_INSTALL: AppStatusReadyForInstall = "Ready for Install";
 // App is live
 export type AppStatusLive = "Live";
 export const APP_STATUS_LIVE: AppStatusLive = "Live";
@@ -26,6 +29,9 @@ export const APP_STATUS_REQUIRES_ATTENTION: AppStatusRequiresAttention = "Requir
 // App is no longer live or maintained.
 export type AppStatusArchived = "Archived";
 export const APP_STATUS_ARCHIVED: AppStatusArchived = "Archived";
+// App is cancelled, ready to be cleaned up and archived
+export type AppStatusCancelled = "Cancelled";
+export const APP_STATUS_CANCELLED: AppStatusCancelled = "Cancelled";
 // App is currently live but also has been updated so it needs re-certification.
 export type AppStatusLiveRequiresCert = "Live: Requires Cert";
 export const APP_STATUS_LIVE_AND_REQUIRES_CERT: AppStatusLiveRequiresCert = "Live: Requires Cert";
@@ -38,6 +44,9 @@ export const APP_STATUS_LIVE_AND_REQUIRES_PUBLISH: AppStatusLiveAndRequiresPubli
 // App is live and needs attention
 export type AppStatusLiveAndRequiresAttention = "Live: Requires Attention";
 export const APP_STATUS_LIVE_AND_REQUIRES_ATTENTION: AppStatusLiveAndRequiresAttention = "Live: Requires Attention";
+// App was live but is now uninstalled
+export type AppStatusUninstalled = "Uninstalled";
+export const APP_STATUS_UNINSTALLED: AppStatusUninstalled = "Uninstalled";
 
 // The different status types
 export type AppStatusType =
@@ -53,7 +62,9 @@ export type AppStatusType =
     | AppStatusLiveRequiresCert
     | AppStatusLiveInCert
     | AppStatusLiveAndRequiresPublish
-    | AppStatusLiveAndRequiresAttention;
+    | AppStatusLiveAndRequiresAttention
+    | AppStatusCancelled
+    | AppStatusUninstalled;
 /**
  * The status of the App
  */

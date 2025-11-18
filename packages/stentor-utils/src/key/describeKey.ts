@@ -37,7 +37,7 @@ export function describeKey(key: string): KeyDescription {
     } else if (catchAllWithExclusionMatch) {
         const ids = catchAllWithExclusionMatch[1].split("|");
         const excludedIntentIds: string[] = [];
-        ids.forEach(id => excludedIntentIds.push(id.replace("^", "").replace("$", "")));
+        ids.forEach(id => excludedIntentIds.push(id.replace("^", "").replace(/\$/g, "")));
         description = {
             excludedIntentIds,
             catchAll: true
@@ -45,7 +45,7 @@ export function describeKey(key: string): KeyDescription {
     } else if (includeOnlyMatch) {
         const ids = includeOnlyMatch[1].split("|");
         const includedIntentIds: string[] = [];
-        ids.forEach(id => includedIntentIds.push(id.replace("^", "").replace("$", "")));
+        ids.forEach(id => includedIntentIds.push(id.replace("^", "").replace(/\$/g, "")));
         description = {
             catchAll: false,
             includedIntentIds

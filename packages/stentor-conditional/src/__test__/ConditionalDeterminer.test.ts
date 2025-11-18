@@ -3,6 +3,7 @@ import { expect } from "chai";
 
 import { ConditionalDeterminer } from "../ConditionalDeterminer";
 import { ConditionalCheck, Conditioned } from "stentor-models";
+import { MacroMap } from "stentor-utils";
 
 // Data model
 interface YouTellMe {
@@ -93,67 +94,154 @@ const STRING_TRUE_AND_TRUE: Conditioned = {
     conditions: "true && true"
 }
 
+// Note: Update the tests here and then setup the environment for the different VMs
+// This allows us to run them in each environment
+const shouldRunConditionals = () => {
+
+    let engine: ConditionalDeterminer;
+
+    describe('when passed an empty array', () => {
+        it('returns the empty array', () => {
+            expect(new ConditionalDeterminer([]).determine([])).to.deep.equal([]);
+        });
+    });
+    describe('with must', () => {
+        beforeEach(() => {
+            engine = new ConditionalDeterminer([SIMPLE_CHECK, FALSE_CHECK]);
+        });
+        it('returns the correct conditional', () => {
+            expect(engine.determine([MUST_TRUE, MUST_TRUE_FALSE])).to.have.length(1);
+            expect(engine.determine([MUST_TRUE, MUST_TRUE_FALSE])).to.deep.equal([MUST_TRUE]);
+
+            expect(engine.determine([MUST_FALSE])).to.have.length(0);
+        });
+        describe("and should", () => {
+            it('returns the correct conditional', () => {
+                expect(engine.determine([MUST_FALSE, MUST_TRUE_SHOULD_TRUE_FALSE])).to.have.length(1);
+                expect(engine.determine([MUST_FALSE, MUST_TRUE_SHOULD_TRUE_FALSE])).to.deep.equal([MUST_TRUE_SHOULD_TRUE_FALSE]);
+            });
+        });
+    });
+    describe("with just should", () => {
+        it('returns the correct conditional', () => {
+            expect(engine.determine([SHOULD_TRUE])).to.have.length(1);
+            expect(engine.determine([SHOULD_TRUE, SHOULD_FALSE])).to.have.length(1);
+            expect(engine.determine([SHOULD_TRUE, SHOULD_FALSE])).to.deep.equal([SHOULD_TRUE]);
+        });
+    });
+    describe("with a string conditional", () => {
+        // This is becoming the primary condition method 
+        it('returns the correct result', () => {
+            expect(new ConditionalDeterminer([]).determine([STRING_TRUE_AND_TRUE])).to.have.length(1);
+            expect(new ConditionalDeterminer([]).determine([STRING_TRUE_AND_TRUE])).to.deep.equal([STRING_TRUE_AND_TRUE]);
+            expect(new ConditionalDeterminer([]).determine([{ conditions: "false || false" }])).to.deep.equal([]);
+
+            expect(new ConditionalDeterminer([SIMPLE_CHECK]).determine([{
+                conditions: "tellMe(true) || false"
+            }])).to.have.length(1);
+
+            expect(new ConditionalDeterminer([SIMPLE_CHECK]).determine([{
+                // on tellMeTwice, if the second one is provided it uses that one
+                conditions: "tellMe(false) || false || tellMeTwice(true, false)"
+            }])).to.have.length(0);
+            expect(new ConditionalDeterminer([SIMPLE_CHECK]).determine([{
+                conditions: "tellMe(true) && tellMeBounded()"
+            }])).to.have.length(1);
+        });
+        describe('with a bad function', () => {
+            it('returns the correct result', () => {
+                expect(() => {
+                    new ConditionalDeterminer([]).determine([{
+                        conditions: "tellMe(true) || false"
+                    }]);
+                }).not.to.throw();
+                expect(new ConditionalDeterminer([]).determine([{
+                    conditions: "tellMe(true) || false"
+                }])).to.have.length(0);
+            });
+        });
+        describe('with macros', () => {
+            it('returns the correct result', () => {
+                const macros: MacroMap = {
+                    pick: (ret?: string) => {
+                        if (ret === "false") {
+                            return false;
+                        }
+                        return true;
+                    },
+                    no: () => {
+                        return false;
+                    },
+                    yes: () => {
+                        return true;
+                    },
+                    pass: (re: boolean) => {
+                        return re;
+                    }
+
+                };
+                expect(new ConditionalDeterminer([], macros).determine([{
+                    conditions: "pick()"
+                }])).to.have.length(1);
+
+                expect(new ConditionalDeterminer([], macros).determine([{
+                    conditions: "pass(true)"
+                }])).to.have.length(1);
+
+                expect(new ConditionalDeterminer([], macros).determine([{
+                    conditions: "pass(false)"
+                }])).to.have.length(0);
+
+                expect(new ConditionalDeterminer([], macros).determine([{
+                    conditions: "pick('false')"
+                }])).to.have.length(0);
+
+                expect(new ConditionalDeterminer([], macros).determine([{
+                    conditions: "no()"
+                }])).to.have.length(0);
+
+                expect(new ConditionalDeterminer([], macros).determine([{
+                    conditions: "no() || yes()"
+                }])).to.have.length(1);
+            });
+        });
+    });
+}
 
 describe(`${ConditionalDeterminer.name}`, () => {
-    let engine: ConditionalDeterminer;
     describe(`#${ConditionalDeterminer.prototype.determine.name}()`, () => {
-        describe('when passed an empty array', () => {
-            it('returns the empty array', () => {
-                expect(new ConditionalDeterminer([]).determine([])).to.deep.equal([]);
+        describe('using default VM', () => {
+            before(() => {
+                process.env.SKIP_VM2 = "true";
+                process.env.SKIP_IVM = "true";
             });
+            after(() => {
+                delete process.env.SKIP_VM2;
+                delete process.env.SKIP_IVM;
+            });
+            shouldRunConditionals();
+        })
+        describe(`using VM2`, () => {
+            before(() => {
+                // process.env.SKIP_VM2 = "true";
+                process.env.SKIP_IVM = "true";
+            });
+            after(() => {
+                delete process.env.SKIP_VM2;
+                delete process.env.SKIP_IVM;
+            });
+            shouldRunConditionals();
         });
-        describe('with must', () => {
-            beforeEach(() => {
-                engine = new ConditionalDeterminer([SIMPLE_CHECK, FALSE_CHECK]);
+        describe("using isolated VM", () => {
+            before(() => {
+                process.env.SKIP_VM2 = "true";
+                // process.env.SKIP_IVM = "true";
             });
-            it('returns the correct conditional', () => {
-                expect(engine.determine([MUST_TRUE, MUST_TRUE_FALSE])).to.have.length(1);
-                expect(engine.determine([MUST_TRUE, MUST_TRUE_FALSE])).to.deep.equal([MUST_TRUE]);
-
-                expect(engine.determine([MUST_FALSE])).to.have.length(0);
+            after(() => {
+                delete process.env.SKIP_VM2;
+                delete process.env.SKIP_IVM;
             });
-            describe("and should", () => {
-                it('returns the correct conditional', () => {
-                    expect(engine.determine([MUST_FALSE, MUST_TRUE_SHOULD_TRUE_FALSE])).to.have.length(1);
-                    expect(engine.determine([MUST_FALSE, MUST_TRUE_SHOULD_TRUE_FALSE])).to.deep.equal([MUST_TRUE_SHOULD_TRUE_FALSE]);
-                });
-            });
-        });
-        describe("with just should", () => {
-            it('returns the correct conditional', () => {
-                expect(engine.determine([SHOULD_TRUE])).to.have.length(1);
-                expect(engine.determine([SHOULD_TRUE, SHOULD_FALSE])).to.have.length(1);
-                expect(engine.determine([SHOULD_TRUE, SHOULD_FALSE])).to.deep.equal([SHOULD_TRUE]);
-            });
-        });
-        describe("with a string", () => {
-            it('returns the correct result', () => {
-                expect(new ConditionalDeterminer([]).determine([STRING_TRUE_AND_TRUE])).to.have.length(1);
-                expect(new ConditionalDeterminer([]).determine([STRING_TRUE_AND_TRUE])).to.deep.equal([STRING_TRUE_AND_TRUE]);
-                expect(new ConditionalDeterminer([]).determine([{ conditions: "false || false" }])).to.deep.equal([]);
-                expect(new ConditionalDeterminer([SIMPLE_CHECK]).determine([{
-                    conditions: "tellMe(true) || false"
-                }])).to.have.length(1);
-                expect(new ConditionalDeterminer([SIMPLE_CHECK]).determine([{
-                    // on tellMeTwice, if the second one is provided it uses that one
-                    conditions: "tellMe(false) || false || tellMeTwice(true, false)"
-                }])).to.have.length(0);
-                expect(new ConditionalDeterminer([SIMPLE_CHECK]).determine([{
-                    conditions: "tellMe(true) && tellMeBounded()"
-                }])).to.have.length(1);
-            });
-            describe('with a bad function', () => {
-                it('returns the correct result', () => {
-                    expect(() => {
-                        new ConditionalDeterminer([]).determine([{
-                            conditions: "tellMe(true) || false"
-                        }]);
-                    }).not.to.throw();
-                    expect(new ConditionalDeterminer([]).determine([{
-                        conditions: "tellMe(true) || false"
-                    }])).to.have.length(0);
-                });
-            });
+            shouldRunConditionals();
         });
     });
 });

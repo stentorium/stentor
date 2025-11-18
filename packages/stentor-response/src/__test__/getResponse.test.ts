@@ -259,6 +259,91 @@ describe("#getResponse()", () => {
                 });
             });
         });
+        describe("with default slots", () => {
+            beforeEach(() => {
+                handler = {
+                    appId: "app",
+                    organizationId: "org",
+                    type: "InSessionIntent",
+                    intentId: "Fill",
+                    data: {
+                        chat: {
+                            suggestionChips: [{ title: "Contact Us" }, "Help"]
+                        }
+                    },
+                    content: {
+                        ["Fill"]: [{
+                            outputSpeech: "Confirming ${ foo } and ${baz}."
+                        }],
+                        ["FillFoo"]: [{
+                            outputSpeech: "What kind of foo?",
+                            reprompt: "What kind of foo was that?"
+                        }],
+                        ["FillBaz"]: [{ outputSpeech: "What kind of baz for the ${ foo }?" }],
+                        ["Filled"]: [{ outputSpeech: "Great, we will get on that." }],
+                        ["CancelIntent"]: [{ outputSpeech: "Ok, we will cancel your order." }]
+                    },
+                    utterancePatterns: [
+                        "i want something",
+                        "i want ${foo} and ${bar}",
+                        "i want ${foo}"
+                    ],
+                    slots: [
+                        {
+                            type: "FOO",
+                            name: "foo",
+                            slotElicitationContentKey: "FillFoo"
+                        },
+                        {
+                            type: "BAZ",
+                            name: "baz",
+                            slotElicitationContentKey: "FillBaz"
+                        },
+                        {
+                            type: "BAR",
+                            name: "bar",
+                        }
+                    ]
+                }
+
+                request = new IntentRequestBuilder().withIntentId("Fill").withSlots({
+                    bar: {
+                        name: "bar",
+                        value: "Moe's"
+                    },
+                    baz: {
+                        name: "baz",
+                        value: "baz a roo"
+                    }
+                }).build();
+                // @ts-ignore The stubbed instance types can't see the private properties, which cause TS errors
+                response = sinon.createStubInstance(ResponseBuilder);
+                context = new ContextBuilder()
+                    .withResponse(response)
+                    .withStorage({
+                        createdTimestamp: Date.now(),
+                        lastActiveTimestamp: Date.now(),
+                        name: "Bob",
+                        metBefore: true,
+                        score: 3
+                    })
+                    .build();
+            });
+            it("adds them to the response", () => {
+                const response = getResponse(handler, request, context);
+                expect(response).to.exist;
+                expect(response).to.be.a("object");
+                expect(typeof response.outputSpeech === "object").to.be.true;
+                if (typeof response.outputSpeech === "object") {
+                    expect(response.outputSpeech.displayText).to.equal("What kind of foo?");
+                    expect(response.outputSpeech.suggestions).to.have.length(2);
+                    if (response.outputSpeech.suggestions) {
+                        expect(response.outputSpeech.suggestions[0]).to.deep.equal({ title: "Contact Us" });
+                    }
+                }
+                expect(response.reprompt).to.equal("What kind of foo was that?");
+            });
+        });
     });
     describe("when passed an array of responses", () => {
         beforeEach(() => {
@@ -445,7 +530,7 @@ describe("#getResponse()", () => {
                     ["intentId"]: [
                         {
                             outputSpeech: {
-                                ssml: "<speak>${answer} ${PROMPT}</speak>",
+                                ssml: "<speak>${answer} ${PROMPT} ${number()}</speak>",
                                 displayText: "${answer} ${PROMPT}"
                             },
                             reprompt: {
@@ -460,7 +545,15 @@ describe("#getResponse()", () => {
                                             displayText: "Which would you like?"
                                         }
                                     }]
-                            }
+                            },
+                            conditions: "pick()"
+                        },
+                        {
+                            outputSpeech: {
+                                ssml: "<speak>WRONG</speak>",
+                                displayText: "WRONG"
+                            },
+                            conditions: "dontPick()"
                         }
                     ]
                 },
@@ -492,18 +585,31 @@ describe("#getResponse()", () => {
                 .build();
         });
         it("determines and compiles the response", () => {
+
+            function pick() {
+                return true;
+            }
+
             const response = getResponse(handler, request, context, {
                 answer: {
                     ssml: "Here <break /> is the help content. <break />",
                     displayText: "Here __is the help content.__"
                 }
+            }, {
+                number: () => {
+                    return `1`
+                },
+                dontPick: () => {
+                    return false;
+                },
+                pick: pick
             });
             expect(response).to.exist;
             expect(response).to.be.a("object");
             expect(response.outputSpeech).to.be.a("object");
             if (typeof response.outputSpeech === "object") {
                 expect(response.outputSpeech.ssml).to.equal(
-                    "<speak>Here <break /> is the help content. <break /> Which would you like?</speak>"
+                    "<speak>Here <break /> is the help content. <break /> Which would you like? 1</speak>"
                 );
                 expect(response.outputSpeech.displayText).to.equal("Here __is the help content.__ Which would you like?");
             }
@@ -513,5 +619,6 @@ describe("#getResponse()", () => {
                 expect(response.reprompt.displayText).to.equal("Which would you like?");
             }
         });
+
     });
 });

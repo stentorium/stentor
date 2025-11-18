@@ -53,6 +53,7 @@ describe("AbstractHandler", () => {
     let context: Context;
 
     const anotherIntentId = "anotherIntendId";
+
     const intentRequest: IntentRequest = {
         type: INTENT_REQUEST_TYPE,
         intentId,
@@ -107,6 +108,15 @@ describe("AbstractHandler", () => {
                 {
                     name: "Response Two",
                     outputSpeech: "This is the second response"
+                }
+            ],
+            intentThree: [
+                {
+                    name: "Response Three",
+                    outputSpeech: {
+                        displayText: "This is the third response",
+                        ssml: "This is the third response"
+                    }
                 }
             ],
             names: [
@@ -495,6 +505,24 @@ describe("AbstractHandler", () => {
                 expect(response.say).to.have.been.calledWith("Sorry, what was that?");
             });
         });
+        describe("with undefined content", () => {
+            beforeEach(() => {
+                newContext = new ContextBuilder().withResponse(response).build();
+                handler = new TestHandler({
+                    appId,
+                    organizationId,
+                    intentId,
+                    type: BASE_HANDLER_TYPE,
+                    content: undefined
+                });
+                request = new InputUnknownRequestBuilder().build();
+            });
+            it("returns the first time response", async () => {
+                await handler.handleRequest(request, newContext);
+                expect(response.say).to.have.been.called;
+                expect(response.say).to.have.been.calledWith("Sorry, what was that?");
+            });
+        });
     });
     describe("#handleRequest()", () => {
         let handler: TestHandler;
@@ -725,6 +753,35 @@ describe("AbstractHandler", () => {
                 });
             });
         });
+        describe("with suggestions on the data", () => {
+            beforeEach(() => {
+                handler = new TestHandler({
+                    appId,
+                    organizationId,
+                    intentId,
+                    type: BASE_HANDLER_TYPE,
+                    content,
+                    data: {
+                        chat: {
+                            suggestionChips: ["Yes", "No"]
+                        }
+                    }
+                });
+            });
+            it("returns the augmented response", async () => {
+                const intentRequest: Request = new IntentRequestBuilder().withIntentId("intentThree").build();
+                await handler.handleRequest(intentRequest, context);
+                expect(response.respond).to.have.been.called;
+                expect(response.respond).to.have.been.calledWith({
+                    name: "Response Three",
+                    outputSpeech: {
+                        displayText: "This is the third response",
+                        ssml: "This is the third response",
+                        suggestions: ["Yes", "No"]
+                    }
+                });
+            });
+        })
     });
     describe("#isOwnRequest()", () => {
         let handler: TestHandler;
@@ -786,8 +843,8 @@ describe("AbstractHandler", () => {
                 it("returns the correct value", () => {
                     const requestTwo = new IntentRequestBuilder().withIntentId("intentTwo").build();
                     expect(handler.canHandleRequest(requestTwo, context)).to.be.true;
-                    const requestThree = new IntentRequestBuilder().withIntentId("intentThree").build();
-                    expect(handler.canHandleRequest(requestThree, context)).to.be.false;
+                    const requestFour = new IntentRequestBuilder().withIntentId("intentFour").build();
+                    expect(handler.canHandleRequest(requestFour, context)).to.be.false;
                 });
             });
         });

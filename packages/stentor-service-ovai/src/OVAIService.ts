@@ -69,6 +69,9 @@ export class OVAIService implements HandlerService {
 
         const url = `${this.baseURL}/cms/handler/${intentId}`;
 
+        let status: number;
+        let statusText: string;
+
         return fetch(url, {
             method: "GET",
             headers: {
@@ -76,11 +79,18 @@ export class OVAIService implements HandlerService {
                 Authorization: `Bearer ${this.token}`
             }
         })
-            .then<OVAIHandlerResponse>(response => response.json())
+            .then<OVAIHandlerResponse>(response => {
+                status = response.status;
+                statusText = response.statusText;
+                return response.json();
+            })
             .then<Handler>(json => {
-                // TODO: Check status code to better handle error codes
-                if ((json as any).message === "Unauthorized") {
+                if (status === 404) {
+                    throw new Error(`Handler with intentId "${intentId}" not found. Please verify the intentId exists in your application.`);
+                } else if (status === 401 || (json as any).message === "Unauthorized") {
                     throw new Error("Token provided to OVAIService is unauthorized to perform current action.");
+                } else if (status !== HTTP_200_OK) {
+                    throw new Error(`OVAIService.get() returned ${status} ${statusText} for intentId "${intentId}": ${JSON.stringify(json)}`);
                 } else if (typeof json.handler === "object") {
                     return json.handler;
                 }

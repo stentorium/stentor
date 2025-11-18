@@ -1,8 +1,7 @@
 {
   "packages": ["packages/**", "website"],
   "npmClient": "yarn",
-  "version": "1.55.5",
-  "useWorkspaces": true,
+  "version": "1.66.32",
   "command": {
     "init": {
       "exact": true

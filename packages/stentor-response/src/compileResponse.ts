@@ -54,6 +54,7 @@ export function compileResponse(
     );
 
     // Make a copy for manipulation
+    // We need to figure out how to do a deep copy
     const compiledResponse: Response = { ...response };
     // Make some type safe keys
     type ResponsesOnly = Pick<Response, "outputSpeech" | "reprompt" | "silencePrompt">;
@@ -186,7 +187,6 @@ export function compileResponse(
         let compiledDisplayString = compileSegments(displaysString, compiledResponse.segments, request, context);
 
         compiledDisplayString = compiler.compile(compiledDisplayString, request, context);
-
         // Set it back
         try {
             const compiledDisplays = JSON.parse(jsonEscape(compiledDisplayString));

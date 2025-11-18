@@ -2,10 +2,13 @@
 import { ConditionalDeterminer } from "stentor-conditional";
 import { SESSION_STORAGE_SLOTS_KEY } from "stentor-constants";
 import {
-    isTimeContextual,
+    isChannelable,
+    isConditional,
     isIntentRequest,
+    isJSONDependable,
     isRequestDependable,
     isSystemDependable,
+    isTimeContextual
 } from "stentor-guards";
 import { findSlotDependentMatch, isSlotDependable, SlotConditionalCheck } from "stentor-interaction-model";
 import { log } from "stentor-logger";
@@ -20,7 +23,7 @@ import {
     SystemDependable,
     TimeContextual,
     Conditional,
-    ConditionalCheck
+    ConditionalCheck,
 } from "stentor-models";
 import {
     findRequestDependentMatch,
@@ -30,9 +33,8 @@ import {
 } from "stentor-request";
 import { findStorageDependentMatch, isStorageDependable, StorageDependentCheck } from "stentor-storage";
 import { findTimeContextualMatch, TimeConditionalCheck } from "stentor-time";
-import { combineRequestSlots, random, existsAndNotEmpty, Compiler } from "stentor-utils";
+import { combineRequestSlots, random, existsAndNotEmpty, Compiler, channelMatchesRequest, MacroMap } from "stentor-utils";
 import { findJSONDependentMatch, JSONConditionalCheck } from "./findJSONDependentMatch";
-import { isJSONDependable, isConditional } from "./Guards";
 
 /**
  * Determine which of the provided objects is best based on provided request and context.
@@ -42,7 +44,7 @@ import { isJSONDependable, isConditional } from "./Guards";
  * @param context
  * @returns The best match from the provided potential matches, undefined if now match could be determined.
  */
-export function determine<P extends object>(potentials: P[], request: Request, context: Context, additionalContext?: Record<string, unknown>): P | undefined {
+export function determine<P extends object>(potentials: P[], request: Request, context: Context, additionalContext?: Record<string, unknown>, macros?: MacroMap): P | undefined {
     if (!Array.isArray(potentials) || potentials.length === 0) {
         return undefined;
     }
@@ -57,8 +59,23 @@ export function determine<P extends object>(potentials: P[], request: Request, c
     // The new ones, conditionals
     const conditionals: Conditional<P>[] = [];
 
-    // Sort the types of matches
+    // Initial filter, if they specific channel
+    // we only let it proceed if it matches the current request
+    const filtered: P[] = [];
+
     for (const potential of potentials) {
+        if (isChannelable(potential)) {
+            // ok, check to see if it passes
+            if (channelMatchesRequest(potential, request)) {
+                filtered.push(potential);
+            }
+        } else {
+            filtered.push(potential);
+        }
+    }
+
+    // Sort the types of matches
+    for (const potential of filtered) {
         // If conditionals exist, prefer that
         if (isConditional(potential)) {
             conditionals.push(potential);
@@ -92,8 +109,9 @@ export function determine<P extends object>(potentials: P[], request: Request, c
         conditionals.forEach((conditional) => {
             if (typeof conditional.conditions === "string") {
                 // Compile it
-                const compiled: string = new Compiler({ additionalContext }).compile(conditional.conditions, request, context);
-
+                //    replaceWhenUndefined is here so we can have logic like:
+                //    !!${$.context.storage.user} <-- And it not throw an error when the user doesn't exist.
+                const compiled: string = new Compiler({ additionalContext, replaceWhenUndefined: true, macros }).compile(conditional.conditions, request, context);
                 // Keep hold of the original
                 originals[compiled] = conditional;
                 // Push a compiled version
@@ -115,14 +133,13 @@ export function determine<P extends object>(potentials: P[], request: Request, c
             SlotConditionalCheck(requestSlots),
             StorageDependentCheck(request, context)
         ];
-        // If we have a lastActiveTimestamp, which we most always do 
-        if (context && context.storage && typeof context.storage.lastActiveTimestamp === "number") {
-            const lastActiveTimestamp = context.storage.lastActiveTimestamp;
-            checks.push(TimeConditionalCheck({ lastActiveTimestamp }));
-        }
+
+        const lastActiveTimestamp = typeof context?.storage?.lastActiveTimestamp === "number" ? context?.storage?.lastActiveTimestamp : undefined;
+        checks.push(TimeConditionalCheck({ lastActiveTimestamp }));
 
         // Big show, determine the matches
-        const matches = new ConditionalDeterminer(checks).determine<P>(compiledConditionals);
+        // need to pass the macros here
+        const matches = new ConditionalDeterminer(checks, macros).determine<P>(compiledConditionals);
         // Look through them and match them up to the original
         const matchedOriginals: Conditional<P>[] = [];
         matches.forEach((match) => {
@@ -135,7 +152,8 @@ export function determine<P extends object>(potentials: P[], request: Request, c
         });
 
         if (matchedOriginals.length > 1) {
-            log().debug(`Found ${matchedOriginals.length} conditional matches, picking a random one.`);
+            // this will help people figure out why it isn't picking what they want every time.
+            log().warn(`Found ${matchedOriginals.length} conditional matches, picking a random one.`);
         }
         // Pick a random one
         conditionalMatch = random(matchedOriginals);

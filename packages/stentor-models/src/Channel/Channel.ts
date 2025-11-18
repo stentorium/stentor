@@ -14,7 +14,7 @@ export interface RequestResponse {
     response: Response;
 }
 
-export type ChannelHooks = Pick<Hooks, "preExecution" | "postRequestTranslation">;
+export type ChannelHooks = Pick<Hooks, "preExecution" | "postRequestTranslation" | "preResponseTranslation">;
 
 export interface Channel {
     /**

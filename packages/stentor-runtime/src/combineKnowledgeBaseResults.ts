@@ -25,7 +25,8 @@ export function combineKnowledgeBaseResults(existing: KnowledgeBaseResult, incom
         return {
             faqs: combine(existing?.faqs, incoming.faqs),
             documents: combine(existing?.documents, incoming.documents),
-            suggested: combine(existing?.suggested, incoming.suggested)
+            suggested: combine(existing?.suggested, incoming.suggested),
+            generated: combine(existing?.generated, incoming.generated)
         }
     } else {
         return incoming;

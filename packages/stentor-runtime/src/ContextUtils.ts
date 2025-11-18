@@ -147,10 +147,14 @@ export function lambdaAPIGatewayContext(
     apiGatewayEvent: APIGatewayEvent,
     lambdaContext: LambdaContext
 ): { event: object; context: RuntimeContext } {
-    const event = JSON.parse(apiGatewayEvent.body);
+    const isForm = apiGatewayEvent.headers["Content-Type"] === "application/x-www-form-urlencoded";
+
+    // Form fields come in a tall skinny json
+    const event = isForm ? parseQuery(apiGatewayEvent.body) : JSON.parse(apiGatewayEvent.body);
 
     const path = apiGatewayEvent.path;
     const context = Object.assign({} as RuntimeContext, parsePath(path));
+
     // On APIGateway, we get headers at the root level.
     // see https://docs.aws.amazon.com/lambda/latest/dg/with-on-demand-https.html
     context.rawBody = apiGatewayEvent.body;
@@ -159,11 +163,23 @@ export function lambdaAPIGatewayContext(
     context.getRemainingTimeInMillis = lambdaContext.getRemainingTimeInMillis;
 
     context.buildResponse = (statusCode: number, result: any): any => {
-        const body: string = typeof result === "string" ? result : JSON.stringify(result);
+        let body: any = typeof result === "string" ? result : JSON.stringify(result);
+
         // See  https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-output-format
+
+        const headers: { [header: string]: string } = { "Access-Control-Allow-Origin": "*" };
+
+        // If it is typed string use the payload attribute.
+        // We need the type because we have to set the content type (see Twilio).
+
+        if (result.type === "XML") {
+            headers["Content-Type"] = "text/xml; charset=utf-8";
+            body = result.payload;
+        }
+
         return {
             statusCode,
-            headers: { "Access-Control-Allow-Origin": "*" },
+            headers,
             body
         };
     };

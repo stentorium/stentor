@@ -3,7 +3,7 @@ import { expect } from "chai";
 import * as sinon from "sinon";
 
 import { ContextBuilder } from "stentor-context";
-import { Context, JSONDependent, Request, RequestDependent, SystemDependent, Conditioned } from "stentor-models";
+import { Context, JSONDependent, Request, RequestDependent, SystemDependent, Conditioned, Channeled } from "stentor-models";
 import { LaunchRequestBuilder, IntentRequestBuilder } from "stentor-request";
 import { determine } from "../determine";
 
@@ -76,6 +76,27 @@ const CONDITIONAL_SLOT_CONTAINS: Conditioned = {
 
 const CONDITIONAL_SLOT_COMPARE: Conditioned = {
     conditions: 'slot("foo") === "${$.context.storage.foo}"'
+}
+
+const channeled1: Channeled & Conditioned = {
+    conditions: "true",
+    channel: {
+        name: "channel-1"
+    }
+}
+
+const channeled2: Channeled & Conditioned = {
+    conditions: "true",
+    channel: {
+        name: "channel-2"
+    }
+}
+
+const channeled3: Channeled & Conditioned = {
+    conditions: "false",
+    channel: {
+        name: "channel-1"
+    }
 }
 
 describe(`#${determine.name}()`, () => {
@@ -305,6 +326,46 @@ describe(`#${determine.name}()`, () => {
             ];
 
             expect(determine(responses, request, context)).to.deep.equal(responses[2]);
+        });
+    });
+    describe("with channels specified", () => {
+        beforeEach(() => {
+            request = new LaunchRequestBuilder().onChannel("channel-1").build();
+            context = new ContextBuilder()
+                .withStorage({
+                    createdTimestamp: 1234,
+                    foo: "bar"
+                })
+                .build();
+        });
+        it("returns the expected", () => {
+            expect(determine([channeled1, channeled2], request, context)).to.exist;
+            expect(determine([channeled1, channeled2], request, context)).to.deep.equal(channeled1);
+            expect(determine([channeled1, channeled2], new LaunchRequestBuilder().onChannel("channel-3").build(), context)).to.not.exist;
+            expect(determine([channeled2, channeled3], request, context)).to.not.exist;
+        });
+    });
+    describe("when passed conditions with undefined JSON paths", () => {
+        // error|09:50:31|VM2|Error evaluating conditions "activeWithin(1, "day") && !${$.context.storage.customer}": SyntaxError: Unexpected token '{'
+        // error|09:50:31|VM2|Error evaluating conditions ""widget" !== "AGENT_ASSISTANT" && !!${$.context.storage.customer}": SyntaxError: Unexpected token '{'
+        // error|09:50:31|VM2|Error evaluating conditions ""widget" === "AGENT_ASSISTANT" && !!${$.context.storage.customer} ": SyntaxError: Unexpected token '{'
+        // error|09:50:31|VM2|Error evaluating conditions ""widget" === "AGENT_ASSISTANT" && !${$.context.storage.customer} ": SyntaxError: Unexpected token '{'
+        // The above errors occur when we attempt to do some JSON path replacement but they don't exist
+
+        beforeEach(() => {
+            request = new LaunchRequestBuilder().onChannel("channel-1").build();
+            context = new ContextBuilder()
+                .withStorage({
+                    createdTimestamp: 1234,
+                    foo: "bar"
+                })
+                .build();
+        });
+        it("returns the expected", () => {
+            const notValid: Conditioned = {
+                conditions: '"${$.request.channel}" !== "AGENT_ASSISTANT" && !!${$.context.storage.customer}'
+            }
+            expect(determine([notValid, channeled3], request, context)).to.not.exist;
         });
     });
 });

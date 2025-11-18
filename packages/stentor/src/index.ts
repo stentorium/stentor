@@ -2,13 +2,43 @@
 import { ContextBuilder, ContextFactory } from "stentor-context";
 export { ContextBuilder, ContextFactory };
 
+import {
+    INPUT_UNKNOWN_ID,
+    INPUT_UNKNOWN_REQUEST_TYPE,
+    INPUT_UNKNOWN,
+    INTENT_REQUEST_TYPE,
+    LAUNCH_REQUEST_ID,
+    LAUNCH_REQUEST_TYPE,
+    OPTION_SELECT_ID,
+    OPTION_SELECT_REQUEST_TYPE,
+    SESSION_STORAGE_CURRENT_HANDLER,
+    SESSION_STORAGE_PREVIOUS_HANDLER,
+    SESSION_STORAGE_NEW_USER
+} from "stentor-constants";
+export {
+    INPUT_UNKNOWN_ID,
+    INPUT_UNKNOWN_REQUEST_TYPE,
+    INPUT_UNKNOWN,
+    INTENT_REQUEST_TYPE,
+    LAUNCH_REQUEST_ID,
+    LAUNCH_REQUEST_TYPE,
+    OPTION_SELECT_ID,
+    OPTION_SELECT_REQUEST_TYPE,
+    SESSION_STORAGE_CURRENT_HANDLER,
+    SESSION_STORAGE_PREVIOUS_HANDLER,
+    SESSION_STORAGE_NEW_USER
+};
+
 import { determine } from "stentor-determiner";
 export { determine };
 
 import {
+    hasSessionId,
     isAnonymousUser,
+    isDeliveryAddressRequest,
     isInputUnknownRequest,
     isIntentRequest,
+    isChannelActionRequest,
     isLaunchRequest,
     isNotificationPermissionRequest,
     isOptionSelectRequest,
@@ -16,11 +46,16 @@ import {
     isSessionEndedRequest,
     isSignInRequest,
     isSurfaceRequest,
+    isTransactionDecisionRequest,
+    isTransactionRequirementCheckRequest,
 } from "stentor-guards";
 export {
+    hasSessionId,
     isAnonymousUser,
+    isDeliveryAddressRequest,
     isInputUnknownRequest,
     isIntentRequest,
+    isChannelActionRequest,
     isLaunchRequest,
     isNotificationPermissionRequest,
     isOptionSelectRequest,
@@ -28,6 +63,8 @@ export {
     isSessionEndedRequest,
     isSignInRequest,
     isSurfaceRequest,
+    isTransactionDecisionRequest,
+    isTransactionRequirementCheckRequest,
 };
 
 import {
@@ -59,13 +96,20 @@ export {
 };
 
 import {
+    log
+} from "stentor-logger";
+export { log };
+
+import {
     Channel,
     Content,
     Context,
+    CrmService,
     Data,
     DateTime,
     DateTimeRange,
     Device,
+    ErrorService,
     Forward,
     Handler,
     Intent,
@@ -74,9 +118,12 @@ import {
     KnowledgeBaseFAQ,
     KnowledgeBaseResult,
     KnowledgeBaseSuggested,
+    KnowledgeBaseGenerated,
+    LeadFormField,
     List,
     ListButton,
     ListItem,
+    Message,
     OptionSelectRequest,
     Redirect,
     Request,
@@ -87,27 +134,32 @@ import {
     RuntimeCallback,
     RuntimeContext,
     Storage,
-    UserStorageService
+    UserStorageService,
 } from "stentor-models";
 export {
     Channel,
     Content,
     Context,
+    CrmService,
     Data,
     DateTime,
     DateTimeRange,
     Device,
+    ErrorService,
     Forward,
     Handler,
     Intent,
     IntentRequest,
+    KnowledgeBaseDocument,
     KnowledgeBaseFAQ,
     KnowledgeBaseResult,
     KnowledgeBaseSuggested,
-    KnowledgeBaseDocument,
+    KnowledgeBaseGenerated,
+    LeadFormField,
     List,
-    ListItem,
     ListButton,
+    ListItem,
+    Message,
     OptionSelectRequest,
     Redirect,
     Request,
@@ -118,7 +170,7 @@ export {
     RuntimeCallback,
     RuntimeContext,
     Storage,
-    UserStorageService
+    UserStorageService,
 };
 
 import {
@@ -157,15 +209,20 @@ import {
     existsAndNotEmpty,
     findValueForKey,
     formatNumberForDisplay,
+    getResponseByTag,
     getSlots,
-    keyFromRequest,
     isDateTime,
     isDateTimeRange,
+    keyFromRequest,
     listisize,
     numberToWord,
     pruneEmpty,
     random,
-    ssmlify
+    requestSlotsToString,
+    requestSlotValueToString,
+    responseToMessage,
+    ssmlify,
+    toResponseOutput
 } from "stentor-utils";
 export {
     dessmlify,
@@ -173,15 +230,24 @@ export {
     existsAndNotEmpty,
     findValueForKey,
     formatNumberForDisplay,
+    getResponseByTag,
     getSlots,
-    keyFromRequest,
     isDateTime,
     isDateTimeRange,
+    keyFromRequest,
     listisize,
     numberToWord,
     pruneEmpty,
     random,
+    requestSlotsToString,
+    requestSlotValueToString,
+    responseToMessage,
     ssmlify,
+    toResponseOutput
 };
 
+import { FetchService, WithTimeout, TimeoutError } from "stentor-service-fetch";
+export { FetchService, WithTimeout, TimeoutError };
+
+export * from "./services/Secrets";
 export * from "./Assistant";

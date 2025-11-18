@@ -1,10 +1,20 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { SuggestionTypes } from "../Suggestion";
 import { InputUnknownStrategyGlobal, InputUnknownStrategyGoogle, InputUnknownStrategyReprompt } from "./Types";
 
 /**
  * Base data object for all the handlers
  */
 export interface Data {
+    /**
+     * Fields for modifying all responses
+     */
+    chat?: {
+        /**
+         * Chips to use when generating the default responses.  They will be added to all responses.
+         */
+        suggestionChips?: SuggestionTypes[];
+    }
     /**
      * Strategy to use when the handler receives an InputUnknown request.
      *

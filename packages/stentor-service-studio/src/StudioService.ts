@@ -1,9 +1,18 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { HTTP_200_OK } from "stentor-constants";
-import { Event, Handler, HandlerService, KnowledgeBaseResult, KnowledgeBaseService } from "stentor-models";
+import {
+    Event,
+    Handler,
+    HandlerService,
+    KnowledgeBaseFAQResult,
+    KnowledgeBaseGenerated,
+    KnowledgeBaseResult,
+    KnowledgeBaseService,
+    KnowledgeBaseServiceFilters
+} from "stentor-models";
 import { existsAndNotEmpty, findFuzzyMatch } from "stentor-utils";
 import "isomorphic-fetch";
-import { StudioFAQResponse, StudioHandlerResponse, StudioHandlersResponse } from "./Response";
+import { StudioFAQResponse, StudioHandlerResponse, StudioHandlersResponse, StudioRAGResponse } from "./Response";
 
 const BASE_URL = "https://api.xapp.ai";
 
@@ -28,6 +37,10 @@ export interface StudioServiceProps {
      * The appId for the application you are requesting information for.
      */
     appId?: string;
+    /**
+     * Previously true by default, we are not phasing this out.  You can set this to be true if you want to pre-filter the FAQs as done previously.
+     */
+    preFilterFAQs?: boolean;
 }
 
 export class StudioService implements HandlerService, KnowledgeBaseService {
@@ -35,6 +48,7 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
     private readonly token: string;
     private readonly orgToken?: string;
     private readonly appId: string;
+    private readonly preFilterFAQs: boolean = false;
 
     public constructor(props?: StudioServiceProps) {
         // First look for the token & appId on the environment variables
@@ -59,6 +73,7 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
             this.token = props.token ? props.token : this.token;
             this.appId = props.appId ? props.appId : this.appId;
             this.orgToken = props.orgToken ? props.orgToken : this.orgToken;
+            this.preFilterFAQs = typeof props.preFilterFAQs === "boolean" ? props.preFilterFAQs : this.preFilterFAQs;
         }
 
         if (!this.token) {
@@ -95,9 +110,9 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
 
     /**
      * Get the handler by ID.
-     * 
-     * @param id 
-     * @returns 
+     *
+     * @param id
+     * @returns
      */
     public get(id: string | { intentId: string }): Promise<Handler> | Promise<undefined> {
         const intentId = getIntentId(id);
@@ -111,24 +126,32 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
             url += `?appId=${this.appId}`;
         }
 
+        let status: number;
+        let statusText: string;
+
         return fetch(url, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`
             }
-        })
-            .then<StudioHandlerResponse>(response => response.json())
-            .then<Handler>(json => {
-                // TODO: Check status code to better handle error codes
-                if ((json as any).message === "Unauthorized") {
-                    throw new Error("Token provided to StudioService is unauthorized to perform current action.");
-                } else if (typeof json.handler === "object") {
-                    return json.handler;
-                }
+        }).then<StudioHandlerResponse>(response => {
+            status = response.status;
+            statusText = response.statusText;
+            return response.json();
+        }).then<Handler>(json => {
+            if (status === 404) {
+                throw new Error(`Handler with intentId "${intentId}" not found. Please verify the intentId exists in your application.`);
+            } else if (status === 401 || (json as any).message === "Unauthorized") {
+                throw new Error("Token provided to StudioService is unauthorized to perform current action.");
+            } else if (status !== HTTP_200_OK) {
+                throw new Error(`StudioService.get() returned ${status} ${statusText} for intentId "${intentId}": ${JSON.stringify(json)}`);
+            } else if (typeof json.handler === "object") {
+                return json.handler;
+            }
 
-                return undefined;
-            });
+            return undefined;
+        });
     }
 
     /**
@@ -136,11 +159,16 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
      * 
      * @param query 
      */
-    public query(query: string): Promise<KnowledgeBaseResult> {
+    public query(query: string, options?: {
+        controller?: AbortController,
+        filters?: {
+            [key: KnowledgeBaseServiceFilters]: string;
+        };
+    }): Promise<KnowledgeBaseResult> {
 
         // Call search
-        const search = this.search(query);
-        const faqs = this.faq(query);
+        const search = this.search(query, options);
+        const faqs = this.faq(query, options);
 
         return Promise.all([search, faqs]).then((results) => {
 
@@ -151,23 +179,12 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
             };
 
             const searchResults: Pick<KnowledgeBaseResult, "documents" | "suggested"> = results[0];
-            const faqResults: StudioFAQResponse = results[1];
+            const faqResults: KnowledgeBaseFAQResult = results[1];
 
             result.documents = searchResults.documents;
             result.suggested = searchResults.suggested;
-            faqResults.faq.forEach((faq) => {
+            result.faqs = faqResults?.faqs || [];
 
-                // Find the closest question
-                const questions = findFuzzyMatch(query, faq.questions);
-                // Only if we find a decent match, do we return it
-                if (existsAndNotEmpty(questions)) {
-                    result.faqs.push({
-                        uri: faq.url,
-                        question: questions[0],
-                        document: faq.answer
-                    });
-                }
-            });
             // For FAQs, we do a quick string closeness match
             return result;
         });
@@ -179,32 +196,47 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
      * Calls /cms/search endpoint.
      * 
      * @param query - The query to search  
+     * @param controller - Optional abort controller to cancel the request
      * @returns 
      */
-    public search(query: string): Promise<Pick<KnowledgeBaseResult, "documents" | "suggested">> {
-        let url = `${this.baseURL}/cms/search`
+    public search(query: string, options?: {
+        controller?: AbortController
+        filters?: {
+            [key: KnowledgeBaseServiceFilters]: string;
+        };
+    }): Promise<Pick<KnowledgeBaseResult, "documents" | "suggested">> {
 
-        const encodedQuery = encodeURIComponent(query);
+        const url = new URL(`${this.baseURL}/cms/search`);
 
-        url += `?question=${encodedQuery}`;
+        url.searchParams.set("question", query);
+
+        if (options?.filters?.locationId) {
+            url.searchParams.set("locationId", `${options?.filters?.locationId}`);
+        }
 
         let token: string = this.token;
 
         if (this.orgToken) {
             token = this.orgToken;
-            url += `&appId=${this.appId}`;
+            url.searchParams.set("appId", this.appId);
         }
 
-        let status: number;
-        let statusText: string;
-
-        return fetch(url, {
+        const fetchOptions: RequestInit = {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`
             }
-        })
+        }
+
+        if (options?.controller) {
+            fetchOptions.signal = options?.controller.signal;
+        }
+
+        let status: number;
+        let statusText: string;
+
+        return fetch(url, fetchOptions)
             .then<KnowledgeBaseResult>((response) => {
                 status = response.status;
                 statusText = response.statusText;
@@ -218,7 +250,6 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
                 }
             })
     }
-
     /**
      * Find a FAQ match based on the query.
      * 
@@ -227,7 +258,7 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
      * @param query 
      * @returns 
      */
-    public faq(query: string): Promise<StudioFAQResponse> {
+    public faq(query: string, options?: { controller?: AbortController }): Promise<KnowledgeBaseFAQResult> {
 
         let url = `${this.baseURL}/cms/faq/query`
 
@@ -242,28 +273,135 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
             url += `&appId=${this.appId}`;
         }
 
-        let status: number;
-        let statusText: string;
-
-        return fetch(url, {
+        const fetchOptions: RequestInit = {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`
             }
-        })
-            .then<StudioFAQResponse>((response) => {
-                status = response.status;
-                statusText = response.statusText;
+        }
 
-                return response.json();
-            }).then<StudioFAQResponse>((results) => {
-                if (status === 200) {
-                    return results;
-                } else {
-                    throw new Error(`StudioService.faq() returned ${status} ${statusText} ${JSON.stringify(results)}`);
+        if (options?.controller) {
+            fetchOptions.signal = options?.controller.signal;
+        }
+
+        let status: number;
+        let statusText: string;
+
+        return fetch(url, fetchOptions).then<StudioFAQResponse>((response) => {
+            status = response.status;
+            statusText = response.statusText;
+
+            return response.json();
+        }).then<KnowledgeBaseFAQResult>((results) => {
+            if (status === 200) {
+
+                const faqResult: KnowledgeBaseFAQResult = {
+                    faqs: []
                 }
-            })
+
+                results.faq.forEach((faq) => {
+
+                    if (this.preFilterFAQs) {
+                        // Old legacy way
+                        // Find the closest question
+                        const questions = findFuzzyMatch(query, faq.questions);
+                        // Only if we find a decent match, do we return it
+                        if (existsAndNotEmpty(questions)) {
+                            faqResult.faqs.push({
+                                uri: faq.url,
+                                question: questions[0],
+                                questions: faq.questions,
+                                document: faq.answer,
+                                matchConfidence: faq._score
+                            });
+                        }
+                    } else {
+                        // setting threshold to 1.0 will return all matches and just order them by score
+                        const questions = findFuzzyMatch(query, faq.questions, { threshold: 1.0 });
+                        // we then take the first one and make it our top question
+                        faqResult.faqs.push({
+                            uri: faq.url,
+                            question: questions[0],
+                            questions: faq.questions,
+                            document: faq.answer,
+                            matchConfidence: faq._score
+                        });
+                    }
+                });
+
+                return faqResult;
+            } else {
+                throw new Error(`StudioService.faq() returned ${status} ${statusText} ${JSON.stringify(results)}`);
+            }
+        })
+    }
+
+    public rag(query: string, options: {
+        temperature?: number,
+        api?: "retrieve" | "query",
+        controller?: AbortController, filters?: {
+            [key: KnowledgeBaseServiceFilters]: string;
+        };
+    } = { temperature: 0.5 }): Promise<KnowledgeBaseGenerated> {
+
+        const url = new URL(`${this.baseURL}/cms/rag`);
+
+        url.searchParams.set("question", query);
+        url.searchParams.set("temperature", `${options.temperature}`);
+
+        if (options?.filters?.api) {
+            url.searchParams.set("useRetrievalApi", `${options?.filters?.api}`);
+        }
+
+        if (options?.filters?.locationId) {
+            url.searchParams.set("locationId", `${options?.filters?.locationId}`);
+        }
+        let token: string = this.token;
+
+        if (this.orgToken) {
+            token = this.orgToken;
+            url.searchParams.set("appId", this.appId);
+        }
+
+        const fetchOptions: RequestInit = {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        }
+
+        if (options?.controller) {
+            fetchOptions.signal = options?.controller.signal;
+        }
+
+        let status: number;
+        let statusText: string;
+
+        return fetch(url, fetchOptions).then<StudioRAGResponse>((response) => {
+            status = response.status;
+            statusText = response.statusText;
+
+            return response.json();
+        }).then<KnowledgeBaseGenerated>((results) => {
+            if (status === 200) {
+
+                const result = results.result;
+                const hasAnswer = results.hasAnswer;
+                const sources = results.sources;
+
+                return {
+                    generated: result,
+                    document: result,
+                    hasAnswer,
+                    sources,
+                    type: "retrieval-augmented-generation"
+                };
+            } else {
+                throw new Error(`StudioService.rag() returned ${status} ${statusText} ${JSON.stringify(results)}`);
+            }
+        })
     }
 
     public putEvents(events: Event<any>[]): Promise<void> {
@@ -318,18 +456,16 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
                 Authorization: `Bearer ${token}`
             },
             body: JSON.stringify({ events })
-        })
-            .then(response => {
-                status = response.status;
-                statusText = response.statusText;
-                return response.json();
-            })
-            .then(json => {
-                if (status !== HTTP_200_OK) {
-                    throw new Error(`StudioService.putEvents() returned ${status} ${statusText} ${JSON.stringify(json)}`);
-                }
-                return;
-            });
+        }).then(response => {
+            status = response.status;
+            statusText = response.statusText;
+            return response.json();
+        }).then(json => {
+            if (status !== HTTP_200_OK) {
+                throw new Error(`StudioService.putEvents() returned ${status} ${statusText} ${JSON.stringify(json)}`);
+            }
+            return;
+        });
     }
 }
 

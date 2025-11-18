@@ -52,6 +52,7 @@ class MockUserStorageService implements UserStorageService {
     }
 }
 
+
 const MockLambdaEvent: AWSLambda.LexEvent = {
     currentIntent: {
         name: "OCYes",
@@ -94,7 +95,6 @@ const MockLambdaContext: AWSLambda.Context = {
     succeed: () => {
         return;
     }
-
 }
 
 describe("Assistant", () => {
@@ -104,12 +104,10 @@ describe("Assistant", () => {
             let callback: sinon.SinonStub;
 
             beforeEach(() => {
-
                 assistant = new Assistant()
                     .withUserStorage(new MockUserStorageService())
                     .withHandlerService(new MockHandlerService());
                 callback = sinon.stub();
-
             });
             it("returns the expected result", async () => {
                 const request = new IntentRequestBuilder().withIntentId("HelpIntent").build();
@@ -134,6 +132,14 @@ describe("Assistant", () => {
             });
         });
         describe("without environment variables", () => {
+
+            before(() => {
+                // make sure they are all gone
+                delete process.env.STUDIO_TOKEN;
+                delete process.env.STUDIO_APP_ID;
+                delete process.env.OVAI_TOKEN;
+                delete process.env.OVAI_APP_ID;
+            });
             describe("with handler service", () => {
                 beforeEach(() => {
                     assistant = new Assistant().withUserStorage(new MockUserStorageService()).withHandlerService(new MockHandlerService());
@@ -147,22 +153,66 @@ describe("Assistant", () => {
                     expect(assistant.lambda()).to.be.a("function");
                 });
                 describe("without user storage service", () => {
+                    let callback: sinon.SinonStub;
+
                     beforeEach(() => {
                         assistant = new Assistant().withHandlerService(new MockHandlerService());
+                        callback = sinon.stub();
                     });
                     it("throws an error", async () => {
                         const handler = assistant.lambda();
-                        await expect(handler(MockLambdaEvent, MockLambdaContext, () => { return; })).to.be.rejectedWith('A user storage service is required.');
+
+                        await handler({
+                            path: "/",
+                            requestContext: {},
+                            body: JSON.stringify({}),
+                            headers: {}
+                        }, MockLambdaContext, callback);
+
+                        expect(callback).to.have.been.calledOnce;
+                        expect(callback).to.have.been.calledWith(null, {
+                            statusCode: 500,
+                            headers: { "Access-Control-Allow-Origin": "*" },
+                            body:
+                                "TypeError: A user storage service is required."
+                        });
                     });
+                    describe('on Lambda', () => {
+                        it('returns the error', async () => {
+                            const handler = assistant.lambda();
+
+                            await handler(MockLambdaEvent, MockLambdaContext, callback);
+
+                            expect(callback).to.have.been.calledOnce;
+                            expect(callback).to.have.been.calledWith(null, "TypeError: A user storage service is required.");
+                        })
+                    })
                 });
             });
             describe("without handler service", () => {
+                let callback: sinon.SinonStub;
+
                 beforeEach(() => {
                     assistant = new Assistant();
+                    callback = sinon.stub();
                 });
                 it("throws an error", async () => {
                     const handler = assistant.lambda();
-                    await expect(handler(MockLambdaEvent, MockLambdaContext, () => { return; })).to.be.rejectedWith("HandlerService or STUDIO_TOKEN was not provided, unable to create the Assistant.");
+
+                    await handler({
+                        path: "/",
+                        requestContext: {},
+                        body: JSON.stringify({}),
+                        headers: {}
+                    }, MockLambdaContext, callback);
+
+                    expect(callback).to.have.been.calledOnce;
+                    expect(callback).to.have.been.calledWith(null, {
+                        statusCode: 500,
+                        headers: { "Access-Control-Allow-Origin": "*" },
+                        body:
+                            "Error: HandlerService or STUDIO_TOKEN was not provided, unable to create the Assistant."
+                    });
                 });
             });
         });

@@ -12,6 +12,7 @@ let logLevel: string;
 let logPii: string;
 let maskPartial: string;
 
+
 beforeEach(() => {
     logLevel = process.env.STENTOR_LOG_LEVEL;
     logPii = process.env.OVAI_LOG_PII;
@@ -22,6 +23,8 @@ afterEach(() => {
     process.env.STENTOR_LOG_LEVEL = logLevel;
     process.env.OVAI_LOG_PII = logPii;
     process.env.OVAI_LOG_PII_MASK_PARTIAL = maskPartial;
+    // Reset the logger instance
+    set(undefined);
 });
 describe("#log()", () => {
     it("returns a logger", () => {
@@ -49,6 +52,36 @@ describe("#log()", () => {
             });
         }).to.not.throw();
     });
+    describe("when on lambda", () => {
+        beforeEach(() => {
+            process.env.AWS_LAMBDA_FUNCTION_NAME = "debug-func";
+        });
+        afterEach(() => {
+            delete process.env.AWS_LAMBDA_FUNCTION_NAME;
+        });
+        it("prints correctly", () => {
+            expect(() => {
+                log().debug("foo");
+                log().info("bar");
+                log().warn("warn");
+                log().debug("foo %o", { bar: true });
+                log().debug({ bar: true });
+                log().error(new Error("foo"));
+                log().debug("my number is 800-888-8888");
+                log().debug({
+                    number: "8008888888"
+                });
+                log().debug({
+                    email: "foo@xappmedia.com",
+                    phone: "800.888.8888",
+                    bar: true,
+                    foo: {
+                        baz: 6
+                    }
+                });
+            }).to.not.throw();
+        });
+    });
 });
 describe("#set()", () => {
     afterEach(() => {
@@ -69,9 +102,29 @@ describe("#set()", () => {
     });
 });
 describe("#redact()", () => {
+    it("redacts the logs", () => {
+        const redacted = redact({
+            level: "debug",
+            message: "My number is 800-888-8888"
+        });
+        expect(redacted.message).to.equal("My number is ###-###-####");
+    });
+    it("does not modify the original", () => {
+        const original = {
+            level: "debug",
+            message: "My number is 800-888-8888"
+        };
+        const redacted = redact(original);
+        expect(original.message).to.equal("My number is 800-888-8888");
+        expect(redacted.message).to.equal("My number is ###-###-####");
+    });
     describe("with OVAI_LOG_PII set to true", () => {
+        const original = process.env.OVAI_LOG_PII
         beforeEach(() => {
             process.env.OVAI_LOG_PII = "true";
+        });
+        after(() => {
+            process.env.OVAI_LOG_PII = original;
         });
         it("passes through PII!", () => {
             expect(

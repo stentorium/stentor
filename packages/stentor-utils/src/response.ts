@@ -1,10 +1,11 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { format, isSameDay, parse } from "date-fns";
-import { DateTime, Duration, DurationFormat, ResponseOutput, DateTimeRange, RequestSlotValues } from "stentor-models";
+import { DateTime, Duration, DurationFormat, ResponseOutput, DateTimeRange, RequestSlotValues, SuggestionTypes } from "stentor-models";
 import { dateTimeToString, isDateTime, isDateTimeRange } from "./dateTime";
 import { dessmlify, ssmlify } from "./ssml";
 import { listisize, ListDelimiter } from "./speech";
 import { isDuration, DURATION_FORMAT_TO_MS_MULTIPLIER } from "./date-time";
+import { existsAndNotEmpty } from "./array";
 
 /**
  * Ensures that an outputSpeech or reprompt, either string or ResponseOutput,
@@ -202,4 +203,50 @@ export function slotValueToSpeech(value: RequestSlotValues, type: "ssml" | "disp
     }
 
     return speech;
+}
+
+/**
+ * Merges new suggestions onto existing suggestions.
+ * 
+ * It will look for duplicates on the existing from the incoming.
+ * 
+ * If it finds one, it will replace the existing with the incoming while keeping the index. 
+ * 
+ * @param existing 
+ * @param incoming 
+ * @returns 
+ */
+export function mergeSuggestions(existing: SuggestionTypes[], incoming?: SuggestionTypes[]): SuggestionTypes[] {
+    if (!existsAndNotEmpty(incoming)) {
+        return existing || [];
+    }
+
+    if (!existsAndNotEmpty(existing)) {
+        return incoming || [];
+    }
+
+    // create a map of the existing suggestions, lowercased and trimmed
+    const existingMap: Record<string, number> = existing.reduce((map: Record<string, number>, suggestion: SuggestionTypes, index: number) => {
+        if (typeof suggestion === "string") {
+            map[suggestion.toLowerCase().trim()] = index;
+        } else {
+            map[suggestion.title.toLowerCase().trim()] = index;
+        }
+        return map;
+    }, {});
+
+    const filteredIncoming: SuggestionTypes[] = [];
+
+    incoming.forEach((suggestion: SuggestionTypes) => {
+
+        const clean = typeof suggestion === "string" ? suggestion.toLowerCase().trim() : suggestion.title.toLowerCase().trim();
+        if (existingMap[clean] !== undefined) {
+            // We have a duplicate
+            existing[existingMap[clean]] = suggestion;
+        } else {
+            filteredIncoming.push(suggestion);
+        }
+    });
+
+    return [...existing, ...filteredIncoming];
 }

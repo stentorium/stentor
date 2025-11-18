@@ -1,0 +1,47 @@
+{
+  "name": "stentor-address",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.66.30",
+  "description": "Utilities for address parsing and formatting",
+  "types": "lib/index",
+  "main": "lib/index",
+  "files": [
+    "lib"
+  ],
+  "engines": {
+    "node": "^12 || ^14 || ^16 || ^18 || ^20 || ^22 || ^24.0.0"
+  },
+  "devDependencies": {
+    "@microsoft/api-extractor": "7.52.13",
+    "@types/chai": "5.2.3",
+    "@types/mocha": "10.0.10",
+    "@types/node": "24.10.1",
+    "@types/sinon": "17.0.4",
+    "@types/sinon-chai": "3.2.12",
+    "@xapp/config": "0.2.3",
+    "chai": "4.5.0",
+    "mocha": "11.7.5",
+    "sinon": "20.0.0",
+    "sinon-chai": "3.7.0",
+    "stentor-models": "1.66.30",
+    "stentor-utils": "1.66.30",
+    "ts-node": "10.9.2",
+    "typescript": "5.9.3"
+  },
+  "dependencies": {
+    "addresser": "1.1.20"
+  },
+  "peerDependencies": {
+    "stentor-models": "1.x",
+    "stentor-utils": "1.x"
+  },
+  "scripts": {
+    "api": "api-extractor run --local",
+    "build": "tsc -d true -p .",
+    "clean": "rm -rf ./lib/*",
+    "test": "TZ=UTC mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
+  }
+}

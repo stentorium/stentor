@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const converter = require("number-to-words");
-import * as numeral from "numeral";
+import numeral from "numeral";
 import wordsToNumbers from "words-to-numbers";
 
 const US_PHONE_NUMBER_LENGTH = 10;

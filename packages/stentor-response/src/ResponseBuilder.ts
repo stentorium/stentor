@@ -9,14 +9,15 @@ import {
     PlayableMedia,
     Response,
     ResponseBuilderProps,
-    ResponseOutput,
+    ResponseOutput, SimpleResponse,
     SuggestionTypes,
     UserDataRequestStatus,
     UserDataType,
     UserDataValue
 } from "stentor-models";
-import { toResponseOutput } from "stentor-utils";
+import { mergeSuggestions, toResponseOutput } from "stentor-utils";
 import { concatResponseOutput } from "./concat";
+import { OrderDescription, PaymentParameters } from "stentor-models/lib/Response/Transactions";
 
 /**
  * A builder for stentor responses.
@@ -27,7 +28,7 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
     }
     /**
      * Provide a fully formed response object
-     * 
+     *
      * Note: This will overwrite any existing response that has been set previously with the builder.
      */
     public respond(response: Response): ResponseBuilder<T> {
@@ -50,7 +51,7 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
     /**
      * Communicate to the provided text user.  Depending on the channel, this will be displayed in a chat message style bubble
      * or spoken with text to speech.  You can provide both at the same time, text for display (displayText) or spoken (ssml).
-     * 
+     *
      * If you use this without also providing a reprompt, the conversation will end on channels with voice input.
      */
     public say(say: string | ResponseOutput, append?: boolean): ResponseBuilder<T> {
@@ -112,10 +113,7 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         }
 
         if (append) {
-            const existingSuggestions = this._response.outputSpeech.suggestions;
-            this._response.outputSpeech.suggestions = Array.isArray(existingSuggestions)
-                ? existingSuggestions.concat(outputSpeechSuggests)
-                : existingSuggestions;
+            this._response.outputSpeech.suggestions = mergeSuggestions(this._response.outputSpeech.suggestions, outputSpeechSuggests);
         } else {
             this._response.outputSpeech.suggestions = outputSpeechSuggests;
         }
@@ -195,7 +193,7 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         return this;
     }
     /**
-     * Add a custom display object to the response. 
+     * Add a custom display object to the response.
      */
     public withDisplay(display: object): ResponseBuilder<T> {
         if (display) {
@@ -289,6 +287,41 @@ export class ResponseBuilder<T = Response<ResponseOutput>> extends AbstractRespo
         } else if (typeof response === "object") {
             this.say(response.outputSpeech).reprompt(response.reprompt);
         }
+        return this;
+    }
+
+    public askTransactionRequirements(): ResponseBuilder<T> {
+        this._response.system = "TRANSACTION_REQUIREMENTS_CHECK";
+        return this;
+    }
+
+    askForDeliveryAddress(response?: string | SimpleResponse<string | ResponseOutput>): AbstractResponseBuilder<T> {
+        this._response.system = "TRANSACTION_DELIVERY_ADDRESS";
+        if (response) {
+            this._response.data = {
+                txAddressRequestTTSContext: response
+            };
+        }
+        return this;
+    }
+
+    askForTransactionDecision(paymentParameters: PaymentParameters, order: OrderDescription): AbstractResponseBuilder<T> {
+        this._response.system = "TRANSACTION_DECISION";
+        this._response.data = {
+            txPaymentParameters: paymentParameters,
+            txOrder: order
+        };
+        return this;
+    }
+
+    askForOrderUpdate(response: string | SimpleResponse<string | ResponseOutput>, order: OrderDescription): AbstractResponseBuilder<T> {
+        this._response.system = "TRANSACTION_STATUS";
+        if (response) {
+            this._response.data = {
+                txOrderStatusTTSContext: response
+            };
+        }
+        this._response.data.txOrder = order;
         return this;
     }
 

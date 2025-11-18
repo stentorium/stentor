@@ -5,7 +5,7 @@ import * as sinonChai from "sinon-chai";
 
 import { ConversationHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
-import { Handler, Storage, HandlerService, UserStorageService, NLUService, NLUQueryResponse, IntentRequest } from "stentor-models";
+import { Handler, Storage, HandlerService, UserStorageService, NLUService, NLUQueryResponse, IntentRequest, RawQueryRequest } from "stentor-models";
 import { IntentRequestBuilder } from "stentor-request";
 
 import { main } from "../main";
@@ -76,40 +76,148 @@ describe(`#${main.name}()`, () => {
     let callbackSpy: sinon.SinonSpy;
 
     describe("with NLU Service", () => {
-        beforeEach(() => {
-            request = new IntentRequestBuilder().withIntentId(intentId).withRawQuery("the query").build();
-            handlerFactory = new HandlerFactory({ handlers: [ConversationHandler] });
-            context = { ovai: { appId } };
-            callbackSpy = sinon.spy();
-            handlerService = sinon.createStubInstance(MockHandlerService, {
-                get: intentHandler
-            });
-            userStorageService = sinon.createStubInstance(MockUserStorageService, {
-                get: Promise.resolve({ ...storage, currentHandler: handler })
-            });
+        describe("for a intent request with intentId NLU_RESULT_PLACEHOLDER", () => {
+            beforeEach(() => {
+                request = new IntentRequestBuilder().withIntentId("NLU_RESULT_PLACEHOLDER").withRawQuery("the query").build();
+                handlerFactory = new HandlerFactory({ handlers: [ConversationHandler] });
+                context = { ovai: { appId } };
+                callbackSpy = sinon.spy();
+                handlerService = sinon.createStubInstance(MockHandlerService, {
+                    get: intentHandler
+                });
+                userStorageService = sinon.createStubInstance(MockUserStorageService, {
+                    get: Promise.resolve({ ...storage, currentHandler: handler })
+                });
 
-            nlu = sinon.createStubInstance(MockNLUService, {
-                query: Promise.resolve(intentResponse)
+                nlu = sinon.createStubInstance(MockNLUService, {
+                    query: Promise.resolve(intentResponse)
+                });
+            });
+            it("calls the service", async () => {
+                await main(request, context, callbackSpy, [passThroughChannel({ nlu })], {
+                    handlerFactory,
+                    handlerService,
+                    userStorageService,
+
+                });
+                expect(callbackSpy).to.have.been.calledOnce;
+                expect(callbackSpy).to.have.been.calledWith(null, {
+                    name: "Name",
+                    outputSpeech: {
+                        displayText: "Intent Response",
+                        ssml: "<speak>Intent Response</speak>"
+                    }
+                });
+
+                expect(nlu.query).to.have.been.calledOnce;
+                expect(nlu.query).to.have.been.calledWithMatch("the query", {
+                    userId: request.userId,
+                    sessionId: request.sessionId,
+                    locale: request.locale,
+                    channel: "stentor",
+                    platform: "MOCK",
+                });
+
+                // get the first call and make sure session is on the second parameter
+                const args = (nlu.query as sinon.SinonStub).getCall(0).args;
+                const props = args[1];
+                expect(props).to.exist;
+                expect(props.session).to.exist;
             });
         });
-        it("calls the service", async () => {
-            await main(request, context, callbackSpy, [passThroughChannel({ nlu })], {
-                handlerFactory,
-                handlerService,
-                userStorageService,
+        describe("for a raw query request", () => {
+            beforeEach(() => {
+                // request = new IntentRequestBuilder().withIntentId("NLU_RESULT_PLACEHOLDER").withRawQuery("the query").build();
+                handlerFactory = new HandlerFactory({ handlers: [ConversationHandler] });
+                context = { ovai: { appId } };
+                callbackSpy = sinon.spy();
+                handlerService = sinon.createStubInstance(MockHandlerService, {
+                    get: intentHandler
+                });
+                userStorageService = sinon.createStubInstance(MockUserStorageService, {
+                    get: Promise.resolve({ ...storage, currentHandler: handler })
+                });
 
+                nlu = sinon.createStubInstance(MockNLUService, {
+                    query: Promise.resolve(intentResponse)
+                });
             });
-            expect(callbackSpy).to.have.been.calledOnce;
-            expect(callbackSpy).to.have.been.calledWith(null, {
-                name: "Name",
-                outputSpeech: {
-                    displayText: "Intent Response",
-                    ssml: "<speak>Intent Response</speak>"
+            it("calls the service", async () => {
+                const rawQueryRequest: RawQueryRequest = {
+                    type: "RAW_QUERY_REQUEST",
+                    rawQuery: "the query",
+                    userId: "userId",
+                    sessionId: "sessionId",
+                    locale: "en-US",
+                    channel: "stentor",
+                    platform: "MOCK",
                 }
-            });
+                await main(rawQueryRequest, context, callbackSpy, [passThroughChannel({ nlu })], {
+                    handlerFactory,
+                    handlerService,
+                    userStorageService,
 
-            expect(nlu.query).to.have.been.calledOnce;
-            expect(nlu.query).to.have.been.calledWith("the query", { userId: request.userId, sessionId: request.sessionId, locale: request.locale })
+                });
+                expect(callbackSpy).to.have.been.calledOnce;
+                expect(callbackSpy).to.have.been.calledWith(null, {
+                    name: "Name",
+                    outputSpeech: {
+                        displayText: "Intent Response",
+                        ssml: "<speak>Intent Response</speak>"
+                    }
+                });
+
+                expect(nlu.query).to.have.been.calledOnce;
+                expect(nlu.query).to.have.been.calledWithMatch("the query", {
+                    userId: rawQueryRequest.userId,
+                    sessionId: rawQueryRequest.sessionId,
+                    locale: rawQueryRequest.locale,
+                    channel: "stentor",
+                    platform: "MOCK",
+                });
+
+                // get the first call and make sure session is on the second parameter
+                const args = (nlu.query as sinon.SinonStub).getCall(0).args;
+                const props = args[1];
+                expect(props).to.exist;
+                expect(props.session).to.exist;
+            });
+        });
+        describe("with resolved intentId", () => {
+            beforeEach(() => {
+                request = new IntentRequestBuilder().withIntentId(intentId).withRawQuery("the query").build();
+                handlerFactory = new HandlerFactory({ handlers: [ConversationHandler] });
+                context = { ovai: { appId } };
+                callbackSpy = sinon.spy();
+                handlerService = sinon.createStubInstance(MockHandlerService, {
+                    get: intentHandler
+                });
+                userStorageService = sinon.createStubInstance(MockUserStorageService, {
+                    get: Promise.resolve({ ...storage, currentHandler: handler })
+                });
+
+                nlu = sinon.createStubInstance(MockNLUService, {
+                    query: Promise.resolve(intentResponse)
+                });
+            });
+            it("does not call the service", async () => {
+                await main(request, context, callbackSpy, [passThroughChannel({ nlu })], {
+                    handlerFactory,
+                    handlerService,
+                    userStorageService,
+
+                });
+                expect(callbackSpy).to.have.been.calledOnce;
+                expect(callbackSpy).to.have.been.calledWith(null, {
+                    name: "Name",
+                    outputSpeech: {
+                        displayText: "Intent Response",
+                        ssml: "<speak>Intent Response</speak>"
+                    }
+                });
+
+                expect(nlu.query).to.have.not.been.called;
+            });
         });
     });
 });

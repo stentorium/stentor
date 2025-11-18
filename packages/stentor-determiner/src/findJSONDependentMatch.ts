@@ -2,7 +2,7 @@
 import { ConditionalCheck, Context, JSONDependable, Request } from "stentor-models";
 import { compare, random } from "stentor-utils";
 import { JSONPath } from "jsonpath-plus";
-import { isJSONDependable } from "./Guards";
+import { isJSONDependable } from "stentor-guards";
 
 /**
  * Based on the provided request and context, it finds the a JSON dependent match or undefined if not match is found

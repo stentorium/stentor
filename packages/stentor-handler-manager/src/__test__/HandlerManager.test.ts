@@ -354,5 +354,84 @@ describe("HandlerManager", () => {
                 });
             });
         });
+        describe("when service.get() throws an error", () => {
+            let request: Request;
+            let newContext: Context;
+            beforeEach(() => {
+                request = new IntentRequestBuilder().withIntentId(anotherIntentId).build();
+                newContext = { ...baseContext };
+                newContext.storage.currentHandler = handlerProps;
+            });
+            describe("with a 404 error", () => {
+                beforeEach(() => {
+                    handlerGetStub.restore();
+                    handlerGetStub = sinon.stub(service, "get");
+                    handlerGetStub.withArgs(anotherIntentId).rejects(
+                        new Error(`Handler with intentId "${anotherIntentId}" not found. Please verify the intentId exists in your application.`)
+                    );
+                    handlerGetStub.withArgs("InputUnknown").resolves(inputUnknownHandler);
+                });
+                it("falls back to InputUnknown handler", async () => {
+                    const handler = await manager.from(request, newContext);
+                    expect(handler).to.exist;
+                    expect(handler).to.include(inputUnknownHandler);
+                });
+            });
+            describe("with an unauthorized error", () => {
+                beforeEach(() => {
+                    handlerGetStub.restore();
+                    handlerGetStub = sinon.stub(service, "get");
+                    handlerGetStub.withArgs(anotherIntentId).rejects(
+                        new Error("Token provided to OVAIService is unauthorized to perform current action.")
+                    );
+                    handlerGetStub.withArgs("InputUnknown").resolves(inputUnknownHandler);
+                });
+                it("falls back to InputUnknown handler", async () => {
+                    const handler = await manager.from(request, newContext);
+                    expect(handler).to.exist;
+                    expect(handler).to.include(inputUnknownHandler);
+                });
+            });
+            describe("with a generic error", () => {
+                beforeEach(() => {
+                    handlerGetStub.restore();
+                    handlerGetStub = sinon.stub(service, "get");
+                    handlerGetStub.withArgs(anotherIntentId).rejects(
+                        new Error(`OVAIService.get() returned 500 Internal Server Error for intentId "${anotherIntentId}": {"message":"Server error"}`)
+                    );
+                    handlerGetStub.withArgs("InputUnknown").resolves(inputUnknownHandler);
+                });
+                it("falls back to InputUnknown handler", async () => {
+                    const handler = await manager.from(request, newContext);
+                    expect(handler).to.exist;
+                    expect(handler).to.include(inputUnknownHandler);
+                });
+            });
+        });
+        describe("when InputUnknown handler also fails", () => {
+            let request: Request;
+            let newContext: Context;
+            beforeEach(() => {
+                request = new IntentRequestBuilder().withIntentId(anotherIntentId).build();
+                newContext = { ...baseContext };
+                newContext.storage.currentHandler = handlerProps;
+                handlerGetStub.restore();
+                handlerGetStub = sinon.stub(service, "get");
+                handlerGetStub.withArgs(anotherIntentId).rejects(
+                    new Error(`Handler with intentId "${anotherIntentId}" not found. Please verify the intentId exists in your application.`)
+                );
+                handlerGetStub.withArgs("InputUnknown").rejects(
+                    new Error(`Handler with intentId "InputUnknown" not found. Please verify the intentId exists in your application.`)
+                );
+            });
+            it("throws an error about missing InputUnknown", async () => {
+                try {
+                    await manager.from(request, newContext);
+                    expect.fail("Should have thrown an error");
+                } catch (error) {
+                    expect(error.message).to.include("Required Global InputUnknown was not found");
+                }
+            });
+        });
     });
 });

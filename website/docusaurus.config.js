@@ -13,18 +13,28 @@ const config = {
   baseUrl: "/stentor/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/favicon.ico",
+  favicon: "img/favicon.svg",
   organizationName: "stentorium", // Usually your GitHub org/user name.
   projectName: "stentor", // Usually your repo name.
+
+  plugins: [
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "api",
+        path: "../api/docs",
+        routeBasePath: "api",
+        sidebarPath: false,  // Auto-generate sidebar
+        editUrl: "https://github.com/stentorium/stentor/tree/master/",
+      },
+    ],
+  ],
 
   presets: [
     [
       "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        api: {
-          path: "../api/docs",
-        },
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           path: "../docs",
@@ -32,12 +42,7 @@ const config = {
           editUrl:
             "https://github.com/stentorium/stentor/tree/master/docs/",
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            "https://github.com/stentorium/stentor/tree/master/website/blog/",
-        },
+        blog: false,
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
@@ -55,14 +60,13 @@ const config = {
             type: "doc",
             docId: "getting-started",
             position: "left",
-            label: "Getting Started",
+            label: "Guides",
           },
           {
             to: "/api",
-            label: "API",
+            label: "API Reference",
             position: "left",
           },
-          { to: "/blog", label: "Blog", position: "left" },
           {
             href: "https://github.com/stentorium/stentor",
             label: "GitHub",
@@ -77,25 +81,12 @@ const config = {
             title: "Docs",
             items: [
               {
-                label: "Tutorial",
-                to: "/docs/intro",
-              },
-            ],
-          },
-          {
-            title: "Community",
-            items: [
-              {
-                label: "Stack Overflow",
-                href: "https://stackoverflow.com/questions/tagged/docusaurus",
+                label: "Getting Started",
+                to: "/docs/getting-started",
               },
               {
-                label: "Discord",
-                href: "https://discordapp.com/invite/docusaurus",
-              },
-              {
-                label: "Twitter",
-                href: "https://twitter.com/docusaurus",
+                label: "API Reference",
+                to: "/api",
               },
             ],
           },
@@ -103,17 +94,17 @@ const config = {
             title: "More",
             items: [
               {
-                label: "Blog",
-                to: "/blog",
+                label: "GitHub",
+                href: "https://github.com/stentorium/stentor",
               },
               {
-                label: "GitHub",
-                href: "https://github.com/facebook/docusaurus",
+                label: "npm",
+                href: "https://www.npmjs.com/package/stentor",
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} XAPPmedia. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} XAPP AI. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,

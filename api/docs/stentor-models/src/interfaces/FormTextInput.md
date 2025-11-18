@@ -1,0 +1,199 @@
+[**Stentor API Reference**](../../../README.md)
+
+***
+
+[Stentor API Reference](../../../README.md) / [stentor-models/src](../README.md) / FormTextInput
+
+# Interface: FormTextInput
+
+Defined in: [packages/stentor-models/src/Form/FormField.ts:112](https://github.com/stentorium/stentor/blob/c0410dcd7b880b4f8e849bc9e18a802c802d0a12/packages/stentor-models/src/Form/FormField.ts#L112)
+
+Text input. Validate according to the format.
+
+## Extends
+
+- [`FormInput`](FormInput.md)
+
+## Extended by
+
+- [`FormFieldTextAddressInput`](FormFieldTextAddressInput.md)
+
+## Properties
+
+### name
+
+> **name**: `string`
+
+Defined in: [packages/stentor-models/src/Form/FormField.ts:53](https://github.com/stentorium/stentor/blob/c0410dcd7b880b4f8e849bc9e18a802c802d0a12/packages/stentor-models/src/Form/FormField.ts#L53)
+
+Name of the form input, this is not human readable and is used to identify the field.
+
+For example: "SERVICE" or "FULL_NAME"
+
+#### Inherited from
+
+[`FormInput`](FormInput.md).[`name`](FormInput.md#name)
+
+***
+
+### title?
+
+> `optional` **title**: `string`
+
+Defined in: [packages/stentor-models/src/Form/FormField.ts:57](https://github.com/stentorium/stentor/blob/c0410dcd7b880b4f8e849bc9e18a802c802d0a12/packages/stentor-models/src/Form/FormField.ts#L57)
+
+Optional title used to display on the input
+
+#### Inherited from
+
+[`FormInput`](FormInput.md).[`title`](FormInput.md#title)
+
+***
+
+### type
+
+> **type**: `"CARD"` \| `"TEXT"` \| `"DROPDOWN"` \| `"CHECK"` \| `"CHIPS"` \| `"DATE"` \| `"DATERANGE"`
+
+Defined in: [packages/stentor-models/src/Form/FormField.ts:61](https://github.com/stentorium/stentor/blob/c0410dcd7b880b4f8e849bc9e18a802c802d0a12/packages/stentor-models/src/Form/FormField.ts#L61)
+
+Type of the input
+
+#### Inherited from
+
+[`FormInput`](FormInput.md).[`type`](FormInput.md#type)
+
+***
+
+### shape?
+
+> `optional` **shape**: `"ROUND"` \| `"SQUARE"`
+
+Defined in: [packages/stentor-models/src/Form/FormField.ts:65](https://github.com/stentorium/stentor/blob/c0410dcd7b880b4f8e849bc9e18a802c802d0a12/packages/stentor-models/src/Form/FormField.ts#L65)
+
+Optional, used to shape the input.  Not applicable to all inputs.
+
+#### Inherited from
+
+[`FormInput`](FormInput.md).[`shape`](FormInput.md#shape)
+
+***
+
+### condition?
+
+> `optional` **condition**: `string`
+
+Defined in: [packages/stentor-models/src/Form/FormField.ts:72](https://github.com/stentorium/stentor/blob/c0410dcd7b880b4f8e849bc9e18a802c802d0a12/packages/stentor-models/src/Form/FormField.ts#L72)
+
+A condition that must be met for the field to be shown.
+
+For example: "issue === 'service_repair'" - issue is a field name in this example
+
+#### Inherited from
+
+[`FormInput`](FormInput.md).[`condition`](FormInput.md#condition)
+
+***
+
+### mandatory?
+
+> `optional` **mandatory**: `boolean`
+
+Defined in: [packages/stentor-models/src/Form/FormField.ts:76](https://github.com/stentorium/stentor/blob/c0410dcd7b880b4f8e849bc9e18a802c802d0a12/packages/stentor-models/src/Form/FormField.ts#L76)
+
+Is the field required.
+
+#### Inherited from
+
+[`FormInput`](FormInput.md).[`mandatory`](FormInput.md#mandatory)
+
+***
+
+### mandatoryError?
+
+> `optional` **mandatoryError**: `string`
+
+Defined in: [packages/stentor-models/src/Form/FormField.ts:80](https://github.com/stentorium/stentor/blob/c0410dcd7b880b4f8e849bc9e18a802c802d0a12/packages/stentor-models/src/Form/FormField.ts#L80)
+
+Error message to show when the field is required but not filled out.
+
+#### Inherited from
+
+[`FormInput`](FormInput.md).[`mandatoryError`](FormInput.md#mandatoryerror)
+
+***
+
+### mandatoryGroup?
+
+> `optional` **mandatoryGroup**: `string`
+
+Defined in: [packages/stentor-models/src/Form/FormField.ts:84](https://github.com/stentorium/stentor/blob/c0410dcd7b880b4f8e849bc9e18a802c802d0a12/packages/stentor-models/src/Form/FormField.ts#L84)
+
+Group fields together where one of the fields in the group is required.
+
+#### Inherited from
+
+[`FormInput`](FormInput.md).[`mandatoryGroup`](FormInput.md#mandatorygroup)
+
+***
+
+### style?
+
+> `optional` **style**: `object`
+
+Defined in: [packages/stentor-models/src/Form/FormField.ts:90](https://github.com/stentorium/stentor/blob/c0410dcd7b880b4f8e849bc9e18a802c802d0a12/packages/stentor-models/src/Form/FormField.ts#L90)
+
+React.CSSProperties style object to apply to the field.
+
+For example: {{ width: '300px', height: '150px' }}
+
+#### Inherited from
+
+[`FormInput`](FormInput.md).[`style`](FormInput.md#style)
+
+***
+
+### multiline?
+
+> `optional` **multiline**: `boolean`
+
+Defined in: [packages/stentor-models/src/Form/FormField.ts:113](https://github.com/stentorium/stentor/blob/c0410dcd7b880b4f8e849bc9e18a802c802d0a12/packages/stentor-models/src/Form/FormField.ts#L113)
+
+***
+
+### format?
+
+> `optional` **format**: `"EMAIL"` \| `"ADDRESS"` \| `"PHONE"` \| `"ZIP_CODE"`
+
+Defined in: [packages/stentor-models/src/Form/FormField.ts:114](https://github.com/stentorium/stentor/blob/c0410dcd7b880b4f8e849bc9e18a802c802d0a12/packages/stentor-models/src/Form/FormField.ts#L114)
+
+***
+
+### placeholder?
+
+> `optional` **placeholder**: `string`
+
+Defined in: [packages/stentor-models/src/Form/FormField.ts:115](https://github.com/stentorium/stentor/blob/c0410dcd7b880b4f8e849bc9e18a802c802d0a12/packages/stentor-models/src/Form/FormField.ts#L115)
+
+***
+
+### label?
+
+> `optional` **label**: `string`
+
+Defined in: [packages/stentor-models/src/Form/FormField.ts:117](https://github.com/stentorium/stentor/blob/c0410dcd7b880b4f8e849bc9e18a802c802d0a12/packages/stentor-models/src/Form/FormField.ts#L117)
+
+***
+
+### rows?
+
+> `optional` **rows**: `number`
+
+Defined in: [packages/stentor-models/src/Form/FormField.ts:120](https://github.com/stentorium/stentor/blob/c0410dcd7b880b4f8e849bc9e18a802c802d0a12/packages/stentor-models/src/Form/FormField.ts#L120)
+
+***
+
+### rowsMax?
+
+> `optional` **rowsMax**: `number`
+
+Defined in: [packages/stentor-models/src/Form/FormField.ts:121](https://github.com/stentorium/stentor/blob/c0410dcd7b880b4f8e849bc9e18a802c802d0a12/packages/stentor-models/src/Form/FormField.ts#L121)

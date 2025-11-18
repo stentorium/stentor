@@ -5,6 +5,7 @@
 ```ts
 
 import { AbstractHandler } from 'stentor-handler';
+import { Application } from 'express';
 import { AppRuntimeData } from 'stentor-models';
 import * as AWSLambda_2 from 'aws-lambda';
 import { Channel } from 'stentor-models';
@@ -26,17 +27,19 @@ import { determinePath } from 'stentor-handler';
 import { determineResponse } from 'stentor-response';
 import { determineSegment } from 'stentor-response';
 import { Device } from 'stentor-models';
+import { ErrorService } from 'stentor-models';
 import { estimateSize } from 'stentor-utils';
 import { EventPrefix } from 'stentor-service-event';
 import { EventStream } from 'stentor-models';
 import { existsAndNotEmpty } from 'stentor-utils';
-import * as express from 'express';
+import { FetchService } from 'stentor-service-fetch';
 import { findValueForKey } from 'stentor-utils';
 import { formatNumberForDisplay } from 'stentor-utils';
 import { Forward } from 'stentor-models';
 import { getMatchedSlotData } from 'stentor-handler';
 import { getResponse } from 'stentor-response';
-import { getSlots } from 'stentor-request';
+import { getResponseByTag } from 'stentor-utils';
+import { getSlots } from 'stentor-utils';
 import { getSlotType } from 'stentor-handler';
 import { Handler } from 'stentor-models';
 import { HandlerFactory } from 'stentor-handler-factory';
@@ -44,36 +47,53 @@ import { HandlersArray } from 'stentor-handler-factory';
 import { HandlerService } from 'stentor-models';
 import { HandlersKeyValue } from 'stentor-handler-factory';
 import { HandlersMap } from 'stentor-handler-factory';
+import { hasSessionId } from 'stentor-guards';
 import { Hooks } from 'stentor-models';
+import { INPUT_UNKNOWN } from 'stentor-constants';
+import { INPUT_UNKNOWN_ID } from 'stentor-constants';
+import { INPUT_UNKNOWN_REQUEST_TYPE } from 'stentor-constants';
 import { InputUnknownRequestBuilder } from 'stentor-request';
 import { Intent } from 'stentor-models';
+import { INTENT_REQUEST_TYPE } from 'stentor-constants';
 import { IntentRequest } from 'stentor-models';
 import { IntentRequestBuilder } from 'stentor-request';
-import { isAnonymousUser } from 'stentor-request';
+import { isAnonymousUser } from 'stentor-guards';
+import { isChannelActionRequest } from 'stentor-guards';
 import { isDateTime } from 'stentor-utils';
 import { isDateTimeRange } from 'stentor-utils';
-import { isInputUnknownRequest } from 'stentor-request';
-import { isIntentRequest } from 'stentor-request';
-import { isLaunchRequest } from 'stentor-request';
-import { isNotificationPermissionRequest } from 'stentor-request';
-import { isOptionSelectRequest } from 'stentor-request';
-import { isPermissionRequest } from 'stentor-request';
-import { isSessionEndedRequest } from 'stentor-request';
-import { isSignInRequest } from 'stentor-request';
-import { isSurfaceRequest } from 'stentor-request';
-import { keyFromRequest } from 'stentor-request';
-import { KnowledgeBaseConfig } from 'stentor-runtime';
+import { isDeliveryAddressRequest } from 'stentor-guards';
+import { isInputUnknownRequest } from 'stentor-guards';
+import { isIntentRequest } from 'stentor-guards';
+import { isLaunchRequest } from 'stentor-guards';
+import { isNotificationPermissionRequest } from 'stentor-guards';
+import { isOptionSelectRequest } from 'stentor-guards';
+import { isPermissionRequest } from 'stentor-guards';
+import { isSessionEndedRequest } from 'stentor-guards';
+import { isSignInRequest } from 'stentor-guards';
+import { isSurfaceRequest } from 'stentor-guards';
+import { isTransactionDecisionRequest } from 'stentor-guards';
+import { isTransactionRequirementCheckRequest } from 'stentor-guards';
+import { keyFromRequest } from 'stentor-utils';
+import { KnowledgeBaseConfig } from 'stentor-models';
 import { KnowledgeBaseDocument } from 'stentor-models';
 import { KnowledgeBaseFAQ } from 'stentor-models';
+import { KnowledgeBaseGenerated } from 'stentor-models';
 import { KnowledgeBaseResult } from 'stentor-models';
 import { KnowledgeBaseService } from 'stentor-models';
 import { KnowledgeBaseSuggested } from 'stentor-models';
+import { LAUNCH_REQUEST_ID } from 'stentor-constants';
+import { LAUNCH_REQUEST_TYPE } from 'stentor-constants';
 import { LaunchRequestBuilder } from 'stentor-request';
+import { LeadFormField } from 'stentor-models';
 import { List } from 'stentor-models';
 import { ListButton } from 'stentor-models';
 import { listisize } from 'stentor-utils';
 import { ListItem } from 'stentor-models';
+import { log } from 'stentor-logger';
+import { Message } from 'stentor-models';
 import { numberToWord } from 'stentor-utils';
+import { OPTION_SELECT_ID } from 'stentor-constants';
+import { OPTION_SELECT_REQUEST_TYPE } from 'stentor-constants';
 import { OptionSelectRequest } from 'stentor-models';
 import { PIIService } from 'stentor-models';
 import { pruneEmpty } from 'stentor-utils';
@@ -82,23 +102,32 @@ import { Redirect } from 'stentor-models';
 import { Request as Request_2 } from 'stentor-models';
 import { RequestSlot } from 'stentor-models';
 import { RequestSlotMap } from 'stentor-models';
+import { requestSlotsToString } from 'stentor-utils';
+import { requestSlotValueToString } from 'stentor-utils';
 import { Response as Response_2 } from 'stentor-models';
 import { ResponseBuilder } from 'stentor-response';
 import { ResponseOutput } from 'stentor-models';
+import { responseToMessage } from 'stentor-utils';
 import { RuntimeCallback } from 'stentor-models';
 import { RuntimeContext } from 'stentor-models';
+import { SESSION_STORAGE_CURRENT_HANDLER } from 'stentor-constants';
+import { SESSION_STORAGE_NEW_USER } from 'stentor-constants';
+import { SESSION_STORAGE_PREVIOUS_HANDLER } from 'stentor-constants';
 import { SessionEndedRequestBuilder } from 'stentor-request';
 import { SMSService } from 'stentor-models';
 import { ssmlify } from 'stentor-utils';
 import { Storage as Storage_2 } from 'stentor-models';
+import { TimeoutError } from 'stentor-service-fetch';
+import { toResponseOutput } from 'stentor-utils';
 import { UserStorageService } from 'stentor-models';
+import { WithTimeout } from 'stentor-service-fetch';
 
 export { AbstractHandler }
 
 // @public
 export class Assistant {
     // @beta
-    express(app?: express.Application, path?: string): express.Application;
+    express(app?: Application, path?: string): Application;
     lambda(): AWSLambda_2.Handler;
     withChannels(channels: Channel[]): Assistant;
     withCrmService(crmService: CrmService): Assistant;
@@ -131,6 +160,8 @@ export { ContextFactory }
 
 export { ConversationHandler }
 
+export { CrmService }
+
 export { Data }
 
 export { DateTime }
@@ -149,9 +180,13 @@ export { determineSegment }
 
 export { Device }
 
+export { ErrorService }
+
 export { estimateSize }
 
 export { existsAndNotEmpty }
+
+export { FetchService }
 
 export { findValueForKey }
 
@@ -162,6 +197,8 @@ export { Forward }
 export { getMatchedSlotData }
 
 export { getResponse }
+
+export { getResponseByTag }
 
 export { getSlots }
 
@@ -177,9 +214,19 @@ export { HandlersKeyValue }
 
 export { HandlersMap }
 
+export { hasSessionId }
+
+export { INPUT_UNKNOWN }
+
+export { INPUT_UNKNOWN_ID }
+
+export { INPUT_UNKNOWN_REQUEST_TYPE }
+
 export { InputUnknownRequestBuilder }
 
 export { Intent }
+
+export { INTENT_REQUEST_TYPE }
 
 export { IntentRequest }
 
@@ -187,9 +234,13 @@ export { IntentRequestBuilder }
 
 export { isAnonymousUser }
 
+export { isChannelActionRequest }
+
 export { isDateTime }
 
 export { isDateTimeRange }
+
+export { isDeliveryAddressRequest }
 
 export { isInputUnknownRequest }
 
@@ -209,17 +260,29 @@ export { isSignInRequest }
 
 export { isSurfaceRequest }
 
+export { isTransactionDecisionRequest }
+
+export { isTransactionRequirementCheckRequest }
+
 export { keyFromRequest }
 
 export { KnowledgeBaseDocument }
 
 export { KnowledgeBaseFAQ }
 
+export { KnowledgeBaseGenerated }
+
 export { KnowledgeBaseResult }
 
 export { KnowledgeBaseSuggested }
 
+export { LAUNCH_REQUEST_ID }
+
+export { LAUNCH_REQUEST_TYPE }
+
 export { LaunchRequestBuilder }
+
+export { LeadFormField }
 
 export { List }
 
@@ -229,7 +292,15 @@ export { listisize }
 
 export { ListItem }
 
+export { log }
+
+export { Message }
+
 export { numberToWord }
+
+export { OPTION_SELECT_ID }
+
+export { OPTION_SELECT_REQUEST_TYPE }
 
 export { OptionSelectRequest }
 
@@ -245,23 +316,46 @@ export { RequestSlot }
 
 export { RequestSlotMap }
 
+export { requestSlotsToString }
+
+export { requestSlotValueToString }
+
 export { Response_2 as Response }
 
 export { ResponseBuilder }
 
 export { ResponseOutput }
 
+export { responseToMessage }
+
 export { RuntimeCallback }
 
 export { RuntimeContext }
 
+export { SESSION_STORAGE_CURRENT_HANDLER }
+
+export { SESSION_STORAGE_NEW_USER }
+
+export { SESSION_STORAGE_PREVIOUS_HANDLER }
+
 export { SessionEndedRequestBuilder }
+
+// Warning: (ae-missing-release-tag) "setEnv" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export function setEnv(): Promise<void>;
 
 export { ssmlify }
 
 export { Storage_2 as Storage }
 
+export { TimeoutError }
+
+export { toResponseOutput }
+
 export { UserStorageService }
+
+export { WithTimeout }
 
 // (No @packageDocumentation comment for this package)
 

@@ -23,14 +23,16 @@
     "mocha": "11.7.5",
     "mocha-junit-reporter": "2.2.1",
     "nyc": "17.1.0",
-    "syncpack": "13.0.4"
+    "syncpack": "13.0.4",
+    "typedoc": "0.28.14",
+    "typedoc-plugin-markdown": "4.9.0"
   },
   "scripts": {
     "api": "lerna run api",
-    "docs": "api-documenter markdown -i ./api/json -o ./api/docs/",
-    "docs:build": "./deploy/build-docs.sh",
-    "docs:deploy": "./deploy/deploy-docs.sh",
-    "docs:serve": "yarn workspace website serve",
+    "docs": "typedoc && node scripts/fix-api-docs.js",
+    "docs:build": "yarn docs && cd website && yarn build",
+    "docs:serve": "cd website && yarn start",
+    "docs:deploy": "cd website && GIT_USER=${GIT_USER} yarn deploy",
     "lerna": "lerna",
     "clean": "lerna run clean",
     "clean:modules": "lerna clean",

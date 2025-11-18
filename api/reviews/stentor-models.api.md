@@ -6,20 +6,49 @@
 
 import { Translator } from '@xapp/patterns';
 
-// Warning: (ae-missing-release-tag) "AbstractResponseBuilder" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AbstractCrmService" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export class AbstractCrmService implements CrmService {
+    constructor(props: CrmServiceProps);
+    // (undocumented)
+    protected availableDays?: DayOfWeek[];
+    // (undocumented)
+    protected blockedDays?: DateTime[];
+    // (undocumented)
+    protected delayedJobTypes?: string[];
+    // (undocumented)
+    getAvailability(range: DateTimeRange, options?: CrmServiceAvailabilityOptions): Promise<CrmServiceAvailability>;
+    // (undocumented)
+    getJobType(message: string, externalLead?: ExternalLead): Promise<CrmServiceJobType>;
+    // (undocumented)
+    protected maxTotalDailyAppointments?: number | undefined;
+    // (undocumented)
+    send(externalLead: ExternalLead, extras?: Record<string, unknown>): Promise<CrmResponse>;
+    // (undocumented)
+    update?(externalLead: ExternalLead, extras?: Record<string, unknown>): Promise<CrmResponse>;
+}
+
+// Warning: (ae-missing-release-tag) "AbstractResponseBuilder" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export abstract class AbstractResponseBuilder<R = any> {
     constructor(props: ResponseBuilderProps);
     abstract askForAccountLinking(response?: string | SimpleResponse): AbstractResponseBuilder<R>;
     abstract askForCallTransfer(phoneNumber: string): AbstractResponseBuilder<R>;
+    abstract askForDeliveryAddress(response?: string | SimpleResponse): AbstractResponseBuilder<R>;
     // @alpha
     abstract askForHandoff(handoffTargetId: string): AbstractResponseBuilder<R>;
     abstract askForListAccess(response?: string | SimpleResponse): AbstractResponseBuilder<R>;
     // @beta
     abstract askForNotification(intentId?: string): AbstractResponseBuilder<R>;
+    // (undocumented)
+    abstract askForOrderUpdate(response: string | SimpleResponse, order: OrderDescription): AbstractResponseBuilder<R>;
     abstract askForSurfaceChange(response?: string | SimpleResponse, notificationLabel?: string): AbstractResponseBuilder<R>;
+    // (undocumented)
+    abstract askForTransactionDecision(paymentParameters: PaymentParameters, order: OrderDescription): AbstractResponseBuilder<R>;
     abstract askForUserData(userDataType: UserDataType, accessData?: ApiAccessData): Promise<UserDataValue>;
+    abstract askTransactionRequirements(): AbstractResponseBuilder<R>;
     // @deprecated
     protected readonly assistantTitle?: string;
     // @deprecated
@@ -37,7 +66,7 @@ export abstract class AbstractResponseBuilder<R = any> {
     protected _response: Response_2<ResponseOutput>;
     abstract say(ssml: string | ResponseOutput, append?: boolean): AbstractResponseBuilder<R>;
     abstract stop(): AbstractResponseBuilder<R>;
-    tag: string | undefined;
+    tag: string | string[] | undefined;
     abstract withActiveContext(context: ActiveContext | ActiveContext[]): AbstractResponseBuilder<R>;
     abstract withCanFulfill(results: CanFulfillIntentResult): AbstractResponseBuilder<R>;
     abstract withCard(card: Card): AbstractResponseBuilder<R>;
@@ -47,12 +76,12 @@ export abstract class AbstractResponseBuilder<R = any> {
     abstract withSuggestions(suggestion: SuggestionTypes | SuggestionTypes[], append?: boolean): AbstractResponseBuilder<R>;
 }
 
-// Warning: (ae-missing-release-tag) "Action" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Action" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type Action = StorageAction;
 
-// Warning: (ae-missing-release-tag) "Actionable" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Actionable" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface Actionable {
@@ -60,7 +89,16 @@ export interface Actionable {
     actions: Action[];
 }
 
-// Warning: (ae-missing-release-tag) "ActiveContext" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ActionableItem" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface ActionableItem {
+    id: string;
+    label: string;
+    url: string;
+}
+
+// Warning: (ae-missing-release-tag) "ActiveContext" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface ActiveContext {
@@ -75,12 +113,12 @@ export interface ActiveContext {
     };
 }
 
-// Warning: (ae-missing-release-tag) "ActiveWithin" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ActiveWithin" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type ActiveWithin<T> = T & ActiveWithinable;
 
-// Warning: (ae-missing-release-tag) "ActiveWithinable" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ActiveWithinable" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface ActiveWithinable {
@@ -88,7 +126,44 @@ export interface ActiveWithinable {
     activeWithin: Duration;
 }
 
-// Warning: (ae-missing-release-tag) "AlexaPlatformData" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AddressAutocompleteParameters" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface AddressAutocompleteParameters {
+    components?: string;
+    key?: string;
+    language?: string;
+    location?: string;
+    // (undocumented)
+    locationbias?: string;
+    // (undocumented)
+    locationrestriction?: string;
+    radius?: string;
+}
+
+// Warning: (ae-missing-release-tag) "AddressIntentRequest" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface AddressIntentRequest extends IntentRequest {
+    intentId: string;
+    slots: AddressIntentRequestSlotMap;
+}
+
+// Warning: (ae-missing-release-tag) "AddressIntentRequestSlotMap" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface AddressIntentRequestSlotMap extends RequestSlotMap {
+    address?: RequestSlot<string>;
+    city?: RequestSlot<string>;
+    quadrant?: RequestSlot<string>;
+    state?: RequestSlot<string>;
+    street?: RequestSlot<string>;
+    street_name?: RequestSlot<string>;
+    street_number?: RequestSlot<string>;
+    zip?: RequestSlot<string>;
+}
+
+// Warning: (ae-missing-release-tag) "AlexaPlatformData" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface AlexaPlatformData extends BaseData {
@@ -104,12 +179,12 @@ export interface AlexaPlatformData extends BaseData {
     privacyAndCompliance?: Pick<PrivacyAndCompliance, keyof RequiredAlexaPrivacyAndCompliance>;
 }
 
-// Warning: (ae-missing-release-tag) "AnalyticsEvent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AnalyticsEvent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AnalyticsEvent = "AnalyticsEvent";
 
-// Warning: (ae-missing-release-tag) "ApiAccessData" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ApiAccessData" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface ApiAccessData {
@@ -119,7 +194,7 @@ export interface ApiAccessData {
     apiBaseUrl: string;
 }
 
-// Warning: (ae-missing-release-tag) "App" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "App" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface App extends Localizable<LocaleSpecificApp> {
@@ -147,8 +222,6 @@ export interface App extends Localizable<LocaleSpecificApp> {
     icon?: string;
     invocationName?: string;
     keywords?: string[];
-    // Warning: (ae-forgotten-export) The symbol "KnowledgebaseData" needs to be exported by the entry point index.d.ts
-    //
     // @alpha
     knowledgebase?: KnowledgebaseData[];
     largeBanner?: string;
@@ -170,96 +243,111 @@ export interface App extends Localizable<LocaleSpecificApp> {
     testingInstructions?: string;
 }
 
-// Warning: (ae-missing-release-tag) "APP_STATUS_ARCHIVED" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "APP_STATUS_ARCHIVED" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const APP_STATUS_ARCHIVED: AppStatusArchived;
 
-// Warning: (ae-missing-release-tag) "APP_STATUS_IN_CERTIFICATION" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "APP_STATUS_CANCELLED" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export const APP_STATUS_CANCELLED: AppStatusCancelled;
+
+// Warning: (ae-missing-release-tag) "APP_STATUS_IN_CERTIFICATION" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const APP_STATUS_IN_CERTIFICATION: AppStatusInCertification;
 
-// Warning: (ae-missing-release-tag) "APP_STATUS_INCOMPLETE" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "APP_STATUS_INCOMPLETE" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const APP_STATUS_INCOMPLETE: AppStatusIncomplete;
 
-// Warning: (ae-missing-release-tag) "APP_STATUS_LIVE" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "APP_STATUS_LIVE" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const APP_STATUS_LIVE: AppStatusLive;
 
-// Warning: (ae-missing-release-tag) "APP_STATUS_LIVE_AND_IN_CERT" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "APP_STATUS_LIVE_AND_IN_CERT" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const APP_STATUS_LIVE_AND_IN_CERT: AppStatusLiveInCert;
 
-// Warning: (ae-missing-release-tag) "APP_STATUS_LIVE_AND_REQUIRES_ATTENTION" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "APP_STATUS_LIVE_AND_REQUIRES_ATTENTION" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const APP_STATUS_LIVE_AND_REQUIRES_ATTENTION: AppStatusLiveAndRequiresAttention;
 
-// Warning: (ae-missing-release-tag) "APP_STATUS_LIVE_AND_REQUIRES_CERT" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "APP_STATUS_LIVE_AND_REQUIRES_CERT" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const APP_STATUS_LIVE_AND_REQUIRES_CERT: AppStatusLiveRequiresCert;
 
-// Warning: (ae-missing-release-tag) "APP_STATUS_LIVE_AND_REQUIRES_PUBLISH" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "APP_STATUS_LIVE_AND_REQUIRES_PUBLISH" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const APP_STATUS_LIVE_AND_REQUIRES_PUBLISH: AppStatusLiveAndRequiresPublish;
 
-// Warning: (ae-missing-release-tag) "APP_STATUS_REQUIRES_ATTENTION" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "APP_STATUS_READY_FOR_INSTALL" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export const APP_STATUS_READY_FOR_INSTALL: AppStatusReadyForInstall;
+
+// Warning: (ae-missing-release-tag) "APP_STATUS_REQUIRES_ATTENTION" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const APP_STATUS_REQUIRES_ATTENTION: AppStatusRequiresAttention;
 
-// Warning: (ae-missing-release-tag) "APP_STATUS_REQUIRES_PUBLISH" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "APP_STATUS_REQUIRES_PUBLISH" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const APP_STATUS_REQUIRES_PUBLISH: AppStatusRequiresPublish;
 
-// Warning: (ae-missing-release-tag) "APP_STATUS_SUBMITTED_FOR_REVIEW" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "APP_STATUS_SUBMITTED_FOR_REVIEW" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const APP_STATUS_SUBMITTED_FOR_REVIEW: AppStatusSubmittedForReview;
 
-// Warning: (ae-missing-release-tag) "APP_STATUS_UNDER_REVIEW" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "APP_STATUS_UNDER_REVIEW" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const APP_STATUS_UNDER_REVIEW: AppStatusUnderReview;
 
-// Warning: (ae-missing-release-tag) "APP_STATUS_UNKNOWN" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "APP_STATUS_UNINSTALLED" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export const APP_STATUS_UNINSTALLED: AppStatusUninstalled;
+
+// Warning: (ae-missing-release-tag) "APP_STATUS_UNKNOWN" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const APP_STATUS_UNKNOWN: AppStatusUnknown;
 
-// Warning: (ae-missing-release-tag) "AppDataStream" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AppDataStream" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type AppDataStream = BespokenDataStream | ChatbaseDataStream | GoogleAnalyticsStream | VoiceLabsDataStream | LuisDataStream | DialogflowDataStream | DashbotDataStream;
 
-// Warning: (ae-missing-release-tag) "AppDataStreamsMap" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AppDataStreamsMap" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AppDataStreamsMap = {
     [dataStream in AppDataStreamTypes]?: AppDataStream;
 };
 
-// Warning: (ae-missing-release-tag) "AppDataStreamsRepo" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AppDataStreamsRepo" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AppDataStreamsRepo = {
     [appId in string]?: AppDataStreamsMap;
 };
 
-// Warning: (ae-missing-release-tag) "AppDataStreamTypes" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AppDataStreamTypes" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type AppDataStreamTypes = BespokenDataStreamType | VoiceLabsDataStreamType | GoogleAnalyticsDataStreamType | ChatbaseDataStreamType | LuisType | DialogflowType | DashbotDataStreamType;
 
-// Warning: (ae-missing-release-tag) "AppEndpoint" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AppEndpoint" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface AppEndpoint {
@@ -267,7 +355,7 @@ export interface AppEndpoint {
     url: string;
 }
 
-// Warning: (ae-missing-release-tag) "AppEndpointMap" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AppEndpointMap" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface AppEndpointMap {
@@ -275,7 +363,7 @@ export interface AppEndpointMap {
     [platform: string]: AppEndpoint;
 }
 
-// Warning: (ae-missing-release-tag) "AppPlatformDataMap" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AppPlatformDataMap" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface AppPlatformDataMap {
@@ -285,7 +373,7 @@ export interface AppPlatformDataMap {
     google?: GooglePlatformData;
 }
 
-// Warning: (ae-missing-release-tag) "AppRuntimeData" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AppRuntimeData" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface AppRuntimeData {
@@ -293,7 +381,7 @@ export interface AppRuntimeData {
     title?: string;
 }
 
-// Warning: (ae-missing-release-tag) "AppService" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AppService" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface AppService {
@@ -301,7 +389,7 @@ export interface AppService {
     get(appId: string): Promise<App | undefined>;
 }
 
-// Warning: (ae-missing-release-tag) "AppStatus" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AppStatus" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface AppStatus {
@@ -311,82 +399,97 @@ export interface AppStatus {
     type: AppStatusType;
 }
 
-// Warning: (ae-missing-release-tag) "AppStatusArchived" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AppStatusArchived" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AppStatusArchived = "Archived";
 
-// Warning: (ae-missing-release-tag) "AppStatusInCertification" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AppStatusCancelled" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type AppStatusCancelled = "Cancelled";
+
+// Warning: (ae-missing-release-tag) "AppStatusInCertification" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AppStatusInCertification = "In Certification";
 
-// Warning: (ae-missing-release-tag) "AppStatusIncomplete" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AppStatusIncomplete" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AppStatusIncomplete = "Incomplete";
 
-// Warning: (ae-missing-release-tag) "AppStatusLive" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AppStatusLive" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AppStatusLive = "Live";
 
-// Warning: (ae-missing-release-tag) "AppStatusLiveAndRequiresAttention" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AppStatusLiveAndRequiresAttention" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AppStatusLiveAndRequiresAttention = "Live: Requires Attention";
 
-// Warning: (ae-missing-release-tag) "AppStatusLiveAndRequiresPublish" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AppStatusLiveAndRequiresPublish" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AppStatusLiveAndRequiresPublish = "Live: Requires Publish";
 
-// Warning: (ae-missing-release-tag) "AppStatusLiveInCert" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AppStatusLiveInCert" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AppStatusLiveInCert = "Live: In Certification";
 
-// Warning: (ae-missing-release-tag) "AppStatusLiveRequiresCert" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AppStatusLiveRequiresCert" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AppStatusLiveRequiresCert = "Live: Requires Cert";
 
-// Warning: (ae-missing-release-tag) "AppStatusRequiresAttention" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AppStatusReadyForInstall" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type AppStatusReadyForInstall = "Ready for Install";
+
+// Warning: (ae-missing-release-tag) "AppStatusRequiresAttention" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AppStatusRequiresAttention = "Requires Attention";
 
-// Warning: (ae-missing-release-tag) "AppStatusRequiresPublish" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AppStatusRequiresPublish" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AppStatusRequiresPublish = "Needs publish";
 
-// Warning: (ae-missing-release-tag) "AppStatusSubmittedForReview" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AppStatusSubmittedForReview" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AppStatusSubmittedForReview = "Submitted For Review";
 
-// Warning: (ae-missing-release-tag) "AppStatusType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AppStatusType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export type AppStatusType = AppStatusUnknown | AppStatusIncomplete | AppStatusSubmittedForReview | AppStatusUnderReview | AppStatusInCertification | AppStatusRequiresPublish | AppStatusLive | AppStatusRequiresAttention | AppStatusArchived | AppStatusLiveRequiresCert | AppStatusLiveInCert | AppStatusLiveAndRequiresPublish | AppStatusLiveAndRequiresAttention;
+export type AppStatusType = AppStatusUnknown | AppStatusIncomplete | AppStatusSubmittedForReview | AppStatusUnderReview | AppStatusInCertification | AppStatusRequiresPublish | AppStatusLive | AppStatusRequiresAttention | AppStatusArchived | AppStatusLiveRequiresCert | AppStatusLiveInCert | AppStatusLiveAndRequiresPublish | AppStatusLiveAndRequiresAttention | AppStatusCancelled | AppStatusUninstalled;
 
-// Warning: (ae-missing-release-tag) "AppStatusUnderReview" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AppStatusUnderReview" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AppStatusUnderReview = "Under Review";
 
-// Warning: (ae-missing-release-tag) "AppStatusUnknown" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AppStatusUninstalled" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type AppStatusUninstalled = "Uninstalled";
+
+// Warning: (ae-missing-release-tag) "AppStatusUnknown" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AppStatusUnknown = "Unknown";
 
-// Warning: (ae-missing-release-tag) "AttachmentRequestID" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AttachmentRequestID" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AttachmentRequestID = "AttachmentRequest";
 
-// Warning: (ae-missing-release-tag) "Audio" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Audio" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 interface Audio_2 extends PlayableMedia {
@@ -400,7 +503,7 @@ interface Audio_2 extends PlayableMedia {
 }
 export { Audio_2 as Audio }
 
-// Warning: (ae-missing-release-tag) "AudioLiveStream" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AudioLiveStream" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface AudioLiveStream extends Audio_2 {
@@ -411,42 +514,42 @@ export interface AudioLiveStream extends Audio_2 {
     type: AudioLiveStreamType;
 }
 
-// Warning: (ae-missing-release-tag) "AudioLiveStreamType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AudioLiveStreamType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AudioLiveStreamType = "LiveStream";
 
-// Warning: (ae-missing-release-tag) "AudioPlayerEvent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AudioPlayerEvent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AudioPlayerEvent = AudioPlayerPlaybackStartedEvent | AudioPlayerPlaybackFinishedEvent | AudioPlayerPlaybackStoppedEvent | AudioPlayerPlaybackNearlyFinishedEvent | AudioPlayerPlaybackFailedEvent | AudioPlayerSystemExceptionEvent;
 
-// Warning: (ae-missing-release-tag) "AudioPlayerPlaybackFailedEvent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AudioPlayerPlaybackFailedEvent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AudioPlayerPlaybackFailedEvent = "AudioPlayerPlaybackFailed";
 
-// Warning: (ae-missing-release-tag) "AudioPlayerPlaybackFinishedEvent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AudioPlayerPlaybackFinishedEvent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AudioPlayerPlaybackFinishedEvent = "AudioPlayerPlaybackFinished";
 
-// Warning: (ae-missing-release-tag) "AudioPlayerPlaybackNearlyFinishedEvent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AudioPlayerPlaybackNearlyFinishedEvent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AudioPlayerPlaybackNearlyFinishedEvent = "AudioPlayerPlaybackNearlyFinished";
 
-// Warning: (ae-missing-release-tag) "AudioPlayerPlaybackStartedEvent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AudioPlayerPlaybackStartedEvent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AudioPlayerPlaybackStartedEvent = "AudioPlayerPlaybackStarted";
 
-// Warning: (ae-missing-release-tag) "AudioPlayerPlaybackStoppedEvent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AudioPlayerPlaybackStoppedEvent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AudioPlayerPlaybackStoppedEvent = "AudioPlayerPlaybackStopped";
 
-// Warning: (ae-missing-release-tag) "AudioPlayerRequest" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AudioPlayerRequest" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface AudioPlayerRequest extends BaseRequest {
@@ -462,7 +565,7 @@ export interface AudioPlayerRequest extends BaseRequest {
     type: AudioPlayerRequestType;
 }
 
-// Warning: (ae-missing-release-tag) "AudioPlayerRequestEvent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AudioPlayerRequestEvent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface AudioPlayerRequestEvent extends RequestEvent<AudioPlayerRequestPayload> {
@@ -470,7 +573,7 @@ export interface AudioPlayerRequestEvent extends RequestEvent<AudioPlayerRequest
     name: AudioPlayerRequestType;
 }
 
-// Warning: (ae-missing-release-tag) "AudioPlayerRequestPayload" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AudioPlayerRequestPayload" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface AudioPlayerRequestPayload {
@@ -480,22 +583,34 @@ export interface AudioPlayerRequestPayload {
     token: string;
 }
 
-// Warning: (ae-missing-release-tag) "AudioPlayerRequestType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AudioPlayerRequestType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AudioPlayerRequestType = "AUDIO_PLAYER_REQUEST";
 
-// Warning: (ae-missing-release-tag) "AudioPlayerSystemExceptionEvent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AudioPlayerSystemExceptionEvent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type AudioPlayerSystemExceptionEvent = "AudioPlayerSystemException";
 
-// Warning: (ae-missing-release-tag) "AudioType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AudioType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type AudioType = PodcastEpisodeType | SongType | AudioLiveStreamType | GenericAudioType;
 
-// Warning: (ae-missing-release-tag) "BaseData" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AvailabilityClass" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface AvailabilityClass {
+    appointmentsPerDay?: number;
+    id: string;
+    leadOnly?: boolean;
+    name: string;
+    numberOfDaysOut?: number;
+    summary: string;
+}
+
+// Warning: (ae-missing-release-tag) "BaseData" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface BaseData {
@@ -503,7 +618,7 @@ export interface BaseData {
     platform: string;
 }
 
-// Warning: (ae-missing-release-tag) "BaseDataStream" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "BaseDataStream" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface BaseDataStream {
@@ -511,7 +626,7 @@ export interface BaseDataStream {
     type: AppDataStreamTypes;
 }
 
-// Warning: (ae-missing-release-tag) "BaseDisplay" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "BaseDisplay" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface BaseDisplay {
@@ -523,19 +638,21 @@ export interface BaseDisplay {
     type: string;
 }
 
-// Warning: (ae-missing-release-tag) "BaseHandlerType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "BaseHandlerType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type BaseHandlerType = "HandlerIntent";
 
-// Warning: (ae-missing-release-tag) "BaseRequest" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "BaseRequest" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface BaseRequest {
     accessToken?: string;
     anonymous?: boolean;
     apiAccess?: ApiAccessData;
+    attributes?: Record<string, unknown>;
     channel?: string;
+    createdTime?: string;
     device?: Device;
     deviceId?: string;
     isBargeIn?: boolean;
@@ -550,7 +667,17 @@ export interface BaseRequest {
     userId: string;
 }
 
-// Warning: (ae-missing-release-tag) "BespokenDataStream" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "BaseService" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface BaseService {
+    logs?: boolean;
+    name?: string;
+    retryAttempts?: number;
+    timeout?: number;
+}
+
+// Warning: (ae-missing-release-tag) "BespokenDataStream" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface BespokenDataStream extends BaseDataStream {
@@ -560,27 +687,54 @@ export interface BespokenDataStream extends BaseDataStream {
     type: BespokenDataStreamType;
 }
 
-// Warning: (ae-missing-release-tag) "BespokenDataStreamType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "BespokenDataStreamType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type BespokenDataStreamType = "bespoken";
 
-// Warning: (ae-missing-release-tag) "BuiltInIntents" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "BuiltInIntents" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type BuiltInIntents = CancelIntent | FirstIntent | HelpIntent | LatestIntent | InputUnknown | LoopOffIntent | LoopOnIntent | NextIntent | NoIntent | PauseIntent | PreviousIntent | RepeatIntent | ResumeIntent | ShuffleOffIntent | ShuffleOnIntent | StartOverIntent | StopIntent | YesIntent;
 
-// Warning: (ae-missing-release-tag) "Callback" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "BusyDayDescription" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface BusyDayDescription {
+    readonly availableDays?: DayOfWeek[];
+    readonly blockCurrentDay?: boolean;
+    readonly blockNextBusinessDays?: number;
+    readonly blockWeekends?: boolean;
+    readonly currentDayAvailableUntil?: string;
+}
+
+// Warning: (ae-missing-release-tag) "BuyerInfo" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface BuyerInfo {
+    // (undocumented)
+    displayName: string;
+    // (undocumented)
+    email: string;
+    // (undocumented)
+    firstName: string;
+    // (undocumented)
+    lastName: string;
+    // (undocumented)
+    phoneNumbers: string[];
+}
+
+// Warning: (ae-missing-release-tag) "Callback" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type Callback<TResult = any> = (error?: Error | string | null, result?: TResult) => void;
 
-// Warning: (ae-missing-release-tag) "CancelIntent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "CancelIntent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type CancelIntent = "CancelIntent";
 
-// Warning: (ae-missing-release-tag) "CanFulfillIntentResult" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "CanFulfillIntentResult" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface CanFulfillIntentResult {
@@ -592,7 +746,7 @@ export interface CanFulfillIntentResult {
     };
 }
 
-// Warning: (ae-missing-release-tag) "CanFulfillIntentSlotResult" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "CanFulfillIntentSlotResult" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface CanFulfillIntentSlotResult {
@@ -602,7 +756,7 @@ export interface CanFulfillIntentSlotResult {
     canUnderstand?: ThreeChoices;
 }
 
-// Warning: (ae-missing-release-tag) "Card" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Card" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface Card extends BaseDisplay {
@@ -613,12 +767,13 @@ export interface Card extends BaseDisplay {
     imageActionUrl?: string;
     largeImageUrl?: string;
     smallImageUrl?: string;
+    subTitle?: string;
     title: string;
     // (undocumented)
     type: "CARD";
 }
 
-// Warning: (ae-missing-release-tag) "CardButton" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "CardButton" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface CardButton {
@@ -628,7 +783,7 @@ export interface CardButton {
     title: string;
 }
 
-// Warning: (ae-missing-release-tag) "Channel" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Channel" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface Channel {
@@ -647,7 +802,29 @@ export interface Channel {
     test?(body: object): boolean;
 }
 
-// Warning: (ae-missing-release-tag) "ChannelData" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Channelable" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type Channelable<T> = T & Channeled;
+
+// @beta
+export interface ChannelActionRequest extends BaseRequest {
+    action: "OPEN_URL" | "FEEDBACK_RESPONSE" | string;
+    detail?: string;
+    feedback?: "POSITIVE" | "NEGATIVE" | "RELEVANT" | "NOT_RELEVANT" | string;
+    referenceId?: string;
+    sessionId?: string;
+    // (undocumented)
+    type: ChannelActionRequestType;
+    uri?: string;
+}
+
+// Warning: (ae-missing-release-tag) "ChannelActionRequestType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type ChannelActionRequestType = "CHANNEL_ACTION_REQUEST";
+
+// Warning: (ae-missing-release-tag) "ChannelData" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface ChannelData {
@@ -659,12 +836,21 @@ export interface ChannelData {
     useNLU?: string;
 }
 
-// Warning: (ae-missing-release-tag) "ChannelHooks" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Channeled" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface Channeled {
+    channel: {
+        name?: string;
+    };
+}
+
+// Warning: (ae-missing-release-tag) "ChannelHooks" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export type ChannelHooks = Pick<Hooks, "preExecution" | "postRequestTranslation">;
+export type ChannelHooks = Pick<Hooks, "preExecution" | "postRequestTranslation" | "preResponseTranslation">;
 
-// Warning: (ae-missing-release-tag) "ChatbaseDataStream" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ChatbaseDataStream" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface ChatbaseDataStream extends BaseDataStream {
@@ -674,28 +860,28 @@ export interface ChatbaseDataStream extends BaseDataStream {
     type: ChatbaseDataStreamType;
 }
 
-// Warning: (ae-missing-release-tag) "ChatbaseDataStreamType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ChatbaseDataStreamType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type ChatbaseDataStreamType = "chatbase";
 
-// Warning: (ae-missing-release-tag) "CommFieldType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "CommFieldType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type CommFieldType = "phoneNumber" | "emailAddress";
 
-// Warning: (ae-missing-release-tag) "CompilablePath" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "CompilablePath" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type CompilablePath = HistoricalPath | PreviousHandlerPath;
 
 // Warning: (ae-incompatible-release-tags) The symbol "Conditional" is marked as @public, but its signature references "Conditioned" which is marked as @beta
-// Warning: (ae-missing-release-tag) "Conditional" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Conditional" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type Conditional<T> = T & Conditioned;
 
-// Warning: (ae-missing-release-tag) "ConditionalCheck" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ConditionalCheck" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface ConditionalCheck<T = any> {
@@ -715,7 +901,7 @@ export interface Conditions {
     should?: (Contexts | object)[];
 }
 
-// Warning: (ae-missing-release-tag) "Content" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Content" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface Content {
@@ -724,7 +910,15 @@ export interface Content {
     HelpIntent?: Response_2[];
 }
 
-// Warning: (ae-missing-release-tag) "Context" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Contents" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface Contents {
+    // (undocumented)
+    lineItems: LineItem[];
+}
+
+// Warning: (ae-missing-release-tag) "Context" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface Context<S extends Storage_2 = Storage_2> {
@@ -739,20 +933,21 @@ export interface Context<S extends Storage_2 = Storage_2> {
     timeLeftInMillis?(): number;
 }
 
-// Warning: (ae-missing-release-tag) "Contexts" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Contexts" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type Contexts = ActiveWithinable | FirstTimeable | HaveNotSeenWithinable | JSONDependent | RequestDependent | Schedulable | SlotDependent | StorageDependent | SystemDependent;
 
-// Warning: (ae-missing-release-tag) "ContextServices" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ContextServices" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface ContextServices {
     crmService?: CrmService;
+    eventService?: ErrorService;
     smsService?: SMSService;
 }
 
-// Warning: (ae-missing-release-tag) "Contextual" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Contextual" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface Contextual {
@@ -762,58 +957,93 @@ export interface Contextual {
     };
 }
 
-// Warning: (ae-missing-release-tag) "ConversationHandlerType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ConversationHandlerType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type ConversationHandlerType = "InSessionIntent";
 
-// Warning: (ae-missing-release-tag) "CrmResponse" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "CrmResponse" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface CrmResponse {
-    // (undocumented)
     message?: string;
-    // (undocumented)
+    refId?: string;
     status: "Success" | "Failure";
 }
 
-// Warning: (ae-missing-release-tag) "CrmService" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "CrmService" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface CrmService {
-    // (undocumented)
-    send(externalLead: ExternalLead): Promise<CrmResponse>;
+    getAvailability(range: DateTimeRange, options?: CrmServiceAvailabilityOptions): Promise<CrmServiceAvailability>;
+    getJobType(message: string, externalLead?: ExternalLead): Promise<CrmServiceJobType>;
+    send(externalLead: ExternalLead, extras?: Record<string, unknown>): Promise<CrmResponse>;
+    // @deprecated
+    update?(externalLead: ExternalLead, extras?: Record<string, unknown>): Promise<CrmResponse>;
 }
 
-// Warning: (ae-missing-release-tag) "CrmTranscript" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "CrmServiceAvailability" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export interface CrmTranscript {
-    // (undocumented)
-    items: CrmTranscriptExchange[];
+export interface CrmServiceAvailability {
+    range: DateTimeRange;
+    unavailabilities: CrmServiceDateAvailability[];
 }
 
-// Warning: (ae-missing-release-tag) "CrmTranscriptAttributes" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "CrmServiceAvailabilityOptions" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export interface CrmTranscriptAttributes {
-    // (undocumented)
-    [attribute: string]: unknown;
+export interface CrmServiceAvailabilityOptions extends CrmServiceAvailabilitySettings {
+    jobType?: CrmServiceJobType;
 }
 
-// Warning: (ae-missing-release-tag) "CrmTranscriptExchange" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "CrmServiceAvailabilitySettings" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
-export interface CrmTranscriptExchange {
-    // (undocumented)
-    attributes?: CrmTranscriptAttributes;
-    // (undocumented)
-    input: string;
-    // (undocumented)
-    output: string;
+export interface CrmServiceAvailabilitySettings {
+    availabilityClasses?: AvailabilityClass[];
+    availableDays?: DayOfWeek[];
+    blockedDays?: DateTime[];
+    defaultAvailabilityClass?: string;
+    defaultBusyDays?: BusyDayDescription;
+    delayedJobTypes?: string[];
+    maxTotalDailyAppointments?: number;
 }
 
-// Warning: (ae-missing-release-tag) "DashbotDataStream" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "CrmServiceDateAvailability" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface CrmServiceDateAvailability {
+    available: boolean;
+    blockedTimeSlots?: CrmServiceTimeAvailability[];
+    date: DateTime;
+    remainingAppointments?: number;
+}
+
+// Warning: (ae-missing-release-tag) "CrmServiceJobType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface CrmServiceJobType {
+    // (undocumented)
+    class?: string;
+    id: string;
+    name?: string;
+}
+
+// Warning: (ae-missing-release-tag) "CrmServiceProps" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type CrmServiceProps = CrmServiceAvailabilitySettings;
+
+// Warning: (ae-missing-release-tag) "CrmServiceTimeAvailability" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface CrmServiceTimeAvailability {
+    available: boolean;
+    range: DateTimeRange;
+}
+
+// Warning: (ae-missing-release-tag) "DashbotDataStream" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface DashbotDataStream extends BaseDataStream {
@@ -825,20 +1055,23 @@ export interface DashbotDataStream extends BaseDataStream {
     type: DashbotDataStreamType;
 }
 
-// Warning: (ae-missing-release-tag) "DashbotDataStreamType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "DashbotDataStreamType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type DashbotDataStreamType = "dashbot";
 
-// Warning: (ae-missing-release-tag) "Data" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Data" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface Data {
     accessibleThroughDiscovery?: boolean;
+    chat?: {
+        suggestionChips?: SuggestionTypes[];
+    };
     inputUnknownStrategy?: InputUnknownStrategyGlobal | InputUnknownStrategyGoogle | InputUnknownStrategyReprompt;
 }
 
-// Warning: (ae-missing-release-tag) "DateTime" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "DateTime" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface DateTime {
@@ -847,7 +1080,7 @@ export interface DateTime {
     tz?: string;
 }
 
-// Warning: (ae-missing-release-tag) "DateTimeRange" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "DateTimeRange" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface DateTimeRange {
@@ -855,22 +1088,49 @@ export interface DateTimeRange {
     start: DateTime;
 }
 
-// Warning: (ae-missing-release-tag) "DelegatedHandlerMethod" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "DayOfWeek" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type DayOfWeek = "monday" | "tuesday" | "wednesday" | "thursday" | "friday" | "saturday" | "sunday";
+
+// Warning: (ae-missing-release-tag) "DelegatedHandlerMethod" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type DelegatedHandlerMethod = (request: Request_2, context: Context, content: Content, data: Data) => Promise<void>;
 
-// Warning: (ae-missing-release-tag) "DelegatedRequestMethod" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "DelegatedRequestMethod" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type DelegatedRequestMethod = (request: Request_2) => boolean;
 
-// Warning: (ae-missing-release-tag) "DelegatingHandlerType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "DelegatingHandlerType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type DelegatingHandlerType = "DelegatingHandlerType";
 
-// Warning: (ae-missing-release-tag) "Device" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "DeliveryAddress" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface DeliveryAddress {
+    // (undocumented)
+    coordinates: {
+        latitude: number;
+        longitude: number;
+    };
+    // (undocumented)
+    phoneNumber: string;
+    // (undocumented)
+    postalAddress: {
+        regionCode: string;
+        postalCode: string;
+        administrativeArea: string;
+        locality: string;
+        addressLines: string[];
+        recipients: string[];
+    };
+}
+
+// Warning: (ae-missing-release-tag) "Device" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface Device {
@@ -889,7 +1149,7 @@ export interface Device {
     videoSupported: boolean;
 }
 
-// Warning: (ae-missing-release-tag) "DialogflowDataStream" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "DialogflowDataStream" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public @deprecated
 export interface DialogflowDataStream extends BaseDataStream {
@@ -903,12 +1163,12 @@ export interface DialogflowDataStream extends BaseDataStream {
     url: string;
 }
 
-// Warning: (ae-missing-release-tag) "DialogflowType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "DialogflowType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type DialogflowType = "dialogflow";
 
-// Warning: (ae-missing-release-tag) "DialogflowV2Data" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "DialogflowV2Data" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface DialogflowV2Data extends BaseData {
@@ -919,12 +1179,12 @@ export interface DialogflowV2Data extends BaseData {
 }
 
 // Warning: (ae-incompatible-release-tags) The symbol "Display" is marked as @public, but its signature references "SimpleDisplay" which is marked as @beta
-// Warning: (ae-missing-release-tag) "Display" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Display" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export type Display = Card | List | SimpleDisplay | object;
+export type Display = Card | List | SimpleDisplay | MultistepForm | object;
 
-// Warning: (ae-missing-release-tag) "DisplayData" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "DisplayData" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface DisplayData {
@@ -937,7 +1197,7 @@ export interface DisplayData {
     shape?: DisplayShape;
 }
 
-// Warning: (ae-missing-release-tag) "DisplayListItem" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "DisplayListItem" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface DisplayListItem {
@@ -951,12 +1211,12 @@ export interface DisplayListItem {
     token: string;
 }
 
-// Warning: (ae-missing-release-tag) "DisplayShape" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "DisplayShape" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type DisplayShape = "RECTANGLE" | "ROUND";
 
-// Warning: (ae-missing-release-tag) "Duration" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Duration" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface Duration {
@@ -966,12 +1226,12 @@ export interface Duration {
     readonly format: DurationFormat;
 }
 
-// Warning: (ae-missing-release-tag) "DurationFormat" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "DurationFormat" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type DurationFormat = "year" | "years" | "y" | "quarter" | "quarters" | "Q" | "month" | "months" | "M" | "week" | "weeks" | "w" | "day" | "days" | "d" | "hour" | "hours" | "h" | "minute" | "minutes" | "m" | "second" | "seconds" | "s" | "millisecond" | "milliseconds" | "ms";
 
-// Warning: (ae-missing-release-tag) "EmailDescription" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "EmailDescription" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface EmailDescription {
@@ -985,7 +1245,7 @@ export interface EmailDescription {
     templateUrl: string;
 }
 
-// Warning: (ae-missing-release-tag) "Entity" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Entity" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface Entity {
@@ -1004,7 +1264,7 @@ export interface Entity {
     values: EntityValue[];
 }
 
-// Warning: (ae-missing-release-tag) "EntityValue" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "EntityValue" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface EntityValue {
@@ -1013,7 +1273,7 @@ export interface EntityValue {
     synonyms?: string[];
 }
 
-// Warning: (ae-missing-release-tag) "ErrorEvent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ErrorEvent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 interface ErrorEvent_2 extends Event_2<ErrorPayload> {
@@ -1022,12 +1282,12 @@ interface ErrorEvent_2 extends Event_2<ErrorPayload> {
 }
 export { ErrorEvent_2 as ErrorEvent }
 
-// Warning: (ae-missing-release-tag) "ErrorEventType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ErrorEventType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type ErrorEventType = "ERROR";
 
-// Warning: (ae-missing-release-tag) "ErrorPayload" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ErrorPayload" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface ErrorPayload {
@@ -1037,7 +1297,7 @@ export interface ErrorPayload {
     stack: ErrorPayloadStack[];
 }
 
-// Warning: (ae-missing-release-tag) "ErrorPayloadStack" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ErrorPayloadStack" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface ErrorPayloadStack {
@@ -1053,7 +1313,15 @@ export interface ErrorPayloadStack {
     methodName: string;
 }
 
-// Warning: (ae-missing-release-tag) "Event" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ErrorService" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface ErrorService {
+    // (undocumented)
+    error(error: Error): ErrorEvent_2;
+}
+
+// Warning: (ae-missing-release-tag) "Event" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 interface Event_2<P extends string | boolean | object | number | undefined = undefined> {
@@ -1072,7 +1340,20 @@ interface Event_2<P extends string | boolean | object | number | undefined = und
 }
 export { Event_2 as Event }
 
-// Warning: (ae-missing-release-tag) "EventStream" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "EventRequest" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface EventRequest extends BaseRequest {
+    events: Event_2[];
+    type: EventRequestType;
+}
+
+// Warning: (ae-missing-release-tag) "EventRequestType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type EventRequestType = "EVENT_REQUEST";
+
+// Warning: (ae-missing-release-tag) "EventStream" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface EventStream {
@@ -1080,12 +1361,12 @@ export interface EventStream {
     flush(): Promise<void>;
 }
 
-// Warning: (ae-missing-release-tag) "EventType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "EventType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type EventType = LambdaFailureEventType | LambdaSuccessEventType | MessageEventType | RequestEventType | AnalyticsEvent | ErrorEventType;
 
-// Warning: (ae-missing-release-tag) "ExecutablePath" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ExecutablePath" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface ExecutablePath extends SharedPath {
@@ -1094,7 +1375,7 @@ export interface ExecutablePath extends SharedPath {
     type?: PathType;
 }
 
-// Warning: (ae-missing-release-tag) "ExpectedResult" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ExpectedResult" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface ExpectedResult {
@@ -1102,7 +1383,7 @@ export interface ExpectedResult {
     matchedSlots?: TestSlot[];
 }
 
-// Warning: (ae-missing-release-tag) "Expirable" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Expirable" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface Expirable {
@@ -1110,12 +1391,12 @@ export interface Expirable {
     expiration: Expiration;
 }
 
-// Warning: (ae-missing-release-tag) "Expiration" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Expiration" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type Expiration = ExpirationDate | ExpirationDuration;
 
-// Warning: (ae-missing-release-tag) "ExpirationDate" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ExpirationDate" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface ExpirationDate {
@@ -1123,7 +1404,7 @@ export interface ExpirationDate {
     date?: number;
 }
 
-// Warning: (ae-missing-release-tag) "ExpirationDuration" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ExpirationDuration" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface ExpirationDuration {
@@ -1131,31 +1412,33 @@ export interface ExpirationDuration {
     duration?: Duration;
 }
 
-// Warning: (ae-missing-release-tag) "ExternalLead" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ExternalLead" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface ExternalLead {
-    // (undocumented)
+    availabilityClassId?: string;
     company?: string;
-    // (undocumented)
     fields: LeadFormField[];
-    // (undocumented)
+    isAbandoned?: boolean;
+    jobTypeId?: string;
+    refId?: string;
+    sessionId?: string;
     source?: string;
-    // (undocumented)
-    transcript?: CrmTranscript[];
+    transcript?: Message[];
+    userId?: string;
 }
 
-// Warning: (ae-missing-release-tag) "FirstIntent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "FirstIntent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type FirstIntent = "FirstIntent";
 
-// Warning: (ae-missing-release-tag) "FirstTime" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "FirstTime" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type FirstTime<T> = T & FirstTimeable;
 
-// Warning: (ae-missing-release-tag) "FirstTimeable" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "FirstTimeable" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface FirstTimeable {
@@ -1163,7 +1446,210 @@ export interface FirstTimeable {
     firstTime: boolean;
 }
 
-// Warning: (ae-missing-release-tag) "Forward" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "FollowUpAction" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface FollowUpAction {
+    // (undocumented)
+    openUrlAction: {
+        url: string;
+    };
+    // (undocumented)
+    title: string;
+    // (undocumented)
+    type: FollowUpActionType;
+}
+
+// Warning: (ae-missing-release-tag) "FollowUpActionType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type FollowUpActionType = "VIEW_DETAILS" | "CALL" | "EMAIL";
+
+// Warning: (ae-missing-release-tag) "FormCardInput" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface FormCardInput extends FormInput {
+    // (undocumented)
+    align?: string;
+    // (undocumented)
+    color?: string;
+    // (undocumented)
+    header?: {
+        title: string;
+        subheader?: string;
+    };
+    // (undocumented)
+    media?: {
+        height?: number;
+        width?: number;
+        imageUrl: string;
+        alt?: string;
+    };
+    // (undocumented)
+    text?: string;
+    // (undocumented)
+    variant?: string;
+}
+
+// Warning: (ae-missing-release-tag) "FormChipsInput" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface FormChipsInput extends FormInput {
+    // (undocumented)
+    defaultOpen?: boolean;
+    // (undocumented)
+    items: (SelectableItem | ActionableItem)[];
+    // (undocumented)
+    maxAllowed?: number;
+    // (undocumented)
+    minRequired?: number;
+    // (undocumented)
+    radio?: boolean;
+    // (undocumented)
+    type: "CHIPS";
+}
+
+// Warning: (ae-missing-release-tag) "FormDateInput" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface FormDateInput extends FormInput {
+    defaultBusyDays?: BusyDayDescription;
+    // (undocumented)
+    preselecteDate?: Date;
+}
+
+// Warning: (ae-missing-release-tag) "FormDateRangeInput" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface FormDateRangeInput extends FormInput {
+    // (undocumented)
+    preselecteDates?: {
+        from?: Date;
+        to?: Date;
+    };
+}
+
+// Warning: (ae-missing-release-tag) "FormDropdownInput" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface FormDropdownInput extends FormInput {
+    // (undocumented)
+    items: SelectableItem[];
+}
+
+// Warning: (ae-missing-release-tag) "FormField" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type FormField = FormCardInput | FormTextInput | FormDropdownInput | FormChipsInput | FormDateInput | FormDateRangeInput;
+
+// Warning: (ae-missing-release-tag) "FormFieldTextAddressInput" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface FormFieldTextAddressInput extends FormTextInput {
+    // (undocumented)
+    format: "ADDRESS";
+    googleMapsApiKey?: string;
+    mapsBaseUrl?: string;
+    mapsUrlQueryParams?: AddressAutocompleteParameters;
+}
+
+// Warning: (ae-missing-release-tag) "FormHeaderItem" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface FormHeaderItem {
+    // (undocumented)
+    label: string;
+    // (undocumented)
+    step: string;
+}
+
+// Warning: (ae-missing-release-tag) "FormInput" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface FormInput {
+    condition?: string;
+    mandatory?: boolean;
+    mandatoryError?: string;
+    mandatoryGroup?: string;
+    name: string;
+    shape?: "ROUND" | "SQUARE";
+    style?: object;
+    title?: string;
+    type: "TEXT" | "DROPDOWN" | "CHECK" | "CHIPS" | "DATE" | "DATERANGE" | "CARD";
+}
+
+// Warning: (ae-missing-release-tag) "FormSelectInput" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface FormSelectInput extends FormInput {
+    // (undocumented)
+    defaultOpen?: boolean;
+    // (undocumented)
+    items: SelectableItem[];
+    // (undocumented)
+    radio?: boolean;
+}
+
+// Warning: (ae-missing-release-tag) "FormStep" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface FormStep {
+    // (undocumented)
+    condition?: string;
+    // (undocumented)
+    crmSubmit?: boolean;
+    fields: FormField[];
+    // (undocumented)
+    final?: boolean;
+    // (undocumented)
+    name: string;
+    nextAction?: "next" | "submit" | "omit";
+    nextLabel?: string;
+    previousAction?: "previous" | "submit" | "omit";
+    previousLabel?: string;
+    // (undocumented)
+    title?: string;
+    // @beta
+    warnBeforeUnload?: boolean;
+    // @beta
+    warnBeforeUnloadMessage?: string;
+}
+
+// Warning: (ae-missing-release-tag) "FormStepIFrame" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface FormStepIFrame extends FormStep {
+    iframe: {
+        src: string;
+        width?: string;
+        height?: string;
+    };
+}
+
+// Warning: (ae-missing-release-tag) "FormSteps" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type FormSteps = FormStep | FormStepIFrame;
+
+// Warning: (ae-missing-release-tag) "FormTextInput" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface FormTextInput extends FormInput {
+    // (undocumented)
+    format?: "PHONE" | "EMAIL" | "ADDRESS" | "ZIP_CODE";
+    // (undocumented)
+    label?: string;
+    // (undocumented)
+    multiline?: boolean;
+    // (undocumented)
+    placeholder?: string;
+    // (undocumented)
+    rows?: number;
+    // (undocumented)
+    rowsMax?: number;
+}
+
+// Warning: (ae-missing-release-tag) "Forward" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface Forward {
@@ -1171,14 +1657,19 @@ export interface Forward {
     [key: string]: Path[];
 }
 
-// Warning: (ae-missing-release-tag) "FullAppStatus" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "FulfillmentType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type FulfillmentType = "TYPE_UNSPECIFIED" | "DELIVERY" | "PICKUP";
+
+// Warning: (ae-missing-release-tag) "FullAppStatus" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface FullAppStatus extends AppStatus {
     statusHistory?: AppStatus[];
 }
 
-// Warning: (ae-missing-release-tag) "GenericAudio" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "GenericAudio" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface GenericAudio extends Audio_2 {
@@ -1186,27 +1677,27 @@ export interface GenericAudio extends Audio_2 {
     type: GenericAudioType;
 }
 
-// Warning: (ae-missing-release-tag) "GenericAudioType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "GenericAudioType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type GenericAudioType = "Audio";
 
-// Warning: (ae-missing-release-tag) "GenericMediaPlaylistType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "GenericMediaPlaylistType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type GenericMediaPlaylistType = "MediaPlaylist";
 
-// Warning: (ae-missing-release-tag) "GenericRSSFeedType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "GenericRSSFeedType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type GenericRSSFeedType = "RSSFeed";
 
-// Warning: (ae-missing-release-tag) "GenericVideoType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "GenericVideoType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type GenericVideoType = "Video";
 
-// Warning: (ae-missing-release-tag) "GoogleAdditionalInformationQuestions" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "GoogleAdditionalInformationQuestions" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface GoogleAdditionalInformationQuestions {
@@ -1214,12 +1705,12 @@ export interface GoogleAdditionalInformationQuestions {
     intendedForUnderThirteen?: boolean;
 }
 
-// Warning: (ae-missing-release-tag) "GoogleAnalyticsDataStreamType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "GoogleAnalyticsDataStreamType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type GoogleAnalyticsDataStreamType = "googleAnalytics";
 
-// Warning: (ae-missing-release-tag) "GoogleAnalyticsStream" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "GoogleAnalyticsStream" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface GoogleAnalyticsStream extends BaseDataStream {
@@ -1229,7 +1720,7 @@ export interface GoogleAnalyticsStream extends BaseDataStream {
     type: GoogleAnalyticsDataStreamType;
 }
 
-// Warning: (ae-missing-release-tag) "GoogleMapsAddressComponent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "GoogleMapsAddressComponent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface GoogleMapsAddressComponent {
@@ -1241,7 +1732,7 @@ export interface GoogleMapsAddressComponent {
     types: string[];
 }
 
-// Warning: (ae-missing-release-tag) "GoogleMapsGeocodeResponse" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "GoogleMapsGeocodeResponse" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface GoogleMapsGeocodeResponse {
@@ -1251,7 +1742,7 @@ export interface GoogleMapsGeocodeResponse {
     status: string;
 }
 
-// Warning: (ae-missing-release-tag) "GoogleMapsLocation" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "GoogleMapsLocation" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface GoogleMapsLocation {
@@ -1261,7 +1752,7 @@ export interface GoogleMapsLocation {
     lng: number;
 }
 
-// Warning: (ae-missing-release-tag) "GoogleMapsLocationBox" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "GoogleMapsLocationBox" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface GoogleMapsLocationBox {
@@ -1271,7 +1762,7 @@ export interface GoogleMapsLocationBox {
     southwest: GoogleMapsLocation;
 }
 
-// Warning: (ae-missing-release-tag) "GoogleMapsResult" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "GoogleMapsResult" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface GoogleMapsResult {
@@ -1292,7 +1783,7 @@ export interface GoogleMapsResult {
     types: string[];
 }
 
-// Warning: (ae-missing-release-tag) "GooglePlatformData" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "GooglePlatformData" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface GooglePlatformData extends BaseData {
@@ -1302,7 +1793,7 @@ export interface GooglePlatformData extends BaseData {
     platform: "google";
 }
 
-// Warning: (ae-missing-release-tag) "GraphCoords" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "GraphCoords" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface GraphCoords {
@@ -1312,12 +1803,12 @@ export interface GraphCoords {
     y?: number;
 }
 
-// Warning: (ae-missing-release-tag) "Handler" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Handler" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
-// @public (undocumented)
+// @public
 export interface Handler<C extends Content = Content, D extends Data = Data, F extends Forward = Forward, R extends Redirect = Redirect> extends Intent {
     // (undocumented)
-    content: C;
+    content?: C;
     // (undocumented)
     data?: D;
     // (undocumented)
@@ -1330,7 +1821,7 @@ export interface Handler<C extends Content = Content, D extends Data = Data, F e
     type: string;
 }
 
-// Warning: (ae-missing-release-tag) "HandlerDelegates" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "HandlerDelegates" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface HandlerDelegates {
@@ -1342,7 +1833,7 @@ export interface HandlerDelegates {
     start?: DelegatedHandlerMethod;
 }
 
-// Warning: (ae-missing-release-tag) "HandlerHistoryData" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "HandlerHistoryData" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface HandlerHistoryData {
@@ -1358,12 +1849,12 @@ export interface HandlerService {
     }): Promise<Handler> | Promise<undefined>;
 }
 
-// Warning: (ae-missing-release-tag) "HaveNotSeenWithin" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "HaveNotSeenWithin" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type HaveNotSeenWithin<T> = T & HaveNotSeenWithinable;
 
-// Warning: (ae-missing-release-tag) "HaveNotSeenWithinable" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "HaveNotSeenWithinable" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface HaveNotSeenWithinable {
@@ -1371,19 +1862,19 @@ export interface HaveNotSeenWithinable {
     haveNotSeenWithin: Duration;
 }
 
-// Warning: (ae-missing-release-tag) "HelpIntent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "HelpIntent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type HelpIntent = "HelpIntent";
 
-// Warning: (ae-missing-release-tag) "HistoricalPath" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "HistoricalPath" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface HistoricalPath extends SharedPath {
     historicalIndex: number;
 }
 
-// Warning: (ae-missing-release-tag) "History" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "History" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 interface History_2 {
@@ -1395,15 +1886,19 @@ interface History_2 {
 }
 export { History_2 as History }
 
-// Warning: (ae-missing-release-tag) "HistoryData" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "HistoryData" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type HistoryData = PlayableHistoryData | {};
 
-// Warning: (ae-missing-release-tag) "Hooks" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Hooks" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface Hooks {
+    postContextCreation?(request: Request_2, context: Context): Promise<{
+        request: Request_2;
+        context: Context;
+    }>;
     postRequestTranslation?(request: Request_2): Promise<Request_2>;
     preExecution?(event: object, context: RuntimeContext, callback: RuntimeCallback): Promise<{
         event: object;
@@ -1417,7 +1912,7 @@ export interface Hooks {
     }>;
 }
 
-// Warning: (ae-missing-release-tag) "Image" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Image" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 interface Image_2 {
@@ -1428,7 +1923,7 @@ interface Image_2 {
 }
 export { Image_2 as Image }
 
-// Warning: (ae-missing-release-tag) "ImageSpecification" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ImageSpecification" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface ImageSpecification {
@@ -1440,25 +1935,25 @@ export interface ImageSpecification {
     width: number;
 }
 
-// Warning: (ae-missing-release-tag) "ImageType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ImageType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type ImageType = "Image";
 
-// Warning: (ae-missing-release-tag) "InputUnknown" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "InputUnknown" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type InputUnknown = "InputUnknown";
 
-// Warning: (ae-missing-release-tag) "InputUnknownID" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "InputUnknownID" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type InputUnknownID = "InputUnknown";
 
-// Warning: (ae-missing-release-tag) "InputUnknownRequest" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "InputUnknownRequest" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
-export interface InputUnknownRequest extends BaseRequest {
+export interface InputUnknownRequest extends BaseRequest, SentimentedRequest {
     intentId: InputUnknownID;
     // @beta
     knowledgeBaseResult?: KnowledgeBaseResult;
@@ -1467,22 +1962,22 @@ export interface InputUnknownRequest extends BaseRequest {
     type: InputUnknownRequestType;
 }
 
-// Warning: (ae-missing-release-tag) "InputUnknownRequestType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "InputUnknownRequestType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type InputUnknownRequestType = "INPUT_UNKNOWN_REQUEST";
 
-// Warning: (ae-missing-release-tag) "InputUnknownStrategyGlobal" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "InputUnknownStrategyGlobal" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type InputUnknownStrategyGlobal = "GLOBAL";
 
-// Warning: (ae-missing-release-tag) "InputUnknownStrategyGoogle" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "InputUnknownStrategyGoogle" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type InputUnknownStrategyGoogle = "GOOGLE";
 
-// Warning: (ae-missing-release-tag) "InputUnknownStrategyReprompt" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "InputUnknownStrategyReprompt" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type InputUnknownStrategyReprompt = "REPROMPT";
@@ -1506,6 +2001,7 @@ export interface Intent extends Localizable<LocaleSpecificIntent> {
     nlu?: {
         [nlu: string]: {
             type: string;
+            [key: string]: any;
         };
     };
     organizationId: string;
@@ -1518,10 +2014,11 @@ export interface Intent extends Localizable<LocaleSpecificIntent> {
     utterancePatterns?: string[];
 }
 
-// Warning: (ae-missing-release-tag) "IntentRequest" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "IntentRequest" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
-export interface IntentRequest extends BaseRequest {
+export interface IntentRequest extends BaseRequest, SentimentedRequest {
+    activeContexts?: ActiveContext[];
     // @beta
     attachments?: RequestAttachment[];
     canFulfill?: boolean;
@@ -1538,7 +2035,7 @@ export interface IntentRequest extends BaseRequest {
     type: IntentRequestType;
 }
 
-// Warning: (ae-missing-release-tag) "IntentRequestEvent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "IntentRequestEvent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface IntentRequestEvent extends RequestEvent<IntentRequestPayload> {
@@ -1546,7 +2043,7 @@ export interface IntentRequestEvent extends RequestEvent<IntentRequestPayload> {
     name: IntentRequestType;
 }
 
-// Warning: (ae-missing-release-tag) "IntentRequestPayload" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "IntentRequestPayload" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface IntentRequestPayload {
@@ -1558,34 +2055,34 @@ export interface IntentRequestPayload {
     slots?: RequestSlotMap;
 }
 
-// Warning: (ae-missing-release-tag) "IntentRequestType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "IntentRequestType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type IntentRequestType = "INTENT_REQUEST";
 
-// Warning: (ae-missing-release-tag) "JSONDependable" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "JSONDependable" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type JSONDependable<T> = T & JSONDependent;
 
-// Warning: (ae-missing-release-tag) "JSONDependableResponse" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "JSONDependableResponse" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type JSONDependableResponse<T = string | ResponseOutput> = JSONDependable<SimpleResponse<T>>;
 
-// Warning: (ae-missing-release-tag) "JSONDependent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "JSONDependent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface JSONDependent {
     JSONPathMatch: Match;
 }
 
-// Warning: (ae-missing-release-tag) "JSONDependentPath" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "JSONDependentPath" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type JSONDependentPath = JSONDependable<ExecutablePath | CompilablePath>;
 
-// Warning: (ae-missing-release-tag) "KeyValue" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "KeyValue" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface KeyValue {
@@ -1593,7 +2090,7 @@ export interface KeyValue {
     value?: ValueTypes;
 }
 
-// Warning: (ae-missing-release-tag) "KeyValueStore" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "KeyValueStore" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface KeyValueStore {
@@ -1601,7 +2098,7 @@ export interface KeyValueStore {
     [keys: string]: boolean | number | string | object | any;
 }
 
-// Warning: (ae-missing-release-tag) "KnowledgeAnswer" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "KnowledgeAnswer" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface KnowledgeAnswer {
@@ -1611,12 +2108,39 @@ export interface KnowledgeAnswer {
     source?: string;
 }
 
-// Warning: (ae-missing-release-tag) "KnowledgeAnswerID" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "KnowledgeAnswerID" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type KnowledgeAnswerID = "KnowledgeAnswer";
 
-// Warning: (ae-missing-release-tag) "KnowledgeBaseDocument" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "KnowledgeBaseConfig" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface KnowledgeBaseConfig {
+    matchChannel?: string;
+    matchIntentId?: string;
+    // @beta
+    mergeResults?: boolean;
+    setIntentId?: string;
+}
+
+// Warning: (ae-missing-release-tag) "KnowledgebaseData" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface KnowledgebaseData {
+    id: string;
+    type: string;
+}
+
+// Warning: (ae-missing-release-tag) "KnowledgeBaseDependency" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface KnowledgeBaseDependency extends KnowledgeBaseConfig {
+    // (undocumented)
+    service: KnowledgeBaseService;
+}
+
+// Warning: (ae-missing-release-tag) "KnowledgeBaseDocument" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface KnowledgeBaseDocument {
@@ -1629,7 +2153,7 @@ export interface KnowledgeBaseDocument {
     uri?: string;
 }
 
-// Warning: (ae-missing-release-tag) "KnowledgeBaseFAQ" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "KnowledgeBaseFAQ" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface KnowledgeBaseFAQ {
@@ -1641,10 +2165,33 @@ export interface KnowledgeBaseFAQ {
     highlights?: KnowledgeBaseHighlight[];
     matchConfidence?: number;
     question: string;
+    questions?: string[];
     uri?: string;
 }
 
-// Warning: (ae-missing-release-tag) "KnowledgeBaseHighlight" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "KnowledgeBaseFAQResult" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface KnowledgeBaseFAQResult {
+    faqs: KnowledgeBaseFAQ[];
+}
+
+// Warning: (ae-missing-release-tag) "KnowledgeBaseGenerated" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface KnowledgeBaseGenerated extends KnowledgeBaseDocument {
+    generated: string;
+    hasAnswer?: boolean;
+    llm?: string;
+    sources?: {
+        url?: string;
+        title?: string;
+    }[];
+    suggestions?: SuggestionObjectTypes[];
+    type?: string;
+}
+
+// Warning: (ae-missing-release-tag) "KnowledgeBaseHighlight" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface KnowledgeBaseHighlight {
@@ -1653,23 +2200,45 @@ export interface KnowledgeBaseHighlight {
     topAnswer?: boolean;
 }
 
-// Warning: (ae-missing-release-tag) "KnowledgeBaseResult" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "KnowledgeBaseResult" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface KnowledgeBaseResult {
     documents?: KnowledgeBaseDocument[];
     faqs?: KnowledgeBaseFAQ[];
+    generated?: KnowledgeBaseGenerated[];
     suggested?: KnowledgeBaseSuggested[];
 }
 
-// Warning: (ae-missing-release-tag) "KnowledgeBaseService" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "KnowledgeBaseService" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface KnowledgeBaseService {
-    query(query: string): Promise<KnowledgeBaseResult>;
+    faq?(query: string, options?: {
+        controller?: AbortController;
+    }): Promise<KnowledgeBaseFAQResult>;
+    query(query: string, options?: {
+        controller?: AbortController;
+        filters?: {
+            [key: KnowledgeBaseServiceFilters]: string;
+        };
+    }): Promise<KnowledgeBaseResult>;
+    // @beta
+    rag?(query: string, options?: {
+        controller?: AbortController;
+        temperature?: number;
+        filters?: {
+            [key: KnowledgeBaseServiceFilters]: string;
+        };
+    }): Promise<KnowledgeBaseGenerated>;
 }
 
-// Warning: (ae-missing-release-tag) "KnowledgeBaseSuggested" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "KnowledgeBaseServiceFilters" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export type KnowledgeBaseServiceFilters = "locationId" | string;
+
+// Warning: (ae-missing-release-tag) "KnowledgeBaseSuggested" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface KnowledgeBaseSuggested extends KnowledgeBaseDocument {
@@ -1677,12 +2246,12 @@ export interface KnowledgeBaseSuggested extends KnowledgeBaseDocument {
     topAnswer?: string;
 }
 
-// Warning: (ae-missing-release-tag) "LambdaFailureEventType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LambdaFailureEventType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type LambdaFailureEventType = "LambdaErrorEvent";
 
-// Warning: (ae-missing-release-tag) "LambdaFinishEvent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LambdaFinishEvent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface LambdaFinishEvent extends Event_2<string> {
@@ -1690,47 +2259,47 @@ export interface LambdaFinishEvent extends Event_2<string> {
     type: LambdaSuccessEventType | LambdaFailureEventType;
 }
 
-// Warning: (ae-missing-release-tag) "LambdaSuccessEventType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LambdaSuccessEventType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type LambdaSuccessEventType = "LambdaSuccessEvent";
 
-// Warning: (ae-missing-release-tag) "LangCode" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LangCode" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type LangCode = LangCodeEnUs;
 
-// Warning: (ae-missing-release-tag) "LangCodeEnUs" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LangCodeEnUs" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type LangCodeEnUs = "en-US";
 
-// Warning: (ae-missing-release-tag) "Language" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Language" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type Language = "da" | "de" | "en" | "es" | "fr" | "it" | "ja" | "nl" | "no" | "pt" | "ru" | "sv" | "th" | "tr" | "uk" | "zh";
 
-// Warning: (ae-missing-release-tag) "LanguageTag" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LanguageTag" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type LanguageTag = "de-DE" | "en-AU" | "en-CA" | "en-GB" | "en-IN" | "en-US" | "es-419" | "es-ES" | "es-MX" | "fr-CA" | "fr-FR" | "it-IT" | "ja-JP" | "pt-BR" | "zh-CH" | "zh-HK" | "zh-TW";
 
-// Warning: (ae-missing-release-tag) "LastActive" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LastActive" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type LastActive<T> = FirstTime<T> | HaveNotSeenWithin<T> | ActiveWithin<T>;
 
-// Warning: (ae-missing-release-tag) "LastActiveResponse" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LastActiveResponse" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type LastActiveResponse<T = string | ResponseOutput> = LastActive<SimpleResponse<T>>;
 
-// Warning: (ae-missing-release-tag) "LastActiveSegment" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LastActiveSegment" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type LastActiveSegment = LastActive<SimpleSegment>;
 
-// Warning: (ae-missing-release-tag) "LatestIntent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LatestIntent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type LatestIntent = "LatestIntent";
@@ -1742,17 +2311,17 @@ export interface LaunchRequest extends BaseRequest {
     type: LaunchRequestType;
 }
 
-// Warning: (ae-missing-release-tag) "LaunchRequestID" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LaunchRequestID" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type LaunchRequestID = "LaunchRequest";
 
-// Warning: (ae-missing-release-tag) "LaunchRequestType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LaunchRequestType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type LaunchRequestType = "LAUNCH_REQUEST";
 
-// Warning: (ae-missing-release-tag) "LeadFormField" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LeadFormField" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface LeadFormField {
@@ -1762,7 +2331,31 @@ export interface LeadFormField {
     value: string;
 }
 
-// Warning: (ae-missing-release-tag) "LinkOutSuggestion" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LineItem" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface LineItem {
+    // (undocumented)
+    description: string;
+    // (undocumented)
+    followUpActions: FollowUpAction[];
+    // (undocumented)
+    id: string;
+    // Warning: (ae-forgotten-export) The symbol "TransactionImage" needs to be exported by the entry point index.d.ts
+    //
+    // (undocumented)
+    image: TransactionImage;
+    // (undocumented)
+    name: string;
+    // (undocumented)
+    notes: string[];
+    // (undocumented)
+    priceAttributes: PriceAttribute[];
+    // (undocumented)
+    quantity: number;
+}
+
+// Warning: (ae-missing-release-tag) "LinkOutSuggestion" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface LinkOutSuggestion extends Suggestion {
@@ -1771,7 +2364,7 @@ export interface LinkOutSuggestion extends Suggestion {
 }
 
 // Warning: (ae-incompatible-release-tags) The symbol "List" is marked as @public, but its signature references "TemplatedList" which is marked as @beta
-// Warning: (ae-missing-release-tag) "List" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "List" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface List extends BaseDisplay, TemplatedList {
@@ -1781,14 +2374,14 @@ export interface List extends BaseDisplay, TemplatedList {
     type: "LIST" | "CAROUSEL";
 }
 
-// Warning: (ae-missing-release-tag) "ListButton" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ListButton" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface ListButton {
     title: string;
 }
 
-// Warning: (ae-missing-release-tag) "ListImage" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ListImage" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface ListImage {
@@ -1801,7 +2394,7 @@ export interface ListImage {
     width?: number;
 }
 
-// Warning: (ae-missing-release-tag) "ListItem" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ListItem" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface ListItem {
@@ -1814,37 +2407,37 @@ export interface ListItem {
     url?: string;
 }
 
-// Warning: (ae-missing-release-tag) "LiveStreamType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LiveStreamType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type LiveStreamType = AudioLiveStreamType | VideoLiveStreamType;
 
-// Warning: (ae-missing-release-tag) "Locale" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Locale" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type Locale = LanguageTag | Language;
 
-// Warning: (ae-missing-release-tag) "LocaleObject" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LocaleObject" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type LocaleObject = object;
 
-// Warning: (ae-missing-release-tag) "LocaleSpecificApp" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LocaleSpecificApp" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type LocaleSpecificApp = Partial<Pick<App, "name" | "summary" | "description" | "alexaCategory" | "invocationName" | "examplePhrases" | "keywords" | "icon" | "smallIcon" | "largeIcon" | "termsOfUseUrl" | "privacyPolicyUrl">>;
 
-// Warning: (ae-missing-release-tag) "LocaleSpecificIntent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LocaleSpecificIntent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type LocaleSpecificIntent = Partial<Pick<Intent, "slots" | "utterancePatterns" | "substitutions">>;
 
-// Warning: (ae-missing-release-tag) "LocaleSpecificResponseOutput" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LocaleSpecificResponseOutput" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type LocaleSpecificResponseOutput = Partial<Pick<ResponseOutput, "displayText" | "ssml" | "textToSpeech" | "suggestions">>;
 
-// Warning: (ae-missing-release-tag) "Localizable" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Localizable" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface Localizable<O extends LocaleObject> {
@@ -1854,7 +2447,7 @@ export interface Localizable<O extends LocaleObject> {
     locales?: Partial<Record<Locale, Partial<O>>>;
 }
 
-// Warning: (ae-missing-release-tag) "Location" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Location" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 interface Location_2 {
@@ -1863,17 +2456,17 @@ interface Location_2 {
 }
 export { Location_2 as Location }
 
-// Warning: (ae-missing-release-tag) "LocationGeocode" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LocationGeocode" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface LocationGeocode {
     // (undocumented)
-    latitude: number;
+    latitude?: number;
     // (undocumented)
-    longitude: number;
+    longitude?: number;
 }
 
-// Warning: (ae-missing-release-tag) "Logic" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Logic" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface Logic {
@@ -1883,17 +2476,17 @@ export interface Logic {
     version?: number;
 }
 
-// Warning: (ae-missing-release-tag) "LoopOffIntent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LoopOffIntent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type LoopOffIntent = "LoopOffIntent";
 
-// Warning: (ae-missing-release-tag) "LoopOnIntent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LoopOnIntent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type LoopOnIntent = "LoopOnIntent";
 
-// Warning: (ae-missing-release-tag) "LuisDataStream" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LuisDataStream" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public @deprecated
 export interface LuisDataStream extends BaseDataStream {
@@ -1905,12 +2498,12 @@ export interface LuisDataStream extends BaseDataStream {
     url: string;
 }
 
-// Warning: (ae-missing-release-tag) "LuisType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LuisType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type LuisType = "luis";
 
-// Warning: (ae-missing-release-tag) "Match" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Match" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface Match {
@@ -1919,12 +2512,12 @@ export interface Match {
     value: boolean | string | number | (boolean | string | number)[];
 }
 
-// Warning: (ae-missing-release-tag) "MatchOperation" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "MatchOperation" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type MatchOperation = "==" | "===" | ">" | ">=" | "<" | "=<" | "!=" | "!==" | "includes" | "!includes";
 
-// Warning: (ae-missing-release-tag) "Media" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Media" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface Media {
@@ -1932,7 +2525,7 @@ export interface Media {
     url: string;
 }
 
-// Warning: (ae-missing-release-tag) "MediaPlayerStatus" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "MediaPlayerStatus" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface MediaPlayerStatus {
@@ -1946,22 +2539,64 @@ export interface MediaPlayerStatus {
     type?: "AUDIO" | "VIDEO";
 }
 
-// Warning: (ae-missing-release-tag) "MediaPlaylistType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "MediaPlaylistType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type MediaPlaylistType = GenericMediaPlaylistType | RSSFeedType;
 
-// Warning: (ae-missing-release-tag) "MediaSourceType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "MediaSourceType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type MediaSourceType = OnDemandType | PlaylistType | AudioLiveStreamType | VideoLiveStreamType;
 
-// Warning: (ae-missing-release-tag) "MediaType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "MediaType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type MediaType = AudioType | VideoType | ImageType | UnspecifiedMediaType;
 
-// Warning: (ae-missing-release-tag) "MessageEvent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "MerchantInfo" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface MerchantInfo {
+    // (undocumented)
+    address?: string;
+    // (undocumented)
+    id: string;
+    // (undocumented)
+    image?: TransactionImage;
+    // (undocumented)
+    name: string;
+    // (undocumented)
+    phoneNumbers?: string[];
+}
+
+// Warning: (ae-missing-release-tag) "MerchantPaymentMethod" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface MerchantPaymentMethod {
+    // (undocumented)
+    paymentMethodDisplayInfo: PaymentMethodDisplayInfo;
+    // (undocumented)
+    paymentMethodGroup: string;
+    // (undocumented)
+    paymentMethodId: string;
+    // (undocumented)
+    paymentMethodStatus: PaymentMethodStatus;
+}
+
+// Warning: (ae-missing-release-tag) "Message" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface Message {
+    attributes?: object;
+    createdTime: string;
+    from?: UserProfile;
+    message: string;
+    response?: ResponseOutput;
+    to?: UserProfile[];
+}
+
+// Warning: (ae-missing-release-tag) "MessageEvent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 interface MessageEvent_2 extends Event_2<MessagePayload> {
@@ -1970,12 +2605,12 @@ interface MessageEvent_2 extends Event_2<MessagePayload> {
 }
 export { MessageEvent_2 as MessageEvent }
 
-// Warning: (ae-missing-release-tag) "MessageEventType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "MessageEventType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type MessageEventType = "MessageEvent";
 
-// Warning: (ae-missing-release-tag) "MessagePayload" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "MessagePayload" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface MessagePayload {
@@ -1983,17 +2618,33 @@ export interface MessagePayload {
     message: string;
 }
 
-// Warning: (ae-missing-release-tag) "MultimediaType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "MultimediaType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type MultimediaType = "Multimedia";
 
-// Warning: (ae-missing-release-tag) "NextIntent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "MultistepForm" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface MultistepForm extends BaseDisplay {
+    // (undocumented)
+    header: FormHeaderItem[];
+    // (undocumented)
+    labelHeader: boolean;
+    // (undocumented)
+    name: string;
+    // (undocumented)
+    steps: FormStep[];
+    // (undocumented)
+    type: "FORM";
+}
+
+// Warning: (ae-missing-release-tag) "NextIntent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type NextIntent = "NextIntent";
 
-// Warning: (ae-missing-release-tag) "NLUData" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "NLUData" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface NLUData {
@@ -2001,45 +2652,48 @@ export interface NLUData {
     type: string;
 }
 
-// Warning: (ae-missing-release-tag) "NLUQueryResponse" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "NLUInputUnknownRequest" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
-// @public (undocumented)
-export interface NLUQueryResponse {
-    // (undocumented)
-    intentId: string;
-    // (undocumented)
-    knowledgeAnswer?: KnowledgeAnswer;
-    // (undocumented)
-    slots?: RequestSlotMap;
-    // (undocumented)
-    type: IntentRequestType | InputUnknownRequestType;
-}
+// @public
+export type NLUInputUnknownRequest = Pick<InputUnknownRequest, "type" | "intentId" | "knowledgeBaseResult" | "sentimentAnalysis" | "attributes">;
 
-// Warning: (ae-missing-release-tag) "NLURequestProps" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "NLUIntentRequest" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export type NLUIntentRequest = Pick<IntentRequest, "type" | "intentId" | "slots" | "matchConfidence" | "knowledgeAnswer" | "knowledgeBaseResult" | "sentimentAnalysis" | "attributes">;
+
+// Warning: (ae-missing-release-tag) "NLUQueryResponse" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export type NLUQueryResponse = NLUIntentRequest | NLUInputUnknownRequest;
+
+// Warning: (ae-missing-release-tag) "NLURequestProps" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface NLURequestProps {
     activeContext?: ActiveContext[];
-    locale?: string;
-    // (undocumented)
-    requestAttributes?: {
-        [key: string]: string;
+    channel?: string;
+    filters?: {
+        [key: KnowledgeBaseServiceFilters]: string;
     };
+    locale?: string;
+    platform?: string;
+    requestAttributes?: Record<string, string>;
+    session?: SessionStore;
     sessionId?: string;
+    transcript?: Message[];
     userId?: string;
 }
 
-// Warning: (ae-missing-release-tag) "NLUService" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "NLUService" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface NLUService {
-    // (undocumented)
     query(q: string, props?: NLURequestProps): Promise<NLUQueryResponse>;
-    // (undocumented)
     setContext?(props: NLURequestProps): Promise<void>;
 }
 
-// Warning: (ae-missing-release-tag) "NLUServiceGetter" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "NLUServiceGetter" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface NLUServiceGetter {
@@ -2047,17 +2701,31 @@ export interface NLUServiceGetter {
     test(obj: ChannelData | NLUData): boolean;
 }
 
-// Warning: (ae-missing-release-tag) "NoIntent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "NoIntent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type NoIntent = "NoIntent";
 
-// Warning: (ae-missing-release-tag) "NotificationPermissionRequestType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "NotificationPermissionRequest" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface NotificationPermissionRequest extends BaseRequest {
+    // (undocumented)
+    granted: boolean;
+    // (undocumented)
+    notificationUserId?: string;
+    // (undocumented)
+    sessionId: string;
+    // (undocumented)
+    type: NotificationPermissionRequestType;
+}
+
+// Warning: (ae-missing-release-tag) "NotificationPermissionRequestType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type NotificationPermissionRequestType = "NOTIFICATION_PERMISSION_REQUEST_TYPE";
 
-// Warning: (ae-missing-release-tag) "OnDemand" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "OnDemand" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface OnDemand {
@@ -2067,12 +2735,12 @@ export interface OnDemand {
     type: OnDemandType;
 }
 
-// Warning: (ae-missing-release-tag) "OnDemandAudio" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "OnDemandAudio" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type OnDemandAudio = ReportableSong | Song | ReportableAudio | Audio_2;
 
-// Warning: (ae-missing-release-tag) "OnDemandChannel" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "OnDemandChannel" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface OnDemandChannel {
@@ -2082,17 +2750,17 @@ export interface OnDemandChannel {
     token: string;
 }
 
-// Warning: (ae-missing-release-tag) "OnDemandType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "OnDemandType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type OnDemandType = SocialRadioType;
 
-// Warning: (ae-missing-release-tag) "OptionSelectID" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "OptionSelectID" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type OptionSelectID = "OptionSelect";
 
-// Warning: (ae-missing-release-tag) "OptionSelectRequest" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "OptionSelectRequest" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface OptionSelectRequest extends BaseRequest {
@@ -2105,37 +2773,140 @@ export interface OptionSelectRequest extends BaseRequest {
     type: OptionSelectRequestType;
 }
 
-// Warning: (ae-missing-release-tag) "OptionSelectRequestType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "OptionSelectRequestType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type OptionSelectRequestType = "OPTION_SELECT_REQUEST";
 
-// Warning: (ae-missing-release-tag) "OptStatus" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "OptStatus" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type OptStatus = "OPTIN" | "OPTOUT" | "PENDING";
 
-// Warning: (ae-missing-release-tag) "Path" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "OrderDescription" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface OrderDescription {
+    // (undocumented)
+    buyerInfo: BuyerInfo;
+    // (undocumented)
+    contents: Contents;
+    // (undocumented)
+    createTime: string;
+    // (undocumented)
+    followUpActions: FollowUpAction[];
+    // (undocumented)
+    googleOrderId: string;
+    // (undocumented)
+    image: TransactionImage;
+    // (undocumented)
+    lastUpdateTime: string;
+    // (undocumented)
+    merchantOrderId: string;
+    // (undocumented)
+    note: string;
+    // (undocumented)
+    paymentData: PaymentData;
+    // (undocumented)
+    priceAttributes: PriceAttribute[];
+    // (undocumented)
+    purchase: PurchaseOrderExtension;
+    // (undocumented)
+    termsOfServiceUrl: string;
+    // (undocumented)
+    transactionMerchant: MerchantInfo;
+    // (undocumented)
+    userVisibleOrderId: string;
+    // (undocumented)
+    userVisibleStateLabel: string;
+}
+
+// Warning: (ae-missing-release-tag) "Path" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type Path = ExecutablePath | CompilablePath | RequestDependentPath | SlotDependentPath | StorageDependentPath | JSONDependentPath | SystemDependentPath;
 
-// Warning: (ae-missing-release-tag) "PathType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PathType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type PathType = "START";
 
-// Warning: (ae-missing-release-tag) "PauseIntent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PauseIntent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type PauseIntent = "PauseIntent";
 
-// Warning: (ae-missing-release-tag) "PermissionGrantID" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PaymentData" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface PaymentData {
+    // (undocumented)
+    paymentInfo: {
+        paymentMethodDisplayInfo: {
+            paymentType: PaymentType;
+            paymentMethodDisplayName: string;
+        };
+        paymentMethodProvenance: ProvenanceType;
+    };
+    // (undocumented)
+    paymentResult: {
+        googlePaymentData?: string;
+        merchantPaymentMethodId: string;
+    };
+}
+
+// Warning: (ae-missing-release-tag) "PaymentMethodDisplayInfo" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface PaymentMethodDisplayInfo {
+    // (undocumented)
+    paymentMethodDisplayName: string;
+    // (undocumented)
+    paymentMethodVoiceName: string;
+    // (undocumented)
+    paymentType: PaymentType;
+}
+
+// Warning: (ae-missing-release-tag) "PaymentMethodStatus" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface PaymentMethodStatus {
+    // (undocumented)
+    status: PaymentMethodStatusType;
+    // (undocumented)
+    statusMessage: string;
+}
+
+// Warning: (ae-missing-release-tag) "PaymentMethodStatusType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type PaymentMethodStatusType = "STATUS_UNSPECIFIED" | "STATUS_OK" | "STATUS_REQUIRE_FIX" | "STATUS_INAPPLICABLE";
+
+// Warning: (ae-missing-release-tag) "PaymentParameters" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface PaymentParameters {
+    // (undocumented)
+    googlePaymentOption?: never;
+    // (undocumented)
+    merchantPaymentOption: {
+        merchantPaymentMethod: MerchantPaymentMethod[];
+        defaultMerchantPaymentMethodId: string;
+        managePaymentMethodUrl: string;
+    };
+}
+
+// Warning: (ae-missing-release-tag) "PaymentType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export type PaymentType = "PAYMENT_TYPE_UNSPECIFIED" | "PAYMENT_CARD" | "BANK" | "LOYALTY_PROGRAM" | "CASH" | "GIFT_CARD" | "WALLET";
+
+// Warning: (ae-missing-release-tag) "PermissionGrantID" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type PermissionGrantID = "PermissionGrant";
 
-// Warning: (ae-missing-release-tag) "PermissionRequest" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PermissionRequest" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface PermissionRequest extends BaseRequest {
@@ -2151,12 +2922,32 @@ export interface PermissionRequest extends BaseRequest {
     userProfile: UserProfile;
 }
 
-// Warning: (ae-missing-release-tag) "PermissionRequestType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PermissionRequestType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type PermissionRequestType = "PERMISSION_GRANT";
 
-// Warning: (ae-missing-release-tag) "Pii" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PickupInfo" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface PickupInfo {
+    // (undocumented)
+    curbsideInfo: {
+        vehicle: {
+            make: string;
+            model: string;
+        };
+    };
+    // (undocumented)
+    pickupType: PickupType;
+}
+
+// Warning: (ae-missing-release-tag) "PickupType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type PickupType = "UNSPECIFIED" | "INSTORE" | "CURBSIDE";
+
+// Warning: (ae-missing-release-tag) "Pii" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface Pii {
@@ -2193,7 +2984,7 @@ export interface Pii {
     token?: string;
 }
 
-// Warning: (ae-missing-release-tag) "PIIService" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PIIService" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface PIIService {
@@ -2213,7 +3004,7 @@ export interface PIIService {
     updatePii(pii: Pii): Promise<void>;
 }
 
-// Warning: (ae-missing-release-tag) "Playable" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Playable" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface Playable {
@@ -2224,7 +3015,7 @@ export interface Playable {
     visuals?: Visuals;
 }
 
-// Warning: (ae-missing-release-tag) "PlayableHistoryData" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PlayableHistoryData" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface PlayableHistoryData {
@@ -2232,37 +3023,37 @@ export interface PlayableHistoryData {
     lastPlayed: number;
 }
 
-// Warning: (ae-missing-release-tag) "PlayableMedia" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PlayableMedia" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type PlayableMedia = Playable & Media;
 
-// Warning: (ae-missing-release-tag) "PlaybackControlEvent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PlaybackControlEvent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type PlaybackControlEvent = PlaybackControlNextEvent | PlaybackControlPauseEvent | PlaybackControlPreviousEvent | PlaybackControlPlayEvent;
 
-// Warning: (ae-missing-release-tag) "PlaybackControlNextEvent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PlaybackControlNextEvent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type PlaybackControlNextEvent = "PlaybackControlNextEvent";
 
-// Warning: (ae-missing-release-tag) "PlaybackControlPauseEvent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PlaybackControlPauseEvent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type PlaybackControlPauseEvent = "PlaybackControlPauseEvent";
 
-// Warning: (ae-missing-release-tag) "PlaybackControlPlayEvent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PlaybackControlPlayEvent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type PlaybackControlPlayEvent = "PlaybackControlPlayEvent";
 
-// Warning: (ae-missing-release-tag) "PlaybackControlPreviousEvent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PlaybackControlPreviousEvent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type PlaybackControlPreviousEvent = "PlaybackControlPreviousEvent";
 
-// Warning: (ae-missing-release-tag) "PlaybackControlRequest" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PlaybackControlRequest" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface PlaybackControlRequest extends BaseRequest {
@@ -2272,7 +3063,7 @@ export interface PlaybackControlRequest extends BaseRequest {
     type: PlaybackControlRequestType;
 }
 
-// Warning: (ae-missing-release-tag) "PlaybackControlRequestEvent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PlaybackControlRequestEvent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface PlaybackControlRequestEvent extends RequestEvent<PlaybackControlRequestPayload> {
@@ -2280,7 +3071,7 @@ export interface PlaybackControlRequestEvent extends RequestEvent<PlaybackContro
     name: PlaybackControlRequestType;
 }
 
-// Warning: (ae-missing-release-tag) "PlaybackControlRequestPayload" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PlaybackControlRequestPayload" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface PlaybackControlRequestPayload {
@@ -2288,37 +3079,37 @@ export interface PlaybackControlRequestPayload {
     event: string;
 }
 
-// Warning: (ae-missing-release-tag) "PlaybackControlRequestType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PlaybackControlRequestType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type PlaybackControlRequestType = "PLAYBACK_CONTROL_REQUEST";
 
-// Warning: (ae-missing-release-tag) "PlayIntent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PlayIntent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type PlayIntent = "PlayIntent";
 
-// Warning: (ae-missing-release-tag) "PlaylistType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PlaylistType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type PlaylistType = RSSFeedType | MediaPlaylistType;
 
-// Warning: (ae-missing-release-tag) "PlayPodcastTitle" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PlayPodcastTitle" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type PlayPodcastTitle = "PlayPodcastTitleIntent";
 
-// Warning: (ae-missing-release-tag) "PlayTitleIntent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PlayTitleIntent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type PlayTitleIntent = "PlayTitleIntent";
 
-// Warning: (ae-missing-release-tag) "PlayTopicIntent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PlayTopicIntent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type PlayTopicIntent = "PlayTopicIntent";
 
-// Warning: (ae-missing-release-tag) "PodcastEpisode" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PodcastEpisode" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface PodcastEpisode extends RSSFeedItem, Audio_2 {
@@ -2326,29 +3117,71 @@ export interface PodcastEpisode extends RSSFeedItem, Audio_2 {
     type: PodcastEpisodeType;
 }
 
-// Warning: (ae-missing-release-tag) "PodcastEpisodeType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PodcastEpisodeType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type PodcastEpisodeType = "PodcastEpisode";
 
-// Warning: (ae-missing-release-tag) "PodcastType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PodcastSearchService" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface PodcastSearchService {
+    // (undocumented)
+    loadPodcastEpisode(podcastIds: string[]): Promise<PodcastEpisode[]>;
+    // (undocumented)
+    queryOnly: boolean;
+    // (undocumented)
+    queryPodcastEpisode(podcastIds: string[], q: string): Promise<PodcastEpisode[]>;
+    // (undocumented)
+    removePodcastEpisode(podcastId: string, episode: PodcastEpisode): Promise<void>;
+    // (undocumented)
+    storePodcastEpisode(podcastId: string, episode: PodcastEpisode): Promise<void>;
+}
+
+// Warning: (ae-missing-release-tag) "PodcastType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type PodcastType = "Podcast";
 
-// Warning: (ae-missing-release-tag) "PreviousHandlerPath" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PreviousHandlerPath" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface PreviousHandlerPath extends SharedPath {
     previousHandler: boolean;
 }
 
-// Warning: (ae-missing-release-tag) "PreviousIntent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PreviousIntent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type PreviousIntent = "PreviousIntent";
 
-// Warning: (ae-missing-release-tag) "PrivacyAndCompliance" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "PriceAttribute" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface PriceAttribute {
+    // (undocumented)
+    amount: number;
+    // (undocumented)
+    currencyCode: string;
+    // (undocumented)
+    name: string;
+    // (undocumented)
+    state: PriceState;
+    // (undocumented)
+    type: PriceType;
+}
+
+// Warning: (ae-missing-release-tag) "PriceState" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type PriceState = "ESTIMATE" | "ACTUAL";
+
+// Warning: (ae-missing-release-tag) "PriceType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type PriceType = "UNIT" | "TOTAL" | "SUBTOTAL" | "DELIVERY" | "TAX";
+
+// Warning: (ae-missing-release-tag) "PrivacyAndCompliance" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface PrivacyAndCompliance {
@@ -2371,12 +3204,100 @@ export interface PrivacyAndCompliance {
     usesPersonalInfo?: boolean;
 }
 
-// Warning: (ae-missing-release-tag) "RawQueryRequestType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ProvenanceType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type ProvenanceType = "PAYMENT_METHOD_PROVENANCE_MERCHANT" | "PAYMENT_METHOD_PROVENANCE_UNSPECIFIED" | "PAYMENT_METHOD_PROVENANCE_GOOGLE";
+
+// Warning: (ae-missing-release-tag) "PurchaseFulfillmentInfo" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface PurchaseFulfillmentInfo {
+    // (undocumented)
+    expectedFulfillmentTimeMs: number;
+    // (undocumented)
+    expectedPreparationTimeMs: number;
+    // (undocumented)
+    expireTime?: string;
+    // (undocumented)
+    fulfillmentContact: SellerInfo;
+    // (undocumented)
+    fulfillmentType: FulfillmentType;
+    // (undocumented)
+    id: string;
+    // (undocumented)
+    location?: TransactionLocation;
+    // (undocumented)
+    pickupInfo?: PickupInfo;
+    // (undocumented)
+    price: PriceAttribute;
+    // (undocumented)
+    shippingMethodName?: string;
+    // (undocumented)
+    storeCode: string;
+}
+
+// Warning: (ae-missing-release-tag) "PurchaseLocationType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type PurchaseLocationType = "ONLINE_PURCHASE" | "UNSPECIFIED_LOCATION" | "INSTORE_PURCHASE";
+
+// Warning: (ae-missing-release-tag) "PurchaseOrderExtension" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface PurchaseOrderExtension {
+    // (undocumented)
+    fulfillmentInfo: PurchaseFulfillmentInfo;
+    // (undocumented)
+    purchaseLocationType: PurchaseLocationType;
+    // (undocumented)
+    returnsInfo: PurchaseReturnsInfo;
+    // (undocumented)
+    status: PurchaseStatus;
+    // (undocumented)
+    type: PurchaseType;
+    // (undocumented)
+    userVisibleStatusLabel: string;
+}
+
+// Warning: (ae-missing-release-tag) "PurchaseReturnsInfo" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface PurchaseReturnsInfo {
+    // (undocumented)
+    daysToReturn: number;
+    // (undocumented)
+    isReturnable: boolean;
+    // (undocumented)
+    policyUrl: string;
+}
+
+// Warning: (ae-missing-release-tag) "PurchaseStatus" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type PurchaseStatus = "PURCHASE_STATUS_UNSPECIFIED" | "READY_FOR_PICKUP" | "SHIPPED" | "DELIVERED" | "OUT_OF_STOCK" | "IN_PREPARATION" | "CREATED" | "CONFIRMED" | "REJECTED" | "RETURNED" | "CANCELLED" | "CHANGE_REQUESTED";
+
+// Warning: (ae-missing-release-tag) "PurchaseType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type PurchaseType = "PURCHASE_TYPE_UNSPECIFIED" | "RETAIL" | "FOOD" | "GROCERY" | "MOBILE_RECHARGE";
+
+// Warning: (ae-missing-release-tag) "RawQueryRequest" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface RawQueryRequest extends BaseRequest {
+    rawQuery: string;
+    sessionId: string;
+    // (undocumented)
+    type: RawQueryRequestType;
+}
+
+// Warning: (ae-missing-release-tag) "RawQueryRequestType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type RawQueryRequestType = "RAW_QUERY_REQUEST";
 
-// Warning: (ae-missing-release-tag) "Redirect" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Redirect" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface Redirect {
@@ -2384,12 +3305,12 @@ export interface Redirect {
     [key: string]: Path[];
 }
 
-// Warning: (ae-missing-release-tag) "RelativeDateRangeType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "RelativeDateRangeType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type RelativeDateRangeType = "LAST_MONTH" | "LAST_WEEK" | "LAST_WEEKEND" | "LAST_YEAR" | "THIS_MONTH" | "THIS_WEEK" | "THIS_WEEKEND" | "THIS_YEAR" | "NEXT_MONTH" | "NEXT_WEEK" | "NEXT_WEEKEND" | "NEXT_YEAR";
 
-// Warning: (ae-missing-release-tag) "RelativeDateTime" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "RelativeDateTime" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface RelativeDateTime {
@@ -2398,44 +3319,46 @@ export interface RelativeDateTime {
     relativity: RelativeDateType | RelativeDateRangeType | string;
 }
 
-// Warning: (ae-missing-release-tag) "RelativeDateType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "RelativeDateType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type RelativeDateType = "LAST_FRIDAY" | "LAST_MONDAY" | "LAST_SATURDAY" | "LAST_SUNDAY" | "LAST_THURSDAY" | "LAST_TUESDAY" | "LAST_WEDNESDAY" | "YESTERDAY" | "THIS_FRIDAY" | "THIS_MONDAY" | "THIS_SATURDAY" | "THIS_SUNDAY" | "THIS_THURSDAY" | "THIS_TUESDAY" | "THIS_WEDNESDAY" | "TODAY" | "NEXT_FRIDAY" | "NEXT_MONDAY" | "NEXT_SATURDAY" | "NEXT_SUNDAY" | "NEXT_THURSDAY" | "NEXT_TUESDAY" | "NEXT_WEDNESDAY" | "TOMORROW";
 
-// Warning: (ae-missing-release-tag) "RepeatIntent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "RepeatIntent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type RepeatIntent = "RepeatIntent";
 
-// Warning: (ae-missing-release-tag) "Reportable" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Reportable" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface Reportable extends Playable {
     playedId?: string;
 }
 
-// Warning: (ae-missing-release-tag) "ReportableAudio" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ReportableAudio" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface ReportableAudio extends Audio_2, Reportable {
 }
 
-// Warning: (ae-missing-release-tag) "ReportableSong" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ReportableSong" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface ReportableSong extends Song, Reportable {
 }
 
-// Warning: (ae-forgotten-export) The symbol "NotificationPermissionRequest" needs to be exported by the entry point index.d.ts
-// Warning: (ae-forgotten-export) The symbol "RawQueryRequest" needs to be exported by the entry point index.d.ts
-// Warning: (ae-missing-release-tag) "Request" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-forgotten-export) The symbol "DeliveryAddressRequest" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "TransactionDecisionRequest" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "TransactionRequirementCheckRequest" needs to be exported by the entry point index.d.ts
+// Warning: (ae-incompatible-release-tags) The symbol "Request" is marked as @public, but its signature references "ChannelActionRequest" which is marked as @beta
+// Warning: (ae-missing-release-tag) "Request" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-type Request_2 = LaunchRequest | SessionEndedRequest | InputUnknownRequest | IntentRequest | AudioPlayerRequest | PlaybackControlRequest | PermissionRequest | SurfaceChangeRequest | NotificationPermissionRequest | SignInRequest | OptionSelectRequest | RawQueryRequest;
+type Request_2 = AudioPlayerRequest | ChannelActionRequest | DeliveryAddressRequest | EventRequest | InputUnknownRequest | IntentRequest | LaunchRequest | NotificationPermissionRequest | OptionSelectRequest | PermissionRequest | PlaybackControlRequest | RawQueryRequest | SessionEndedRequest | SignInRequest | SurfaceChangeRequest | TransactionDecisionRequest | TransactionRequirementCheckRequest;
 export { Request_2 as Request }
 
-// Warning: (ae-missing-release-tag) "RequestAttachment" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "RequestAttachment" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface RequestAttachment {
@@ -2443,34 +3366,34 @@ export interface RequestAttachment {
     url: string;
 }
 
-// Warning: (ae-missing-release-tag) "RequestDependable" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "RequestDependable" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type RequestDependable<T> = T & RequestDependent;
 
-// Warning: (ae-missing-release-tag) "RequestDependent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "RequestDependent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface RequestDependent {
     requestMatch: Match;
 }
 
-// Warning: (ae-missing-release-tag) "RequestDependentPath" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "RequestDependentPath" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type RequestDependentPath = RequestDependable<ExecutablePath | CompilablePath>;
 
-// Warning: (ae-missing-release-tag) "RequestDependentResponse" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "RequestDependentResponse" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type RequestDependentResponse<T = string | ResponseOutput> = RequestDependable<SimpleResponse<T>>;
 
-// Warning: (ae-missing-release-tag) "RequestDependentSegment" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "RequestDependentSegment" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type RequestDependentSegment = RequestDependable<SimpleSegment>;
 
-// Warning: (ae-missing-release-tag) "RequestEvent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "RequestEvent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface RequestEvent<P extends object> extends Event_2<P> {
@@ -2480,12 +3403,12 @@ export interface RequestEvent<P extends object> extends Event_2<P> {
     type: RequestEventType;
 }
 
-// Warning: (ae-missing-release-tag) "RequestEventType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "RequestEventType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type RequestEventType = "REQUEST";
 
-// Warning: (ae-missing-release-tag) "RequestHandler" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "RequestHandler" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface RequestHandler {
@@ -2493,7 +3416,7 @@ export interface RequestHandler {
     handleRequest(request: Request_2, context: Context): Promise<void>;
 }
 
-// Warning: (ae-missing-release-tag) "RequestResponse" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "RequestResponse" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface RequestResponse {
@@ -2503,7 +3426,7 @@ export interface RequestResponse {
     response: Response_2;
 }
 
-// Warning: (ae-missing-release-tag) "RequestSlot" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "RequestSlot" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface RequestSlot<T = RequestSlotValues> {
@@ -2516,24 +3439,24 @@ export interface RequestSlot<T = RequestSlotValues> {
     value?: T;
 }
 
-// Warning: (ae-missing-release-tag) "RequestSlotMap" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "RequestSlotMap" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface RequestSlotMap {
-    [slotName: string]: RequestSlot;
+    [slotName: string]: RequestSlot | undefined;
 }
 
-// Warning: (ae-missing-release-tag) "RequestSlotValues" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "RequestSlotValues" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export type RequestSlotValues = string | number | object | DateTimeRange | DateTime | Duration | (string)[];
+export type RequestSlotValues = string | number | object | DateTimeRange | DateTime | Duration | string[];
 
-// Warning: (ae-missing-release-tag) "RequestTypes" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "RequestTypes" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export type RequestTypes = AudioPlayerRequestType | InputUnknownRequestType | IntentRequestType | LaunchRequestType | NotificationPermissionRequestType | OptionSelectRequestType | PermissionRequestType | PlaybackControlRequestType | RawQueryRequestType | SessionEndedRequestType | SignInRequestType | SurfaceChangeRequestType;
+export type RequestTypes = AudioPlayerRequestType | ChannelActionRequestType | EventRequestType | InputUnknownRequestType | IntentRequestType | LaunchRequestType | NotificationPermissionRequestType | OptionSelectRequestType | PermissionRequestType | PlaybackControlRequestType | RawQueryRequestType | SessionEndedRequestType | SignInRequestType | SurfaceChangeRequestType | TransactionRequirementCheckType | TransactionDecisionType | TransactionDeliveryAddressType;
 
-// Warning: (ae-missing-release-tag) "RequiredAlexaPrivacyAndCompliance" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "RequiredAlexaPrivacyAndCompliance" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface RequiredAlexaPrivacyAndCompliance {
@@ -2549,13 +3472,13 @@ export interface RequiredAlexaPrivacyAndCompliance {
     usesPersonalInfo: boolean;
 }
 
-// Warning: (ae-missing-release-tag) "Response" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Response" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 type Response_2<T = string | ResponseOutput> = JSONDependableResponse<T> | LastActiveResponse<T> | RequestDependentResponse<T> | SchedulableResponse<T> | SimpleResponse<T> | SlotDependentResponse<T> | StorageDependentResponse<T> | SystemDependentResponse<T>;
 export { Response_2 as Response }
 
-// Warning: (ae-missing-release-tag) "ResponseBuilderProps" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ResponseBuilderProps" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface ResponseBuilderProps {
@@ -2566,7 +3489,7 @@ export interface ResponseBuilderProps {
     device: Readonly<Device>;
 }
 
-// Warning: (ae-missing-release-tag) "ResponseData" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ResponseData" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface ResponseData {
@@ -2578,7 +3501,7 @@ export interface ResponseData {
     title?: string;
 }
 
-// Warning: (ae-missing-release-tag) "ResponseOutput" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ResponseOutput" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface ResponseOutput extends Localizable<LocaleSpecificResponseOutput> {
@@ -2593,12 +3516,12 @@ export interface ResponseOutput extends Localizable<LocaleSpecificResponseOutput
     textToSpeech?: string;
 }
 
-// Warning: (ae-missing-release-tag) "ResponseSegment" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ResponseSegment" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type ResponseSegment = SimpleSegment | ScheduledSegment | LastActiveSegment | SlotDependentSegment | RequestDependentSegment | StorageDependentSegment;
 
-// Warning: (ae-missing-release-tag) "ResponseSegmentsMap" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ResponseSegmentsMap" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface ResponseSegmentsMap {
@@ -2606,12 +3529,12 @@ export interface ResponseSegmentsMap {
     [key: string]: ResponseSegment[];
 }
 
-// Warning: (ae-missing-release-tag) "ResumeIntent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ResumeIntent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type ResumeIntent = "ResumeIntent";
 
-// Warning: (ae-missing-release-tag) "RSSFeedItem" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "RSSFeedItem" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface RSSFeedItem {
@@ -2629,22 +3552,22 @@ export interface RSSFeedItem {
     url: string;
 }
 
-// Warning: (ae-missing-release-tag) "RSSFeedItemPlayableMedia" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "RSSFeedItemPlayableMedia" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type RSSFeedItemPlayableMedia = RSSFeedItem & PlayableMedia;
 
-// Warning: (ae-missing-release-tag) "RSSFeedType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "RSSFeedType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type RSSFeedType = GenericRSSFeedType | PodcastType;
 
-// Warning: (ae-missing-release-tag) "RuntimeCallback" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "RuntimeCallback" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type RuntimeCallback<Result extends object = object> = (error?: Error | null | string, result?: Result, request?: Request_2, response?: Response_2) => void;
 
-// Warning: (ae-missing-release-tag) "RuntimeContext" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "RuntimeContext" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface RuntimeContext {
@@ -2659,7 +3582,7 @@ export interface RuntimeContext {
     studio?: StudioContext;
 }
 
-// Warning: (ae-missing-release-tag) "Schedulable" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Schedulable" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface Schedulable {
@@ -2667,12 +3590,12 @@ export interface Schedulable {
     readonly schedule: Schedule;
 }
 
-// Warning: (ae-missing-release-tag) "SchedulableResponse" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SchedulableResponse" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type SchedulableResponse<T = string | ResponseOutput> = Scheduled<SimpleResponse<T>>;
 
-// Warning: (ae-missing-release-tag) "Schedule" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Schedule" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface Schedule {
@@ -2682,17 +3605,17 @@ export interface Schedule {
     readonly start: ScheduleStart;
 }
 
-// Warning: (ae-missing-release-tag) "Scheduled" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Scheduled" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type Scheduled<T> = T & Schedulable;
 
-// Warning: (ae-missing-release-tag) "ScheduledSegment" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ScheduledSegment" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type ScheduledSegment = Scheduled<SimpleSegment>;
 
-// Warning: (ae-missing-release-tag) "ScheduleStart" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ScheduleStart" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface ScheduleStart {
@@ -2706,7 +3629,42 @@ export interface ScheduleStart {
     readonly timeZone?: string;
 }
 
-// Warning: (ae-missing-release-tag) "SessionEndedRequest" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SelectableItem" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface SelectableItem {
+    id: string;
+    label: string;
+    selected?: boolean;
+}
+
+// Warning: (ae-missing-release-tag) "SellerInfo" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface SellerInfo {
+    // (undocumented)
+    displayName: string;
+    // (undocumented)
+    email: string;
+    // (undocumented)
+    firstName: string;
+    // (undocumented)
+    lastName: string;
+    // (undocumented)
+    phoneNumbers: string[];
+}
+
+// Warning: (ae-missing-release-tag) "SentimentedRequest" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface SentimentedRequest {
+    sentimentAnalysis?: {
+        sentiment: "POSITIVE" | "NEUTRAL" | "NEGATIVE" | "MIXED";
+        original?: string;
+    };
+}
+
+// Warning: (ae-missing-release-tag) "SessionEndedRequest" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface SessionEndedRequest extends BaseRequest {
@@ -2722,34 +3680,34 @@ export interface SessionEndedRequest extends BaseRequest {
     type: SessionEndedRequestType;
 }
 
-// Warning: (ae-missing-release-tag) "SessionEndedRequestType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SessionEndedRequestType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type SessionEndedRequestType = "SESSION_ENDED_REQUEST";
 
-// Warning: (ae-missing-release-tag) "SessionStore" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SessionStore" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface SessionStore {
     get(key: string): any;
     getStore(): any;
     set(key: string, value: any): void;
+    transcript?(): Message[];
 }
 
-// Warning: (ae-missing-release-tag) "SessionStoreData" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SessionStoreData" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface SessionStoreData {
-    // (undocumented)
     data: {
         [key: string]: any;
     };
-    // (undocumented)
     id: string;
+    transcript?: Message[];
 }
 
 // Warning: (ae-incompatible-release-tags) The symbol "SharedPath" is marked as @public, but its signature references "Conditioned" which is marked as @beta
-// Warning: (ae-missing-release-tag) "SharedPath" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SharedPath" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface SharedPath extends Partial<Actionable>, Partial<Conditioned> {
@@ -2758,22 +3716,22 @@ export interface SharedPath extends Partial<Actionable>, Partial<Conditioned> {
     platform?: string;
 }
 
-// Warning: (ae-missing-release-tag) "ShuffleOffIntent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ShuffleOffIntent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type ShuffleOffIntent = "ShuffleOffIntent";
 
-// Warning: (ae-missing-release-tag) "ShuffleOnIntent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ShuffleOnIntent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type ShuffleOnIntent = "ShuffleOnIntent";
 
-// Warning: (ae-missing-release-tag) "SignInID" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SignInID" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type SignInID = "SignIn";
 
-// Warning: (ae-missing-release-tag) "SignInRequest" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SignInRequest" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface SignInRequest extends BaseRequest {
@@ -2785,7 +3743,7 @@ export interface SignInRequest extends BaseRequest {
     type: SignInRequestType;
 }
 
-// Warning: (ae-missing-release-tag) "SignInRequestType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SignInRequestType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type SignInRequestType = "SIGN_IN_REQUEST";
@@ -2811,10 +3769,10 @@ export interface SimpleDisplay extends BaseDisplay {
 }
 
 // Warning: (ae-incompatible-release-tags) The symbol "SimpleResponse" is marked as @public, but its signature references "Conditioned" which is marked as @beta
-// Warning: (ae-missing-release-tag) "SimpleResponse" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SimpleResponse" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
-export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Actionable>, Partial<Conditioned> {
+export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Actionable>, Partial<Conditioned>, Partial<Channeled> {
     context?: {
         active?: ActiveContext[];
     };
@@ -2827,19 +3785,19 @@ export interface SimpleResponse<T = string | ResponseOutput> extends Partial<Act
     segments?: ResponseSegmentsMap;
     // @deprecated (undocumented)
     silencePrompt?: T;
-    system?: "ACCOUNT_LINK" | "MEDIA_ENQUEUE" | "MEDIA_STOP" | "SURFACE_CHANGE" | "PERMISSION_LIST" | "PERMISSION_EMAIL" | "PERMISSION_PHONE_NUMBER" | "PERMISSION_LOCATION_PRECISE" | "PERMISSION_LOCATION_COARSE" | "PERMISSION_NOTIFICATION" | "TRANSFER_CALL" | "HANDOFF";
-    tag?: string;
+    system?: "ACCOUNT_LINK" | "HANDOFF" | "MEDIA_ENQUEUE" | "MEDIA_STOP" | "PERMISSION_EMAIL" | "PERMISSION_LIST" | "PERMISSION_LOCATION_COARSE" | "PERMISSION_LOCATION_PRECISE" | "PERMISSION_NOTIFICATION" | "PERMISSION_PHONE_NUMBER" | "SURFACE_CHANGE" | "SURFACE_CLOSE" | "SURFACE_MINIMIZE" | "SURFACE_RESET" | "TRANSACTION_DECISION" | "TRANSACTION_DELIVERY_ADDRESS" | "TRANSACTION_REQUIREMENTS_CHECK" | "TRANSACTION_STATUS" | "TRANSFER_CALL";
+    tag?: string | string[];
 }
 
 // Warning: (ae-incompatible-release-tags) The symbol "SimpleSegment" is marked as @public, but its signature references "Conditioned" which is marked as @beta
-// Warning: (ae-missing-release-tag) "SimpleSegment" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SimpleSegment" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface SimpleSegment extends Partial<Conditioned> {
     segment: string | ResponseOutput;
 }
 
-// Warning: (ae-missing-release-tag) "SimpleSuggestion" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SimpleSuggestion" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type SimpleSuggestion = string;
@@ -2854,38 +3812,39 @@ export interface Slot {
             type: string;
         };
     };
+    obfuscateValue?: "FULL" | "PARTIAL";
     slotElicitationContentKey?: string;
     type?: string;
 }
 
-// Warning: (ae-missing-release-tag) "SlotDependable" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SlotDependable" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type SlotDependable<T> = T & SlotDependent;
 
-// Warning: (ae-missing-release-tag) "SlotDependent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SlotDependent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface SlotDependent {
     slotMatch: Match;
 }
 
-// Warning: (ae-missing-release-tag) "SlotDependentPath" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SlotDependentPath" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type SlotDependentPath = SlotDependable<ExecutablePath | CompilablePath>;
 
-// Warning: (ae-missing-release-tag) "SlotDependentResponse" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SlotDependentResponse" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type SlotDependentResponse<T = string | ResponseOutput> = SlotDependable<SimpleResponse<T>>;
 
-// Warning: (ae-missing-release-tag) "SlotDependentSegment" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SlotDependentSegment" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type SlotDependentSegment = SlotDependable<SimpleSegment>;
 
-// Warning: (ae-missing-release-tag) "SlotType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SlotType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public @deprecated
 export interface SlotType<T = string | number | object | boolean> {
@@ -2895,7 +3854,7 @@ export interface SlotType<T = string | number | object | boolean> {
     values?: SlotTypeValue<T>[];
 }
 
-// Warning: (ae-missing-release-tag) "SlotTypeMap" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SlotTypeMap" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface SlotTypeMap<T = string | number | object | boolean> {
@@ -2903,7 +3862,7 @@ export interface SlotTypeMap<T = string | number | object | boolean> {
     [slotTypeName: string]: SlotType<T>;
 }
 
-// Warning: (ae-missing-release-tag) "SlotTypeValue" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SlotTypeValue" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface SlotTypeValue<T = string | number | object | boolean> {
@@ -2912,7 +3871,7 @@ export interface SlotTypeValue<T = string | number | object | boolean> {
     synonyms?: string[];
 }
 
-// Warning: (ae-missing-release-tag) "SmsDescription" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SmsDescription" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface SmsDescription {
@@ -2924,7 +3883,7 @@ export interface SmsDescription {
     text?: string;
 }
 
-// Warning: (ae-missing-release-tag) "SMSResponse" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SMSResponse" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface SMSResponse {
@@ -2932,7 +3891,7 @@ export interface SMSResponse {
     success: boolean;
 }
 
-// Warning: (ae-missing-release-tag) "SMSService" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SMSService" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface SMSService {
@@ -2942,7 +3901,7 @@ export interface SMSService {
     sendImage(from: string, to: string, imageUrl: string): Promise<SMSResponse>;
 }
 
-// Warning: (ae-missing-release-tag) "SocialRadio" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SocialRadio" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface SocialRadio extends OnDemand {
@@ -2952,29 +3911,29 @@ export interface SocialRadio extends OnDemand {
     type: SocialRadioType;
 }
 
-// Warning: (ae-missing-release-tag) "SocialRadioAudio" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SocialRadioAudio" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type SocialRadioAudio = SocialRadioTrack | SocialRadioSong;
 
-// Warning: (ae-missing-release-tag) "SocialRadioSong" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SocialRadioSong" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface SocialRadioSong extends ReportableSong {
 }
 
-// Warning: (ae-missing-release-tag) "SocialRadioTrack" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SocialRadioTrack" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface SocialRadioTrack extends ReportableAudio {
 }
 
-// Warning: (ae-missing-release-tag) "SocialRadioType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SocialRadioType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type SocialRadioType = "SocialRadio";
 
-// Warning: (ae-missing-release-tag) "Song" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Song" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface Song extends Audio_2 {
@@ -2988,22 +3947,22 @@ export interface Song extends Audio_2 {
     type: SongType;
 }
 
-// Warning: (ae-missing-release-tag) "SongType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SongType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type SongType = "Song";
 
-// Warning: (ae-missing-release-tag) "StartOverIntent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "StartOverIntent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type StartOverIntent = "StartOverIntent";
 
-// Warning: (ae-missing-release-tag) "StopIntent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "StopIntent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type StopIntent = "StopIntent";
 
-// Warning: (ae-missing-release-tag) "Storage" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Storage" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 interface Storage_2 extends KeyValueStore {
@@ -3021,7 +3980,7 @@ interface Storage_2 extends KeyValueStore {
 }
 export { Storage_2 as Storage }
 
-// Warning: (ae-missing-release-tag) "StorageAction" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "StorageAction" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface StorageAction extends KeyValue {
@@ -3029,47 +3988,47 @@ export interface StorageAction extends KeyValue {
     type: StorageActionType;
 }
 
-// Warning: (ae-missing-release-tag) "StorageActionAdd" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "StorageActionAdd" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type StorageActionAdd = "ADD";
 
-// Warning: (ae-missing-release-tag) "StorageActionAppend" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "StorageActionAppend" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type StorageActionAppend = "APPEND";
 
-// Warning: (ae-missing-release-tag) "StorageActionDelete" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "StorageActionDelete" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type StorageActionDelete = "DELETE";
 
-// Warning: (ae-missing-release-tag) "StorageActionExecutor" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "StorageActionExecutor" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type StorageActionExecutor<S extends KeyValueStore = KeyValueStore> = (storage: S, keyValue: KeyValue) => S;
 
-// Warning: (ae-missing-release-tag) "StorageActionSet" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "StorageActionSet" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type StorageActionSet = "SET";
 
-// Warning: (ae-missing-release-tag) "StorageActionSubtract" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "StorageActionSubtract" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type StorageActionSubtract = "SUBTRACT";
 
-// Warning: (ae-missing-release-tag) "StorageActionType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "StorageActionType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type StorageActionType = StorageActionAdd | StorageActionAppend | StorageActionDelete | StorageActionSet | StorageActionSubtract;
 
-// Warning: (ae-missing-release-tag) "StorageDependable" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "StorageDependable" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type StorageDependable<T> = T & StorageDependent;
 
-// Warning: (ae-missing-release-tag) "StorageDependent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "StorageDependent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface StorageDependent {
@@ -3077,27 +4036,27 @@ export interface StorageDependent {
     storageMatch: Match;
 }
 
-// Warning: (ae-missing-release-tag) "StorageDependentPath" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "StorageDependentPath" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type StorageDependentPath = StorageDependable<ExecutablePath | CompilablePath>;
 
-// Warning: (ae-missing-release-tag) "StorageDependentResponse" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "StorageDependentResponse" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type StorageDependentResponse<T = string | ResponseOutput> = StorageDependable<SimpleResponse<T>>;
 
-// Warning: (ae-missing-release-tag) "StorageDependentSegment" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "StorageDependentSegment" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type StorageDependentSegment = StorageDependable<SimpleSegment>;
 
-// Warning: (ae-missing-release-tag) "StorageType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "StorageType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type StorageType = "SESSION" | "PERMANENT";
 
-// Warning: (ae-missing-release-tag) "StudioContext" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "StudioContext" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface StudioContext {
@@ -3105,7 +4064,7 @@ export interface StudioContext {
     platform?: string;
 }
 
-// Warning: (ae-missing-release-tag) "Suggestion" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Suggestion" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface Suggestion {
@@ -3113,17 +4072,17 @@ export interface Suggestion {
     title: string;
 }
 
-// Warning: (ae-missing-release-tag) "SuggestionObjectTypes" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SuggestionObjectTypes" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type SuggestionObjectTypes = Suggestion | LinkOutSuggestion;
 
-// Warning: (ae-missing-release-tag) "SuggestionTypes" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SuggestionTypes" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type SuggestionTypes = SimpleSuggestion | SuggestionObjectTypes;
 
-// Warning: (ae-missing-release-tag) "SurfaceChangeRequest" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SurfaceChangeRequest" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface SurfaceChangeRequest extends BaseRequest {
@@ -3135,34 +4094,34 @@ export interface SurfaceChangeRequest extends BaseRequest {
     type: SurfaceChangeRequestType;
 }
 
-// Warning: (ae-missing-release-tag) "SurfaceChangeRequestType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SurfaceChangeRequestType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type SurfaceChangeRequestType = "SURFACE_CHANGE_REQUEST";
 
-// Warning: (ae-missing-release-tag) "SystemConditionType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SystemConditionType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type SystemConditionType = "!ACCOUNT_LINKED" | "ACCOUNT_LINKED" | "!HEALTH_CHECK" | "HEALTH_CHECK" | "!BARGE_IN" | "BARGE_IN" | "OPTION_SELECT" | "!OPTION_SELECT" | "PERMISSION_GRANTED" | "!PERMISSION_GRANTED" | "SURFACE_CHANGED" | "!SURFACE_CHANGED" | "NOTIFICATION_PERMISSION_GRANTED" | "!NOTIFICATION_PERMISSION_GRANTED";
 
-// Warning: (ae-missing-release-tag) "SystemDependable" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SystemDependable" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type SystemDependable<T> = T & SystemDependent;
 
-// Warning: (ae-missing-release-tag) "SystemDependent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SystemDependent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface SystemDependent {
     systemCondition: SystemConditionType;
 }
 
-// Warning: (ae-missing-release-tag) "SystemDependentPath" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SystemDependentPath" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type SystemDependentPath = SystemDependable<ExecutablePath | CompilablePath>;
 
-// Warning: (ae-missing-release-tag) "SystemDependentResponse" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "SystemDependentResponse" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export type SystemDependentResponse<T = string | ResponseOutput> = SystemDependable<SimpleResponse<T>>;
@@ -3179,7 +4138,7 @@ export interface TemplatedList {
     };
 }
 
-// Warning: (ae-missing-release-tag) "TestSlot" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "TestSlot" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface TestSlot<T = RequestSlotValues | RelativeDateTime> extends Omit<RequestSlot, "value"> {
@@ -3187,7 +4146,7 @@ export interface TestSlot<T = RequestSlotValues | RelativeDateTime> extends Omit
     value: T;
 }
 
-// Warning: (ae-missing-release-tag) "TextContent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "TextContent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface TextContent {
@@ -3199,7 +4158,7 @@ export interface TextContent {
     tertiaryText?: string;
 }
 
-// Warning: (ae-missing-release-tag) "ThreeChoices" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ThreeChoices" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export enum ThreeChoices {
@@ -3211,22 +4170,65 @@ export enum ThreeChoices {
     Yes = "YES"
 }
 
-// Warning: (ae-missing-release-tag) "TimeContextual" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "TimeContextual" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type TimeContextual<T> = Scheduled<T> | LastActive<T>;
 
-// Warning: (ae-missing-release-tag) "UnspecifiedMediaType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "TransactionData" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface TransactionData {
+    // (undocumented)
+    merchantOrderId: string;
+    // (undocumented)
+    platformOrderId: string;
+}
+
+// Warning: (ae-missing-release-tag) "TransactionDecisionType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type TransactionDecisionType = "TRANSACTION_DECISION_REQUEST";
+
+// Warning: (ae-missing-release-tag) "TransactionDeliveryAddressType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type TransactionDeliveryAddressType = "TRANSACTION_DELIVERY_ADDRESS_REQUEST";
+
+// Warning: (ae-missing-release-tag) "TransactionLocation" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface TransactionLocation {
+    // (undocumented)
+    address: string;
+    // (undocumented)
+    city: string;
+    // (undocumented)
+    phoneNumber: string;
+    // (undocumented)
+    recipient: string;
+    // (undocumented)
+    state: string;
+    // (undocumented)
+    zipCode: string;
+}
+
+// Warning: (ae-missing-release-tag) "TransactionRequirementCheckType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type TransactionRequirementCheckType = "TRANSACTION_REQUIREMENT_CHECK_REQUEST";
+
+// Warning: (ae-missing-release-tag) "UnspecifiedMediaType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type UnspecifiedMediaType = "Media";
 
-// Warning: (ae-missing-release-tag) "UserData" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "UserData" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type UserData = (userDataType: UserDataType) => Promise<UserDataRequestStatus>;
 
-// Warning: (ae-missing-release-tag) "UserDataRequestStatus" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "UserDataRequestStatus" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export enum UserDataRequestStatus {
@@ -3240,12 +4242,12 @@ export enum UserDataRequestStatus {
     NOT_AVAILABLE = 2
 }
 
-// Warning: (ae-missing-release-tag) "UserDataType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "UserDataType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type UserDataType = "EMAIL" | "NAME" | "DEVICE_COARSE_LOCATION" | "DEVICE_PRECISE_LOCATION" | "PHONE_NUMBER" | "LIST";
 
-// Warning: (ae-missing-release-tag) "UserDataValue" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "UserDataValue" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface UserDataValue {
@@ -3255,13 +4257,14 @@ export interface UserDataValue {
     userProfile?: UserProfile;
 }
 
-// Warning: (ae-missing-release-tag) "UserProfile" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "UserProfile" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface UserProfile {
     // (undocumented)
     coarseLocation?: string;
     email?: string;
+    id: string;
     name?: string;
     notificationGranted?: boolean;
     // (undocumented)
@@ -3275,7 +4278,7 @@ export interface UserProfile {
     };
 }
 
-// Warning: (ae-missing-release-tag) "UserStorageService" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "UserStorageService" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface UserStorageService {
@@ -3284,20 +4287,21 @@ export interface UserStorageService {
     update(id: string, storage: Storage_2): Promise<Storage_2>;
 }
 
-// Warning: (ae-missing-release-tag) "UtteranceTest" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "UtteranceTest" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface UtteranceTest {
+    activeContext?: ActiveContext[];
     expected?: ExpectedResult;
     utterance: string;
 }
 
-// Warning: (ae-missing-release-tag) "ValueTypes" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ValueTypes" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type ValueTypes = object | string | number | boolean;
 
-// Warning: (ae-missing-release-tag) "Video" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Video" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface Video extends PlayableMedia {
@@ -3305,7 +4309,7 @@ export interface Video extends PlayableMedia {
     type: VideoType;
 }
 
-// Warning: (ae-missing-release-tag) "VideoLiveStream" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "VideoLiveStream" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface VideoLiveStream extends Video {
@@ -3315,17 +4319,17 @@ export interface VideoLiveStream extends Video {
     type: VideoLiveStreamType;
 }
 
-// Warning: (ae-missing-release-tag) "VideoLiveStreamType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "VideoLiveStreamType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type VideoLiveStreamType = "VideoLiveStream";
 
-// Warning: (ae-missing-release-tag) "VideoType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "VideoType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type VideoType = GenericVideoType | VideoLiveStreamType;
 
-// Warning: (ae-missing-release-tag) "Visuals" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Visuals" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface Visuals {
@@ -3335,7 +4339,7 @@ export interface Visuals {
     smallImageUrl?: string;
 }
 
-// Warning: (ae-missing-release-tag) "VoiceLabsDataStream" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "VoiceLabsDataStream" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface VoiceLabsDataStream extends BaseDataStream {
@@ -3347,12 +4351,12 @@ export interface VoiceLabsDataStream extends BaseDataStream {
     type: VoiceLabsDataStreamType;
 }
 
-// Warning: (ae-missing-release-tag) "VoiceLabsDataStreamType" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "VoiceLabsDataStreamType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type VoiceLabsDataStreamType = "voiceLabs";
 
-// Warning: (ae-missing-release-tag) "YesIntent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "YesIntent" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export type YesIntent = "YesIntent";

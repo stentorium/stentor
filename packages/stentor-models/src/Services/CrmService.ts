@@ -241,7 +241,16 @@ export class AbstractCrmService implements CrmService {
     range: DateTimeRange,
     options?: CrmServiceAvailabilityOptions
   ): Promise<CrmServiceAvailability> {
-    throw new Error("Method not implemented.");
+    const serviceName = this.constructor.name;
+    const errorMsg = `getAvailability not implemented for ${serviceName}`;
+    
+    console.warn(`${errorMsg}, returning empty availability, which is full availability.`);
+    
+    // Return empty availability (which means full availability)
+    return {
+      range,
+      unavailabilities: []
+    };
   }
 
   public async getJobType(

@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /*! Copyright (c) 2022, XAPPmedia */
 
+import { log } from "stentor-logger";
+
 import { CrmResponse, ExternalLead } from "../Crm";
 import { DateTime, DateTimeRange } from "../DateTime";
 import { BusyDayDescription } from "../Form";
@@ -244,7 +246,7 @@ export class AbstractCrmService implements CrmService {
     const serviceName = this.constructor.name;
     const errorMsg = `getAvailability not implemented for ${serviceName}`;
     
-    console.warn(`${errorMsg}, returning empty availability, which is full availability.`);
+    log().warn(`${errorMsg}, returning empty availability, which is full availability.`);
     
     // Return empty availability (which means full availability)
     return {

@@ -16,7 +16,7 @@ import { normalizeLegacyFormat } from "./normalizeLegacyFormat";
  * @param amount - Duration amount
  * @param format - Format of the duration amount
  */
-export function activeWithin(
+export function activeWithinImpl(
   context: { lastActiveTimestamp: number | undefined },
   amount: number,
   format: DurationFormat
@@ -58,7 +58,7 @@ export function activeWithin(
  * @param durationFormat - Format of the duration
  * @param timeZone - Optional time zone
  */
-export function fitsSchedule(
+export function fitsScheduleImpl(
   start: string,
   startFormat: string,
   duration: number,
@@ -103,11 +103,24 @@ export function fitsSchedule(
  * @param context - Object containing lastActiveTimestamp
  */
 export function TimeConditionalCheck<T extends object>(context: { lastActiveTimestamp: number | undefined }): ConditionalCheck {
+  // Create wrapper functions with explicit names to ensure proper function resolution
+  function activeWithin(amount: number, format: DurationFormat): boolean {
+    return activeWithinImpl(context, amount, format);
+  }
+  
+  function fitsSchedule(start: string, startFormat: string, duration: number, durationFormat: DurationFormat, timeZone?: string): boolean {
+    return fitsScheduleImpl(start, startFormat, duration, durationFormat, timeZone);
+  }
+
   return {
     test: isTimeContextual,
     check: (obj: TimeContextual<T>): boolean => {
       return !!findTimeContextualMatch([obj], context);
     },
-    functions: [activeWithin.bind(null, context), fitsSchedule],
+    functions: [activeWithin, fitsSchedule],
   };
 }
+
+// Export original functions for backward compatibility
+export const activeWithin = activeWithinImpl;
+export const fitsSchedule = fitsScheduleImpl;

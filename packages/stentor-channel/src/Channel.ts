@@ -67,13 +67,19 @@ export function Stentor(nlu?: NLUService): Channel {
             log().error(`UserId: ${request.userId}`);
             log().error(`SessionId: ${sessionId}`);
             log().error(`Active Context: ${JSON.stringify(resp.context?.active)}`);
+            
             if (e) {
               if (e instanceof Error) {
                 log().error(`Error: ${e.message}`);
+                log().error(`Error Stack: ${e.stack}`);
               } else {
                 log().error(`Error: ${JSON.stringify(e)}`);
               }
             }
+            
+            // Log additional debug information
+            log().debug(`NLU Service: ${nlu.constructor?.name || 'Unknown'}`);
+            log().debug(`Request details - Platform: ${request.platform}, Type: ${request.type}`);
           }
         }
       }

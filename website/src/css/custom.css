@@ -1,0 +1,155 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #4292ce;
+  --ifm-color-primary-dark: #2e84c4;
+  --ifm-color-primary-darker: #2b7db9;
+  --ifm-color-primary-darkest: #236798;
+  --ifm-color-primary-light: #56a0d8;
+  --ifm-color-primary-lighter: #63a7dd;
+  --ifm-color-primary-lightest: #84b9e6;
+  --ifm-code-font-size: 95%;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #56a0d8;
+  --ifm-color-primary-dark: #4292ce;
+  --ifm-color-primary-darker: #2e84c4;
+  --ifm-color-primary-darkest: #236798;
+  --ifm-color-primary-light: #63a7dd;
+  --ifm-color-primary-lighter: #71aee0;
+  --ifm-color-primary-lightest: #84b9e6;
+}
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* API Documentation Enhancements */
+
+/* Make API doc headings stand out */
+article h2 {
+  border-bottom: 2px solid var(--ifm-color-primary-lighter);
+  padding-bottom: 0.3em;
+  margin-top: 2em;
+}
+
+article h3 {
+  color: var(--ifm-color-primary-darker);
+  margin-top: 1.5em;
+}
+
+/* Style API lists better */
+article ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+article ul li {
+  padding: 0.5em 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+article ul li:last-child {
+  border-bottom: none;
+}
+
+/* Make links in API docs more prominent */
+article ul li a {
+  font-weight: 500;
+  font-size: 1.05em;
+  color: var(--ifm-color-primary-dark);
+}
+
+article ul li a:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+/* Better code inline styling */
+article code {
+  background-color: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 3px;
+  padding: 0.1em 0.4em;
+  font-size: 0.9em;
+}
+
+/* Make tables in API docs look better */
+article table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5em 0;
+}
+
+article table th {
+  background-color: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary-darkest);
+  font-weight: 600;
+  padding: 0.75em 1em;
+  text-align: left;
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+article table td {
+  padding: 0.75em 1em;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+article table tr:nth-child(even) {
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+/* Add icons to different heading types */
+article h2::before {
+  content: "📦 ";
+  margin-right: 0.3em;
+}
+
+article h2:contains("Classes")::before {
+  content: "🏗️ ";
+}
+
+article h2:contains("Interfaces")::before {
+  content: "🔷 ";
+}
+
+article h2:contains("Functions")::before {
+  content: "⚙️ ";
+}
+
+article h2:contains("Type")::before {
+  content: "📝 ";
+}
+
+article h2:contains("Enumerations")::before {
+  content: "🔢 ";
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] article code {
+  background-color: var(--ifm-color-emphasis-200);
+  border-color: var(--ifm-color-emphasis-400);
+}
+
+[data-theme='dark'] article table th {
+  background-color: var(--ifm-color-primary-darkest);
+  color: var(--ifm-color-primary-lightest);
+}
+
+[data-theme='dark'] article table tr:nth-child(even) {
+  background-color: var(--ifm-color-emphasis-200);
+}

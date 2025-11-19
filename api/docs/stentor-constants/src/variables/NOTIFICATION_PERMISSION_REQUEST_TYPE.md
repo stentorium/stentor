@@ -1,0 +1,11 @@
+[**Stentor API Reference**](../../../README.md)
+
+***
+
+[Stentor API Reference](../../../README.md) / [stentor-constants/src](../README.md) / NOTIFICATION\_PERMISSION\_REQUEST\_TYPE
+
+# Variable: NOTIFICATION\_PERMISSION\_REQUEST\_TYPE
+
+> `const` **NOTIFICATION\_PERMISSION\_REQUEST\_TYPE**: `NotificationPermissionRequestType` = `"NOTIFICATION_PERMISSION_REQUEST_TYPE"`
+
+Defined in: [packages/stentor-constants/src/requests.ts:56](https://github.com/stentorium/stentor/blob/c0410dcd7b880b4f8e849bc9e18a802c802d0a12/packages/stentor-constants/src/requests.ts#L56)

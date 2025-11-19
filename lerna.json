@@ -1,7 +1,5 @@
 {
-  "packages": [
-    "packages/**"
-  ],
+  "packages": ["packages/**", "website"],
   "npmClient": "yarn",
   "version": "1.66.32",
   "command": {
@@ -9,9 +7,7 @@
       "exact": true
     },
     "version": {
-      "allowBranch": [
-        "master"
-      ],
+      "allowBranch": ["master"],
       "exact": true,
       "conventionalCommits": true,
       "message": "chore(release): 📣⚡ publish release %v [skip ci]"

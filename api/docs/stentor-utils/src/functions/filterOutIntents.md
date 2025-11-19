@@ -1,0 +1,23 @@
+[**Stentor API Reference**](../../../README.md)
+
+***
+
+[Stentor API Reference](../../../README.md) / [stentor-utils/src](../README.md) / filterOutIntents
+
+# Function: filterOutIntents()
+
+> **filterOutIntents**(`handlersAndIntents`): [`Handler`](../../../stentor/src/interfaces/Handler.md)\<[`Content`](../../../stentor/src/interfaces/Content.md), [`Data`](../../../stentor/src/interfaces/Data.md), [`Forward`](../../../stentor/src/interfaces/Forward.md), [`Redirect`](../../../stentor/src/interfaces/Redirect.md)\>[]
+
+Defined in: [packages/stentor-utils/src/handler.ts:85](https://github.com/stentorium/stentor/blob/c0410dcd7b880b4f8e849bc9e18a802c802d0a12/packages/stentor-utils/src/handler.ts#L85)
+
+Filters out the intents from an array of intents and handlers.
+
+## Parameters
+
+### handlersAndIntents
+
+([`Intent`](../../../stentor/src/interfaces/Intent.md) \| [`Handler`](../../../stentor/src/interfaces/Handler.md)\<[`Content`](../../../stentor/src/interfaces/Content.md), [`Data`](../../../stentor/src/interfaces/Data.md), [`Forward`](../../../stentor/src/interfaces/Forward.md), [`Redirect`](../../../stentor/src/interfaces/Redirect.md)\>)[]
+
+## Returns
+
+[`Handler`](../../../stentor/src/interfaces/Handler.md)\<[`Content`](../../../stentor/src/interfaces/Content.md), [`Data`](../../../stentor/src/interfaces/Data.md), [`Forward`](../../../stentor/src/interfaces/Forward.md), [`Redirect`](../../../stentor/src/interfaces/Redirect.md)\>[]

@@ -246,7 +246,20 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
                 if (status === 200) {
                     return results;
                 } else {
-                    throw new Error(`StudioService.search() returned ${status} ${statusText} ${JSON.stringify(results)}`);
+                    throw new Error(`StudioService.search() returned ${status} ${statusText}. Query: "${query}". Response: ${JSON.stringify(results)}`);
+                }
+            }).catch((error) => {
+                // Enhanced error handling for search method
+                if (error.name === "AbortError") {
+                    throw new Error(`StudioService.search() aborted for query: "${query}"`);
+                } else if (error.name === "TypeError" && error.message.includes("fetch")) {
+                    throw new Error(`StudioService.search() network error for query: "${query}". Error: ${error.message}`);
+                } else if (error.message.includes("StudioService.search() returned")) {
+                    // Re-throw our custom error messages as-is
+                    throw error;
+                } else {
+                    // Enhance generic errors with more context
+                    throw new Error(`StudioService.search() unexpected error for query: "${query}". Error: ${error.message || error.toString()}`);
                 }
             })
     }
@@ -332,7 +345,20 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
 
                 return faqResult;
             } else {
-                throw new Error(`StudioService.faq() returned ${status} ${statusText} ${JSON.stringify(results)}`);
+                throw new Error(`StudioService.faq() returned ${status} ${statusText}. Query: "${query}". Response: ${JSON.stringify(results)}`);
+            }
+        }).catch((error) => {
+            // Enhanced error handling to provide better debugging information
+            if (error.name === "AbortError") {
+                throw new Error(`StudioService.faq() aborted for query: "${query}"`);
+            } else if (error.name === "TypeError" && error.message.includes("fetch")) {
+                throw new Error(`StudioService.faq() network error for query: "${query}". Error: ${error.message}`);
+            } else if (error.message.includes("StudioService.faq() returned")) {
+                // Re-throw our custom error messages as-is
+                throw error;
+            } else {
+                // Enhance generic errors with more context
+                throw new Error(`StudioService.faq() unexpected error for query: "${query}". Error: ${error.message || error.toString()}`);
             }
         })
     }
@@ -399,7 +425,20 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
                     type: "retrieval-augmented-generation"
                 };
             } else {
-                throw new Error(`StudioService.rag() returned ${status} ${statusText} ${JSON.stringify(results)}`);
+                throw new Error(`StudioService.rag() returned ${status} ${statusText}. Query: "${query}". Response: ${JSON.stringify(results)}`);
+            }
+        }).catch((error) => {
+            // Enhanced error handling for rag method
+            if (error.name === "AbortError") {
+                throw new Error(`StudioService.rag() aborted for query: "${query}"`);
+            } else if (error.name === "TypeError" && error.message.includes("fetch")) {
+                throw new Error(`StudioService.rag() network error for query: "${query}". Error: ${error.message}`);
+            } else if (error.message.includes("StudioService.rag() returned")) {
+                // Re-throw our custom error messages as-is
+                throw error;
+            } else {
+                // Enhance generic errors with more context
+                throw new Error(`StudioService.rag() unexpected error for query: "${query}". Error: ${error.message || error.toString()}`);
             }
         })
     }

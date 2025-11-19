@@ -50,6 +50,18 @@ export class ConditionalDeterminer {
                 // Get all the function and add them to the sandbox.
                 const sandboxFunctions: SandboxFunctions = {};
 
+                // Add fallback implementations for critical time functions
+                // This ensures activeWithin and fitsSchedule are always available
+                // even if TimeConditionalCheck wasn't properly configured
+                sandboxFunctions['activeWithin'] = () => {
+                    log().warn('Using fallback activeWithin function - TimeConditionalCheck may not be properly configured');
+                    return false;
+                };
+                sandboxFunctions['fitsSchedule'] = () => {
+                    log().warn('Using fallback fitsSchedule function - TimeConditionalCheck may not be properly configured');
+                    return false;
+                };
+
                 if (Array.isArray(this.checks)) {
                     this.checks.forEach((check) => {
                         if (Array.isArray(check.functions)) {

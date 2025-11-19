@@ -205,6 +205,24 @@ const shouldRunConditionals = () => {
                 }])).to.have.length(1);
             });
         });
+        describe('fallback functions', () => {
+            it('provides fallback for activeWithin when no checks are provided', () => {
+                const determiner = new ConditionalDeterminer([]);
+                const result = determiner.determine([{
+                    conditions: "activeWithin(1, 'day')"
+                }]);
+                // Should not throw an error, should return empty array because fallback returns false
+                expect(result).to.have.length(0);
+            });
+            it('provides fallback for fitsSchedule when no checks are provided', () => {
+                const determiner = new ConditionalDeterminer([]);
+                const result = determiner.determine([{
+                    conditions: "fitsSchedule('2023-01-01', 'yyyy-MM-dd', 1, 'day')"
+                }]);
+                // Should not throw an error, should return empty array because fallback returns false
+                expect(result).to.have.length(0);
+            });
+        });
     });
 }
 

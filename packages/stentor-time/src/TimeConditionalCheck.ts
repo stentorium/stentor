@@ -17,7 +17,7 @@ import { normalizeLegacyFormat } from "./normalizeLegacyFormat";
  * @param format - Format of the duration amount
  */
 export function activeWithin(
-  context: { lastActiveTimestamp: number },
+  context: { lastActiveTimestamp: number | undefined },
   amount: number,
   format: DurationFormat
 ): boolean {
@@ -102,7 +102,7 @@ export function fitsSchedule(
  *
  * @param context - Object containing lastActiveTimestamp
  */
-export function TimeConditionalCheck<T extends object>(context: { lastActiveTimestamp: number }): ConditionalCheck {
+export function TimeConditionalCheck<T extends object>(context: { lastActiveTimestamp: number | undefined }): ConditionalCheck {
   return {
     test: isTimeContextual,
     check: (obj: TimeContextual<T>): boolean => {

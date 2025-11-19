@@ -45,5 +45,11 @@ describe(`${TimeConditionalCheck.name}`, () => {
       expect(fitsSchedule).to.exist;
       expect(fitsSchedule(yesterday, YMD_FORMAT, 4, "days")).to.be.true;
     });
+
+    it("handles undefined lastActiveTimestamp", () => {
+      const lastActiveUndefined = TimeConditionalCheck({ lastActiveTimestamp: undefined }).functions[0];
+      expect(lastActiveUndefined).to.exist;
+      expect(lastActiveUndefined(1, "day")).to.be.false;
+    });
   });
 });

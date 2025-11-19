@@ -1,13 +1,18 @@
 {
-  "packages": ["packages/**", "website"],
+  "packages": [
+    "packages/**",
+    "website"
+  ],
   "npmClient": "yarn",
-  "version": "1.66.32",
+  "version": "1.66.33",
   "command": {
     "init": {
       "exact": true
     },
     "version": {
-      "allowBranch": ["master"],
+      "allowBranch": [
+        "master"
+      ],
       "exact": true,
       "conventionalCommits": true,
       "message": "chore(release): 📣⚡ publish release %v [skip ci]"

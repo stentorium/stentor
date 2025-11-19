@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.66.33](https://github.com/stentorium/stentor/compare/v1.66.32...v1.66.33) (2025-11-19)
+
+
+### Bug Fixes
+
+* **deps:** update docusaurus monorepo to v2.4.3 ([#2778](https://github.com/stentorium/stentor/issues/2778)) ([f961d49](https://github.com/stentorium/stentor/commit/f961d491da02da3239428333a1864830be9db73b))
+* Handle undefined lastActiveTimestamp in activeWithin function ([#2773](https://github.com/stentorium/stentor/issues/2773)) ([ba38343](https://github.com/stentorium/stentor/commit/ba38343e1c4da10a11536846b817f70d8c37f41c)), closes [#2772](https://github.com/stentorium/stentor/issues/2772)
+
+
+
+
+
 ## [1.66.32](https://github.com/stentorium/stentor/compare/v1.66.31...v1.66.32) (2025-11-15)
 
 **Note:** Version bump only for package repo

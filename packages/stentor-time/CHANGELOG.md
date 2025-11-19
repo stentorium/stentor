@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.66.33](https://github.com/stentorium/stentor/compare/v1.66.32...v1.66.33) (2025-11-19)
+
+
+### Bug Fixes
+
+* Handle undefined lastActiveTimestamp in activeWithin function ([#2773](https://github.com/stentorium/stentor/issues/2773)) ([ba38343](https://github.com/stentorium/stentor/commit/ba38343e1c4da10a11536846b817f70d8c37f41c)), closes [#2772](https://github.com/stentorium/stentor/issues/2772)
+
+
+
+
+
 ## [1.66.30](https://github.com/stentorium/stentor/compare/v1.66.29...v1.66.30) (2025-11-13)
 
 **Note:** Version bump only for package stentor-time

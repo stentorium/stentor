@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.66.35](https://github.com/stentorium/stentor/compare/v1.66.34...v1.66.35) (2025-11-19)
+
+
+### Bug Fixes
+
+* improve error handling for CRM services and context setting ([#2774](https://github.com/stentorium/stentor/issues/2774)) ([af76d8c](https://github.com/stentorium/stentor/commit/af76d8c00d893c2ca36844a62b014ca7a5f04e92)), closes [#2771](https://github.com/stentorium/stentor/issues/2771)
+
+
+
+
+
 ## [1.66.34](https://github.com/stentorium/stentor/compare/v1.66.33...v1.66.34) (2025-11-19)
 
 **Note:** Version bump only for package repo

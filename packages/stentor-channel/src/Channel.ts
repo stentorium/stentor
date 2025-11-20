@@ -63,23 +63,27 @@ export function Stentor(nlu?: NLUService): Channel {
               activeContext: resp.context?.active,
             });
           } catch (e) {
-            log().error(`Error setting context.`);
-            log().error(`UserId: ${request.userId}`);
-            log().error(`SessionId: ${sessionId}`);
-            log().error(`Active Context: ${JSON.stringify(resp.context?.active)}`);
+            const errorDetails = {
+              message: 'Error setting context',
+              userId: request.userId,
+              sessionId: sessionId,
+              nluService: nlu.constructor?.name || 'Unknown',
+              platform: request.platform,
+              requestType: request.type,
+              activeContextCount: resp.context?.active?.length || 0,
+              error: e instanceof Error ? {
+                message: e.message,
+                name: e.name,
+                stack: e.stack
+              } : e
+            };
             
-            if (e) {
-              if (e instanceof Error) {
-                log().error(`Error: ${e.message}`);
-                log().error(`Error Stack: ${e.stack}`);
-              } else {
-                log().error(`Error: ${JSON.stringify(e)}`);
-              }
+            log().error('Context setting failed', errorDetails);
+            
+            // Log active context details for debugging (but not in production to avoid noise)
+            if (process.env.NODE_ENV !== 'production') {
+              log().debug(`Active Context Details: ${JSON.stringify(resp.context?.active, null, 2)}`);
             }
-            
-            // Log additional debug information
-            log().debug(`NLU Service: ${nlu.constructor?.name || 'Unknown'}`);
-            log().debug(`Request details - Platform: ${request.platform}, Type: ${request.type}`);
           }
         }
       }

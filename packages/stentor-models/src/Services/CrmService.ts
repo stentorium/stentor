@@ -245,13 +245,7 @@ export class AbstractCrmService implements CrmService {
     const serviceName = this.constructor.name;
     const errorMsg = `getAvailability not implemented for ${serviceName}`;
     
-    console.warn(`${errorMsg}, returning empty availability, which is full availability.`);
-    
-    // Return empty availability (which means full availability)
-    return {
-      range,
-      unavailabilities: []
-    };
+    throw new Error(`${errorMsg}. Services extending AbstractCrmService must implement the getAvailability method.`);
   }
 
   public async getJobType(

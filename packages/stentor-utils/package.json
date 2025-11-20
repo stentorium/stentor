@@ -43,7 +43,7 @@
     "chrono-node": "2.9.0",
     "date-fns": "4.1.0",
     "dyno-item-size": "0.3.3",
-    "fuse.js": "6.6.2",
+    "fuse.js": "7.1.0",
     "html-entities": "2.6.0",
     "jsonpath-plus": "10.3.0",
     "lodash.keys": "4.2.0",

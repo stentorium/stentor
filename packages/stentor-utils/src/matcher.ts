@@ -5,11 +5,7 @@ import union from 'lodash.union';
 import keys from 'lodash.keys';
 import sumBy from 'lodash.sumby';
 
-// For the types
-import Fuse from "fuse.js";
-// To prevent the error Unhandled error TypeError: fuse_js_1.default is not a constructor
-// Use this for the constructor
-const FuseConstructor = require("fuse.js");
+import Fuse, { IFuseOptions, FuseResult } from "fuse.js";
 
 
 // Function to tokenize text
@@ -132,7 +128,7 @@ export function findFuzzyMatch<T = string | Record<string, unknown>>(find: strin
         return matches;
     }
 
-    const fuseOptions: Fuse.IFuseOptions<T> = {
+    const fuseOptions: IFuseOptions<T> = {
         distance: 100,
         location: 0,
         threshold: 0.3,
@@ -142,8 +138,8 @@ export function findFuzzyMatch<T = string | Record<string, unknown>>(find: strin
         ...options
     };
 
-    const fuse = new FuseConstructor(from, fuseOptions);
-    const result: Fuse.FuseResult<T>[] = fuse.search(find); // Literal here is to turn numbers to strings
+    const fuse = new Fuse(from, fuseOptions);
+    const result: FuseResult<T>[] = fuse.search(find); // Literal here is to turn numbers to strings
 
     matches = result.map((result) => {
         return from[result.refIndex];
@@ -177,7 +173,7 @@ export function matchUtteranceToSlotTypeValue<T>(
     }
 
     // Options for fuzzy string matching
-    const options: Fuse.IFuseOptions<SlotTypeValue<T>> = {
+    const options: IFuseOptions<SlotTypeValue<T>> = {
         distance: 100,
         keys: ["name"],
         location: 0,
@@ -187,9 +183,9 @@ export function matchUtteranceToSlotTypeValue<T>(
         includeScore: true
     };
 
-    const fuse = new FuseConstructor(slotTypeValues, options);
+    const fuse = new Fuse(slotTypeValues, options);
     const searchValue = `${utterance}`;
-    const result: Fuse.FuseResult<SlotTypeValue<T>>[] = fuse.search(searchValue); // Literal here is to turn numbers to strings
+    const result: FuseResult<SlotTypeValue<T>>[] = fuse.search(searchValue); // Literal here is to turn numbers to strings
     // @ts-ignore The types from Fuse are not 100%
     return result;
 }
@@ -199,7 +195,7 @@ export function matchUtteranceToSlotTypeValue<T>(
  *
  * @public
  */
-export interface MatchResult<T> extends Fuse.FuseResult<SlotTypeValue<T>> { }
+export interface MatchResult<T> extends FuseResult<SlotTypeValue<T>> { }
 
 /**
  * Match the request slot to the provided slot type values.
@@ -244,7 +240,7 @@ export function matchRequestSlotToSlotTypeValue<T>(
         // it doesn't already exist, set it
         if (!highestMatch) {
             highestMatch = potentialMatch;
-        } else if (highestMatch.score > potentialMatch.score) {
+        } else if (highestMatch.score! > potentialMatch.score!) {
             // remember, lower is better, 0 is a perfect match
             highestMatch = potentialMatch;
         }

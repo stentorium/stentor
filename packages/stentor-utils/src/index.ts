@@ -7,6 +7,7 @@ export * from "./compilers";
 export * from "./date-time";
 export * from "./dateTime";
 export * from "./dynamo";
+export * from "./elasticsearch";
 export * from "./email";
 export * from "./error";
 export * from "./getResponseByTag";

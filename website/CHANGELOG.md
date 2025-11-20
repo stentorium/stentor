@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.66.38](https://github.com/stentorium/stentor/compare/v1.66.37...v1.66.38) (2025-11-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency clsx to v2 ([#2784](https://github.com/stentorium/stentor/issues/2784)) ([7dd67fd](https://github.com/stentorium/stentor/commit/7dd67fd0bc2eee811230bc08de9a4e3b5ce591bd))
+* **deps:** update react monorepo to v19 ([#2787](https://github.com/stentorium/stentor/issues/2787)) ([61443e0](https://github.com/stentorium/stentor/commit/61443e04bbb337f1b0a096d842aa5813ec9d8ca0))
+
+
+
+
+
 ## [1.66.37](https://github.com/stentorium/stentor/compare/v1.66.36...v1.66.37) (2025-11-20)
 
 

@@ -5,11 +5,7 @@ import union from 'lodash.union';
 import keys from 'lodash.keys';
 import sumBy from 'lodash.sumby';
 
-// For the types
 import Fuse from "fuse.js";
-// To prevent the error Unhandled error TypeError: fuse_js_1.default is not a constructor
-// Use this for the constructor
-const FuseConstructor = require("fuse.js");
 
 
 // Function to tokenize text
@@ -142,7 +138,7 @@ export function findFuzzyMatch<T = string | Record<string, unknown>>(find: strin
         ...options
     };
 
-    const fuse = new FuseConstructor(from, fuseOptions);
+    const fuse = new Fuse(from, fuseOptions);
     const result: Fuse.FuseResult<T>[] = fuse.search(find); // Literal here is to turn numbers to strings
 
     matches = result.map((result) => {
@@ -187,7 +183,7 @@ export function matchUtteranceToSlotTypeValue<T>(
         includeScore: true
     };
 
-    const fuse = new FuseConstructor(slotTypeValues, options);
+    const fuse = new Fuse(slotTypeValues, options);
     const searchValue = `${utterance}`;
     const result: Fuse.FuseResult<SlotTypeValue<T>>[] = fuse.search(searchValue); // Literal here is to turn numbers to strings
     // @ts-ignore The types from Fuse are not 100%

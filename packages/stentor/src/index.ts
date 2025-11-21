@@ -249,5 +249,8 @@ export {
 import { FetchService, WithTimeout, TimeoutError } from "stentor-service-fetch";
 export { FetchService, WithTimeout, TimeoutError };
 
+import { LexServiceV2, LexV2Config } from "stentor-service-lex";
+export { LexServiceV2, LexV2Config };
+
 export * from "./services/Secrets";
 export * from "./Assistant";

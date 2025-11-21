@@ -1,0 +1,51 @@
+{
+  "name": "stentor-service-lex",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.66.37",
+  "description": "Amazon Lex service for 📣 stentor",
+  "types": "lib/index",
+  "main": "lib/index",
+  "files": [
+    "lib"
+  ],
+  "engines": {
+    "node": "^12 || ^14 || ^16 || ^18 || ^20 || ^22 || ^24.0.0"
+  },
+  "devDependencies": {
+    "@types/chai": "5.2.3",
+    "@types/mocha": "10.0.10",
+    "@types/node": "24.10.1",
+    "@types/sinon": "17.0.4",
+    "@types/sinon-chai": "3.2.12",
+    "@xapp/config": "0.2.3",
+    "chai": "4.5.0",
+    "chai-as-promised": "7.1.2",
+    "mocha": "11.7.5",
+    "sinon": "20.0.0",
+    "sinon-chai": "3.7.0",
+    "ts-node": "10.9.2",
+    "typescript": "5.9.3"
+  },
+  "dependencies": {
+    "stentor-constants": "1.66.35",
+    "stentor-logger": "1.66.37",
+    "stentor-utils": "1.66.37"
+  },
+  "peerDependencies": {
+    "@aws-sdk/client-lex-runtime-v2": "3.x",
+    "stentor-models": "1.x"
+  },
+  "peerDependenciesMeta": {
+    "@aws-sdk/client-lex-runtime-v2": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "build": "tsc -d true -p .",
+    "clean": "rm -rf ./lib/*",
+    "test": "mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
+  }
+}

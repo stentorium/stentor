@@ -60,17 +60,22 @@
     "stentor-runtime": "1.66.37",
     "stentor-service-event": "1.66.37",
     "stentor-service-fetch": "1.66.35",
+    "stentor-service-lex": "1.66.37",
     "stentor-service-ovai": "1.66.37",
     "stentor-service-studio": "1.66.37",
     "stentor-utils": "1.66.37"
   },
   "peerDependencies": {
+    "@aws-sdk/client-lex-runtime-v2": "3.X",
     "@aws-sdk/client-secrets-manager": "3.X",
     "aws-sdk": "2.X",
     "body-parser": "2.2.0",
     "express": "5.1.0"
   },
   "peerDependenciesMeta": {
+    "@aws-sdk/client-lex-runtime-v2": {
+      "optional": true
+    },
     "@aws-sdk/client-secrets-manager": {
       "optional": true
     },

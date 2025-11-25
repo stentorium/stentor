@@ -66,20 +66,26 @@ export class ConditionalDeterminer {
                     });
                 }
 
+                const sandbox = {
+                    ...sandboxFunctions,
+                    ...this.macros
+                };
+
+                // Debug logging
+                log().debug(`Sandbox functions available: ${Object.keys(sandbox).join(', ')}`);
+
                 const vm = getVM({
                     timeout: this.timeout,
-                    sandbox: {
-                        ...sandboxFunctions,
-                        ...this.macros
-                    }
+                    sandbox
                 });
 
                 let result: boolean;
                 try {
                     result = vm.run(conditional.conditions);
+                    log().debug(`${vm.type}|Condition "${conditional.conditions}" evaluated to: ${result}`);
                 } catch (e) {
                     log().error(`${vm.type}|Error evaluating conditions "${conditional.conditions}": ${e}`);
-
+                    log().error(`Stack: ${e instanceof Error ? e.stack : 'No stack trace'}`);
 
                     result = false;
                 }

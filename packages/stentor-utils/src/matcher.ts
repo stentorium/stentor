@@ -195,7 +195,7 @@ export function matchUtteranceToSlotTypeValue<T>(
  *
  * @public
  */
-export interface MatchResult<T> extends FuseResult<SlotTypeValue<T>> { }
+export type MatchResult<T> = FuseResult<SlotTypeValue<T>>
 
 /**
  * Match the request slot to the provided slot type values.

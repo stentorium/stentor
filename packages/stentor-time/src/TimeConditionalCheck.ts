@@ -108,6 +108,16 @@ export function TimeConditionalCheck<T extends object>(context: { lastActiveTime
     check: (obj: TimeContextual<T>): boolean => {
       return !!findTimeContextualMatch([obj], context);
     },
-    functions: [activeWithin.bind(null, context), fitsSchedule],
+    functions: [
+      (function(): (amount: number, format: DurationFormat) => boolean {
+        const fn = (amount: number, format: DurationFormat): boolean => {
+          return activeWithin(context, amount, format);
+        };
+        // Explicitly set the function name to ensure it's preserved
+        Object.defineProperty(fn, 'name', { value: 'activeWithin' });
+        return fn;
+      })(),
+      fitsSchedule
+    ],
   };
 }

@@ -174,7 +174,7 @@ export abstract class AbstractResponseBuilder<R = any> {
      * @param playlist - The playlist to be played
      * @returns The builder instance
      */
-    public abstract playPlaylist(playlist: Array<PlayableMedia> | PlayableMedia[]): AbstractResponseBuilder<R>;
+    public abstract playPlaylist(playlist: PlayableMedia[] | PlayableMedia[]): AbstractResponseBuilder<R>;
     /**
      * Stop the current audio
      *

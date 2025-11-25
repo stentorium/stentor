@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.66.41](https://github.com/stentorium/stentor/compare/v1.66.40...v1.66.41) (2025-11-25)
+
+
+### Bug Fixes
+
+* ensure activeWithin function is properly available in condition evaluation ([#2796](https://github.com/stentorium/stentor/issues/2796)) ([3436eb2](https://github.com/stentorium/stentor/commit/3436eb285328aee9f7035ce1fdea704c267be963))
+
+
+
+
+
 ## [1.66.39](https://github.com/stentorium/stentor/compare/v1.66.38...v1.66.39) (2025-11-21)
 
 **Note:** Version bump only for package stentor-service-event

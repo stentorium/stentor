@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.66.40](https://github.com/stentorium/stentor/compare/v1.66.39...v1.66.40) (2025-11-24)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/aws-lambda to v8.10.159 ([#2797](https://github.com/stentorium/stentor/issues/2797)) ([f46f0d7](https://github.com/stentorium/stentor/commit/f46f0d78ca54283eaa1460727010781c08303b8b))
+
+
+
+
+
+## [1.66.39](https://github.com/stentorium/stentor/compare/v1.66.38...v1.66.39) (2025-11-21)
+
+**Note:** Version bump only for package repo
+
+
+
+
+
+## [1.66.38](https://github.com/stentorium/stentor/compare/v1.66.37...v1.66.38) (2025-11-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency clsx to v2 ([#2784](https://github.com/stentorium/stentor/issues/2784)) ([7dd67fd](https://github.com/stentorium/stentor/commit/7dd67fd0bc2eee811230bc08de9a4e3b5ce591bd))
+* **deps:** update react monorepo to v19 ([#2787](https://github.com/stentorium/stentor/issues/2787)) ([61443e0](https://github.com/stentorium/stentor/commit/61443e04bbb337f1b0a096d842aa5813ec9d8ca0))
+
+
+
+
+
+## [1.66.37](https://github.com/stentorium/stentor/compare/v1.66.36...v1.66.37) (2025-11-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fuse.js to v7 ([#2231](https://github.com/stentorium/stentor/issues/2231)) ([fdc18a1](https://github.com/stentorium/stentor/commit/fdc18a11af72ecf8053dd77d19b6ca1b8032d07d))
+* **deps:** update dependency prism-react-renderer to v2 ([#2785](https://github.com/stentorium/stentor/issues/2785)) ([31ad269](https://github.com/stentorium/stentor/commit/31ad26964ca60481ce12280653d5286b6fb5c49c))
+
+
+
+
+
 ## [1.66.36](https://github.com/stentorium/stentor/compare/v1.66.35...v1.66.36) (2025-11-20)
 
 **Note:** Version bump only for package repo

@@ -12,7 +12,7 @@
     "website"
   ],
   "devDependencies": {
-    "@microsoft/api-documenter": "7.26.34",
+    "@microsoft/api-documenter": "7.28.1",
     "@typescript-eslint/eslint-plugin": "6.21.0",
     "@typescript-eslint/parser": "6.21.0",
     "@xapp/config": "0.2.3",
@@ -46,5 +46,5 @@
     "version-check": "syncpack list-mismatches --types dev,prod --filter 'stentor-'",
     "version-check:all": "syncpack list-mismatches --types dev,prod"
   },
-  "packageManager": "yarn@4.11.0"
+  "packageManager": "yarn@4.12.0"
 }

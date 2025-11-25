@@ -14,9 +14,9 @@ export type SocialRadioAudio = SocialRadioTrack | SocialRadioSong;
  * Tracks in SocialRadio are typically filler audio used
  * for station identification.
  */
-export interface SocialRadioTrack extends ReportableAudio { }
+export type SocialRadioTrack = ReportableAudio
 
 /**
  * Just a normal song
  */
-export interface SocialRadioSong extends ReportableSong { }
+export type SocialRadioSong = ReportableSong

@@ -109,7 +109,7 @@ export function TimeConditionalCheck<T extends object>(context: { lastActiveTime
       return !!findTimeContextualMatch([obj], context);
     },
     functions: [
-      (function() {
+      (function(): (amount: number, format: DurationFormat) => boolean {
         const fn = (amount: number, format: DurationFormat): boolean => {
           return activeWithin(context, amount, format);
         };

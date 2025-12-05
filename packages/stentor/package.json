@@ -29,7 +29,7 @@
     "body-parser": "2.2.1",
     "chai": "4.5.0",
     "chai-as-promised": "7.1.2",
-    "express": "5.1.0",
+    "express": "5.2.1",
     "mocha": "11.7.5",
     "sinon": "20.0.0",
     "sinon-chai": "3.7.0",
@@ -45,7 +45,7 @@
   "dependencies": {
     "@types/aws-lambda": "8.10.159",
     "@types/body-parser": "1.19.6",
-    "@types/express": "5.0.5",
+    "@types/express": "5.0.6",
     "@xapp/patterns": "2.0.2",
     "dotenv": "16.6.1",
     "stentor-constants": "1.66.41",
@@ -68,7 +68,7 @@
     "@aws-sdk/client-secrets-manager": "3.X",
     "aws-sdk": "2.X",
     "body-parser": "2.2.1",
-    "express": "5.1.0"
+    "express": "5.2.1"
   },
   "peerDependenciesMeta": {
     "@aws-sdk/client-secrets-manager": {

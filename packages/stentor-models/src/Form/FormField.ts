@@ -2,6 +2,11 @@
 
 import { DayOfWeek } from "../Services";
 
+/**
+ * Parameters for Google Maps Places Autocomplete API
+ *
+ * @see https://developers.google.com/maps/documentation/places/web-service/autocomplete
+ */
 export interface AddressAutocompleteParameters {
   /**
    * This will look like components=country:us or components=country:us|country:ca
@@ -19,7 +24,17 @@ export interface AddressAutocompleteParameters {
    * For example, location=37.76999,-122.44696
    */
   location?: string;
+  /**
+   * Biases results to a specified location and radius.
+   *
+   * @see https://developers.google.com/maps/documentation/places/web-service/autocomplete#location_biasing
+   */
   locationbias?: string;
+  /**
+   * Restricts results to a specified location and radius.
+   *
+   * @see https://developers.google.com/maps/documentation/places/web-service/autocomplete#location_restriction
+   */
   locationrestriction?: string;
   /**
    * When using location with a specific lat & long, this must be provided.
@@ -33,6 +48,17 @@ export interface AddressAutocompleteParameters {
   key?: string;
 }
 
+/**
+ * Union type representing all possible form field types.
+ *
+ * Each form field type provides different input capabilities:
+ * - FormCardInput: Display card with text/image
+ * - FormTextInput: Text input with optional validation
+ * - FormDropdownInput: Selection from dropdown list
+ * - FormChipsInput: Multi-select chip interface
+ * - FormDateInput: Single date picker
+ * - FormDateRangeInput: Date range picker
+ */
 export type FormField =
   | FormCardInput
   | FormTextInput
@@ -90,90 +116,201 @@ export interface FormInput {
   style?: object;
 }
 
+/**
+ * Specialized text input for address entry with autocomplete functionality.
+ *
+ * Extends FormTextInput to provide Google Maps Places Autocomplete
+ * integration for address suggestions.
+ */
 export interface FormFieldTextAddressInput extends FormTextInput {
   format: "ADDRESS";
   /**
    * Base URL of an endpoint that adheres to the Google Maps Location Autocomplete API.
+   *
+   * This can be either the official Google Maps API endpoint or a custom
+   * proxy endpoint that implements the same interface.
    */
   mapsBaseUrl?: string;
   /**
    * Optional query parameters to help limit the results returned by the Google Maps Autocomplete API.
+   *
+   * Use these parameters to restrict results by country, location, or other criteria.
    */
   mapsUrlQueryParams?: AddressAutocompleteParameters;
   /**
    * Required when you are using the official Google Maps Autocomplete API.
+   *
+   * Not needed if using a custom proxy endpoint that handles authentication.
    */
   googleMapsApiKey?: string;
 }
 
 /**
- * Text input. Validate according to the format.
+ * Text input field with optional validation and formatting.
+ *
+ * Supports both single-line and multi-line text input with various
+ * format validators (phone, email, address, zip code).
  */
 export interface FormTextInput extends FormInput {
-  multiline?: boolean; // render text area
-  format?: "PHONE" | "EMAIL" | "ADDRESS" | "ZIP_CODE"; // ... default is free text
+  /**
+   * When true, renders as a textarea instead of a single-line input
+   */
+  multiline?: boolean;
+  /**
+   * Format validation to apply to the input. Default is free text with no validation.
+   */
+  format?: "PHONE" | "EMAIL" | "ADDRESS" | "ZIP_CODE";
+  /**
+   * Placeholder text shown when the input is empty
+   */
   placeholder?: string;
-
+  /**
+   * Accessible label for the input field
+   */
   label?: string;
-
-  // When textarea
+  /**
+   * Number of rows for textarea (only applicable when multiline is true)
+   */
   rows?: number;
+  /**
+   * Maximum number of rows for textarea (only applicable when multiline is true)
+   */
   rowsMax?: number;
+  /**
+   * Maximum character length allowed for the input
+   */
+  maxLength?: number;
 }
 
 /**
- * Dropdown
+ * Dropdown selection field.
+ *
+ * Displays a list of selectable items in a dropdown menu.
  */
 export interface FormDropdownInput extends FormInput {
+  /**
+   * List of items available for selection in the dropdown
+   */
   items: SelectableItem[];
 }
 
 /**
- * Close/Open style chips selection. Header plus open symbol reveals the chips.
+ * Close/Open style chips selection field.
+ *
+ * Displays items as chips that can be selected/deselected.
+ * Header plus open symbol reveals the chips.
  */
 export interface FormChipsInput extends FormInput {
   type: "CHIPS";
-  radio?: boolean; // single select
+  /**
+   * When true, allows only single selection (radio button behavior).
+   * When false or undefined, allows multiple selections.
+   */
+  radio?: boolean;
+  /**
+   * Whether the chips are shown by default or collapsed
+   */
   defaultOpen?: boolean;
-
+  /**
+   * Minimum number of items that must be selected
+   */
   minRequired?: number;
+  /**
+   * Maximum number of items that can be selected
+   */
   maxAllowed?: number;
-
+  /**
+   * List of selectable or actionable items to display as chips
+   */
   items: (SelectableItem | ActionableItem)[];
 }
 
 /**
- * Like chips but with checkboxes
+ * Selection field similar to chips but rendered with checkboxes.
+ *
+ * Provides a checkbox or radio button interface for item selection.
  */
 export interface FormSelectInput extends FormInput {
-  radio?: boolean; // single select
+  /**
+   * When true, allows only single selection (radio button behavior).
+   * When false or undefined, allows multiple selections with checkboxes.
+   */
+  radio?: boolean;
+  /**
+   * Whether the selection list is shown by default or collapsed
+   */
   defaultOpen?: boolean;
-
+  /**
+   * List of selectable items to display
+   */
   items: SelectableItem[];
 }
 
 /**
- * Card (text/image)
+ * Card display field for showing text and/or images.
+ *
+ * Provides a rich card-based display component with optional header,
+ * media content, and body text.
  */
 export interface FormCardInput extends FormInput {
+  /**
+   * Optional header section with title and subheader
+   */
   header?: {
+    /**
+     * Main title text for the card header
+     */
     title: string;
+    /**
+     * Optional subtitle or secondary text
+     */
     subheader?: string;
   };
-
+  /**
+   * Optional media section for displaying images
+   */
   media?: {
+    /**
+     * Height of the media in pixels
+     */
     height?: number;
+    /**
+     * Width of the media in pixels
+     */
     width?: number;
+    /**
+     * URL of the image to display
+     */
     imageUrl: string;
+    /**
+     * Alternative text for accessibility
+     */
     alt?: string;
   };
-
+  /**
+   * Body text content for the card
+   */
   text?: string;
+  /**
+   * Visual variant style for the card
+   */
   variant?: string;
+  /**
+   * Color scheme for the card
+   */
   color?: string;
-  align?: string; // text alignment, which can be set to "left," "center," "right," or "justify."
+  /**
+   * Text alignment: "left", "center", "right", or "justify"
+   */
+  align?: string;
 }
 
+/**
+ * Configuration for marking days as busy/unavailable in date selection.
+ *
+ * Used to control which days can be selected in date input fields,
+ * typically for appointment scheduling or availability management.
+ */
 export interface BusyDayDescription {
   /**
    * The days of the week that are available for appointments.
@@ -189,17 +326,19 @@ export interface BusyDayDescription {
    * Blocks the current day.
    *
    * If it is a weekend and weekends are not blocked, it will be blocked.
-   * If it is a weekend and weekends are blocked, the it will be disregarded.
+   * If it is a weekend and weekends are blocked, then it will be disregarded.
    */
   readonly blockCurrentDay?: boolean;
   /**
-   * Blocks the current day until the specified time.  This is in the format of HH:MM.
+   * Blocks the current day until the specified time. This is in the format of HH:MM.
+   *
+   * For example, "14:00" would make the current day unavailable until 2:00 PM.
    */
   readonly currentDayAvailableUntil?: string;
   /**
    * Blocks the next number of business days.
    *
-   * One business day will bock the next business day.
+   * One business day will block the next business day.
    *
    * If this is set, it will override the availableDays, blockWeekends, and blockCurrentDay.
    */
@@ -207,9 +346,15 @@ export interface BusyDayDescription {
 }
 
 /**
- * Single date
+ * Single date picker input field.
+ *
+ * Allows users to select a single date with optional
+ * preselection and busy day configuration.
  */
 export interface FormDateInput extends FormInput {
+  /**
+   * Date to preselect when the date picker is displayed
+   */
   preselecteDate?: Date;
   /**
    * Default busy days that will show as unavailable.
@@ -220,44 +365,65 @@ export interface FormDateInput extends FormInput {
 }
 
 /**
- * Date range
+ * Date range picker input field.
+ *
+ * Allows users to select a start and end date range.
  */
 export interface FormDateRangeInput extends FormInput {
-  preselecteDates?: { from?: Date; to?: Date };
+  /**
+   * Date range to preselect when the date picker is displayed
+   */
+  preselecteDates?: {
+    /**
+     * Start date of the range
+     */
+    from?: Date;
+    /**
+     * End date of the range
+     */
+    to?: Date;
+  };
 }
 
 /**
- * Ability to click on the item and perform an action.
+ * An item that can be clicked to perform an action (e.g., navigate to a URL).
+ *
+ * Used in form fields like chips to provide actionable items that
+ * trigger navigation or other actions when clicked.
  */
 export interface ActionableItem {
   /**
-   * Label to display
+   * Display label shown to the user
    */
   label: string;
   /**
-   * ID of the item. This is what is sent to the server and should be a form of the label that is human readable.
+   * Unique identifier for the item. This is what is sent to the server
+   * and should be a human-readable form of the label.
    */
   id: string;
   /**
-   * Url
+   * URL to navigate to when the item is clicked
    */
   url: string;
 }
 
 /**
- * Basically a name value pair for dropdowns or chips
+ * A selectable item used in dropdowns, chips, and other selection fields.
+ *
+ * Represents a name-value pair with optional preselection state.
  */
 export interface SelectableItem {
   /**
-   * Display label
+   * Display label shown to the user
    */
   label: string;
   /**
-   * ID of the item. This is what is sent to the server and should be a form of the label that is human readable.
+   * Unique identifier for the item. This is what is sent to the server
+   * and should be a human-readable form of the label.
    */
   id: string;
   /**
-   * Option to show the item as selected
+   * When true, the item will be shown as selected by default
    */
   selected?: boolean;
 }

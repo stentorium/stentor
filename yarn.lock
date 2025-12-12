@@ -515,9 +515,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-secrets-manager@npm:3.948.0":
-  version: 3.948.0
-  resolution: "@aws-sdk/client-secrets-manager@npm:3.948.0"
+"@aws-sdk/client-secrets-manager@npm:3.950.0":
+  version: 3.950.0
+  resolution: "@aws-sdk/client-secrets-manager@npm:3.950.0"
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
@@ -558,7 +558,7 @@ __metadata:
     "@smithy/util-retry": "npm:^4.2.5"
     "@smithy/util-utf8": "npm:^4.2.0"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/8458ee907774665c8ac6c8835b0fe1111e3a98e8a9c2e2770d93e1f4fd27b5fb929fdf2b42ad272ff1bd5d84b4c2ef105b6d862b835f8eb9262b56729366b3c2
+  checksum: 10c0/d904105f8e10dc01480f49cb61bd1c7c0119449127ecfe3dbdb004b0d232383b567f834bcda6ec6814b32dec9308839729337733d0e7d95ce8fd4d7becdfc4aa
   languageName: node
   linkType: hard
 
@@ -18432,7 +18432,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor@workspace:packages/stentor"
   dependencies:
-    "@aws-sdk/client-secrets-manager": "npm:3.948.0"
+    "@aws-sdk/client-secrets-manager": "npm:3.950.0"
     "@microsoft/api-extractor": "npm:7.55.2"
     "@types/aws-lambda": "npm:8.10.159"
     "@types/body-parser": "npm:1.19.6"

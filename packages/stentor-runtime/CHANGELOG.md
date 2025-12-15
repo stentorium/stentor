@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.66.52](https://github.com/stentorium/stentor/compare/v1.66.51...v1.66.52) (2025-12-15)
+
+
+### Reverts
+
+* Revert "chore(release): 📣⚡ publish release 1.66.52 [skip ci]" ([adf9f4e](https://github.com/stentorium/stentor/commit/adf9f4e2fa62b845a566cf47b0e3595ac439667e))
+
+
+
+
+
 ## [1.66.50](https://github.com/stentorium/stentor/compare/v1.66.49...v1.66.50) (2025-12-10)
 
 **Note:** Version bump only for package stentor-runtime

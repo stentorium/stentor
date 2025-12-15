@@ -2,24 +2,10 @@
 import { Event } from "stentor-models";
 import { AbstractEventStream } from "./AbstractEventStream";
 
-// Try AWS SDK v3 first, fallback to v2
-let FirehoseClient: any;
-let PutRecordBatchCommand: any;
-let Firehose: any;
-let globalFirehose: any;
+// AWS SDK v3 only
+import { FirehoseClient, PutRecordBatchCommand } from "@aws-sdk/client-firehose";
 
-try {
-    // AWS SDK v3
-    const firehoseV3 = require("@aws-sdk/client-firehose");
-    FirehoseClient = firehoseV3.FirehoseClient;
-    PutRecordBatchCommand = firehoseV3.PutRecordBatchCommand;
-    globalFirehose = new FirehoseClient({});
-} catch {
-    // AWS SDK v2 fallback
-    const awsSdk = require("aws-sdk");
-    Firehose = awsSdk.Firehose;
-    globalFirehose = new Firehose({ apiVersion: "2015-08-04" });
-}
+const globalFirehose = new FirehoseClient({});
 
 function generateRecords(events: Event<any>[] = []): Promise<any[]> {
     return Promise.resolve(
@@ -62,9 +48,9 @@ function validateRecords(events: Event<any>[] = []): Promise<Event<any>[]> {
 
 export class FirehoseStream extends AbstractEventStream {
     private readonly deliveryStreamName: string;
-    private readonly firehose: any; // Can be either v2 Firehose or v3 FirehoseClient
+    private readonly firehose: FirehoseClient;
 
-    public constructor(deliveryStreamName: string, injectedFirehose: any = globalFirehose) {
+    public constructor(deliveryStreamName: string, injectedFirehose: FirehoseClient = globalFirehose) {
         super();
         this.deliveryStreamName = deliveryStreamName;
         this.firehose = injectedFirehose;
@@ -75,22 +61,11 @@ export class FirehoseStream extends AbstractEventStream {
             const validatedEvents = await validateRecords(events);
             const records = await generateRecords(validatedEvents);
             
-            if (PutRecordBatchCommand) {
-                // AWS SDK v3
-                const command = new PutRecordBatchCommand({
-                    DeliveryStreamName: this.deliveryStreamName,
-                    Records: records
-                });
-                await this.firehose.send(command);
-            } else {
-                // AWS SDK v2
-                await this.firehose
-                    .putRecordBatch({
-                        DeliveryStreamName: this.deliveryStreamName,
-                        Records: records
-                    })
-                    .promise();
-            }
+            const command = new PutRecordBatchCommand({
+                DeliveryStreamName: this.deliveryStreamName,
+                Records: records
+            });
+            await this.firehose.send(command);
         } catch (e) {
             console.error("Error generating records.", e);
             throw e;

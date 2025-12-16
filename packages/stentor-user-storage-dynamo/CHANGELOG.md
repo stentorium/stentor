@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+
+
+**Note:** Version bump only for package stentor-user-storage-dynamo
+
+
+
+
+
 ## [1.66.49](https://github.com/stentorium/stentor/compare/v1.66.48...v1.66.49) (2025-12-09)
 
 **Note:** Version bump only for package stentor-user-storage-dynamo

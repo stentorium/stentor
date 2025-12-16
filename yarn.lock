@@ -18228,7 +18228,6 @@ __metadata:
     "@types/sinon": "npm:17.0.4"
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.2.3"
-    aws-sdk: "npm:2.1693.0"
     chai: "npm:4.5.0"
     mocha: "npm:11.7.5"
     sinon: "npm:20.0.0"
@@ -18244,7 +18243,6 @@ __metadata:
     "@aws-sdk/client-firehose": 3.x
     "@aws-sdk/client-kinesis": 3.x
     "@aws-sdk/client-sns": 3.x
-    aws-sdk: 2.x
     stentor-models: 1.x
   languageName: unknown
   linkType: soft

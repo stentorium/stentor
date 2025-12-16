@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.66.51](https://github.com/stentorium/stentor/compare/v1.66.50...v1.66.51) (2025-12-16)
+
+
+### Bug Fixes
+
+* Migrate stentor-service-event to AWS SDK v3 ([#2821](https://github.com/stentorium/stentor/issues/2821)) ([f3bf63c](https://github.com/stentorium/stentor/commit/f3bf63c220698891da56542e2ea5f4e717c168b8)), closes [#2820](https://github.com/stentorium/stentor/issues/2820)
+
+
+
+
+
 ## [1.66.50](https://github.com/stentorium/stentor/compare/v1.66.49...v1.66.50) (2025-12-16)
 
 

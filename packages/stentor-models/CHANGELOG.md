@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.67.0](https://github.com/stentorium/stentor/compare/v1.66.52...v1.67.0) (2025-12-18)
+
+
+### Features
+
+* add maxLength property to FormDropdownInput interface ([#2825](https://github.com/stentorium/stentor/issues/2825)) ([864ec09](https://github.com/stentorium/stentor/commit/864ec09c3ff7c0b6ebb7ba0c661598924903c8ce)), closes [#2824](https://github.com/stentorium/stentor/issues/2824)
+
+
+
+
+
 ## [1.66.50](https://github.com/stentorium/stentor/compare/v1.66.49...v1.66.50) (2025-12-16)
 
 **Note:** Version bump only for package stentor-models

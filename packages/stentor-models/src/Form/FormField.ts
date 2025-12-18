@@ -192,6 +192,10 @@ export interface FormDropdownInput extends FormInput {
    * List of items available for selection in the dropdown
    */
   items: SelectableItem[];
+  /**
+   * Maximum character length allowed for freeform text input (e.g., "other" option)
+   */
+  maxLength?: number;
 }
 
 /**

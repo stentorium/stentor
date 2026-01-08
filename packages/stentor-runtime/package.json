@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.67.6",
+  "version": "1.67.7",
   "description": "Runtime for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -40,7 +40,7 @@
     "stentor-interaction-model": "1.67.0",
     "stentor-logger": "1.67.0",
     "stentor-response": "1.67.0",
-    "stentor-service-event": "1.67.6",
+    "stentor-service-event": "1.67.7",
     "stentor-utils": "1.67.0"
   },
   "peerDependencies": {

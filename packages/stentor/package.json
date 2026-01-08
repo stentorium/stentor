@@ -26,7 +26,7 @@
     "@types/sinon-chai": "3.2.12",
     "@xapp/config": "0.2.3",
     "aws-sdk": "2.1693.0",
-    "body-parser": "2.2.1",
+    "body-parser": "2.2.2",
     "chai": "4.5.0",
     "chai-as-promised": "7.1.2",
     "express": "5.2.1",
@@ -67,7 +67,7 @@
   "peerDependencies": {
     "@aws-sdk/client-secrets-manager": "3.X",
     "aws-sdk": "2.X",
-    "body-parser": "2.2.1",
+    "body-parser": "2.2.2",
     "express": "5.2.1"
   },
   "peerDependenciesMeta": {

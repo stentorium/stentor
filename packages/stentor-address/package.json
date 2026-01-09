@@ -32,7 +32,7 @@
     "typescript": "5.9.3"
   },
   "dependencies": {
-    "addresser": "1.1.20"
+    "parse-address": "1.1.2"
   },
   "peerDependencies": {
     "stentor-models": "1.x",

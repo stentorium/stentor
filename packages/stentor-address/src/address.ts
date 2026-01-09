@@ -2,9 +2,32 @@
 import { AddressIntentRequestSlotMap } from "stentor-models";
 import { pruneEmpty } from "stentor-utils";
 
-import * as addresser from "addresser";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const parseAddressLib = require("parse-address");
 
-export interface ParsedAddress extends Omit<addresser.IParsedAddress, "id" | "zipCode"> {
+// State abbreviation to full name mapping
+const STATE_NAMES: Record<string, string> = {
+  AL: "Alabama", AK: "Alaska", AZ: "Arizona", AR: "Arkansas", CA: "California",
+  CO: "Colorado", CT: "Connecticut", DE: "Delaware", FL: "Florida", GA: "Georgia",
+  HI: "Hawaii", ID: "Idaho", IL: "Illinois", IN: "Indiana", IA: "Iowa",
+  KS: "Kansas", KY: "Kentucky", LA: "Louisiana", ME: "Maine", MD: "Maryland",
+  MA: "Massachusetts", MI: "Michigan", MN: "Minnesota", MS: "Mississippi", MO: "Missouri",
+  MT: "Montana", NE: "Nebraska", NV: "Nevada", NH: "New Hampshire", NJ: "New Jersey",
+  NM: "New Mexico", NY: "New York", NC: "North Carolina", ND: "North Dakota", OH: "Ohio",
+  OK: "Oklahoma", OR: "Oregon", PA: "Pennsylvania", RI: "Rhode Island", SC: "South Carolina",
+  SD: "South Dakota", TN: "Tennessee", TX: "Texas", UT: "Utah", VT: "Vermont",
+  VA: "Virginia", WA: "Washington", WV: "West Virginia", WI: "Wisconsin", WY: "Wyoming",
+  DC: "District Of Columbia",
+  // Canadian provinces
+  AB: "Alberta", BC: "British Columbia", MB: "Manitoba", NB: "New Brunswick",
+  NL: "Newfoundland And Labrador", NS: "Nova Scotia", ON: "Ontario", PE: "Prince Edward Island",
+  QC: "Quebec", SK: "Saskatchewan", NT: "Northwest Territories", NU: "Nunavut", YT: "Yukon"
+};
+
+export interface ParsedAddress {
+  /**
+   * The complete formatted address string.
+   */
   formattedAddress?: string;
   /**
    * Direction such as NW, SE, etc.
@@ -24,6 +47,30 @@ export interface ParsedAddress extends Omit<addresser.IParsedAddress, "id" | "zi
    * @note It is not recommended to use this.
    */
   id?: string;
+  /**
+   * Two-letter state or province abbreviation (e.g., "CA", "NY", "ON").
+   */
+  stateAbbreviation?: string;
+  /**
+   * Full state or province name (e.g., "California", "New York", "Ontario").
+   */
+  stateName?: string;
+  /**
+   * The first line of the address, typically containing street number and name.
+   */
+  addressLine1?: string;
+  /**
+   * The street number portion of the address.
+   */
+  streetNumber?: string;
+  /**
+   * The street suffix or type (e.g., "St", "Ave", "Blvd", "Rd").
+   */
+  streetSuffix?: string;
+  /**
+   * The street name without number or suffix.
+   */
+  streetName?: string;
 }
 
 /**
@@ -98,7 +145,42 @@ export function parseAddress(address: string): ParsedAddress | undefined {
   let addressed: ParsedAddress;
 
   try {
-    addressed = addresser.parseAddress(address);
+    const parsed = parseAddressLib.parseLocation(address);
+
+    if (!parsed) {
+      throw new Error("Unable to parse address");
+    }
+
+    // Build addressLine1 from components
+    const addressParts: string[] = [];
+    if (parsed.number) addressParts.push(parsed.number);
+    if (parsed.prefix) addressParts.push(parsed.prefix);
+    if (parsed.street) addressParts.push(parsed.street);
+    if (parsed.type) addressParts.push(parsed.type);
+    if (parsed.suffix) addressParts.push(parsed.suffix);
+    const addressLine1 = addressParts.join(" ");
+
+    // Build formatted address
+    const formattedParts: string[] = [addressLine1];
+    if (parsed.city) formattedParts.push(parsed.city);
+    // Combine state and zip with a space
+    const stateZip: string[] = [];
+    if (parsed.state) stateZip.push(parsed.state);
+    if (parsed.zip) stateZip.push(parsed.zip);
+    if (stateZip.length > 0) formattedParts.push(stateZip.join(" "));
+
+    addressed = {
+      placeName: parsed.city || "",
+      stateAbbreviation: parsed.state || "",
+      stateName: parsed.state ? STATE_NAMES[parsed.state] || parsed.state : "",
+      zipCode: parsed.zip || "",
+      formattedAddress: formattedParts.join(", "),
+      addressLine1,
+      streetNumber: parsed.number || "",
+      streetSuffix: parsed.type || "",
+      streetName: parsed.street || "",
+      streetDirection: parsed.suffix || "",
+    };
   } catch (e) {
     // Not a valid address
     // Fallback to custom parser
@@ -179,10 +261,10 @@ export function formAddressFromSlots(slots: AddressIntentRequestSlotMap): string
 export function parseAddressAsSlots(address: string): AddressIntentRequestSlotMap {
   const slots: AddressIntentRequestSlotMap = {};
 
-  let addressed: addresser.IParsedAddress;
+  let addressed: ParsedAddress | undefined;
 
   try {
-    addressed = addresser.parseAddress(address);
+    addressed = parseAddress(address);
   } catch (e) {
     // not a valid address
     console.warn(`Unable to parse address string "${address}"`);
@@ -217,7 +299,7 @@ export function parseAddressAsSlots(address: string): AddressIntentRequestSlotMa
 
     slots.street_name = {
       name: "street_name",
-      value: addressed.addressLine1.replace(addressed.streetNumber, "").trim(),
+      value: addressed.addressLine1?.replace(addressed.streetNumber || "", "").trim(),
     };
 
     const fullAddress = formAddressFromSlots(slots);
@@ -266,8 +348,8 @@ export function getAddressComponents(input: string | Partial<ParsedAddress>): Pa
     if (parsedAddress.placeName) {
       id += `-${parsedAddress.placeName},`;
     }
-    if (parsedAddress.stateName) {
-      id += `-${parsedAddress.stateName}`;
+    if (parsedAddress.stateAbbreviation) {
+      id += `-${parsedAddress.stateAbbreviation}`;
     }
     if (parsedAddress.zipCode) {
       id += `-${parsedAddress.zipCode}`;

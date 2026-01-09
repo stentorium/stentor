@@ -6340,6 +6340,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@zerodep/address-parse@npm:0.1.11":
+  version: 0.1.11
+  resolution: "@zerodep/address-parse@npm:0.1.11"
+  checksum: 10c0/7b7a95ace487a7c17fddd85236543525d3583876ef1ee5b48f2f57ea96ae5788537bce1a037206e80746b54808e7aaff058b62c588dd5a9108002060dffcd9b3
+  languageName: node
+  linkType: hard
+
 "@zkochan/js-yaml@npm:0.0.7":
   version: 0.0.7
   resolution: "@zkochan/js-yaml@npm:0.0.7"
@@ -14828,6 +14835,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"parse-address@npm:1.1.2":
+  version: 1.1.2
+  resolution: "parse-address@npm:1.1.2"
+  dependencies:
+    xregexp: "npm:^3.1.1"
+  checksum: 10c0/83013f1dd245cbda47bc0658b508ee0a05f5f5250765bf21b613dcc1d061053b11b0f53b597a9a4c539ce2bb3ff4e9cbc5ba590cf9ea925834a965334c369c23
+  languageName: node
+  linkType: hard
+
 "parse-conflict-json@npm:^4.0.0":
   version: 4.0.0
   resolution: "parse-conflict-json@npm:4.0.0"
@@ -17768,9 +17784,11 @@ __metadata:
     "@types/sinon": "npm:17.0.4"
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.2.3"
+    "@zerodep/address-parse": "npm:0.1.11"
     addresser: "npm:1.1.20"
     chai: "npm:4.5.0"
     mocha: "npm:11.7.5"
+    parse-address: "npm:1.1.2"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
     stentor-models: "npm:1.67.0"
@@ -20487,6 +20505,13 @@ __metadata:
   dependencies:
     sax: "npm:^1.2.4"
   checksum: 10c0/7957c57ff77008ced62063560d3e8f80c7fdf31d3fafa12d16c9f1fe676c8255f50889e8f41b61cca4cd473b841eedf2625089dcaf3f6b8717df521b9d0acfcf
+  languageName: node
+  linkType: hard
+
+"xregexp@npm:^3.1.1":
+  version: 3.2.0
+  resolution: "xregexp@npm:3.2.0"
+  checksum: 10c0/2cdbfc56bbf9d8b194fb8f9361b37827efd8a736093e120f2773fc53fdb1fb57c1e921ef6dfd00aad9d8efa0b161dfbc676cf20efcaa935c1ab0334b2eb1daa2
   languageName: node
   linkType: hard
 

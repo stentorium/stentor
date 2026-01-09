@@ -7723,13 +7723,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chrono-node@npm:2.9.0":
-  version: 2.9.0
-  resolution: "chrono-node@npm:2.9.0"
-  checksum: 10c0/940290d2063763e44a64d5d17c54646ca335cdd538c56ad263a2133a53bf2aad1cf5b3d34648bccd980136da0bcd0cdbd5139580b17b41510725684efafc1332
-  languageName: node
-  linkType: hard
-
 "ci-info@npm:^2.0.0":
   version: 2.0.0
   resolution: "ci-info@npm:2.0.0"
@@ -18433,7 +18426,6 @@ __metadata:
     "@xapp/config": "npm:0.2.3"
     blueimp-md5: "npm:2.19.0"
     chai: "npm:4.5.0"
-    chrono-node: "npm:2.9.0"
     date-fns: "npm:4.1.0"
     dyno-item-size: "npm:0.3.3"
     fuse.js: "npm:7.1.0"

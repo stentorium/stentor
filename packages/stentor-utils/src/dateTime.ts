@@ -20,8 +20,7 @@ import {
 import { wordToNumber } from "./number";
 import { pruneEmpty } from "./json";
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const chrono = require("chrono-node");
+import { parseNaturalDate } from "./natural-date-parser";
 
 export const ISO_8601 = /^(\d{4}-\d{2}-\d{2})?(?:T?(\d{2}:\d{2}:\d{2})((?:[-+]\d{2}:\d{2})|Z)?)?$/;
 export const ISO_8601_RANGE = /^(\d{4}-\d{2}-\d{2})(?:T(\d{2}:\d{2}:\d{2})((?:[-+]\d{2}:\d{2})|Z)?)?\/(\d{4}-\d{2}-\d{2})(?:T(\d{2}:\d{2}:\d{2})((?:[-+]\d{2}:\d{2})|Z)?)?$/;
@@ -246,15 +245,13 @@ export function getDateTimeRangeFrom(date: string): DateTimeRange | undefined {
  *
  * It does not handle date periods such as "last week" or "last month".
  *
- * Note: This is a wrapper around chrono-node parseDate.
- * See https://github.com/wanasit/chrono for more information.
+ * Supports natural language dates like "today", "yesterday", "last friday",
+ * "next monday", "two weeks ago", etc.
  *
  * @public
  */
 export function parseDate(parsable: string, returnOnly?: "date" | "time"): DateTime | undefined {
-    // For docs on parseDate see
-    // https://github.com/wanasit/chrono#usage
-    const dateTime: Date = chrono.parseDate(parsable);
+    const dateTime: Date | null = parseNaturalDate(parsable);
 
     if (!dateTime) {
         return undefined;

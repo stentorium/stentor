@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.68.0](https://github.com/stentorium/stentor/compare/v1.67.8...v1.68.0) (2026-01-09)
+
+
+### Features
+
+* Size Reduction Efforts ([#2836](https://github.com/stentorium/stentor/issues/2836)) ([c15050e](https://github.com/stentorium/stentor/commit/c15050e0d60b6252fdbd89a15e6b9a9f41f3b3ea))
+
+
+
+
+
 ## [1.67.8](https://github.com/stentorium/stentor/compare/v1.67.7...v1.67.8) (2026-01-09)
 
 **Note:** Version bump only for package repo

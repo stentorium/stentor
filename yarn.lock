@@ -6340,13 +6340,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zerodep/address-parse@npm:0.1.11":
-  version: 0.1.11
-  resolution: "@zerodep/address-parse@npm:0.1.11"
-  checksum: 10c0/7b7a95ace487a7c17fddd85236543525d3583876ef1ee5b48f2f57ea96ae5788537bce1a037206e80746b54808e7aaff058b62c588dd5a9108002060dffcd9b3
-  languageName: node
-  linkType: hard
-
 "@zkochan/js-yaml@npm:0.0.7":
   version: 0.0.7
   resolution: "@zkochan/js-yaml@npm:0.0.7"
@@ -6467,13 +6460,6 @@ __metadata:
   version: 1.2.2
   resolution: "address@npm:1.2.2"
   checksum: 10c0/1c8056b77fb124456997b78ed682ecc19d2fd7ea8bd5850a2aa8c3e3134c913847c57bcae418622efd32ba858fa1e242a40a251ac31da0515664fc0ac03a047d
-  languageName: node
-  linkType: hard
-
-"addresser@npm:1.1.20":
-  version: 1.1.20
-  resolution: "addresser@npm:1.1.20"
-  checksum: 10c0/97304b70b092597f8fa3551c3396bfdeb6ac855f54f3f6c8388e6dd57f8041d65c999bc3d2d6d79ef2966f3b5a3438aab395383badcd602fb8cc977a27d4402a
   languageName: node
   linkType: hard
 
@@ -17784,8 +17770,6 @@ __metadata:
     "@types/sinon": "npm:17.0.4"
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.2.3"
-    "@zerodep/address-parse": "npm:0.1.11"
-    addresser: "npm:1.1.20"
     chai: "npm:4.5.0"
     mocha: "npm:11.7.5"
     parse-address: "npm:1.1.2"

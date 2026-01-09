@@ -74,9 +74,10 @@ export function format(date: Date | number, pattern: string): string {
  *
  * @param dateString - The date string to parse
  * @param pattern - The format pattern (currently only supports "y-M-d")
- * @param referenceDate - Reference date for context (not used in current implementation)
+ * @param referenceDate - Reference date for context (required for date-fns compatibility, not used)
  * @returns Parsed Date object
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function parse(dateString: string, pattern: string, referenceDate: Date): Date {
     if (pattern === 'y-M-d') {
         const parts = dateString.split('-');

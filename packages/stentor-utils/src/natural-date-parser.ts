@@ -18,95 +18,6 @@ const NUMBER_WORDS: { [key: string]: number } = {
 };
 
 /**
- * Parse a natural language date string and return a Date object.
- *
- * Supported patterns:
- * - "today", "yesterday", "tomorrow"
- * - Day names: "monday", "friday", etc. (returns nearest occurrence)
- * - "last <day>": previous occurrence of that day
- * - "next <day>": occurrence after the immediate next
- * - "X days/weeks/months ago": relative to current date
- * - "X days/weeks/months from now": future relative date
- *
- * @param input - The natural language date string
- * @returns Date object or null if unable to parse
- */
-export function parseNaturalDate(input: string): Date | null {
-    if (!input || typeof input !== 'string') {
-        return null;
-    }
-
-    const normalized = input.toLowerCase().trim();
-    const now = new Date();
-
-    // Simple cases
-    if (normalized === 'today') {
-        return new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    }
-
-    if (normalized === 'yesterday') {
-        const date = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-        date.setDate(date.getDate() - 1);
-        return date;
-    }
-
-    if (normalized === 'tomorrow') {
-        const date = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-        date.setDate(date.getDate() + 1);
-        return date;
-    }
-
-    // Day name alone (e.g., "monday", "friday")
-    const dayIndex = DAY_NAMES.indexOf(normalized);
-    if (dayIndex !== -1) {
-        return getNearestDayOfWeek(now, dayIndex);
-    }
-
-    // "last <day>" pattern
-    const lastDayMatch = normalized.match(/^last\s+(\w+)$/);
-    if (lastDayMatch) {
-        const dayName = lastDayMatch[1];
-        const dayIdx = DAY_NAMES.indexOf(dayName);
-        if (dayIdx !== -1) {
-            return getLastDayOfWeek(now, dayIdx);
-        }
-    }
-
-    // "next <day>" pattern
-    const nextDayMatch = normalized.match(/^next\s+(\w+)$/);
-    if (nextDayMatch) {
-        const dayName = nextDayMatch[1];
-        const dayIdx = DAY_NAMES.indexOf(dayName);
-        if (dayIdx !== -1) {
-            return getNextDayOfWeek(now, dayIdx);
-        }
-    }
-
-    // "X days/weeks/months/years ago" pattern
-    const agoMatch = normalized.match(/^(\w+)\s+(day|week|month|year)s?\s+ago$/);
-    if (agoMatch) {
-        const amount = parseNumberWord(agoMatch[1]);
-        const unit = agoMatch[2];
-        if (amount !== null) {
-            return getRelativeDate(now, -amount, unit);
-        }
-    }
-
-    // "X days/weeks/months/years from now" pattern
-    const fromNowMatch = normalized.match(/^(\w+)\s+(day|week|month|year)s?\s+from\s+now$/);
-    if (fromNowMatch) {
-        const amount = parseNumberWord(fromNowMatch[1]);
-        const unit = fromNowMatch[2];
-        if (amount !== null) {
-            return getRelativeDate(now, amount, unit);
-        }
-    }
-
-    // Unable to parse
-    return null;
-}
-
-/**
  * Get the nearest occurrence of a day of week.
  * If the day is earlier in the current week, returns last occurrence.
  * If the day is later in the current week, returns next occurrence.
@@ -208,5 +119,94 @@ function parseNumberWord(word: string): number | null {
         return num;
     }
 
+    return null;
+}
+
+/**
+ * Parse a natural language date string and return a Date object.
+ *
+ * Supported patterns:
+ * - "today", "yesterday", "tomorrow"
+ * - Day names: "monday", "friday", etc. (returns nearest occurrence)
+ * - "last <day>": previous occurrence of that day
+ * - "next <day>": occurrence after the immediate next
+ * - "X days/weeks/months ago": relative to current date
+ * - "X days/weeks/months from now": future relative date
+ *
+ * @param input - The natural language date string
+ * @returns Date object or null if unable to parse
+ */
+export function parseNaturalDate(input: string): Date | null {
+    if (!input || typeof input !== 'string') {
+        return null;
+    }
+
+    const normalized = input.toLowerCase().trim();
+    const now = new Date();
+
+    // Simple cases
+    if (normalized === 'today') {
+        return new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    }
+
+    if (normalized === 'yesterday') {
+        const date = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        date.setDate(date.getDate() - 1);
+        return date;
+    }
+
+    if (normalized === 'tomorrow') {
+        const date = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        date.setDate(date.getDate() + 1);
+        return date;
+    }
+
+    // Day name alone (e.g., "monday", "friday")
+    const dayIndex = DAY_NAMES.indexOf(normalized);
+    if (dayIndex !== -1) {
+        return getNearestDayOfWeek(now, dayIndex);
+    }
+
+    // "last <day>" pattern
+    const lastDayMatch = normalized.match(/^last\s+(\w+)$/);
+    if (lastDayMatch) {
+        const dayName = lastDayMatch[1];
+        const dayIdx = DAY_NAMES.indexOf(dayName);
+        if (dayIdx !== -1) {
+            return getLastDayOfWeek(now, dayIdx);
+        }
+    }
+
+    // "next <day>" pattern
+    const nextDayMatch = normalized.match(/^next\s+(\w+)$/);
+    if (nextDayMatch) {
+        const dayName = nextDayMatch[1];
+        const dayIdx = DAY_NAMES.indexOf(dayName);
+        if (dayIdx !== -1) {
+            return getNextDayOfWeek(now, dayIdx);
+        }
+    }
+
+    // "X days/weeks/months/years ago" pattern
+    const agoMatch = normalized.match(/^(\w+)\s+(day|week|month|year)s?\s+ago$/);
+    if (agoMatch) {
+        const amount = parseNumberWord(agoMatch[1]);
+        const unit = agoMatch[2];
+        if (amount !== null) {
+            return getRelativeDate(now, -amount, unit);
+        }
+    }
+
+    // "X days/weeks/months/years from now" pattern
+    const fromNowMatch = normalized.match(/^(\w+)\s+(day|week|month|year)s?\s+from\s+now$/);
+    if (fromNowMatch) {
+        const amount = parseNumberWord(fromNowMatch[1]);
+        const unit = fromNowMatch[2];
+        if (amount !== null) {
+            return getRelativeDate(now, amount, unit);
+        }
+    }
+
+    // Unable to parse
     return null;
 }

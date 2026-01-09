@@ -1,5 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { format, isSameDay, parse } from "date-fns";
+import { format, isSameDay, parse } from "./date-utils-lite";
 import { DateTime, Duration, DurationFormat, ResponseOutput, DateTimeRange, RequestSlotValues, SuggestionTypes } from "stentor-models";
 import { dateTimeToString, isDateTime, isDateTimeRange } from "./dateTime";
 import { dessmlify, ssmlify } from "./ssml";

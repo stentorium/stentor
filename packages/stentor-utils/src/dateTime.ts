@@ -16,12 +16,11 @@ import {
     startOfMonth,
     startOfWeek,
     startOfYear
-} from "date-fns";
+} from "./date-utils-lite";
 import { wordToNumber } from "./number";
 import { pruneEmpty } from "./json";
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const chrono = require("chrono-node");
+import { parseNaturalDate } from "./natural-date-parser";
 
 export const ISO_8601 = /^(\d{4}-\d{2}-\d{2})?(?:T?(\d{2}:\d{2}:\d{2})((?:[-+]\d{2}:\d{2})|Z)?)?$/;
 export const ISO_8601_RANGE = /^(\d{4}-\d{2}-\d{2})(?:T(\d{2}:\d{2}:\d{2})((?:[-+]\d{2}:\d{2})|Z)?)?\/(\d{4}-\d{2}-\d{2})(?:T(\d{2}:\d{2}:\d{2})((?:[-+]\d{2}:\d{2})|Z)?)?$/;
@@ -193,18 +192,22 @@ export function getDateTimeFrom(date: string | Date, includeOnly?: "time" | "dat
     } else {
         // Not a typical ISO from Dialogflow, going to try to pull out the individual components
         // First date.
-        const dateRegex = new RegExp(ISO_8601_DATE_ONLY);
-        const dateResults = dateRegex.exec(dateTime);
-        if (dateResults) {
-            slotDateTime = {
-                date: dateResults[0]
-            };
+        if (includeOnly !== "time") {
+            const dateRegex = new RegExp(ISO_8601_DATE_ONLY);
+            const dateResults = dateRegex.exec(dateTime);
+            if (dateResults) {
+                slotDateTime = {
+                    date: dateResults[0]
+                };
+            }
         }
 
-        const timeRegex = new RegExp(ISO_8601_TIME_ONLY);
-        const timeResults = timeRegex.exec(dateTime);
-        if (timeResults) {
-            slotDateTime = { ...slotDateTime, time: timeResults[1] };
+        if (includeOnly !== "date") {
+            const timeRegex = new RegExp(ISO_8601_TIME_ONLY);
+            const timeResults = timeRegex.exec(dateTime);
+            if (timeResults) {
+                slotDateTime = { ...slotDateTime, time: timeResults[1] };
+            }
         }
     }
 
@@ -246,15 +249,13 @@ export function getDateTimeRangeFrom(date: string): DateTimeRange | undefined {
  *
  * It does not handle date periods such as "last week" or "last month".
  *
- * Note: This is a wrapper around chrono-node parseDate.
- * See https://github.com/wanasit/chrono for more information.
+ * Supports natural language dates like "today", "yesterday", "last friday",
+ * "next monday", "two weeks ago", etc.
  *
  * @public
  */
 export function parseDate(parsable: string, returnOnly?: "date" | "time"): DateTime | undefined {
-    // For docs on parseDate see
-    // https://github.com/wanasit/chrono#usage
-    const dateTime: Date = chrono.parseDate(parsable);
+    const dateTime: Date | null = parseNaturalDate(parsable);
 
     if (!dateTime) {
         return undefined;

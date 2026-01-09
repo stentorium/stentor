@@ -16,7 +16,7 @@ import {
     startOfMonth,
     startOfWeek,
     startOfYear
-} from "date-fns";
+} from "./date-utils-lite";
 import { wordToNumber } from "./number";
 import { pruneEmpty } from "./json";
 
@@ -192,18 +192,22 @@ export function getDateTimeFrom(date: string | Date, includeOnly?: "time" | "dat
     } else {
         // Not a typical ISO from Dialogflow, going to try to pull out the individual components
         // First date.
-        const dateRegex = new RegExp(ISO_8601_DATE_ONLY);
-        const dateResults = dateRegex.exec(dateTime);
-        if (dateResults) {
-            slotDateTime = {
-                date: dateResults[0]
-            };
+        if (includeOnly !== "time") {
+            const dateRegex = new RegExp(ISO_8601_DATE_ONLY);
+            const dateResults = dateRegex.exec(dateTime);
+            if (dateResults) {
+                slotDateTime = {
+                    date: dateResults[0]
+                };
+            }
         }
 
-        const timeRegex = new RegExp(ISO_8601_TIME_ONLY);
-        const timeResults = timeRegex.exec(dateTime);
-        if (timeResults) {
-            slotDateTime = { ...slotDateTime, time: timeResults[1] };
+        if (includeOnly !== "date") {
+            const timeRegex = new RegExp(ISO_8601_TIME_ONLY);
+            const timeResults = timeRegex.exec(dateTime);
+            if (timeResults) {
+                slotDateTime = { ...slotDateTime, time: timeResults[1] };
+            }
         }
     }
 

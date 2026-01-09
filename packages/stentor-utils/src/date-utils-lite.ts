@@ -11,6 +11,14 @@
  */
 
 /**
+ * Represents a time interval with start and end dates.
+ */
+export interface Interval {
+    start: Date;
+    end: Date;
+}
+
+/**
  * Format a date using a simple pattern.
  *
  * Supported patterns:
@@ -79,6 +87,10 @@ export function format(date: Date | number, pattern: string): string {
  */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function parse(dateString: string, pattern: string, referenceDate: Date): Date {
+    if (!dateString || typeof dateString !== 'string') {
+        throw new RangeError('Invalid date string');
+    }
+
     if (pattern === 'y-M-d') {
         const parts = dateString.split('-');
         if (parts.length === 3) {
@@ -258,10 +270,10 @@ export function endOfYear(date: Date): Date {
 /**
  * Get all weekend days (Saturday and Sunday) in an interval.
  *
- * @param interval - Object with start and end dates
+ * @param interval - Interval with start and end dates
  * @returns Array of Date objects for weekend days
  */
-export function eachWeekendOfInterval(interval: { start: Date; end: Date }): Date[] {
+export function eachWeekendOfInterval(interval: Interval): Date[] {
     const result: Date[] = [];
     const current = new Date(interval.start);
 

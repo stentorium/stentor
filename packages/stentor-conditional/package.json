@@ -23,13 +23,13 @@
     "mocha": "11.7.5",
     "stentor-models": "1.67.0",
     "typescript": "5.9.3",
-    "vm2": "3.10.0"
+    "vm2": "3.10.1"
   },
   "dependencies": {
     "stentor-logger": "1.68.0"
   },
   "optionalDependencies": {
-    "vm2": "3.10.0"
+    "vm2": "3.10.1"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

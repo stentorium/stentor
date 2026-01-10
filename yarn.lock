@@ -17832,7 +17832,7 @@ __metadata:
     stentor-logger: "npm:1.68.0"
     stentor-models: "npm:1.67.0"
     typescript: "npm:5.9.3"
-    vm2: "npm:3.10.0"
+    vm2: "npm:3.10.1"
   peerDependencies:
     stentor-models: 1.x
   dependenciesMeta:
@@ -19868,15 +19868,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vm2@npm:3.10.0":
-  version: 3.10.0
-  resolution: "vm2@npm:3.10.0"
+"vm2@npm:3.10.1":
+  version: 3.10.1
+  resolution: "vm2@npm:3.10.1"
   dependencies:
     acorn: "npm:^8.14.1"
     acorn-walk: "npm:^8.3.4"
   bin:
     vm2: bin/vm2
-  checksum: 10c0/f454f3bd9560cad82fdbcd8bc331a66672586f84f6a5bbf7151be592192bba0be719237f9a95c49fdbf4383b6960ebaca931e729f02361aabc9518c865409ef9
+  checksum: 10c0/3deeac86890b34db6ff9822fe24c0cf2462b8ffce81754b239397199cb78475766660e35752a5ee2a001ca26cb2e0482cec918f5c3b9bf9cd49473948b6a31f0
   languageName: node
   linkType: hard
 

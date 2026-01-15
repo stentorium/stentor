@@ -1,5 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 export * from "./Audio";
+export * from "./ImageMedia";
 export * from "./LiveStream";
 export * from "./Media";
 export * from "./OnDemand";

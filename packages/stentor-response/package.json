@@ -28,7 +28,6 @@
     "typescript": "5.9.3"
   },
   "dependencies": {
-    "@xapp/patterns": "2.0.2",
     "stentor-determiner": "1.68.2",
     "stentor-locales": "1.68.0",
     "stentor-media": "1.68.0",

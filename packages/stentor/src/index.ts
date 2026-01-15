@@ -251,3 +251,4 @@ export { FetchService, WithTimeout, TimeoutError };
 
 export * from "./services/Secrets";
 export * from "./Assistant";
+export * from "./utils/LookupUtils";

@@ -18,6 +18,7 @@
     "@xapp/config": "0.2.3",
     "eslint": "8.57.1",
     "eslint-plugin-notice": "1.0.0",
+    "knip": "5.81.0",
     "lerna": "9.0.3",
     "license-checker": "25.0.1",
     "mocha": "11.7.5",
@@ -44,7 +45,8 @@
     "release:pre": "lerna version prerelease --yes --allow-branch $CIRCLE_BRANCH --no-changelog && git push origin --tags && lerna publish from-git --yes",
     "license-check": "license-checker --production --start './packages/stentor/' --exclude ISC,MIT,Apache-2.0,BSD-3-Clause,BSD-2-Clause --failOn GPL-3.0",
     "version-check": "syncpack list-mismatches --types dev,prod --filter 'stentor-'",
-    "version-check:all": "syncpack list-mismatches --types dev,prod"
+    "version-check:all": "syncpack list-mismatches --types dev,prod",
+    "knip": "knip"
   },
   "packageManager": "yarn@4.12.0"
 }

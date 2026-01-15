@@ -30,13 +30,11 @@
   },
   "dependencies": {
     "@xapp/patterns": "2.0.2",
-    "stentor-conditional": "1.68.2",
     "stentor-constants": "1.67.0",
     "stentor-context": "1.68.2",
     "stentor-guards": "1.67.0",
     "stentor-history": "1.67.0",
     "stentor-interaction-model": "1.68.0",
-    "stentor-locales": "1.68.0",
     "stentor-logger": "1.68.0",
     "stentor-response": "1.68.2",
     "stentor-storage": "1.68.0",

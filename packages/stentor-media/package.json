@@ -28,8 +28,7 @@
   },
   "dependencies": {
     "stentor-guards": "1.67.0",
-    "stentor-time": "1.68.0",
-    "stentor-utils": "1.68.0"
+    "stentor-time": "1.68.0"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

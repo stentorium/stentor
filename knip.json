@@ -1,0 +1,38 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "workspaces": {
+    "packages/*": {
+      "entry": ["src/index.ts", "src/**/*.test.ts"],
+      "project": ["src/**/*.ts"]
+    }
+  },
+  "ignore": [
+    "analyze-deps.js",
+    "**/*.ftest.ts",
+    "**/*.itest.ts"
+  ],
+  "ignoreDependencies": [
+    "sinon",
+    "sinon-chai",
+    "@types/sinon",
+    "@types/sinon-chai",
+    "chai",
+    "chai-as-promised",
+    "@types/chai",
+    "@types/chai-as-promised",
+    "fetch-mock",
+    "@types/fetch-mock",
+    "@types/mocha",
+    "@types/marked",
+    "mocha-junit-reporter",
+    "nyc",
+    "@microsoft/api-documenter",
+    "dotenv",
+    "abort-controller",
+    "aws-sdk"
+  ],
+  "ignoreWorkspaces": ["website"],
+  "mocha": {
+    "config": [".mocharc.jsonc"]
+  }
+}

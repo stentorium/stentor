@@ -18,7 +18,7 @@
     "@xapp/config": "0.2.3",
     "eslint": "8.57.1",
     "eslint-plugin-notice": "1.0.0",
-    "knip": "5.81.0",
+    "knip": "5.82.1",
     "lerna": "9.0.3",
     "license-checker": "25.0.1",
     "mocha": "11.7.5",

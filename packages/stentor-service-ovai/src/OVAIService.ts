@@ -99,6 +99,32 @@ export class OVAIService implements HandlerService {
             });
     }
 
+    /**
+     * Fetches multiple handlers by their intent IDs in parallel.
+     * Individual failures are handled gracefully - failed requests do not prevent successful ones from returning.
+     * Only successfully found handlers are included in the result array.
+     *
+     * @param intentIds - Array of intent IDs to fetch
+     * @returns Promise resolving to array of found handlers
+     */
+    public async getMany(intentIds: string[]): Promise<Handler[]> {
+        if (!intentIds || intentIds.length === 0) {
+            return [];
+        }
+
+        // Use Promise.allSettled to handle individual failures gracefully
+        const results = await Promise.allSettled(
+            intentIds.map(intentId => this.get(intentId))
+        );
+
+        // Extract successful results and filter out rejected promises and undefined handlers
+        return results
+            .filter((result): result is PromiseFulfilledResult<Handler> => 
+                result.status === 'fulfilled' && result.value !== undefined
+            )
+            .map(result => result.value);
+    }
+
     public putEvents(events: Event<any>[]): Promise<void> {
         if (!existsAndNotEmpty(events)) {
             return;

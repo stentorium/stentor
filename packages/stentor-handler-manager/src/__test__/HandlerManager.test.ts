@@ -21,6 +21,11 @@ class MockHandlerService implements HandlerService {
         // This is getting stubbed anyways, doesn't matter
         return {} as any;
     }
+
+    public getMany(): Promise<Handler[]> {
+        // This is getting stubbed anyways, doesn't matter
+        return [] as any;
+    }
 }
 
 const anotherIntentId = "anotherIntentId";

@@ -155,6 +155,31 @@ export class StudioService implements HandlerService, KnowledgeBaseService {
     }
 
     /**
+     * Get multiple handlers by their IDs in a single batch operation.
+     * Handlers that are not found will be excluded from the results.
+     *
+     * @param intentIds - Array of intent IDs to fetch
+     * @returns Promise resolving to array of found handlers
+     */
+    public async getMany(intentIds: string[]): Promise<Handler[]> {
+        if (!intentIds || intentIds.length === 0) {
+            return [];
+        }
+
+        // Use Promise.allSettled to handle individual failures gracefully
+        const results = await Promise.allSettled(
+            intentIds.map(intentId => this.get(intentId))
+        );
+
+        // Extract successful results and filter out rejected promises and undefined handlers
+        return results
+            .filter((result): result is PromiseFulfilledResult<Handler> => 
+                result.status === 'fulfilled' && result.value !== undefined
+            )
+            .map(result => result.value);
+    }
+
+    /**
      * Queries both /cms/search & /cms/faq/query to return KnowledgeBaseResult.
      * 
      * @param query 

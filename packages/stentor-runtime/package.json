@@ -50,7 +50,7 @@
   "scripts": {
     "build": "tsc -d true -p .",
     "clean": "rm -rf ./lib/* && rm -rf ./dist/*",
-    "test": "TSX_TSCONFIG_PATH=/dev/null TZ=UTC NODE_OPTIONS='--import tsx/esm' mocha --recursive \"./src/**/*.test.ts\""
+    "test": "TSX_TSCONFIG_PATH=/dev/null TZ=UTC mocha --node-option import=tsx/esm --recursive \"./src/**/*.test.ts\""
   },
   "gitHead": "3a975779368329a0ebf8e16c7a661414f1192053"
 }

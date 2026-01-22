@@ -41,7 +41,7 @@
     "api": "api-extractor run --local",
     "build": "tsc -d true -p .",
     "clean": "rm -rf ./lib/*",
-    "test": "TSX_TSCONFIG_PATH=/dev/null TZ=UTC NODE_OPTIONS='--import tsx/esm' mocha --recursive \"./src/**/*.test.ts\""
+    "test": "TSX_TSCONFIG_PATH=/dev/null TZ=UTC mocha --node-option import=tsx/esm --recursive \"./src/**/*.test.ts\""
   },
   "dependencies": {
     "@types/aws-lambda": "8.10.159",

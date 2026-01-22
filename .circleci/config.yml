@@ -14,15 +14,15 @@ jobs:
       - restore_cache:
           keys:
             # when lock file changes, use increasingly general patterns to restore cache
-            - yarn-packages-v3-{{ .Branch }}-{{ checksum "yarn.lock" }}
-            - yarn-packages-v3-{{ .Branch }}-
-            - yarn-packages-v3-
+            - yarn-packages-v4-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - yarn-packages-v4-{{ .Branch }}-
+            - yarn-packages-v4-
       - run:
           name: Install Dependencies
           command: yarn install --immutable
       - save_cache:
           name: Save Yarn Package Cache
-          key: yarn-packages-v3-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          key: yarn-packages-v4-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
             - .yarn/cache

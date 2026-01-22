@@ -7,7 +7,7 @@ import { CONVERSATION_HANDLER_TYPE } from "stentor-constants";
 import { ConversationHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
 import { Channel, HandlerService, Request, RuntimeContext, Storage, UserStorageService } from "stentor-models";
-import { main } from "../index";
+import { main } from "../main";
 import { MockHandlerService, MockUserStorageService, passThroughChannel } from "./Mocks";
 import { LaunchRequestBuilder, IntentRequestBuilder } from "stentor-request";
 

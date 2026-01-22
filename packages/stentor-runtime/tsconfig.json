@@ -5,5 +5,11 @@
     "outDir": "lib"
   },
   "include": ["src"],
-  "exclude": ["node_modules", "src/**/__test__/*"]
+  "exclude": ["node_modules", "src/**/__test__/*"],
+  "ts-node": {
+    "esm": false,
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  }
 }

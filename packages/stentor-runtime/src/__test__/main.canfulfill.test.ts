@@ -8,7 +8,7 @@ import { ConversationHandler } from "stentor-handler";
 import { HandlerFactory } from "stentor-handler-factory";
 import { Channel, Handler, HandlerService, Request, RuntimeContext, Storage, UserStorageService } from "stentor-models";
 import { IntentRequestBuilder } from "stentor-request";
-import { main } from "../index";
+import { main } from "../main";
 import { MockUserStorageService, passThroughChannel } from "./Mocks";
 
 const DEFAULT_CHANNELS: Channel[] = [passThroughChannel()];
@@ -43,6 +43,10 @@ const yesWeCan = {
 class MyHandlerService implements HandlerService {
     public get(intentId: string) {
         return { type: "InSessionIntent", intentId } as any;
+    }
+
+    public async getMany(intentIds: string[]): Promise<any[]> {
+        return intentIds.map(intentId => ({ type: "InSessionIntent", intentId }));
     }
 }
 

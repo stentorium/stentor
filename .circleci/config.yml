@@ -88,7 +88,11 @@ jobs:
           at: ~/repo
       - run:
           name: Clean built files before tests
-          command: find packages -name 'lib' -type d -exec rm -rf {} + || true
+          command: |
+            echo "Removing all lib/ directories..."
+            rm -rf packages/*/lib
+            echo "Listing packages to verify cleanup:"
+            ls -la packages/ | grep -E '^d' | head -10
       - run:
           name: Unit Tests
           command: yarn test

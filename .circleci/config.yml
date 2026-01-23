@@ -87,6 +87,9 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - run:
+          name: Clean built files before tests
+          command: find packages -name 'lib' -type d -exec rm -rf {} + || true
+      - run:
           name: Unit Tests
           command: yarn test
           no_output_timeout: 15m

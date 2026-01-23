@@ -89,16 +89,22 @@ jobs:
       - run:
           name: Clean built files before tests
           command: |
-            echo "Finding all lib/ directories..."
-            find packages -type d -name 'lib' | tee /tmp/lib-dirs.txt
-            echo "Removing lib/ directories..."
-            find packages -type d -name 'lib' -exec rm -rf {} + || true
-            echo "Verifying cleanup - checking if any lib/ directories remain:"
-            find packages -type d -name 'lib' || echo "All lib/ directories successfully removed"
-            echo "Checking specific packages:"
-            ls -ld packages/stentor-guards/lib 2>&1 || echo "stentor-guards/lib: removed"
-            ls -ld packages/stentor-history/lib 2>&1 || echo "stentor-history/lib: removed"
-            ls -ld packages/stentor-user-storage-dynamo/lib 2>&1 || echo "stentor-user-storage-dynamo/lib: removed"
+            echo "Removing all lib/ directories..."
+            for dir in packages/*/lib; do
+              if [ -d "$dir" ]; then
+                echo "Removing $dir"
+                rm -rf "$dir"
+              fi
+            done
+            echo "Verifying cleanup..."
+            remaining=$(find packages -type d -name 'lib' 2>/dev/null | wc -l)
+            if [ "$remaining" -eq 0 ]; then
+              echo "✓ All lib/ directories successfully removed"
+            else
+              echo "✗ Warning: $remaining lib/ directories still exist:"
+              find packages -type d -name 'lib'
+              exit 1
+            fi
       - run:
           name: Unit Tests
           command: yarn test

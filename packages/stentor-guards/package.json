@@ -37,6 +37,6 @@
   "scripts": {
     "build": "tsc -d true -p .",
     "clean": "rm -rf ./lib/* ",
-    "test": "TSX_TSCONFIG_PATH=/dev/null mocha --node-option import=tsx/esm --recursive \"./src/**/*.test.ts\""
+    "test": "mocha --node-option import=tsx/esm --recursive \"./src/**/*.test.ts\""
   }
 }

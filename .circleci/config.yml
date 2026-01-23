@@ -94,7 +94,7 @@ jobs:
             find packages -maxdepth 2 -type d -name 'lib' || echo "No lib directories found"
 
             echo "=== Removing all lib/ directories ==="
-            find packages -maxdepth 2 -type d -name 'lib' -print -delete || echo "Cleanup completed with some errors (may be OK)"
+            find packages -maxdepth 2 -type d -name 'lib' | xargs -r rm -rf || echo "Cleanup completed with some errors (may be OK)"
 
             echo "=== Verifying cleanup ==="
             remaining=$(find packages -maxdepth 2 -type d -name 'lib' 2>/dev/null | wc -l)

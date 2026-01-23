@@ -89,20 +89,22 @@ jobs:
       - run:
           name: Clean built files before tests
           command: |
-            echo "Removing all lib/ directories..."
-            for dir in packages/*/lib; do
-              if [ -d "$dir" ]; then
-                echo "Removing $dir"
-                rm -rf "$dir"
-              fi
-            done
-            echo "Verifying cleanup..."
-            remaining=$(find packages -type d -name 'lib' 2>/dev/null | wc -l)
+            set -x
+            echo "=== Checking for lib/ directories before cleanup ==="
+            find packages -maxdepth 2 -type d -name 'lib' || echo "No lib directories found"
+
+            echo "=== Removing all lib/ directories ==="
+            find packages -maxdepth 2 -type d -name 'lib' -print -delete || echo "Cleanup completed with some errors (may be OK)"
+
+            echo "=== Verifying cleanup ==="
+            remaining=$(find packages -maxdepth 2 -type d -name 'lib' 2>/dev/null | wc -l)
+            echo "Remaining lib/ directories: $remaining"
+
             if [ "$remaining" -eq 0 ]; then
-              echo "✓ All lib/ directories successfully removed"
+              echo "✓ SUCCESS: All lib/ directories removed"
             else
-              echo "✗ Warning: $remaining lib/ directories still exist:"
-              find packages -type d -name 'lib'
+              echo "✗ FAILURE: $remaining lib/ directories still exist:"
+              find packages -maxdepth 2 -type d -name 'lib'
               exit 1
             fi
       - run:

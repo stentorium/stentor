@@ -16,8 +16,10 @@
   },
   "devDependencies": {
     "@types/chai": "5.2.3",
+    "@types/mocha": "10.0.10",
     "@xapp/config": "0.2.3",
     "chai": "4.5.0",
+    "mocha": "11.7.5",
     "stentor-models": "1.68.6",
     "tsx": "4.21.0",
     "typescript": "5.9.3"

@@ -19001,9 +19001,11 @@ __metadata:
   resolution: "stentor-user-storage-dynamo@workspace:packages/stentor-user-storage-dynamo"
   dependencies:
     "@types/chai": "npm:5.2.3"
+    "@types/mocha": "npm:10.0.10"
     "@xapp/config": "npm:0.2.3"
     "@xapp/dynamo-service": "npm:1.8.7"
     chai: "npm:4.5.0"
+    mocha: "npm:11.7.5"
     stentor-models: "npm:1.68.6"
     tsx: "npm:4.21.0"
     typescript: "npm:5.9.3"

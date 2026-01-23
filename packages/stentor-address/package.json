@@ -29,6 +29,7 @@
     "stentor-models": "1.68.6",
     "stentor-utils": "1.68.6",
     "ts-node": "10.9.2",
+    "tsx": "4.21.0",
     "typescript": "5.9.3"
   },
   "dependencies": {
@@ -42,6 +43,6 @@
     "api": "api-extractor run --local",
     "build": "tsc -d true -p .",
     "clean": "rm -rf ./lib/*",
-    "test": "TZ=UTC mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
+    "test": "TZ=UTC TSX_TSCONFIG_PATH=/dev/null mocha --node-option import=tsx/esm --recursive \"./src/**/*.test.ts\""
   }
 }

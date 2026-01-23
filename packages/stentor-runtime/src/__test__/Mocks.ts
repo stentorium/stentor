@@ -46,6 +46,9 @@ export class MockHandlerService implements HandlerService {
     public get(): any {
         return {} as any;
     }
+    public getMany(): any {
+        return [] as any;
+    }
 }
 
 export class MockUserStorageService implements UserStorageService {

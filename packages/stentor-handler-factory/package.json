@@ -26,6 +26,7 @@
     "stentor-models": "1.68.6",
     "stentor-request": "1.68.6",
     "ts-node": "10.9.2",
+    "tsx": "4.21.0",
     "typescript": "5.9.3"
   },
   "dependencies": {
@@ -44,7 +45,7 @@
   "scripts": {
     "build": "tsc -d true -p .",
     "clean": "rm -rf ./lib/*",
-    "test": "mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
+    "test": "TSX_TSCONFIG_PATH=/dev/null mocha --node-option import=tsx/esm --recursive \"./src/**/*.test.ts\""
   },
   "gitHead": "bb8fead16cbd0cff42ea73d73f0da9a5401c4c99"
 }

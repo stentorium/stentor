@@ -38,6 +38,11 @@ class MockHandlerService implements HandlerService {
             }
         });
     }
+
+    public async getMany(intentIds: string[]): Promise<Handler[]> {
+        const results = await Promise.all(intentIds.map(id => this.get(id)));
+        return results.filter(h => h !== undefined) as Handler[];
+    }
 }
 
 class MockUserStorageService implements UserStorageService {

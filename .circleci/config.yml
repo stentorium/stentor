@@ -2,7 +2,7 @@ version: 2
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: cimg/node:18.20.4
+    - image: cimg/node:24.11
 
 jobs:
   checkout:
@@ -14,15 +14,15 @@ jobs:
       - restore_cache:
           keys:
             # when lock file changes, use increasingly general patterns to restore cache
-            - yarn-packages-v3-{{ .Branch }}-{{ checksum "yarn.lock" }}
-            - yarn-packages-v3-{{ .Branch }}-
-            - yarn-packages-v3-
+            - yarn-packages-v4-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - yarn-packages-v4-{{ .Branch }}-
+            - yarn-packages-v4-
       - run:
           name: Install Dependencies
           command: yarn install --immutable
       - save_cache:
           name: Save Yarn Package Cache
-          key: yarn-packages-v3-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          key: yarn-packages-v4-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
             - .yarn/cache
@@ -86,6 +86,27 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
+      - run:
+          name: Clean built files before tests
+          command: |
+            set -x
+            echo "=== Checking for lib/ directories before cleanup ==="
+            find packages -maxdepth 2 -type d -name 'lib' || echo "No lib directories found"
+
+            echo "=== Removing all lib/ directories ==="
+            find packages -maxdepth 2 -type d -name 'lib' | xargs -r rm -rf || echo "Cleanup completed with some errors (may be OK)"
+
+            echo "=== Verifying cleanup ==="
+            remaining=$(find packages -maxdepth 2 -type d -name 'lib' 2>/dev/null | wc -l)
+            echo "Remaining lib/ directories: $remaining"
+
+            if [ "$remaining" -eq 0 ]; then
+              echo "✓ SUCCESS: All lib/ directories removed"
+            else
+              echo "✗ FAILURE: $remaining lib/ directories still exist:"
+              find packages -maxdepth 2 -type d -name 'lib'
+              exit 1
+            fi
       - run:
           name: Unit Tests
           command: yarn test

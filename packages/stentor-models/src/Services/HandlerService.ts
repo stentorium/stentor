@@ -15,4 +15,12 @@ export interface HandlerService {
      * @public
      */
     get(id: string | { intentId: string }): Promise<Handler> | Promise<undefined>;
+
+    /**
+     * Returns multiple handlers for the provided IDs. Handlers that are not found will be excluded from the results.
+     * 
+     * @param intentIds - Array of intent IDs to fetch
+     * @public
+     */
+    getMany(intentIds: string[]): Promise<Handler[]>;
 }

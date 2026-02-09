@@ -3348,6 +3348,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@isaacs/brace-expansion@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "@isaacs/brace-expansion@npm:5.0.1"
+  dependencies:
+    "@isaacs/balanced-match": "npm:^4.0.1"
+  checksum: 10c0/e5d67c7bbf1f17b88132a35bc638af306d48acbb72810d48fa6e6edd8ab375854773108e8bf70f021f7ef6a8273455a6d1f0c3b5aa2aff06ce7894049ab77fb8
+  languageName: node
+  linkType: hard
+
 "@isaacs/cliui@npm:^8.0.2":
   version: 8.0.2
   resolution: "@isaacs/cliui@npm:8.0.2"
@@ -3679,27 +3688,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@microsoft/api-extractor@npm:7.55.2":
-  version: 7.55.2
-  resolution: "@microsoft/api-extractor@npm:7.55.2"
+"@microsoft/api-extractor@npm:7.56.3":
+  version: 7.56.3
+  resolution: "@microsoft/api-extractor@npm:7.56.3"
   dependencies:
     "@microsoft/api-extractor-model": "npm:7.32.2"
     "@microsoft/tsdoc": "npm:~0.16.0"
     "@microsoft/tsdoc-config": "npm:~0.18.0"
     "@rushstack/node-core-library": "npm:5.19.1"
     "@rushstack/rig-package": "npm:0.6.0"
-    "@rushstack/terminal": "npm:0.19.5"
-    "@rushstack/ts-command-line": "npm:5.1.5"
+    "@rushstack/terminal": "npm:0.21.0"
+    "@rushstack/ts-command-line": "npm:5.2.0"
     diff: "npm:~8.0.2"
-    lodash: "npm:~4.17.15"
-    minimatch: "npm:10.0.3"
+    lodash: "npm:~4.17.23"
+    minimatch: "npm:10.1.2"
     resolve: "npm:~1.22.1"
     semver: "npm:~7.5.4"
     source-map: "npm:~0.6.1"
     typescript: "npm:5.8.2"
   bin:
     api-extractor: bin/api-extractor
-  checksum: 10c0/8f63359b9afa7c7cca6b761951d30e89365aa5b64cb7147fc19b19f9f391cf1b68630a54f2762caa5b3e87f0b7bfd2ae7431b7b2cc01da8e0a1a9a6c6d8b0a77
+  checksum: 10c0/1f81f7ce796bba3c4c698a7fe58df4bee5ef739d54591bef11cd4b6c079286b24b4fb086e6a73f296a13a938b061a9a2cc059863cd5f8bfd51d073adf7ee66ba
   languageName: node
   linkType: hard
 
@@ -4495,22 +4504,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rushstack/terminal@npm:0.19.5":
-  version: 0.19.5
-  resolution: "@rushstack/terminal@npm:0.19.5"
-  dependencies:
-    "@rushstack/node-core-library": "npm:5.19.1"
-    "@rushstack/problem-matcher": "npm:0.1.1"
-    supports-color: "npm:~8.1.1"
-  peerDependencies:
-    "@types/node": "*"
-  peerDependenciesMeta:
-    "@types/node":
-      optional: true
-  checksum: 10c0/088a757efb2f18bdec9b40a7b7b5ce66505ae191ebe184b974d49099ad52aecfb2a8c325297a2298d4973b0d10f8df39ea0e18b12e3e1e847befd98c1eb29032
-  languageName: node
-  linkType: hard
-
 "@rushstack/terminal@npm:0.21.0":
   version: 0.21.0
   resolution: "@rushstack/terminal@npm:0.21.0"
@@ -4524,18 +4517,6 @@ __metadata:
     "@types/node":
       optional: true
   checksum: 10c0/47f5688674a10785b65a07760fdb4b010bd9dbad141ea2ae78c8c0c320daecd66363d1c4fad78137e87582cabd6432f2919f7f4eb7557c0f836ce24b58ca45ca
-  languageName: node
-  linkType: hard
-
-"@rushstack/ts-command-line@npm:5.1.5":
-  version: 5.1.5
-  resolution: "@rushstack/ts-command-line@npm:5.1.5"
-  dependencies:
-    "@rushstack/terminal": "npm:0.19.5"
-    "@types/argparse": "npm:1.0.38"
-    argparse: "npm:~1.0.9"
-    string-argv: "npm:~0.3.1"
-  checksum: 10c0/8daef890a188ae8c7c8a3b4bbfe879e4e404128640f7b771fc98f83e972928e0b2b36f877dcfed6e3d22fb51d0b6726de80cd5f828ffc4d7d0c27d829cef7f3d
   languageName: node
   linkType: hard
 
@@ -13159,7 +13140,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.21, lodash@npm:~4.17.15":
+"lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.21, lodash@npm:~4.17.23":
   version: 4.17.23
   resolution: "lodash@npm:4.17.23"
   checksum: 10c0/1264a90469f5bb95d4739c43eb6277d15b6d9e186df4ac68c3620443160fc669e2f14c11e7d8b2ccf078b81d06147c01a8ccced9aab9f9f63d50dcf8cace6bf6
@@ -13716,12 +13697,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:10.0.3":
-  version: 10.0.3
-  resolution: "minimatch@npm:10.0.3"
+"minimatch@npm:10.1.2":
+  version: 10.1.2
+  resolution: "minimatch@npm:10.1.2"
   dependencies:
-    "@isaacs/brace-expansion": "npm:^5.0.0"
-  checksum: 10c0/e43e4a905c5d70ac4cec8530ceaeccb9c544b1ba8ac45238e2a78121a01c17ff0c373346472d221872563204eabe929ad02669bb575cb1f0cc30facab369f70f
+    "@isaacs/brace-expansion": "npm:^5.0.1"
+  checksum: 10c0/0cccef3622201703de6ecf9d772c0be1d5513dcc038ed9feb866c20cf798243e678ac35605dac3f1a054650c28037486713fe9e9a34b184b9097959114daf086
   languageName: node
   linkType: hard
 
@@ -18116,7 +18097,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-address@workspace:packages/stentor-address"
   dependencies:
-    "@microsoft/api-extractor": "npm:7.55.2"
+    "@microsoft/api-extractor": "npm:7.56.3"
     "@types/chai": "npm:5.2.3"
     "@types/mocha": "npm:10.0.10"
     "@types/node": "npm:24.10.1"
@@ -18483,7 +18464,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-models@workspace:packages/stentor-models"
   dependencies:
-    "@microsoft/api-extractor": "npm:7.55.2"
+    "@microsoft/api-extractor": "npm:7.56.3"
     "@rollup/plugin-typescript": "npm:12.3.0"
     "@xapp/config": "npm:0.2.3"
     "@xapp/patterns": "npm:2.0.2"
@@ -18739,7 +18720,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-utils@workspace:packages/stentor-utils"
   dependencies:
-    "@microsoft/api-extractor": "npm:7.55.2"
+    "@microsoft/api-extractor": "npm:7.56.3"
     "@types/blueimp-md5": "npm:2.18.2"
     "@types/chai": "npm:5.2.3"
     "@types/lodash.keys": "npm:4.2.9"
@@ -18789,7 +18770,7 @@ __metadata:
   resolution: "stentor@workspace:packages/stentor"
   dependencies:
     "@aws-sdk/client-secrets-manager": "npm:3.985.0"
-    "@microsoft/api-extractor": "npm:7.55.2"
+    "@microsoft/api-extractor": "npm:7.56.3"
     "@types/aws-lambda": "npm:8.10.160"
     "@types/body-parser": "npm:1.19.6"
     "@types/chai": "npm:5.2.3"

@@ -4,7 +4,7 @@
     "website"
   ],
   "npmClient": "yarn",
-  "version": "1.68.26",
+  "version": "1.68.27",
   "command": {
     "init": {
       "exact": true

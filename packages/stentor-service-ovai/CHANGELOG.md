@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.68.28](https://github.com/stentorium/stentor/compare/v1.68.27...v1.68.28) (2026-02-14)
+
+**Note:** Version bump only for package stentor-service-ovai
+
+
+
+
+
 ## [1.68.27](https://github.com/stentorium/stentor/compare/v1.68.26...v1.68.27) (2026-02-13)
 
 **Note:** Version bump only for package stentor-service-ovai

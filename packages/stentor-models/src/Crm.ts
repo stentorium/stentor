@@ -49,6 +49,12 @@ export interface ExternalLead {
      * Is it abandoned (unfinished)?
      */
     isAbandoned?: boolean;
+    /**
+     * Optional Google Place ID identifying which business location 
+     * this lead originated from. Used for multi-location businesses
+     * to route leads to the correct external system.
+     */
+    placeId?: string;
 }
 
 export interface CrmResponse {

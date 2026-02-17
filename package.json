@@ -24,7 +24,7 @@
     "mocha": "11.7.5",
     "mocha-junit-reporter": "2.2.1",
     "nyc": "17.1.0",
-    "syncpack": "13.0.4",
+    "syncpack": "14.0.0",
     "typedoc": "0.28.17",
     "typedoc-plugin-markdown": "4.10.0"
   },

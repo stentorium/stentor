@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.68.29](https://github.com/stentorium/stentor/compare/v1.68.28...v1.68.29) (2026-02-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency jsonpath-plus to v10.4.0 ([#2885](https://github.com/stentorium/stentor/issues/2885)) ([e4758f9](https://github.com/stentorium/stentor/commit/e4758f9d674040f1095b54f634eaf9508ae4f322))
+
+
+
+
+
 ## [1.68.28](https://github.com/stentorium/stentor/compare/v1.68.27...v1.68.28) (2026-02-14)
 
 **Note:** Version bump only for package repo

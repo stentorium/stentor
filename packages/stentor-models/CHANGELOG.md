@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.69.0](https://github.com/stentorium/stentor/compare/v1.68.30...v1.69.0) (2026-02-17)
+
+
+### Features
+
+* Add placeId to ExternalLead for multi-location lead routing ([#2889](https://github.com/stentorium/stentor/issues/2889)) ([cc4b9af](https://github.com/stentorium/stentor/commit/cc4b9afc5628cb301ea09923a3338771972c2b17)), closes [#2888](https://github.com/stentorium/stentor/issues/2888)
+
+
+
+
+
 ## [1.68.23](https://github.com/stentorium/stentor/compare/v1.68.22...v1.68.23) (2026-02-09)
 
 **Note:** Version bump only for package stentor-models

@@ -417,9 +417,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-firehose@npm:3.991.0":
-  version: 3.991.0
-  resolution: "@aws-sdk/client-firehose@npm:3.991.0"
+"@aws-sdk/client-firehose@npm:3.992.0":
+  version: 3.992.0
+  resolution: "@aws-sdk/client-firehose@npm:3.992.0"
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
@@ -431,7 +431,7 @@ __metadata:
     "@aws-sdk/middleware-user-agent": "npm:^3.972.10"
     "@aws-sdk/region-config-resolver": "npm:^3.972.3"
     "@aws-sdk/types": "npm:^3.973.1"
-    "@aws-sdk/util-endpoints": "npm:3.991.0"
+    "@aws-sdk/util-endpoints": "npm:3.992.0"
     "@aws-sdk/util-user-agent-browser": "npm:^3.972.3"
     "@aws-sdk/util-user-agent-node": "npm:^3.972.8"
     "@smithy/config-resolver": "npm:^4.4.6"
@@ -460,13 +460,13 @@ __metadata:
     "@smithy/util-retry": "npm:^4.2.8"
     "@smithy/util-utf8": "npm:^4.2.0"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/0c4b2690f324d47e8d765a8967550ba22b1de040dad733c98ccec08150491641cdbfabe84422081b5dca75e9e39d69e84a0a3091c40c4af76272e22d3502e69b
+  checksum: 10c0/7399c5f03641404bd82916675946d61511549e946e7a5fa6f2d458bfc4b80e3dc2eb6d8dca1475caaf6612c1db48c637bb48d2df3fea1225e834697093258852
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-kinesis@npm:3.991.0":
-  version: 3.991.0
-  resolution: "@aws-sdk/client-kinesis@npm:3.991.0"
+"@aws-sdk/client-kinesis@npm:3.992.0":
+  version: 3.992.0
+  resolution: "@aws-sdk/client-kinesis@npm:3.992.0"
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
@@ -478,7 +478,7 @@ __metadata:
     "@aws-sdk/middleware-user-agent": "npm:^3.972.10"
     "@aws-sdk/region-config-resolver": "npm:^3.972.3"
     "@aws-sdk/types": "npm:^3.973.1"
-    "@aws-sdk/util-endpoints": "npm:3.991.0"
+    "@aws-sdk/util-endpoints": "npm:3.992.0"
     "@aws-sdk/util-user-agent-browser": "npm:^3.972.3"
     "@aws-sdk/util-user-agent-node": "npm:^3.972.8"
     "@smithy/config-resolver": "npm:^4.4.6"
@@ -511,13 +511,13 @@ __metadata:
     "@smithy/util-utf8": "npm:^4.2.0"
     "@smithy/util-waiter": "npm:^4.2.8"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/083b8f9aa11c765b5447c33d2f016a1b70162d6b19c67a4d5b092a8d3c0832498cfe0809ef7a7b5004e4c401d8d678270b9ac2f17a0ab1db47aa37ee4ff2dfc2
+  checksum: 10c0/0191484e80c94015ba314a44e44a07a823bf568abfff3de9647d4421dcf04c13e258615e8b2ed1caa7b77659da03bdb39811cfa51895ce4e38c23c9e289a5e6f
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-secrets-manager@npm:3.991.0":
-  version: 3.991.0
-  resolution: "@aws-sdk/client-secrets-manager@npm:3.991.0"
+"@aws-sdk/client-secrets-manager@npm:3.992.0":
+  version: 3.992.0
+  resolution: "@aws-sdk/client-secrets-manager@npm:3.992.0"
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
@@ -529,7 +529,7 @@ __metadata:
     "@aws-sdk/middleware-user-agent": "npm:^3.972.10"
     "@aws-sdk/region-config-resolver": "npm:^3.972.3"
     "@aws-sdk/types": "npm:^3.973.1"
-    "@aws-sdk/util-endpoints": "npm:3.991.0"
+    "@aws-sdk/util-endpoints": "npm:3.992.0"
     "@aws-sdk/util-user-agent-browser": "npm:^3.972.3"
     "@aws-sdk/util-user-agent-node": "npm:^3.972.8"
     "@smithy/config-resolver": "npm:^4.4.6"
@@ -558,13 +558,13 @@ __metadata:
     "@smithy/util-retry": "npm:^4.2.8"
     "@smithy/util-utf8": "npm:^4.2.0"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/cffbe5eb77dc4a7e9a5fb951c08abb56055e1144d1c8babe955665726d4bc6472283f59250778b270a2f428bf45115095b641503825ba8aae33024e04beeffbe
+  checksum: 10c0/6df85220870040c01e56823bdff6bb7a7e2254daff42762fdbfb02e7746f227bc2798cb3d0120aa0022e43a60b0f09e131a8346a3b89f217ad35d389fe5417e6
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-sns@npm:3.991.0":
-  version: 3.991.0
-  resolution: "@aws-sdk/client-sns@npm:3.991.0"
+"@aws-sdk/client-sns@npm:3.992.0":
+  version: 3.992.0
+  resolution: "@aws-sdk/client-sns@npm:3.992.0"
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
@@ -576,7 +576,7 @@ __metadata:
     "@aws-sdk/middleware-user-agent": "npm:^3.972.10"
     "@aws-sdk/region-config-resolver": "npm:^3.972.3"
     "@aws-sdk/types": "npm:^3.973.1"
-    "@aws-sdk/util-endpoints": "npm:3.991.0"
+    "@aws-sdk/util-endpoints": "npm:3.992.0"
     "@aws-sdk/util-user-agent-browser": "npm:^3.972.3"
     "@aws-sdk/util-user-agent-node": "npm:^3.972.8"
     "@smithy/config-resolver": "npm:^4.4.6"
@@ -605,7 +605,7 @@ __metadata:
     "@smithy/util-retry": "npm:^4.2.8"
     "@smithy/util-utf8": "npm:^4.2.0"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/9df47e611b66bd313152bfb1f6c9300878adc49d21bbe0db61781e1e94bc3dc550ebb2fb5669ee1419c436537503669689f45814d36c14bf6ec534d8e742f366
+  checksum: 10c0/ed15ece5d9cefcec195a64478fa021ad628c90c4778abd2ecea883ff8143aa1f2c414b5db9311e77b515bc24974462720499e3ee58eea24e115f3464dd69fc9a
   languageName: node
   linkType: hard
 
@@ -968,16 +968,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/util-endpoints@npm:3.991.0":
-  version: 3.991.0
-  resolution: "@aws-sdk/util-endpoints@npm:3.991.0"
+"@aws-sdk/util-endpoints@npm:3.992.0":
+  version: 3.992.0
+  resolution: "@aws-sdk/util-endpoints@npm:3.992.0"
   dependencies:
     "@aws-sdk/types": "npm:^3.973.1"
     "@smithy/types": "npm:^4.12.0"
     "@smithy/url-parser": "npm:^4.2.8"
     "@smithy/util-endpoints": "npm:^3.2.8"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/d98592ec279b5899f4aba132c1b93e507d5a56b446b34f837b185896b8f140e97adf45b27652569d33d51512485e5b837d27f671e9e871600732d21f44c5751e
+  checksum: 10c0/6474ee79b24b1ff0eed5ab9382299713df4b6cb6ed7716423a1d3b2667d0e9198bb7c4dbb37266e5a46fc70ba363b2a23ff8af964ba539c9fd0172284dd13cb5
   languageName: node
   linkType: hard
 
@@ -18468,9 +18468,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-service-event@workspace:packages/stentor-service-event"
   dependencies:
-    "@aws-sdk/client-firehose": "npm:3.991.0"
-    "@aws-sdk/client-kinesis": "npm:3.991.0"
-    "@aws-sdk/client-sns": "npm:3.991.0"
+    "@aws-sdk/client-firehose": "npm:3.992.0"
+    "@aws-sdk/client-kinesis": "npm:3.992.0"
+    "@aws-sdk/client-sns": "npm:3.992.0"
     "@types/chai": "npm:5.2.3"
     "@types/mocha": "npm:10.0.10"
     "@types/sinon": "npm:17.0.4"
@@ -18676,7 +18676,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor@workspace:packages/stentor"
   dependencies:
-    "@aws-sdk/client-secrets-manager": "npm:3.991.0"
+    "@aws-sdk/client-secrets-manager": "npm:3.992.0"
     "@microsoft/api-extractor": "npm:7.56.3"
     "@types/aws-lambda": "npm:8.10.160"
     "@types/body-parser": "npm:1.19.6"

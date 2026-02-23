@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.69.4",
+  "version": "1.69.5",
   "description": "Runtime for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -26,22 +26,22 @@
     "sinon": "20.0.0",
     "sinon-chai": "3.7.0",
     "stentor-models": "1.69.0",
-    "stentor-request": "1.69.0",
+    "stentor-request": "1.69.5",
     "ts-node": "10.9.2",
     "typescript": "5.9.3"
   },
   "dependencies": {
     "stentor-constants": "1.69.0",
-    "stentor-context": "1.69.0",
-    "stentor-handler": "1.69.0",
-    "stentor-handler-factory": "1.69.0",
-    "stentor-handler-manager": "1.69.0",
+    "stentor-context": "1.69.5",
+    "stentor-handler": "1.69.5",
+    "stentor-handler-factory": "1.69.5",
+    "stentor-handler-manager": "1.69.5",
     "stentor-history": "1.69.0",
-    "stentor-interaction-model": "1.69.0",
-    "stentor-logger": "1.69.0",
-    "stentor-response": "1.69.0",
-    "stentor-service-event": "1.69.4",
-    "stentor-utils": "1.69.0"
+    "stentor-interaction-model": "1.69.5",
+    "stentor-logger": "1.69.5",
+    "stentor-response": "1.69.5",
+    "stentor-service-event": "1.69.5",
+    "stentor-utils": "1.69.5"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

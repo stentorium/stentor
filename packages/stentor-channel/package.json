@@ -28,7 +28,7 @@
     "typescript": "5.9.3"
   },
   "dependencies": {
-    "@xapp/patterns": "2.0.2",
+    "@xapp/patterns": "2.0.3",
     "stentor-logger": "1.69.7",
     "stentor-utils": "1.69.7"
   },

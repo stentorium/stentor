@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.69.9](https://github.com/stentorium/stentor/compare/v1.69.8...v1.69.9) (2026-02-24)
+
+
+### Bug Fixes
+
+* patterns dependency update ([#2901](https://github.com/stentorium/stentor/issues/2901)) ([e99cb88](https://github.com/stentorium/stentor/commit/e99cb887734cbd08cf83c18eadfdd9b5b7591134))
+
+
+
+
+
 ## [1.69.8](https://github.com/stentorium/stentor/compare/v1.69.7...v1.69.8) (2026-02-24)
 
 **Note:** Version bump only for package stentor

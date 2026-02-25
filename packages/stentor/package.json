@@ -17,7 +17,7 @@
     "node": "^12 || ^14 || ^16 || ^18 || ^20 || ^22 || ^24.0.0"
   },
   "devDependencies": {
-    "@aws-sdk/client-secrets-manager": "3.996.0",
+    "@aws-sdk/client-secrets-manager": "3.997.0",
     "@microsoft/api-extractor": "7.57.4",
     "@types/chai": "5.2.3",
     "@types/mocha": "10.0.10",

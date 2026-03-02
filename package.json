@@ -12,7 +12,7 @@
     "website"
   ],
   "devDependencies": {
-    "@microsoft/api-documenter": "7.29.4",
+    "@microsoft/api-documenter": "7.29.6",
     "@typescript-eslint/eslint-plugin": "6.21.0",
     "@typescript-eslint/parser": "6.21.0",
     "@xapp/config": "0.2.3",

@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.69.30",
+  "version": "1.69.31",
   "description": "Event service for 📣 stentor",
   "types": "lib/index",
   "main": "lib/index",

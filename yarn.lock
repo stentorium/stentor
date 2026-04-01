@@ -18240,7 +18240,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-runtime@npm:1.69.39, stentor-runtime@workspace:packages/stentor-runtime":
+"stentor-runtime@npm:1.69.40, stentor-runtime@workspace:packages/stentor-runtime":
   version: 0.0.0-use.local
   resolution: "stentor-runtime@workspace:packages/stentor-runtime"
   dependencies:
@@ -18265,7 +18265,7 @@ __metadata:
     stentor-models: "npm:1.69.32"
     stentor-request: "npm:1.69.37"
     stentor-response: "npm:1.69.37"
-    stentor-service-event: "npm:1.69.39"
+    stentor-service-event: "npm:1.69.40"
     stentor-utils: "npm:1.69.37"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.3"
@@ -18274,7 +18274,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-service-event@npm:1.69.39, stentor-service-event@workspace:packages/stentor-service-event":
+"stentor-service-event@npm:1.69.40, stentor-service-event@workspace:packages/stentor-service-event":
   version: 0.0.0-use.local
   resolution: "stentor-service-event@workspace:packages/stentor-service-event"
   dependencies:
@@ -18323,7 +18323,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-service-ovai@npm:1.69.39, stentor-service-ovai@workspace:packages/stentor-service-ovai":
+"stentor-service-ovai@npm:1.69.40, stentor-service-ovai@workspace:packages/stentor-service-ovai":
   version: 0.0.0-use.local
   resolution: "stentor-service-ovai@workspace:packages/stentor-service-ovai"
   dependencies:
@@ -18336,7 +18336,7 @@ __metadata:
     mocha: "npm:11.7.5"
     stentor-constants: "npm:1.69.32"
     stentor-models: "npm:1.69.32"
-    stentor-service-event: "npm:1.69.39"
+    stentor-service-event: "npm:1.69.40"
     stentor-utils: "npm:1.69.37"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.3"
@@ -18345,7 +18345,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-service-studio@npm:1.69.39, stentor-service-studio@workspace:packages/stentor-service-studio":
+"stentor-service-studio@npm:1.69.40, stentor-service-studio@workspace:packages/stentor-service-studio":
   version: 0.0.0-use.local
   resolution: "stentor-service-studio@workspace:packages/stentor-service-studio"
   dependencies:
@@ -18362,7 +18362,7 @@ __metadata:
     mocha: "npm:11.7.5"
     stentor-constants: "npm:1.69.32"
     stentor-models: "npm:1.69.32"
-    stentor-service-event: "npm:1.69.39"
+    stentor-service-event: "npm:1.69.40"
     stentor-utils: "npm:1.69.37"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.3"
@@ -18516,11 +18516,11 @@ __metadata:
     stentor-models: "npm:1.69.32"
     stentor-request: "npm:1.69.37"
     stentor-response: "npm:1.69.37"
-    stentor-runtime: "npm:1.69.39"
-    stentor-service-event: "npm:1.69.39"
+    stentor-runtime: "npm:1.69.40"
+    stentor-service-event: "npm:1.69.40"
     stentor-service-fetch: "npm:1.69.32"
-    stentor-service-ovai: "npm:1.69.39"
-    stentor-service-studio: "npm:1.69.39"
+    stentor-service-ovai: "npm:1.69.40"
+    stentor-service-studio: "npm:1.69.40"
     stentor-utils: "npm:1.69.37"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.3"

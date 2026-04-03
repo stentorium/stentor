@@ -10447,10 +10447,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fuse.js@npm:7.1.0":
-  version: 7.1.0
-  resolution: "fuse.js@npm:7.1.0"
-  checksum: 10c0/c0d1b1d192a4bdf3eade897453ddd28aff96b70bf3e49161a45880f9845ebaee97265595db633776700a5bcf8942223c752754a848d70c508c3c9fd997faad1e
+"fuse.js@npm:7.2.0":
+  version: 7.2.0
+  resolution: "fuse.js@npm:7.2.0"
+  checksum: 10c0/991ee444dca39a8c1db75aecb1e93873988aa8f5fd8a4f796d206060da9794596b950d0e3196315b78d318f0661e6323ace4857c9da635244e358414fcbc0488
   languageName: node
   linkType: hard
 
@@ -18455,7 +18455,7 @@ __metadata:
     blueimp-md5: "npm:2.19.0"
     chai: "npm:4.5.0"
     dyno-item-size: "npm:0.3.3"
-    fuse.js: "npm:7.1.0"
+    fuse.js: "npm:7.2.0"
     html-entities: "npm:2.6.0"
     jsonpath-plus: "npm:10.4.0"
     lodash.keys: "npm:4.2.0"

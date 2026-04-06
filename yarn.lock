@@ -17513,10 +17513,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"slugify@npm:1.6.8":
-  version: 1.6.8
-  resolution: "slugify@npm:1.6.8"
-  checksum: 10c0/1052797a5e7bc6263c6e8dc64ad41d6f5ae2fd2e3a17c2aead09ded002f10de75283ff0b4da2b04dd2fbd7fa2f38a83abeaa3ab8d29709ca68e7592edd6e90dc
+"slugify@npm:1.6.9":
+  version: 1.6.9
+  resolution: "slugify@npm:1.6.9"
+  checksum: 10c0/8473c566ae00c5db26bfbf6182a4a9478ab3c912a9c926e1fdb410736a77228bfca4fdc5c755b46fafa7d2d9900de482fd7a9bd5e5c91128c4743c2c072d88da
   languageName: node
   linkType: hard
 
@@ -18476,7 +18476,7 @@ __metadata:
     sanitize-html: "npm:2.17.2"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"
-    slugify: "npm:1.6.8"
+    slugify: "npm:1.6.9"
     stentor-constants: "npm:1.69.45"
     stentor-guards: "npm:1.69.45"
     stentor-models: "npm:1.69.45"

@@ -9374,12 +9374,12 @@ __metadata:
   linkType: hard
 
 "effect@npm:^3.13.7":
-  version: 3.19.4
-  resolution: "effect@npm:3.19.4"
+  version: 3.21.0
+  resolution: "effect@npm:3.21.0"
   dependencies:
     "@standard-schema/spec": "npm:^1.0.0"
     fast-check: "npm:^3.23.1"
-  checksum: 10c0/3243ccbb562b13ce1ec654591dbcce4b2730cf77f29d466419bbc309fe710ffec337377119317dc3c273fc0b6d4d1852c12b554759e7658ea0cbfb5a5aa2acf7
+  checksum: 10c0/665cb8fd0862f334eeb1d0fbadb14913de358948c08929bfd079fd38903132ba54daa99da4c453f738c318fa5ce0de862bf8db08974d97a05d868f6bc685eb50
   languageName: node
   linkType: hard
 

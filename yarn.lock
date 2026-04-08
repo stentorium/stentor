@@ -13316,12 +13316,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"marked-xhtml@npm:1.0.14":
-  version: 1.0.14
-  resolution: "marked-xhtml@npm:1.0.14"
+"marked-xhtml@npm:1.0.15":
+  version: 1.0.15
+  resolution: "marked-xhtml@npm:1.0.15"
   peerDependencies:
-    marked: ">=4 <18"
-  checksum: 10c0/6ad14c85209cc4d7e55cdc29f213fb122dd6427f3a2220e7b3e9aac2cc16d74eb237e14f285a7072c07bd449cb15526df87561a87ac27a63b1258cd8420c9f5d
+    marked: ">=4 <19"
+  checksum: 10c0/03069529cb48e35414f8d60d99240deb03440f5df3176b47c843f88226038706ddf4304d8e61d0e815c56d3eb78ff8e1e1edcd5ee8f52f8b7e9df31e4c64a8f7
   languageName: node
   linkType: hard
 
@@ -18704,7 +18704,7 @@ __metadata:
     lodash.sumby: "npm:4.6.0"
     lodash.union: "npm:4.6.0"
     marked: "npm:12.0.2"
-    marked-xhtml: "npm:1.0.14"
+    marked-xhtml: "npm:1.0.15"
     mocha: "npm:11.7.5"
     number-to-words: "npm:1.2.4"
     numeral: "npm:2.0.6"

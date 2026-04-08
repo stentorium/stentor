@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.69.49](https://github.com/stentorium/stentor/compare/v1.69.48...v1.69.49) (2026-04-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fuse.js to v7.3.0 ([#2962](https://github.com/stentorium/stentor/issues/2962)) ([37dfa72](https://github.com/stentorium/stentor/commit/37dfa7296bd4b91fcefc72e09c9a152321d28a8d))
+* **deps:** update dependency marked-xhtml to v1.0.15 ([#2966](https://github.com/stentorium/stentor/issues/2966)) ([364a35c](https://github.com/stentorium/stentor/commit/364a35cbe48de1be46f5a3416598956f84372bb3))
+
+
+
+
+
 ## [1.69.48](https://github.com/stentorium/stentor/compare/v1.69.47...v1.69.48) (2026-04-08)
 
 

@@ -417,9 +417,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-firehose@npm:3.1029.0":
-  version: 3.1029.0
-  resolution: "@aws-sdk/client-firehose@npm:3.1029.0"
+"@aws-sdk/client-firehose@npm:3.1030.0":
+  version: 3.1030.0
+  resolution: "@aws-sdk/client-firehose@npm:3.1030.0"
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
@@ -460,13 +460,13 @@ __metadata:
     "@smithy/util-retry": "npm:^4.3.0"
     "@smithy/util-utf8": "npm:^4.2.2"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/4d204deb3220be5e870d3461daa3b3c98d91320565d6e3e022dcc3eb61e3f09f47fc6a780d18c918ad0d295f329df3c41cb36aaca13fb474902822662b70a650
+  checksum: 10c0/276c04b07d02e5a0b9076384b369eee92139e8ec0a840351ffdb9f7ca4db04aa05203006a00cb3a0a10ae67cf64a2c595871b5178a3291418b4e24775eb7be54
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-kinesis@npm:3.1029.0":
-  version: 3.1029.0
-  resolution: "@aws-sdk/client-kinesis@npm:3.1029.0"
+"@aws-sdk/client-kinesis@npm:3.1030.0":
+  version: 3.1030.0
+  resolution: "@aws-sdk/client-kinesis@npm:3.1030.0"
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
@@ -511,13 +511,13 @@ __metadata:
     "@smithy/util-utf8": "npm:^4.2.2"
     "@smithy/util-waiter": "npm:^4.2.15"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/46c4c2b1301bb8b5e78adde8dc30899df160e23f51df8627fa859890d64ac4607a6783a1166a04f5b62d0a54a99b5feb7e3c6dc8a9d4ab0c2913fb38d2434ebc
+  checksum: 10c0/0edc169f90556aadb3d92eb810e99c44e082f4aaace9c57b5d8057b473635103bf7fa16d78556e455a4550d21c3d5cb017a2c62cc1b9aabd3069475da26c9739
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-secrets-manager@npm:3.1029.0":
-  version: 3.1029.0
-  resolution: "@aws-sdk/client-secrets-manager@npm:3.1029.0"
+"@aws-sdk/client-secrets-manager@npm:3.1030.0":
+  version: 3.1030.0
+  resolution: "@aws-sdk/client-secrets-manager@npm:3.1030.0"
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
@@ -558,13 +558,13 @@ __metadata:
     "@smithy/util-retry": "npm:^4.3.0"
     "@smithy/util-utf8": "npm:^4.2.2"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/08c208cb0a7773b68982e4c3d8e547b2bc505d664ff0d68a3c28d3232a7b147edfb60c693fac3129f1b2d76e3444ce9a7003569565cac35e5d3e80d908c2ebef
+  checksum: 10c0/b28885e93eb25691e0046c05b412a3fa423e1ac94c4c643f996eb9d90354af773b631705e85571aab6ae46991ab6f7fafe753ab9ce86bd88ee83f79326f6f170
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-sns@npm:3.1029.0":
-  version: 3.1029.0
-  resolution: "@aws-sdk/client-sns@npm:3.1029.0"
+"@aws-sdk/client-sns@npm:3.1030.0":
+  version: 3.1030.0
+  resolution: "@aws-sdk/client-sns@npm:3.1030.0"
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
@@ -605,7 +605,7 @@ __metadata:
     "@smithy/util-retry": "npm:^4.3.0"
     "@smithy/util-utf8": "npm:^4.2.2"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/44e86853ec82979f8a421549d2531a7163f51f8cd1615b3b8fe7bdef1f9ce55488fac89ef5784545330a87ec38209e99d728b8f94835a40116c81e605b534e5d
+  checksum: 10c0/a77c5f52ac9614a58ccdbb3e1088138c2b7605c670bfd3bb0947b60e2da5c8d6d9916c216929d8c4f88c4a2e21e958027f97636b8a85be6f0491a0ec28503c1b
   languageName: node
   linkType: hard
 
@@ -18520,9 +18520,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-service-event@workspace:packages/stentor-service-event"
   dependencies:
-    "@aws-sdk/client-firehose": "npm:3.1029.0"
-    "@aws-sdk/client-kinesis": "npm:3.1029.0"
-    "@aws-sdk/client-sns": "npm:3.1029.0"
+    "@aws-sdk/client-firehose": "npm:3.1030.0"
+    "@aws-sdk/client-kinesis": "npm:3.1030.0"
+    "@aws-sdk/client-sns": "npm:3.1030.0"
     "@types/chai": "npm:5.2.3"
     "@types/mocha": "npm:10.0.10"
     "@types/sinon": "npm:17.0.4"
@@ -18728,7 +18728,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor@workspace:packages/stentor"
   dependencies:
-    "@aws-sdk/client-secrets-manager": "npm:3.1029.0"
+    "@aws-sdk/client-secrets-manager": "npm:3.1030.0"
     "@microsoft/api-extractor": "npm:7.58.2"
     "@types/aws-lambda": "npm:8.10.161"
     "@types/body-parser": "npm:1.19.6"

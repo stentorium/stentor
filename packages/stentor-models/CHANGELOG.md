@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.70.0](https://github.com/stentorium/stentor/compare/v1.69.53...v1.70.0) (2026-04-15)
+
+
+### Features
+
+* add startTime and endTime fields to SelectableItem interface ([#2980](https://github.com/stentorium/stentor/issues/2980)) ([c42acec](https://github.com/stentorium/stentor/commit/c42acecf561362f6c8c42105509a9e8c35a92261)), closes [#2979](https://github.com/stentorium/stentor/issues/2979)
+
+
+
+
+
 ## [1.69.52](https://github.com/stentorium/stentor/compare/v1.69.51...v1.69.52) (2026-04-13)
 
 **Note:** Version bump only for package stentor-models

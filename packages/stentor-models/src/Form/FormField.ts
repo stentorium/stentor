@@ -430,4 +430,12 @@ export interface SelectableItem {
    * When true, the item will be shown as selected by default
    */
   selected?: boolean;
+  /**
+   * Optional start time for time window chips (e.g., "10:00" in 24-hour format or ISO time)
+   */
+  startTime?: string;
+  /**
+   * Optional end time for time window chips (e.g., "18:00" in 24-hour format or ISO time)
+   */
+  endTime?: string;
 }

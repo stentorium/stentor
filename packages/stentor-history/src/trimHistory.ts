@@ -14,8 +14,13 @@ export interface TrimOptions {
     lastPlayedForgetSeconds?: number;
 }
 
+interface ResolvedTrimOptions {
+    tttSeconds: number;
+    historySize: number;
+    lastPlayedForgetSeconds: number;
+}
 
-function _trim(history: History, options?: TrimOptions): History {
+function _trim(history: History, options: ResolvedTrimOptions): History {
     const newHistory = {} as History;
 
     // Get it out of the way for sorting
@@ -76,10 +81,11 @@ export function trimHistory(history: History, trimOptions?: TrimOptions): Histor
         trimOptions = {} as TrimOptions;
     }
 
-    const options = {} as TrimOptions;
-    options.tttSeconds = trimOptions.tttSeconds || DEFAULT_TIME_TO_TRIM_IN_SECONDS;
-    options.historySize = trimOptions.historySize || DEFAULT_HISTORY_SIZE;
-    options.lastPlayedForgetSeconds = trimOptions.lastPlayedForgetSeconds || DEFAULT_LAST_PLAYED_FORGET_SECONDS;
+    const options: ResolvedTrimOptions = {
+        tttSeconds: trimOptions.tttSeconds || DEFAULT_TIME_TO_TRIM_IN_SECONDS,
+        historySize: trimOptions.historySize || DEFAULT_HISTORY_SIZE,
+        lastPlayedForgetSeconds: trimOptions.lastPlayedForgetSeconds || DEFAULT_LAST_PLAYED_FORGET_SECONDS
+    };
 
     let timeToTrim = true;
     if (history.lastTrimmed) {

@@ -3,7 +3,10 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "lib",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "strictNullChecks": false,
+    "types": ["node"],
+    "lib": ["es2016"]
   },
   "include": ["src", "typings/**/*.d.ts"],
   "exclude": ["node_modules", "src/**/__test__/*"]

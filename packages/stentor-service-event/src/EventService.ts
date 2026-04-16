@@ -292,7 +292,7 @@ function getLambdaEvent(error: Error, result: object): LambdaFinishEvent {
  * @returns A new Lambda callback that can be used in replace of the original
  */
 export function wrapCallback(event: EventService, lambdaCallback: RuntimeCallback): RuntimeCallback {
-    return (error: Error, result: object, request: Request, response: Response, ...args: any[]): void => {
+    return (error: string | Error, result: object, request: Request, response: Response, ...args: any[]): void => {
 
         if (request) {
             try {
@@ -303,12 +303,14 @@ export function wrapCallback(event: EventService, lambdaCallback: RuntimeCallbac
         }
         if (error) {
             try {
-                event.error(error);
+                const errorObj = typeof error === 'string' ? new Error(error) : error;
+                event.error(errorObj);
             } catch (e) {
                 log().error(`Error adding error event: ${e}`);
             }
         }
-        const finishEvent: LambdaFinishEvent = getLambdaEvent(error, result);
+        const errorObj = error ? (typeof error === 'string' ? new Error(error) : error) : error as any;
+        const finishEvent: LambdaFinishEvent = getLambdaEvent(errorObj, result);
         // The last event in the stream.
         event.event(finishEvent);
 

@@ -85,19 +85,21 @@ export interface DynamoUserStorageProps {
  */
 export class DynamoUserStorage implements UserStorageService {
 
-    private readonly appId: string;
+    private readonly appId!: string;
 
     private readonly service: TableService<UserStorageRow>;
 
     public constructor(props?: DynamoUserStorageProps) {
 
         let tableSchema: TableSchema<Storage> = UserTableSchema;
-        let tableName: string = process.env.USER_STORAGE_TABLE;
-        this.appId = process.env.STUDIO_APP_ID;
+        let tableName: string | undefined = process.env.USER_STORAGE_TABLE;
+        let appId: string | undefined = process.env.STUDIO_APP_ID;
 
         if (props) {
-            tableName = props.tableName;
-            this.appId = props.appId ? props.appId : this.appId;
+            if (props.tableName) {
+                tableName = props.tableName;
+            }
+            appId = props.appId ? props.appId : appId;
 
             tableSchema = props.schema ? props.schema : UserTableSchema;
         }
@@ -106,9 +108,11 @@ export class DynamoUserStorage implements UserStorageService {
             throw new Error(`Constructor property tableName or environment variable USER_STORAGE_TABLE is required for the DynamoUserStorage.`);
         }
 
-        if (!this.appId) {
+        if (!appId) {
             throw new Error(`Constructor property appId or environment variable STUDIO_APP_ID is required for the DynamoUserStorage.`);
         }
+
+        this.appId = appId;
 
         // Use provided dynamo client or create a new one
         const dynamo = props?.dynamo || new DocumentClient();

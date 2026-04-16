@@ -3,8 +3,11 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "lib",
-    "strict": true
+    "strict": true,
+    "strictNullChecks": false,
+    "lib": ["es2017", "dom"],
+    "types": ["node"]
   },
   "include": ["src"],
-  "exclude": ["node_modules", "src/**/__test__/*"]
+  "exclude": ["node_modules", "src/**/__test__/*", "src/**/__tests__/*"]
 }

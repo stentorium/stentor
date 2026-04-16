@@ -16,7 +16,10 @@ export class TimeoutError extends Error {
     public constructor(message: string) {
         super(message);
         this.name = "TimeoutError";
-        Error.captureStackTrace(this, this.constructor);
+        // V8/Node.js specific feature for better stack traces
+        if (typeof (Error as any).captureStackTrace === 'function') {
+            (Error as any).captureStackTrace(this, this.constructor);
+        }
     }
 }
 

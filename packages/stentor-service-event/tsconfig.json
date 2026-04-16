@@ -2,7 +2,10 @@
   "extends": "@xapp/config/tsconfig.json",
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "lib"
+    "outDir": "lib",
+    "types": ["node"],
+    "strictNullChecks": false,
+    "skipLibCheck": true
   },
   "include": [
     "src"

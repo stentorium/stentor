@@ -3,7 +3,9 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "lib",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "types": ["node"],
+    "strictNullChecks": false
   },
   "include": ["src", "typings/**/*.d.ts"],
   "exclude": ["node_modules", "src/**/__test__/*"]

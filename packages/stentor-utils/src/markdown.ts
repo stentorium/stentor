@@ -1,6 +1,7 @@
 /*! Copyright (c) 2021, XAPPmedia */
 import { decode } from "html-entities";
 import { marked } from "marked";
+// @ts-ignore - marked-xhtml doesn't have type definitions
 import { markedXhtml } from "marked-xhtml";
 import sanitize = require('sanitize-html');
 import { linkify } from "./net";

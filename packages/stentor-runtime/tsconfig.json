@@ -3,7 +3,10 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "lib",
-    "strictNullChecks": false
+    "strictNullChecks": false,
+    "types": ["node"],
+    "lib": ["es2018"],
+    "skipLibCheck": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "src/**/__test__/*"]

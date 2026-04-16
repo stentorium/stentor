@@ -74,6 +74,16 @@ import { getErrorResponse } from "./getErrorResponse";
 export const DEFAULT_MAX_HISTORY = 20;
 
 /**
+ * Helper function to normalize unknown errors to Error objects
+ */
+function normalizeError(e: unknown): Error {
+  if (e instanceof Error) {
+    return e;
+  }
+  return new Error(String(e));
+}
+
+/**
  * Runtime dependencies
  */
 export interface Dependencies {
@@ -173,7 +183,8 @@ export const main = async (
         return;
       }
     }
-  } catch (error) {
+  } catch (e) {
+    const error = normalizeError(e);
     console.error(`Error calling preExecution hook with request: ${error.message}`);
     console.error(JSON.stringify(requestBody, undefined, 2));
     console.error(error.stack);
@@ -198,7 +209,8 @@ export const main = async (
     if (hooks && typeof hooks.postRequestTranslation === "function") {
       request = await hooks.postRequestTranslation(request);
     }
-  } catch (error) {
+  } catch (e) {
+    const error = normalizeError(e);
     console.error(`Error calling postRequestTranslation hook: ${error.message}`);
     console.error(JSON.stringify(requestBody, undefined, 2));
     console.error(error.stack);
@@ -271,7 +283,8 @@ export const main = async (
         for (const event of request.events) {
           eventService.event(event);
         }
-      } catch (error) {
+      } catch (e) {
+        const error = normalizeError(e);
         console.error(`Error sending events to eventService: ${error.message}`);
         console.error(error.stack);
         eventService?.error(error);
@@ -341,7 +354,8 @@ export const main = async (
     if (!isInputUnknownRequest(request)) {
       session.set(SESSION_STORAGE_UNKNOWN_INPUTS, 0);
     }
-  } catch (error) {
+  } catch (e) {
+    const error = normalizeError(e);
     console.error(`Error creating and updating storage: ${error.message}`);
     console.error(JSON.stringify(requestBody, undefined, 2));
     console.error(error.stack);
@@ -478,7 +492,8 @@ export const main = async (
         return SIX_SECONDS;
       };
     }
-  } catch (error) {
+  } catch (e) {
+    const error = normalizeError(e);
     console.error(`Error creating Context: ${error.message}`);
     console.error(error.stack);
     eventService?.error(error);
@@ -538,7 +553,8 @@ export const main = async (
         context = updated.context;
       }
     }
-  } catch (error) {
+  } catch (e) {
+    const error = normalizeError(e);
     console.error(`Error caught in the postContextCreation hook: ${error}`);
     console.error(error);
     // Keep moving, record the error
@@ -556,7 +572,8 @@ export const main = async (
   try {
     const manager = new HandlerManager({ service: handlerService, factory: handlerFactory });
     handler = await manager.from(request, context);
-  } catch (error) {
+  } catch (e) {
+    const error = normalizeError(e);
     // BETA
     // We are adding this check here so that we still give the handler an opportunity to
     // return true to canHandleRequest
@@ -660,7 +677,8 @@ export const main = async (
   // context.
   try {
     await handler.handleRequest(request, context);
-  } catch (error) {
+  } catch (e) {
+    const error = normalizeError(e);
     // report the error
     console.error("Error caught while calling handler.handleRequest() method");
     console.error(error);
@@ -695,7 +713,8 @@ export const main = async (
       await piiService.savePii(context.pii);
       // Save the pointer - this could be undefined if it wasn't saved (no need for new PII)
       context.storage.piiToken = context.pii.token;
-    } catch (error) {
+    } catch (e) {
+      const error = normalizeError(e);
       // report the error
       console.error(error.stack);
       // Add the error to the event service
@@ -723,7 +742,8 @@ export const main = async (
         context.storage = returns.storage;
       }
     }
-  } catch (error) {
+  } catch (e) {
+    const error = normalizeError(e);
     // report the error
     console.error("Caught error in the preResponseTranslation hook.");
     console.error(error.stack);
@@ -749,7 +769,8 @@ export const main = async (
     finalResponse = channel.response.translate({ request, response });
     log().debug("Final Response");
     log().debug(finalResponse);
-  } catch (error) {
+  } catch (e) {
+    const error = normalizeError(e);
     // report the error
     console.error("Caught error when translating the response for the channel.");
     console.error(error.stack);
@@ -779,7 +800,8 @@ export const main = async (
   // #4.3 Save the user storage
   try {
     await userStorageService.update(request.userId, context.storage);
-  } catch (error) {
+  } catch (e) {
+    const error = normalizeError(e);
     // report the error
     console.error("Caught error updating user storage");
     console.error(error.stack);

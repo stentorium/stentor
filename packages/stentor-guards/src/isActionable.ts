@@ -7,6 +7,6 @@ import { Actionable } from "stentor-models";
  * @param {(T | Actionable<T>)} potential
  * @returns {potential is Actionable<T>}
  */
-export function isActionable(potential: object | Actionable): potential is Actionable {
+export function isActionable(potential: object | Actionable | undefined): potential is Actionable {
     return !!potential && Array.isArray((potential as Actionable).actions);
 }

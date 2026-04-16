@@ -8,7 +8,7 @@ import { HandlerHistoryData, History } from "stentor-models";
  * @param {History} history
  * @returns {HandlerHistoryData[]}
  */
-export function getHandlerHistory(history: History): HandlerHistoryData[] {
+export function getHandlerHistory(history: History | undefined): HandlerHistoryData[] {
     if (!history) {
         return [];
     }

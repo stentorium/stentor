@@ -10,11 +10,12 @@ import { Context, Handler, HandlerDelegates, Request } from "stentor-models";
 import { existsAndNotEmpty, keyFromRequest } from "stentor-utils";
 import { NoHandlerClassError } from "./NoHandlerClassError";
 
-// eslint-disable-next-line @typescript-eslint/array-type
-export type HandlersArray = Array<new (props: Handler) => AbstractHandler>;
+// eslint-disable-next-line @typescript-eslint/array-type, @typescript-eslint/no-explicit-any
+export type HandlersArray = Array<new (props: any) => AbstractHandler>;
 
 export interface HandlersKeyValue {
-    [key: string]: new (props: Handler) => AbstractHandler;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    [key: string]: new (props: any) => AbstractHandler;
 }
 
 export interface DelegatingHandlersMap {
@@ -27,7 +28,8 @@ export interface HandlerFactoryProps {
     delegates?: DelegatingHandlersMap;
 }
 
-export type HandlersMap = Map<string, new (props: Handler) => AbstractHandler>;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type HandlersMap = Map<string, new (props: any) => AbstractHandler>;
 
 export class HandlerFactory {
     private handlers: HandlersMap;
@@ -39,7 +41,8 @@ export class HandlerFactory {
         this.delegates = typeof props === "object" ? props.delegates : undefined;
         // Create the map and add the conversation handler
         // Help from here: https://github.com/Microsoft/TypeScript/issues/9302
-        this.handlers = new Map<string, new (props: Handler) => AbstractHandler>();
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        this.handlers = new Map<string, new (props: any) => AbstractHandler>();
         // These are always available
         // TODO: These get obfuscated in the build process and don't work anymore! COOL!
         //  this.handlers.set(ConversationHandler.name, ConversationHandler);

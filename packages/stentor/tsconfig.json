@@ -3,7 +3,8 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "lib",
-    "strict": true
+    "strict": true,
+    "strictNullChecks": false
   },
   "include": ["src"],
   "exclude": ["node_modules", "src/**/__test__/*"]

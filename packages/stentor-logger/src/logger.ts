@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 
 import { maskEmails, maskPhoneNumbers } from "stentor-utils";
-import chalk = require("chalk");
+import * as chalk from "chalk";
 
 // Winston types - these will be available if Winston is installed
 interface WinstonTransformableInfo {

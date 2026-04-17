@@ -3,7 +3,8 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "lib",
-    "strictNullChecks": false
+    "strictNullChecks": false,
+    "types": ["node", "mocha"]
   },
   "include": [
     "src"
@@ -11,5 +12,11 @@
   "exclude": [
     "node_modules",
     "src/**/__test__/*"
-  ]
+  ],
+  "ts-node": {
+    "transpileOnly": true,
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  }
 }

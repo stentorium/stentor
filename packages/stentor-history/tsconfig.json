@@ -5,6 +5,12 @@
     "outDir": "lib",
     "types": ["node", "mocha"]
   },
+  "ts-node": {
+    "transpileOnly": true,
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  },
   "include": [
     "src"
   ],

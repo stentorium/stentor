@@ -4,7 +4,8 @@
     "rootDir": "src",
     "outDir": "lib",
     "strictNullChecks": false,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": ["node", "mocha"]
   },
   "include": [
     "src"
@@ -13,5 +14,11 @@
     "node_modules",
     "src/**/__test__/*",
     "src/**/__tests__/*"
-  ]
+  ],
+  "ts-node": {
+    "transpileOnly": true,
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  }
 }

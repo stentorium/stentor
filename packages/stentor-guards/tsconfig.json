@@ -6,6 +6,12 @@
     "lib": ["es2016", "dom"],
     "types": ["node", "mocha"]
   },
+  "ts-node": {
+    "transpileOnly": true,
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  },
   "include": ["src"],
   "exclude": ["node_modules", "src/**/__test__/*"]
 }

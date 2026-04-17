@@ -4,7 +4,8 @@
     "rootDir": "src",
     "outDir": "lib",
     "strictNullChecks": false,
-    "lib": ["es2016", "dom"]
+    "lib": ["es2016", "dom"],
+    "types": ["node", "mocha"]
   },
   "include": [
     "src"
@@ -12,5 +13,11 @@
   "exclude": [
     "node_modules",
     "src/**/__test__/*"
-  ]
+  ],
+  "ts-node": {
+    "transpileOnly": true,
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  }
 }

@@ -72,7 +72,7 @@ function _trim(history: History, options: ResolvedTrimOptions): History {
 /**
  * Trims the history to keep it from overflowing.
  */
-export function trimHistory(history: History, trimOptions?: TrimOptions): History {
+export function trimHistory(history: History | undefined, trimOptions?: TrimOptions): History | undefined {
     if (!history) {
         return history;
     }

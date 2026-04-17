@@ -10,7 +10,7 @@ import { isHandler } from "./isHandler";
  * @param handler
  * @returns {boolean}
  */
-export function isGlobalHandler(handler: Intent | Handler): boolean {
+export function isGlobalHandler(handler: Intent | Handler | undefined): boolean {
     if (!handler) {
         return false;
     }

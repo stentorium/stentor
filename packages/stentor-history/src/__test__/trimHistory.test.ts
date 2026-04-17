@@ -46,7 +46,7 @@ describe("#trimHistory", () => {
         beforeEach(() => {
             /* tslint:disable:prefer-for-of */
             for (let i = 0; i < 30; i++) {
-                history.handler.push({
+                history.handler!.push({
                     sessionId: "sessionId",
                     intentId: `intent${i}`,
                     timestamp: i
@@ -56,8 +56,8 @@ describe("#trimHistory", () => {
         });
         it("trims the handler history", () => {
             const trimmed = trimHistory(history);
-            expect(trimmed.handler).to.have.length(DEFAULT_HISTORY_SIZE);
-            expect(trimmed.handler[0].timestamp).to.equal(29);
+            expect(trimmed!.handler).to.have.length(DEFAULT_HISTORY_SIZE);
+            expect(trimmed!.handler![0].timestamp).to.equal(29);
         });
     });
     it("Test with larger than max size", () => {
@@ -73,12 +73,12 @@ describe("#trimHistory", () => {
 
         const newHistory = trimHistory(history, trimOptions);
 
-        const lastTrimmed = newHistory.lastTrimmed;
+        const lastTrimmed = newHistory!.lastTrimmed!;
         expect(NOW - lastTrimmed).lessThan(10);
 
-        delete newHistory.lastTrimmed;
+        delete newHistory!.lastTrimmed;
 
-        expect(Object.keys(newHistory)).length(4);
+        expect(Object.keys(newHistory!)).length(4);
         expect(newHistory).to.deep.equal({
             token1: { currentTime: OFFSET, lastPlayed: NOW - ONE_MONTH_IN_SECONDS * 1000 },
             token2: { currentTime: OFFSET, lastPlayed: NOW - ONE_MONTH_IN_SECONDS * 2 * 1000 },
@@ -99,9 +99,9 @@ describe("#trimHistory", () => {
 
         const lastTrimmed = history.lastTrimmed;
         const newHistory = trimHistory(history, trimOptions);
-        expect(newHistory.lastTrimmed).equal(lastTrimmed);
+        expect(newHistory!.lastTrimmed).equal(lastTrimmed);
 
-        expect(Object.keys(newHistory)).length(7); // with TS
+        expect(Object.keys(newHistory!)).length(7); // with TS
     });
     it("Test with old entries", () => {
         const history: History = {
@@ -116,7 +116,7 @@ describe("#trimHistory", () => {
 
         const newHistory = trimHistory(history, trimOptions);
 
-        const lastTrimmed = newHistory.lastTrimmed;
+        const lastTrimmed = newHistory!.lastTrimmed!;
         expect(NOW - lastTrimmed).lessThan(10);
 
         delete newHistory.lastTrimmed;
@@ -141,12 +141,12 @@ describe("#trimHistory", () => {
 
         const newHistory = trimHistory(history, trimOptions);
 
-        const lastTrimmed = newHistory.lastTrimmed;
+        const lastTrimmed = newHistory!.lastTrimmed!;
         expect(NOW - lastTrimmed).lessThan(10);
 
-        delete newHistory.lastTrimmed;
+        delete newHistory!.lastTrimmed;
 
-        expect(Object.keys(newHistory)).length(4);
+        expect(Object.keys(newHistory!)).length(4);
         expect(newHistory).to.deep.equal({
             token3: { currentTime: OFFSET },
             token1: { currentTime: OFFSET, lastPlayed: NOW - ONE_MONTH_IN_SECONDS * 1000 },

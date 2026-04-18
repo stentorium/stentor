@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import * as chai from "chai";
 import * as sinon from "sinon";
-import * as sinonChai from "sinon-chai";
+import sinonChai from "sinon-chai";
 
 import { log, redact, set } from "../logger";
 

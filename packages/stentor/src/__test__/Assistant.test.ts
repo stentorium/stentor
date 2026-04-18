@@ -2,7 +2,7 @@
 import * as chai from "chai";
 import * as chaiAsPromised from "chai-as-promised";
 import * as sinon from "sinon";
-import * as sinonChai from "sinon-chai";
+import sinonChai from "sinon-chai";
 
 import * as AWSLambda from "aws-lambda";
 import { Handler, HandlerService, UserStorageService } from "stentor-models";

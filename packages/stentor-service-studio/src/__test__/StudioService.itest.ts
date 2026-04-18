@@ -3,7 +3,7 @@ require("dotenv").config();
 import "abort-controller/polyfill"
 
 import * as chai from "chai";
-import * as chaiAsPromised from "chai-as-promised";
+import chaiAsPromised from "chai-as-promised";
 
 import { StudioService } from "../StudioService";
 

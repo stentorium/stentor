@@ -13343,12 +13343,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"marked@npm:12.0.2":
-  version: 12.0.2
-  resolution: "marked@npm:12.0.2"
+"marked@npm:18.0.2":
+  version: 18.0.2
+  resolution: "marked@npm:18.0.2"
   bin:
     marked: bin/marked.js
-  checksum: 10c0/45ae2e1e3f06b30a5b5f64efc6cde9830c81d1d024fd7668772a3217f1bc0f326e66a6b8970482d9783edf1f581fecac7023a7fa160f2c14dbcc16e064b4eafb
+  checksum: 10c0/d04f58c0dee158a8069dad88de549b0039f2af7e1f0fd078aa783f360655e39296662f6c722dc6dd94c1c9ce9ba7ca9355ee1d8d77dd7b9a2f8162ebac6d9bbd
   languageName: node
   linkType: hard
 
@@ -18721,7 +18721,7 @@ __metadata:
     lodash.keys: "npm:4.2.0"
     lodash.sumby: "npm:4.6.0"
     lodash.union: "npm:4.6.0"
-    marked: "npm:12.0.2"
+    marked: "npm:18.0.2"
     marked-xhtml: "npm:1.0.15"
     mocha: "npm:11.7.5"
     number-to-words: "npm:1.2.4"

@@ -46,6 +46,6 @@
   "scripts": {
     "build": "tsc -d true -p .",
     "clean": "rm -rf ./lib/*",
-    "test": "echo 'SKIPPED: stentor-service-event tests (depends on stentor-logger)' && exit 0"
+    "test": "mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
   }
 }

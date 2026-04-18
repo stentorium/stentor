@@ -5,7 +5,8 @@
     "outDir": "lib",
     "types": ["node", "mocha"],
     "strictNullChecks": false,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "esModuleInterop": true
   },
   "include": [
     "src"

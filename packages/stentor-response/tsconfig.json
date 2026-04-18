@@ -12,7 +12,8 @@
   "ts-node": {
     "transpileOnly": true,
     "compilerOptions": {
-      "module": "commonjs"
+      "module": "commonjs",
+      "esModuleInterop": true
     }
   }
 }

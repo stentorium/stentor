@@ -3,7 +3,16 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "lib",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "strictNullChecks": false,
+    "types": ["node", "mocha"],
+    "lib": ["es2016"]
+  },
+  "ts-node": {
+    "transpileOnly": true,
+    "compilerOptions": {
+      "module": "commonjs"
+    }
   },
   "include": ["src", "typings/**/*.d.ts"],
   "exclude": ["node_modules", "src/**/__test__/*"]

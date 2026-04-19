@@ -52,7 +52,7 @@ function compileString(value: string, slots: RequestSlotMap, key: "ssml" | "disp
 
         if (macro && typeof macro === "function") {
 
-            let executedMacroResult: string;
+            let executedMacroResult: string | boolean;
             try {
                 executedMacroResult = macro.call(undefined, ...macroArgs);
             } catch (e) { /* If macro fails, what do we do here? */ }

@@ -250,7 +250,7 @@ export function isAnonymousUser(request: Request): boolean {
  * @param request
  */
 export function isNewSession(request: Request): boolean {
-    return request.isNewSession;
+    return !!request.isNewSession;
 }
 
 /**

@@ -144,10 +144,11 @@ export function durationToSpeech(duration: Duration, type: "ssml" | "displayText
     let rawFormat = duration.format;
 
     // Now find the one the doesn't end in "s" and the length is greater than 1
-    Object.keys(DURATION_FORMAT_TO_MS_MULTIPLIER).forEach((key: DurationFormat) => {
-        if (DURATION_FORMAT_TO_MS_MULTIPLIER[key] === multiplier) {
-            if (key.length > rawFormat.length && !key.endsWith("s")) {
-                rawFormat = key;
+    Object.keys(DURATION_FORMAT_TO_MS_MULTIPLIER).forEach((key) => {
+        const durationKey = key as DurationFormat;
+        if (DURATION_FORMAT_TO_MS_MULTIPLIER[durationKey] === multiplier) {
+            if (durationKey.length > rawFormat.length && !durationKey.endsWith("s")) {
+                rawFormat = durationKey;
             }
         }
     });

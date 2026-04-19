@@ -51,9 +51,9 @@ describe("#getHandlerHistory()", () => {
             expect(handlerHistory).to.have.length(NUMBER_OF_INTENTS);
         });
         it("orders in reverse chronological", () => {
-            expect(handlerHistory[0]).to.equal(history.handler[2]);
-            expect(handlerHistory[1]).to.equal(history.handler[0]);
-            expect(handlerHistory[2]).to.equal(history.handler[1]);
+            expect(handlerHistory[0]).to.equal(history.handler![2]);
+            expect(handlerHistory[1]).to.equal(history.handler![0]);
+            expect(handlerHistory[2]).to.equal(history.handler![1]);
         });
     });
 });

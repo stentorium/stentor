@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import * as Chai from "chai";
 import * as Sinon from "sinon";
-import * as SinonChai from "sinon-chai";
+import SinonChai from "sinon-chai";
 
 import { Event, Response } from "stentor-models";
 import {

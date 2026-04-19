@@ -2,8 +2,18 @@
   "extends": "@xapp/config/tsconfig.json",
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "lib"
+    "outDir": "lib",
+    "strictNullChecks": false,
+    "types": ["node", "mocha"],
+    "lib": ["es2018"],
+    "skipLibCheck": true
   },
   "include": ["src"],
-  "exclude": ["node_modules", "src/**/__test__/*"]
+  "exclude": ["node_modules", "src/**/__test__/*"],
+  "ts-node": {
+    "transpileOnly": true,
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  }
 }

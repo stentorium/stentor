@@ -125,7 +125,7 @@ export class Compiler implements CompilerProps {
 
             if (macro && typeof macro === "function") {
 
-                let executedMacroResult: string;
+                let executedMacroResult: string | boolean;
                 try {
                     executedMacroResult = macro.call(undefined, ...macroArgs);
                 } catch (e) { /* If macro fails, what do we do here? */ }

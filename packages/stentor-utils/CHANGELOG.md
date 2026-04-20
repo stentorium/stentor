@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.72.0](https://github.com/stentorium/stentor/compare/v1.70.0...v1.72.0) (2026-04-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency sanitize-html to v2.17.3 ([#2981](https://github.com/stentorium/stentor/issues/2981)) ([9dd9027](https://github.com/stentorium/stentor/commit/9dd9027133dfed3e6a62cfb7aa8df5e05d265dfb))
+
+
+### Features
+
+* update dependency typescript to v6 ([#2947](https://github.com/stentorium/stentor/issues/2947)) ([e869ee5](https://github.com/stentorium/stentor/commit/e869ee5d50360d36de7f5a952a1c4443dc568500))
+
+
+
+
+
 # [1.71.0](https://github.com/stentorium/stentor/compare/v1.70.0...v1.71.0) (2026-04-19)
 
 

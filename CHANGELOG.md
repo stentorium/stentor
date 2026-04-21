@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.72.1](https://github.com/stentorium/stentor/compare/v1.72.0...v1.72.1) (2026-04-21)
+
+
+### Bug Fixes
+
+* **stentor-logger:** fix chalk import to prevent __importStar wrapper issue ([#2991](https://github.com/stentorium/stentor/issues/2991)) ([be4966f](https://github.com/stentorium/stentor/commit/be4966fc3db6c551678f2c70fcf33f2bf1af1d16)), closes [#2990](https://github.com/stentorium/stentor/issues/2990)
+
+
+
+
+
 # [1.72.0](https://github.com/stentorium/stentor/compare/v1.70.0...v1.72.0) (2026-04-20)
 
 

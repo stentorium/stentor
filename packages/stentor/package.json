@@ -24,7 +24,7 @@
     "@types/node": "24.10.13",
     "@types/sinon": "17.0.4",
     "@types/sinon-chai": "3.2.12",
-    "@xapp/config": "0.2.3",
+    "@xapp/config": "0.3.0",
     "aws-sdk": "2.1693.0",
     "body-parser": "2.2.2",
     "chai": "4.5.0",

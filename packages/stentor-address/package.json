@@ -21,7 +21,7 @@
     "@types/node": "24.10.13",
     "@types/sinon": "17.0.4",
     "@types/sinon-chai": "3.2.12",
-    "@xapp/config": "0.2.3",
+    "@xapp/config": "0.3.0",
     "chai": "4.5.0",
     "mocha": "11.7.5",
     "sinon": "20.0.0",

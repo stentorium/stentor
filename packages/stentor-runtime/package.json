@@ -18,7 +18,7 @@
     "@types/chai": "5.2.3",
     "@types/sinon": "17.0.4",
     "@types/sinon-chai": "3.2.12",
-    "@xapp/config": "0.2.3",
+    "@xapp/config": "0.3.0",
     "@xapp/patterns": "2.0.3",
     "chai": "4.5.0",
     "fetch-mock": "9.11.0",

@@ -16,7 +16,7 @@
     "node": "^12 || ^14 || ^16 || ^18 || ^20 || ^22 || ^24.0.0"
   },
   "devDependencies": {
-    "@xapp/config": "0.2.3",
+    "@xapp/config": "0.3.0",
     "stentor-models": "1.72.0",
     "typescript": "6.0.3"
   },

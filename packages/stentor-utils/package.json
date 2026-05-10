@@ -26,7 +26,7 @@
     "@types/node": "24.10.13",
     "@types/numeral": "2.0.5",
     "@types/sanitize-html": "2.16.1",
-    "@types/sinon": "17.0.4",
+    "@types/sinon": "21.0.1",
     "@types/sinon-chai": "3.2.12",
     "@xapp/config": "0.3.0",
     "chai": "4.5.0",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.72.3](https://github.com/stentorium/stentor/compare/v1.72.1...v1.72.3) (2026-05-11)
+
+
+### Bug Fixes
+
+* Removes problematic chalk as a depdency ([#3027](https://github.com/stentorium/stentor/issues/3027)) ([8b7c6c0](https://github.com/stentorium/stentor/commit/8b7c6c013366f25042713721fdabff87ed3debff))
+
+
+
+
+
 ## [1.72.1](https://github.com/stentorium/stentor/compare/v1.72.0...v1.72.1) (2026-04-21)
 
 **Note:** Version bump only for package stentor-request

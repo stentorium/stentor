@@ -1,7 +1,14 @@
 /*! Copyright (c) 2019, XAPPmedia */
 
 import { maskEmails, maskPhoneNumbers } from "stentor-utils";
-import chalk from "chalk";
+
+// Simple ANSI color helpers (replaces chalk dependency)
+const supportsColor = !process.env.AWS_LAMBDA_FUNCTION_NAME && (process.stdout?.isTTY ?? false);
+const colorize = (code: number, text: string): string => supportsColor ? `\x1b[${code}m${text}\x1b[39m` : text;
+const blue = (text: string): string => colorize(34, text);
+const green = (text: string): string => colorize(32, text);
+const yellow = (text: string): string => colorize(33, text);
+const red = (text: string): string => colorize(31, text);
 
 // Winston types - these will be available if Winston is installed
 interface WinstonTransformableInfo {
@@ -162,16 +169,16 @@ function createFallbackLogger(level: string): Logger {
       let lead: string;
       switch (logLevel) {
         case "debug":
-          lead = chalk.blue("debug");
+          lead = blue("debug");
           break;
         case "info":
-          lead = chalk.green(" info");
+          lead = green(" info");
           break;
         case "warn":
-          lead = chalk.yellow(" warn");
+          lead = yellow(" warn");
           break;
         case "error":
-          lead = chalk.red("error");
+          lead = red("error");
           break;
         default:
           lead = "    📣";
@@ -260,18 +267,16 @@ function createWinstonLogger(level: string): Logger | null {
         let lead: string;
         switch (info.level) {
           case "debug":
-            lead = chalk.blue("debug");
+            lead = blue("debug");
             break;
           case "info":
-            // space here is to help with readability
-            lead = chalk.green(" info");
+            lead = green(" info");
             break;
           case "warn":
-            // space here is to help with readability
-            lead = chalk.yellow(" warn");
+            lead = yellow(" warn");
             break;
           case "error":
-            lead = chalk.red("error");
+            lead = red("error");
             break;
           default:
             lead = "    📣";

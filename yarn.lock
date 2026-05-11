@@ -18655,7 +18655,25 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"stentor-logger@npm:1.72.1, stentor-logger@workspace:packages/stentor-logger":
+"stentor-logger@npm:1.72.1":
+  version: 1.72.1
+  resolution: "stentor-logger@npm:1.72.1"
+  dependencies:
+    chalk: "npm:4.1.2"
+    stentor-utils: "npm:1.72.0"
+  peerDependencies:
+    logform: ">=1.0.0"
+    winston: ">=3.0.0"
+  peerDependenciesMeta:
+    logform:
+      optional: true
+    winston:
+      optional: true
+  checksum: 10c0/feb2565e5227f797d3e3f6ad5691b83afebda5f4a65666e7a51d39afe594eea5d03fcb3f4ca7a0e6969e6a27c121678fddd1717e8d967f922c2d4cdce65e9359
+  languageName: node
+  linkType: hard
+
+"stentor-logger@workspace:packages/stentor-logger":
   version: 0.0.0-use.local
   resolution: "stentor-logger@workspace:packages/stentor-logger"
   dependencies:
@@ -18664,7 +18682,6 @@ __metadata:
     "@types/sinon-chai": "npm:3.2.12"
     "@xapp/config": "npm:0.3.0"
     chai: "npm:4.5.0"
-    chalk: "npm:4.1.2"
     mocha: "npm:11.7.5"
     sinon: "npm:20.0.0"
     sinon-chai: "npm:3.7.0"

@@ -26,7 +26,8 @@
     "vm2": "3.11.1"
   },
   "dependencies": {
-    "stentor-logger": "1.72.1"
+    "stentor-logger": "1.72.1",
+    "stentor-utils": "1.72.0"
   },
   "optionalDependencies": {
     "vm2": "3.11.1"

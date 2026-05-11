@@ -51,6 +51,7 @@
     "stentor-constants": "1.72.0",
     "stentor-context": "1.72.1",
     "stentor-determiner": "1.72.1",
+    "stentor-guards": "1.72.0",
     "stentor-handler": "1.72.1",
     "stentor-handler-factory": "1.72.1",
     "stentor-logger": "1.72.1",

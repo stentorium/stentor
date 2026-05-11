@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@xapp/patterns": "2.0.3",
+    "stentor-guards": "1.72.0",
     "stentor-logger": "1.72.1",
     "stentor-utils": "1.72.0"
   },

@@ -28,8 +28,11 @@
     "typescript": "6.0.3"
   },
   "dependencies": {
+    "stentor-constants": "1.72.0",
     "stentor-determiner": "1.72.1",
+    "stentor-guards": "1.72.0",
     "stentor-locales": "1.72.0",
+    "stentor-logger": "1.72.1",
     "stentor-media": "1.72.1",
     "stentor-utils": "1.72.0"
   },

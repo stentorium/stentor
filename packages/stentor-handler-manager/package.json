@@ -31,12 +31,14 @@
     "typescript": "6.0.3"
   },
   "dependencies": {
+    "stentor-constants": "1.72.0",
     "stentor-guards": "1.72.0",
     "stentor-handler": "1.72.1",
     "stentor-handler-factory": "1.72.1",
     "stentor-logger": "1.72.1",
     "stentor-response": "1.72.1",
-    "stentor-storage": "1.72.0"
+    "stentor-storage": "1.72.0",
+    "stentor-utils": "1.72.0"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

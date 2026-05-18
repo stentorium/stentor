@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.72.4](https://github.com/stentorium/stentor/compare/v1.72.3...v1.72.4) (2026-05-18)
+
+
+### Bug Fixes
+
+* **deps:** update docusaurus monorepo to v3 ([#3029](https://github.com/stentorium/stentor/issues/3029)) ([3b6e719](https://github.com/stentorium/stentor/commit/3b6e719f1746bc3dafe20a733662d396dbe338c8))
+* repair website build after Docusaurus v3 upgrade ([#3042](https://github.com/stentorium/stentor/issues/3042)) ([0bed8c5](https://github.com/stentorium/stentor/commit/0bed8c52e2738162a156fcd2aaba584a4b23cf30))
+
+
+
+
+
 ## [1.66.50](https://github.com/stentorium/stentor/compare/v1.66.49...v1.66.50) (2025-12-16)
 
 **Note:** Version bump only for package website

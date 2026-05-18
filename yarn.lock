@@ -4266,12 +4266,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mdx-js/react@npm:^1.6.22":
-  version: 1.6.22
-  resolution: "@mdx-js/react@npm:1.6.22"
+"@mdx-js/react@npm:3.0.0":
+  version: 3.0.0
+  resolution: "@mdx-js/react@npm:3.0.0"
+  dependencies:
+    "@types/mdx": "npm:^2.0.0"
   peerDependencies:
-    react: ^16.13.1 || ^17.0.0
-  checksum: 10c0/ed896671ffab04c1f11cdba45bfb2786acff58cd0b749b0a13d9b7a7022ac75cc036bec067ca946e6540e2934727e0ba8bf174e4ae10c916f30cda6aecac8992
+    "@types/react": ">=16"
+    react: ">=16"
+  checksum: 10c0/865f6ebc7ae83c6cb9f7e92db4eddd3f85cd1664391643b4736887ddc32b0ddb5aec012db6fbc9b486b552e08e6d5ad800450fcd9d51c20665667ff0f174d966
   languageName: node
   linkType: hard
 
@@ -22491,7 +22494,7 @@ __metadata:
   dependencies:
     "@docusaurus/core": "npm:3.10.1"
     "@docusaurus/preset-classic": "npm:3.10.1"
-    "@mdx-js/react": "npm:^1.6.22"
+    "@mdx-js/react": "npm:3.0.0"
     clsx: "npm:^2.0.0"
     prism-react-renderer: "npm:^2.0.0"
     react: "npm:^19.0.0"

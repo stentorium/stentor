@@ -18,6 +18,10 @@ const config = {
   organizationName: "stentorium", // Usually your GitHub org/user name.
   projectName: "stentor", // Usually your repo name.
 
+  markdown: {
+    format: "detect",
+  },
+
   plugins: [
     [
       "@docusaurus/plugin-content-docs",

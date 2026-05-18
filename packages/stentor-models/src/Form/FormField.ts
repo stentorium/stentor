@@ -143,6 +143,11 @@ export interface FormFieldTextAddressInput extends FormTextInput {
    * Not needed if using a custom proxy endpoint that handles authentication.
    */
   googleMapsApiKey?: string;
+  /**
+   * When true, the user must select an address from the autocomplete suggestions.
+   * Free-text entry is not allowed. Defaults to false (free-text allowed).
+   */
+  requireSelection?: boolean;
 }
 
 /**

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.72.5](https://github.com/stentorium/stentor/compare/v1.72.1...v1.72.5) (2026-05-19)
+
+
+### Bug Fixes
+
+* Add requireSelection to FormFieldTextAddressInput ([#3041](https://github.com/stentorium/stentor/issues/3041)) ([5132fdf](https://github.com/stentorium/stentor/commit/5132fdfdfb1d7321e6b11ba1f387aa75f6b98edb)), closes [#3040](https://github.com/stentorium/stentor/issues/3040)
+
+
+
+
+
 ## [1.72.4](https://github.com/stentorium/stentor/compare/v1.72.3...v1.72.4) (2026-05-18)
 
 

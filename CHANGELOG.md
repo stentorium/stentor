@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.72.5](https://github.com/stentorium/stentor/compare/v1.72.1...v1.72.5) (2026-05-19)
+
+
+### Bug Fixes
+
+* Add requireSelection to FormFieldTextAddressInput ([#3041](https://github.com/stentorium/stentor/issues/3041)) ([5132fdf](https://github.com/stentorium/stentor/commit/5132fdfdfb1d7321e6b11ba1f387aa75f6b98edb)), closes [#3040](https://github.com/stentorium/stentor/issues/3040)
+* **deps:** update dependency sanitize-html to v2.17.4 ([#3030](https://github.com/stentorium/stentor/issues/3030)) ([0cecc28](https://github.com/stentorium/stentor/commit/0cecc2860abf8a591a02397709ba53f24666cce9))
+* **deps:** update docusaurus monorepo to v3 ([#3029](https://github.com/stentorium/stentor/issues/3029)) ([3b6e719](https://github.com/stentorium/stentor/commit/3b6e719f1746bc3dafe20a733662d396dbe338c8))
+* Release Script ([#2992](https://github.com/stentorium/stentor/issues/2992)) ([11ba867](https://github.com/stentorium/stentor/commit/11ba8676c08adae6a449be6fb7eb235cd1bc38a5))
+* Removes problematic chalk as a depdency ([#3027](https://github.com/stentorium/stentor/issues/3027)) ([8b7c6c0](https://github.com/stentorium/stentor/commit/8b7c6c013366f25042713721fdabff87ed3debff))
+* repair website build after Docusaurus v3 upgrade ([#3042](https://github.com/stentorium/stentor/issues/3042)) ([0bed8c5](https://github.com/stentorium/stentor/commit/0bed8c52e2738162a156fcd2aaba584a4b23cf30))
+
+
+
+
+
 ## [1.72.4](https://github.com/stentorium/stentor/compare/v1.72.3...v1.72.4) (2026-05-18)
 
 

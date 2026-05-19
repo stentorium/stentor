@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.72.4",
+  "version": "1.72.5",
   "description": "Simple logging library with optional Winston support for 📣 stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -23,12 +23,12 @@
     "mocha": "11.7.5",
     "sinon": "22.0.0",
     "sinon-chai": "3.7.0",
-    "stentor-models": "1.72.4",
+    "stentor-models": "1.72.5",
     "ts-node": "10.9.2",
     "typescript": "6.0.3"
   },
   "dependencies": {
-    "stentor-utils": "1.72.4"
+    "stentor-utils": "1.72.5"
   },
   "peerDependencies": {
     "logform": ">=1.0.0",

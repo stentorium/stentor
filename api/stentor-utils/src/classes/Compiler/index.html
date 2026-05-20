@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">Compiler | 📣 Stentor</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://stentorium.github.io/stentor/api/stentor-utils/src/classes/Compiler"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-api-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-api-current"><meta data-rh="true" property="og:title" content="Compiler | 📣 Stentor"><meta data-rh="true" name="description" content="Stentor API Reference"><meta data-rh="true" property="og:description" content="Stentor API Reference"><link data-rh="true" rel="icon" href="/stentor/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://stentorium.github.io/stentor/api/stentor-utils/src/classes/Compiler"><link data-rh="true" rel="alternate" href="https://stentorium.github.io/stentor/api/stentor-utils/src/classes/Compiler" hreflang="en"><link data-rh="true" rel="alternate" href="https://stentorium.github.io/stentor/api/stentor-utils/src/classes/Compiler" hreflang="x-default"><link rel="stylesheet" href="/stentor/assets/css/styles.4e5dd2d2.css">
-<script src="/stentor/assets/js/runtime~main.0b57cb9e.js" defer="defer"></script>
-<script src="/stentor/assets/js/main.638157fe.js" defer="defer"></script>
+<script src="/stentor/assets/js/runtime~main.0d66580c.js" defer="defer"></script>
+<script src="/stentor/assets/js/main.e85a1dca.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -15,7 +15,7 @@
 <hr>
 <p><a class="" href="/stentor/api/">Stentor API Reference</a> / <a class="" href="/stentor/api/stentor-utils/src/">stentor-utils/src</a> / Compiler</p>
 <h1>Class: Compiler</h1>
-<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/0bed8c52e2738162a156fcd2aaba584a4b23cf30/packages/stentor-utils/src/compilers/compiler.ts#L56" target="_blank" rel="noopener noreferrer" class="">packages/stentor-utils/src/compilers/compiler.ts:56</a></p>
+<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/7f2d1e4eef8836b2b99792e16230b591dfbf6997/packages/stentor-utils/src/compilers/compiler.ts#L56" target="_blank" rel="noopener noreferrer" class="">packages/stentor-utils/src/compilers/compiler.ts:56</a></p>
 <p>Compiles the templated response based on the provided request and context with some configurability.</p>
 <p>You can provide custom macros that can be used to modify the templated response and also additional context
 that will be used as possible replacements.</p>
@@ -28,7 +28,7 @@ that will be used as possible replacements.</p>
 <blockquote>
 <p><strong>new Compiler</strong>(<code>props?</code>): <code>Compiler</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/0bed8c52e2738162a156fcd2aaba584a4b23cf30/packages/stentor-utils/src/compilers/compiler.ts#L64" target="_blank" rel="noopener noreferrer" class="">packages/stentor-utils/src/compilers/compiler.ts:64</a></p>
+<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/7f2d1e4eef8836b2b99792e16230b591dfbf6997/packages/stentor-utils/src/compilers/compiler.ts#L64" target="_blank" rel="noopener noreferrer" class="">packages/stentor-utils/src/compilers/compiler.ts:64</a></p>
 <h4 class="anchor anchorTargetStickyNavbar_tleR" id="parameters">Parameters<a href="#parameters" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters" translate="no">​</a></h4>
 <h5 class="anchor anchorTargetStickyNavbar_tleR" id="props">props?<a href="#props" class="hash-link" aria-label="Direct link to props?" title="Direct link to props?" translate="no">​</a></h5>
 <p><a class="" href="/stentor/api/stentor-utils/src/interfaces/CompilerProps"><code>CompilerProps</code></a></p>
@@ -39,7 +39,7 @@ that will be used as possible replacements.</p>
 <blockquote>
 <p><code>readonly</code> <code>optional</code> <strong>replaceWhenUndefined?</strong>: <code>boolean</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/0bed8c52e2738162a156fcd2aaba584a4b23cf30/packages/stentor-utils/src/compilers/compiler.ts#L58" target="_blank" rel="noopener noreferrer" class="">packages/stentor-utils/src/compilers/compiler.ts:58</a></p>
+<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/7f2d1e4eef8836b2b99792e16230b591dfbf6997/packages/stentor-utils/src/compilers/compiler.ts#L58" target="_blank" rel="noopener noreferrer" class="">packages/stentor-utils/src/compilers/compiler.ts:58</a></p>
 <p>When true, it will replace the ${foo} with undefined or null if the value for <code>foo</code> cannot be found.  Default behavior will leave ${foo} if it does not have a value.</p>
 <p>A caveat to this is when the <code>foo</code> is in a string such as <code>&quot;${foo}&quot;</code> then it will replace it with an empty string instead of undefined, thus &quot;&quot; instead of &quot;undefined&quot;.  The reason for this
 is &quot;&quot; is falsey and &quot;undefined&quot; is not.  If you are doing string comparisons then this will be a problem.</p>
@@ -50,7 +50,7 @@ is &quot;&quot; is falsey and &quot;undefined&quot; is not.  If you are doing st
 <blockquote>
 <p><code>readonly</code> <code>optional</code> <strong>macros?</strong>: <a class="" href="/stentor/api/stentor-utils/src/interfaces/MacroMap"><code>MacroMap</code></a></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/0bed8c52e2738162a156fcd2aaba584a4b23cf30/packages/stentor-utils/src/compilers/compiler.ts#L60" target="_blank" rel="noopener noreferrer" class="">packages/stentor-utils/src/compilers/compiler.ts:60</a></p>
+<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/7f2d1e4eef8836b2b99792e16230b591dfbf6997/packages/stentor-utils/src/compilers/compiler.ts#L60" target="_blank" rel="noopener noreferrer" class="">packages/stentor-utils/src/compilers/compiler.ts:60</a></p>
 <p>When provided it overrides the DEFAULT_MACROS and are used when compiling the templates.</p>
 <p>You can include the DEFAULT_MACROS if you include them:</p>
 <div class="language-ts codeBlockContainer_mQmQ theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_t_Hd"><pre tabindex="0" class="prism-code language-ts codeBlock_RMoD thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_AclH"><div class="token-line" style="color:#393A34"><span class="token plain">macros</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">   </span><span class="token operator" style="color:#393A34">...</span><span class="token constant" style="color:#36acaa">DEFAULT_MACROS</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">   </span><span class="token operator" style="color:#393A34">...</span><span class="token plain">myMacros</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></div></code></pre></div></div>
@@ -61,7 +61,7 @@ is &quot;&quot; is falsey and &quot;undefined&quot; is not.  If you are doing st
 <blockquote>
 <p><code>readonly</code> <code>optional</code> <strong>additionalContext?</strong>: <code>Record</code>&lt;<code>string</code>, <code>unknown</code>&gt; = <code>{}</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/0bed8c52e2738162a156fcd2aaba584a4b23cf30/packages/stentor-utils/src/compilers/compiler.ts#L62" target="_blank" rel="noopener noreferrer" class="">packages/stentor-utils/src/compilers/compiler.ts:62</a></p>
+<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/7f2d1e4eef8836b2b99792e16230b591dfbf6997/packages/stentor-utils/src/compilers/compiler.ts#L62" target="_blank" rel="noopener noreferrer" class="">packages/stentor-utils/src/compilers/compiler.ts:62</a></p>
 <p>When provided, the additional context will be used when compiling the templates.  This is an opportunity to inject
 more information beyond the provided request and context objects.</p>
 <h4 class="anchor anchorTargetStickyNavbar_tleR" id="implementation-of-2">Implementation of<a href="#implementation-of-2" class="hash-link" aria-label="Direct link to Implementation of" title="Direct link to Implementation of" translate="no">​</a></h4>
@@ -72,7 +72,7 @@ more information beyond the provided request and context objects.</p>
 <blockquote>
 <p><strong>compile</strong>(<code>input</code>, <code>request</code>, <code>context</code>): <code>string</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/0bed8c52e2738162a156fcd2aaba584a4b23cf30/packages/stentor-utils/src/compilers/compiler.ts#L259" target="_blank" rel="noopener noreferrer" class="">packages/stentor-utils/src/compilers/compiler.ts:259</a></p>
+<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/7f2d1e4eef8836b2b99792e16230b591dfbf6997/packages/stentor-utils/src/compilers/compiler.ts#L259" target="_blank" rel="noopener noreferrer" class="">packages/stentor-utils/src/compilers/compiler.ts:259</a></p>
 <p>Compiles the provided response output or string based on the provided request and context.</p>
 <p>It is used for compiling conditions on a response or injecting variables into responses.</p>
 <h5 class="anchor anchorTargetStickyNavbar_tleR" id="parameters-1">Parameters<a href="#parameters-1" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters" translate="no">​</a></h5>
@@ -91,7 +91,7 @@ more information beyond the provided request and context objects.</p>
 <blockquote>
 <p><strong>compile</strong>(<code>input</code>, <code>request</code>, <code>context</code>): <a class="" href="/stentor/api/stentor/src/interfaces/ResponseOutput"><code>ResponseOutput</code></a></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/0bed8c52e2738162a156fcd2aaba584a4b23cf30/packages/stentor-utils/src/compilers/compiler.ts#L260" target="_blank" rel="noopener noreferrer" class="">packages/stentor-utils/src/compilers/compiler.ts:260</a></p>
+<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/7f2d1e4eef8836b2b99792e16230b591dfbf6997/packages/stentor-utils/src/compilers/compiler.ts#L260" target="_blank" rel="noopener noreferrer" class="">packages/stentor-utils/src/compilers/compiler.ts:260</a></p>
 <p>Compiles the provided response output or string based on the provided request and context.</p>
 <p>It is used for compiling conditions on a response or injecting variables into responses.</p>
 <h5 class="anchor anchorTargetStickyNavbar_tleR" id="parameters-2">Parameters<a href="#parameters-2" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters" translate="no">​</a></h5>

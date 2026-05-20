@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">KnowledgeBaseConfig | 📣 Stentor</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://stentorium.github.io/stentor/api/stentor-models/src/interfaces/KnowledgeBaseConfig"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-api-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-api-current"><meta data-rh="true" property="og:title" content="KnowledgeBaseConfig | 📣 Stentor"><meta data-rh="true" name="description" content="Stentor API Reference"><meta data-rh="true" property="og:description" content="Stentor API Reference"><link data-rh="true" rel="icon" href="/stentor/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://stentorium.github.io/stentor/api/stentor-models/src/interfaces/KnowledgeBaseConfig"><link data-rh="true" rel="alternate" href="https://stentorium.github.io/stentor/api/stentor-models/src/interfaces/KnowledgeBaseConfig" hreflang="en"><link data-rh="true" rel="alternate" href="https://stentorium.github.io/stentor/api/stentor-models/src/interfaces/KnowledgeBaseConfig" hreflang="x-default"><link rel="stylesheet" href="/stentor/assets/css/styles.4e5dd2d2.css">
-<script src="/stentor/assets/js/runtime~main.0b57cb9e.js" defer="defer"></script>
-<script src="/stentor/assets/js/main.638157fe.js" defer="defer"></script>
+<script src="/stentor/assets/js/runtime~main.0d66580c.js" defer="defer"></script>
+<script src="/stentor/assets/js/main.e85a1dca.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -15,7 +15,7 @@
 <hr>
 <p><a class="" href="/stentor/api/">Stentor API Reference</a> / <a class="" href="/stentor/api/stentor-models/src/">stentor-models/src</a> / KnowledgeBaseConfig</p>
 <h1>Interface: KnowledgeBaseConfig</h1>
-<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/0bed8c52e2738162a156fcd2aaba584a4b23cf30/packages/stentor-models/src/Knowledgebase/KnowledgeBaseConfig.ts#L5" target="_blank" rel="noopener noreferrer" class="">packages/stentor-models/src/Knowledgebase/KnowledgeBaseConfig.ts:5</a></p>
+<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/7f2d1e4eef8836b2b99792e16230b591dfbf6997/packages/stentor-models/src/Knowledgebase/KnowledgeBaseConfig.ts#L5" target="_blank" rel="noopener noreferrer" class="">packages/stentor-models/src/Knowledgebase/KnowledgeBaseConfig.ts:5</a></p>
 <h2 class="anchor anchorTargetStickyNavbar_tleR" id="extended-by">Extended by<a href="#extended-by" class="hash-link" aria-label="Direct link to Extended by" title="Direct link to Extended by" translate="no">​</a></h2>
 <ul>
 <li class=""><a class="" href="/stentor/api/stentor-models/src/interfaces/KnowledgeBaseDependency"><code>KnowledgeBaseDependency</code></a></li>
@@ -25,7 +25,7 @@
 <blockquote>
 <p><code>optional</code> <strong>matchIntentId?</strong>: <code>string</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/0bed8c52e2738162a156fcd2aaba584a4b23cf30/packages/stentor-models/src/Knowledgebase/KnowledgeBaseConfig.ts#L10" target="_blank" rel="noopener noreferrer" class="">packages/stentor-models/src/Knowledgebase/KnowledgeBaseConfig.ts:10</a></p>
+<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/7f2d1e4eef8836b2b99792e16230b591dfbf6997/packages/stentor-models/src/Knowledgebase/KnowledgeBaseConfig.ts#L10" target="_blank" rel="noopener noreferrer" class="">packages/stentor-models/src/Knowledgebase/KnowledgeBaseConfig.ts:10</a></p>
 <p>Either the intentId or regex to determine which requests to call the KnowledgeBaseService.  If not provided it defaults to &quot;^.*$&quot;, which is a regex
 that will match on all requests.</p>
 <hr>
@@ -33,7 +33,7 @@ that will match on all requests.</p>
 <blockquote>
 <p><code>optional</code> <strong>matchChannel?</strong>: <code>string</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/0bed8c52e2738162a156fcd2aaba584a4b23cf30/packages/stentor-models/src/Knowledgebase/KnowledgeBaseConfig.ts#L16" target="_blank" rel="noopener noreferrer" class="">packages/stentor-models/src/Knowledgebase/KnowledgeBaseConfig.ts:16</a></p>
+<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/7f2d1e4eef8836b2b99792e16230b591dfbf6997/packages/stentor-models/src/Knowledgebase/KnowledgeBaseConfig.ts#L16" target="_blank" rel="noopener noreferrer" class="">packages/stentor-models/src/Knowledgebase/KnowledgeBaseConfig.ts:16</a></p>
 <p>Either exact name of the channel or a regex to determine which channel to call the KnowledgeBaseService.</p>
 <p>If this matches, all requests from this channel go to the KnowledgeBaseService regardless if matchIntentId is set.</p>
 <hr>
@@ -41,7 +41,7 @@ that will match on all requests.</p>
 <blockquote>
 <p><code>optional</code> <strong>setIntentId?</strong>: <code>string</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/0bed8c52e2738162a156fcd2aaba584a4b23cf30/packages/stentor-models/src/Knowledgebase/KnowledgeBaseConfig.ts#L22" target="_blank" rel="noopener noreferrer" class="">packages/stentor-models/src/Knowledgebase/KnowledgeBaseConfig.ts:22</a></p>
+<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/7f2d1e4eef8836b2b99792e16230b591dfbf6997/packages/stentor-models/src/Knowledgebase/KnowledgeBaseConfig.ts#L22" target="_blank" rel="noopener noreferrer" class="">packages/stentor-models/src/Knowledgebase/KnowledgeBaseConfig.ts:22</a></p>
 <p>If provided, it will override the intentId on the original request if the knowledgebase results are preferred.</p>
 <p>It will also update the request type to be that of an Intent Request.</p>
 <hr>
@@ -49,7 +49,7 @@ that will match on all requests.</p>
 <blockquote>
 <p><code>optional</code> <strong>mergeResults?</strong>: <code>boolean</code></p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/0bed8c52e2738162a156fcd2aaba584a4b23cf30/packages/stentor-models/src/Knowledgebase/KnowledgeBaseConfig.ts#L29" target="_blank" rel="noopener noreferrer" class="">packages/stentor-models/src/Knowledgebase/KnowledgeBaseConfig.ts:29</a></p>
+<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/7f2d1e4eef8836b2b99792e16230b591dfbf6997/packages/stentor-models/src/Knowledgebase/KnowledgeBaseConfig.ts#L29" target="_blank" rel="noopener noreferrer" class="">packages/stentor-models/src/Knowledgebase/KnowledgeBaseConfig.ts:29</a></p>
 <p><strong><code>Beta</code></strong></p>
 <p>If set to true then when knowledge base results already exist, they will be merged instead of the default behavior of
 being overwritten.</p>

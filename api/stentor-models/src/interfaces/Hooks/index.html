@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">Hooks | 📣 Stentor</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://stentorium.github.io/stentor/api/stentor-models/src/interfaces/Hooks"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-api-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-api-current"><meta data-rh="true" property="og:title" content="Hooks | 📣 Stentor"><meta data-rh="true" name="description" content="Stentor API Reference"><meta data-rh="true" property="og:description" content="Stentor API Reference"><link data-rh="true" rel="icon" href="/stentor/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://stentorium.github.io/stentor/api/stentor-models/src/interfaces/Hooks"><link data-rh="true" rel="alternate" href="https://stentorium.github.io/stentor/api/stentor-models/src/interfaces/Hooks" hreflang="en"><link data-rh="true" rel="alternate" href="https://stentorium.github.io/stentor/api/stentor-models/src/interfaces/Hooks" hreflang="x-default"><link rel="stylesheet" href="/stentor/assets/css/styles.4e5dd2d2.css">
-<script src="/stentor/assets/js/runtime~main.0d66580c.js" defer="defer"></script>
+<script src="/stentor/assets/js/runtime~main.71f791ca.js" defer="defer"></script>
 <script src="/stentor/assets/js/main.e85a1dca.js" defer="defer"></script>
 </head>
 <body>
@@ -15,14 +15,14 @@
 <hr>
 <p><a class="" href="/stentor/api/">Stentor API Reference</a> / <a class="" href="/stentor/api/stentor-models/src/">stentor-models/src</a> / Hooks</p>
 <h1>Interface: Hooks</h1>
-<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/7f2d1e4eef8836b2b99792e16230b591dfbf6997/packages/stentor-models/src/Runtime/Hooks.ts#L12" target="_blank" rel="noopener noreferrer" class="">packages/stentor-models/src/Runtime/Hooks.ts:12</a></p>
+<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/31d40f43b6e7622c633d5d3f2dbe01d5ed300e28/packages/stentor-models/src/Runtime/Hooks.ts#L12" target="_blank" rel="noopener noreferrer" class="">packages/stentor-models/src/Runtime/Hooks.ts:12</a></p>
 <p>Hooks are used to provide the opportunity to modify or log runtime data at different points in the lifecycle.</p>
 <h2 class="anchor anchorTargetStickyNavbar_tleR" id="methods">Methods<a href="#methods" class="hash-link" aria-label="Direct link to Methods" title="Direct link to Methods" translate="no">​</a></h2>
 <h3 class="anchor anchorTargetStickyNavbar_tleR" id="preexecution">preExecution()?<a href="#preexecution" class="hash-link" aria-label="Direct link to preExecution()?" title="Direct link to preExecution()?" translate="no">​</a></h3>
 <blockquote>
 <p><code>optional</code> <strong>preExecution</strong>(<code>event</code>, <code>context</code>, <code>callback</code>): <code>Promise</code>&lt;{ <code>event</code>: <code>object</code>; <code>context</code>: <a class="" href="/stentor/api/stentor-models/src/interfaces/RuntimeContext"><code>RuntimeContext</code></a>; <code>callback</code>: <a class="" href="/stentor/api/stentor-models/src/type-aliases/RuntimeCallback"><code>RuntimeCallback</code></a>; } | <code>undefined</code>&gt;</p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/7f2d1e4eef8836b2b99792e16230b591dfbf6997/packages/stentor-models/src/Runtime/Hooks.ts#L24" target="_blank" rel="noopener noreferrer" class="">packages/stentor-models/src/Runtime/Hooks.ts:24</a></p>
+<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/31d40f43b6e7622c633d5d3f2dbe01d5ed300e28/packages/stentor-models/src/Runtime/Hooks.ts#L24" target="_blank" rel="noopener noreferrer" class="">packages/stentor-models/src/Runtime/Hooks.ts:24</a></p>
 <p>Once the channel is selected and before the request is translated, the preExecution hook is called.</p>
 <p>This can be used for pre-execution modifications or checks.  If an error is thrown, it will be caught and
 returned.  If you return undefined, all execution will halt without throwing an error (feel free to call the callback yourself).</p>
@@ -41,7 +41,7 @@ returned.  If you return undefined, all execution will halt without throwing an 
 <blockquote>
 <p><code>optional</code> <strong>postRequestTranslation</strong>(<code>request</code>): <code>Promise</code>&lt;<a class="" href="/stentor/api/stentor-models/src/type-aliases/Request"><code>Request</code></a>&gt;</p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/7f2d1e4eef8836b2b99792e16230b591dfbf6997/packages/stentor-models/src/Runtime/Hooks.ts#L38" target="_blank" rel="noopener noreferrer" class="">packages/stentor-models/src/Runtime/Hooks.ts:38</a></p>
+<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/31d40f43b6e7622c633d5d3f2dbe01d5ed300e28/packages/stentor-models/src/Runtime/Hooks.ts#L38" target="_blank" rel="noopener noreferrer" class="">packages/stentor-models/src/Runtime/Hooks.ts:38</a></p>
 <p>This hook is called directly after the request is translated for the channel.</p>
 <p>This can be an opportunity to modify the request but the request must be returned to
 continue operation.</p>
@@ -57,7 +57,7 @@ continue operation.</p>
 <blockquote>
 <p><code>optional</code> <strong>postContextCreation</strong>(<code>request</code>, <code>context</code>): <code>Promise</code>&lt;{ <code>request</code>: <a class="" href="/stentor/api/stentor-models/src/type-aliases/Request"><code>Request</code></a>; <code>context</code>: <a class="" href="/stentor/api/stentor-models/src/interfaces/Context"><code>Context</code></a>; }&gt;</p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/7f2d1e4eef8836b2b99792e16230b591dfbf6997/packages/stentor-models/src/Runtime/Hooks.ts#L45" target="_blank" rel="noopener noreferrer" class="">packages/stentor-models/src/Runtime/Hooks.ts:45</a></p>
+<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/31d40f43b6e7622c633d5d3f2dbe01d5ed300e28/packages/stentor-models/src/Runtime/Hooks.ts#L45" target="_blank" rel="noopener noreferrer" class="">packages/stentor-models/src/Runtime/Hooks.ts:45</a></p>
 <p>This hook, if provided is called after the request is translated then immediately after the context is created.  This happens immediately before the handler is deteremined.</p>
 <h4 class="anchor anchorTargetStickyNavbar_tleR" id="parameters-2">Parameters<a href="#parameters-2" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters" translate="no">​</a></h4>
 <h5 class="anchor anchorTargetStickyNavbar_tleR" id="request-1">request<a href="#request-1" class="hash-link" aria-label="Direct link to request" title="Direct link to request" translate="no">​</a></h5>
@@ -71,7 +71,7 @@ continue operation.</p>
 <blockquote>
 <p><code>optional</code> <strong>preResponseTranslation</strong>(<code>request</code>, <code>response</code>, <code>storage</code>): <code>Promise</code>&lt;{ <code>request</code>: <a class="" href="/stentor/api/stentor-models/src/type-aliases/Request"><code>Request</code></a>; <code>response</code>: <a class="" href="/stentor/api/stentor-models/src/classes/AbstractResponseBuilder"><code>AbstractResponseBuilder</code></a>; <code>storage</code>: <a class="" href="/stentor/api/stentor-models/src/interfaces/Storage"><code>Storage</code></a>; }&gt;</p>
 </blockquote>
-<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/7f2d1e4eef8836b2b99792e16230b591dfbf6997/packages/stentor-models/src/Runtime/Hooks.ts#L55" target="_blank" rel="noopener noreferrer" class="">packages/stentor-models/src/Runtime/Hooks.ts:55</a></p>
+<p>Defined in: <a href="https://github.com/stentorium/stentor/blob/31d40f43b6e7622c633d5d3f2dbe01d5ed300e28/packages/stentor-models/src/Runtime/Hooks.ts#L55" target="_blank" rel="noopener noreferrer" class="">packages/stentor-models/src/Runtime/Hooks.ts:55</a></p>
 <p>This hook is called before the response is translated for the channel.</p>
 <p>Last chance to tweak the platform independent response or collect some data from the request/response (transcript).</p>
 <h4 class="anchor anchorTargetStickyNavbar_tleR" id="parameters-3">Parameters<a href="#parameters-3" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters" translate="no">​</a></h4>

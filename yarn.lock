@@ -11366,6 +11366,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fuse.js@npm:7.4.2":
+  version: 7.4.2
+  resolution: "fuse.js@npm:7.4.2"
+  checksum: 10c0/b83e50e0cdbeca995ea373e19569c7d89a8a9af64e5752cc23d06e823332a699a5f14f0c6e4036f7e2b4cbd9ed960761cec6b20ea8a3bf3905b1af0cfa296447
+  languageName: node
+  linkType: hard
+
 "generator-function@npm:^2.0.0":
   version: 2.0.1
   resolution: "generator-function@npm:2.0.1"
@@ -20642,7 +20649,7 @@ __metadata:
     blueimp-md5: "npm:2.19.0"
     chai: "npm:4.5.0"
     dyno-item-size: "npm:0.3.3"
-    fuse.js: "npm:7.3.0"
+    fuse.js: "npm:7.4.2"
     html-entities: "npm:2.6.0"
     jsonpath-plus: "npm:10.4.0"
     lodash.keys: "npm:4.2.0"

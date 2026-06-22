@@ -21,6 +21,7 @@ import {
     isSessionEndedRequest
 } from "stentor-guards";
 import { parse } from "stacktrace-parser";
+import { safeEventLog, logLambdaError } from "stentor-utils";
 import { AbstractEventStream } from "./AbstractEventStream";
 import { ConsoleStream } from "./ConsoleStream";
 import {
@@ -298,7 +299,7 @@ export function wrapCallback(event: EventService, lambdaCallback: RuntimeCallbac
             try {
                 event.request(request);
             } catch (e) {
-                log().error(`Error adding request event: ${e}`);
+                logLambdaError(`Error adding request event: ${e}`, { request });
             }
         }
         if (error) {
@@ -306,7 +307,7 @@ export function wrapCallback(event: EventService, lambdaCallback: RuntimeCallbac
                 const errorObj = typeof error === 'string' ? new Error(error) : error;
                 event.error(errorObj);
             } catch (e) {
-                log().error(`Error adding error event: ${e}`);
+                logLambdaError(`Error adding error event: ${e}`, { originalError: error });
             }
         }
         const errorObj = error ? (typeof error === 'string' ? new Error(error) : error) : error as any;

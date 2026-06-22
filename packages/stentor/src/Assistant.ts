@@ -32,7 +32,7 @@ import { main, translateEventAndContext } from "stentor-runtime";
 import { EventPrefix, EventService } from "stentor-service-event";
 import { StudioEventStream, StudioService } from "stentor-service-studio";
 import { OVAIEventStream, OVAIService } from "stentor-service-ovai";
-import { isLambdaError } from "stentor-utils";
+import { isLambdaError, safeEventLog } from "stentor-utils";
 
 import * as AWSLambda from "aws-lambda";
 
@@ -311,8 +311,19 @@ export class Assistant {
       // This is a callback wrapper to help with error handling.
       const myCallback: RuntimeCallback = (error: undefined | Error | null | string, result: any): void => {
         if (this.eventService) {
-          // Create a analytics event which is used to send data to 3rd party analytics providers
-          this.eventService.event("AnalyticsEvent", "SKILL_DATA", { request: runtimeEvent, response: result });
+          try {
+            // Create a analytics event which is used to send data to 3rd party analytics providers
+            this.eventService.event("AnalyticsEvent", "SKILL_DATA", { request: runtimeEvent, response: result });
+          } catch (e) {
+            // Fallback to safe logging if event service fails with large payloads
+            safeEventLog("Analytics Event (fallback):", {
+              eventType: "AnalyticsEvent",
+              eventName: "SKILL_DATA",
+              error: e.message,
+              hasRequest: !!runtimeEvent,
+              hasResponse: !!result
+            }, "warn");
+          }
         }
         let code = HTTP_200_OK;
 

@@ -48,5 +48,5 @@
     "version-check:all": "syncpack list-mismatches --types dev,prod",
     "knip": "knip"
   },
-  "packageManager": "yarn@4.16.0"
+  "packageManager": "yarn@4.17.0"
 }

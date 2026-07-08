@@ -13496,9 +13496,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"knip@npm:6.18.0":
-  version: 6.18.0
-  resolution: "knip@npm:6.18.0"
+"knip@npm:6.25.0":
+  version: 6.25.0
+  resolution: "knip@npm:6.25.0"
   dependencies:
     fdir: "npm:^6.5.0"
     formatly: "npm:^0.3.0"
@@ -13516,7 +13516,7 @@ __metadata:
   bin:
     knip: bin/knip.js
     knip-bun: bin/knip-bun.js
-  checksum: 10c0/0c76fe52bfe0f949f48451cc84e21dc4591c25f658b133f16b3a4d146dad0bfaaf329f9143671af1e7535cf703e945722fcc272a76540afbb7160c2b6625503e
+  checksum: 10c0/4f91895d9dc6d4112f6bcaee0a22e6c5c9357907b6396d1a2f06ee36229414d3b2776a5d91be69da7fa349b6a7f8074b3df775fc1ac7db6aca46d9eded073300
   languageName: node
   linkType: hard
 
@@ -19021,7 +19021,7 @@ __metadata:
     "@xapp/config": "npm:0.3.0"
     eslint: "npm:8.57.1"
     eslint-plugin-notice: "npm:1.0.0"
-    knip: "npm:6.18.0"
+    knip: "npm:6.25.0"
     lerna: "npm:9.0.7"
     license-checker: "npm:25.0.1"
     mocha: "npm:11.7.6"

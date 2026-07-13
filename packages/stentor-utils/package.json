@@ -38,7 +38,7 @@
     "typescript": "6.0.3"
   },
   "dependencies": {
-    "@types/xmldoc": "1.1.9",
+    "@types/xmldoc": "2.0.0",
     "blueimp-md5": "2.19.0",
     "dyno-item-size": "0.3.3",
     "fuse.js": "7.4.2",

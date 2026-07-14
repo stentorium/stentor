@@ -326,7 +326,7 @@ export class AbstractCrmService implements CrmService {
   public async getJobType(
     message: string,
     externalLead?: ExternalLead,
-    options?: CrmServiceAvailabilityOptions
+    options?: CrmServiceAvailabilitySettings
   ): Promise<CrmServiceJobType> {
     throw new Error("Method not implemented.");
   }

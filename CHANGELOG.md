@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.73.0](https://github.com/stentorium/stentor/compare/v1.72.1...v1.73.0) (2026-07-14)
+
+
+### Bug Fixes
+
+* Add requireSelection to FormFieldTextAddressInput ([#3041](https://github.com/stentorium/stentor/issues/3041)) ([5132fdf](https://github.com/stentorium/stentor/commit/5132fdfdfb1d7321e6b11ba1f387aa75f6b98edb)), closes [#3040](https://github.com/stentorium/stentor/issues/3040)
+* **ci:** move claude-code-action to [@v1](https://github.com/v1) and let it actually open PRs ([#3103](https://github.com/stentorium/stentor/issues/3103)) ([abb6b06](https://github.com/stentorium/stentor/commit/abb6b06b6d91964480d748996700e2cfb6d13d61))
+* **deps:** update dependency @mdx-js/react to v3.1.1 ([#3046](https://github.com/stentorium/stentor/issues/3046)) ([31d40f4](https://github.com/stentorium/stentor/commit/31d40f43b6e7622c633d5d3f2dbe01d5ed300e28))
+* **deps:** update dependency @types/aws-lambda to v8.10.162 ([#3087](https://github.com/stentorium/stentor/issues/3087)) ([377f79a](https://github.com/stentorium/stentor/commit/377f79ac843d72b23474d200fa31d570d70bc9ee))
+* **deps:** update dependency @types/luxon to v3.7.2 ([#3088](https://github.com/stentorium/stentor/issues/3088)) ([0644ff3](https://github.com/stentorium/stentor/commit/0644ff3f837918b4f9cd7b08b02fdf21c52c562e))
+* **deps:** update dependency @types/xmldoc to v2 ([#3099](https://github.com/stentorium/stentor/issues/3099)) ([7d4ebd2](https://github.com/stentorium/stentor/commit/7d4ebd2d0c35ff8859966b0ab2a39804880b700b))
+* **deps:** update dependency fuse.js to v7.4.2 ([#3057](https://github.com/stentorium/stentor/issues/3057)) ([26cc4b8](https://github.com/stentorium/stentor/commit/26cc4b8e2c5bf2a1842464341bd953b230bb98d7))
+* **deps:** update dependency sanitize-html to v2.17.4 ([#3030](https://github.com/stentorium/stentor/issues/3030)) ([0cecc28](https://github.com/stentorium/stentor/commit/0cecc2860abf8a591a02397709ba53f24666cce9))
+* **deps:** update dependency sanitize-html to v2.17.5 ([#3068](https://github.com/stentorium/stentor/issues/3068)) ([c4dbb7e](https://github.com/stentorium/stentor/commit/c4dbb7e9717194d07c366140861e47e2a3c4a3ac))
+* **deps:** update dependency xmldoc to v3 ([#3065](https://github.com/stentorium/stentor/issues/3065)) ([1ae16ec](https://github.com/stentorium/stentor/commit/1ae16ecbc53012599537701a86fcaa9978caed1a))
+* **deps:** update docusaurus monorepo to v3 ([#3029](https://github.com/stentorium/stentor/issues/3029)) ([3b6e719](https://github.com/stentorium/stentor/commit/3b6e719f1746bc3dafe20a733662d396dbe338c8))
+* Release Script ([#2992](https://github.com/stentorium/stentor/issues/2992)) ([11ba867](https://github.com/stentorium/stentor/commit/11ba8676c08adae6a449be6fb7eb235cd1bc38a5))
+* Removes problematic chalk as a depdency ([#3027](https://github.com/stentorium/stentor/issues/3027)) ([8b7c6c0](https://github.com/stentorium/stentor/commit/8b7c6c013366f25042713721fdabff87ed3debff))
+* repair website build after Docusaurus v3 upgrade ([#3042](https://github.com/stentorium/stentor/issues/3042)) ([0bed8c5](https://github.com/stentorium/stentor/commit/0bed8c52e2738162a156fcd2aaba584a4b23cf30))
+
+
+### Features
+
+* **stentor-models:** availability class cutoff, job-type→class map, forceAvailabilityClass ([#3104](https://github.com/stentorium/stentor/issues/3104)) ([c305576](https://github.com/stentorium/stentor/commit/c3055769028f842a6448b1c46561561cb1ff454d)), closes [#3102](https://github.com/stentorium/stentor/issues/3102)
+
+
+
+
+
 ## [1.72.4](https://github.com/stentorium/stentor/compare/v1.72.3...v1.72.4) (2026-05-18)
 
 

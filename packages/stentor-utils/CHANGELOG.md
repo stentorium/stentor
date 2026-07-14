@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.73.0](https://github.com/stentorium/stentor/compare/v1.72.1...v1.73.0) (2026-07-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/xmldoc to v2 ([#3099](https://github.com/stentorium/stentor/issues/3099)) ([7d4ebd2](https://github.com/stentorium/stentor/commit/7d4ebd2d0c35ff8859966b0ab2a39804880b700b))
+* **deps:** update dependency fuse.js to v7.4.2 ([#3057](https://github.com/stentorium/stentor/issues/3057)) ([26cc4b8](https://github.com/stentorium/stentor/commit/26cc4b8e2c5bf2a1842464341bd953b230bb98d7))
+* **deps:** update dependency sanitize-html to v2.17.4 ([#3030](https://github.com/stentorium/stentor/issues/3030)) ([0cecc28](https://github.com/stentorium/stentor/commit/0cecc2860abf8a591a02397709ba53f24666cce9))
+* **deps:** update dependency sanitize-html to v2.17.5 ([#3068](https://github.com/stentorium/stentor/issues/3068)) ([c4dbb7e](https://github.com/stentorium/stentor/commit/c4dbb7e9717194d07c366140861e47e2a3c4a3ac))
+* **deps:** update dependency xmldoc to v3 ([#3065](https://github.com/stentorium/stentor/issues/3065)) ([1ae16ec](https://github.com/stentorium/stentor/commit/1ae16ecbc53012599537701a86fcaa9978caed1a))
+
+
+
+
+
 ## [1.72.4](https://github.com/stentorium/stentor/compare/v1.72.3...v1.72.4) (2026-05-18)
 
 

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.73.0](https://github.com/stentorium/stentor/compare/v1.72.1...v1.73.0) (2026-07-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/aws-lambda to v8.10.162 ([#3087](https://github.com/stentorium/stentor/issues/3087)) ([377f79a](https://github.com/stentorium/stentor/commit/377f79ac843d72b23474d200fa31d570d70bc9ee))
+* Removes problematic chalk as a depdency ([#3027](https://github.com/stentorium/stentor/issues/3027)) ([8b7c6c0](https://github.com/stentorium/stentor/commit/8b7c6c013366f25042713721fdabff87ed3debff))
+
+
+
+
+
 ## [1.72.4](https://github.com/stentorium/stentor/compare/v1.72.3...v1.72.4) (2026-05-18)
 
 **Note:** Version bump only for package stentor

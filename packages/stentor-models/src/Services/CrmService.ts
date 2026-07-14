@@ -247,11 +247,15 @@ export interface CrmService {
    * @param externalLead
    * @param options Availability settings in scope for this request (e.g. a widget's
    * forceAvailabilityClass or jobTypeClasses), needed to resolve the job type's class.
+   *
+   * Deliberately typed as the settings-only CrmServiceAvailabilitySettings rather than
+   * CrmServiceAvailabilityOptions: this method *determines* the job type, so the `jobType` member of
+   * the Options type would be meaningless (and misleading) here.
    */
   getJobType?(
     message: string,
     externalLead?: ExternalLead,
-    options?: CrmServiceAvailabilityOptions
+    options?: CrmServiceAvailabilitySettings
   ): Promise<CrmServiceJobType>;
   /**
    * Lists the tenant's job types from the FSM. Backs a Studio picker.
@@ -291,7 +295,7 @@ export class AbstractCrmService implements CrmService {
       this.maxTotalDailyAppointments = props.maxTotalDailyAppointments;
     }
 
-    if (typeof props.delayedJobTypes) {
+    if (props.delayedJobTypes) {
       this.delayedJobTypes = props.delayedJobTypes;
     }
   }

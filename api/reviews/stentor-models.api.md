@@ -20,7 +20,7 @@ export class AbstractCrmService implements CrmService {
     // (undocumented)
     getAvailability(range: DateTimeRange, options?: CrmServiceAvailabilityOptions): Promise<CrmServiceAvailability>;
     // (undocumented)
-    getJobType(message: string, externalLead?: ExternalLead, options?: CrmServiceAvailabilityOptions): Promise<CrmServiceJobType>;
+    getJobType(message: string, externalLead?: ExternalLead, options?: CrmServiceAvailabilitySettings): Promise<CrmServiceJobType>;
     // (undocumented)
     protected maxTotalDailyAppointments?: number | undefined;
     // (undocumented)
@@ -975,7 +975,7 @@ export interface CrmResponse {
 // @public (undocumented)
 export interface CrmService {
     getAvailability(range: DateTimeRange, options?: CrmServiceAvailabilityOptions): Promise<CrmServiceAvailability>;
-    getJobType?(message: string, externalLead?: ExternalLead, options?: CrmServiceAvailabilityOptions): Promise<CrmServiceJobType>;
+    getJobType?(message: string, externalLead?: ExternalLead, options?: CrmServiceAvailabilitySettings): Promise<CrmServiceJobType>;
     listJobTypes?(): Promise<CrmServiceJobType[]>;
     send(externalLead: ExternalLead, extras?: Record<string, unknown>): Promise<CrmResponse>;
     suggestJobTypeClasses?(availabilityClasses?: AvailabilityClass[]): Promise<JobTypeAvailabilityClass[]>;

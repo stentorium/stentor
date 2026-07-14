@@ -47,10 +47,12 @@ export interface AvailabilityClass {
    */
   leadOnly?: boolean;
   /**
-   * 24-hour wall-clock "HH:MM" in the business timezone.
+   * The current day stays available *until* this time, in HH:MM (24-hour) format, wall-clock in the
+   * business timezone.
    *
-   * Same-day booking for jobs in this class is allowed until this time; at or after it, today is
-   * no longer offered. Overrides CrmServiceAvailabilitySettings.defaultBusyDays.currentDayAvailableUntil.
+   * For example, "16:00" lets a job in this class still be booked for today up to 4:00 PM; at or after
+   * 4:00 PM, today is no longer offered. Same meaning as BusyDayDescription.currentDayAvailableUntil,
+   * which this overrides for jobs resolved to this class.
    *
    * Only meaningful when numberOfDaysOut is 0 or absent (i.e. same-day is possible at all).
    */

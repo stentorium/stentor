@@ -46,6 +46,43 @@ export interface AvailabilityClass {
    * If true, this availability class is only for leads and not for appointments as they typically require more information and followup.
    */
   leadOnly?: boolean;
+  /**
+   * The current day stays available *until* this time, in HH:MM (24-hour) format, wall-clock in the
+   * business timezone.
+   *
+   * For example, "16:00" lets a job in this class still be booked for today up to 4:00 PM; at or after
+   * 4:00 PM, today is no longer offered. Same meaning as BusyDayDescription.currentDayAvailableUntil,
+   * which this overrides for jobs resolved to this class.
+   *
+   * Only meaningful when numberOfDaysOut is 0 or absent (i.e. same-day is possible at all).
+   */
+  currentDayAvailableUntil?: string;
+}
+
+/**
+ * A deterministic mapping from an FSM/CRM job type to an availability class.
+ *
+ * This is the symmetric counterpart to CrmServiceAvailabilitySettings.delayedJobTypes, which is
+ * also keyed on the FSM job-type id: delayedJobTypes pushes a job type further out, this maps a
+ * job type onto a class (which may pull it in — e.g. same-day for emergency work).
+ */
+export interface JobTypeAvailabilityClass {
+  /**
+   * The FSM/CRM job type id, stringified (ServiceTitan job type ids are numbers).
+   */
+  jobTypeId: string;
+  /**
+   * AvailabilityClass.id
+   */
+  classId: string;
+  /**
+   * Denormalized for display in Studio. Not used for matching.
+   */
+  jobTypeName?: string;
+  /**
+   * Provenance: "AI" = suggested by the class suggester, "USER" = confirmed/edited by a human.
+   */
+  source?: "AI" | "USER";
 }
 
 /**
@@ -80,6 +117,18 @@ export interface CrmServiceAvailabilitySettings {
    * The default busy days for the business.  This is used when the FSM/Scheduling backend does not provide busy days
    */
   defaultBusyDays?: BusyDayDescription;
+  /**
+   * Deterministic job type -> class mapping. Beats the LLM's guess.
+   */
+  jobTypeClasses?: JobTypeAvailabilityClass[];
+  /**
+   * Forces every booking in this scope into the given class, regardless of job type.
+   *
+   * This is deliberately NOT defaultAvailabilityClass: that field is a *fallback* (it loses to
+   * jobType.class), so it cannot express "force". Used by campaign booking widgets, which carry
+   * their own availability settings.
+   */
+  forceAvailabilityClass?: string;
 }
 
 export interface CrmServiceTimeAvailability {
@@ -195,11 +244,31 @@ export interface CrmService {
    * Returns the job type (id) for the free text job description (AI call usually)
    *
    * @param message
+   * @param externalLead
+   * @param options Availability settings in scope for this request (e.g. a widget's
+   * forceAvailabilityClass or jobTypeClasses), needed to resolve the job type's class.
+   *
+   * Deliberately typed as the settings-only CrmServiceAvailabilitySettings rather than
+   * CrmServiceAvailabilityOptions: this method *determines* the job type, so the `jobType` member of
+   * the Options type would be meaningless (and misleading) here.
    */
-  getJobType(
+  getJobType?(
     message: string,
-    externalLead?: ExternalLead
+    externalLead?: ExternalLead,
+    options?: CrmServiceAvailabilitySettings
   ): Promise<CrmServiceJobType>;
+  /**
+   * Lists the tenant's job types from the FSM. Backs a Studio picker.
+   */
+  listJobTypes?(): Promise<CrmServiceJobType[]>;
+  /**
+   * Returns a suggested job-type -> class map. Does not persist anything.
+   *
+   * @param availabilityClasses
+   */
+  suggestJobTypeClasses?(
+    availabilityClasses?: AvailabilityClass[]
+  ): Promise<JobTypeAvailabilityClass[]>;
 }
 
 export type CrmServiceProps = CrmServiceAvailabilitySettings;
@@ -226,7 +295,7 @@ export class AbstractCrmService implements CrmService {
       this.maxTotalDailyAppointments = props.maxTotalDailyAppointments;
     }
 
-    if (typeof props.delayedJobTypes) {
+    if (props.delayedJobTypes) {
       this.delayedJobTypes = props.delayedJobTypes;
     }
   }
@@ -256,7 +325,8 @@ export class AbstractCrmService implements CrmService {
 
   public async getJobType(
     message: string,
-    externalLead?: ExternalLead
+    externalLead?: ExternalLead,
+    options?: CrmServiceAvailabilitySettings
   ): Promise<CrmServiceJobType> {
     throw new Error("Method not implemented.");
   }

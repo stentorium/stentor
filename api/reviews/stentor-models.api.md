@@ -20,7 +20,7 @@ export class AbstractCrmService implements CrmService {
     // (undocumented)
     getAvailability(range: DateTimeRange, options?: CrmServiceAvailabilityOptions): Promise<CrmServiceAvailability>;
     // (undocumented)
-    getJobType(message: string, externalLead?: ExternalLead): Promise<CrmServiceJobType>;
+    getJobType(message: string, externalLead?: ExternalLead, options?: CrmServiceAvailabilitySettings): Promise<CrmServiceJobType>;
     // (undocumented)
     protected maxTotalDailyAppointments?: number | undefined;
     // (undocumented)
@@ -58,7 +58,7 @@ export abstract class AbstractResponseBuilder<R = any> {
     abstract enqueue(next: PlayableMedia, current: PlayableMedia): AbstractResponseBuilder<R>;
     mediaQueueSize(): number;
     abstract play(playable: PlayableMedia, offset?: number): AbstractResponseBuilder<R>;
-    abstract playPlaylist(playlist: Array<PlayableMedia> | PlayableMedia[]): AbstractResponseBuilder<R>;
+    abstract playPlaylist(playlist: PlayableMedia[] | PlayableMedia[]): AbstractResponseBuilder<R>;
     abstract reprompt(ssml: string | ResponseOutput, append?: boolean): AbstractResponseBuilder<R>;
     abstract respond(response: Response_2): AbstractResponseBuilder<R>;
     get response(): Readonly<Response_2<ResponseOutput>> | undefined;
@@ -128,15 +128,13 @@ export interface ActiveWithinable {
 
 // Warning: (ae-missing-release-tag) "AddressAutocompleteParameters" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
-// @public (undocumented)
+// @public
 export interface AddressAutocompleteParameters {
     components?: string;
     key?: string;
     language?: string;
     location?: string;
-    // (undocumented)
     locationbias?: string;
-    // (undocumented)
     locationrestriction?: string;
     radius?: string;
 }
@@ -603,6 +601,7 @@ export type AudioType = PodcastEpisodeType | SongType | AudioLiveStreamType | Ge
 // @public (undocumented)
 export interface AvailabilityClass {
     appointmentsPerDay?: number;
+    currentDayAvailableUntil?: string;
     id: string;
     leadOnly?: boolean;
     name: string;
@@ -699,7 +698,7 @@ export type BuiltInIntents = CancelIntent | FirstIntent | HelpIntent | LatestInt
 
 // Warning: (ae-missing-release-tag) "BusyDayDescription" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
-// @public (undocumented)
+// @public
 export interface BusyDayDescription {
     readonly availableDays?: DayOfWeek[];
     readonly blockCurrentDay?: boolean;
@@ -976,8 +975,10 @@ export interface CrmResponse {
 // @public (undocumented)
 export interface CrmService {
     getAvailability(range: DateTimeRange, options?: CrmServiceAvailabilityOptions): Promise<CrmServiceAvailability>;
-    getJobType(message: string, externalLead?: ExternalLead): Promise<CrmServiceJobType>;
+    getJobType?(message: string, externalLead?: ExternalLead, options?: CrmServiceAvailabilitySettings): Promise<CrmServiceJobType>;
+    listJobTypes?(): Promise<CrmServiceJobType[]>;
     send(externalLead: ExternalLead, extras?: Record<string, unknown>): Promise<CrmResponse>;
+    suggestJobTypeClasses?(availabilityClasses?: AvailabilityClass[]): Promise<JobTypeAvailabilityClass[]>;
     // @deprecated
     update?(externalLead: ExternalLead, extras?: Record<string, unknown>): Promise<CrmResponse>;
 }
@@ -1007,6 +1008,8 @@ export interface CrmServiceAvailabilitySettings {
     defaultAvailabilityClass?: string;
     defaultBusyDays?: BusyDayDescription;
     delayedJobTypes?: string[];
+    forceAvailabilityClass?: string;
+    jobTypeClasses?: JobTypeAvailabilityClass[];
     maxTotalDailyAppointments?: number;
 }
 
@@ -1421,6 +1424,7 @@ export interface ExternalLead {
     fields: LeadFormField[];
     isAbandoned?: boolean;
     jobTypeId?: string;
+    placeId?: string;
     refId?: string;
     sessionId?: string;
     source?: string;
@@ -1469,25 +1473,19 @@ export type FollowUpActionType = "VIEW_DETAILS" | "CALL" | "EMAIL";
 //
 // @public
 export interface FormCardInput extends FormInput {
-    // (undocumented)
     align?: string;
-    // (undocumented)
     color?: string;
-    // (undocumented)
     header?: {
         title: string;
         subheader?: string;
     };
-    // (undocumented)
     media?: {
         height?: number;
         width?: number;
         imageUrl: string;
         alt?: string;
     };
-    // (undocumented)
     text?: string;
-    // (undocumented)
     variant?: string;
 }
 
@@ -1495,15 +1493,10 @@ export interface FormCardInput extends FormInput {
 //
 // @public
 export interface FormChipsInput extends FormInput {
-    // (undocumented)
     defaultOpen?: boolean;
-    // (undocumented)
     items: (SelectableItem | ActionableItem)[];
-    // (undocumented)
     maxAllowed?: number;
-    // (undocumented)
     minRequired?: number;
-    // (undocumented)
     radio?: boolean;
     // (undocumented)
     type: "CHIPS";
@@ -1514,7 +1507,6 @@ export interface FormChipsInput extends FormInput {
 // @public
 export interface FormDateInput extends FormInput {
     defaultBusyDays?: BusyDayDescription;
-    // (undocumented)
     preselecteDate?: Date;
 }
 
@@ -1522,7 +1514,6 @@ export interface FormDateInput extends FormInput {
 //
 // @public
 export interface FormDateRangeInput extends FormInput {
-    // (undocumented)
     preselecteDates?: {
         from?: Date;
         to?: Date;
@@ -1533,24 +1524,25 @@ export interface FormDateRangeInput extends FormInput {
 //
 // @public
 export interface FormDropdownInput extends FormInput {
-    // (undocumented)
     items: SelectableItem[];
+    maxLength?: number;
 }
 
 // Warning: (ae-missing-release-tag) "FormField" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
-// @public (undocumented)
+// @public
 export type FormField = FormCardInput | FormTextInput | FormDropdownInput | FormChipsInput | FormDateInput | FormDateRangeInput;
 
 // Warning: (ae-missing-release-tag) "FormFieldTextAddressInput" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
-// @public (undocumented)
+// @public
 export interface FormFieldTextAddressInput extends FormTextInput {
     // (undocumented)
     format: "ADDRESS";
     googleMapsApiKey?: string;
     mapsBaseUrl?: string;
     mapsUrlQueryParams?: AddressAutocompleteParameters;
+    requireSelection?: boolean;
 }
 
 // Warning: (ae-missing-release-tag) "FormHeaderItem" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
@@ -1582,11 +1574,8 @@ export interface FormInput {
 //
 // @public
 export interface FormSelectInput extends FormInput {
-    // (undocumented)
     defaultOpen?: boolean;
-    // (undocumented)
     items: SelectableItem[];
-    // (undocumented)
     radio?: boolean;
 }
 
@@ -1635,17 +1624,12 @@ export type FormSteps = FormStep | FormStepIFrame;
 //
 // @public
 export interface FormTextInput extends FormInput {
-    // (undocumented)
     format?: "PHONE" | "EMAIL" | "ADDRESS" | "ZIP_CODE";
-    // (undocumented)
     label?: string;
-    // (undocumented)
+    maxLength?: number;
     multiline?: boolean;
-    // (undocumented)
     placeholder?: string;
-    // (undocumented)
     rows?: number;
-    // (undocumented)
     rowsMax?: number;
 }
 
@@ -1923,6 +1907,14 @@ interface Image_2 {
 }
 export { Image_2 as Image }
 
+// Warning: (ae-missing-release-tag) "ImageMedia" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface ImageMedia extends Media {
+    // (undocumented)
+    type: ImageType;
+}
+
 // Warning: (ae-missing-release-tag) "ImageSpecification" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
@@ -2059,6 +2051,16 @@ export interface IntentRequestPayload {
 //
 // @public (undocumented)
 export type IntentRequestType = "INTENT_REQUEST";
+
+// Warning: (ae-missing-release-tag) "JobTypeAvailabilityClass" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface JobTypeAvailabilityClass {
+    classId: string;
+    jobTypeId: string;
+    jobTypeName?: string;
+    source?: "AI" | "USER";
+}
 
 // Warning: (ae-missing-release-tag) "JSONDependable" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -3633,9 +3635,11 @@ export interface ScheduleStart {
 //
 // @public
 export interface SelectableItem {
+    endTime?: string;
     id: string;
     label: string;
     selected?: boolean;
+    startTime?: string;
 }
 
 // Warning: (ae-missing-release-tag) "SellerInfo" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
@@ -3919,14 +3923,12 @@ export type SocialRadioAudio = SocialRadioTrack | SocialRadioSong;
 // Warning: (ae-missing-release-tag) "SocialRadioSong" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
-export interface SocialRadioSong extends ReportableSong {
-}
+export type SocialRadioSong = ReportableSong;
 
 // Warning: (ae-missing-release-tag) "SocialRadioTrack" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
-export interface SocialRadioTrack extends ReportableAudio {
-}
+export type SocialRadioTrack = ReportableAudio;
 
 // Warning: (ae-missing-release-tag) "SocialRadioType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //

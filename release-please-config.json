@@ -1,0 +1,41 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "release-type": "node",
+  "bootstrap-sha": "179d4c04b58ab103248ac0c7d4d44f8ce4c7d2d4",
+  "separate-pull-requests": false,
+  "include-component-in-tag": true,
+  "plugins": [
+    "node-workspace"
+  ],
+  "packages": {
+    "packages/stentor": {},
+    "packages/stentor-address": {},
+    "packages/stentor-channel": {},
+    "packages/stentor-conditional": {},
+    "packages/stentor-constants": {},
+    "packages/stentor-context": {},
+    "packages/stentor-determiner": {},
+    "packages/stentor-guards": {},
+    "packages/stentor-handler": {},
+    "packages/stentor-handler-delegating": {},
+    "packages/stentor-handler-factory": {},
+    "packages/stentor-handler-manager": {},
+    "packages/stentor-history": {},
+    "packages/stentor-interaction-model": {},
+    "packages/stentor-locales": {},
+    "packages/stentor-logger": {},
+    "packages/stentor-media": {},
+    "packages/stentor-models": {},
+    "packages/stentor-request": {},
+    "packages/stentor-response": {},
+    "packages/stentor-runtime": {},
+    "packages/stentor-service-event": {},
+    "packages/stentor-service-fetch": {},
+    "packages/stentor-service-ovai": {},
+    "packages/stentor-service-studio": {},
+    "packages/stentor-storage": {},
+    "packages/stentor-time": {},
+    "packages/stentor-user-storage-dynamo": {},
+    "packages/stentor-utils": {}
+  }
+}

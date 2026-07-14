@@ -1,0 +1,133 @@
+name: Release Please
+
+on:
+    push:
+        branches: [master]
+    # Manual escape hatch: publish already-tagged packages whose publish step failed.
+    # Pass a JSON array of package dirs, e.g.
+    #   ["packages/stentor-models"]
+    workflow_dispatch:
+        inputs:
+            paths:
+                description: "JSON array of package dirs to publish"
+                required: true
+
+permissions:
+    contents: write
+    pull-requests: write
+    id-token: write
+
+jobs:
+    release-please:
+        if: github.event_name == 'push'
+        runs-on: ubuntu-latest
+        outputs:
+            releases_created: ${{ steps.release.outputs.releases_created }}
+            paths_released: ${{ steps.release.outputs.paths_released }}
+        steps:
+            - uses: googleapis/release-please-action@v4
+              id: release
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  config-file: release-please-config.json
+                  manifest-file: .release-please-manifest.json
+
+    # release-please's node-workspace plugin rewrites in-repo dependency ranges in
+    # package.json (e.g. stentor-runtime's "stentor-models": 1.73.0 -> 1.74.0) but never
+    # touches yarn.lock. Those ranges are lockfile descriptor keys, so the lockfile goes
+    # stale — and because the release PR is opened with GITHUB_TOKEN, GitHub runs no CI
+    # on it, so nothing catches the drift. Merging it puts a stale yarn.lock on master
+    # and every later PR fails `yarn install --immutable` with YN0028.
+    #
+    # So regenerate the lockfile on the release branch itself, before anyone merges it.
+    #
+    # Deliberately does NOT gate on the release-please `pr` output: that output is only
+    # set when this run creates or modifies a release PR. An open-but-untouched release
+    # PR (any push to master that doesn't change what's being released) leaves it empty,
+    # which would skip this job and leave the stale lockfile on the release branch.
+    # Instead, look for the release branch directly and fix it whenever it exists.
+    release-lockfile:
+        needs: release-please
+        if: github.event_name == 'push'
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v5
+            - name: Look for an open release branch
+              id: branch
+              run: |
+                  set -euo pipefail
+                  branch=release-please--branches--${{ github.ref_name }}
+                  if git ls-remote --exit-code --heads origin "$branch" >/dev/null 2>&1; then
+                    echo "found=true" >> "$GITHUB_OUTPUT"
+                    echo "name=$branch" >> "$GITHUB_OUTPUT"
+                  else
+                    echo "found=false" >> "$GITHUB_OUTPUT"
+                    echo "No release branch open; nothing to do."
+                  fi
+            - if: steps.branch.outputs.found == 'true'
+              run: git checkout "${{ steps.branch.outputs.name }}"
+            - if: steps.branch.outputs.found == 'true'
+              uses: actions/setup-node@v4
+              with:
+                  node-version-file: .nvmrc
+                  cache: yarn
+            - if: steps.branch.outputs.found == 'true'
+              run: yarn install --no-immutable
+            - if: steps.branch.outputs.found == 'true'
+              name: Commit yarn.lock if the release changed it
+              run: |
+                  set -euo pipefail
+                  if git diff --quiet -- yarn.lock; then
+                    echo "yarn.lock already in sync"
+                    exit 0
+                  fi
+                  git config user.name "github-actions[bot]"
+                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  git add yarn.lock
+                  git commit -m "chore: regenerate yarn.lock for release"
+                  git push
+
+    publish:
+        needs: release-please
+        if: |
+            always() && (
+              (github.event_name == 'push' && needs.release-please.outputs.releases_created == 'true')
+              || github.event_name == 'workflow_dispatch'
+            )
+        runs-on: ubuntu-latest
+        env:
+            PUBLISH_PATHS: ${{ github.event_name == 'workflow_dispatch' && inputs.paths || needs.release-please.outputs.paths_released }}
+        steps:
+            - uses: actions/checkout@v5
+            - uses: actions/setup-node@v4
+              with:
+                  node-version-file: .nvmrc
+                  cache: yarn
+                  registry-url: https://registry.npmjs.org
+            # NOT --immutable. release-please's node-workspace plugin bumps in-repo
+            # dependent version ranges in package.json but does not regenerate
+            # yarn.lock, and release PRs are opened with GITHUB_TOKEN so no CI runs
+            # to catch the drift. An immutable install here fails (YN0028) on every
+            # release that touches an in-repo dependency. This runner is ephemeral
+            # (build + publish, then discarded), so a mutable install is safe.
+            - run: yarn install --no-immutable
+            - name: Build
+              run: yarn build
+            # Publish only the packages release-please just released, over OIDC (no token).
+            # npm >= 11.5.1 (bundled with Node 24, hence .nvmrc) detects the id-token
+            # permission and the per-package trusted-publisher config on npmjs.com.
+            # Each package must be registered as a trusted publisher for this repo +
+            # workflow on npmjs.com, or its publish fails with a 404/403.
+            #
+            # --provenance works here (unlike stentor-core / chat-widget) because
+            # stentorium/stentor is a public repo; sigstore rejects private ones.
+            # No --access: it would override publishConfig.access, which every package
+            # sets explicitly.
+            - name: Publish released packages
+              run: |
+                  set -euo pipefail
+                  echo "$PUBLISH_PATHS" | jq -r '.[]' | while read -r dir; do
+                    echo "::group::npm publish $dir"
+                    ( cd "$dir" && npm publish --provenance )
+                    echo "::endgroup::"
+                  done

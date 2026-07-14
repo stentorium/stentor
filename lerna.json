@@ -4,21 +4,10 @@
     "website"
   ],
   "npmClient": "yarn",
-  "version": "1.73.0",
+  "version": "independent",
   "command": {
     "init": {
       "exact": true
-    },
-    "version": {
-      "allowBranch": [
-        "master"
-      ],
-      "exact": true,
-      "conventionalCommits": true,
-      "message": "chore(release): 📣⚡ publish release %v [skip ci]"
-    },
-    "publish": {
-      "conventionalCommits": true
     }
   }
 }

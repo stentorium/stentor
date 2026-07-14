@@ -1,0 +1,76 @@
+name: CI
+
+# PRs only. A branch without a PR is still in progress and does not need CI;
+# a `push` trigger would also double every run, since both events fire for a
+# push to a branch that already has an open PR.
+on:
+    pull_request:
+        branches: [master]
+
+permissions:
+    contents: read
+
+# Cancel superseded runs on the same ref.
+concurrency:
+    group: ci-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v5
+            - uses: actions/setup-node@v4
+              with:
+                  node-version-file: .nvmrc
+                  cache: yarn
+            - run: yarn install --immutable
+            - name: Build
+              run: yarn build
+            - name: Unit tests
+              run: yarn test:ci
+              env:
+                  TZ: UTC
+                  MOCHA_FILE: ${{ github.workspace }}/junit/test-results-[hash].xml
+            - name: Upload test results
+              if: ${{ !cancelled() }}
+              uses: actions/upload-artifact@v4
+              with:
+                  name: junit
+                  path: junit
+
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v5
+            - uses: actions/setup-node@v4
+              with:
+                  node-version-file: .nvmrc
+                  cache: yarn
+            - run: yarn install --immutable
+            - run: yarn lint
+
+    version-check:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v5
+            - uses: actions/setup-node@v4
+              with:
+                  node-version-file: .nvmrc
+                  cache: yarn
+            - run: yarn install --immutable
+            - name: Version check (stentor)
+              run: yarn version-check
+            - name: Version check (all)
+              run: yarn version-check:all
+
+    license-check:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v5
+            - uses: actions/setup-node@v4
+              with:
+                  node-version-file: .nvmrc
+                  cache: yarn
+            - run: yarn install --immutable
+            - run: yarn license-check

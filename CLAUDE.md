@@ -28,8 +28,9 @@ Since this is a Lerna monorepo, to test a single package:
 - Or use: `lerna run test --scope=stentor-[package-name]`
 
 **Releases:**
-- `yarn release` - Production release (creates tags and publishes)
-- `yarn release:pre` - Prerelease (requires CIRCLE_BRANCH env var)
+- Automated in GitHub Actions via release-please (`.github/workflows/release-please.yml`). There is no local release command.
+- Conventional commits on `master` produce a release PR; merging it tags the release and publishes the bumped packages to npm over OIDC.
+- Packages are versioned independently — only packages with changes are bumped and published.
 
 ## Architecture Overview
 

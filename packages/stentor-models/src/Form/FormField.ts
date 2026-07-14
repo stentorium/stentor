@@ -339,9 +339,14 @@ export interface BusyDayDescription {
    */
   readonly blockCurrentDay?: boolean;
   /**
-   * Blocks the current day until the specified time. This is in the format of HH:MM.
+   * The current day stays available *until* the specified time, in HH:MM (24-hour) format.
    *
-   * For example, "14:00" would make the current day unavailable until 2:00 PM.
+   * For example, "14:00" keeps today bookable up to 2:00 PM; after that, today is no longer offered.
+   *
+   * NOTE: the previous doc comment here described the inverse ("unavailable until 2:00 PM"). It was
+   * wrong. The implementation disables today when the current time is past this value — see
+   * `isDisabledByBusyDays` in the form widget — and the Studio UI ("same-day booking allowed until…")
+   * matches the implementation. Same meaning as AvailabilityClass.currentDayAvailableUntil.
    */
   readonly currentDayAvailableUntil?: string;
   /**

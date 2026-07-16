@@ -11,6 +11,28 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.0](https://github.com/stentorium/stentor/compare/stentor-constants-v1.73.0...stentor-constants-v1.74.0) (2026-07-16)
+
+
+### Features
+
+* EventRequest ([#2730](https://github.com/stentorium/stentor/issues/2730)) ([f262dc0](https://github.com/stentorium/stentor/commit/f262dc0217e36c221fadc2f1d3073b9b9aca17c2))
+* update dependency typescript to v6 ([#2947](https://github.com/stentorium/stentor/issues/2947)) ([e869ee5](https://github.com/stentorium/stentor/commit/e869ee5d50360d36de7f5a952a1c4443dc568500))
+
+
+### Bug Fixes
+
+* **deps:** update dependency typescript to v6.0.3 ([#2987](https://github.com/stentorium/stentor/issues/2987)) ([464f2bc](https://github.com/stentorium/stentor/commit/464f2bc7f731635152a5007b75ddecf3e79cf133))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * devDependencies
+    * stentor-models bumped from 1.73.0 to 1.74.0
+  * peerDependencies
+    * stentor-models bumped from 1.x to 1.74.0
+
 ## [1.72.4](https://github.com/stentorium/stentor/compare/v1.72.3...v1.72.4) (2026-05-18)
 
 **Note:** Version bump only for package stentor-constants

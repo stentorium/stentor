@@ -11,6 +11,33 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.0](https://github.com/stentorium/stentor/compare/stentor-service-event-v1.73.0...stentor-service-event-v1.74.0) (2026-07-16)
+
+
+### Features
+
+* update dependency typescript to v6 ([#2947](https://github.com/stentorium/stentor/issues/2947)) ([e869ee5](https://github.com/stentorium/stentor/commit/e869ee5d50360d36de7f5a952a1c4443dc568500))
+
+
+### Bug Fixes
+
+* **deps:** update dependency typescript to v6.0.3 ([#2987](https://github.com/stentorium/stentor/issues/2987)) ([464f2bc](https://github.com/stentorium/stentor/commit/464f2bc7f731635152a5007b75ddecf3e79cf133))
+* ensure activeWithin function is properly available in condition evaluation ([#2796](https://github.com/stentorium/stentor/issues/2796)) ([3436eb2](https://github.com/stentorium/stentor/commit/3436eb285328aee9f7035ce1fdea704c267be963))
+* Migrate stentor-service-event to AWS SDK v3 ([#2821](https://github.com/stentorium/stentor/issues/2821)) ([f3bf63c](https://github.com/stentorium/stentor/commit/f3bf63c220698891da56542e2ea5f4e717c168b8))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-guards bumped from 1.73.0 to 1.74.0
+    * stentor-logger bumped from 1.72.1 to 1.74.0
+    * stentor-utils bumped from 1.73.0 to 1.74.0
+  * devDependencies
+    * stentor-models bumped from 1.73.0 to 1.74.0
+  * peerDependencies
+    * stentor-models bumped from 1.x to 1.74.0
+
 ## [1.72.4](https://github.com/stentorium/stentor/compare/v1.72.3...v1.72.4) (2026-05-18)
 
 **Note:** Version bump only for package stentor-service-event

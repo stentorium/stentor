@@ -19,6 +19,29 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.0](https://github.com/stentorium/stentor/compare/stentor-models-v1.73.0...stentor-models-v1.74.0) (2026-07-16)
+
+
+### Features
+
+* add maxLength property to FormDropdownInput interface ([#2825](https://github.com/stentorium/stentor/issues/2825)) ([864ec09](https://github.com/stentorium/stentor/commit/864ec09c3ff7c0b6ebb7ba0c661598924903c8ce)), closes [#2824](https://github.com/stentorium/stentor/issues/2824)
+* Add placeId to ExternalLead for multi-location lead routing ([#2889](https://github.com/stentorium/stentor/issues/2889)) ([cc4b9af](https://github.com/stentorium/stentor/commit/cc4b9afc5628cb301ea09923a3338771972c2b17))
+* add startTime and endTime fields to SelectableItem interface ([#2980](https://github.com/stentorium/stentor/issues/2980)) ([c42acec](https://github.com/stentorium/stentor/commit/c42acecf561362f6c8c42105509a9e8c35a92261)), closes [#2979](https://github.com/stentorium/stentor/issues/2979)
+* EventRequest ([#2730](https://github.com/stentorium/stentor/issues/2730)) ([f262dc0](https://github.com/stentorium/stentor/commit/f262dc0217e36c221fadc2f1d3073b9b9aca17c2))
+* **stentor-models:** availability class cutoff, job-type→class map, forceAvailabilityClass ([#3104](https://github.com/stentorium/stentor/issues/3104)) ([c305576](https://github.com/stentorium/stentor/commit/c3055769028f842a6448b1c46561561cb1ff454d))
+* update dependency typescript to v6 ([#2947](https://github.com/stentorium/stentor/issues/2947)) ([e869ee5](https://github.com/stentorium/stentor/commit/e869ee5d50360d36de7f5a952a1c4443dc568500))
+
+
+### Bug Fixes
+
+* Add requireSelection to FormFieldTextAddressInput ([#3041](https://github.com/stentorium/stentor/issues/3041)) ([5132fdf](https://github.com/stentorium/stentor/commit/5132fdfdfb1d7321e6b11ba1f387aa75f6b98edb)), closes [#3040](https://github.com/stentorium/stentor/issues/3040)
+* Adding ZIP_CODE as possible format ([#2760](https://github.com/stentorium/stentor/issues/2760)) ([927d474](https://github.com/stentorium/stentor/commit/927d474b2796ffeaeb21105d22b358d279f786ee))
+* **deps:** update dependency typescript to v6.0.3 ([#2987](https://github.com/stentorium/stentor/issues/2987)) ([464f2bc](https://github.com/stentorium/stentor/commit/464f2bc7f731635152a5007b75ddecf3e79cf133))
+* ensure activeWithin function is properly available in condition evaluation ([#2796](https://github.com/stentorium/stentor/issues/2796)) ([3436eb2](https://github.com/stentorium/stentor/commit/3436eb285328aee9f7035ce1fdea704c267be963))
+* improve error handling for CRM services and context setting ([#2774](https://github.com/stentorium/stentor/issues/2774)) ([af76d8c](https://github.com/stentorium/stentor/commit/af76d8c00d893c2ca36844a62b014ca7a5f04e92))
+* New Field on FormStep - Warn BeforeUnload ([#2758](https://github.com/stentorium/stentor/issues/2758)) ([4fc898c](https://github.com/stentorium/stentor/commit/4fc898cd83994d29f52e440c9a77339fc788a493))
+* patterns dependency update ([#2901](https://github.com/stentorium/stentor/issues/2901)) ([e99cb88](https://github.com/stentorium/stentor/commit/e99cb887734cbd08cf83c18eadfdd9b5b7591134))
+
 ## [1.72.4](https://github.com/stentorium/stentor/compare/v1.72.3...v1.72.4) (2026-05-18)
 
 

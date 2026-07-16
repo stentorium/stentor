@@ -14,6 +14,34 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.0](https://github.com/stentorium/stentor/compare/stentor-time-v1.73.0...stentor-time-v1.74.0) (2026-07-16)
+
+
+### Features
+
+* update dependency typescript to v6 ([#2947](https://github.com/stentorium/stentor/issues/2947)) ([e869ee5](https://github.com/stentorium/stentor/commit/e869ee5d50360d36de7f5a952a1c4443dc568500))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/luxon to v3.7.2 ([#3088](https://github.com/stentorium/stentor/issues/3088)) ([0644ff3](https://github.com/stentorium/stentor/commit/0644ff3f837918b4f9cd7b08b02fdf21c52c562e))
+* **deps:** update dependency typescript to v6.0.3 ([#2987](https://github.com/stentorium/stentor/issues/2987)) ([464f2bc](https://github.com/stentorium/stentor/commit/464f2bc7f731635152a5007b75ddecf3e79cf133))
+* ensure activeWithin function is properly available in condition evaluation ([#2796](https://github.com/stentorium/stentor/issues/2796)) ([3436eb2](https://github.com/stentorium/stentor/commit/3436eb285328aee9f7035ce1fdea704c267be963))
+* Handle undefined lastActiveTimestamp in activeWithin function ([#2773](https://github.com/stentorium/stentor/issues/2773)) ([ba38343](https://github.com/stentorium/stentor/commit/ba38343e1c4da10a11536846b817f70d8c37f41c)), closes [#2772](https://github.com/stentorium/stentor/issues/2772)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-guards bumped from 1.73.0 to 1.74.0
+    * stentor-logger bumped from 1.72.1 to 1.74.0
+    * stentor-utils bumped from 1.73.0 to 1.74.0
+  * devDependencies
+    * stentor-models bumped from 1.73.0 to 1.74.0
+  * peerDependencies
+    * stentor-models bumped from 1.x to 1.74.0
+
 ## [1.72.4](https://github.com/stentorium/stentor/compare/v1.72.3...v1.72.4) (2026-05-18)
 
 **Note:** Version bump only for package stentor-time

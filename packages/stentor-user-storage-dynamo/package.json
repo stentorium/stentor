@@ -1,5 +1,10 @@
 {
   "name": "stentor-user-storage-dynamo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stentorium/stentor.git",
+    "directory": "packages/stentor-user-storage-dynamo"
+  },
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"

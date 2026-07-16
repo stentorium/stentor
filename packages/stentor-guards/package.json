@@ -1,5 +1,10 @@
 {
   "name": "stentor-guards",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stentorium/stentor.git",
+    "directory": "packages/stentor-guards"
+  },
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"

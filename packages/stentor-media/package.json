@@ -1,5 +1,10 @@
 {
   "name": "stentor-media",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stentorium/stentor.git",
+    "directory": "packages/stentor-media"
+  },
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"

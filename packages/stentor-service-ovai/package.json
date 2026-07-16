@@ -1,5 +1,10 @@
 {
   "name": "stentor-service-ovai",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stentorium/stentor.git",
+    "directory": "packages/stentor-service-ovai"
+  },
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"

@@ -1,5 +1,10 @@
 {
   "name": "stentor-interaction-model",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stentorium/stentor.git",
+    "directory": "packages/stentor-interaction-model"
+  },
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"

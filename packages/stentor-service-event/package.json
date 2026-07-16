@@ -1,5 +1,10 @@
 {
   "name": "stentor-service-event",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stentorium/stentor.git",
+    "directory": "packages/stentor-service-event"
+  },
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"

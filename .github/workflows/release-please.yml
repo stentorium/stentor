@@ -17,6 +17,15 @@ permissions:
     pull-requests: write
     id-token: write
 
+# Serialize release runs per ref. Back-to-back pushes to master (e.g. two
+# renovate/dependabot PRs merged in quick succession) would otherwise race:
+# the later run's `git push` of the regenerated yarn.lock to the release
+# branch could fail non-fast-forward. Queue rather than cancel so an in-flight
+# publish is never interrupted mid-release.
+concurrency:
+    group: release-please-${{ github.ref }}
+    cancel-in-progress: false
+
 jobs:
     release-please:
         if: github.event_name == 'push'

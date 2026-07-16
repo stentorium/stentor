@@ -1,5 +1,7 @@
 {
   "extends": ["config:base", "schedule:daily"],
+  "minimumReleaseAge": "3 days",
+  "internalChecksFilter": "strict",
   "packageRules": [
     {
       "depTypeList": ["devDependencies"],

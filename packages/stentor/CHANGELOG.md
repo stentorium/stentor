@@ -15,6 +15,53 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.0](https://github.com/stentorium/stentor/compare/stentor-v1.73.0...stentor-v1.74.0) (2026-07-16)
+
+
+### Features
+
+* update dependency typescript to v6 ([#2947](https://github.com/stentorium/stentor/issues/2947)) ([e869ee5](https://github.com/stentorium/stentor/commit/e869ee5d50360d36de7f5a952a1c4443dc568500))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/aws-lambda to v8.10.155 ([#2734](https://github.com/stentorium/stentor/issues/2734)) ([1b94e38](https://github.com/stentorium/stentor/commit/1b94e38a6cedaa7ab6073f84f75070ef776f9150))
+* **deps:** update dependency @types/aws-lambda to v8.10.156 ([#2739](https://github.com/stentorium/stentor/issues/2739)) ([3c1dc1f](https://github.com/stentorium/stentor/commit/3c1dc1fbb76431f7b5df74f1207fecec281f6ec0))
+* **deps:** update dependency @types/aws-lambda to v8.10.157 ([#2764](https://github.com/stentorium/stentor/issues/2764)) ([66bce7a](https://github.com/stentorium/stentor/commit/66bce7a590f873c7091572a243354115f7cb51fb))
+* **deps:** update dependency @types/aws-lambda to v8.10.159 ([#2797](https://github.com/stentorium/stentor/issues/2797)) ([f46f0d7](https://github.com/stentorium/stentor/commit/f46f0d78ca54283eaa1460727010781c08303b8b))
+* **deps:** update dependency @types/aws-lambda to v8.10.160 ([#2859](https://github.com/stentorium/stentor/issues/2859)) ([beddfda](https://github.com/stentorium/stentor/commit/beddfda5fa4cb00e11eec970c8e3d399221f04d7))
+* **deps:** update dependency @types/aws-lambda to v8.10.161 ([#2917](https://github.com/stentorium/stentor/issues/2917)) ([b0d7138](https://github.com/stentorium/stentor/commit/b0d71384b393516649acb5aa7feb37e6fa709048))
+* **deps:** update dependency @types/aws-lambda to v8.10.162 ([#3087](https://github.com/stentorium/stentor/issues/3087)) ([377f79a](https://github.com/stentorium/stentor/commit/377f79ac843d72b23474d200fa31d570d70bc9ee))
+* **deps:** update dependency @types/express to v5.0.4 ([#2748](https://github.com/stentorium/stentor/issues/2748)) ([c2f25dd](https://github.com/stentorium/stentor/commit/c2f25dd1f6ad824bea0e266027bbff4c3636bdc5))
+* **deps:** update dependency @types/express to v5.0.5 ([#2765](https://github.com/stentorium/stentor/issues/2765)) ([2db15b3](https://github.com/stentorium/stentor/commit/2db15b3da4c645c8ffe31502b5cfc6a587f64929))
+* **deps:** update dependency express to v5.2.1 ([#2810](https://github.com/stentorium/stentor/issues/2810)) ([47e0a15](https://github.com/stentorium/stentor/commit/47e0a151b02ef15566aa9a7b99f8c59818f1b325))
+* **deps:** update dependency typescript to v6.0.3 ([#2987](https://github.com/stentorium/stentor/issues/2987)) ([464f2bc](https://github.com/stentorium/stentor/commit/464f2bc7f731635152a5007b75ddecf3e79cf133))
+* ensure activeWithin function is properly available in condition evaluation ([#2796](https://github.com/stentorium/stentor/issues/2796)) ([3436eb2](https://github.com/stentorium/stentor/commit/3436eb285328aee9f7035ce1fdea704c267be963))
+* patterns dependency update ([#2901](https://github.com/stentorium/stentor/issues/2901)) ([e99cb88](https://github.com/stentorium/stentor/commit/e99cb887734cbd08cf83c18eadfdd9b5b7591134))
+* Removes problematic chalk as a depdency ([#3027](https://github.com/stentorium/stentor/issues/3027)) ([8b7c6c0](https://github.com/stentorium/stentor/commit/8b7c6c013366f25042713721fdabff87ed3debff))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-constants bumped from 1.73.0 to 1.74.0
+    * stentor-context bumped from 1.73.0 to 1.74.0
+    * stentor-determiner bumped from 1.73.0 to 1.74.0
+    * stentor-guards bumped from 1.73.0 to 1.74.0
+    * stentor-handler bumped from 1.73.0 to 1.74.0
+    * stentor-handler-factory bumped from 1.73.0 to 1.74.0
+    * stentor-logger bumped from 1.72.1 to 1.74.0
+    * stentor-models bumped from 1.73.0 to 1.74.0
+    * stentor-request bumped from 1.73.0 to 1.74.0
+    * stentor-response bumped from 1.73.0 to 1.74.0
+    * stentor-runtime bumped from 1.73.0 to 1.74.0
+    * stentor-service-event bumped from 1.73.0 to 1.74.0
+    * stentor-service-fetch bumped from 1.73.0 to 1.74.0
+    * stentor-service-ovai bumped from 1.73.0 to 1.74.0
+    * stentor-service-studio bumped from 1.73.0 to 1.74.0
+    * stentor-utils bumped from 1.73.0 to 1.74.0
+
 ## [1.72.4](https://github.com/stentorium/stentor/compare/v1.72.3...v1.72.4) (2026-05-18)
 
 **Note:** Version bump only for package stentor

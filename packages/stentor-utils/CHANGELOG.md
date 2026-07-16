@@ -18,6 +18,51 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.0](https://github.com/stentorium/stentor/compare/stentor-utils-v1.73.0...stentor-utils-v1.74.0) (2026-07-16)
+
+
+### Features
+
+* Size Reduction Efforts ([#2836](https://github.com/stentorium/stentor/issues/2836)) ([c15050e](https://github.com/stentorium/stentor/commit/c15050e0d60b6252fdbd89a15e6b9a9f41f3b3ea))
+* update dependency typescript to v6 ([#2947](https://github.com/stentorium/stentor/issues/2947)) ([e869ee5](https://github.com/stentorium/stentor/commit/e869ee5d50360d36de7f5a952a1c4443dc568500))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/xmldoc to v2 ([#3099](https://github.com/stentorium/stentor/issues/3099)) ([7d4ebd2](https://github.com/stentorium/stentor/commit/7d4ebd2d0c35ff8859966b0ab2a39804880b700b))
+* **deps:** update dependency chrono-node to v2.9.0 ([#2721](https://github.com/stentorium/stentor/issues/2721)) ([18bd987](https://github.com/stentorium/stentor/commit/18bd98767471a9ef03d7ae877cc1735e3d024c03))
+* **deps:** update dependency fuse.js to v7 ([#2231](https://github.com/stentorium/stentor/issues/2231)) ([fdc18a1](https://github.com/stentorium/stentor/commit/fdc18a11af72ecf8053dd77d19b6ca1b8032d07d))
+* **deps:** update dependency fuse.js to v7.2.0 ([#2960](https://github.com/stentorium/stentor/issues/2960)) ([1c9da48](https://github.com/stentorium/stentor/commit/1c9da4838b8cf5f678abf278f844aef1ae0fe338))
+* **deps:** update dependency fuse.js to v7.3.0 ([#2962](https://github.com/stentorium/stentor/issues/2962)) ([37dfa72](https://github.com/stentorium/stentor/commit/37dfa7296bd4b91fcefc72e09c9a152321d28a8d))
+* **deps:** update dependency fuse.js to v7.4.2 ([#3057](https://github.com/stentorium/stentor/issues/3057)) ([26cc4b8](https://github.com/stentorium/stentor/commit/26cc4b8e2c5bf2a1842464341bd953b230bb98d7))
+* **deps:** update dependency jsonpath-plus to v10.4.0 ([#2885](https://github.com/stentorium/stentor/issues/2885)) ([e4758f9](https://github.com/stentorium/stentor/commit/e4758f9d674040f1095b54f634eaf9508ae4f322))
+* **deps:** update dependency marked-xhtml to v1.0.14 ([#2767](https://github.com/stentorium/stentor/issues/2767)) ([f150b07](https://github.com/stentorium/stentor/commit/f150b078ff87334f783ec4703cc19a9d14c79326))
+* **deps:** update dependency marked-xhtml to v1.0.15 ([#2966](https://github.com/stentorium/stentor/issues/2966)) ([364a35c](https://github.com/stentorium/stentor/commit/364a35cbe48de1be46f5a3416598956f84372bb3))
+* **deps:** update dependency sanitize-html to v2.17.1 ([#2891](https://github.com/stentorium/stentor/issues/2891)) ([be4f71d](https://github.com/stentorium/stentor/commit/be4f71d727c5728974a63c0a9b6161bed8de4110))
+* **deps:** update dependency sanitize-html to v2.17.2 ([#2932](https://github.com/stentorium/stentor/issues/2932)) ([a06b0d8](https://github.com/stentorium/stentor/commit/a06b0d8588121ad37279634476228efe99bce8a8))
+* **deps:** update dependency sanitize-html to v2.17.3 ([#2981](https://github.com/stentorium/stentor/issues/2981)) ([9dd9027](https://github.com/stentorium/stentor/commit/9dd9027133dfed3e6a62cfb7aa8df5e05d265dfb))
+* **deps:** update dependency sanitize-html to v2.17.4 ([#3030](https://github.com/stentorium/stentor/issues/3030)) ([0cecc28](https://github.com/stentorium/stentor/commit/0cecc2860abf8a591a02397709ba53f24666cce9))
+* **deps:** update dependency sanitize-html to v2.17.5 ([#3068](https://github.com/stentorium/stentor/issues/3068)) ([c4dbb7e](https://github.com/stentorium/stentor/commit/c4dbb7e9717194d07c366140861e47e2a3c4a3ac))
+* **deps:** update dependency sanitize-html to v2.17.6 ([#3095](https://github.com/stentorium/stentor/issues/3095)) ([0f3da17](https://github.com/stentorium/stentor/commit/0f3da1741f1424b7e1c72f6b0af80b1ebc445726))
+* **deps:** update dependency slugify to v1.6.8 ([#2926](https://github.com/stentorium/stentor/issues/2926)) ([b063474](https://github.com/stentorium/stentor/commit/b0634740d1123a52aba7c9105eb348f939a25587))
+* **deps:** update dependency slugify to v1.6.9 ([#2957](https://github.com/stentorium/stentor/issues/2957)) ([8dad1f5](https://github.com/stentorium/stentor/commit/8dad1f54cc5dfaeb9fd279acd55cb0c3c670bee1))
+* **deps:** update dependency typescript to v6.0.3 ([#2987](https://github.com/stentorium/stentor/issues/2987)) ([464f2bc](https://github.com/stentorium/stentor/commit/464f2bc7f731635152a5007b75ddecf3e79cf133))
+* **deps:** update dependency xmldoc to v3 ([#3065](https://github.com/stentorium/stentor/issues/3065)) ([1ae16ec](https://github.com/stentorium/stentor/commit/1ae16ecbc53012599537701a86fcaa9978caed1a))
+* ensure activeWithin function is properly available in condition evaluation ([#2796](https://github.com/stentorium/stentor/issues/2796)) ([3436eb2](https://github.com/stentorium/stentor/commit/3436eb285328aee9f7035ce1fdea704c267be963))
+* patterns dependency update ([#2901](https://github.com/stentorium/stentor/issues/2901)) ([e99cb88](https://github.com/stentorium/stentor/commit/e99cb887734cbd08cf83c18eadfdd9b5b7591134))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-constants bumped from 1.73.0 to 1.74.0
+    * stentor-guards bumped from 1.73.0 to 1.74.0
+  * devDependencies
+    * stentor-models bumped from 1.73.0 to 1.74.0
+  * peerDependencies
+    * stentor-models bumped from 1.x to 1.74.0
+
 ## [1.72.4](https://github.com/stentorium/stentor/compare/v1.72.3...v1.72.4) (2026-05-18)
 
 

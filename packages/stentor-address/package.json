@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.73.0",
+  "version": "1.74.0",
   "description": "Utilities for address parsing and formatting",
   "types": "lib/index",
   "main": "lib/index",
@@ -26,8 +26,8 @@
     "mocha": "11.7.6",
     "sinon": "22.0.0",
     "sinon-chai": "3.7.0",
-    "stentor-models": "1.73.0",
-    "stentor-utils": "1.73.0",
+    "stentor-models": "1.74.0",
+    "stentor-utils": "1.74.0",
     "ts-node": "10.9.2",
     "typescript": "6.0.3"
   },

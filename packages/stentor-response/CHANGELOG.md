@@ -14,6 +14,36 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.0](https://github.com/stentorium/stentor/compare/stentor-response-v1.73.0...stentor-response-v1.74.0) (2026-07-16)
+
+
+### Features
+
+* update dependency typescript to v6 ([#2947](https://github.com/stentorium/stentor/issues/2947)) ([e869ee5](https://github.com/stentorium/stentor/commit/e869ee5d50360d36de7f5a952a1c4443dc568500))
+
+
+### Bug Fixes
+
+* **deps:** update dependency typescript to v6.0.3 ([#2987](https://github.com/stentorium/stentor/issues/2987)) ([464f2bc](https://github.com/stentorium/stentor/commit/464f2bc7f731635152a5007b75ddecf3e79cf133))
+* Removes problematic chalk as a depdency ([#3027](https://github.com/stentorium/stentor/issues/3027)) ([8b7c6c0](https://github.com/stentorium/stentor/commit/8b7c6c013366f25042713721fdabff87ed3debff))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-constants bumped from 1.73.0 to 1.74.0
+    * stentor-determiner bumped from 1.73.0 to 1.74.0
+    * stentor-guards bumped from 1.73.0 to 1.74.0
+    * stentor-locales bumped from 1.73.0 to 1.74.0
+    * stentor-logger bumped from 1.72.1 to 1.74.0
+    * stentor-media bumped from 1.73.0 to 1.74.0
+    * stentor-utils bumped from 1.73.0 to 1.74.0
+  * devDependencies
+    * stentor-models bumped from 1.73.0 to 1.74.0
+  * peerDependencies
+    * stentor-models bumped from 1.x to 1.74.0
+
 ## [1.72.4](https://github.com/stentorium/stentor/compare/v1.72.3...v1.72.4) (2026-05-18)
 
 **Note:** Version bump only for package stentor-response

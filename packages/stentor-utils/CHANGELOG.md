@@ -18,6 +18,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.1](https://github.com/stentorium/stentor/compare/stentor-utils-v1.74.0...stentor-utils-v1.74.1) (2026-07-17)
+
+
+### Bug Fixes
+
+* **stentor-utils:** pin xmldoc to 2.0.3 (CommonJS) to stop ESM require crash ([#3117](https://github.com/stentorium/stentor/issues/3117)) ([c722e67](https://github.com/stentorium/stentor/commit/c722e67c6590830903c3a5f2037763c6298c70dc))
+
 ## [1.74.0](https://github.com/stentorium/stentor/compare/stentor-utils-v1.73.0...stentor-utils-v1.74.0) (2026-07-16)
 
 

@@ -14,6 +14,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.1](https://github.com/stentorium/stentor/compare/stentor-request-v1.74.0...stentor-request-v1.74.1) (2026-07-17)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-interaction-model bumped from 1.74.0 to 1.74.1
+    * stentor-utils bumped from 1.74.0 to 1.74.1
+  * devDependencies
+    * stentor-storage bumped from 1.74.0 to 1.74.1
+
 ## [1.74.0](https://github.com/stentorium/stentor/compare/stentor-request-v1.73.0...stentor-request-v1.74.0) (2026-07-16)
 
 

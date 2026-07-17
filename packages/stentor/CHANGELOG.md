@@ -15,6 +15,26 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.1](https://github.com/stentorium/stentor/compare/stentor-v1.74.0...stentor-v1.74.1) (2026-07-17)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-context bumped from 1.74.0 to 1.74.1
+    * stentor-determiner bumped from 1.74.0 to 1.74.1
+    * stentor-handler bumped from 1.74.0 to 1.74.1
+    * stentor-handler-factory bumped from 1.74.0 to 1.74.1
+    * stentor-logger bumped from 1.74.0 to 1.74.1
+    * stentor-request bumped from 1.74.0 to 1.74.1
+    * stentor-response bumped from 1.74.0 to 1.74.1
+    * stentor-runtime bumped from 1.74.0 to 1.74.1
+    * stentor-service-event bumped from 1.74.0 to 1.74.1
+    * stentor-service-ovai bumped from 1.74.0 to 1.74.1
+    * stentor-service-studio bumped from 1.74.0 to 1.74.1
+    * stentor-utils bumped from 1.74.0 to 1.74.1
+
 ## [1.74.0](https://github.com/stentorium/stentor/compare/stentor-v1.73.0...stentor-v1.74.0) (2026-07-16)
 
 

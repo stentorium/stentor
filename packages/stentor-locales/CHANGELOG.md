@@ -11,6 +11,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.1](https://github.com/stentorium/stentor/compare/stentor-locales-v1.74.0...stentor-locales-v1.74.1) (2026-07-17)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-utils bumped from 1.74.0 to 1.74.1
+
 ## [1.74.0](https://github.com/stentorium/stentor/compare/stentor-locales-v1.73.0...stentor-locales-v1.74.0) (2026-07-16)
 
 

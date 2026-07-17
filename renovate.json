@@ -22,6 +22,11 @@
     {
       "packageNames": ["aws-sdk"],
       "schedule": ["after 9pm on sunday"]
+    },
+    {
+      "description": "xmldoc 3.x is ESM-only; stentor-utils require()s it from CommonJS, so >=3 breaks every downstream Lambda at init (ERR_REQUIRE_ESM). Stay on the 2.x CJS line.",
+      "matchPackageNames": ["xmldoc"],
+      "allowedVersions": "<3.0.0"
     }
   ]
 }

@@ -1,7 +1,7 @@
 /*! Copyright (c) 2026, XAPP AI */
 import { expect } from "chai";
 
-import { FormStep, FormStepExternalWidget, FormSteps } from "../FormStep";
+import { FormStep, FormStepExternalWidget, FormStepIFrame, FormSteps } from "../FormStep";
 
 describe("FormStepExternalWidget", () => {
     it("is assignable to FormSteps with only the required externalWidget fields set", () => {
@@ -124,10 +124,23 @@ describe("FormStepExternalWidget", () => {
         expect(step.externalWidget).to.be.an("object");
     });
 
-    it("keeps plain FormStep and existing FormStepIFrame consumers assignable to FormSteps", () => {
+    // Every member of FormSteps extends FormStep, so for assignment purposes the union is
+    // equivalent to FormStep alone -- a subtype is assignable to the union via the base member
+    // whether or not it is named in it. Verified by mutation: removing FormStepIFrame *or*
+    // FormStepExternalWidget from the union produces no error here, while removing FormStep
+    // does. So this guards the base member only; asserting the two subtypes separately would
+    // read as coverage while being incapable of failing, and the union's real payload is
+    // narrowing, which needs a type guard this package does not ship.
+    it("keeps FormStep itself a member of FormSteps, which subtypes rely on for assignability", () => {
         const plain: FormStep = { name: "step-one", fields: [] };
-        const steps: FormSteps[] = [plain];
+        const iframe: FormStepIFrame = {
+            name: "step-two",
+            fields: [],
+            iframe: { src: "https://embed.example.com/form" }
+        };
+        const steps: FormSteps[] = [plain, iframe];
 
         expect(steps[0]).to.equal(plain);
+        expect(steps[1]).to.equal(iframe);
     });
 });

@@ -46,8 +46,20 @@ export interface FormStepExternalWidget extends FormStep {
      */
     configGlobal: string;
     /**
-     * The configuration the third-party script consumes. Values are provider-specific.
-     * May be merged at runtime with values returned by the server on form submit.
+     * The configuration the third-party script consumes. Keys and values are
+     * provider-specific. May be merged at runtime with values returned by the server on
+     * form submit.
+     *
+     * Values are deliberately restricted to primitives rather than `unknown`: this step is
+     * authored by hand as JSON (in Studio), so the config must stay flat and
+     * JSON-serializable, which is also how the embeds we target declare their own globals.
+     * A provider needing a nested config would be a deliberate widening of this type, not
+     * something to work around at the call site.
+     *
+     * Note this describes the *authored* config only. The object a consumer actually
+     * assigns to `window[configGlobal]` additionally carries a function at
+     * {@link successCallbackKey}, so consumers model the runtime object with their own
+     * type rather than reusing this one.
      */
     config: Record<string, string | number | boolean>;
     /**

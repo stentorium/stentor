@@ -48,10 +48,12 @@ describe("FormStepExternalWidget", () => {
     });
 
     it("requires anchorId, scriptSrc, configGlobal and config on externalWidget", () => {
-        // @ts-expect-error externalWidget is missing the required anchorId/scriptSrc/configGlobal/config fields
         const missingRequired: FormStepExternalWidget = {
             name: "booking-handoff",
             fields: [],
+            // The directive must sit on the erroring line itself: the assignability error is
+            // reported on this property, not on the declaration above it.
+            // @ts-expect-error externalWidget is missing the required anchorId/scriptSrc/configGlobal/config fields
             externalWidget: {}
         };
 

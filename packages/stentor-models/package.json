@@ -39,7 +39,8 @@
     "build": "tsc -d true -p .",
     "dist": "rollup -c",
     "clean": "rm -rf ./lib/* && rm -rf ./dist/*",
-    "test": "mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
+    "types": "tsc -p tsconfig.test.json",
+    "test": "tsc -p tsconfig.test.json && mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
   },
   "dependencies": {
     "@xapp/patterns": "2.0.3"

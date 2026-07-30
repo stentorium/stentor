@@ -4,7 +4,9 @@
     "rootDir": "src",
     "outDir": "lib",
     "strict": true,
-    "types": ["node", "mocha"]
+    // No ambient type packages: this is a pure-types library and its sources use no
+    // node or mocha globals. Test-only types live in tsconfig.test.json.
+    "types": []
   },
   "include": ["src"],
   "exclude": ["node_modules", "src/**/__test__/*"],

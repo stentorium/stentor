@@ -2,7 +2,7 @@
 
 import { FormField } from "./FormField";
 
-export type FormSteps = FormStep | FormStepIFrame;
+export type FormSteps = FormStep | FormStepIFrame | FormStepExternalWidget;
 
 export interface FormStepIFrame extends FormStep {
   /**
@@ -21,6 +21,57 @@ export interface FormStepIFrame extends FormStep {
      * Optional height, defaults to 100%
      */
     height?: string;
+  };
+}
+
+/**
+ * A step that mounts a third-party widget by injecting its script and letting it render
+ * into an anchor element. Used for booking handoffs where the partner ships a JS embed
+ * rather than an iframe URL or a server API.
+ */
+export interface FormStepExternalWidget extends FormStep {
+  externalWidget: {
+    /**
+     * id of the element the third-party script mounts into, e.g. "airo-anchor".
+     * The widget renders an empty div with this id.
+     */
+    anchorId: string;
+    /**
+     * https URL of the third-party embed script.
+     */
+    scriptSrc: string;
+    /**
+     * Name of the global the script reads its configuration from, e.g. "airoBookingForm".
+     * The widget assigns `config` to `window[configGlobal]` before appending the script.
+     */
+    configGlobal: string;
+    /**
+     * The configuration the third-party script consumes. Values are provider-specific.
+     * May be merged at runtime with values returned by the server on form submit.
+     */
+    config: Record<string, string | number | boolean>;
+    /**
+     * Optional key on `config` that the widget populates with a success callback
+     * function, e.g. "apptScheduledCallback". The provider invokes it when the
+     * visitor completes the booking.
+     */
+    successCallbackKey?: string;
+    /**
+     * When true, a cache-busting query parameter is appended to scriptSrc.
+     * Required by some providers (CostGuide documents `?v=<timestamp>`).
+     */
+    cacheBust?: boolean;
+    /**
+     * How long to wait for the anchor to receive child nodes before treating the
+     * mount as a no-render (e.g. the provider found no matching contractor and
+     * rendered nothing). Defaults to a consumer-chosen value.
+     */
+    renderTimeoutMs?: number;
+    /**
+     * Name of the step to advance to when the widget fails to render or reports
+     * no match, so the visitor is not left at a dead end.
+     */
+    fallbackStep?: string;
   };
 }
 
@@ -89,4 +140,10 @@ export interface FormStep {
    * property allows for future compatibility and clarity.
    */
   warnBeforeUnloadMessage?: string;
+
+  /**
+   * Render this step edge-to-edge, suppressing the container's horizontal gutters.
+   * Third-party embeds frequently require the full container width.
+   */
+  fullBleed?: boolean;
 }

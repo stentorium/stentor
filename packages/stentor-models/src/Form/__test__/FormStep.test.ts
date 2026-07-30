@@ -47,7 +47,7 @@ describe("FormStepExternalWidget", () => {
         expect((steps[0] as FormStepExternalWidget).externalWidget.fallbackStep).to.equal("no-match");
     });
 
-    it("requires anchorId, scriptSrc, configGlobal and config on externalWidget", () => {
+    it("rejects an empty externalWidget", () => {
         const missingRequired: FormStepExternalWidget = {
             name: "booking-handoff",
             fields: [],
@@ -58,6 +58,70 @@ describe("FormStepExternalWidget", () => {
         };
 
         expect(missingRequired.externalWidget).to.be.an("object");
+    });
+
+    // Each case below omits exactly one required field and keeps the other three, so its
+    // directive goes unused the moment that *single* field becomes optional. The empty-object
+    // case above cannot do this on its own: `{}` keeps erroring as long as any one field is
+    // still required, so it would silently pass a one-field regression.
+    it("requires anchorId on externalWidget", () => {
+        const step: FormStepExternalWidget = {
+            name: "booking-handoff",
+            fields: [],
+            // @ts-expect-error anchorId is required
+            externalWidget: {
+                scriptSrc: "https://embed.example.com/widget.js",
+                configGlobal: "airoBookingForm",
+                config: {}
+            }
+        };
+
+        expect(step.externalWidget).to.be.an("object");
+    });
+
+    it("requires scriptSrc on externalWidget", () => {
+        const step: FormStepExternalWidget = {
+            name: "booking-handoff",
+            fields: [],
+            // @ts-expect-error scriptSrc is required
+            externalWidget: {
+                anchorId: "airo-anchor",
+                configGlobal: "airoBookingForm",
+                config: {}
+            }
+        };
+
+        expect(step.externalWidget).to.be.an("object");
+    });
+
+    it("requires configGlobal on externalWidget", () => {
+        const step: FormStepExternalWidget = {
+            name: "booking-handoff",
+            fields: [],
+            // @ts-expect-error configGlobal is required
+            externalWidget: {
+                anchorId: "airo-anchor",
+                scriptSrc: "https://embed.example.com/widget.js",
+                config: {}
+            }
+        };
+
+        expect(step.externalWidget).to.be.an("object");
+    });
+
+    it("requires config on externalWidget", () => {
+        const step: FormStepExternalWidget = {
+            name: "booking-handoff",
+            fields: [],
+            // @ts-expect-error config is required
+            externalWidget: {
+                anchorId: "airo-anchor",
+                scriptSrc: "https://embed.example.com/widget.js",
+                configGlobal: "airoBookingForm"
+            }
+        };
+
+        expect(step.externalWidget).to.be.an("object");
     });
 
     it("keeps plain FormStep and existing FormStepIFrame consumers assignable to FormSteps", () => {

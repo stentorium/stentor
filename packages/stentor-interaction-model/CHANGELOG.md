@@ -11,6 +11,22 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.2](https://github.com/stentorium/stentor/compare/stentor-interaction-model-v1.74.1...stentor-interaction-model-v1.74.2) (2026-07-30)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-constants bumped from 1.74.0 to 1.74.1
+    * stentor-locales bumped from 1.74.1 to 1.74.2
+    * stentor-logger bumped from 1.74.1 to 1.74.2
+    * stentor-utils bumped from 1.74.1 to 1.74.2
+  * devDependencies
+    * stentor-models bumped from 1.74.0 to 1.75.0
+  * peerDependencies
+    * stentor-models bumped from 1.x to 1.75.0
+
 ## [1.74.1](https://github.com/stentorium/stentor/compare/stentor-interaction-model-v1.74.0...stentor-interaction-model-v1.74.1) (2026-07-17)
 
 

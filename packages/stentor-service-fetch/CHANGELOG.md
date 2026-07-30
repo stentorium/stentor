@@ -11,6 +11,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.1](https://github.com/stentorium/stentor/compare/stentor-service-fetch-v1.74.0...stentor-service-fetch-v1.74.1) (2026-07-30)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * devDependencies
+    * stentor-models bumped from 1.74.0 to 1.75.0
+  * peerDependencies
+    * stentor-models bumped from 1.x to 1.75.0
+
 ## [1.74.0](https://github.com/stentorium/stentor/compare/stentor-service-fetch-v1.73.0...stentor-service-fetch-v1.74.0) (2026-07-16)
 
 

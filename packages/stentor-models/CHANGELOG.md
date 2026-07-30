@@ -19,6 +19,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.75.0](https://github.com/stentorium/stentor/compare/stentor-models-v1.74.0...stentor-models-v1.75.0) (2026-07-30)
+
+
+### Features
+
+* add FormStepExternalWidget step type for third-party widget handoffs ([#3132](https://github.com/stentorium/stentor/issues/3132)) ([eaecaa9](https://github.com/stentorium/stentor/commit/eaecaa9300430a71cd6d3fcf1fb8c7d415ae61b3))
+
 ## [1.74.0](https://github.com/stentorium/stentor/compare/stentor-models-v1.73.0...stentor-models-v1.74.0) (2026-07-16)
 
 

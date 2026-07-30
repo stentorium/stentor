@@ -1,0 +1,13 @@
+{
+  // Type-checks the test sources, which tsconfig.json deliberately excludes from the
+  // build. Without this, type-level assertions in __test__ (e.g. @ts-expect-error on a
+  // required-field contract) are never verified: `build` skips the files and the mocha
+  // run uses ts-node with transpileOnly, so neither reports a diagnostic.
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "types": ["node", "mocha"]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}

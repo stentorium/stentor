@@ -3,8 +3,17 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "lib",
-    "strict": true
+    "strict": true,
+    // No ambient type packages: this is a pure-types library and its sources use no
+    // node or mocha globals. Test-only types live in tsconfig.test.json.
+    "types": []
   },
   "include": ["src"],
-  "exclude": ["node_modules", "src/**/__test__/*"]
+  "exclude": ["node_modules", "src/**/__test__/*"],
+  "ts-node": {
+    "transpileOnly": true,
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  }
 }

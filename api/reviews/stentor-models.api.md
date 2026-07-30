@@ -1590,6 +1590,7 @@ export interface FormStep {
     fields: FormField[];
     // (undocumented)
     final?: boolean;
+    fullBleed?: boolean;
     // (undocumented)
     name: string;
     nextAction?: "next" | "submit" | "omit";
@@ -1602,6 +1603,23 @@ export interface FormStep {
     warnBeforeUnload?: boolean;
     // @beta
     warnBeforeUnloadMessage?: string;
+}
+
+// Warning: (ae-missing-release-tag) "FormStepExternalWidget" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface FormStepExternalWidget extends FormStep {
+    // (undocumented)
+    externalWidget: {
+        anchorId: string;
+        scriptSrc: string;
+        configGlobal: string;
+        config: Record<string, string | number | boolean>;
+        successCallbackKey?: string;
+        cacheBust?: boolean;
+        renderTimeoutMs?: number;
+        fallbackStep?: string;
+    };
 }
 
 // Warning: (ae-missing-release-tag) "FormStepIFrame" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
@@ -1618,7 +1636,7 @@ export interface FormStepIFrame extends FormStep {
 // Warning: (ae-missing-release-tag) "FormSteps" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export type FormSteps = FormStep | FormStepIFrame;
+export type FormSteps = FormStep | FormStepIFrame | FormStepExternalWidget;
 
 // Warning: (ae-missing-release-tag) "FormTextInput" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //

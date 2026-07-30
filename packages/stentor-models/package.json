@@ -24,8 +24,13 @@
   "devDependencies": {
     "@microsoft/api-extractor": "7.58.12",
     "@rollup/plugin-typescript": "12.3.0",
+    "@types/chai": "5.2.3",
+    "@types/mocha": "10.0.10",
     "@xapp/config": "0.3.0",
+    "chai": "4.5.0",
+    "mocha": "11.7.6",
     "rollup": "3.30.0",
+    "ts-node": "10.9.2",
     "tslib": "2.8.1",
     "typescript": "6.0.3"
   },
@@ -33,7 +38,9 @@
     "api": "api-extractor run --local",
     "build": "tsc -d true -p .",
     "dist": "rollup -c",
-    "clean": "rm -rf ./lib/* && rm -rf ./dist/*"
+    "clean": "rm -rf ./lib/* && rm -rf ./dist/*",
+    "types": "tsc -p tsconfig.test.json",
+    "test": "tsc -p tsconfig.test.json && mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
   },
   "dependencies": {
     "@xapp/patterns": "2.0.3"

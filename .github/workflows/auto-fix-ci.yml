@@ -93,14 +93,18 @@ Please review the CI logs and fix manually."
           # Get a summary
           SUMMARY=$(gh run view "$RUN_ID" --json jobs -q '.jobs[] | select(.conclusion == "failure") | "\(.name): \(.conclusion)"' | head -10)
 
-          echo "summary<<EOF" >> $GITHUB_OUTPUT
+          # Use unique delimiters to prevent injection from CI output
+          DELIM_SUMMARY="EOF_SUMMARY_${{ github.run_id }}_$RANDOM"
+          DELIM_LOGS="EOF_LOGS_${{ github.run_id }}_$RANDOM"
+
+          echo "summary<<$DELIM_SUMMARY" >> $GITHUB_OUTPUT
           echo "$SUMMARY" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          echo "$DELIM_SUMMARY" >> $GITHUB_OUTPUT
 
           # Save full logs to output (use delimiter pattern for multiline)
-          echo "logs<<LOGSEOF" >> $GITHUB_OUTPUT
+          echo "logs<<$DELIM_LOGS" >> $GITHUB_OUTPUT
           echo "$LOGS" >> $GITHUB_OUTPUT
-          echo "LOGSEOF" >> $GITHUB_OUTPUT
+          echo "$DELIM_LOGS" >> $GITHUB_OUTPUT
 
       - name: Ask Claude to fix CI
         if: steps.retry.outputs.should_retry == 'true'
@@ -134,9 +138,6 @@ Please review the CI logs and fix manually."
             Bash(yarn test)
             Bash(yarn lint)
             Bash(yarn format)
-            Bash(npm install)
-            Bash(npm run *)
-            Bash(npm test)
             Bash(git status)
             Bash(git diff)
             Bash(git log)
@@ -145,8 +146,10 @@ Please review the CI logs and fix manually."
             Bash(git push)
             Bash(git checkout)
             Bash(git branch)
-            Bash(gh pr *)
-            Bash(gh issue *)
+            Bash(gh pr view)
+            Bash(gh pr diff)
+            Bash(gh pr checks)
+            Bash(gh pr comment)
             Read
             Write
             Edit

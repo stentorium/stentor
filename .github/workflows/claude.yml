@@ -54,9 +54,6 @@ jobs:
             Bash(yarn test)
             Bash(yarn lint)
             Bash(yarn format)
-            Bash(npm install)
-            Bash(npm run *)
-            Bash(npm test)
             Bash(git status)
             Bash(git diff)
             Bash(git log)
@@ -65,8 +62,15 @@ jobs:
             Bash(git push)
             Bash(git checkout)
             Bash(git branch)
-            Bash(gh pr *)
-            Bash(gh issue *)
+            Bash(gh pr create)
+            Bash(gh pr view)
+            Bash(gh pr diff)
+            Bash(gh pr list)
+            Bash(gh pr checks)
+            Bash(gh pr comment)
+            Bash(gh issue view)
+            Bash(gh issue list)
+            Bash(gh issue comment)
             Read
             Write
             Edit

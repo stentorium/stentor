@@ -90,15 +90,19 @@ Please review the feedback and address manually."
             --jq '.[] | select(.in_reply_to_id == null) | "[\(.path):\(.line // .original_line)]: \(.body)"' \
             | head -50)
 
-          echo "comments<<EOF" >> $GITHUB_OUTPUT
+          # Use unique delimiters to prevent injection from attacker-controlled review text
+          DELIM_COMMENTS="EOF_COMMENTS_${{ github.run_id }}_$RANDOM"
+          DELIM_REVIEW="EOF_REVIEW_${{ github.run_id }}_$RANDOM"
+
+          echo "comments<<$DELIM_COMMENTS" >> $GITHUB_OUTPUT
           echo "$COMMENTS" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          echo "$DELIM_COMMENTS" >> $GITHUB_OUTPUT
 
           # Get the latest review body if this is a review submission (safe via env)
           if [ "$EVENT_NAME" == "pull_request_review" ]; then
-            echo "review_body<<EOF" >> $GITHUB_OUTPUT
+            echo "review_body<<$DELIM_REVIEW" >> $GITHUB_OUTPUT
             echo "$REVIEW_BODY" >> $GITHUB_OUTPUT
-            echo "EOF" >> $GITHUB_OUTPUT
+            echo "$DELIM_REVIEW" >> $GITHUB_OUTPUT
           else
             echo "review_body=" >> $GITHUB_OUTPUT
           fi
@@ -134,9 +138,6 @@ Please review the feedback and address manually."
             Bash(yarn test)
             Bash(yarn lint)
             Bash(yarn format)
-            Bash(npm install)
-            Bash(npm run *)
-            Bash(npm test)
             Bash(git status)
             Bash(git diff)
             Bash(git log)
@@ -145,8 +146,10 @@ Please review the feedback and address manually."
             Bash(git push)
             Bash(git checkout)
             Bash(git branch)
-            Bash(gh pr *)
-            Bash(gh issue *)
+            Bash(gh pr view)
+            Bash(gh pr diff)
+            Bash(gh pr checks)
+            Bash(gh pr comment)
             Read
             Write
             Edit

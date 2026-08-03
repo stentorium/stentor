@@ -73,6 +73,8 @@ jobs:
         id: context
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REVIEW_BODY: ${{ github.event.review.body }}
+          EVENT_NAME: ${{ github.event_name }}
         run: |
           PR_NUM="${{ github.event.pull_request.number }}"
 
@@ -81,26 +83,24 @@ jobs:
             --jq '.[] | select(.in_reply_to_id == null) | "[\(.path):\(.line // .original_line)]: \(.body)"' \
             | head -50)
 
-          # Get the latest review body if this is a review submission
-          if [ "${{ github.event_name }}" == "pull_request_review" ]; then
-            REVIEW_BODY="${{ github.event.review.body }}"
-          else
-            REVIEW_BODY=""
-          fi
-
           echo "comments<<EOF" >> $GITHUB_OUTPUT
           echo "$COMMENTS" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
-          echo "review_body<<EOF" >> $GITHUB_OUTPUT
-          echo "$REVIEW_BODY" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          # Get the latest review body if this is a review submission (safe via env)
+          if [ "$EVENT_NAME" == "pull_request_review" ]; then
+            echo "review_body<<EOF" >> $GITHUB_OUTPUT
+            echo "$REVIEW_BODY" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          else
+            echo "review_body=" >> $GITHUB_OUTPUT
+          fi
 
       - name: Ask Claude to address reviews
         if: steps.check.outputs.should_respond == 'true'
         uses: anthropics/claude-code-action@v1
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           prompt: |
             [auto-address-review attempt ${{ steps.check.outputs.attempt }}]
 

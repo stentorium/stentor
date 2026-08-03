@@ -34,16 +34,21 @@ jobs:
         id: pr
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EVENT_NAME: ${{ github.event_name }}
+          PR_HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          CHECK_SUITE_BRANCH: ${{ github.event.check_suite.head_branch }}
+          WORKFLOW_RUN_BRANCH: ${{ github.event.workflow_run.head_branch }}
         run: |
-          # Determine the branch based on event type
-          if [ "${{ github.event_name }}" == "pull_request_review" ]; then
-            BRANCH="${{ github.event.pull_request.head.ref }}"
-            PR_NUM="${{ github.event.pull_request.number }}"
-          elif [ "${{ github.event_name }}" == "check_suite" ]; then
-            BRANCH="${{ github.event.check_suite.head_branch }}"
+          # Determine the branch based on event type (using env vars to avoid injection)
+          if [ "$EVENT_NAME" == "pull_request_review" ]; then
+            BRANCH="$PR_HEAD_REF"
+            PR_NUM="$PR_NUMBER"
+          elif [ "$EVENT_NAME" == "check_suite" ]; then
+            BRANCH="$CHECK_SUITE_BRANCH"
             PR_NUM=$(gh pr list --head "$BRANCH" --json number -q '.[0].number')
           else
-            BRANCH="${{ github.event.workflow_run.head_branch }}"
+            BRANCH="$WORKFLOW_RUN_BRANCH"
             PR_NUM=$(gh pr list --head "$BRANCH" --json number -q '.[0].number')
           fi
 

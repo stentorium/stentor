@@ -29,8 +29,8 @@ jobs:
         id: pr
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: ${{ github.event.workflow_run.head_branch }}
         run: |
-          BRANCH="${{ github.event.workflow_run.head_branch }}"
           PR_NUM=$(gh pr list --repo "${{ github.repository }}" --head "$BRANCH" --json number -q '.[0].number')
 
           if [ -z "$PR_NUM" ]; then
@@ -83,20 +83,23 @@ jobs:
           # Get the failed jobs and their logs (truncated to avoid token limits)
           LOGS=$(gh run view "$RUN_ID" --log-failed 2>/dev/null | tail -200 || echo "Could not fetch logs")
 
-          # Save to file for the action
-          echo "$LOGS" > /tmp/ci-failure-logs.txt
-
-          # Also get a summary
+          # Get a summary
           SUMMARY=$(gh run view "$RUN_ID" --json jobs -q '.jobs[] | select(.conclusion == "failure") | "\(.name): \(.conclusion)"' | head -10)
+
           echo "summary<<EOF" >> $GITHUB_OUTPUT
           echo "$SUMMARY" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
+
+          # Save full logs to output (use delimiter pattern for multiline)
+          echo "logs<<LOGSEOF" >> $GITHUB_OUTPUT
+          echo "$LOGS" >> $GITHUB_OUTPUT
+          echo "LOGSEOF" >> $GITHUB_OUTPUT
 
       - name: Ask Claude to fix CI
         if: steps.retry.outputs.should_retry == 'true'
         uses: anthropics/claude-code-action@v1
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           prompt: |
             [auto-fix-ci attempt ${{ steps.retry.outputs.attempt }}]
 
@@ -107,7 +110,7 @@ jobs:
 
             Here are the last 200 lines of the failed logs:
             ```
-            $(cat /tmp/ci-failure-logs.txt)
+            ${{ steps.logs.outputs.logs }}
             ```
 
             Instructions:

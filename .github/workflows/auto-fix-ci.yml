@@ -17,6 +17,11 @@ permissions:
   issues: write
   actions: read
 
+# Prevent concurrent fix attempts on the same branch
+concurrency:
+  group: auto-fix-ci-${{ github.event.workflow_run.head_branch }}
+  cancel-in-progress: false
+
 jobs:
   fix-ci:
     # Only trigger on failed CI for Claude branches
@@ -54,9 +59,11 @@ jobs:
 
           if [ "$RETRY_COUNT" -ge 3 ]; then
             echo "Already tried $RETRY_COUNT times, giving up. Human intervention needed."
-            gh pr comment "$PR_NUM" --body "CI has failed $RETRY_COUNT times. Stopping auto-fix attempts.
+            gh pr comment "$PR_NUM" --body "## Manual Attention Required
 
-@michaelmyers - this PR needs manual attention."
+CI has failed **$RETRY_COUNT times**. Auto-fix attempts exhausted.
+
+Please review the CI logs and fix manually."
             echo "should_retry=false" >> $GITHUB_OUTPUT
           else
             NEXT_ATTEMPT=$((RETRY_COUNT + 1))
@@ -121,3 +128,27 @@ jobs:
 
             Focus on fixing the actual errors, not suppressing warnings unless that's the root cause.
           claude_args: "--max-turns 30"
+          allowed_tools: |
+            Bash(yarn install)
+            Bash(yarn build)
+            Bash(yarn test)
+            Bash(yarn lint)
+            Bash(yarn format)
+            Bash(npm install)
+            Bash(npm run *)
+            Bash(npm test)
+            Bash(git status)
+            Bash(git diff)
+            Bash(git log)
+            Bash(git add)
+            Bash(git commit)
+            Bash(git push)
+            Bash(git checkout)
+            Bash(git branch)
+            Bash(gh pr *)
+            Bash(gh issue *)
+            Read
+            Write
+            Edit
+            Glob
+            Grep

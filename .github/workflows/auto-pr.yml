@@ -11,9 +11,13 @@ on:
     types: [created]
 
 permissions:
-  contents: write
   pull-requests: write
   issues: write
+
+# Prevent concurrent PR creation for the same issue
+concurrency:
+  group: auto-pr-${{ github.event.issue.number }}
+  cancel-in-progress: false
 
 jobs:
   create-pr:

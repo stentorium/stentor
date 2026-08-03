@@ -17,6 +17,11 @@ permissions:
   pull-requests: write
   issues: write
 
+# Prevent concurrent review handling on the same PR
+concurrency:
+  group: auto-address-reviews-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
 jobs:
   address-reviews:
     # Only trigger on Claude branches, and not on Claude's own comments
@@ -51,9 +56,11 @@ jobs:
 
           if [ "$RETRY_COUNT" -ge 5 ]; then
             echo "Already addressed reviews $RETRY_COUNT times, giving up."
-            gh pr comment "$PR_NUM" --body "Review comments have been addressed $RETRY_COUNT times. Stopping auto-address attempts.
+            gh pr comment "$PR_NUM" --body "## Manual Attention Required
 
-@michaelmyers - this PR needs manual review attention."
+Review comments have been addressed **$RETRY_COUNT times**. Auto-address attempts exhausted.
+
+Please review the feedback and address manually."
             echo "should_respond=false" >> $GITHUB_OUTPUT
           else
             NEXT_ATTEMPT=$((RETRY_COUNT + 1))
@@ -121,3 +128,27 @@ jobs:
 
             Be thorough but don't over-engineer. Match the reviewer's expectations.
           claude_args: "--max-turns 30"
+          allowed_tools: |
+            Bash(yarn install)
+            Bash(yarn build)
+            Bash(yarn test)
+            Bash(yarn lint)
+            Bash(yarn format)
+            Bash(npm install)
+            Bash(npm run *)
+            Bash(npm test)
+            Bash(git status)
+            Bash(git diff)
+            Bash(git log)
+            Bash(git add)
+            Bash(git commit)
+            Bash(git push)
+            Bash(git checkout)
+            Bash(git branch)
+            Bash(gh pr *)
+            Bash(gh issue *)
+            Read
+            Write
+            Edit
+            Glob
+            Grep

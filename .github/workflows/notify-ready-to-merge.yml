@@ -21,6 +21,11 @@ permissions:
   statuses: read
   checks: read
 
+# Prevent concurrent notifications for the same PR
+concurrency:
+  group: notify-ready-${{ github.event.pull_request.number || github.event.check_suite.head_branch || github.event.workflow_run.head_branch }}
+  cancel-in-progress: false
+
 jobs:
   check-ready:
     # Only check Claude PRs
@@ -114,12 +119,21 @@ jobs:
           REPO="${{ github.repository }}"
           REPO_NAME="${REPO#*/}"
 
+          REVIEW_STATE="${{ steps.ready.outputs.review_decision }}"
+
+          # Build review status message
+          if [ "$REVIEW_STATE" == "APPROVED" ]; then
+            REVIEW_MSG="Approved by reviewer(s)"
+          else
+            REVIEW_MSG="No reviews yet (review recommended)"
+          fi
+
           # Post comment on PR
           gh pr comment "$PR_NUM" --body "## READY TO MERGE
 
 This PR has:
 - All CI checks passing
-- No blocking reviews
+- $REVIEW_MSG
 
 **$REPO_NAME**: [$TITLE]($URL)
 

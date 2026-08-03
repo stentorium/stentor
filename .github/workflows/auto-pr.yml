@@ -1,0 +1,102 @@
+# Auto-create PR from Claude's implementation
+# When Claude finishes implementing and posts a "Create PR" link, this workflow
+# automatically creates the PR so no human click is needed.
+#
+# Copy to: .github/workflows/auto-pr.yml in each repo
+
+name: Auto-create PR from Claude
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  create-pr:
+    # Only trigger on Claude bot comments that contain the PR creation link
+    if: |
+      github.event.comment.user.login == 'claude[bot]' &&
+      contains(github.event.comment.body, '/compare/')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract branch from Claude's comment
+        id: extract
+        env:
+          COMMENT_BODY: ${{ github.event.comment.body }}
+        run: |
+          # Claude's comment contains a GitHub compare URL like:
+          # https://github.com/owner/repo/compare/main...claude/issue-123-timestamp
+          # Extract the branch name (everything after the last ...)
+
+          BRANCH=$(echo "$COMMENT_BODY" | grep -oP 'compare/[^.]+\.\.\.\K[^)"\s]+' | head -1)
+
+          if [ -z "$BRANCH" ]; then
+            echo "Could not extract branch from comment"
+            exit 1
+          fi
+
+          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+          echo "Found branch: $BRANCH"
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get issue details
+        id: issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ISSUE_NUM="${{ github.event.issue.number }}"
+          TITLE=$(gh issue view "$ISSUE_NUM" --json title -q '.title')
+          echo "title=$TITLE" >> $GITHUB_OUTPUT
+          echo "number=$ISSUE_NUM" >> $GITHUB_OUTPUT
+
+      - name: Create Pull Request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="${{ steps.extract.outputs.branch }}"
+          ISSUE_NUM="${{ steps.issue.outputs.number }}"
+          TITLE="${{ steps.issue.outputs.title }}"
+
+          # Check if PR already exists for this branch
+          EXISTING_PR=$(gh pr list --head "$BRANCH" --json number -q '.[0].number' 2>/dev/null || echo "")
+
+          if [ -n "$EXISTING_PR" ]; then
+            echo "PR #$EXISTING_PR already exists for branch $BRANCH"
+            exit 0
+          fi
+
+          # Create the PR
+          gh pr create \
+            --head "$BRANCH" \
+            --title "$TITLE" \
+            --body "Closes #$ISSUE_NUM
+
+---
+Implemented by Claude Code. Auto-PR created by workflow." \
+            --draft
+
+          echo "PR created successfully"
+
+      - name: Comment on issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ISSUE_NUM="${{ steps.issue.outputs.number }}"
+          BRANCH="${{ steps.extract.outputs.branch }}"
+
+          # Get the PR number we just created
+          PR_NUM=$(gh pr list --head "$BRANCH" --json number -q '.[0].number')
+
+          gh issue comment "$ISSUE_NUM" --body "PR #$PR_NUM auto-created. CI will run automatically.
+
+If CI fails, Claude will attempt to fix it. If reviews are requested, Claude will address them.
+
+You'll only be notified when the PR is ready to merge."

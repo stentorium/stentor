@@ -1,0 +1,120 @@
+# Auto-fix CI failures on Claude PRs
+# When CI fails on a PR that was created by Claude (branch starts with claude/),
+# this workflow re-invokes Claude to fix the issue.
+#
+# Copy to: .github/workflows/auto-fix-ci.yml in each repo
+
+name: Auto-fix CI failures
+
+on:
+  workflow_run:
+    workflows: ["CI", "Tests", "Build", "Lint"]  # Add your CI workflow names here
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  actions: read
+
+jobs:
+  fix-ci:
+    # Only trigger on failed CI for Claude branches
+    if: |
+      github.event.workflow_run.conclusion == 'failure' &&
+      startsWith(github.event.workflow_run.head_branch, 'claude/')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get PR for this branch
+        id: pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="${{ github.event.workflow_run.head_branch }}"
+          PR_NUM=$(gh pr list --repo "${{ github.repository }}" --head "$BRANCH" --json number -q '.[0].number')
+
+          if [ -z "$PR_NUM" ]; then
+            echo "No PR found for branch $BRANCH"
+            exit 0
+          fi
+
+          echo "pr_number=$PR_NUM" >> $GITHUB_OUTPUT
+          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+
+      - name: Check retry count
+        id: retry
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_NUM="${{ steps.pr.outputs.pr_number }}"
+
+          # Count how many times we've already tried to fix this PR
+          # Look for our specific comment marker
+          RETRY_COUNT=$(gh pr view "$PR_NUM" --json comments -q '[.comments[].body | select(contains("[auto-fix-ci attempt"))] | length')
+
+          if [ "$RETRY_COUNT" -ge 3 ]; then
+            echo "Already tried $RETRY_COUNT times, giving up. Human intervention needed."
+            gh pr comment "$PR_NUM" --body "CI has failed $RETRY_COUNT times. Stopping auto-fix attempts.
+
+@michaelmyers - this PR needs manual attention."
+            echo "should_retry=false" >> $GITHUB_OUTPUT
+          else
+            NEXT_ATTEMPT=$((RETRY_COUNT + 1))
+            echo "Attempt $NEXT_ATTEMPT of 3"
+            echo "should_retry=true" >> $GITHUB_OUTPUT
+            echo "attempt=$NEXT_ATTEMPT" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Checkout repository
+        if: steps.retry.outputs.should_retry == 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.pr.outputs.branch }}
+          fetch-depth: 0
+
+      - name: Get failed workflow logs
+        if: steps.retry.outputs.should_retry == 'true'
+        id: logs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          RUN_ID="${{ github.event.workflow_run.id }}"
+
+          # Get the failed jobs and their logs (truncated to avoid token limits)
+          LOGS=$(gh run view "$RUN_ID" --log-failed 2>/dev/null | tail -200 || echo "Could not fetch logs")
+
+          # Save to file for the action
+          echo "$LOGS" > /tmp/ci-failure-logs.txt
+
+          # Also get a summary
+          SUMMARY=$(gh run view "$RUN_ID" --json jobs -q '.jobs[] | select(.conclusion == "failure") | "\(.name): \(.conclusion)"' | head -10)
+          echo "summary<<EOF" >> $GITHUB_OUTPUT
+          echo "$SUMMARY" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Ask Claude to fix CI
+        if: steps.retry.outputs.should_retry == 'true'
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            [auto-fix-ci attempt ${{ steps.retry.outputs.attempt }}]
+
+            CI failed on this PR. Please analyze the failure and fix it.
+
+            Failed jobs:
+            ${{ steps.logs.outputs.summary }}
+
+            Here are the last 200 lines of the failed logs:
+            ```
+            $(cat /tmp/ci-failure-logs.txt)
+            ```
+
+            Instructions:
+            1. Analyze the error messages
+            2. Make the necessary code changes to fix the issues
+            3. Commit and push your fixes
+            4. Do NOT create a new PR - just push to this branch
+
+            Focus on fixing the actual errors, not suppressing warnings unless that's the root cause.
+          claude_args: "--max-turns 30"

@@ -1,0 +1,123 @@
+# Auto-address review comments on Claude PRs
+# When review comments are added to a PR created by Claude,
+# this workflow re-invokes Claude to address them.
+#
+# Copy to: .github/workflows/auto-address-reviews.yml in each repo
+
+name: Auto-address reviews
+
+on:
+  pull_request_review:
+    types: [submitted]
+  pull_request_review_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  address-reviews:
+    # Only trigger on Claude branches, and not on Claude's own comments
+    if: |
+      startsWith(github.event.pull_request.head.ref, 'claude/') &&
+      github.event.sender.login != 'claude[bot]' &&
+      (
+        (github.event_name == 'pull_request_review' && github.event.review.state == 'changes_requested') ||
+        github.event_name == 'pull_request_review_comment'
+      )
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if we should respond
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_NUM="${{ github.event.pull_request.number }}"
+
+          # Don't respond to approvals or simple comments without change requests
+          if [ "${{ github.event_name }}" == "pull_request_review" ]; then
+            STATE="${{ github.event.review.state }}"
+            if [ "$STATE" != "changes_requested" ]; then
+              echo "Review state is '$STATE', not 'changes_requested'. Skipping."
+              echo "should_respond=false" >> $GITHUB_OUTPUT
+              exit 0
+            fi
+          fi
+
+          # Check retry count for reviews
+          RETRY_COUNT=$(gh pr view "$PR_NUM" --json comments -q '[.comments[].body | select(contains("[auto-address-review attempt"))] | length')
+
+          if [ "$RETRY_COUNT" -ge 5 ]; then
+            echo "Already addressed reviews $RETRY_COUNT times, giving up."
+            gh pr comment "$PR_NUM" --body "Review comments have been addressed $RETRY_COUNT times. Stopping auto-address attempts.
+
+@michaelmyers - this PR needs manual review attention."
+            echo "should_respond=false" >> $GITHUB_OUTPUT
+          else
+            NEXT_ATTEMPT=$((RETRY_COUNT + 1))
+            echo "should_respond=true" >> $GITHUB_OUTPUT
+            echo "attempt=$NEXT_ATTEMPT" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Checkout repository
+        if: steps.check.outputs.should_respond == 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Gather review context
+        if: steps.check.outputs.should_respond == 'true'
+        id: context
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_NUM="${{ github.event.pull_request.number }}"
+
+          # Get all pending review comments (not yet resolved)
+          COMMENTS=$(gh api "repos/${{ github.repository }}/pulls/$PR_NUM/comments" \
+            --jq '.[] | select(.in_reply_to_id == null) | "[\(.path):\(.line // .original_line)]: \(.body)"' \
+            | head -50)
+
+          # Get the latest review body if this is a review submission
+          if [ "${{ github.event_name }}" == "pull_request_review" ]; then
+            REVIEW_BODY="${{ github.event.review.body }}"
+          else
+            REVIEW_BODY=""
+          fi
+
+          echo "comments<<EOF" >> $GITHUB_OUTPUT
+          echo "$COMMENTS" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+          echo "review_body<<EOF" >> $GITHUB_OUTPUT
+          echo "$REVIEW_BODY" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Ask Claude to address reviews
+        if: steps.check.outputs.should_respond == 'true'
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            [auto-address-review attempt ${{ steps.check.outputs.attempt }}]
+
+            A reviewer has requested changes on this PR. Please address their feedback.
+
+            Review comments:
+            ${{ steps.context.outputs.review_body }}
+
+            Inline comments:
+            ${{ steps.context.outputs.comments }}
+
+            Instructions:
+            1. Carefully read and understand each piece of feedback
+            2. Make the necessary code changes to address the concerns
+            3. If a comment asks a question, answer it in a PR comment AND make any implied changes
+            4. Commit and push your changes
+            5. Reply to each review comment explaining what you changed
+
+            Be thorough but don't over-engineer. Match the reviewer's expectations.
+          claude_args: "--max-turns 30"

@@ -19,7 +19,7 @@ jobs:
   create-pr:
     # Only trigger on Claude bot comments that contain the PR creation link
     if: |
-      github.event.comment.user.login == 'claude[bot]' &&
+      (github.event.comment.user.login == 'claude[bot]' || github.event.comment.user.login == 'claude') &&
       contains(github.event.comment.body, '/compare/')
     runs-on: ubuntu-latest
     steps:

@@ -1,0 +1,161 @@
+# Notify when Claude PR is ready to merge
+# Triggers when a Claude PR has passing CI and is approved.
+# Posts a comment and can optionally call a webhook.
+#
+# Copy to: .github/workflows/notify-ready-to-merge.yml in each repo
+
+name: Notify ready to merge
+
+on:
+  pull_request_review:
+    types: [submitted]
+  check_suite:
+    types: [completed]
+  workflow_run:
+    workflows: ["CI", "Tests", "Build", "Lint"]  # Add your CI workflow names
+    types: [completed]
+
+permissions:
+  pull-requests: write
+  issues: write
+  statuses: read
+  checks: read
+
+# Prevent concurrent notifications for the same PR
+concurrency:
+  group: notify-ready-${{ github.event.pull_request.number || github.event.check_suite.head_branch || github.event.workflow_run.head_branch }}
+  cancel-in-progress: false
+
+jobs:
+  check-ready:
+    # Only check Claude PRs
+    if: |
+      (github.event_name == 'pull_request_review' && startsWith(github.event.pull_request.head.ref, 'claude/')) ||
+      (github.event_name == 'check_suite' && startsWith(github.event.check_suite.head_branch, 'claude/')) ||
+      (github.event_name == 'workflow_run' && startsWith(github.event.workflow_run.head_branch, 'claude/'))
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get PR info
+        id: pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EVENT_NAME: ${{ github.event_name }}
+          PR_HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          CHECK_SUITE_BRANCH: ${{ github.event.check_suite.head_branch }}
+          WORKFLOW_RUN_BRANCH: ${{ github.event.workflow_run.head_branch }}
+        run: |
+          # Determine the branch based on event type (using env vars to avoid injection)
+          if [ "$EVENT_NAME" == "pull_request_review" ]; then
+            BRANCH="$PR_HEAD_REF"
+            PR_NUM="$PR_NUMBER"
+          elif [ "$EVENT_NAME" == "check_suite" ]; then
+            BRANCH="$CHECK_SUITE_BRANCH"
+            PR_NUM=$(gh pr list --head "$BRANCH" --json number -q '.[0].number')
+          else
+            BRANCH="$WORKFLOW_RUN_BRANCH"
+            PR_NUM=$(gh pr list --head "$BRANCH" --json number -q '.[0].number')
+          fi
+
+          if [ -z "$PR_NUM" ]; then
+            echo "No PR found for branch $BRANCH"
+            echo "has_pr=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          echo "pr_number=$PR_NUM" >> $GITHUB_OUTPUT
+          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+          echo "has_pr=true" >> $GITHUB_OUTPUT
+
+      - name: Check if PR is ready
+        if: steps.pr.outputs.has_pr == 'true'
+        id: ready
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_NUM="${{ steps.pr.outputs.pr_number }}"
+
+          # Get PR status
+          PR_DATA=$(gh pr view "$PR_NUM" --json state,isDraft,reviewDecision,statusCheckRollup,title,url)
+
+          STATE=$(echo "$PR_DATA" | jq -r '.state')
+          IS_DRAFT=$(echo "$PR_DATA" | jq -r '.isDraft')
+          REVIEW_DECISION=$(echo "$PR_DATA" | jq -r '.reviewDecision')
+          TITLE=$(echo "$PR_DATA" | jq -r '.title')
+          URL=$(echo "$PR_DATA" | jq -r '.url')
+
+          # Check if all status checks passed
+          CHECKS_PASSED=$(echo "$PR_DATA" | jq '[.statusCheckRollup[]? | select(.conclusion != null)] | all(.conclusion == "SUCCESS" or .conclusion == "NEUTRAL" or .conclusion == "SKIPPED")')
+
+          # Check if already notified
+          ALREADY_NOTIFIED=$(gh pr view "$PR_NUM" --json comments -q '[.comments[].body | select(contains("READY TO MERGE"))] | length')
+
+          echo "state=$STATE" >> $GITHUB_OUTPUT
+          echo "is_draft=$IS_DRAFT" >> $GITHUB_OUTPUT
+          echo "review_decision=$REVIEW_DECISION" >> $GITHUB_OUTPUT
+          echo "checks_passed=$CHECKS_PASSED" >> $GITHUB_OUTPUT
+          echo "already_notified=$ALREADY_NOTIFIED" >> $GITHUB_OUTPUT
+          echo "title=$TITLE" >> $GITHUB_OUTPUT
+          echo "url=$URL" >> $GITHUB_OUTPUT
+
+          # Determine if ready
+          if [ "$STATE" == "OPEN" ] && \
+             [ "$IS_DRAFT" == "false" ] && \
+             [ "$CHECKS_PASSED" == "true" ] && \
+             ([ "$REVIEW_DECISION" == "APPROVED" ] || [ "$REVIEW_DECISION" == "null" ] || [ -z "$REVIEW_DECISION" ]); then
+            echo "is_ready=true" >> $GITHUB_OUTPUT
+          else
+            echo "is_ready=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Notify ready to merge
+        if: steps.ready.outputs.is_ready == 'true' && steps.ready.outputs.already_notified == '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_NUM="${{ steps.pr.outputs.pr_number }}"
+          TITLE="${{ steps.ready.outputs.title }}"
+          URL="${{ steps.ready.outputs.url }}"
+          REPO="${{ github.repository }}"
+          REPO_NAME="${REPO#*/}"
+
+          REVIEW_STATE="${{ steps.ready.outputs.review_decision }}"
+
+          # Build review status message
+          if [ "$REVIEW_STATE" == "APPROVED" ]; then
+            REVIEW_MSG="Approved by reviewer(s)"
+          else
+            REVIEW_MSG="No reviews yet (review recommended)"
+          fi
+
+          # Post comment on PR
+          gh pr comment "$PR_NUM" --body "## READY TO MERGE
+
+This PR has:
+- All CI checks passing
+- $REVIEW_MSG
+
+**$REPO_NAME**: [$TITLE]($URL)
+
+Ready for final review and merge."
+
+          # Mark PR as ready for review (remove draft status) if it's a draft
+          if [ "${{ steps.ready.outputs.is_draft }}" == "true" ]; then
+            gh pr ready "$PR_NUM"
+          fi
+
+      - name: Call webhook (optional)
+        if: steps.ready.outputs.is_ready == 'true' && steps.ready.outputs.already_notified == '0'
+        continue-on-error: true
+        run: |
+          # If you have a webhook URL configured, uncomment and use:
+          # curl -X POST "${{ secrets.READY_TO_MERGE_WEBHOOK }}" \
+          #   -H "Content-Type: application/json" \
+          #   -d '{
+          #     "repo": "${{ github.repository }}",
+          #     "pr_number": "${{ steps.pr.outputs.pr_number }}",
+          #     "title": "${{ steps.ready.outputs.title }}",
+          #     "url": "${{ steps.ready.outputs.url }}"
+          #   }'
+
+          echo "PR is ready to merge - webhook would fire here"

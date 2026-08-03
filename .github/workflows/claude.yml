@@ -1,3 +1,8 @@
+# Claude Code Action - Base workflow
+# Responds to @claude mentions in issues and PR comments
+#
+# Copy to: .github/workflows/claude.yml in each repo
+
 name: Claude Code
 
 on:
@@ -7,42 +12,67 @@ on:
     types: [created]
   issues:
     types: [opened, assigned]
-  pull_request_review:
-    types: [submitted]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  actions: read
+  id-token: write
+
+# Prevent concurrent runs on the same issue/PR
+concurrency:
+  group: claude-${{ github.event.issue.number || github.event.pull_request.number }}
+  cancel-in-progress: false
 
 jobs:
   claude:
+    # Trigger on @claude mention, but not from Claude itself (prevent loops)
     if: |
-      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
-      (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude')) ||
-      (github.event_name == 'pull_request_review' && contains(github.event.review.body, '@claude')) ||
-      (github.event_name == 'issues' && (contains(github.event.issue.body, '@claude') || contains(github.event.issue.title, '@claude')))
+      github.event.sender.login != 'claude[bot]' &&
+      github.event.sender.login != 'claude' &&
+      (
+        (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
+        (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude')) ||
+        (github.event_name == 'issues' && contains(github.event.issue.body, '@claude'))
+      )
     runs-on: ubuntu-latest
-    permissions:
-      contents: write        # allow Claude to push its implementation branch
-      pull-requests: write   # allow Claude to open/update the PR
-      issues: read
-      id-token: write
-      actions: read # Required for Claude to read CI results on PRs
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0
 
-      - name: Run Claude Code
-        id: claude
+      - name: Run Claude
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-
-          # This is an optional setting that allows Claude to read CI results on PRs
-          additional_permissions: |
-            actions: read
-
-          # See https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md
-          # or https://docs.anthropic.com/en/docs/claude-code/sdk#command-line for available options
-          #
-          # Give the implementer agent the tools it needs to build, lint and test its own work before
-          # it opens a PR. Lerna + Yarn Berry monorepo, so scope the yarn commands broadly.
-          claude_args: '--allowed-tools "Bash(yarn install:*),Bash(yarn build:*),Bash(yarn lint:*),Bash(yarn test:*),Bash(yarn api:*),Bash(npx lerna run:*),Bash(gh pr view:*),Bash(gh pr diff:*),Bash(gh pr list:*),Bash(gh issue view:*),Bash(gh issue list:*)"'
+          claude_args: "--max-turns 50"
+          allowed_tools: |
+            Bash(yarn install)
+            Bash(yarn build)
+            Bash(yarn test)
+            Bash(yarn lint)
+            Bash(yarn format)
+            Bash(git status)
+            Bash(git diff)
+            Bash(git log)
+            Bash(git add)
+            Bash(git commit)
+            Bash(git push)
+            Bash(git checkout)
+            Bash(git branch)
+            Bash(gh pr create)
+            Bash(gh pr view)
+            Bash(gh pr diff)
+            Bash(gh pr list)
+            Bash(gh pr checks)
+            Bash(gh pr comment)
+            Bash(gh issue view)
+            Bash(gh issue list)
+            Bash(gh issue comment)
+            Read
+            Write
+            Edit
+            Glob
+            Grep

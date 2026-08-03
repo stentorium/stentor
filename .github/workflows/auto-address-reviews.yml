@@ -1,0 +1,157 @@
+# Auto-address review comments on Claude PRs
+# When review comments are added to a PR created by Claude,
+# this workflow re-invokes Claude to address them.
+#
+# Copy to: .github/workflows/auto-address-reviews.yml in each repo
+
+name: Auto-address reviews
+
+on:
+  pull_request_review:
+    types: [submitted]
+  pull_request_review_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+# Prevent concurrent review handling on the same PR
+concurrency:
+  group: auto-address-reviews-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  address-reviews:
+    # Only trigger on Claude branches, and not on Claude's own comments
+    if: |
+      startsWith(github.event.pull_request.head.ref, 'claude/') &&
+      github.event.sender.login != 'claude[bot]' && github.event.sender.login != 'claude' &&
+      (
+        (github.event_name == 'pull_request_review' && github.event.review.state == 'changes_requested') ||
+        github.event_name == 'pull_request_review_comment'
+      )
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if we should respond
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_NUM="${{ github.event.pull_request.number }}"
+
+          # Don't respond to approvals or simple comments without change requests
+          if [ "${{ github.event_name }}" == "pull_request_review" ]; then
+            STATE="${{ github.event.review.state }}"
+            if [ "$STATE" != "changes_requested" ]; then
+              echo "Review state is '$STATE', not 'changes_requested'. Skipping."
+              echo "should_respond=false" >> $GITHUB_OUTPUT
+              exit 0
+            fi
+          fi
+
+          # Check retry count for reviews
+          RETRY_COUNT=$(gh pr view "$PR_NUM" --json comments -q '[.comments[].body | select(contains("[auto-address-review attempt"))] | length')
+
+          if [ "$RETRY_COUNT" -ge 5 ]; then
+            echo "Already addressed reviews $RETRY_COUNT times, giving up."
+            gh pr comment "$PR_NUM" --body "## Manual Attention Required
+
+Review comments have been addressed **$RETRY_COUNT times**. Auto-address attempts exhausted.
+
+Please review the feedback and address manually."
+            echo "should_respond=false" >> $GITHUB_OUTPUT
+          else
+            NEXT_ATTEMPT=$((RETRY_COUNT + 1))
+            echo "should_respond=true" >> $GITHUB_OUTPUT
+            echo "attempt=$NEXT_ATTEMPT" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Checkout repository
+        if: steps.check.outputs.should_respond == 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Gather review context
+        if: steps.check.outputs.should_respond == 'true'
+        id: context
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REVIEW_BODY: ${{ github.event.review.body }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          PR_NUM="${{ github.event.pull_request.number }}"
+
+          # Get all pending review comments (not yet resolved)
+          COMMENTS=$(gh api "repos/${{ github.repository }}/pulls/$PR_NUM/comments" \
+            --jq '.[] | select(.in_reply_to_id == null) | "[\(.path):\(.line // .original_line)]: \(.body)"' \
+            | head -50)
+
+          # Use unique delimiters to prevent injection from attacker-controlled review text
+          DELIM_COMMENTS="EOF_COMMENTS_${{ github.run_id }}_$RANDOM"
+          DELIM_REVIEW="EOF_REVIEW_${{ github.run_id }}_$RANDOM"
+
+          echo "comments<<$DELIM_COMMENTS" >> $GITHUB_OUTPUT
+          echo "$COMMENTS" >> $GITHUB_OUTPUT
+          echo "$DELIM_COMMENTS" >> $GITHUB_OUTPUT
+
+          # Get the latest review body if this is a review submission (safe via env)
+          if [ "$EVENT_NAME" == "pull_request_review" ]; then
+            echo "review_body<<$DELIM_REVIEW" >> $GITHUB_OUTPUT
+            echo "$REVIEW_BODY" >> $GITHUB_OUTPUT
+            echo "$DELIM_REVIEW" >> $GITHUB_OUTPUT
+          else
+            echo "review_body=" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Ask Claude to address reviews
+        if: steps.check.outputs.should_respond == 'true'
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            [auto-address-review attempt ${{ steps.check.outputs.attempt }}]
+
+            A reviewer has requested changes on this PR. Please address their feedback.
+
+            Review comments:
+            ${{ steps.context.outputs.review_body }}
+
+            Inline comments:
+            ${{ steps.context.outputs.comments }}
+
+            Instructions:
+            1. Carefully read and understand each piece of feedback
+            2. Make the necessary code changes to address the concerns
+            3. If a comment asks a question, answer it in a PR comment AND make any implied changes
+            4. Commit and push your changes
+            5. Reply to each review comment explaining what you changed
+
+            Be thorough but don't over-engineer. Match the reviewer's expectations.
+          claude_args: "--max-turns 30"
+          allowed_tools: |
+            Bash(yarn install)
+            Bash(yarn build)
+            Bash(yarn test)
+            Bash(yarn lint)
+            Bash(yarn format)
+            Bash(git status)
+            Bash(git diff)
+            Bash(git log)
+            Bash(git add)
+            Bash(git commit)
+            Bash(git push)
+            Bash(git checkout)
+            Bash(git branch)
+            Bash(gh pr view)
+            Bash(gh pr diff)
+            Bash(gh pr checks)
+            Bash(gh pr comment)
+            Read
+            Write
+            Edit
+            Glob
+            Grep

@@ -58,9 +58,9 @@ jobs:
             echo "Already addressed reviews $RETRY_COUNT times, giving up."
             gh pr comment "$PR_NUM" --body "## Manual Attention Required
 
-Review comments have been addressed **$RETRY_COUNT times**. Auto-address attempts exhausted.
+          Review comments have been addressed **$RETRY_COUNT times**. Auto-address attempts exhausted.
 
-Please review the feedback and address manually."
+          Please review the feedback and address manually."
             echo "should_respond=false" >> $GITHUB_OUTPUT
           else
             NEXT_ATTEMPT=$((RETRY_COUNT + 1))

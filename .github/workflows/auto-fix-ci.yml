@@ -61,9 +61,9 @@ jobs:
             echo "Already tried $RETRY_COUNT times, giving up. Human intervention needed."
             gh pr comment "$PR_NUM" --body "## Manual Attention Required
 
-CI has failed **$RETRY_COUNT times**. Auto-fix attempts exhausted.
+          CI has failed **$RETRY_COUNT times**. Auto-fix attempts exhausted.
 
-Please review the CI logs and fix manually."
+          Please review the CI logs and fix manually."
             echo "should_retry=false" >> $GITHUB_OUTPUT
           else
             NEXT_ATTEMPT=$((RETRY_COUNT + 1))

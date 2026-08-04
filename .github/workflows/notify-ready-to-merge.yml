@@ -131,13 +131,13 @@ jobs:
           # Post comment on PR
           gh pr comment "$PR_NUM" --body "## READY TO MERGE
 
-This PR has:
-- All CI checks passing
-- $REVIEW_MSG
+          This PR has:
+          - All CI checks passing
+          - $REVIEW_MSG
 
-**$REPO_NAME**: [$TITLE]($URL)
+          **$REPO_NAME**: [$TITLE]($URL)
 
-Ready for final review and merge."
+          Ready for final review and merge."
 
           # Mark PR as ready for review (remove draft status) if it's a draft
           if [ "${{ steps.ready.outputs.is_draft }}" == "true" ]; then

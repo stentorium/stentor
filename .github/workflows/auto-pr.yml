@@ -83,8 +83,8 @@ jobs:
             --title "$TITLE" \
             --body "Closes #$ISSUE_NUM
 
----
-Implemented by Claude Code. Auto-PR created by workflow." \
+          ---
+          Implemented by Claude Code. Auto-PR created by workflow." \
             --draft
 
           echo "PR created successfully"
@@ -101,6 +101,6 @@ Implemented by Claude Code. Auto-PR created by workflow." \
 
           gh issue comment "$ISSUE_NUM" --body "PR #$PR_NUM auto-created. CI will run automatically.
 
-If CI fails, Claude will attempt to fix it. If reviews are requested, Claude will address them.
+          If CI fails, Claude will attempt to fix it. If reviews are requested, Claude will address them.
 
-You'll only be notified when the PR is ready to merge."
+          You'll only be notified when the PR is ready to merge."

@@ -11,7 +11,6 @@ import {
     KnowledgeBaseServiceFilters
 } from "stentor-models";
 import { existsAndNotEmpty, findFuzzyMatch } from "stentor-utils";
-import "isomorphic-fetch";
 import { StudioFAQResponse, StudioHandlerResponse, StudioHandlersResponse, StudioRAGResponse } from "./Response";
 
 const BASE_URL = "https://api.xapp.ai";

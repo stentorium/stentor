@@ -1,6 +1,5 @@
 /*! Copyright (c) 2012, XAPPmedia */
 require("dotenv").config();
-import "abort-controller/polyfill"
 
 import * as chai from "chai";
 import chaiAsPromised from "chai-as-promised";

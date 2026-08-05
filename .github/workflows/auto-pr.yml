@@ -8,7 +8,12 @@ name: Auto-create PR from Claude
 
 on:
   issue_comment:
-    types: [created]
+    # `edited` is required, not optional: claude-code-action posts ONE sticky
+    # comment and edits it in place. The `created` event fires with a
+    # placeholder that has no /compare/ link yet; the link only appears on the
+    # later edit. Listening for `created` alone means this workflow can never
+    # fire with the link present.
+    types: [created, edited]
 
 permissions:
   pull-requests: write

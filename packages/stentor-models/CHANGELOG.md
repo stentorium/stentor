@@ -19,6 +19,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.76.0](https://github.com/stentorium/stentor/compare/stentor-models-v1.75.0...stentor-models-v1.76.0) (2026-08-05)
+
+
+### Features
+
+* **stentor-models:** add getMany() to HandlerService interface ([#3140](https://github.com/stentorium/stentor/issues/3140)) ([20b0c8f](https://github.com/stentorium/stentor/commit/20b0c8f7b77e27a559b211021e6574b33b049d31)), closes [#2854](https://github.com/stentorium/stentor/issues/2854)
+
 ## [1.75.0](https://github.com/stentorium/stentor/compare/stentor-models-v1.74.0...stentor-models-v1.75.0) (2026-07-30)
 
 

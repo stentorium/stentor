@@ -14,6 +14,20 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.3](https://github.com/stentorium/stentor/compare/stentor-conditional-v1.74.2...stentor-conditional-v1.74.3) (2026-08-05)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-logger bumped from 1.74.2 to 1.74.3
+    * stentor-utils bumped from 1.74.2 to 1.74.3
+  * devDependencies
+    * stentor-models bumped from 1.75.0 to 1.76.0
+  * peerDependencies
+    * stentor-models bumped from 1.x to 1.76.0
+
 ## [1.74.2](https://github.com/stentorium/stentor/compare/stentor-conditional-v1.74.1...stentor-conditional-v1.74.2) (2026-07-30)
 
 

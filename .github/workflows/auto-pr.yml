@@ -16,6 +16,11 @@ on:
     types: [created, edited]
 
 permissions:
+  # contents: read is required for actions/checkout below. Without it the
+  # GITHUB_TOKEN cannot clone a private repo and the step fails with
+  # "Repository not found", which reads like a missing repo rather than a
+  # missing scope.
+  contents: read
   pull-requests: write
   issues: write
 

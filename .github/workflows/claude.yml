@@ -43,10 +43,32 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: yarn
+
+      # Pre-install so the agent does not spend its turn budget installing, and
+      # can actually run builds and tests. Deliberately non-blocking: repos that
+      # consume private @xapp packages need NPM_TOKEN and will fail here until
+      # that secret exists. The agent should still run in that case, just
+      # without a verified tree.
+      - name: Install dependencies
+        continue-on-error: true
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if [ -n "${NPM_TOKEN}" ]; then
+            yarn config set npmScopes.xapp.npmAuthToken "${NPM_TOKEN}"
+          fi
+          yarn install --immutable
+
       - name: Run Claude
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           claude_args: |
             --max-turns 80
-            --allowedTools "Bash(yarn:*),Bash(tsc:*),Bash(git:*),Bash(gh:*),Read,Write,Edit,MultiEdit,Glob,Grep,LS"
+            --allowedTools "Bash(yarn:*),Bash(npx:*),Bash(node:*),Bash(tsc:*),Bash(git:*),Bash(gh:*),Bash(ls:*),Bash(cat:*),Bash(head:*),Bash(tail:*),Bash(wc:*),Bash(grep:*),Bash(find:*),Bash(sed:*),Bash(awk:*),Bash(sort:*),Bash(uniq:*),Bash(tr:*),Bash(cut:*),Bash(xargs:*),Bash(diff:*),Bash(mkdir:*),Bash(cp:*),Bash(mv:*),Bash(rm:*),Bash(test:*),Bash(echo:*),Bash(pwd),Bash(which:*),Bash(basename:*),Bash(dirname:*),Read,Write,Edit,MultiEdit,Glob,Grep,LS"
+            --append-system-prompt "Commit and push your work incrementally as you finish each meaningful step, not only at the end. If you hit the turn limit, only committed work survives - uncommitted work is lost entirely. Dependencies are already installed by the workflow before you start, so do not run a full install unless something is genuinely missing. If a build or test cannot run in this sandbox, say so explicitly rather than retrying it repeatedly."

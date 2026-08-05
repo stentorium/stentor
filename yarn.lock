@@ -20178,6 +20178,7 @@ __metadata:
     mocha: "npm:11.7.6"
     number-to-words: "npm:1.2.4"
     numeral: "npm:2.0.6"
+    rollup: "npm:3.30.0"
     sanitize-html: "npm:2.17.6"
     sinon: "npm:22.1.0"
     sinon-chai: "npm:3.7.0"

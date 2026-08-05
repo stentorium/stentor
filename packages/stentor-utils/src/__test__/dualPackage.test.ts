@@ -2,6 +2,7 @@
 import { expect } from "chai";
 import { execFileSync } from "child_process";
 import * as fs from "fs";
+import * as os from "os";
 import * as path from "path";
 
 /*
@@ -33,13 +34,16 @@ const NAMED_EXPORTS = [
 ];
 
 function runNode(source: string, extension: "cjs" | "mjs"): string {
-    const file = path.join(pkgRoot, `.dual-package-check.${extension}`);
+    // Written to the temp dir, not the package root: a cancelled run between
+    // write and unlink would otherwise leave a stray dotfile in the tree.
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), "stentor-utils-dual-"));
+    const file = path.join(dir, `check.${extension}`);
     fs.writeFileSync(file, source);
 
     try {
         return execFileSync(process.execPath, [file], { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }).trim();
     } finally {
-        fs.unlinkSync(file);
+        fs.rmSync(dir, { recursive: true, force: true });
     }
 }
 

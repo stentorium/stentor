@@ -81,7 +81,7 @@
   "scripts": {
     "api": "api-extractor run --local",
     "build": "tsc -d true -p . && tsc -p tsconfig.esm.json && node ./scripts/finalize-esm.js",
-    "clean": "rm -rf ./lib/*",
+    "clean": "rm -rf ./lib/* ./esm/*",
     "test": "TZ=UTC mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
   }
 }

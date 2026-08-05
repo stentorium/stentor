@@ -5,13 +5,8 @@
     "outDir": "lib",
     "esModuleInterop": true,
     "strictNullChecks": false,
-    "types": [
-      "node",
-      "mocha"
-    ],
-    "lib": [
-      "es2016"
-    ]
+    "types": ["node", "mocha"],
+    "lib": ["es2016"]
   },
   "ts-node": {
     "transpileOnly": true,
@@ -20,13 +15,6 @@
     },
     "experimentalResolver": true
   },
-  "include": [
-    "src",
-    "typings/**/*.d.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "src/**/__test__/*",
-    "src/**/*.test.ts"
-  ]
+  "include": ["src", "typings/**/*.d.ts"],
+  "exclude": ["node_modules", "src/**/__test__/*", "src/**/*.test.ts"]
 }

@@ -7,13 +7,6 @@
     "declaration": false,
     "declarationMap": false
   },
-  "include": [
-    "src",
-    "typings/**/*.d.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "src/**/__test__/*",
-    "src/**/*.test.ts"
-  ]
+  "include": ["src", "typings/**/*.d.ts"],
+  "exclude": ["node_modules", "src/**/__test__/*", "src/**/*.test.ts"]
 }

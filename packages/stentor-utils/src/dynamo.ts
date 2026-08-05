@@ -1,6 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const dynamoItemSize = require("dyno-item-size");
+import dynamoItemSize from "dyno-item-size";
 
 /**
  * Estimate the size of the object for DynamoDB

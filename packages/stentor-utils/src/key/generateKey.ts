@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { existsAndNotEmpty } from "../array";
-import { CATCH_ALL_REGEX } from "./Constants";
-import { KeyDescription } from "./KeyDescription";
+import { existsAndNotEmpty } from "../array.js";
+import { CATCH_ALL_REGEX } from "./Constants.js";
+import { KeyDescription } from "./KeyDescription.js";
 
 /**
  * Generate a key from the provided key description.

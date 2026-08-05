@@ -1,6 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const blueImpMd5 = require("blueimp-md5");
+import blueImpMd5 from "blueimp-md5";
 
 /**
  * Returns an md5 hash for the provided string.

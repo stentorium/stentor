@@ -3,8 +3,8 @@ import { decode } from "html-entities";
 import { marked } from "marked";
 // @ts-ignore - marked-xhtml doesn't have type definitions
 import { markedXhtml } from "marked-xhtml";
-import sanitize = require('sanitize-html');
-import { linkify } from "./net";
+import sanitize from "sanitize-html";
+import { linkify } from "./net.js";
 
 /**
  * Converts a markdown string to HTML.

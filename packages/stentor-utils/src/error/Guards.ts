@@ -1,5 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { LambdaError } from "./LambdaError";
+import { LambdaError } from "./LambdaError.js";
 
 /**
  * Is the Error a LambdaError, which has a statusCode.

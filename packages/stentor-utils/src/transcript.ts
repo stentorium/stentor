@@ -2,7 +2,7 @@
 import { Request, Response, ResponseOutput, Message } from "stentor-models";
 import { isInputUnknownRequest, isIntentRequest, isOptionSelectRequest, isLaunchRequest } from "stentor-guards";
 
-import { hasSlots, requestSlotsToString } from "./request";
+import { hasSlots, requestSlotsToString } from "./request/index.js";
 /**
  * Turns a user's request into a message
  * 

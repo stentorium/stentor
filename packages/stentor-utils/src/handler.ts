@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { isExecutablePath, isHandler } from "stentor-guards";
 import { Handler, Intent } from "stentor-models";
-import { dessmlify, isValidSSML, ssmlify } from "./ssml";
+import { dessmlify, isValidSSML, ssmlify } from "./ssml.js";
 
 export interface IntentMap {
     [intentId: string]: Intent | Handler;

@@ -16,11 +16,11 @@ import {
     startOfMonth,
     startOfWeek,
     startOfYear
-} from "./date-utils-lite";
-import { wordToNumber } from "./number";
-import { pruneEmpty } from "./json";
+} from "./date-utils-lite.js";
+import { wordToNumber } from "./number.js";
+import { pruneEmpty } from "./json.js";
 
-import { parseNaturalDate } from "./natural-date-parser";
+import { parseNaturalDate } from "./natural-date-parser.js";
 
 export const ISO_8601 = /^(\d{4}-\d{2}-\d{2})?(?:T?(\d{2}:\d{2}:\d{2})((?:[-+]\d{2}:\d{2})|Z)?)?$/;
 export const ISO_8601_RANGE = /^(\d{4}-\d{2}-\d{2})(?:T(\d{2}:\d{2}:\d{2})((?:[-+]\d{2}:\d{2})|Z)?)?\/(\d{4}-\d{2}-\d{2})(?:T(\d{2}:\d{2}:\d{2})((?:[-+]\d{2}:\d{2})|Z)?)?$/;

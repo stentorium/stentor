@@ -3,7 +3,7 @@
 import { XmlElement } from "xmldoc";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const xmldoc = require("xmldoc");
+import * as xmldoc from "xmldoc";
 
 /**
  * Checks to see if the SSML is valid.

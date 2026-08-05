@@ -12,8 +12,9 @@
     "transpileOnly": true,
     "compilerOptions": {
       "module": "commonjs"
-    }
+    },
+    "experimentalResolver": true
   },
   "include": ["src", "typings/**/*.d.ts"],
-  "exclude": ["node_modules", "src/**/__test__/*"]
+  "exclude": ["node_modules", "src/**/__test__/*", "src/**/*.test.ts"]
 }

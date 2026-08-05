@@ -1,4 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import * as http from "node:http";
+import * as https from "node:https";
 import { HTTP_OK, HTTP_OK_MAX } from "stentor-constants";
 import * as fs from "fs";
 import { parse, Url } from "url";
@@ -21,7 +23,7 @@ function fetchFile(url: string): Promise<string> {
 
 function fetchNet(url: string): Promise<string> {
     return new Promise((resolve, reject) => {
-        const lib = url.startsWith("https") ? require("https") : require("http");
+        const lib = url.startsWith("https") ? https : http;
 
         const request = lib.get(url, (response: any) => {
             if (response.statusCode < HTTP_OK || response.statusCode > HTTP_OK_MAX) {

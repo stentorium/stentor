@@ -4,8 +4,8 @@ import {
     DETECTION_CATCH_ALL_WITH_EXCLUSION_REGEX,
     DETECTION_ID_ONLY_REGEX,
     DETECTION_INCLUDE_ONLY_REGEX
-} from "./Constants";
-import { KeyDescription } from "./KeyDescription";
+} from "./Constants.js";
+import { KeyDescription } from "./KeyDescription.js";
 
 /**
  * Describes the key in terms of what type of IDs it accepts.

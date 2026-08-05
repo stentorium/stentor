@@ -1,5 +1,5 @@
 /*! Copyright (c) 2021, XAPP AI */
-import { cleanTags } from "./string/cleanTags";
+import { cleanTags } from "./string/cleanTags.js";
 
 /**
  * Cleans an answer for display

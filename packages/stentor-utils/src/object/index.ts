@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
-export * from "./findValueForKey";
-export * from "./findValuesForKey";
-export * from "./percentComplete";
+export * from "./findValueForKey.js";
+export * from "./findValuesForKey.js";
+export * from "./percentComplete.js";
 
 /**
  * A function that's the opposite of "subset" in which it will remove the attributes that are given in the function.

@@ -13,8 +13,20 @@
   "description": "Utilities for stentor",
   "types": "lib/index",
   "main": "lib/index",
+  "module": "esm/index.js",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./esm/index.js",
+      "require": "./lib/index.js",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
-    "lib"
+    "lib",
+    "esm"
   ],
   "engines": {
     "node": "^12 || ^14 || ^16 || ^18 || ^20 || ^22 || ^24.0.0"
@@ -68,7 +80,7 @@
   },
   "scripts": {
     "api": "api-extractor run --local",
-    "build": "tsc -d true -p .",
+    "build": "tsc -d true -p . && tsc -p tsconfig.esm.json && node ./scripts/finalize-esm.js",
     "clean": "rm -rf ./lib/*",
     "test": "TZ=UTC mocha --recursive -r ts-node/register \"./src/**/*.test.ts\""
   }

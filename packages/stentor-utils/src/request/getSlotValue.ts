@@ -1,6 +1,6 @@
 /*! Copyright (c) 2021, XAPPmedia */
 import { RequestSlotMap, RequestSlotValues } from "stentor-models";
-import { requestSlotValueToString } from "./requestSlotValueToString";
+import { requestSlotValueToString } from "./requestSlotValueToString.js";
 
 /**
  * Returns the slot value, if not found it returns undefined.

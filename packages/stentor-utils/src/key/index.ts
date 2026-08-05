@@ -1,5 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
-export * from "./Constants";
-export * from "./KeyDescription";
-export * from "./describeKey";
-export * from "./generateKey";
+export * from "./Constants.js";
+export * from "./KeyDescription.js";
+export * from "./describeKey.js";
+export * from "./generateKey.js";

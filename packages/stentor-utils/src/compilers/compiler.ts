@@ -4,11 +4,11 @@ import { isIntentRequest } from "stentor-guards";
 import { Context, Request, RequestSlotMap, ResponseOutput, SuggestionTypes } from "stentor-models";
 import { JSONPath } from "jsonpath-plus";
 
-import { MacroMap } from "./macro";
-import { slotValueToSpeech } from "../response";
-import { capitalize, truncate } from "../string";
-import { combineRequestSlots } from "../request";
-import { existsAndNotEmpty } from "../array";
+import { MacroMap } from "./macro.js";
+import { slotValueToSpeech } from "../response.js";
+import { capitalize, truncate } from "../string/index.js";
+import { combineRequestSlots } from "../request/index.js";
+import { existsAndNotEmpty } from "../array.js";
 import { isLinkoutSuggestion } from "stentor-guards";
 
 type ResponseOutputKeysOnly = Pick<ResponseOutput, "ssml" | "displayText" | "html">;

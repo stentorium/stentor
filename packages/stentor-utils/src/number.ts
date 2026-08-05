@@ -1,6 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const converter = require("number-to-words");
+import * as converter from "number-to-words";
 import numeral from "numeral";
 import wordsToNumbers from "words-to-numbers";
 

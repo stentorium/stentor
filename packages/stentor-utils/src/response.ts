@@ -1,11 +1,11 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { format, isSameDay, parse } from "./date-utils-lite";
+import { format, isSameDay, parse } from "./date-utils-lite.js";
 import { DateTime, Duration, DurationFormat, ResponseOutput, DateTimeRange, RequestSlotValues, SuggestionTypes } from "stentor-models";
-import { dateTimeToString, isDateTime, isDateTimeRange } from "./dateTime";
-import { dessmlify, ssmlify } from "./ssml";
-import { listisize, ListDelimiter } from "./speech";
-import { isDuration, DURATION_FORMAT_TO_MS_MULTIPLIER } from "./date-time";
-import { existsAndNotEmpty } from "./array";
+import { dateTimeToString, isDateTime, isDateTimeRange } from "./dateTime.js";
+import { dessmlify, ssmlify } from "./ssml.js";
+import { listisize, ListDelimiter } from "./speech.js";
+import { isDuration, DURATION_FORMAT_TO_MS_MULTIPLIER } from "./date-time/index.js";
+import { existsAndNotEmpty } from "./array.js";
 
 /**
  * Ensures that an outputSpeech or reprompt, either string or ResponseOutput,

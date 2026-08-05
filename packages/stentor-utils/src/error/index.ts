@@ -1,3 +1,3 @@
 /*! Copyright (c) 2019, XAPPmedia */
-export * from "./Guards";
-export * from "./LambdaError";
+export * from "./Guards.js";
+export * from "./LambdaError.js";

@@ -1,0 +1,18 @@
+import { dateTimeToString, isDateTime, isDateTimeRange } from "../dateTime.js";
+/**
+ * Convert a request slot value to a string, helpful for display or debugging.
+ *
+ * @param value - Slot value to convert to a string
+ * @returns String suitable for console statements or display
+ */
+export function requestSlotValueToString(value) {
+    let displayValue = `${value}`;
+    if (Array.isArray(value)) {
+        displayValue = `[${value.toString()}]`;
+    }
+    else if (isDateTime(value) || isDateTimeRange(value)) {
+        displayValue = dateTimeToString(value);
+    }
+    return displayValue;
+}
+//# sourceMappingURL=requestSlotValueToString.js.map

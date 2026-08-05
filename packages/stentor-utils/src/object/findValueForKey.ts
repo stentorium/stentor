@@ -1,6 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { existsAndNotEmpty } from "../array";
-import { ObjectWithKeys, findValuesForKey } from "./findValuesForKey";
+import { existsAndNotEmpty } from "../array.js";
+import { ObjectWithKeys, findValuesForKey } from "./findValuesForKey.js";
 
 /**
  * Searches the provided object for the provided key.

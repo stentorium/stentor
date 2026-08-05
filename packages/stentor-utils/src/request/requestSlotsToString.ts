@@ -1,6 +1,6 @@
 /*! Copyright (c) 2022, XAPPmedia */
 import { RequestSlotMap } from "stentor-models";
-import { requestSlotValueToString } from "./requestSlotValueToString";
+import { requestSlotValueToString } from "./requestSlotValueToString.js";
 
 
 /**

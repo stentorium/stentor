@@ -1,6 +1,6 @@
 /*! Copyright (c) 2022, XAPPmedia */
 import { Response, SimpleResponse } from "stentor-models";
-import { existsAndNotEmpty } from "./array";
+import { existsAndNotEmpty } from "./array.js";
 
 /**
  * From the provided array of responses, find the response that matches the provided tag.

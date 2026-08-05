@@ -2,8 +2,8 @@
 import { TEMPLATE_REGEX } from "stentor-constants";
 import { RequestSlotMap, ResponseOutput } from "stentor-models";
 
-import { MacroMap } from "./macro";
-import { slotValueToSpeech } from "../response";
+import { MacroMap } from "./macro.js";
+import { slotValueToSpeech } from "../response.js";
 
 type ResponseOutputKeysOnly = Pick<ResponseOutput, "ssml" | "displayText">;
 

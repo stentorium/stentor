@@ -1,7 +1,7 @@
 /*! Copyright (c) 2019, XAPPmedia */
 
 import { expect } from "chai";
-import { cleanInvalid, isValidSSML } from "./ssml";
+import { cleanInvalid, isValidSSML } from "./ssml.js";
 
 // These tests double as a regression guard for the `xmldoc` dependency: `ssml.ts` does a
 // top-level `require("xmldoc")`, so if `xmldoc` is ever bumped to an ESM-only release (>=3.0.0),

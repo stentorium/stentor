@@ -1,9 +1,9 @@
 /*! Copyright (c) 2020, XAPPmedia */
 import { Duration, DurationFormat } from "stentor-models";
-import { durationFormatGreaterThan } from "./durationFormatGreaterThan";
-import { isISO8601Duration } from "./isISO8601Duration";
-import { toNumber } from "../string";
-import { addDurations } from "./addDurations";
+import { durationFormatGreaterThan } from "./durationFormatGreaterThan.js";
+import { isISO8601Duration } from "./isISO8601Duration.js";
+import { toNumber } from "../string/index.js";
+import { addDurations } from "./addDurations.js";
 
 export enum GetDurationGroupBy {
     Largest,

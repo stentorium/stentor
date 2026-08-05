@@ -1,8 +1,8 @@
 /*! Copyright (c) 2020, XAPPmedia */
 import { Duration, DurationFormat } from "stentor-models";
-import { existsAndNotEmpty } from "../array";
-import { toNumber } from "../string";
-import { DURATION_FORMAT_TO_MS_MULTIPLIER } from "./durationFormatGreaterThan"
+import { existsAndNotEmpty } from "../array.js";
+import { toNumber } from "../string/index.js";
+import { DURATION_FORMAT_TO_MS_MULTIPLIER } from "./durationFormatGreaterThan.js"
 
 /**
  * Add durations together, combining to the provided format. 

@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "outDir": "esm",
+    "declaration": false,
+    "declarationMap": false
+  },
+  "include": [
+    "src",
+    "typings/**/*.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/**/__test__/*",
+    "src/**/*.test.ts"
+  ]
+}

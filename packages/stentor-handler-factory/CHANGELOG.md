@@ -11,6 +11,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.4](https://github.com/stentorium/stentor/compare/stentor-handler-factory-v1.74.3...stentor-handler-factory-v1.74.4) (2026-08-05)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-context bumped from 1.74.3 to 1.74.4
+    * stentor-handler bumped from 1.74.3 to 1.74.4
+    * stentor-handler-delegating bumped from 1.74.3 to 1.74.4
+    * stentor-interaction-model bumped from 1.74.3 to 1.74.4
+    * stentor-logger bumped from 1.74.3 to 1.74.4
+    * stentor-response bumped from 1.74.3 to 1.74.4
+    * stentor-utils bumped from 1.74.3 to 1.75.0
+  * devDependencies
+    * stentor-request bumped from 1.74.3 to 1.74.4
+
 ## [1.74.3](https://github.com/stentorium/stentor/compare/stentor-handler-factory-v1.74.2...stentor-handler-factory-v1.74.3) (2026-08-05)
 
 

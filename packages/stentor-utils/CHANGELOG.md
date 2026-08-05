@@ -18,6 +18,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.75.0](https://github.com/stentorium/stentor/compare/stentor-utils-v1.74.3...stentor-utils-v1.75.0) (2026-08-05)
+
+
+### Features
+
+* **stentor-utils:** expose a shared slug helper ([#3155](https://github.com/stentorium/stentor/issues/3155)) ([b4721ae](https://github.com/stentorium/stentor/commit/b4721ae8c7549858dcd4a89d06cfe956684ae13a))
+
 ## [1.74.3](https://github.com/stentorium/stentor/compare/stentor-utils-v1.74.2...stentor-utils-v1.74.3) (2026-08-05)
 
 

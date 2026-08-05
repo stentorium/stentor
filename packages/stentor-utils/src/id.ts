@@ -1,6 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-import slugify from "slugify";
+import { slug as toSlug } from "./string/slug.js";
 
 /**
  * Generates an ID for an Intent.
@@ -17,7 +16,7 @@ export function generateIntentId(name: string): string | undefined {
     }
 
     // Slugify will catch the non-standard characters
-    const slug = slugify(name);
+    const slug = toSlug(name);
 
     // Split by capital letters in case it already is
     const split = slug.match(/([A-Z]?[^A-Z]*)/g).slice(0, -1);

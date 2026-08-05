@@ -4,6 +4,7 @@ export * from "./cleanTags.js";
 export * from "./compare.js";
 export * from "./randomString.js";
 export * from "./removePostFix.js";
+export * from "./slug.js";
 export * from "./StringExpander.js";
 export * from "./tokenize.js";
 export * from "./toNumber.js";

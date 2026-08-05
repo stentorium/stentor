@@ -1,6 +1,4 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import "isomorphic-fetch";
-import "abort-controller/polyfill"
 
 import { AbstractService } from "./AbstractService";
 

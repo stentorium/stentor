@@ -3,7 +3,11 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "lib",
-    "lib": ["es2018", "dom"]
+    "lib": ["es2018", "dom"],
+    "types": ["node", "mocha"]
+  },
+  "ts-node": {
+    "transpileOnly": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "src/**/__test__/*"]

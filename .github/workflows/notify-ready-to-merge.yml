@@ -71,9 +71,9 @@ jobs:
         if: steps.pr.outputs.has_pr == 'true'
         id: ready
         env:
+          PR_NUM: ${{ steps.pr.outputs.pr_number }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          PR_NUM="${{ steps.pr.outputs.pr_number }}"
 
           # Get PR status
           PR_DATA=$(gh pr view "$PR_NUM" --json state,isDraft,reviewDecision,statusCheckRollup,title,url)
@@ -111,15 +111,15 @@ jobs:
       - name: Notify ready to merge
         if: steps.ready.outputs.is_ready == 'true' && steps.ready.outputs.already_notified == '0'
         env:
+          PR_NUM: ${{ steps.pr.outputs.pr_number }}
+          TITLE: ${{ steps.ready.outputs.title }}
+          URL: ${{ steps.ready.outputs.url }}
+          REPO: ${{ github.repository }}
+          REVIEW_STATE: ${{ steps.ready.outputs.review_decision }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          PR_NUM="${{ steps.pr.outputs.pr_number }}"
-          TITLE="${{ steps.ready.outputs.title }}"
-          URL="${{ steps.ready.outputs.url }}"
-          REPO="${{ github.repository }}"
           REPO_NAME="${REPO#*/}"
 
-          REVIEW_STATE="${{ steps.ready.outputs.review_decision }}"
 
           # Build review status message
           if [ "$REVIEW_STATE" == "APPROVED" ]; then

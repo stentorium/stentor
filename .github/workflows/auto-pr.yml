@@ -64,20 +64,20 @@ jobs:
       - name: Get issue details
         id: issue
         env:
+          ISSUE_NUM: ${{ github.event.issue.number }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          ISSUE_NUM="${{ github.event.issue.number }}"
           TITLE=$(gh issue view "$ISSUE_NUM" --json title -q '.title')
           echo "title=$TITLE" >> $GITHUB_OUTPUT
           echo "number=$ISSUE_NUM" >> $GITHUB_OUTPUT
 
       - name: Create Pull Request
         env:
+          BRANCH: ${{ steps.extract.outputs.branch }}
+          ISSUE_NUM: ${{ steps.issue.outputs.number }}
+          TITLE: ${{ steps.issue.outputs.title }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          BRANCH="${{ steps.extract.outputs.branch }}"
-          ISSUE_NUM="${{ steps.issue.outputs.number }}"
-          TITLE="${{ steps.issue.outputs.title }}"
 
           # Check if PR already exists for this branch
           EXISTING_PR=$(gh pr list --head "$BRANCH" --json number -q '.[0].number' 2>/dev/null || echo "")
@@ -101,10 +101,10 @@ jobs:
 
       - name: Comment on issue
         env:
+          ISSUE_NUM: ${{ steps.issue.outputs.number }}
+          BRANCH: ${{ steps.extract.outputs.branch }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          ISSUE_NUM="${{ steps.issue.outputs.number }}"
-          BRANCH="${{ steps.extract.outputs.branch }}"
 
           # Get the PR number we just created
           PR_NUM=$(gh pr list --head "$BRANCH" --json number -q '.[0].number')

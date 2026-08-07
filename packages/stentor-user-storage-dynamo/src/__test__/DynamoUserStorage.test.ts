@@ -1,6 +1,8 @@
 /*! Copyright (c) 2020, XAPPmedia */
 import { expect } from "chai";
 
+import { DynamoDBDocumentClient } from "@aws-sdk/lib-dynamodb";
+
 import { DynamoUserStorage } from "../DynamoUserStorage";
 
 describe(`${DynamoUserStorage.name}`, () => {
@@ -22,10 +24,13 @@ describe(`${DynamoUserStorage.name}`, () => {
         describe('when a v3 client is provided', () => {
             it('uses it rather than constructing its own', () => {
                 let sent = false;
+                // Cast rather than build a real client: the prop is typed as
+                // DynamoDB | DynamoDBDocumentClient now, and this suite runs transpileOnly,
+                // so an untyped literal would slip through here but fail a real typecheck.
                 const provided = {
                     send: () => { sent = true; return Promise.resolve({}); },
                     config: { credentials: {} }
-                };
+                } as unknown as DynamoDBDocumentClient;
                 expect(new DynamoUserStorage({
                     tableName: "foo",
                     appId: "bar",

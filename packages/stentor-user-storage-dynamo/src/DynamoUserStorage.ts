@@ -9,6 +9,7 @@ import {
 } from '@xapp/dynamo-service/dist/service/TableService';
 
 import { DynamoDB } from "@aws-sdk/client-dynamodb";
+import { DynamoDBDocumentClient } from "@aws-sdk/lib-dynamodb";
 
 import { UserStorageRow, UserTableSchema } from "./UserStorageTableSchema";
 
@@ -29,7 +30,7 @@ export interface DynamoUserStorageProps {
      * DynamoDB instance, optional.  If one isn't provided it will be created for you based on the provided table name.
      * Must be an AWS SDK v3 client - a DynamoDB or DynamoDBDocumentClient.
      */
-    dynamo?: any;
+    dynamo?: DynamoDB | DynamoDBDocumentClient;
     /**
      * Optional table schema.  This is required if you want to save additional information to long term storage.
      * 

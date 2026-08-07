@@ -29,7 +29,7 @@
     "mocha": "11.8.0",
     "sinon": "22.1.0",
     "stentor-models": "1.76.0",
-    "typescript": "6.0.3"
+    "typescript": "7.0.2"
   },
   "dependencies": {
     "stentor-guards": "1.74.2",

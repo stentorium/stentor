@@ -20,27 +20,23 @@
     "node": ">=18"
   },
   "devDependencies": {
+    "@aws-sdk/client-dynamodb": "3.1101.0",
+    "@aws-sdk/lib-dynamodb": "3.1101.0",
     "@types/chai": "5.2.3",
     "@xapp/config": "0.3.0",
     "chai": "4.5.0",
+    "mocha": "11.8.0",
     "stentor-models": "1.76.0",
+    "ts-node": "10.9.2",
     "typescript": "6.0.3"
   },
   "dependencies": {
-    "@xapp/dynamo-service": "1.8.7"
+    "@xapp/dynamo-service": "2.0.5"
   },
   "peerDependencies": {
-    "@aws-sdk/lib-dynamodb": "*",
-    "aws-sdk": "*",
+    "@aws-sdk/client-dynamodb": "3.x",
+    "@aws-sdk/lib-dynamodb": "3.x",
     "stentor-models": "1.x"
-  },
-  "peerDependenciesMeta": {
-    "@aws-sdk/lib-dynamodb": {
-      "optional": true
-    },
-    "aws-sdk": {
-      "optional": true
-    }
   },
   "scripts": {
     "build": "tsc -d true -p .",

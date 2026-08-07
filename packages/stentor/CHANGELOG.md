@@ -15,6 +15,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [2.0.0](https://github.com/stentorium/stentor/compare/stentor-v1.74.4...stentor-v2.0.0) (2026-08-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* stentor-user-storage-dynamo now requires AWS SDK v3. @aws-sdk/client-dynamodb and @aws-sdk/lib-dynamodb move from optional to required peer dependencies, aws-sdk v2 is no longer supported, and passing a v2 DynamoDB.DocumentClient no longer works. Consumers relying on the v2 fallback must install the v3 clients. Marked breaking so release-please cuts a major rather than a patch, since a patch would not signal the peer contract change.
+
+### Bug Fixes
+
+* move stentor-user-storage-dynamo to AWS SDK v3 via dynamo-service 2.0.5 ([#3162](https://github.com/stentorium/stentor/issues/3162)) ([05baf4b](https://github.com/stentorium/stentor/commit/05baf4b2c5e2c36a936948aa0df8dcd9df8024ca))
+
 ## [1.74.4](https://github.com/stentorium/stentor/compare/stentor-v1.74.3...stentor-v1.74.4) (2026-08-05)
 
 

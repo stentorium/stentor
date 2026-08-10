@@ -11,6 +11,21 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.5](https://github.com/stentorium/stentor/compare/stentor-context-v1.74.4...stentor-context-v1.74.5) (2026-08-10)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-constants bumped from 1.74.2 to 1.74.3
+    * stentor-response bumped from 1.74.4 to 1.74.5
+    * stentor-storage bumped from 1.74.4 to 1.74.5
+  * devDependencies
+    * stentor-models bumped from 1.76.0 to 1.77.0
+  * peerDependencies
+    * stentor-models bumped from 1.x to 1.77.0
+
 ## [1.74.4](https://github.com/stentorium/stentor/compare/stentor-context-v1.74.3...stentor-context-v1.74.4) (2026-08-05)
 
 

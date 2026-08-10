@@ -19,6 +19,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.77.0](https://github.com/stentorium/stentor/compare/stentor-models-v1.76.0...stentor-models-v1.77.0) (2026-08-10)
+
+
+### Features
+
+* **stentor-models:** add FormStep.subtitle ([#3171](https://github.com/stentorium/stentor/issues/3171)) ([d957854](https://github.com/stentorium/stentor/commit/d95785468137e421aebb51fc39d9b1fcc6a925b2)), closes [#3170](https://github.com/stentorium/stentor/issues/3170)
+
 ## [1.76.0](https://github.com/stentorium/stentor/compare/stentor-models-v1.75.0...stentor-models-v1.76.0) (2026-08-05)
 
 

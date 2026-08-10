@@ -95,6 +95,12 @@ export interface FormStep {
   name: string;
   title?: string;
   /**
+   * Optional supporting line rendered beneath {@link title}.
+   *
+   * Consumers decide placement; the form widget renders it in the step's intro block.
+   */
+  subtitle?: string;
+  /**
    * The fields that are part of the form.
    */
   fields: FormField[];

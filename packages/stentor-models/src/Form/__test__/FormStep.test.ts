@@ -2,6 +2,9 @@
 import { expect } from "chai";
 
 import { FormStep, FormStepExternalWidget, FormStepIFrame, FormSteps } from "../FormStep";
+// Imported through the package entry point rather than the module, so a step dropped from a
+// barrel file fails here instead of silently leaving the published surface.
+import { FormStep as ExportedFormStep } from "../../index";
 
 describe("FormStepExternalWidget", () => {
     it("is assignable to FormSteps with only the required externalWidget fields set", () => {
@@ -142,5 +145,79 @@ describe("FormStepExternalWidget", () => {
 
         expect(steps[0]).to.equal(plain);
         expect(steps[1]).to.equal(iframe);
+    });
+});
+
+describe("FormStep", () => {
+    describe("subtitle", () => {
+        it("accepts a supporting line alongside the title", () => {
+            const step: FormStep = {
+                name: "intro",
+                title: "Get your free estimate",
+                subtitle: "Tell us about the job and we'll match you with a pro.",
+                fields: []
+            };
+
+            expect(step.subtitle).to.equal("Tell us about the job and we'll match you with a pro.");
+        });
+
+        it("is optional, so steps authored before it still type-check", () => {
+            const step: FormStep = {
+                name: "intro",
+                title: "Get your free estimate",
+                fields: []
+            };
+
+            expect(step.subtitle).to.be.undefined;
+        });
+
+        it("is a string", () => {
+            const step: FormStep = {
+                name: "intro",
+                // As above, the directive sits on the erroring line: the mismatch is reported
+                // on the property, not on the declaration.
+                // @ts-expect-error subtitle is a string, not a number
+                subtitle: 1,
+                fields: []
+            };
+
+            expect(step.subtitle).to.equal(1);
+        });
+
+        it("is inherited by the FormStep subtypes", () => {
+            const iframe: FormStepIFrame = {
+                name: "schedule",
+                subtitle: "All times are local to you.",
+                fields: [],
+                iframe: { src: "https://embed.example.com/schedule" }
+            };
+            const externalWidget: FormStepExternalWidget = {
+                name: "booking-handoff",
+                subtitle: "One last step.",
+                fields: [],
+                externalWidget: {
+                    anchorId: "airo-anchor",
+                    scriptSrc: "https://embed.example.com/widget.js",
+                    configGlobal: "airoBookingForm",
+                    config: {}
+                }
+            };
+            const steps: FormSteps[] = [iframe, externalWidget];
+
+            expect(steps.map((step) => step.subtitle)).to.deep.equal([
+                "All times are local to you.",
+                "One last step."
+            ]);
+        });
+
+        it("is reachable from the package entry point", () => {
+            const step: ExportedFormStep = {
+                name: "intro",
+                subtitle: "A supporting line.",
+                fields: []
+            };
+
+            expect(step.subtitle).to.equal("A supporting line.");
+        });
     });
 });

@@ -6437,10 +6437,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/luxon@npm:3.7.2":
-  version: 3.7.2
-  resolution: "@types/luxon@npm:3.7.2"
-  checksum: 10c0/c29fd286d0804221b14b3380dd9b290390c188a0df67fa770ced16994e637ab62de89425daf4de82150ea44b9bbbbb9537e4c85677d381d98bec5afcf53f0b5a
+"@types/luxon@npm:3.7.4":
+  version: 3.7.4
+  resolution: "@types/luxon@npm:3.7.4"
+  checksum: 10c0/f3cf9c0eccb81e8f0a3cf840927f2dac82fca31edc0888a99965ecd6ba4ba995ccdff34d6dd8e13aed9f57765defee5b3e41739f81a5c939ace6764156dff79a
   languageName: node
   linkType: hard
 
@@ -20075,7 +20075,7 @@ __metadata:
   resolution: "stentor-time@workspace:packages/stentor-time"
   dependencies:
     "@types/chai": "npm:5.2.3"
-    "@types/luxon": "npm:3.7.2"
+    "@types/luxon": "npm:3.7.4"
     "@types/mocha": "npm:10.0.10"
     "@types/sinon": "npm:22.0.0"
     "@xapp/config": "npm:0.3.0"

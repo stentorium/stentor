@@ -32,7 +32,7 @@
     "typescript": "6.0.3"
   },
   "dependencies": {
-    "@types/luxon": "3.7.2",
+    "@types/luxon": "3.7.4",
     "luxon": "3.7.2",
     "stentor-guards": "1.74.3",
     "stentor-logger": "1.74.5",

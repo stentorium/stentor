@@ -14,6 +14,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.6](https://github.com/stentorium/stentor/compare/stentor-time-v1.74.5...stentor-time-v1.74.6) (2026-08-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/luxon to v3.7.4 ([#3167](https://github.com/stentorium/stentor/issues/3167)) ([0e824ef](https://github.com/stentorium/stentor/commit/0e824ef0f0f8aad430eeb25913aa0f16051aa1fc))
+
 ## [1.74.5](https://github.com/stentorium/stentor/compare/stentor-time-v1.74.4...stentor-time-v1.74.5) (2026-08-10)
 
 

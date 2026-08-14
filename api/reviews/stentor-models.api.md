@@ -874,6 +874,75 @@ export type CommFieldType = "phoneNumber" | "emailAddress";
 // @public
 export type CompilablePath = HistoricalPath | PreviousHandlerPath;
 
+// Warning: (ae-missing-release-tag) "CompletionContentMessage" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type CompletionContentMessage = string;
+
+// Warning: (ae-missing-release-tag) "CompletionMessage" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface CompletionMessage {
+    // (undocumented)
+    content: CompletionContentMessage;
+    // (undocumented)
+    role: string;
+}
+
+// Warning: (ae-missing-release-tag) "CompletionPrompt" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface CompletionPrompt extends Prompt {
+    // (undocumented)
+    frequency_penalty: number;
+    // (undocumented)
+    max_tokens: number;
+    // (undocumented)
+    messages: CompletionMessage[];
+    // (undocumented)
+    model: string;
+    // (undocumented)
+    presence_penalty: number;
+    // (undocumented)
+    response_format: CompletionResponseFormat;
+    // (undocumented)
+    temperature: number;
+    // (undocumented)
+    top_p: number;
+    // (undocumented)
+    type: "completions";
+}
+
+// Warning: (ae-missing-release-tag) "CompletionResponseFormat" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type CompletionResponseFormat = CompletionResponseFormatText | CompletionResponseFormatJSONObject | CompletionResponseFormatJSONSchema;
+
+// Warning: (ae-missing-release-tag) "CompletionResponseFormatJSONObject" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface CompletionResponseFormatJSONObject {
+    // (undocumented)
+    type: "json_object";
+}
+
+// Warning: (ae-missing-release-tag) "CompletionResponseFormatJSONSchema" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface CompletionResponseFormatJSONSchema {
+    json_schema: object;
+    // (undocumented)
+    type: "json_schema";
+}
+
+// Warning: (ae-missing-release-tag) "CompletionResponseFormatText" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface CompletionResponseFormatText {
+    // (undocumented)
+    type: "text";
+}
+
 // Warning: (ae-incompatible-release-tags) The symbol "Conditional" is marked as @public, but its signature references "Conditioned" which is marked as @beta
 // Warning: (ae-missing-release-tag) "Conditional" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -943,6 +1012,7 @@ export type Contexts = ActiveWithinable | FirstTimeable | HaveNotSeenWithinable 
 export interface ContextServices {
     crmService?: CrmService;
     eventService?: ErrorService;
+    llmService?: LLMService;
     smsService?: SMSService;
 }
 
@@ -1597,6 +1667,7 @@ export interface FormStep {
     nextLabel?: string;
     previousAction?: "previous" | "submit" | "omit";
     previousLabel?: string;
+    subtitle?: string;
     // (undocumented)
     title?: string;
     // @beta
@@ -1849,6 +1920,9 @@ export interface HandlerService {
     get(id: string | {
         intentId: string;
     }): Promise<Handler> | Promise<undefined>;
+    getMany?(ids: (string | {
+        intentId: string;
+    })[]): Promise<Handler[]>;
 }
 
 // Warning: (ae-missing-release-tag) "HaveNotSeenWithin" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
@@ -2069,6 +2143,11 @@ export interface IntentRequestPayload {
 //
 // @public (undocumented)
 export type IntentRequestType = "INTENT_REQUEST";
+
+// Warning: (ae-missing-release-tag) "isCompletionPrompt" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function isCompletionPrompt(prompt: Prompt | undefined): prompt is CompletionPrompt;
 
 // Warning: (ae-missing-release-tag) "JobTypeAvailabilityClass" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -2431,6 +2510,23 @@ export interface ListItem {
 //
 // @public (undocumented)
 export type LiveStreamType = AudioLiveStreamType | VideoLiveStreamType;
+
+// Warning: (ae-missing-release-tag) "LLMService" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface LLMService {
+    generate(prompt: Prompt, options?: {
+        timeout?: number;
+    }): Promise<LLMServiceResponse>;
+}
+
+// Warning: (ae-missing-release-tag) "LLMServiceResponse" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface LLMServiceResponse {
+    // (undocumented)
+    text: string;
+}
 
 // Warning: (ae-missing-release-tag) "Locale" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -3223,6 +3319,19 @@ export interface PrivacyAndCompliance {
     // (undocumented)
     usesPersonalInfo?: boolean;
 }
+
+// Warning: (ae-missing-release-tag) "Prompt" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface Prompt {
+    // (undocumented)
+    type: PromptType;
+}
+
+// Warning: (ae-missing-release-tag) "PromptType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export type PromptType = "completions";
 
 // Warning: (ae-missing-release-tag) "ProvenanceType" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //

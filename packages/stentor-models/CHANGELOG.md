@@ -19,6 +19,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.78.0](https://github.com/stentorium/stentor/compare/stentor-models-v1.77.0...stentor-models-v1.78.0) (2026-08-16)
+
+
+### Features
+
+* **stentor-models:** expose an LLM service to custom handlers ([#3178](https://github.com/stentorium/stentor/issues/3178)) ([4eb2a04](https://github.com/stentorium/stentor/commit/4eb2a04d5c66fd18ac1e3996dc63f19835fc5f39))
+
 ## [1.77.0](https://github.com/stentorium/stentor/compare/stentor-models-v1.76.0...stentor-models-v1.77.0) (2026-08-10)
 
 

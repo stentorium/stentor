@@ -5,7 +5,7 @@ import { AbstractResponseBuilder } from "./Response";
 import { SessionStore, Storage } from "./Storage";
 import { UserDataType } from "./UserData";
 import { UserProfile } from "./UserProfile";
-import { CrmService, ErrorService, SMSService } from "./Services";
+import { CrmService, ErrorService, LLMService, SMSService } from "./Services";
 
 export enum UserDataRequestStatus {
     DEFERRED,
@@ -38,6 +38,14 @@ export interface ContextServices {
      * Access to the event service for reporting runtime errors.
      */
     eventService?: ErrorService;
+    /**
+     * Generic LLM access, wired by the runtime.
+     *
+     * Optional and frequently absent -- a runtime that cannot build one leaves it undefined rather
+     * than supplying something that throws on use, so check before calling and have a path that
+     * works without it.
+     */
+    llmService?: LLMService;
 }
 
 /**

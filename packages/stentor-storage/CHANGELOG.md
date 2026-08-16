@@ -11,6 +11,19 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.6](https://github.com/stentorium/stentor/compare/stentor-storage-v1.74.5...stentor-storage-v1.74.6) (2026-08-16)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-utils bumped from 1.75.1 to 1.75.2
+  * devDependencies
+    * stentor-models bumped from 1.77.0 to 1.78.0
+  * peerDependencies
+    * stentor-models bumped from 1.x to 1.78.0
+
 ## [1.74.5](https://github.com/stentorium/stentor/compare/stentor-storage-v1.74.4...stentor-storage-v1.74.5) (2026-08-10)
 
 

@@ -11,6 +11,20 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.7](https://github.com/stentorium/stentor/compare/stentor-handler-delegating-v1.74.6...stentor-handler-delegating-v1.74.7) (2026-08-16)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-handler bumped from 1.74.6 to 1.74.7
+    * stentor-utils bumped from 1.75.1 to 1.75.2
+  * devDependencies
+    * stentor-models bumped from 1.77.0 to 1.78.0
+  * peerDependencies
+    * stentor-models bumped from 1.x to 1.78.0
+
 ## [1.74.6](https://github.com/stentorium/stentor/compare/stentor-handler-delegating-v1.74.5...stentor-handler-delegating-v1.74.6) (2026-08-11)
 
 

@@ -3,31 +3,31 @@ name: Claude Code Review
 on:
   pull_request:
     types: [opened, synchronize]
-    # Optional: Only run on specific file changes
-    # paths:
-    #   - "src/**/*.ts"
-    #   - "src/**/*.tsx"
-    #   - "src/**/*.js"
-    #   - "src/**/*.jsx"
+
+# One review per PR at a time; a new push supersedes the in-flight run instead of
+# stacking quota-burning duplicates.
+concurrency:
+  group: claude-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
 
 jobs:
   claude-review:
-    # Optional: Filter by PR author
-    # if: |
-    #   github.event.pull_request.user.login == 'external-contributor' ||
-    #   github.event.pull_request.user.login == 'new-developer' ||
-    #   github.event.pull_request.author_association == 'FIRST_TIME_CONTRIBUTOR'
-
+    # Skip mechanical PRs: release-please releases and dependency bots. The dep-merge
+    # routine owns those; reviewing every bump burns quota for nothing.
+    if: |
+      !startsWith(github.event.pull_request.title, 'chore: release') &&
+      github.event.pull_request.user.login != 'renovate[bot]' &&
+      github.event.pull_request.user.login != 'dependabot[bot]'
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      pull-requests: read
+      pull-requests: write
       issues: read
       id-token: write
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
@@ -36,21 +36,38 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-
-          # Automated review — no @claude mention needed.
-          # NOTE: this input was `direct_prompt` on the old @beta action; it is `prompt` on v1.
           prompt: |
-            Please review this pull request and provide feedback on:
-            - Code quality and best practices
-            - Potential bugs or issues
-            - Performance considerations
-            - Security concerns
-            - Test coverage
+            You are an adversarial code reviewer. Your job is to find real defects, not to
+            appear thorough. An unfounded finding wastes the author's time and erodes trust
+            in this review gate; a missed real bug ships. Silence beats speculation.
 
-            Use the repository's CLAUDE.md for guidance on style and conventions. Be constructive and helpful in your feedback.
+            Process:
+            1. Read the diff: gh pr diff ${{ github.event.pull_request.number }}
+            2. Read enough surrounding code in the checkout to understand each change in its
+               real context -- callers, callees, error paths, existing tests.
+            3. Hunt for: correctness bugs, broken edge cases, security issues, breaking
+               API/contract changes, concurrency problems, missing or misleading test
+               coverage for the changed behavior, and violations of this repo's CLAUDE.md.
+            4. VERIFY every candidate finding before reporting it: re-read the code and
+               trace the concrete failure scenario (specific input/state leading to a
+               specific wrong outcome). Discard anything you cannot substantiate with a
+               traceable scenario.
+            5. Post exactly ONE comment using:
+               gh pr comment ${{ github.event.pull_request.number }} --body "..."
 
-            Use `gh pr comment` with your Bash tool to leave your review as a comment on the PR.
+            Comment format:
 
-          # See https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md
-          # or https://docs.anthropic.com/en/docs/claude-code/sdk#command-line for available options
-          claude_args: '--allowed-tools "Bash(gh issue view:*),Bash(gh search:*),Bash(gh issue list:*),Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr list:*)"'
+            ## Claude Code Review
+
+            **Verdict:** either "LGTM -- no verified findings" or "N verified finding(s)"
+
+            For each finding: file:line, severity (blocker / should-fix / nit), the traced
+            failure scenario, and a suggested fix. Order by severity.
+
+            If everything is fine, say so in one or two sentences. Do NOT pad with praise,
+            style opinions a linter would catch, or restatements of the diff.
+
+            IMPORTANT: You MUST post the comment -- the author needs confirmation the
+            review happened even when the verdict is LGTM.
+
+          claude_args: '--allowed-tools "Bash(gh issue view:*),Bash(gh search:*),Bash(gh issue list:*),Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr list:*),Bash(gh pr checks:*)"'

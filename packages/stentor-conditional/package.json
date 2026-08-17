@@ -28,14 +28,14 @@
     "mocha": "11.8.0",
     "stentor-models": "1.78.0",
     "typescript": "6.0.3",
-    "vm2": "3.11.5"
+    "vm2": "3.11.6"
   },
   "dependencies": {
     "stentor-logger": "1.74.6",
     "stentor-utils": "1.75.2"
   },
   "optionalDependencies": {
-    "vm2": "3.11.5"
+    "vm2": "3.11.6"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

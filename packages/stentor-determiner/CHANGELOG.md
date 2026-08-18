@@ -11,6 +11,21 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.8](https://github.com/stentorium/stentor/compare/stentor-determiner-v1.74.7...stentor-determiner-v1.74.8) (2026-08-18)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-conditional bumped from 1.74.6 to 1.74.7
+    * stentor-interaction-model bumped from 1.74.6 to 1.74.7
+    * stentor-logger bumped from 1.74.6 to 1.74.7
+    * stentor-request bumped from 1.74.6 to 1.74.7
+    * stentor-storage bumped from 1.74.6 to 1.74.7
+    * stentor-time bumped from 1.74.7 to 1.74.8
+    * stentor-utils bumped from 1.75.2 to 1.75.3
+
 ## [1.74.7](https://github.com/stentorium/stentor/compare/stentor-determiner-v1.74.6...stentor-determiner-v1.74.7) (2026-08-16)
 
 

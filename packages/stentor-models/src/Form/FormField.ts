@@ -58,6 +58,7 @@ export interface AddressAutocompleteParameters {
  * - FormChipsInput: Multi-select chip interface
  * - FormDateInput: Single date picker
  * - FormDateRangeInput: Date range picker
+ * - FormDateTimeInput: Combined date and appointment time picker
  */
 export type FormField =
   | FormCardInput
@@ -65,7 +66,8 @@ export type FormField =
   | FormDropdownInput
   | FormChipsInput
   | FormDateInput
-  | FormDateRangeInput;
+  | FormDateRangeInput
+  | FormDateTimeInput;
 
 /**
  * Form field base class
@@ -84,7 +86,7 @@ export interface FormInput {
   /**
    * Type of the input
    */
-  type: "TEXT" | "DROPDOWN" | "CHECK" | "CHIPS" | "DATE" | "DATERANGE" | "CARD";
+  type: "TEXT" | "DROPDOWN" | "CHECK" | "CHIPS" | "DATE" | "DATERANGE" | "CARD" | "DATETIME";
   /**
    * Optional, used to shape the input.  Not applicable to all inputs.
    */
@@ -400,6 +402,185 @@ export interface FormDateRangeInput extends FormInput {
      */
     to?: Date;
   };
+}
+
+/**
+ * A time of day in 24-hour "HH:MM" form, for example "09:30".
+ *
+ * Always interpreted in the timezone of the enclosing {@link TimeSlotSchedule},
+ * never in the timezone of the browser rendering it.
+ */
+export type ClockTime = string;
+
+/**
+ * A contiguous span of time within a single day.
+ */
+export interface TimeSpan {
+  /**
+   * When the span opens.
+   */
+  start: ClockTime;
+  /**
+   * When the span closes. Slots are generated up to, but not including, this time.
+   */
+  end: ClockTime;
+}
+
+/**
+ * A single entry in the time column of a date/time picker.
+ *
+ * Structurally compatible with the time members of {@link SelectableItem}, so an offering
+ * converts to the item shape the chips field already submits.
+ *
+ * Omitting `end` produces a discrete appointment start ("9:30 AM"); supplying it produces
+ * a window ("Morning, 8:00 AM - 12:00 PM"). A schedule may mix both.
+ */
+export interface TimeOffering {
+  /**
+   * Display label. When omitted, a label is formatted from `start` (and `end` when present).
+   *
+   * This is the value submitted for the field, so it is what a CRM or lead consumer receives.
+   */
+  label?: string;
+  /**
+   * When the appointment starts.
+   */
+  start: ClockTime;
+  /**
+   * When the appointment ends. Omit for a discrete start time with no stated end.
+   */
+  end?: ClockTime;
+  /**
+   * Optional heading this offering sits under, used to group a column that mixes
+   * named windows with discrete times.
+   */
+  group?: string;
+}
+
+/**
+ * An override of the weekly schedule for one specific date, such as a holiday
+ * or a Saturday with shortened hours.
+ */
+export interface ScheduleException {
+  /**
+   * The date being overridden, in "YYYY-MM-DD" form.
+   */
+  date: string;
+  /**
+   * The spans open on this date. These *replace* the spans the weekday would otherwise
+   * contribute rather than adding to them.
+   *
+   * An empty array means closed.
+   */
+  spans: TimeSpan[];
+}
+
+/**
+ * How many appointments a slot or a day may absorb.
+ *
+ * @note - Reserved. Consumers must accept and persist this without acting on it; slot
+ * consumption is not tracked yet, so `mode` is currently always "NONE".
+ */
+export interface SlotCapacityPolicy {
+  /**
+   * When a slot is considered consumed.
+   *
+   * - "NONE": capacity is not tracked, every generated slot stays selectable
+   * - "ON_SUBMIT": a submitted lead consumes a slot
+   * - "ON_CONFIRM": only an appointment confirmed by the business consumes a slot
+   */
+  mode: "NONE" | "ON_SUBMIT" | "ON_CONFIRM";
+  /**
+   * How many appointments may share one slot. A business with several technicians can
+   * take more than one.
+   */
+  perSlot?: number;
+  /**
+   * How many appointments may be taken across a whole day.
+   */
+  perDay?: number;
+}
+
+/**
+ * Defines which appointment times a date/time picker offers.
+ *
+ * Offerings are derived from this definition alone — there is no CRM or field-service
+ * availability lookup behind it, so a schedule describes when a business is *open*,
+ * not which times are still free.
+ */
+export interface TimeSlotSchedule {
+  /**
+   * IANA timezone the schedule is expressed in, for example "America/New_York".
+   *
+   * Required, because every other time in this object is a wall-clock time in the
+   * business's zone and a visitor is frequently in a different one.
+   */
+  timezone: string;
+  /**
+   * Minutes between generated start times. Defaults to 30.
+   */
+  slotMinutes?: number;
+  /**
+   * How long an appointment lasts, in minutes. When set, each generated offering carries
+   * an `end`. When omitted, offerings are discrete start times with no stated end.
+   */
+  durationMinutes?: number;
+  /**
+   * Spans the business is open, per weekday. More than one span expresses a break in
+   * the day. A weekday that is missing or empty is closed.
+   */
+  days?: { [day in DayOfWeek]?: TimeSpan[] };
+  /**
+   * Date-specific overrides of `days`, for holidays and one-off hours.
+   */
+  exceptions?: ScheduleException[];
+  /**
+   * Hides offerings starting within this many minutes of now, so a visitor cannot book
+   * a time the business has no chance to staff.
+   */
+  leadTimeMinutes?: number;
+  /**
+   * How many days ahead the picker allows. Defaults to 60.
+   */
+  horizonDays?: number;
+  /**
+   * An explicit list of offerings. When present this *replaces* generation — `days`,
+   * `slotMinutes` and `durationMinutes` are not used.
+   *
+   * This is how a schedule expresses named windows, or a mix of windows and discrete times,
+   * that a uniform interval cannot produce.
+   */
+  offerings?: TimeOffering[];
+  /**
+   * @note - Reserved, see {@link SlotCapacityPolicy}. Persisted but not acted on.
+   */
+  capacity?: SlotCapacityPolicy;
+}
+
+/**
+ * Combined date and appointment time picker.
+ *
+ * Renders a calendar beside a column of appointment times generated from `schedule`,
+ * so the times on offer follow the date the user picks. A single field owns both values,
+ * but it submits them separately: the chosen time under the field's own `name`
+ * (plus the `_start`/`_end` members a selectable item already contributes), the date under
+ * `dateFieldName`, and a combined offset-bearing ISO timestamp under `dateTimeFieldName`.
+ */
+export interface FormDateTimeInput extends FormInput {
+  type: "DATETIME";
+  /**
+   * Which appointment times to offer.
+   */
+  schedule: TimeSlotSchedule;
+  /**
+   * Field name the selected date is submitted under. Defaults to "preferred_date".
+   */
+  dateFieldName?: string;
+  /**
+   * Field name the combined date and time is submitted under, as an ISO 8601 string
+   * carrying the schedule's UTC offset. Defaults to "datetime".
+   */
+  dateTimeFieldName?: string;
 }
 
 /**

@@ -18,6 +18,20 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.75.4](https://github.com/stentorium/stentor/compare/stentor-utils-v1.75.3...stentor-utils-v1.75.4) (2026-08-19)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-constants bumped from 1.74.4 to 1.74.5
+    * stentor-guards bumped from 1.74.4 to 1.74.5
+  * devDependencies
+    * stentor-models bumped from 1.78.0 to 1.79.0
+  * peerDependencies
+    * stentor-models bumped from 1.x to 1.79.0
+
 ## [1.75.3](https://github.com/stentorium/stentor/compare/stentor-utils-v1.75.2...stentor-utils-v1.75.3) (2026-08-18)
 
 

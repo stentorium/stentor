@@ -16,6 +16,7 @@ export * from "./id.js";
 export * from "./json.js";
 export * from "./key/index.js";
 export * from "./keyFromRequest.js";
+export * from "./lead.js";
 export * from "./markdown.js";
 export * from "./markup.js";
 export * from "./matcher.js";

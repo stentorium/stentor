@@ -14,6 +14,13 @@ export interface Data {
          * Chips to use when generating the default responses.  They will be added to all responses.
          */
         suggestionChips?: SuggestionTypes[];
+        /**
+         * Line appended to chat responses to invite a reply.
+         *
+         * Set to a single space to suppress it: an empty string reads as unset
+         * and the default follow-up comes back.
+         */
+        followUp?: string;
     }
     /**
      * Strategy to use when the handler receives an InputUnknown request.

@@ -19,6 +19,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.79.0](https://github.com/stentorium/stentor/compare/stentor-models-v1.78.0...stentor-models-v1.79.0) (2026-08-19)
+
+
+### Features
+
+* add DATETIME form field types for the appointment time picker ([#3188](https://github.com/stentorium/stentor/issues/3188)) ([ac7de85](https://github.com/stentorium/stentor/commit/ac7de85e9ad20fd4c4008699e6f4cb7208e6fd69)), closes [#3187](https://github.com/stentorium/stentor/issues/3187)
+* **models:** model chat.followUp on handler data ([#3189](https://github.com/stentorium/stentor/issues/3189)) ([b24a8f9](https://github.com/stentorium/stentor/commit/b24a8f9760fe9a66017e072f4df60a315988d331))
+
 ## [1.78.0](https://github.com/stentorium/stentor/compare/stentor-models-v1.77.0...stentor-models-v1.78.0) (2026-08-16)
 
 

@@ -9,7 +9,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.74.9",
+  "version": "1.74.10",
   "description": "Handler factory for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -29,19 +29,19 @@
     "sinon": "22.1.0",
     "sinon-chai": "3.7.0",
     "stentor-models": "1.79.0",
-    "stentor-request": "1.74.8",
+    "stentor-request": "1.74.9",
     "ts-node": "10.9.2",
     "typescript": "6.0.3"
   },
   "dependencies": {
     "stentor-constants": "1.74.5",
-    "stentor-context": "1.74.9",
-    "stentor-handler": "1.74.9",
-    "stentor-handler-delegating": "1.74.9",
-    "stentor-interaction-model": "1.74.8",
-    "stentor-logger": "1.74.8",
-    "stentor-response": "1.74.9",
-    "stentor-utils": "1.75.4"
+    "stentor-context": "1.74.10",
+    "stentor-handler": "1.74.10",
+    "stentor-handler-delegating": "1.74.10",
+    "stentor-interaction-model": "1.74.9",
+    "stentor-logger": "1.74.9",
+    "stentor-response": "1.74.10",
+    "stentor-utils": "1.76.0"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

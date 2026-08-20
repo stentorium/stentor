@@ -9,7 +9,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.74.8",
+  "version": "1.74.9",
   "description": "Simple logging library with optional Winston support for 📣 stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -33,7 +33,7 @@
     "typescript": "6.0.3"
   },
   "dependencies": {
-    "stentor-utils": "1.75.4"
+    "stentor-utils": "1.76.0"
   },
   "peerDependencies": {
     "logform": ">=1.0.0",

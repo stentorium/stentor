@@ -18,6 +18,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.76.0](https://github.com/stentorium/stentor/compare/stentor-utils-v1.75.4...stentor-utils-v1.76.0) (2026-08-20)
+
+
+### Features
+
+* **utils:** add lead contact-field resolution helpers ([#3191](https://github.com/stentorium/stentor/issues/3191)) ([9a5c149](https://github.com/stentorium/stentor/commit/9a5c1498db4c7f44f26b1efaf161aec92aa50c05))
+
 ## [1.75.4](https://github.com/stentorium/stentor/compare/stentor-utils-v1.75.3...stentor-utils-v1.75.4) (2026-08-19)
 
 

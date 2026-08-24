@@ -20,8 +20,8 @@
     "node": ">=18"
   },
   "devDependencies": {
-    "@aws-sdk/client-dynamodb": "3.1114.0",
-    "@aws-sdk/lib-dynamodb": "3.1114.0",
+    "@aws-sdk/client-dynamodb": "3.1115.0",
+    "@aws-sdk/lib-dynamodb": "3.1115.0",
     "@types/chai": "5.2.3",
     "@xapp/config": "0.3.0",
     "chai": "4.5.0",

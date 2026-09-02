@@ -15,6 +15,20 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [2.0.7](https://github.com/stentorium/stentor/compare/stentor-v2.0.6...stentor-v2.0.7) (2026-09-02)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-context bumped from 1.74.10 to 1.74.11
+    * stentor-determiner bumped from 1.74.10 to 1.74.11
+    * stentor-handler bumped from 1.74.10 to 1.74.11
+    * stentor-handler-factory bumped from 1.74.10 to 1.74.11
+    * stentor-response bumped from 1.74.10 to 1.74.11
+    * stentor-runtime bumped from 1.74.10 to 1.74.11
+
 ## [2.0.6](https://github.com/stentorium/stentor/compare/stentor-v2.0.5...stentor-v2.0.6) (2026-08-20)
 
 

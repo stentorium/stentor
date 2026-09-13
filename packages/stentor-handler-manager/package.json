@@ -33,7 +33,7 @@
     "stentor-models": "1.79.0",
     "stentor-request": "1.74.9",
     "ts-node": "10.9.2",
-    "typescript": "6.0.3"
+    "typescript": "7.0.2"
   },
   "dependencies": {
     "stentor-constants": "1.74.5",

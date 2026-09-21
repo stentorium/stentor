@@ -14,6 +14,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.12](https://github.com/stentorium/stentor/compare/stentor-time-v1.74.11...stentor-time-v1.74.12) (2026-09-21)
+
+
+### Bug Fixes
+
+* **stentor-time:** parse Moment-style schedule formats with a bare T or unpadded digits ([#3245](https://github.com/stentorium/stentor/issues/3245)) ([4edd152](https://github.com/stentorium/stentor/commit/4edd1520698570f6fb03578c5d3827f000375ed6))
+
 ## [1.74.11](https://github.com/stentorium/stentor/compare/stentor-time-v1.74.10...stentor-time-v1.74.11) (2026-09-02)
 
 

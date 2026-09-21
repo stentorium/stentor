@@ -269,6 +269,14 @@ describe("normalizeLegacyFormat", () => {
       expect(normalizeLegacyFormat("MM-DD-YYYYThh:mm a")).to.equal("MM-dd-yyyy'T'hh:mm a");
     });
 
+    it("should quote a bare T in an already-Luxon format", () => {
+      expect(normalizeLegacyFormat("yyyy-MM-ddTHH:mm:ss")).to.equal("yyyy-MM-dd'T'HH:mm:ss");
+    });
+
+    it("should leave an already-quoted T in a Luxon format alone", () => {
+      expect(normalizeLegacyFormat("yyyy-MM-dd'T'HH:mm:ss")).to.equal("yyyy-MM-dd'T'HH:mm:ss");
+    });
+
     it("should not double-quote a bracketed T", () => {
       expect(normalizeLegacyFormat("MM-DD-YYYY[T]hh:mm a")).to.equal("MM-dd-yyyy'T'hh:mm a");
     });

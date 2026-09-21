@@ -260,4 +260,17 @@ describe("normalizeLegacyFormat", () => {
       expect(result).to.equal("S SS SSS");
     });
   });
+  describe("unescaped ISO separator", () => {
+    it("should quote a bare T between date and time", () => {
+      expect(normalizeLegacyFormat("YYYY-MM-DDTHH:mm:ss")).to.equal("yyyy-MM-dd'T'HH:mm:ss");
+    });
+
+    it("should quote a bare T with 12-hour time", () => {
+      expect(normalizeLegacyFormat("MM-DD-YYYYThh:mm a")).to.equal("MM-dd-yyyy'T'hh:mm a");
+    });
+
+    it("should not double-quote a bracketed T", () => {
+      expect(normalizeLegacyFormat("MM-DD-YYYY[T]hh:mm a")).to.equal("MM-dd-yyyy'T'hh:mm a");
+    });
+  });
 });

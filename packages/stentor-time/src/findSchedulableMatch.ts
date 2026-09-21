@@ -33,6 +33,19 @@ function normalizeDurationUnit(unit: string): string {
 }
 
 /**
+ * Swap Luxon's fixed two-digit tokens (MM, dd, HH, hh, mm, ss) for their one-or-two digit
+ * forms, matching Moment's forgiving parse. Quoted literals and longer tokens (MMM, yyyy) are kept.
+ */
+function toLenientFormat(format: string): string {
+  return format
+    .split(/('[^']*')/)
+    .map((part) =>
+      part.startsWith("'") ? part : part.replace(/(?<![A-Za-z])(MM|dd|HH|hh|mm|ss)(?![A-Za-z])/g, (token) => token[0])
+    )
+    .join("");
+}
+
+/**
  * Within a list of Schedulables, find a match for the provided time
  * or current time if no time is provided.
  */
@@ -100,6 +113,17 @@ export function findSchedulableMatch<T extends object>(
         start = DateTime.fromFormat(patchedTime, patchedFormat, {
           zone: timeZone || baseNow.zone,
         });
+
+        // Moment parsed "6:55" against "hh:mm"; Luxon requires both digits. Retry leniently so
+        // content written for Moment keeps matching. Formats that already parse are untouched.
+        if (!start.isValid) {
+          const lenient = DateTime.fromFormat(patchedTime, toLenientFormat(patchedFormat), {
+            zone: timeZone || baseNow.zone,
+          });
+          if (lenient.isValid) {
+            start = lenient;
+          }
+        }
       }
     } else {
       start = DateTime.fromISO(time, { zone: timeZone || baseNow.zone });

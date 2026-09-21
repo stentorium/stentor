@@ -238,4 +238,47 @@ describe("#findSchedulableMatch()", () => {
       expect(match).to.equal(schedulable);
     });
   });
+  describe("Moment-style lenient digits", () => {
+    const zone = "America/New_York";
+    const gameNight = (time: string, format: string): Schedulable => ({
+      schedule: {
+        start: { time, format, timeZone: zone },
+        duration: { amount: 330, format: "minutes" },
+      },
+    });
+    const at = (iso: string): DateTime => DateTime.fromISO(iso, { zone }).toUTC();
+
+    it("matches a single-digit hour against a two-digit hh token", () => {
+      const schedulable = gameNight("09-19-2026T6:55 pm", "MM-dd-yyyy'T'hh:mm a");
+      expect(findSchedulableMatch([schedulable], at("2026-09-19T20:00:00"))).to.equal(schedulable);
+    });
+
+    it("respects the window edges when parsed leniently", () => {
+      const schedulable = gameNight("09-19-2026T6:55 pm", "MM-dd-yyyy'T'hh:mm a");
+      expect(findSchedulableMatch([schedulable], at("2026-09-19T18:54:59"))).to.be.undefined;
+      expect(findSchedulableMatch([schedulable], at("2026-09-19T18:55:00"))).to.equal(schedulable);
+      expect(findSchedulableMatch([schedulable], at("2026-09-20T00:24:59"))).to.equal(schedulable);
+      expect(findSchedulableMatch([schedulable], at("2026-09-20T00:25:00"))).to.be.undefined;
+    });
+
+    it("matches single-digit month and day against MM and dd", () => {
+      const schedulable = gameNight("9/7/2026 18:55", "MM/dd/yyyy HH:mm");
+      expect(findSchedulableMatch([schedulable], at("2026-09-07T20:00:00"))).to.equal(schedulable);
+    });
+
+    it("still parses two-digit values strictly", () => {
+      const schedulable = gameNight("09-19-2026T06:55 PM", "MM-dd-yyyy'T'hh:mm a");
+      expect(findSchedulableMatch([schedulable], at("2026-09-19T20:00:00"))).to.equal(schedulable);
+    });
+
+    it("does not treat MMM as a lenient token", () => {
+      const schedulable = gameNight("Sep 19 2026 6:55 pm", "MMM dd yyyy hh:mm a");
+      expect(findSchedulableMatch([schedulable], at("2026-09-19T20:00:00"))).to.equal(schedulable);
+    });
+
+    it("still rejects input that cannot be parsed at all", () => {
+      const schedulable = gameNight("not a date", "MM-dd-yyyy'T'hh:mm a");
+      expect(findSchedulableMatch([schedulable], at("2026-09-19T20:00:00"))).to.be.undefined;
+    });
+  });
 });

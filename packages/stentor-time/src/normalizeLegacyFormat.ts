@@ -20,7 +20,11 @@ export function normalizeLegacyFormat(momentFormat: string): string {
   // Quick check: if format looks like it's already Luxon-style (lowercase yyyy, dd in date context), return as-is  
   // Use bounded matching to prevent ReDoS attacks
   if (/yyyy[^M]{0,10}-MM-dd/.test(momentFormat) || /dd[^M]{0,10}-MM-yyyy/.test(momentFormat)) {
-    return momentFormat;
+    // Still quote a bare T separator; quoted literals are left as they are
+    return momentFormat
+      .split(/('[^']*')/)
+      .map((part) => (part.startsWith("'") ? part : part.replace(/(?<!T)T(?!T)/g, "'T'")))
+      .join("");
   }
 
   // For mixed formats with dd in date context, we need to be careful not to convert dd to weekday
@@ -89,6 +93,11 @@ export function normalizeLegacyFormat(momentFormat: string): string {
   for (const replacement of tokenReplacements) {
     result = result.replace(replacement.moment, replacement.luxon);
   }
+
+  // Moment treats a bare T (the ISO date/time separator) as a literal, but Luxon reads it as a
+  // localized-time macro, so "YYYY-MM-DDTHH:mm" never parses. Quote it. Every token is a numeric
+  // placeholder by now, so any remaining T is literal.
+  result = result.replace(/T/g, "'T'");
 
   // Replace numeric placeholders with actual Luxon tokens
   const placeholderMap: Record<string, string> = {

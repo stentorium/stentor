@@ -26,7 +26,7 @@
     "@xapp/config": "0.3.0",
     "chai": "4.5.0",
     "chai-as-promised": "7.1.2",
-    "dotenv": "16.6.1",
+    "dotenv": "18.0.3",
     "fetch-mock": "9.11.0",
     "mocha": "11.8.0",
     "node-fetch": "3.3.2",

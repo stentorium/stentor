@@ -9974,7 +9974,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:16.6.1, dotenv@npm:^16.4.5":
+"dotenv@npm:18.0.3":
+  version: 18.0.3
+  resolution: "dotenv@npm:18.0.3"
+  bin:
+    dotenv: dist/index.cjs
+  checksum: 10c0/0132d3dba2022808c31d0c8191cd8567351c8a1b932f751237cfe502563b9eaab309754bd66e5965f2ccee887c3527f883e29016cb4d691df8519e7fc3d452fd
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^16.4.5":
   version: 16.6.1
   resolution: "dotenv@npm:16.6.1"
   checksum: 10c0/15ce56608326ea0d1d9414a5c8ee6dcf0fffc79d2c16422b4ac2268e7e2d76ff5a572d37ffe747c377de12005f14b3cc22361e79fc7f1061cce81f77d2c973dc
@@ -19954,7 +19963,7 @@ __metadata:
     "@xapp/config": "npm:0.3.0"
     chai: "npm:4.5.0"
     chai-as-promised: "npm:7.1.2"
-    dotenv: "npm:16.6.1"
+    dotenv: "npm:18.0.3"
     fetch-mock: "npm:9.11.0"
     mocha: "npm:11.8.0"
     node-fetch: "npm:3.3.2"
@@ -20099,7 +20108,7 @@ __metadata:
     body-parser: "npm:2.3.0"
     chai: "npm:4.5.0"
     chai-as-promised: "npm:7.1.2"
-    dotenv: "npm:16.6.1"
+    dotenv: "npm:18.0.3"
     express: "npm:5.2.1"
     mocha: "npm:11.8.0"
     sinon: "npm:22.1.0"

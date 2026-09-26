@@ -18,6 +18,16 @@ export interface FullAppStatus extends AppStatus {
 }
 
 /**
+ * What an app IS, for the purpose of counting and alarming.
+ *
+ * - `customer` — a real customer app; counted, alarms normally
+ * - `internal` — ours; not counted, watched quietly
+ * - `canary` — synthetic traffic generator; not counted, alarms loudest (a silent canary is itself the outage)
+ * - `demo` — sales and showcase apps; not counted, watched quietly
+ */
+export type AppKind = "customer" | "internal" | "canary" | "demo";
+
+/**
  * An app locale is a description of an app as it will appear to users in other countries.
  */
 export type LocaleSpecificApp = Partial<
@@ -68,6 +78,11 @@ export interface App extends Localizable<LocaleSpecificApp> {
      * @deprecated
      */
     organizationId?: string;
+    /**
+     * What this app IS, for the purpose of counting and alarming. Absent means customer:
+     * never let an unmarked app drift into an excluded bucket.
+     */
+    appKind?: AppKind;
     /**
      * The Alexa skill identifier.
      *

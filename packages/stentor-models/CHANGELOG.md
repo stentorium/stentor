@@ -19,6 +19,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.80.0](https://github.com/stentorium/stentor/compare/stentor-models-v1.79.0...stentor-models-v1.80.0) (2026-09-26)
+
+
+### Features
+
+* **models:** add AppKind to mark an app as customer, internal, canary or demo ([#3254](https://github.com/stentorium/stentor/issues/3254)) ([ae67c11](https://github.com/stentorium/stentor/commit/ae67c116f0eacf8986a24475bd5ce6e1bb5f8ae7))
+
 ## [1.79.0](https://github.com/stentorium/stentor/compare/stentor-models-v1.78.0...stentor-models-v1.79.0) (2026-08-19)
 
 

@@ -11,6 +11,19 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.6](https://github.com/stentorium/stentor/compare/stentor-guards-v1.74.5...stentor-guards-v1.74.6) (2026-09-26)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-constants bumped from 1.74.5 to 1.74.6
+  * devDependencies
+    * stentor-models bumped from 1.79.0 to 1.80.0
+  * peerDependencies
+    * stentor-models bumped from 1.x to 1.80.0
+
 ## [1.74.5](https://github.com/stentorium/stentor/compare/stentor-guards-v1.74.4...stentor-guards-v1.74.5) (2026-08-19)
 
 

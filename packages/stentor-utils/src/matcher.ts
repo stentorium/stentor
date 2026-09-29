@@ -1,10 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 import { RequestSlot, SlotTypeValue } from "stentor-models";
 
-import union from 'lodash.union';
-import keys from 'lodash.keys';
-import sumBy from 'lodash.sumby';
-
 import Fuse, { IFuseOptions, FuseResult } from "fuse.js";
 
 
@@ -28,15 +24,19 @@ const createVector = (tokens: string[]): { [key: string]: number } => {
 
 // Function to calculate cosine similarity
 const cosineSimilarity = (vec1: Record<string, number>, vec2: Record<string, number>): number => {
-    const uniqueWords = union(keys(vec1), keys(vec2));
+    // Native rather than lodash.union / lodash.keys / lodash.sumby. A Set preserves
+    // first-occurrence order exactly as lodash.union does, and these vectors are always the plain
+    // frequency maps tokenize() builds, so Object.keys is equivalent -- the difference between the
+    // two only shows on null, which this signature does not admit and no caller passes.
+    const uniqueWords = [...new Set([...Object.keys(vec1), ...Object.keys(vec2)])];
     const dotProduct = uniqueWords.reduce((sum, word) => {
         return sum + (vec1[word] || 0) * (vec2[word] || 0);
     }, 0);
 
-    const magnitudeA = Math.sqrt(sumBy(keys(vec1), (k) => Math.pow(vec1[k], 2)));
-    const magnitudeB = Math.sqrt(sumBy(keys(vec2), (k) => Math.pow(vec2[k], 2)));
+    const magnitude = (vec: Record<string, number>): number =>
+        Math.sqrt(Object.keys(vec).reduce((sum, k) => sum + Math.pow(vec[k], 2), 0));
 
-    return dotProduct / (magnitudeA * magnitudeB);
+    return dotProduct / (magnitude(vec1) * magnitude(vec2));
 };
 
 const computeStringSimilarity = (str1: string, str2: string): number => {

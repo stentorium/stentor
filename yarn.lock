@@ -6411,40 +6411,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash.keys@npm:4.2.9":
-  version: 4.2.9
-  resolution: "@types/lodash.keys@npm:4.2.9"
-  dependencies:
-    "@types/lodash": "npm:*"
-  checksum: 10c0/c41f405690a6edf16b95c1d398b128ef5874e29d25926721c4e9b27ab443169e14ff52827ec37834d6da1db089f55baae10bee30d37d04778ce62ec578dc4ee1
-  languageName: node
-  linkType: hard
-
-"@types/lodash.sumby@npm:4.6.9":
-  version: 4.6.9
-  resolution: "@types/lodash.sumby@npm:4.6.9"
-  dependencies:
-    "@types/lodash": "npm:*"
-  checksum: 10c0/806e6da01313588b31a526fe1488b6b2e2da698f6a256a92ae93fc19e86c9a8cccd7b3524350829d987f5bac0e3f4bab04b816a70bdb26fda730d4e74dbf3e0a
-  languageName: node
-  linkType: hard
-
-"@types/lodash.union@npm:4.6.9":
-  version: 4.6.9
-  resolution: "@types/lodash.union@npm:4.6.9"
-  dependencies:
-    "@types/lodash": "npm:*"
-  checksum: 10c0/d651e99d732da2e7511b42f13de12fb47a902c94e82a929ab0c55b913e701e2d109d20bceb473e0a7a2c533c4e424ef237d3cef108afabf5273e2256cfd0fb56
-  languageName: node
-  linkType: hard
-
-"@types/lodash@npm:*":
-  version: 4.17.20
-  resolution: "@types/lodash@npm:4.17.20"
-  checksum: 10c0/98cdd0faae22cbb8079a01a3bb65aa8f8c41143367486c1cbf5adc83f16c9272a2a5d2c1f541f61d0d73da543c16ee1d21cf2ef86cb93cd0cc0ac3bced6dd88f
-  languageName: node
-  linkType: hard
-
 "@types/luxon@npm:3.7.5":
   version: 3.7.5
   resolution: "@types/luxon@npm:3.7.5"
@@ -13473,13 +13439,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.keys@npm:4.2.0":
-  version: 4.2.0
-  resolution: "lodash.keys@npm:4.2.0"
-  checksum: 10c0/e21565d5076f4afc99e517d2b3dc84f05bc83e036f532c6e691c318f9ffd7eca3006365e0dafae1c5f046e344aaa722b01fe102b9f68e7cc63b79d2f9196f667
-  languageName: node
-  linkType: hard
-
 "lodash.memoize@npm:^4.1.2":
   version: 4.1.2
   resolution: "lodash.memoize@npm:4.1.2"
@@ -13498,20 +13457,6 @@ __metadata:
   version: 4.7.0
   resolution: "lodash.sortby@npm:4.7.0"
   checksum: 10c0/fc48fb54ff7669f33bb32997cab9460757ee99fafaf72400b261c3e10fde21538e47d8cfcbe6a25a31bcb5b7b727c27d52626386fc2de24eb059a6d64a89cdf5
-  languageName: node
-  linkType: hard
-
-"lodash.sumby@npm:4.6.0":
-  version: 4.6.0
-  resolution: "lodash.sumby@npm:4.6.0"
-  checksum: 10c0/ba9d3a763c6078888db55837e2857c476eb29762f2b377e825d2faf74120c1a7738d28f041d0895135a44b16ed0e5d12c5416483af2559bd8ffd0cfad9a312f3
-  languageName: node
-  linkType: hard
-
-"lodash.union@npm:4.6.0":
-  version: 4.6.0
-  resolution: "lodash.union@npm:4.6.0"
-  checksum: 10c0/6da7f72d1facd472f6090b49eefff984c9f9179e13172039c0debca6851d21d37d83c7ad5c43af23bd220f184cd80e6897e8e3206509fae491f9068b02ae6319
   languageName: node
   linkType: hard
 
@@ -20037,9 +19982,6 @@ __metadata:
     "@microsoft/api-extractor": "npm:7.59.2"
     "@types/blueimp-md5": "npm:2.18.2"
     "@types/chai": "npm:5.2.3"
-    "@types/lodash.keys": "npm:4.2.9"
-    "@types/lodash.sumby": "npm:4.6.9"
-    "@types/lodash.union": "npm:4.6.9"
     "@types/marked": "npm:6.0.0"
     "@types/mocha": "npm:10.0.10"
     "@types/node": "npm:24.10.13"
@@ -20055,9 +19997,6 @@ __metadata:
     fuse.js: "npm:7.4.2"
     html-entities: "npm:2.6.0"
     jsonpath-plus: "npm:10.4.0"
-    lodash.keys: "npm:4.2.0"
-    lodash.sumby: "npm:4.6.0"
-    lodash.union: "npm:4.6.0"
     marked: "npm:12.0.2"
     marked-xhtml: "npm:1.0.15"
     mocha: "npm:11.8.0"

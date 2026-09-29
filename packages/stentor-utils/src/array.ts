@@ -3,8 +3,6 @@
 /**
  * Removes any duplicates from an array.
  *
- * This is a wrapper around lodash.uniq
- *
  * @param input
  */
 export function uniq<T>(input: T[]): T[] {
@@ -12,9 +10,8 @@ export function uniq<T>(input: T[]): T[] {
 }
 
 /**
- * Removes any duplicates from an array.
+ * Removes any duplicates from an array. Alias of {@link uniq}.
  *
- * This is a wrapper around lodash.uniq.
  * @param input
  */
 export function dedupe<T>(input: T[]): T[] {

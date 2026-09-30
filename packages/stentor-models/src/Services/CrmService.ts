@@ -178,6 +178,23 @@ export interface CrmServiceAvailability {
   unavailabilities: CrmServiceDateAvailability[];
 }
 
+/**
+ * What the visitor has provided so far, as collected.
+ */
+export interface CrmServiceAvailabilityContact {
+  /**
+   * Full name as collected, if any.
+   */
+  name?: string;
+  phone?: string;
+  email?: string;
+  /**
+   * Free-form street address as collected.
+   */
+  address?: string;
+  zip?: string;
+}
+
 export interface CrmServiceAvailabilityOptions
   extends CrmServiceAvailabilitySettings {
   /**
@@ -186,6 +203,11 @@ export interface CrmServiceAvailabilityOptions
    * This allows to display availability for a specific job type, which can be different.
    */
   jobType?: CrmServiceJobType;
+  /**
+   * What the visitor has provided so far, for CRMs whose availability depends on who or where
+   * the customer is (for example ServiceMinder slotsearch). Optional; CRMs that don't need it ignore it.
+   */
+  contact?: CrmServiceAvailabilityContact;
 }
 
 export interface CrmServiceJobType {

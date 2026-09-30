@@ -19,6 +19,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.81.0](https://github.com/stentorium/stentor/compare/stentor-models-v1.80.0...stentor-models-v1.81.0) (2026-09-30)
+
+
+### Features
+
+* **stentor-models:** optional visitor contact on CrmServiceAvailabilityOptions ([#3270](https://github.com/stentorium/stentor/issues/3270)) ([2b34118](https://github.com/stentorium/stentor/commit/2b3411863cd12efbb7b8d28b6e5c492c0a4c88dd))
+
 ## [1.80.0](https://github.com/stentorium/stentor/compare/stentor-models-v1.79.0...stentor-models-v1.80.0) (2026-09-28)
 
 

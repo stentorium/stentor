@@ -11,6 +11,21 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.11](https://github.com/stentorium/stentor/compare/stentor-service-ovai-v1.74.10...stentor-service-ovai-v1.74.11) (2026-09-30)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-constants bumped from 1.74.6 to 1.74.7
+    * stentor-service-event bumped from 1.74.10 to 1.74.11
+    * stentor-utils bumped from 1.76.1 to 1.76.2
+  * devDependencies
+    * stentor-models bumped from 1.80.0 to 1.81.0
+  * peerDependencies
+    * stentor-models bumped from 1.x to 1.81.0
+
 ## [1.74.10](https://github.com/stentorium/stentor/compare/stentor-service-ovai-v1.74.9...stentor-service-ovai-v1.74.10) (2026-09-28)
 
 

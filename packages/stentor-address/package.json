@@ -34,7 +34,7 @@
     "stentor-models": "1.81.0",
     "stentor-utils": "1.76.2",
     "ts-node": "10.9.2",
-    "typescript": "6.0.3"
+    "typescript": "7.0.2"
   },
   "dependencies": {
     "parse-address": "1.1.2"

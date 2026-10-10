@@ -15,6 +15,32 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [2.0.12](https://github.com/stentorium/stentor/compare/stentor-v2.0.11...stentor-v2.0.12) (2026-10-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency dotenv to v18 ([#3250](https://github.com/stentorium/stentor/issues/3250)) ([aa21681](https://github.com/stentorium/stentor/commit/aa21681a8e801e17662a67088dfbf2e914f3ec22))
+* **deps:** update dependency dotenv to v18.0.6 ([#3288](https://github.com/stentorium/stentor/issues/3288)) ([e536aa7](https://github.com/stentorium/stentor/commit/e536aa7e857996bfc4fc849e96515b5d831bb00b))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-context bumped from 1.74.14 to 1.74.15
+    * stentor-determiner bumped from 1.74.14 to 1.74.15
+    * stentor-handler bumped from 1.74.14 to 1.74.15
+    * stentor-handler-factory bumped from 1.74.14 to 1.74.15
+    * stentor-logger bumped from 1.74.11 to 1.74.12
+    * stentor-request bumped from 1.74.11 to 1.74.12
+    * stentor-response bumped from 1.74.14 to 1.74.15
+    * stentor-runtime bumped from 1.74.14 to 1.74.15
+    * stentor-service-event bumped from 1.74.11 to 1.74.12
+    * stentor-service-ovai bumped from 1.74.11 to 1.74.12
+    * stentor-service-studio bumped from 1.74.11 to 1.74.12
+    * stentor-utils bumped from 1.76.2 to 1.76.3
+
 ## [2.0.11](https://github.com/stentorium/stentor/compare/stentor-v2.0.10...stentor-v2.0.11) (2026-09-30)
 
 

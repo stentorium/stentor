@@ -18,6 +18,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.76.3](https://github.com/stentorium/stentor/compare/stentor-utils-v1.76.2...stentor-utils-v1.76.3) (2026-10-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency sanitize-html to v2.18.0 ([#3279](https://github.com/stentorium/stentor/issues/3279)) ([10de0dd](https://github.com/stentorium/stentor/commit/10de0ddff9f21a57970abcda01a66a13f7e1d7e7))
+
 ## [1.76.2](https://github.com/stentorium/stentor/compare/stentor-utils-v1.76.1...stentor-utils-v1.76.2) (2026-09-30)
 
 

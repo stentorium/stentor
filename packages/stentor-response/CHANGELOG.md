@@ -14,6 +14,19 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.15](https://github.com/stentorium/stentor/compare/stentor-response-v1.74.14...stentor-response-v1.74.15) (2026-10-10)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-determiner bumped from 1.74.14 to 1.74.15
+    * stentor-locales bumped from 1.74.11 to 1.74.12
+    * stentor-logger bumped from 1.74.11 to 1.74.12
+    * stentor-media bumped from 1.74.14 to 1.74.15
+    * stentor-utils bumped from 1.76.2 to 1.76.3
+
 ## [1.74.14](https://github.com/stentorium/stentor/compare/stentor-response-v1.74.13...stentor-response-v1.74.14) (2026-09-30)
 
 

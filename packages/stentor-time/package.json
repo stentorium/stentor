@@ -9,7 +9,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.74.14",
+  "version": "1.74.15",
   "description": "Time for 📣 stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -35,8 +35,8 @@
     "@types/luxon": "3.7.5",
     "luxon": "3.7.2",
     "stentor-guards": "1.74.7",
-    "stentor-logger": "1.74.11",
-    "stentor-utils": "1.76.2"
+    "stentor-logger": "1.74.12",
+    "stentor-utils": "1.76.3"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

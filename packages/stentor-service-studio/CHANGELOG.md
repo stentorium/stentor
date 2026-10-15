@@ -11,6 +11,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.12](https://github.com/stentorium/stentor/compare/stentor-service-studio-v1.74.11...stentor-service-studio-v1.74.12) (2026-10-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency dotenv to v18 ([#3250](https://github.com/stentorium/stentor/issues/3250)) ([aa21681](https://github.com/stentorium/stentor/commit/aa21681a8e801e17662a67088dfbf2e914f3ec22))
+* **deps:** update dependency dotenv to v18.0.6 ([#3288](https://github.com/stentorium/stentor/issues/3288)) ([e536aa7](https://github.com/stentorium/stentor/commit/e536aa7e857996bfc4fc849e96515b5d831bb00b))
+* **deps:** update dependency dotenv to v18.0.7 ([#3292](https://github.com/stentorium/stentor/issues/3292)) ([48da059](https://github.com/stentorium/stentor/commit/48da059ebce343ebaececc5078dca0727d4cccfc))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-service-event bumped from 1.74.11 to 1.74.12
+    * stentor-utils bumped from 1.76.2 to 1.76.3
+
 ## [1.74.11](https://github.com/stentorium/stentor/compare/stentor-service-studio-v1.74.10...stentor-service-studio-v1.74.11) (2026-09-30)
 
 

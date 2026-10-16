@@ -15390,10 +15390,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"number-to-words@npm:1.2.4":
-  version: 1.2.4
-  resolution: "number-to-words@npm:1.2.4"
-  checksum: 10c0/4859a7870a40d5fcd1d0f5e80b8bb2073d96b085e3c1a17bc9fdb29a1b1837348e1a3d0ef7be7e73ce92bb06c733493eb2aba88f918d9133a7df903d0bf9559d
+"number-to-words@npm:1.2.5":
+  version: 1.2.5
+  resolution: "number-to-words@npm:1.2.5"
+  checksum: 10c0/2f54ff24ed4b74e39e3b40111b5f6aad3c6f2b8a5fe539fd4be8966442768c7e4c6723773be5899256426a12c591f81cdfe5637125ccbb76281dc5435fc07f25
   languageName: node
   linkType: hard
 
@@ -20023,7 +20023,7 @@ __metadata:
     marked: "npm:12.0.2"
     marked-xhtml: "npm:1.0.15"
     mocha: "npm:11.8.0"
-    number-to-words: "npm:1.2.4"
+    number-to-words: "npm:1.2.5"
     numeral: "npm:2.0.6"
     rollup: "npm:3.30.0"
     sanitize-html: "npm:2.18.0"

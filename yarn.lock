@@ -18636,7 +18636,7 @@ __metadata:
     nyc: "npm:18.0.0"
     syncpack: "npm:13.0.4"
     typedoc: "npm:0.28.20"
-    typedoc-plugin-markdown: "npm:4.13.1"
+    typedoc-plugin-markdown: "npm:4.14.0"
   languageName: unknown
   linkType: soft
 
@@ -21061,12 +21061,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc-plugin-markdown@npm:4.13.1":
-  version: 4.13.1
-  resolution: "typedoc-plugin-markdown@npm:4.13.1"
+"typedoc-plugin-markdown@npm:4.14.0":
+  version: 4.14.0
+  resolution: "typedoc-plugin-markdown@npm:4.14.0"
   peerDependencies:
     typedoc: 0.28.x
-  checksum: 10c0/1c4ddd18f916a9fad4430bfdc63fd9869312748eb516427ca30d78ac306b417bc79ff04a243c4c788ec1d69bda5fba75f0ba45144ce1f0d26e7e766fdfc7b1c4
+  checksum: 10c0/a7915b8b78a53d4d495e440bed1abd12b135a79af3d09732d250e278e61bed3fb6ac8b2c6d3fe524ec0f15ab5da365aee52bac15c8fb7de9267bcfb098636fa5
   languageName: node
   linkType: hard
 

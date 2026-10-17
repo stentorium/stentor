@@ -18,6 +18,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.76.4](https://github.com/stentorium/stentor/compare/stentor-utils-v1.76.3...stentor-utils-v1.76.4) (2026-10-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency number-to-words to v1.2.5 ([#3297](https://github.com/stentorium/stentor/issues/3297)) ([865baa8](https://github.com/stentorium/stentor/commit/865baa82c68767ee41771b144bb65d60f7fb4da4))
+
 ## [1.76.3](https://github.com/stentorium/stentor/compare/stentor-utils-v1.76.2...stentor-utils-v1.76.3) (2026-10-14)
 
 

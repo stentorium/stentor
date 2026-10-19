@@ -11,6 +11,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.13](https://github.com/stentorium/stentor/compare/stentor-address-v1.74.12...stentor-address-v1.74.13) (2026-10-18)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * devDependencies
+    * stentor-utils bumped from 1.76.3 to 1.76.4
+  * peerDependencies
+    * stentor-utils bumped from 1.x to 1.76.4
+
 ## [1.74.12](https://github.com/stentorium/stentor/compare/stentor-address-v1.74.11...stentor-address-v1.74.12) (2026-10-14)
 
 

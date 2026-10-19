@@ -18,6 +18,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.76.4](https://github.com/stentorium/stentor/compare/stentor-utils-v1.76.3...stentor-utils-v1.76.4) (2026-10-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency number-to-words to v1.2.5 ([#3297](https://github.com/stentorium/stentor/issues/3297)) ([865baa8](https://github.com/stentorium/stentor/commit/865baa82c68767ee41771b144bb65d60f7fb4da4))
+* **deps:** update dependency sanitize-html to v2.18.1 ([#3305](https://github.com/stentorium/stentor/issues/3305)) ([169b7ac](https://github.com/stentorium/stentor/commit/169b7acde65447c65963a60f3fb39e24004afe35))
+
 ## [1.76.3](https://github.com/stentorium/stentor/compare/stentor-utils-v1.76.2...stentor-utils-v1.76.3) (2026-10-14)
 
 

@@ -73,6 +73,14 @@ describe("#slug()", () => {
             expect(slug("a.b_c~d(e)f'g!h:i@j")).to.equal("a.b_c~d(e)f'g!h:i@j");
             expect(slug("a#b?c,d/e")).to.equal("abcde");
         });
+        it("transliterates other scripts the way slugify did, so those names keep their slugs", () => {
+            expect(slug("Привет Мир")).to.equal("Privet-Mir");
+            expect(slug("Αθήνα")).to.equal("A8hna");
+            expect(slug("مرحبا")).to.equal("mrhba");
+            expect(slug("თბილისი")).to.equal("tbilisi");
+            expect(slug("Tiếng Việt")).to.equal("Tieng-Viet");
+            expect(slug("Ñandú ẞ", { lower: true, strict: true })).to.equal("nandu-ss");
+        });
         it("honours trim: false", () => {
             expect(slug("  padded  ", { trim: false })).to.equal("-padded-");
         });

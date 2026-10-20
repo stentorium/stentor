@@ -194,6 +194,11 @@ describe("#wordToNumber() shapes", () => {
         expect(wordToNumber("first")).to.equal(1);
         expect(wordToNumber("third")).to.equal(3);
     });
+    it("does not read a lone article or point as a number", () => {
+        expect(wordToNumber("a")).to.equal("a");
+        expect(wordToNumber("just a second")).to.equal("just a 2");
+        expect(wordToNumber("from one point to another")).to.equal("from 1 to another");
+    });
     it("substitutes digits inside a sentence and leaves the rest alone", () => {
         expect(wordToNumber("I have twenty apples")).to.equal("I have 20 apples");
         expect(wordToNumber("twelve dozen")).to.equal("12 dozen");

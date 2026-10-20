@@ -247,8 +247,9 @@ const MAGNITUDE: Record<string, number> = {
 };
 const CONNECTORS = new Set(["and", "point", "a"]);
 
+/** A word that can start a number phrase. "a" and "point" only continue one ("a thousand"). */
 function isNumberWord(w: string): boolean {
-    return w in SMALL || w in MAGNITUDE || w === "a" || w === "point";
+    return w in SMALL || w in MAGNITUDE;
 }
 
 /** "six million five thousand and two" -> 6005002; "one point five" -> 1.5. */
@@ -337,7 +338,9 @@ export function wordToNumber(word: string): number | string {
         phrase = [];
         raw = [];
     };
-    for (const token of tokens) {
+    const nextWord = (from: number): string | undefined => tokens.slice(from + 1).find((t) => !isSeparator(t))?.toLowerCase();
+    for (let i = 0; i < tokens.length; i++) {
+        const token = tokens[i];
         if (isSeparator(token)) {
             // A separator inside a phrase belongs to it only if another number word follows.
             if (phrase.length > 0) {
@@ -348,7 +351,9 @@ export function wordToNumber(word: string): number | string {
             continue;
         }
         const lower = token.toLowerCase();
-        if (isNumberWord(lower) || (phrase.length > 0 && CONNECTORS.has(lower))) {
+        // "a" opens a phrase only before a magnitude ("a thousand"), otherwise it is an article.
+        const opensWithArticle = lower === "a" && phrase.length === 0 && (nextWord(i) ?? "") in MAGNITUDE;
+        if (isNumberWord(lower) || opensWithArticle || (phrase.length > 0 && CONNECTORS.has(lower))) {
             if (phrase.length > 0) {
                 raw.push(...pending);
             }
@@ -366,6 +371,7 @@ export function wordToNumber(word: string): number | string {
     out.push(...pending);
     const joined = out.join("");
     const wholeInputIsNumber = tokens.every((t) => isSeparator(t) || isNumberWord(t.toLowerCase()) || CONNECTORS.has(t.toLowerCase()))
+        && tokens.some((t) => isNumberWord(t.toLowerCase()))
         && out.filter((t) => !isSeparator(t)).length === 1;
     const asNumber = Number(joined.trim());
     return wholeInputIsNumber && Number.isFinite(asNumber) ? asNumber : joined;

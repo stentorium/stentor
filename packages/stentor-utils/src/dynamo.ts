@@ -11,12 +11,19 @@ function sizeOf(value: unknown): number {
         return Buffer.byteLength(value, "utf8");
     }
     if (typeof value === "number") {
-        const digits = String(value)
-            .replace(/e[+-]?\d+$/, "")
-            .replace(/^-/, "")
-            .replace(".", "")
-            .replace(/^0+/, "")
-            .replace(/0+$/, "");
+        // Significant digits: the mantissa with its sign, point, leading and trailing zeros gone.
+        const text = String(value);
+        const exponentAt = text.search(/e/i);
+        let digits = (exponentAt >= 0 ? text.slice(0, exponentAt) : text).replace("-", "").replace(".", "");
+        let start = 0;
+        let end = digits.length;
+        while (start < end && digits[start] === "0") {
+            start++;
+        }
+        while (end > start && digits[end - 1] === "0") {
+            end--;
+        }
+        digits = digits.slice(start, end);
         return Math.ceil(Math.min(digits.length, 38) / 2) + 1;
     }
     if (typeof value === "boolean" || value === null) {

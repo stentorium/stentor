@@ -1,4 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
+import { TRANSLITERATIONS } from "./transliterations";
 
 /**
  * Options for {@link slug}.
@@ -41,7 +42,8 @@ export type SlugProps = SlugOptions | string;
  * and campaign slugs are minted from business names, and "L & J Construction" has to stay
  * "L-and-J-Construction". Symbols, currency, typographic punctuation, and the Latin letters that
  * Unicode decomposition cannot reduce to ASCII (ß, æ, ø, ł, þ, ...). Accented Latin letters need
- * no entry: NFKD decomposition plus dropping the combining marks handles them.
+ * no entry: NFKD decomposition plus dropping the combining marks handles them. Other scripts
+ * are in TRANSLITERATIONS.
  */
 const SPELLED_OUT: Record<string, string> = {
     "$": "dollar", "%": "percent", "&": "and", "<": "less", ">": "greater", "|": "or",
@@ -65,7 +67,7 @@ const ASCII_WORD = /^[A-Za-z0-9]+$/;
  * One character of the input as ASCII, or itself when there is no sensible ASCII for it.
  */
 function toAscii(ch: string): string {
-    const spelled = SPELLED_OUT[ch];
+    const spelled = SPELLED_OUT[ch] ?? TRANSLITERATIONS[ch];
     if (spelled !== undefined) {
         return spelled;
     }

@@ -1,5 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
-import { TRANSLITERATIONS } from "./transliterations";
+import { TRANSLITERATIONS } from "./transliterations.js";
 
 /**
  * Options for {@link slug}.

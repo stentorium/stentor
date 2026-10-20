@@ -1,5 +1,5 @@
 /*! Copyright (c) 2019, XAPPmedia */
-require("dotenv").config();
+import "./services/loadDotEnvNow";
 import {
   DelegatingHandlersMap,
   HandlerFactory,

@@ -10,9 +10,10 @@ import { DateTime } from 'stentor-models';
 import { DateTimeRange } from 'stentor-models';
 import { Duration } from 'stentor-models';
 import { DurationFormat } from 'stentor-models';
-import { default as Fuse_2 } from 'fuse.js';
+import { FuseResult } from 'fuse.js';
 import { Handler } from 'stentor-models';
 import { Intent } from 'stentor-models';
+import type { LeadFormField } from 'stentor-models';
 import { MatchOperation } from 'stentor-models';
 import { Message } from 'stentor-models';
 import { RelativeDateRangeType } from 'stentor-models';
@@ -260,6 +261,11 @@ export function estimateSize(json: object): number;
 // @public
 export function existsAndNotEmpty<T>(items: T[] | undefined): boolean;
 
+// Warning: (ae-missing-release-tag) "extractZip" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function extractZip(fields?: LeadFields): string | undefined;
+
 // Warning: (ae-missing-release-tag) "fetchUrl" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
@@ -275,6 +281,11 @@ export function filterOutIntents(handlersAndIntents: (Intent | Handler)[]): Hand
 // @public
 export function findFuzzyMatch<T = string | Record<string, unknown>>(find: string, from: T[], options?: FuzzyMatchOptions): T[];
 
+// Warning: (ae-missing-release-tag) "findValue" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function findValue(possibleKeys: readonly string[], fields?: LeadFields): string | undefined;
+
 // Warning: (ae-missing-release-tag) "findValueForKey" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
@@ -285,6 +296,8 @@ export function findValueForKey<V>(key: string, obj: ObjectWithKeys<V>): V | und
 // @public
 export function findValuesForKey<V>(key: string, obj: ObjectWithKeys<V>): V[];
 
+// Warning: (ae-missing-release-tag) "formatNumberForDisplay" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
 // @public
 export function formatNumberForDisplay(number: number | string, format?: string): string;
 
@@ -347,6 +360,11 @@ export function getDurationMs(amount: number, format: DurationFormat): number;
 //
 // @public
 export function getJSONPath(path: string, json: null | boolean | number | string | object | any[]): any[];
+
+// Warning: (ae-missing-release-tag) "getNames" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function getNames(fields?: LeadFields): LeadNames;
 
 // Warning: (ae-missing-release-tag) "getResponseByTag" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -473,6 +491,11 @@ export function isISO8601Duration(potential: string): boolean;
 // @public
 export function isISO8601Range(potential: string): boolean;
 
+// Warning: (ae-missing-release-tag) "isLambda" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function isLambda(): boolean;
+
 // Warning: (ae-missing-release-tag) "isLambdaError" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
@@ -553,6 +576,38 @@ export class LambdaError extends Error {
     statusCode?: number;
 }
 
+// Warning: (ae-missing-release-tag) "LEAD_FIELD_ALIASES" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export const LEAD_FIELD_ALIASES: {
+    readonly firstName: readonly ["firstname", "first_name"];
+    readonly lastName: readonly ["lastname", "last_name"];
+    readonly fullName: readonly ["fullname", "full_name"];
+    readonly phone: readonly ["phone", "phonenumber", "phone_number"];
+    readonly email: readonly ["email", "emailaddress", "email_address"];
+    readonly address: readonly ["address", "address1", "address2", "street_address"];
+    readonly zip: readonly ["zip", "zipcode", "zip_code", "postalcode", "postal_code"];
+    readonly company: readonly ["company", "organization", "companyname", "company_name", "organizationname", "organization_name"];
+    readonly message: readonly ["message", "note"];
+};
+
+// Warning: (ae-missing-release-tag) "LeadFields" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export type LeadFields = LeadFormField[] | Record<string, unknown>;
+
+// Warning: (ae-missing-release-tag) "LeadNames" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface LeadNames {
+    // (undocumented)
+    firstName?: string;
+    // (undocumented)
+    fullName?: string;
+    // (undocumented)
+    lastName?: string;
+}
+
 // Warning: (ae-missing-release-tag) "linkify" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
@@ -601,8 +656,7 @@ export function maskPhoneNumbers(str: string, partial?: boolean): string;
 export function matchRequestSlotToSlotTypeValue<T>(slot: RequestSlot, slotTypeValues: SlotTypeValue<T>[]): SlotTypeValue<T> | undefined;
 
 // @public
-export interface MatchResult<T> extends Fuse_2.FuseResult<SlotTypeValue<T>> {
-}
+export type MatchResult<T> = FuseResult<SlotTypeValue<T>>;
 
 // @public
 export function matchUtteranceToSlotTypeValue<T>(utterance: string | number, slotTypeValues: SlotTypeValue<T>[]): MatchResult<T>[];
@@ -610,13 +664,17 @@ export function matchUtteranceToSlotTypeValue<T>(utterance: string | number, slo
 // Warning: (ae-missing-release-tag) "md5" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
-function md5_2(input: string): string;
-export { md5_2 as md5 }
+export function md5(input: string): string;
 
 // Warning: (ae-missing-release-tag) "mergeSuggestions" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export function mergeSuggestions(existing: SuggestionTypes[], incoming?: SuggestionTypes[]): SuggestionTypes[];
+
+// Warning: (ae-missing-release-tag) "normalizePhone" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function normalizePhone(phone?: string): string | undefined;
 
 // @public
 export function numberToWord(num: number): string | undefined;
@@ -764,6 +822,28 @@ export function slotExists(slots: RequestSlotMap, slotNames: string[]): boolean;
 // @public
 export function slotValueToSpeech(value: RequestSlotValues, type?: "ssml" | "displayText"): string;
 
+// Warning: (ae-missing-release-tag) "slug" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export function slug(value: string, options?: SlugProps): string;
+
+// Warning: (ae-missing-release-tag) "SlugOptions" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface SlugOptions {
+    locale?: string;
+    lower?: boolean;
+    remove?: RegExp;
+    replacement?: string;
+    strict?: boolean;
+    trim?: boolean;
+}
+
+// Warning: (ae-missing-release-tag) "SlugProps" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export type SlugProps = SlugOptions | string;
+
 // Warning: (ae-missing-release-tag) "splitTextIntoSentences" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
@@ -897,6 +977,11 @@ export type ValidateKeyCallback = (key: string | number, value: any) => boolean;
 //
 // @public (undocumented)
 export type ValidationErrorHandler = (keys: string[], error: Error) => void;
+
+// Warning: (ae-missing-release-tag) "wait" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function wait(milliseconds: number): Promise<void>;
 
 // @public
 export function wordToNumber(word: string): number | string;

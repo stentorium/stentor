@@ -6520,13 +6520,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/numeral@npm:2.0.5":
-  version: 2.0.5
-  resolution: "@types/numeral@npm:2.0.5"
-  checksum: 10c0/b18766cc97e79b5c59130ce1d5d5ad8b9287e1efd5ecac402e8a64e45c50aea8c8940c9974358983036d1abbed365a08f7f4d11b8af16874a5d4d0edce9aa4d4
-  languageName: node
-  linkType: hard
-
 "@types/parse-path@npm:^7.0.0":
   version: 7.0.3
   resolution: "@types/parse-path@npm:7.0.3"
@@ -15564,13 +15557,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"numeral@npm:2.0.6":
-  version: 2.0.6
-  resolution: "numeral@npm:2.0.6"
-  checksum: 10c0/5ed008d3fae05cfa4986b77a85ca10bff29ae6e1fa41a04cce05ea21f08a8a104226f88868930e2a94e3239708d6985d111b5d1291e8b9a3049ffc5365c332d4
-  languageName: node
-  linkType: hard
-
 "nx@npm:>=23.1.0 < 24.0.0":
   version: 23.1.1
   resolution: "nx@npm:23.1.1"
@@ -19238,13 +19224,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"slugify@npm:1.6.9":
-  version: 1.6.9
-  resolution: "slugify@npm:1.6.9"
-  checksum: 10c0/8473c566ae00c5db26bfbf6182a4a9478ab3c912a9c926e1fdb410736a77228bfca4fdc5c755b46fafa7d2d9900de482fd7a9bd5e5c91128c4743c2c072d88da
-  languageName: node
-  linkType: hard
-
 "smart-buffer@npm:^4.2.0":
   version: 4.2.0
   resolution: "smart-buffer@npm:4.2.0"
@@ -20203,7 +20182,6 @@ __metadata:
     "@types/marked": "npm:6.0.0"
     "@types/mocha": "npm:10.0.10"
     "@types/node": "npm:24.10.13"
-    "@types/numeral": "npm:2.0.5"
     "@types/sanitize-html": "npm:2.16.2"
     "@types/sinon": "npm:22.0.0"
     "@types/sinon-chai": "npm:3.2.12"
@@ -20219,12 +20197,10 @@ __metadata:
     marked-xhtml: "npm:1.0.15"
     mocha: "npm:11.8.0"
     number-to-words: "npm:1.2.5"
-    numeral: "npm:2.0.6"
     rollup: "npm:3.30.0"
     sanitize-html: "npm:2.18.1"
     sinon: "npm:22.1.0"
     sinon-chai: "npm:3.7.0"
-    slugify: "npm:1.6.9"
     stentor-constants: "npm:1.74.7"
     stentor-guards: "npm:1.74.7"
     stentor-models: "npm:1.81.0"

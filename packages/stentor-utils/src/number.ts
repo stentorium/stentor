@@ -1,7 +1,6 @@
 /*! Copyright (c) 2019, XAPPmedia */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 import * as converter from "number-to-words";
-import numeral from "numeral";
 import wordsToNumbers from "words-to-numbers";
 
 const US_PHONE_NUMBER_LENGTH = 10;
@@ -144,18 +143,33 @@ export function numberToWord(num: number): string | undefined {
 }
 
 /**
- * Format numbers for display.  This is a thin wrapper around http://numeraljs.com/
+ * Format numbers for display. The format is the subset of numeral's that this code base used
+ * (numeral itself is gone): an optional leading `$`, `0,0` for thousands grouping, `.0`/`.00`
+ * for the decimals shown (rounded), and an optional trailing `%` that multiplies by 100.
+ * Anything not a finite number renders as 0, as numeral did.
  *
- * Default format is "0,0" which turns 1000 to 1,000.  More
- * formats can be found {@link http://numeraljs.com/#format}
- *
- * @public
- * @param number - Number to be formatted for display.
- * @param format - Defaults to "0,0"
- * @returns Number in string form, properly formatted for display
+ * @param {number | string} number The number to format
+ * @param {string} format The format, defaults to "0,0" (so 10000 -> "10,000")
+ * @returns {string}
  */
 export function formatNumberForDisplay(number: number | string, format = "0,0"): string {
-    return numeral(number).format(format);
+    const prefix = format.startsWith("$") ? "$" : "";
+    const percent = format.endsWith("%");
+    const core = format.slice(prefix.length, percent ? -1 : undefined);
+    const decimals = core.includes(".") ? core.length - core.indexOf(".") - 1 : 0;
+    const grouped = core.includes(",");
+
+    const parsed = typeof number === "number" ? number : Number(number);
+    let value = Number.isFinite(parsed) ? parsed : 0;
+    if (percent) {
+        value *= 100;
+    }
+    // Round in decimal, not binary: 1.005 at two places is 1.01, which toFixed alone gets wrong.
+    const rounded = Math.abs(Number(`${Math.round(Number(`${Math.abs(value)}e${decimals}`))}e-${decimals}`));
+    const [whole, fraction] = rounded.toFixed(decimals).split(".");
+    const digits = grouped ? whole.replace(/\B(?=(\d{3})+(?!\d))/g, ",") : whole;
+    const sign = value < 0 && rounded !== 0 ? "-" : "";
+    return `${sign}${prefix}${digits}${fraction ? `.${fraction}` : ""}${percent ? "%" : ""}`;
 }
 
 /**

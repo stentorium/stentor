@@ -127,6 +127,19 @@ describe("#formatNumberForDisplay() formats", () => {
         expect(formatNumberForDisplay(0.256, "0.0%")).to.equal("25.6%");
         expect(formatNumberForDisplay("0.5", "0%")).to.equal("50%");
     });
+    it("never falls into exponent form, for the very small or the very large", () => {
+        expect(formatNumberForDisplay(0.0000001)).to.equal("0");
+        expect(formatNumberForDisplay(-0.0000001)).to.equal("0");
+        expect(formatNumberForDisplay(1e-9, "0.0%")).to.equal("0.0%");
+        expect(formatNumberForDisplay(1e21)).to.equal("1,000,000,000,000,000,000,000");
+        expect(formatNumberForDisplay(1.005, "0.00")).to.equal("1.01");
+    });
+    it("reads a formatted string back, as numeral did", () => {
+        expect(formatNumberForDisplay("1,234")).to.equal("1,234");
+        expect(formatNumberForDisplay("$1,234.5", "$0,0.00")).to.equal("$1,234.50");
+        expect(formatNumberForDisplay("50%", "0%")).to.equal("50%");
+        expect(formatNumberForDisplay("  42 ")).to.equal("42");
+    });
     it("renders nothing numeric as 0, the way numeral did", () => {
         expect(formatNumberForDisplay("abc")).to.equal("0");
         expect(formatNumberForDisplay(undefined as unknown as number)).to.equal("0");

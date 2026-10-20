@@ -824,7 +824,7 @@ export function slotValueToSpeech(value: RequestSlotValues, type?: "ssml" | "dis
 
 // Warning: (ae-missing-release-tag) "slug" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
-// @public (undocumented)
+// @public
 export function slug(value: string, options?: SlugProps): string;
 
 // Warning: (ae-missing-release-tag) "SlugOptions" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
@@ -983,9 +983,7 @@ export type ValidationErrorHandler = (keys: string[], error: Error) => void;
 // @public
 export function wait(milliseconds: number): Promise<void>;
 
-// Warning: (ae-missing-release-tag) "wordToNumber" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
-// @public (undocumented)
+// @public
 export function wordToNumber(word: string): number | string;
 
 // (No @packageDocumentation comment for this package)

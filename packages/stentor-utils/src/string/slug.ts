@@ -37,19 +37,6 @@ export interface SlugOptions {
 export type SlugProps = SlugOptions | string;
 
 /**
- * Converts a value into a URL safe slug.
- *
- * This is the single place the slug implementation lives. It used to wrap the `slugify`
- * package and keeps its rules: symbols are spelled out ("&" -> "and"), accents are dropped,
- * the characters it allowed through are allowed through, and spaces become the replacement.
- *
- * It throws on a non string value, which is what the call sites rely on to surface bad input.
- *
- * @param {string} value The value to convert.
- * @param {SlugProps} options The slug options.  If it is a string, it is used as the replacement.
- * @returns {string}
- */
-/**
  * What slugify spelled out, kept so a name slugged today lands where it did yesterday: appIds
  * and campaign slugs are minted from business names, and "L & J Construction" has to stay
  * "L-and-J-Construction". Symbols, currency, typographic punctuation, and the Latin letters that
@@ -88,6 +75,19 @@ function toAscii(ch: string): string {
     return stripped !== ch && ASCII_WORD.test(stripped) ? stripped : ch;
 }
 
+/**
+ * Converts a value into a URL safe slug.
+ *
+ * This is the single place the slug implementation lives. It used to wrap the `slugify`
+ * package and keeps its rules: symbols are spelled out ("&" -> "and"), accents are dropped,
+ * the characters it allowed through are allowed through, and spaces become the replacement.
+ *
+ * It throws on a non string value, which is what the call sites rely on to surface bad input.
+ *
+ * @param {string} value The value to convert.
+ * @param {SlugProps} options The slug options.  If it is a string, it is used as the replacement.
+ * @returns {string}
+ */
 export function slug(value: string, options?: SlugProps): string {
     if (typeof value !== "string") {
         throw new Error("slug: string argument expected");

@@ -127,14 +127,6 @@ export function maskPhoneNumbers(str: string, partial = false): string {
     return cleanString;
 }
 
-/**
- * Converts number to their word (en) equivalent.  For example,
- * 1 is converted to one and 55 if converted to fifty-five
- *
- * @public
- * @param num - Number to convert to it's word equivalent
- * @returns The word representation of the number provided such as "one" or "fifty-five"
- */
 const ONES = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
     "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
 const TENS = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
@@ -172,29 +164,46 @@ export function formatNumberForDisplay(number: number | string, format = "0,0"):
     const decimals = core.includes(".") ? core.length - core.indexOf(".") - 1 : 0;
     const grouped = core.includes(",");
 
-    const parsed = typeof number === "number" ? number : Number(number);
+    // numeral read its own output back ("1,234.5", "$1,234", "50%"), so a formatted string is
+    // still accepted: grouping commas and a currency sign come off, a trailing % divides by 100.
+    let parsed: number;
+    if (typeof number === "number") {
+        parsed = number;
+    } else {
+        const text = String(number ?? "").trim();
+        const isPercent = text.endsWith("%");
+        parsed = Number(text.replace(/[,$%]/g, ""));
+        if (isPercent) {
+            parsed /= 100;
+        }
+    }
     let value = Number.isFinite(parsed) ? parsed : 0;
     if (percent) {
         value *= 100;
     }
-    // Round in decimal, not binary: 1.005 at two places is 1.01, which toFixed alone gets wrong.
-    const rounded = Math.abs(Number(`${Math.round(Number(`${Math.abs(value)}e${decimals}`))}e-${decimals}`));
-    const [whole, fraction] = rounded.toFixed(decimals).split(".");
+    // Rounded half away from zero at the shown decimals. toLocaleString never falls into
+    // exponent form, which `${value}e${decimals}` string tricks and toFixed both do for 1e-7 or
+    // 1e21, and it rounds the decimal digits rather than the binary ones (1.005 -> "1.01").
+    const magnitude = Math.abs(value);
+    const [whole, fraction = ""] = magnitude.toLocaleString("en-US", {
+        useGrouping: false,
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals,
+    }).split(".");
     const digits = grouped ? whole.replace(/\B(?=(\d{3})+(?!\d))/g, ",") : whole;
-    const sign = value < 0 && rounded !== 0 ? "-" : "";
+    const roundsToZero = /^0*$/.test(whole) && /^0*$/.test(fraction);
+    const sign = value < 0 && !roundsToZero ? "-" : "";
     return `${sign}${prefix}${digits}${fraction ? `.${fraction}` : ""}${percent ? "%" : ""}`;
 }
 
 /**
- * Converts a word like "one hundred" to the number 100.
- *
- * Words that are not numbers are passed through.
+ * Converts number to their word (en) equivalent.  For example,
+ * 1 is converted to one and 55 if converted to fifty-five
  *
  * @public
- * @param word - Word to convert to a number
- * @returns Returns either the original value or the number that was converted.
+ * @param num - Number to convert to it's word equivalent
+ * @returns The word representation of the number provided such as "one" or "fifty-five"
  */
-
 export function numberToWord(num: number): string | undefined {
     if (typeof num !== "number") {
         return num;
@@ -298,6 +307,15 @@ export function isNumeric(num: any): boolean {
     return !isNaN(parseFloat(num)) && isFinite(num);
 }
 
+/**
+ * Converts a word like "one hundred" to the number 100.
+ *
+ * Words that are not numbers are passed through.
+ *
+ * @public
+ * @param word - Word to convert to a number
+ * @returns Returns either the original value or the number that was converted.
+ */
 export function wordToNumber(word: string): number | string {
     if (typeof word === "undefined") {
         return word;

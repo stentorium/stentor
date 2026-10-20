@@ -52,6 +52,40 @@ describe("#slug()", () => {
             expect(slug(slug("my recording"), { remove, lower: true })).to.equal("my-recording");
         });
     });
+    describe("when the text carries symbols slugify used to spell out", () => {
+        // Business names and asset names are the inputs; these are the shapes seen in them. The
+        // spellings are slugify's, kept so a name slugged today lands where it did yesterday.
+        it("spells out the ampersand and friends", () => {
+            expect(slug("L & J Construction")).to.equal("L-and-J-Construction");
+            expect(slug("Rock | Roll")).to.equal("Rock-or-Roll");
+            expect(slug("50% off")).to.equal("50percent-off");
+            expect(slug("$5 Deal", { lower: true, strict: true })).to.equal("dollar5-deal");
+        });
+        it("transliterates the Latin letters normalization alone cannot", () => {
+            expect(slug("Straße Æsir Øre Łódź")).to.equal("Strasse-AEsir-Ore-Lodz");
+            expect(slug("Þór Ðe ıi")).to.equal("THor-De-ii");
+        });
+        it("spells out currency and typographic punctuation", () => {
+            expect(slug("Café €5")).to.equal("Cafe-euro5");
+            expect(slug("Don’t — stop…", { lower: true, strict: true })).to.equal("dont-stop");
+        });
+        it("keeps the characters slugify allowed through", () => {
+            expect(slug("a.b_c~d(e)f'g!h:i@j")).to.equal("a.b_c~d(e)f'g!h:i@j");
+            expect(slug("a#b?c,d/e")).to.equal("abcde");
+        });
+        it("transliterates other scripts the way slugify did, so those names keep their slugs", () => {
+            expect(slug("Привет Мир")).to.equal("Privet-Mir");
+            expect(slug("Αθήνα")).to.equal("A8hna");
+            expect(slug("مرحبا")).to.equal("mrhba");
+            expect(slug("თბილისი")).to.equal("tbilisi");
+            expect(slug("Tiếng Việt")).to.equal("Tieng-Viet");
+            expect(slug("Ñandú ẞ", { lower: true, strict: true })).to.equal("nandu-ss");
+        });
+        it("honours trim: false", () => {
+            expect(slug("  padded  ", { trim: false })).to.equal("-padded-");
+        });
+    });
+
     describe("when passed a non string", () => {
         // slugify itself throws; the call sites rely on that rather than a silent empty string.
         it("throws", () => {

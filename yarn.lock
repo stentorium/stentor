@@ -6520,13 +6520,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/numeral@npm:2.0.5":
-  version: 2.0.5
-  resolution: "@types/numeral@npm:2.0.5"
-  checksum: 10c0/b18766cc97e79b5c59130ce1d5d5ad8b9287e1efd5ecac402e8a64e45c50aea8c8940c9974358983036d1abbed365a08f7f4d11b8af16874a5d4d0edce9aa4d4
-  languageName: node
-  linkType: hard
-
 "@types/parse-path@npm:^7.0.0":
   version: 7.0.3
   resolution: "@types/parse-path@npm:7.0.3"
@@ -7862,16 +7855,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-runtime@npm:6.x.x":
-  version: 6.26.0
-  resolution: "babel-runtime@npm:6.26.0"
-  dependencies:
-    core-js: "npm:^2.4.0"
-    regenerator-runtime: "npm:^0.11.0"
-  checksum: 10c0/caa752004936b1463765ed3199c52f6a55d0613b9bed108743d6f13ca532b821d4ea9decc4be1b583193164462b1e3e7eefdfa36b15c72e7daac58dd72c1772f
-  languageName: node
-  linkType: hard
-
 "bail@npm:^2.0.0":
   version: 2.0.2
   resolution: "bail@npm:2.0.2"
@@ -8694,13 +8677,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clj-fuzzy@npm:^0.3.2":
-  version: 0.3.3
-  resolution: "clj-fuzzy@npm:0.3.3"
-  checksum: 10c0/0372f275498dff1ad7d192034ea1451343d6dc2d602a9b9f31f15defd054245748df8b68db868ba4088fc555b813c1cb1b15778cb421cf161d6ceffa5659e720
-  languageName: node
-  linkType: hard
-
 "clone-deep@npm:^4.0.1":
   version: 4.0.1
   resolution: "clone-deep@npm:4.0.1"
@@ -9163,13 +9139,6 @@ __metadata:
   dependencies:
     browserslist: "npm:^4.28.1"
   checksum: 10c0/546e64b7ce45f724825bc13c1347f35c0459a6e71c0dcccff3ec21fbff463f5b0b97fc1220e6d90302153863489301793276fe2bf96f46001ff555ead4140308
-  languageName: node
-  linkType: hard
-
-"core-js@npm:^2.4.0":
-  version: 2.6.12
-  resolution: "core-js@npm:2.6.12"
-  checksum: 10c0/00128efe427789120a06b819adc94cc72b96955acb331cb71d09287baf9bd37bebd191d91f1ee4939c893a050307ead4faea08876f09115112612b6a05684b63
   languageName: node
   linkType: hard
 
@@ -10081,13 +10050,6 @@ __metadata:
   version: 0.1.2
   resolution: "duplexer@npm:0.1.2"
   checksum: 10c0/c57bcd4bdf7e623abab2df43a7b5b23d18152154529d166c1e0da6bee341d84c432d157d7e97b32fecb1bf3a8b8857dd85ed81a915789f550637ed25b8e64fc2
-  languageName: node
-  linkType: hard
-
-"dyno-item-size@npm:0.3.3":
-  version: 0.3.3
-  resolution: "dyno-item-size@npm:0.3.3"
-  checksum: 10c0/498203faf6faeb619281d1aa096f1030804be2dd11eb41692cc980b1b162f99f848fdea33c55e90df4ca4a75818e749abda6402c2575b46f21f76263c3f30491
   languageName: node
   linkType: hard
 
@@ -13038,16 +13000,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"its-set@npm:^1.1.5":
-  version: 1.2.3
-  resolution: "its-set@npm:1.2.3"
-  dependencies:
-    babel-runtime: "npm:6.x.x"
-    lodash.get: "npm:^4.4.2"
-  checksum: 10c0/4abfff8f26b41e29d69c36cb86a2156a1692f715ef9b6989ebac398120148e6d3dc48410a915281850c6512379df15d13ea18ea39b260c4201f6ea27e0f6624d
-  languageName: node
-  linkType: hard
-
 "jackspeak@npm:^3.1.2":
   version: 3.4.3
   resolution: "jackspeak@npm:3.4.3"
@@ -13619,13 +13571,6 @@ __metadata:
   version: 4.4.0
   resolution: "lodash.flattendeep@npm:4.4.0"
   checksum: 10c0/83cb80754b921fb4ed2c222b91a82b2524f3bdc60c3ae91e00688bd4bf1bcc28b8a2cc250e11fdc1b6da3a2de09e57008e13f15a209cafdd4f9163d047f97544
-  languageName: node
-  linkType: hard
-
-"lodash.get@npm:^4.4.2":
-  version: 4.4.2
-  resolution: "lodash.get@npm:4.4.2"
-  checksum: 10c0/48f40d471a1654397ed41685495acb31498d5ed696185ac8973daef424a749ca0c7871bf7b665d5c14f5cc479394479e0307e781f61d5573831769593411be6e
   languageName: node
   linkType: hard
 
@@ -15554,20 +15499,6 @@ __metadata:
   peerDependencies:
     webpack: ^4.0.0 || ^5.0.0
   checksum: 10c0/fe9a74a928c9ddc1eab7be0e4322516439562d6efd6feeb0f7c61777d4b79a6a8e5a6bc8133deb59408f3f423bdf84c154a88168154a583154e9e33d544b4d42
-  languageName: node
-  linkType: hard
-
-"number-to-words@npm:1.2.5":
-  version: 1.2.5
-  resolution: "number-to-words@npm:1.2.5"
-  checksum: 10c0/2f54ff24ed4b74e39e3b40111b5f6aad3c6f2b8a5fe539fd4be8966442768c7e4c6723773be5899256426a12c591f81cdfe5637125ccbb76281dc5435fc07f25
-  languageName: node
-  linkType: hard
-
-"numeral@npm:2.0.6":
-  version: 2.0.6
-  resolution: "numeral@npm:2.0.6"
-  checksum: 10c0/5ed008d3fae05cfa4986b77a85ca10bff29ae6e1fa41a04cce05ea21f08a8a104226f88868930e2a94e3239708d6985d111b5d1291e8b9a3049ffc5365c332d4
   languageName: node
   linkType: hard
 
@@ -18179,13 +18110,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"regenerator-runtime@npm:^0.11.0":
-  version: 0.11.1
-  resolution: "regenerator-runtime@npm:0.11.1"
-  checksum: 10c0/69cfa839efcf2d627fe358bf302ab8b24e5f182cb69f13e66f0612d3640d7838aad1e55662135e3ef2c1cc4322315b757626094fab13a48f9a64ab4bdeb8795b
-  languageName: node
-  linkType: hard
-
 "regexparam@npm:^3.0.0":
   version: 3.0.0
   resolution: "regexparam@npm:3.0.0"
@@ -19238,13 +19162,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"slugify@npm:1.6.9":
-  version: 1.6.9
-  resolution: "slugify@npm:1.6.9"
-  checksum: 10c0/8473c566ae00c5db26bfbf6182a4a9478ab3c912a9c926e1fdb410736a77228bfca4fdc5c755b46fafa7d2d9900de482fd7a9bd5e5c91128c4743c2c072d88da
-  languageName: node
-  linkType: hard
-
 "smart-buffer@npm:^4.2.0":
   version: 4.2.0
   resolution: "smart-buffer@npm:4.2.0"
@@ -20193,7 +20110,6 @@ __metadata:
     "@types/marked": "npm:6.0.0"
     "@types/mocha": "npm:10.0.10"
     "@types/node": "npm:24.10.13"
-    "@types/numeral": "npm:2.0.5"
     "@types/sanitize-html": "npm:2.16.2"
     "@types/sinon": "npm:22.0.0"
     "@types/sinon-chai": "npm:3.2.12"
@@ -20201,26 +20117,21 @@ __metadata:
     "@xapp/config": "npm:0.3.0"
     blueimp-md5: "npm:2.19.0"
     chai: "npm:4.5.0"
-    dyno-item-size: "npm:0.3.3"
     fuse.js: "npm:7.4.2"
     html-entities: "npm:2.6.0"
     jsonpath-plus: "npm:10.4.0"
     marked: "npm:12.0.2"
     marked-xhtml: "npm:1.0.15"
     mocha: "npm:11.8.0"
-    number-to-words: "npm:1.2.5"
-    numeral: "npm:2.0.6"
     rollup: "npm:3.30.0"
     sanitize-html: "npm:2.18.1"
     sinon: "npm:22.1.0"
     sinon-chai: "npm:3.7.0"
-    slugify: "npm:1.6.9"
     stentor-constants: "npm:1.74.7"
     stentor-guards: "npm:1.74.7"
     stentor-models: "npm:1.81.0"
     ts-node: "npm:10.9.2"
     typescript: "npm:6.0.3"
-    words-to-numbers: "npm:1.5.1"
     xmldoc: "npm:2.0.3"
   peerDependencies:
     stentor-models: 1.x
@@ -21876,17 +21787,6 @@ __metadata:
   version: 1.2.5
   resolution: "word-wrap@npm:1.2.5"
   checksum: 10c0/e0e4a1ca27599c92a6ca4c32260e8a92e8a44f4ef6ef93f803f8ed823f486e0889fc0b93be4db59c8d51b3064951d25e43d434e95dc8c960cc3a63d65d00ba20
-  languageName: node
-  linkType: hard
-
-"words-to-numbers@npm:1.5.1":
-  version: 1.5.1
-  resolution: "words-to-numbers@npm:1.5.1"
-  dependencies:
-    babel-runtime: "npm:6.x.x"
-    clj-fuzzy: "npm:^0.3.2"
-    its-set: "npm:^1.1.5"
-  checksum: 10c0/555e28aa057cf56e510c0982655df6144e13c89cbb93d28b245b9832cebce417784ed0cd5fc2715f09928afe07d70164c12633748b1e4cc8763064b0aa66e141
   languageName: node
   linkType: hard
 

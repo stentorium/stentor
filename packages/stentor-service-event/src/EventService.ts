@@ -20,7 +20,7 @@ import {
     isPlaybackControlRequest,
     isSessionEndedRequest
 } from "stentor-guards";
-import { parse } from "stacktrace-parser";
+import { parseStack } from "./parseStack";
 import { AbstractEventStream } from "./AbstractEventStream";
 import { ConsoleStream } from "./ConsoleStream";
 import {
@@ -210,7 +210,7 @@ export class EventService implements ErrorService {
     public error(error: Error): ErrorEvent {
         const name = error.name;
         const message = error.message;
-        const stack = parse(error.stack);
+        const stack = parseStack(error.stack);
         return this.event(ERROR_EVENT_TYPE, name, { message, stack }) as ErrorEvent;
     }
 

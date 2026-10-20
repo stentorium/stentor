@@ -337,22 +337,49 @@ export function wordToNumber(word: string): number | string {
     const out: string[] = [];
     let phrase: string[] = [];
     let raw: string[] = [];
+    // Separators and connectors seen since the last number word. They join the phrase only when
+    // another number word follows and the connector allows it; otherwise they are plain text.
     let pending: string[] = [];
+    let lastWord = "";
+    let sawPoint = false;
     const flush = (): void => {
-        if (phrase.length === 0) {
-            return;
+        if (phrase.length > 0) {
+            const value = phraseToNumber(phrase);
+            // A phrase that computes to nothing is put back as it was.
+            out.push(value === undefined ? raw.join("") : String(value));
         }
-        const value = phraseToNumber(phrase);
-        // A phrase of connectors only ("and") is not a number: put the words back as they were.
-        out.push(value === undefined ? raw.join("") : String(value));
+        out.push(...pending);
         phrase = [];
         raw = [];
+        pending = [];
+        lastWord = "";
+        sawPoint = false;
     };
-    const nextWord = (from: number): string | undefined => tokens.slice(from + 1).find((t) => !isSeparator(t))?.toLowerCase();
+    /** Whether the connectors pending before `next` let it continue the phrase. */
+    const joins = (next: string): boolean => {
+        const connectors = pending.filter((t) => !isSeparator(t)).map((t) => t.toLowerCase());
+        if (connectors.length > 1) {
+            return false;
+        }
+        const [c] = connectors;
+        if (c === undefined) {
+            return true;
+        }
+        if (c === "and") {
+            return lastWord in MAGNITUDE;
+        }
+        if (c === "a") {
+            return next in MAGNITUDE;
+        }
+        if (c === "point") {
+            return !sawPoint && next in SMALL && SMALL[next] < 10;
+        }
+        return false;
+    };
     for (let i = 0; i < tokens.length; i++) {
         const token = tokens[i];
-        if (isSeparator(token)) {
-            // A separator inside a phrase belongs to it only if another number word follows.
+        const lower = token.toLowerCase();
+        if (isSeparator(token) || (phrase.length > 0 && CONNECTORS.has(lower))) {
             if (phrase.length > 0) {
                 pending.push(token);
             } else {
@@ -360,29 +387,36 @@ export function wordToNumber(word: string): number | string {
             }
             continue;
         }
-        const lower = token.toLowerCase();
         // "a" opens a phrase only before a magnitude ("a thousand"), otherwise it is an article.
-        const opensWithArticle = lower === "a" && phrase.length === 0 && (nextWord(i) ?? "") in MAGNITUDE;
-        if (isNumberWord(lower) || opensWithArticle || (phrase.length > 0 && CONNECTORS.has(lower))) {
-            if (phrase.length > 0) {
-                raw.push(...pending);
+        const nextWord = tokens.slice(i + 1).find((t) => !isSeparator(t))?.toLowerCase() ?? "";
+        const opensWithArticle = lower === "a" && phrase.length === 0 && nextWord in MAGNITUDE;
+        if (isNumberWord(lower) || opensWithArticle) {
+            if (phrase.length > 0 && !joins(lower)) {
+                flush();
+            }
+            for (const t of pending) {
+                raw.push(t);
+                if (!isSeparator(t)) {
+                    phrase.push(t.toLowerCase());
+                    if (t.toLowerCase() === "point") {
+                        sawPoint = true;
+                    }
+                }
             }
             pending = [];
             phrase.push(lower);
             raw.push(token);
+            lastWord = lower;
             continue;
         }
         flush();
-        out.push(...pending);
-        pending = [];
         out.push(token);
     }
     flush();
-    out.push(...pending);
     const joined = out.join("");
-    const wholeInputIsNumber = tokens.every((t) => isSeparator(t) || isNumberWord(t.toLowerCase()) || CONNECTORS.has(t.toLowerCase()))
-        && tokens.some((t) => isNumberWord(t.toLowerCase()))
-        && out.filter((t) => !isSeparator(t)).length === 1;
+    const wholeInputIsNumber = out.filter((t) => !isSeparator(t)).length === 1
+        && tokens.every((t) => isSeparator(t) || isNumberWord(t.toLowerCase()) || CONNECTORS.has(t.toLowerCase()))
+        && tokens.some((t) => isNumberWord(t.toLowerCase()));
     const asNumber = Number(joined.trim());
     return wholeInputIsNumber && Number.isFinite(asNumber) ? asNumber : joined;
 }

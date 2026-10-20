@@ -200,10 +200,18 @@ describe("#wordToNumber() shapes", () => {
         expect(wordToNumber("first")).to.equal(1);
         expect(wordToNumber("third")).to.equal(3);
     });
+    it("keeps a connector that does not join two number words", () => {
+        expect(wordToNumber("I have five and dogs")).to.equal("I have 5 and dogs");
+        expect(wordToNumber("two and three apples")).to.equal("2 and 3 apples");
+        expect(wordToNumber("take one a day")).to.equal("take 1 a day");
+        expect(wordToNumber("five and")).to.equal("5 and");
+        expect(wordToNumber("twenty one and a half")).to.equal("21 and a half");
+    });
     it("does not read a lone article or point as a number", () => {
         expect(wordToNumber("a")).to.equal("a");
         expect(wordToNumber("just a second")).to.equal("just a 2");
-        expect(wordToNumber("from one point to another")).to.equal("from 1 to another");
+        // "point" joins only before a digit word ("one point five"); here it is a noun and stays.
+        expect(wordToNumber("from one point to another")).to.equal("from 1 point to another");
     });
     it("substitutes digits inside a sentence and leaves the rest alone", () => {
         expect(wordToNumber("I have twenty apples")).to.equal("I have 20 apples");

@@ -147,17 +147,27 @@ function hundredsToWords(n: number): string {
     return parts.join(" ");
 }
 
+/** `$0,0.00%` and its parts: optional $, 0 with optional ,0 grouping, optional .0+ decimals, optional %. */
+const SUPPORTED_FORMAT = /^\$?0(,0)?(\.0+)?%?$/;
+
 /**
  * Format numbers for display. The format is the subset of numeral's that this code base used
  * (numeral itself is gone): an optional leading `$`, `0,0` for thousands grouping, `.0`/`.00`
  * for the decimals shown (rounded), and an optional trailing `%` that multiplies by 100.
- * Anything not a finite number renders as 0, as numeral did.
+ * Anything not a finite number renders as 0, as numeral did. Any other format string throws:
+ * numeral's optional decimals ("0.[00]"), abbreviations ("0.0a") and ordinals ("0o") are not
+ * rendered, and misreading them silently would be worse than refusing them.
  *
  * @param {number | string} number The number to format
  * @param {string} format The format, defaults to "0,0" (so 10000 -> "10,000")
  * @returns {string}
  */
 export function formatNumberForDisplay(number: number | string, format = "0,0"): string {
+    // Only the subset below is rendered. Anything else (numeral's "0.[00]", "0.0a", "0o", ...)
+    // would be misread silently, so it is refused instead.
+    if (!SUPPORTED_FORMAT.test(format)) {
+        throw new Error(`Unsupported number format "${format}": use $, 0,0, .0/.00 and % only`);
+    }
     const prefix = format.startsWith("$") ? "$" : "";
     const percent = format.endsWith("%");
     const core = format.slice(prefix.length, percent ? -1 : undefined);

@@ -140,6 +140,12 @@ describe("#formatNumberForDisplay() formats", () => {
         expect(formatNumberForDisplay("50%", "0%")).to.equal("50%");
         expect(formatNumberForDisplay("  42 ")).to.equal("42");
     });
+    it("refuses a numeral format it does not render, rather than misreading it", () => {
+        expect(() => formatNumberForDisplay(1.5, "0.[00]")).to.throw(/Unsupported number format/);
+        expect(() => formatNumberForDisplay(1500, "0.0a")).to.throw(/Unsupported number format/);
+        expect(() => formatNumberForDisplay(3, "0o")).to.throw(/Unsupported number format/);
+        expect(() => formatNumberForDisplay(3, "")).to.throw(/Unsupported number format/);
+    });
     it("renders nothing numeric as 0, the way numeral did", () => {
         expect(formatNumberForDisplay("abc")).to.equal("0");
         expect(formatNumberForDisplay(undefined as unknown as number)).to.equal("0");

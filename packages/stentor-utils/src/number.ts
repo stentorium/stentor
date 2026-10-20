@@ -1,7 +1,4 @@
 /*! Copyright (c) 2019, XAPPmedia */
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-import * as converter from "number-to-words";
-import wordsToNumbers from "words-to-numbers";
 
 const US_PHONE_NUMBER_LENGTH = 10;
 
@@ -138,8 +135,24 @@ export function maskPhoneNumbers(str: string, partial = false): string {
  * @param num - Number to convert to it's word equivalent
  * @returns The word representation of the number provided such as "one" or "fifty-five"
  */
-export function numberToWord(num: number): string | undefined {
-    return typeof num === "number" ? converter.toWords(num) : num;
+const ONES = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+    "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
+const TENS = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+const SCALES = ["", "thousand", "million", "billion", "trillion", "quadrillion"];
+
+/** 1-999 in words: "one hundred twenty-three", no "and". */
+function hundredsToWords(n: number): string {
+    const parts: string[] = [];
+    if (n >= 100) {
+        parts.push(`${ONES[Math.floor(n / 100)]} hundred`);
+    }
+    const rest = n % 100;
+    if (rest >= 20) {
+        parts.push(`${TENS[Math.floor(rest / 10)]}${rest % 10 ? `-${ONES[rest % 10]}` : ""}`);
+    } else if (rest > 0) {
+        parts.push(ONES[rest]);
+    }
+    return parts.join(" ");
 }
 
 /**
@@ -181,12 +194,93 @@ export function formatNumberForDisplay(number: number | string, format = "0,0"):
  * @param word - Word to convert to a number
  * @returns Returns either the original value or the number that was converted.
  */
-export function wordToNumber(word: string): number | string {
-    if (typeof word === "undefined") {
-        return word;
-    }
 
-    return wordsToNumbers(word);
+export function numberToWord(num: number): string | undefined {
+    if (typeof num !== "number") {
+        return num;
+    }
+    if (!Number.isFinite(num)) {
+        throw new Error(`Not a finite number: ${num}`);
+    }
+    // Toward zero, as before: 2.2 is "two" and -2.7 is "minus two".
+    const whole = Math.trunc(num);
+    if (!Number.isSafeInteger(whole)) {
+        throw new Error("Input is not a safe number, it is either too large or too small.");
+    }
+    if (whole === 0) {
+        return "zero";
+    }
+    const groups: string[] = [];
+    let remaining = Math.abs(whole);
+    for (let scale = 0; remaining > 0; scale++) {
+        const chunk = remaining % 1000;
+        if (chunk > 0) {
+            groups.unshift(`${hundredsToWords(chunk)}${SCALES[scale] ? ` ${SCALES[scale]}` : ""}`);
+        }
+        remaining = Math.floor(remaining / 1000);
+    }
+    return `${whole < 0 ? "minus " : ""}${groups.join(", ")}`;
+}
+
+const SMALL: Record<string, number> = {
+    zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10,
+    eleven: 11, twelve: 12, thirteen: 13, fourteen: 14, fifteen: 15, sixteen: 16, seventeen: 17,
+    eighteen: 18, nineteen: 19, twenty: 20, thirty: 30, forty: 40, fifty: 50, sixty: 60, seventy: 70,
+    eighty: 80, ninety: 90,
+    first: 1, second: 2, third: 3, fourth: 4, fifth: 5, sixth: 6, seventh: 7, eighth: 8, ninth: 9,
+    tenth: 10, eleventh: 11, twelfth: 12, thirteenth: 13, fourteenth: 14, fifteenth: 15, sixteenth: 16,
+    seventeenth: 17, eighteenth: 18, nineteenth: 19, twentieth: 20, thirtieth: 30, fortieth: 40,
+    fiftieth: 50, sixtieth: 60, seventieth: 70, eightieth: 80, ninetieth: 90,
+};
+const MAGNITUDE: Record<string, number> = {
+    hundred: 100, hundredth: 100, thousand: 1e3, thousandth: 1e3, million: 1e6, millionth: 1e6,
+    billion: 1e9, billionth: 1e9, trillion: 1e12, quadrillion: 1e15, quintillion: 1e18,
+};
+const CONNECTORS = new Set(["and", "point", "a"]);
+
+function isNumberWord(w: string): boolean {
+    return w in SMALL || w in MAGNITUDE || w === "a" || w === "point";
+}
+
+/** "six million five thousand and two" -> 6005002; "one point five" -> 1.5. */
+function phraseToNumber(words: string[]): number | undefined {
+    const pointAt = words.indexOf("point");
+    const wholeWords = pointAt >= 0 ? words.slice(0, pointAt) : words;
+    const fractionWords = pointAt >= 0 ? words.slice(pointAt + 1) : [];
+    let total = 0;
+    let current = 0;
+    let sawNumber = false;
+    for (const w of wholeWords) {
+        if (w === "and") {
+            continue;
+        }
+        if (w === "a") {
+            current = current || 1;
+            continue;
+        }
+        if (w in SMALL) {
+            current += SMALL[w];
+            sawNumber = true;
+        } else if (w in MAGNITUDE) {
+            const m = MAGNITUDE[w];
+            sawNumber = true;
+            if (m === 100) {
+                current = (current || 1) * 100;
+            } else {
+                total += (current || 1) * m;
+                current = 0;
+            }
+        }
+    }
+    if (!sawNumber && fractionWords.length === 0) {
+        return undefined;
+    }
+    let value = total + current;
+    if (fractionWords.length > 0) {
+        const digits = fractionWords.filter((w) => w in SMALL && SMALL[w] < 10).map((w) => SMALL[w]).join("");
+        value = Number(`${value}.${digits || "0"}`);
+    }
+    return value;
 }
 
 /**
@@ -203,3 +297,59 @@ export function isNumeric(num: any): boolean {
     num = '' + num; //coerce num to be a string
     return !isNaN(parseFloat(num)) && isFinite(num);
 }
+
+export function wordToNumber(word: string): number | string {
+    if (typeof word === "undefined") {
+        return word;
+    }
+    // Tokens keep their separators so a sentence can be rebuilt around the numbers found in it.
+    const tokens = word.split(/(\s+|-|,)/).filter((t) => t !== "");
+    const isSeparator = (t: string): boolean => /^(\s+|-|,)$/.test(t);
+    const out: string[] = [];
+    let phrase: string[] = [];
+    let raw: string[] = [];
+    let pending: string[] = [];
+    const flush = (): void => {
+        if (phrase.length === 0) {
+            return;
+        }
+        const value = phraseToNumber(phrase);
+        // A phrase of connectors only ("and") is not a number: put the words back as they were.
+        out.push(value === undefined ? raw.join("") : String(value));
+        phrase = [];
+        raw = [];
+    };
+    for (const token of tokens) {
+        if (isSeparator(token)) {
+            // A separator inside a phrase belongs to it only if another number word follows.
+            if (phrase.length > 0) {
+                pending.push(token);
+            } else {
+                out.push(token);
+            }
+            continue;
+        }
+        const lower = token.toLowerCase();
+        if (isNumberWord(lower) || (phrase.length > 0 && CONNECTORS.has(lower))) {
+            if (phrase.length > 0) {
+                raw.push(...pending);
+            }
+            pending = [];
+            phrase.push(lower);
+            raw.push(token);
+            continue;
+        }
+        flush();
+        out.push(...pending);
+        pending = [];
+        out.push(token);
+    }
+    flush();
+    out.push(...pending);
+    const joined = out.join("");
+    const wholeInputIsNumber = tokens.every((t) => isSeparator(t) || isNumberWord(t.toLowerCase()) || CONNECTORS.has(t.toLowerCase()))
+        && out.filter((t) => !isSeparator(t)).length === 1;
+    const asNumber = Number(joined.trim());
+    return wholeInputIsNumber && Number.isFinite(asNumber) ? asNumber : joined;
+}
+

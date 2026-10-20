@@ -983,7 +983,9 @@ export type ValidationErrorHandler = (keys: string[], error: Error) => void;
 // @public
 export function wait(milliseconds: number): Promise<void>;
 
-// @public
+// Warning: (ae-missing-release-tag) "wordToNumber" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
 export function wordToNumber(word: string): number | string;
 
 // (No @packageDocumentation comment for this package)

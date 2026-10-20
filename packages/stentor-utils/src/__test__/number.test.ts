@@ -134,6 +134,61 @@ describe("#formatNumberForDisplay() formats", () => {
     });
 });
 
+describe("#numberToWord() shapes", () => {
+    // The number-to-words shapes callers see: hyphenated tens, "hundred" with no "and", groups
+    // joined with a comma, truncation toward zero, and a throw for what cannot be spoken.
+    it("spells small and compound numbers", () => {
+        expect(numberToWord(21)).to.equal("twenty-one");
+        expect(numberToWord(100)).to.equal("one hundred");
+        expect(numberToWord(101)).to.equal("one hundred one");
+        expect(numberToWord(110)).to.equal("one hundred ten");
+        expect(numberToWord(1000)).to.equal("one thousand");
+        expect(numberToWord(1000001)).to.equal("one million, one");
+    });
+    it("spells large numbers group by group", () => {
+        expect(numberToWord(12345)).to.equal("twelve thousand, three hundred forty-five");
+        expect(numberToWord(123456789)).to.equal("one hundred twenty-three million, four hundred fifty-six thousand, seven hundred eighty-nine");
+        expect(numberToWord(1000000000)).to.equal("one billion");
+        expect(numberToWord(1000000000000)).to.equal("one trillion");
+        expect(numberToWord(1000000000000000)).to.equal("one quadrillion");
+    });
+    it("truncates toward zero and keeps the sign", () => {
+        expect(numberToWord(-2.7)).to.equal("minus two");
+    });
+    it("throws for what cannot be spoken", () => {
+        expect(() => numberToWord(NaN)).to.throw();
+        expect(() => numberToWord(Infinity)).to.throw();
+        expect(() => numberToWord(1e18)).to.throw();
+    });
+});
+
+describe("#wordToNumber() shapes", () => {
+    // The shapes callers pass: a single number word or phrase (returns a number), or a sentence
+    // with number words inside it (returned with the digits substituted).
+    it("reads phrases with and, a, hyphens and commas", () => {
+        expect(wordToNumber("one hundred and five")).to.equal(105);
+        expect(wordToNumber("twenty one")).to.equal(21);
+        expect(wordToNumber("a thousand")).to.equal(1000);
+        expect(wordToNumber("hundred")).to.equal(100);
+        expect(wordToNumber("zero")).to.equal(0);
+        expect(wordToNumber("twenty-thousand, five-hundred and sixty-nine")).to.equal(20569);
+        expect(wordToNumber("six million five thousand and two")).to.equal(6005002);
+    });
+    it("reads decimals spoken with point", () => {
+        expect(wordToNumber("one point five")).to.equal(1.5);
+    });
+    it("reads ordinals", () => {
+        expect(wordToNumber("first")).to.equal(1);
+        expect(wordToNumber("third")).to.equal(3);
+    });
+    it("substitutes digits inside a sentence and leaves the rest alone", () => {
+        expect(wordToNumber("I have twenty apples")).to.equal("I have 20 apples");
+        expect(wordToNumber("twelve dozen")).to.equal("12 dozen");
+        expect(wordToNumber("2 apples")).to.equal("2 apples");
+        expect(wordToNumber("5")).to.equal("5");
+    });
+});
+
 describe("#wordToNumber()", () => {
     describe("when passed undefined", () => {
         it("returns undefined", () => {

@@ -2,8 +2,7 @@
 import { log } from "stentor-logger";
 import { SecretsManagerClient, GetSecretValueCommand } from "@aws-sdk/client-secrets-manager";
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const dotenv = require("dotenv");
+import { loadDotEnv } from "./loadDotEnv";
 const secretClient = new SecretsManagerClient({});
 
 const SECRETS_TTL_MILLIS = 300 * 1000; // 5 minutes
@@ -21,7 +20,7 @@ export async function setEnv(): Promise<void> {
 
   if (!process.env.STUDIO_SECRET_NAME) {
     log().debug("process.env.STUDIO_SECRET_NAME is not defined. Trying .env");
-    dotenv.config();
+    loadDotEnv();
     secretsLoadedMillis = FUTURE; // Future - age will always be negative
     return;
   }

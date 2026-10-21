@@ -19,6 +19,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.82.0](https://github.com/stentorium/stentor/compare/stentor-models-v1.81.0...stentor-models-v1.82.0) (2026-10-21)
+
+
+### Features
+
+* **stentor-models:** per-window time slots and schedulingDisabled on CRM availability ([#3311](https://github.com/stentorium/stentor/issues/3311)) ([3874b54](https://github.com/stentorium/stentor/commit/3874b54d6e4e1405ca880cf12edfd31c036822bd)), closes [#3310](https://github.com/stentorium/stentor/issues/3310)
+
 ## [1.81.0](https://github.com/stentorium/stentor/compare/stentor-models-v1.80.0...stentor-models-v1.81.0) (2026-09-30)
 
 

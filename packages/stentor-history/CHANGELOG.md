@@ -11,6 +11,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.8](https://github.com/stentorium/stentor/compare/stentor-history-v1.74.7...stentor-history-v1.74.8) (2026-10-21)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * devDependencies
+    * stentor-models bumped from 1.81.0 to 1.82.0
+  * peerDependencies
+    * stentor-models bumped from 1.x to 1.82.0
+
 ## [1.74.7](https://github.com/stentorium/stentor/compare/stentor-history-v1.74.6...stentor-history-v1.74.7) (2026-09-30)
 
 

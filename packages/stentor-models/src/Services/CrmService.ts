@@ -163,6 +163,12 @@ export interface CrmServiceDateAvailability {
    * @note - This is only for future consideration.
    */
   blockedTimeSlots?: CrmServiceTimeAvailability[];
+  /**
+   * Every bookable window that day, open or full, in time order.
+   *
+   * Only set by CRMs offering live slots.
+   */
+  timeSlots?: CrmServiceTimeAvailability[];
 }
 
 export interface CrmServiceAvailability {
@@ -176,6 +182,13 @@ export interface CrmServiceAvailability {
    * If the date is not included in the array, it is assumed to be available.
    */
   unavailabilities: CrmServiceDateAvailability[];
+  /**
+   * The CRM will not take a scheduled booking now (request-only mode, or calendar
+   * unreachable with fallback "hide").
+   *
+   * The form should skip date/time selection.
+   */
+  schedulingDisabled?: boolean;
 }
 
 /**

@@ -7,6 +7,7 @@ import {
     CrmServiceAvailability,
     CrmServiceAvailabilityContact,
     CrmServiceAvailabilityOptions,
+    CrmServiceAvailabilitySettings,
     CrmServiceDateAvailability
 } from "../../index";
 
@@ -88,5 +89,22 @@ describe("CrmServiceAvailability", () => {
         const availability: CrmServiceAvailability = { range, unavailabilities: [] };
 
         expect(availability.schedulingDisabled).to.be.undefined;
+    });
+});
+
+describe("CrmServiceAvailabilitySettings.timezone", () => {
+    it("is optional", () => {
+        const settings: CrmServiceAvailabilitySettings = { defaultBusyDays: { blockCurrentDay: true } };
+
+        expect(settings.timezone).to.be.undefined;
+    });
+
+    it("carries the business IANA timezone next to the busy-day rules", () => {
+        const settings: CrmServiceAvailabilitySettings = {
+            timezone: "America/Chicago",
+            defaultBusyDays: { afterHoursNextDayBlockedUntil: "12:00" }
+        };
+
+        expect(settings.timezone).to.equal("America/Chicago");
     });
 });

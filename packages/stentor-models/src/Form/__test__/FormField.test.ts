@@ -2,8 +2,10 @@
 import { expect } from "chai";
 
 import {
+    BusyDayDescription,
     FormDateTimeInput,
     FormField,
+    NextBusinessDayBlock,
     ScheduleException,
     SelectableItem,
     SlotCapacityPolicy,
@@ -13,7 +15,12 @@ import {
 } from "../FormField";
 // Imported through the package entry point rather than the module, so a type dropped from a
 // barrel file fails here instead of silently leaving the published surface.
-import { FormDateTimeInput as ExportedFormDateTimeInput, TimeSlotSchedule as ExportedTimeSlotSchedule } from "../../index";
+import {
+    BusyDayDescription as ExportedBusyDayDescription,
+    FormDateTimeInput as ExportedFormDateTimeInput,
+    NextBusinessDayBlock as ExportedNextBusinessDayBlock,
+    TimeSlotSchedule as ExportedTimeSlotSchedule
+} from "../../index";
 
 describe("FormDateTimeInput", () => {
     it("is assignable with only the required fields set", () => {
@@ -237,5 +244,32 @@ describe("TimeSlotSchedule", () => {
         };
 
         expect(schedule.offerings).to.have.length(3);
+    });
+});
+
+describe("BusyDayDescription.afterHoursNextDayBlockedUntil", () => {
+    it("is optional, so existing busy-day settings stay valid", () => {
+        const busyDays: BusyDayDescription = { blockCurrentDay: true, blockNextBusinessDays: 1 };
+
+        expect(busyDays.afterHoursNextDayBlockedUntil).to.be.undefined;
+    });
+
+    it("accepts an HH:MM wall-clock cutoff", () => {
+        const busyDays: ExportedBusyDayDescription = {
+            availableDays: ["monday", "tuesday", "wednesday", "thursday", "friday"],
+            currentDayAvailableUntil: "17:00",
+            afterHoursNextDayBlockedUntil: "12:00"
+        };
+
+        expect(busyDays.afterHoursNextDayBlockedUntil).to.equal("12:00");
+    });
+});
+
+describe("NextBusinessDayBlock", () => {
+    it("carries a business-local date and cutoff", () => {
+        const block: ExportedNextBusinessDayBlock = { date: "2026-11-02", blockedUntil: "12:00" };
+        const sameBlock: NextBusinessDayBlock = block;
+
+        expect(sameBlock).to.deep.equal({ date: "2026-11-02", blockedUntil: "12:00" });
     });
 });

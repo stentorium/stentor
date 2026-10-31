@@ -240,9 +240,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-dynamodb@npm:3.1157.0":
-  version: 3.1157.0
-  resolution: "@aws-sdk/client-dynamodb@npm:3.1157.0"
+"@aws-sdk/client-dynamodb@npm:3.1158.0":
+  version: 3.1158.0
+  resolution: "@aws-sdk/client-dynamodb@npm:3.1158.0"
   dependencies:
     "@aws-sdk/core": "npm:^3.978.6"
     "@aws-sdk/credential-provider-node": "npm:^3.972.89"
@@ -254,13 +254,13 @@ __metadata:
     "@smithy/node-http-handler": "npm:^4.13.0"
     "@smithy/types": "npm:^4.19.0"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/5c57aa915ab318f997c17ef25a598937941266cee64c6774687209cbd13c247334009276cc1a004f66bb35e68b3504f53ee9bdfde9a53fbcc02d4a02d27d3e77
+  checksum: 10c0/bb11988b9d6686d53816efa450cf0aef270d3bd627cf3b9a41060ed844dc780f5998c0b9364714621c126706ea0022d0100af4a8db6ccf96c43cbdc7c0526003
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-firehose@npm:3.1157.0":
-  version: 3.1157.0
-  resolution: "@aws-sdk/client-firehose@npm:3.1157.0"
+"@aws-sdk/client-firehose@npm:3.1158.0":
+  version: 3.1158.0
+  resolution: "@aws-sdk/client-firehose@npm:3.1158.0"
   dependencies:
     "@aws-sdk/core": "npm:^3.978.6"
     "@aws-sdk/credential-provider-node": "npm:^3.972.89"
@@ -270,13 +270,13 @@ __metadata:
     "@smithy/node-http-handler": "npm:^4.13.0"
     "@smithy/types": "npm:^4.19.0"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/71f74b4d1217e17bd1f1b73b9c8068f2b198f13b2fb66947eafb4bf56cb44b5be5378330f38af754add16f7583f5ec59cddecfde610ac22818e614ada11ba681
+  checksum: 10c0/ba0f9d7f714bae1e1068170cf05f1d72bde2b3b144abc637335312031022c7d02b326b73c70e3c3f3e2e9100f2eed339e4d07506005dafd3dda9d21db0c5e7dd
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-kinesis@npm:3.1157.0":
-  version: 3.1157.0
-  resolution: "@aws-sdk/client-kinesis@npm:3.1157.0"
+"@aws-sdk/client-kinesis@npm:3.1158.0":
+  version: 3.1158.0
+  resolution: "@aws-sdk/client-kinesis@npm:3.1158.0"
   dependencies:
     "@aws-sdk/core": "npm:^3.978.6"
     "@aws-sdk/credential-provider-node": "npm:^3.972.89"
@@ -286,13 +286,13 @@ __metadata:
     "@smithy/node-http-handler": "npm:^4.13.0"
     "@smithy/types": "npm:^4.19.0"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/1dd83b0d497e426318d7512b1771788a227e0f466a9298e57f47d372d4537b3764b448d7a7fb3bc18b13ef186f255f5b5ca7f4f0aa9471b6d7005c968f695dc8
+  checksum: 10c0/6dbbca0d5ab468c1d61a0453db0c9d709ae6d55b6aa14a49ac1c9e27e4f98e11aaf1cbac19c96d331bfaa86503fa0b468ec84c63c042be10c1aa6c7f22cf0367
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-secrets-manager@npm:3.1157.0":
-  version: 3.1157.0
-  resolution: "@aws-sdk/client-secrets-manager@npm:3.1157.0"
+"@aws-sdk/client-secrets-manager@npm:3.1158.0":
+  version: 3.1158.0
+  resolution: "@aws-sdk/client-secrets-manager@npm:3.1158.0"
   dependencies:
     "@aws-sdk/core": "npm:^3.978.6"
     "@aws-sdk/credential-provider-node": "npm:^3.972.89"
@@ -302,13 +302,13 @@ __metadata:
     "@smithy/node-http-handler": "npm:^4.13.0"
     "@smithy/types": "npm:^4.19.0"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/697be98fec1297968817acaf19f69723a830d5214447c80161fed3bc884aae2145fa983783cdc07eec2ab0ca7781e53ce9208b9fd8bf64df4dd329c1e7f6333c
+  checksum: 10c0/788eca0ee86065cf50412ce9e50b6255b0dfd6d49c3aa40047e020431ec3e5d6d912fcbe49545d32047b92500840344b6a189a710ad8c6d68a9f8d00d4ee767b
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-sns@npm:3.1157.0":
-  version: 3.1157.0
-  resolution: "@aws-sdk/client-sns@npm:3.1157.0"
+"@aws-sdk/client-sns@npm:3.1158.0":
+  version: 3.1158.0
+  resolution: "@aws-sdk/client-sns@npm:3.1158.0"
   dependencies:
     "@aws-sdk/core": "npm:^3.978.6"
     "@aws-sdk/credential-provider-node": "npm:^3.972.89"
@@ -318,7 +318,7 @@ __metadata:
     "@smithy/node-http-handler": "npm:^4.13.0"
     "@smithy/types": "npm:^4.19.0"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/e9312579fddc097c8f872ec17b58452422aed9c5286883f503f929c54425f6dcf75b75d548693fcd3e1160d2f99e09abc3fe9908336d2dfe1f6678b3d70b6506
+  checksum: 10c0/11860a2e90681c7ad68d1ca470a16aaf9c293ca2566be7f31b54d4968f717d44798f6edf9c295136b8d12600aad49c97dd41938c6858d57d5aa24eb7f0c7ffc7
   languageName: node
   linkType: hard
 
@@ -484,9 +484,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/lib-dynamodb@npm:3.1157.0":
-  version: 3.1157.0
-  resolution: "@aws-sdk/lib-dynamodb@npm:3.1157.0"
+"@aws-sdk/lib-dynamodb@npm:3.1158.0":
+  version: 3.1158.0
+  resolution: "@aws-sdk/lib-dynamodb@npm:3.1158.0"
   dependencies:
     "@aws-sdk/core": "npm:^3.978.6"
     "@aws-sdk/util-dynamodb": "npm:^3.996.9"
@@ -494,8 +494,8 @@ __metadata:
     "@smithy/types": "npm:^4.19.0"
     tslib: "npm:^2.6.2"
   peerDependencies:
-    "@aws-sdk/client-dynamodb": ^3.1157.0
-  checksum: 10c0/6a9080734a0ec5c2014dd376ed1373128a8e278e1a826c36371777946526ae0c983a109a014fcb42991ea4013c2c0ede06f6ee9ef01993f6ffcc09c5d615a2a5
+    "@aws-sdk/client-dynamodb": ^3.1158.0
+  checksum: 10c0/57988e6efce5a8e6ac9a6e3258652c67079e15c34b7feb14a1bd50be49921e92da2c583836746a0e8c7044340ad5db66c4805b5d661008bf41d84971a898a52b
   languageName: node
   linkType: hard
 
@@ -19866,9 +19866,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-service-event@workspace:packages/stentor-service-event"
   dependencies:
-    "@aws-sdk/client-firehose": "npm:3.1157.0"
-    "@aws-sdk/client-kinesis": "npm:3.1157.0"
-    "@aws-sdk/client-sns": "npm:3.1157.0"
+    "@aws-sdk/client-firehose": "npm:3.1158.0"
+    "@aws-sdk/client-kinesis": "npm:3.1158.0"
+    "@aws-sdk/client-sns": "npm:3.1158.0"
     "@types/chai": "npm:5.2.3"
     "@types/mocha": "npm:10.0.10"
     "@types/sinon": "npm:22.0.0"
@@ -20002,8 +20002,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor-user-storage-dynamo@workspace:packages/stentor-user-storage-dynamo"
   dependencies:
-    "@aws-sdk/client-dynamodb": "npm:3.1157.0"
-    "@aws-sdk/lib-dynamodb": "npm:3.1157.0"
+    "@aws-sdk/client-dynamodb": "npm:3.1158.0"
+    "@aws-sdk/lib-dynamodb": "npm:3.1158.0"
     "@types/chai": "npm:5.2.3"
     "@xapp/config": "npm:0.3.0"
     "@xapp/dynamo-service": "npm:2.0.5"
@@ -20061,7 +20061,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stentor@workspace:packages/stentor"
   dependencies:
-    "@aws-sdk/client-secrets-manager": "npm:3.1157.0"
+    "@aws-sdk/client-secrets-manager": "npm:3.1158.0"
     "@microsoft/api-extractor": "npm:7.59.3"
     "@types/aws-lambda": "npm:8.10.163"
     "@types/body-parser": "npm:1.19.6"

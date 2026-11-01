@@ -11,6 +11,20 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.18](https://github.com/stentorium/stentor/compare/stentor-media-v1.74.17...stentor-media-v1.74.18) (2026-11-01)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-guards bumped from 1.74.8 to 1.74.9
+    * stentor-time bumped from 1.74.17 to 1.74.18
+  * devDependencies
+    * stentor-models bumped from 1.82.0 to 1.83.0
+  * peerDependencies
+    * stentor-models bumped from 1.x to 1.83.0
+
 ## [1.74.17](https://github.com/stentorium/stentor/compare/stentor-media-v1.74.16...stentor-media-v1.74.17) (2026-10-21)
 
 

@@ -14,6 +14,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.15](https://github.com/stentorium/stentor/compare/stentor-logger-v1.74.14...stentor-logger-v1.74.15) (2026-11-01)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-utils bumped from 1.76.5 to 1.76.6
+  * devDependencies
+    * stentor-models bumped from 1.82.0 to 1.83.0
+
 ## [1.74.14](https://github.com/stentorium/stentor/compare/stentor-logger-v1.74.13...stentor-logger-v1.74.14) (2026-10-21)
 
 

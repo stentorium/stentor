@@ -362,6 +362,38 @@ export interface BusyDayDescription {
    * If this is set, it will override the availableDays, blockWeekends, and blockCurrentDay.
    */
   readonly blockNextBusinessDays?: number;
+  /**
+   * Keeps the start of the next business day off the table for requests that arrive after hours,
+   * so the business has time to respond before the first offered window. HH:MM (24-hour), in the
+   * business's wall clock (see CrmServiceAvailabilitySettings.timezone).
+   *
+   * A request is "after hours" when today is not a business day (per availableDays) or the
+   * current time is at or past the same-day cutoff (currentDayAvailableUntil, default "17:00").
+   * In that case nothing before this time is offered on the first business day after today.
+   *
+   * For example, "12:00" turns a Saturday request's "Monday morning" into "Monday afternoon or later".
+   *
+   * Unset = off. Opt-in.
+   */
+  readonly afterHoursNextDayBlockedUntil?: string;
+}
+
+/**
+ * A partial-day block the server computed for a single date, from
+ * BusyDayDescription.afterHoursNextDayBlockedUntil.
+ *
+ * Both values are already in the business's wall clock; consumers compare them as-is and never
+ * convert through the browser's timezone.
+ */
+export interface NextBusinessDayBlock {
+  /**
+   * The blocked date, yyyy-MM-dd.
+   */
+  readonly date: string;
+  /**
+   * HH:MM (24-hour). Times before this on `date` are unavailable.
+   */
+  readonly blockedUntil: string;
 }
 
 /**

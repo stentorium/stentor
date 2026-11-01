@@ -129,6 +129,13 @@ export interface CrmServiceAvailabilitySettings {
    * their own availability settings.
    */
   forceAvailabilityClass?: string;
+  /**
+   * The business's IANA timezone, for example "America/Chicago".
+   *
+   * Stamped by the platform from the business's location; wall-clock rules such as
+   * BusyDayDescription.afterHoursNextDayBlockedUntil are evaluated in it.
+   */
+  timezone?: string;
 }
 
 export interface CrmServiceTimeAvailability {

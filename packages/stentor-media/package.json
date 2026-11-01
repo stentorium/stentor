@@ -9,7 +9,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.74.17",
+  "version": "1.74.18",
   "description": "Media for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -28,12 +28,12 @@
     "chai": "4.5.0",
     "mocha": "11.8.0",
     "sinon": "22.1.0",
-    "stentor-models": "1.82.0",
+    "stentor-models": "1.83.0",
     "typescript": "6.0.3"
   },
   "dependencies": {
-    "stentor-guards": "1.74.8",
-    "stentor-time": "1.74.17"
+    "stentor-guards": "1.74.9",
+    "stentor-time": "1.74.18"
   },
   "peerDependencies": {
     "stentor-models": "1.x"

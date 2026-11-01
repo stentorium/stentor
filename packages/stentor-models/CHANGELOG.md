@@ -19,6 +19,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.83.0](https://github.com/stentorium/stentor/compare/stentor-models-v1.82.0...stentor-models-v1.83.0) (2026-11-01)
+
+
+### Features
+
+* **models:** after-hours next-business-day buffer setting ([#3330](https://github.com/stentorium/stentor/issues/3330)) ([7e90a0d](https://github.com/stentorium/stentor/commit/7e90a0d00c3e4921b50f41fded4b7875282dd3df)), closes [#3329](https://github.com/stentorium/stentor/issues/3329)
+
 ## [1.82.0](https://github.com/stentorium/stentor/compare/stentor-models-v1.81.0...stentor-models-v1.82.0) (2026-10-21)
 
 

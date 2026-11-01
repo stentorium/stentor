@@ -9,7 +9,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.74.8",
+  "version": "1.74.9",
   "description": "Constants for 📣 stentor",
   "types": "lib/index",
   "typings": "lib/index",
@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@xapp/config": "0.3.0",
-    "stentor-models": "1.82.0",
+    "stentor-models": "1.83.0",
     "typescript": "6.0.3"
   },
   "peerDependencies": {

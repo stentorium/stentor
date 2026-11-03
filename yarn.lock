@@ -12874,13 +12874,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"isolated-vm@npm:7.0.1":
-  version: 7.0.1
-  resolution: "isolated-vm@npm:7.0.1"
+"isolated-vm@npm:7.0.2":
+  version: 7.0.2
+  resolution: "isolated-vm@npm:7.0.2"
   dependencies:
     node-gyp: "npm:latest"
     node-gyp-build: "npm:^4.8.4"
-  checksum: 10c0/9935e7cc4f5ee0c8a474f928e03ca6f921204d875470934d112ce8d38c422a5a05fd92c408f7c4cc66d615164d16d233286f04e9fa070fc10394a4092ac49154
+  checksum: 10c0/da186db39f6cc60b6cc562084d9261553a38fd86ec700def4760bbf060b827b785c140df6b617ec641bdea11386e256e7086704d2883e64b3cb8befb1121ae6d
   languageName: node
   linkType: hard
 
@@ -19450,7 +19450,7 @@ __metadata:
     "@types/chai": "npm:5.2.3"
     "@xapp/config": "npm:0.3.0"
     chai: "npm:4.5.0"
-    isolated-vm: "npm:7.0.1"
+    isolated-vm: "npm:7.0.2"
     mocha: "npm:11.8.0"
     stentor-logger: "npm:1.74.15"
     stentor-models: "npm:1.83.0"

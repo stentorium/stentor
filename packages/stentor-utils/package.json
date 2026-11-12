@@ -52,7 +52,6 @@
     "typescript": "6.0.3"
   },
   "dependencies": {
-    "@types/xmldoc": "2.0.0",
     "blueimp-md5": "2.19.0",
     "fuse.js": "7.4.2",
     "html-entities": "2.6.0",

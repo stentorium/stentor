@@ -6998,15 +6998,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/xmldoc@npm:2.0.0":
-  version: 2.0.0
-  resolution: "@types/xmldoc@npm:2.0.0"
-  dependencies:
-    xmldoc: "npm:*"
-  checksum: 10c0/f6fdbd3725332ecb6e3cdb92982e02c955a85e924db1d6ddbeaf3bae158c0d1e2ab1632a2fd646109ceee30e8571282f3f45be02491a2386c27cc9b8566066a3
-  languageName: node
-  linkType: hard
-
 "@types/yargs-parser@npm:*":
   version: 21.0.3
   resolution: "@types/yargs-parser@npm:21.0.3"
@@ -20350,7 +20341,6 @@ __metadata:
     "@types/sanitize-html": "npm:2.16.2"
     "@types/sinon": "npm:22.0.2"
     "@types/sinon-chai": "npm:3.2.12"
-    "@types/xmldoc": "npm:2.0.0"
     "@xapp/config": "npm:0.3.0"
     blueimp-md5: "npm:2.19.0"
     chai: "npm:4.5.0"

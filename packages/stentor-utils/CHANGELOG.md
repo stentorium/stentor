@@ -18,6 +18,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.76.7](https://github.com/stentorium/stentor/compare/stentor-utils-v1.76.6...stentor-utils-v1.76.7) (2026-11-12)
+
+
+### Bug Fixes
+
+* **deps:** drop the deprecated @types/xmldoc stub from stentor-utils ([#3354](https://github.com/stentorium/stentor/issues/3354)) ([45f7d46](https://github.com/stentorium/stentor/commit/45f7d4670e61bea14f4e749f1739636fcc6293d5))
+
 ## [1.76.6](https://github.com/stentorium/stentor/compare/stentor-utils-v1.76.5...stentor-utils-v1.76.6) (2026-11-01)
 
 

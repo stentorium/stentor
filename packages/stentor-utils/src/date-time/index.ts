@@ -1,5 +1,6 @@
 /*! Copyright (c) 2020, XAPPmedia */
 export * from "./addDurations.js";
+export * from "./blockedHolidays.js";
 export * from "./durationFormatGreaterThan.js";
 export * from "./getDurationFrom.js";
 export * from "./getDurationMs.js";

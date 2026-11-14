@@ -15,6 +15,104 @@ export type DayOfWeek =
   | "saturday"
   | "sunday";
 
+/**
+ * A blocked day, or an inclusive range of blocked days, for the scheduler.
+ */
+export interface BlockedDay extends DateTime {
+  /**
+   * Human readable reason, e.g. "Company retreat".
+   */
+  label?: string;
+  /**
+   * ISO-8601 date, YYYY-MM-DD, inclusive.  When absent the block is the single day `date`.
+   */
+  endDate?: string;
+}
+
+/**
+ * The same month/day every year, e.g. July 4th.
+ */
+export interface FixedHolidayRule {
+  type: "fixed";
+  /**
+   * 1 - 12
+   */
+  month: number;
+  /**
+   * 1 - 31
+   */
+  day: number;
+  /**
+   * Shift to the observed weekday: Saturday moves to Friday, Sunday to Monday.
+   */
+  observed?: boolean;
+}
+
+/**
+ * The nth weekday of a month, e.g. the 4th Thursday of November.
+ */
+export interface NthWeekdayHolidayRule {
+  type: "nthWeekday";
+  /**
+   * 1 - 12
+   */
+  month: number;
+  weekday: DayOfWeek;
+  /**
+   * 1 - 5, or -1 for the last one in the month.
+   */
+  n: number;
+}
+
+/**
+ * A number of days from (Western) Easter Sunday, e.g. -2 for Good Friday.
+ */
+export interface EasterOffsetHolidayRule {
+  type: "easterOffset";
+  offsetDays: number;
+}
+
+/**
+ * A number of days from another holiday, e.g. the day after Thanksgiving.
+ */
+export interface RelativeHolidayRule {
+  type: "relative";
+  /**
+   * BlockedHoliday.id of the holiday this one is relative to.
+   */
+  holidayId: string;
+  offsetDays: number;
+}
+
+export type BlockedHolidayRule =
+  | FixedHolidayRule
+  | NthWeekdayHolidayRule
+  | EasterOffsetHolidayRule
+  | RelativeHolidayRule;
+
+/**
+ * A holiday that recurs every year.
+ */
+export interface BlockedHoliday {
+  /**
+   * Stable slug, e.g. "thanksgiving".
+   */
+  id: string;
+  /**
+   * Human readable name.
+   */
+  name: string;
+  /**
+   * When false the holiday is kept in the list but does not block anything.  Defaults to true.
+   */
+  enabled?: boolean;
+  /**
+   * Grouping for display.
+   */
+  category?: "federal" | "business" | "custom";
+  rule: BlockedHolidayRule;
+}
+
 export interface AvailabilityClass {
   /**
    * ID for the availability class, typically the slugged name.
@@ -95,8 +193,16 @@ export interface CrmServiceAvailabilitySettings {
   availableDays?: DayOfWeek[];
   /**
    * These are holidays or any other days specific to the business that they are not available for appointments.
+   *
+   * A day may carry an `endDate` to block an inclusive range, and a `label` for display.
    */
-  blockedDays?: DateTime[];
+  blockedDays?: BlockedDay[];
+  /**
+   * Holidays that recur every year, described by a rule rather than a date.
+   *
+   * Expand them to concrete dates with stentor-utils' expandBlockedHolidays().
+   */
+  blockedHolidays?: BlockedHoliday[];
   /**
    * Maximum total number of appointments a day that can be scheduled through the scheduler.
    */
@@ -318,7 +424,7 @@ export type CrmServiceProps = CrmServiceAvailabilitySettings;
 export class AbstractCrmService implements CrmService {
   protected availableDays?: DayOfWeek[];
 
-  protected blockedDays?: DateTime[];
+  protected blockedDays?: BlockedDay[];
 
   protected maxTotalDailyAppointments?: number | undefined;
 

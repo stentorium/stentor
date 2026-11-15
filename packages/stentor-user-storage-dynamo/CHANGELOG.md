@@ -11,6 +11,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [2.0.8](https://github.com/stentorium/stentor/compare/stentor-user-storage-dynamo-v2.0.7...stentor-user-storage-dynamo-v2.0.8) (2026-11-15)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * devDependencies
+    * stentor-models bumped from 1.83.0 to 1.84.0
+  * peerDependencies
+    * stentor-models bumped from 1.x to 1.84.0
+
 ## [2.0.7](https://github.com/stentorium/stentor/compare/stentor-user-storage-dynamo-v2.0.6...stentor-user-storage-dynamo-v2.0.7) (2026-11-01)
 
 

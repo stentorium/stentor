@@ -18,6 +18,25 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.76.8](https://github.com/stentorium/stentor/compare/stentor-utils-v1.76.7...stentor-utils-v1.76.8) (2026-11-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency sanitize-html to v2.18.2 ([#3364](https://github.com/stentorium/stentor/issues/3364)) ([5ff2a6d](https://github.com/stentorium/stentor/commit/5ff2a6d5aa9c097f3d23472cb5ce5351b73a0b73))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-constants bumped from 1.74.9 to 1.74.10
+    * stentor-guards bumped from 1.74.9 to 1.74.10
+  * devDependencies
+    * stentor-models bumped from 1.83.0 to 1.84.0
+  * peerDependencies
+    * stentor-models bumped from 1.x to 1.84.0
+
 ## [1.76.7](https://github.com/stentorium/stentor/compare/stentor-utils-v1.76.6...stentor-utils-v1.76.7) (2026-11-12)
 
 

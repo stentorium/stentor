@@ -5,6 +5,7 @@
 import { CrmResponse, ExternalLead } from "../Crm";
 import { DateTime, DateTimeRange } from "../DateTime";
 import { BusyDayDescription } from "../Form";
+import type { AvailabilityWindowDefinition } from "./AvailabilityWindow";
 
 export type DayOfWeek =
   | "monday"
@@ -42,6 +43,12 @@ export interface AvailabilityClass {
    * If not provided, it is assumed to be unlimited.
    */
   appointmentsPerDay?: number;
+  /**
+   * Maximum number of appointments of this type in one arrival window.
+   *
+   * Applies alongside appointmentsPerDay. If not provided, only the daily cap applies.
+   */
+  appointmentsPerWindow?: number;
   /**
    * If true, this availability class is only for leads and not for appointments as they typically require more information and followup.
    */
@@ -136,6 +143,19 @@ export interface CrmServiceAvailabilitySettings {
    * BusyDayDescription.afterHoursNextDayBlockedUntil are evaluated in it.
    */
   timezone?: string;
+  /**
+   * The arrival windows the business offers each available day.
+   *
+   * When absent, DEFAULT_AVAILABILITY_WINDOWS applies (two 4-hour windows).
+   */
+  windows?: AvailabilityWindowDefinition[];
+  /**
+   * When true, the requested window on each open lead counts against its class's window and
+   * daily capacity until the lead is lost, canceled, or the window passes.
+   *
+   * Defaults to false.
+   */
+  holdRequestedWindows?: boolean;
 }
 
 export interface CrmServiceTimeAvailability {

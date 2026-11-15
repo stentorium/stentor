@@ -55,6 +55,24 @@ export interface ExternalLead {
      * to route leads to the correct external system.
      */
     placeId?: string;
+    /**
+     * The arrival window the customer asked for. With holds on, it counts against the
+     * availabilityClassId capacity until the lead is lost, canceled, or the window passes.
+     */
+    requestedWindow?: LeadWindow;
+    /**
+     * The window the business booked the job into, set when the lead is marked booked.
+     * Defaults to requestedWindow.
+     */
+    bookedWindow?: LeadWindow;
+}
+
+/**
+ * A window on a lead, ISO 8601 with offset in the business timezone.
+ */
+export interface LeadWindow {
+    start: string;
+    end: string;
 }
 
 export interface CrmResponse {

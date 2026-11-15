@@ -58,7 +58,7 @@
     "jsonpath-plus": "10.4.0",
     "marked": "12.0.2",
     "marked-xhtml": "1.0.15",
-    "sanitize-html": "2.18.1",
+    "sanitize-html": "2.18.2",
     "stentor-constants": "1.74.9",
     "stentor-guards": "1.74.9",
     "xmldoc": "2.0.3"

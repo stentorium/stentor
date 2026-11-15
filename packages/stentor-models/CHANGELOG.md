@@ -19,6 +19,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.84.0](https://github.com/stentorium/stentor/compare/stentor-models-v1.83.0...stentor-models-v1.84.0) (2026-11-15)
+
+
+### Features
+
+* **stentor-models:** availability window types for the Availability API ([#3367](https://github.com/stentorium/stentor/issues/3367)) ([65764ba](https://github.com/stentorium/stentor/commit/65764baa59eb49ecda85911ec7a5c3a5265bf120)), closes [#3366](https://github.com/stentorium/stentor/issues/3366)
+
 ## [1.83.0](https://github.com/stentorium/stentor/compare/stentor-models-v1.82.0...stentor-models-v1.83.0) (2026-11-01)
 
 

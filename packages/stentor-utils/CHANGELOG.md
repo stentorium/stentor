@@ -18,6 +18,25 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.77.0](https://github.com/stentorium/stentor/compare/stentor-utils-v1.76.8...stentor-utils-v1.77.0) (2026-11-15)
+
+
+### Features
+
+* recurring blocked holidays, ranged blocked days, holiday presets ([#3359](https://github.com/stentorium/stentor/issues/3359)) ([598c469](https://github.com/stentorium/stentor/commit/598c4699ec073aec33c3f382cc814da1b77ffc3f)), closes [#3358](https://github.com/stentorium/stentor/issues/3358)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-constants bumped from 1.74.10 to 1.74.11
+    * stentor-guards bumped from 1.74.10 to 1.74.11
+  * devDependencies
+    * stentor-models bumped from 1.84.0 to 1.85.0
+  * peerDependencies
+    * stentor-models bumped from 1.x to 1.85.0
+
 ## [1.76.8](https://github.com/stentorium/stentor/compare/stentor-utils-v1.76.7...stentor-utils-v1.76.8) (2026-11-15)
 
 

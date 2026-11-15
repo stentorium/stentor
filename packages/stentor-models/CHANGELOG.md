@@ -19,6 +19,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.85.0](https://github.com/stentorium/stentor/compare/stentor-models-v1.84.0...stentor-models-v1.85.0) (2026-11-15)
+
+
+### Features
+
+* recurring blocked holidays, ranged blocked days, holiday presets ([#3359](https://github.com/stentorium/stentor/issues/3359)) ([598c469](https://github.com/stentorium/stentor/commit/598c4699ec073aec33c3f382cc814da1b77ffc3f)), closes [#3358](https://github.com/stentorium/stentor/issues/3358)
+
 ## [1.84.0](https://github.com/stentorium/stentor/compare/stentor-models-v1.83.0...stentor-models-v1.84.0) (2026-11-15)
 
 

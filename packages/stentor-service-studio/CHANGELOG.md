@@ -11,6 +11,21 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [1.74.18](https://github.com/stentorium/stentor/compare/stentor-service-studio-v1.74.17...stentor-service-studio-v1.74.18) (2026-11-15)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-constants bumped from 1.74.10 to 1.74.11
+    * stentor-service-event bumped from 1.74.17 to 1.74.18
+    * stentor-utils bumped from 1.76.8 to 1.77.0
+  * devDependencies
+    * stentor-models bumped from 1.84.0 to 1.85.0
+  * peerDependencies
+    * stentor-models bumped from 1.x to 1.85.0
+
 ## [1.74.17](https://github.com/stentorium/stentor/compare/stentor-service-studio-v1.74.16...stentor-service-studio-v1.74.17) (2026-11-15)
 
 

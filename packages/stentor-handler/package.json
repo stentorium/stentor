@@ -9,7 +9,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.74.21",
+  "version": "1.74.22",
   "description": "Handlers for stentor",
   "types": "lib/index",
   "main": "lib/index",
@@ -36,13 +36,13 @@
   "dependencies": {
     "@xapp/patterns": "2.0.3",
     "stentor-constants": "1.74.11",
-    "stentor-context": "1.74.21",
-    "stentor-determiner": "1.74.21",
+    "stentor-context": "1.74.22",
+    "stentor-determiner": "1.74.22",
     "stentor-guards": "1.74.11",
     "stentor-history": "1.74.11",
     "stentor-interaction-model": "1.74.18",
     "stentor-logger": "1.74.18",
-    "stentor-response": "1.74.21",
+    "stentor-response": "1.74.22",
     "stentor-storage": "1.74.18",
     "stentor-utils": "1.77.0"
   },

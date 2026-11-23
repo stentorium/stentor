@@ -15,6 +15,25 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+## [2.0.19](https://github.com/stentorium/stentor/compare/stentor-v2.0.18...stentor-v2.0.19) (2026-11-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/aws-lambda to v8.10.164 ([#3376](https://github.com/stentorium/stentor/issues/3376)) ([0b2717f](https://github.com/stentorium/stentor/commit/0b2717fdb96bfe979c3040fdf9e56135be565ab0))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * stentor-context bumped from 1.74.21 to 1.74.22
+    * stentor-determiner bumped from 1.74.21 to 1.74.22
+    * stentor-handler bumped from 1.74.21 to 1.74.22
+    * stentor-handler-factory bumped from 1.74.21 to 1.74.22
+    * stentor-response bumped from 1.74.21 to 1.74.22
+    * stentor-runtime bumped from 1.74.21 to 1.74.22
+
 ## [2.0.18](https://github.com/stentorium/stentor/compare/stentor-v2.0.17...stentor-v2.0.18) (2026-11-15)
 
 
